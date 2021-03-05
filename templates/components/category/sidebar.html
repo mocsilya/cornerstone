@@ -1,17 +1,33 @@
 <nav>
-    {{#if category.subcategories}}
-        <div class="sidebarBlock">
-            <h2 class="sidebarBlock-heading">{{category.name}}</h2>
-            <ul class="navList">
-                {{#each category.subcategories}}
-                <li class="navList-item">
-                    <a class="navList-action" href="{{url}}" title="{{name}}">{{name}}</a>
-                </li>
-                {{/each}}
-            </ul>
-        </div>
-    {{/if}}
-
+	{{#each categories}}
+	    {{#if ../breadcrumbs.[1].name '===' name}}
+	        {{#if children}}
+	        <div class="sidebarBlock custom">
+	            <h2 class="sidebarBlock-heading">{{name}}</h2>
+	            <ul class="navList">
+	            {{#each children}}
+	                {{#if children}}
+	                <li class="navList-item">
+	                    <a class="navList-action{{#if is_active}} activePage{{/if}}" href="{{url}}" title="{{name}}"><strong>{{name}}</strong></a>
+	                    <ul>
+	                        {{#each children}}
+	                        <li class="navList-item navList-item-sub">
+	                            <a class="navList-action navList-action-sub{{#if is_active}} activePage{{/if}}" href="{{url}}" title="{{name}}"><strong>{{name}}</strong></a>
+	                        </li>
+	                        {{/each}}
+	                    </ul>
+	                </li>
+	                {{else}}
+	                <li class="navList-item">
+	                    <a class="navList-action{{#if is_active}} activePage{{/if}}" href="{{url}}" title="{{name}}"><strong>{{name}}</strong></a>
+	                </li>
+	                {{/if}}
+	            {{/each}}
+	            </ul>
+	        </div>
+	        {{/if}}
+	    {{/if}}
+	{{/each}}
     {{#if category.faceted_search_enabled}}
         {{> components/faceted-search/index category}}
     {{else}}
