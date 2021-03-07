@@ -8,6 +8,7 @@ import ProductDetails from './common/product-details';
 import videoGallery from './product/video-gallery';
 import { classifyForm } from './common/utils/form-utils';
 import modalFactory, { ModalEvents } from './global/modal';
+import cardSwatches from './custom/card-swatches';
 
 export default class Product extends PageManager {
     constructor(context) {
@@ -61,6 +62,7 @@ export default class Product extends PageManager {
         });
 
         this.productReviewHandler();
+		cardSwatches();
     }
 
     ariaDescribeReviewInputs($form) {
