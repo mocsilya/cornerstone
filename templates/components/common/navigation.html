@@ -1,9 +1,13 @@
 <nav class="navUser">
+	<div class="container">
+    <div class="dropdown dropdown--quickSearch" id="quickSearch" aria-hidden="true" data-prevent-quick-search-close>
+        {{> components/common/quick-search name='nav-quick-search'}}
+    </div>
     {{> components/common/currency-selector}}
 
     <ul class="navUser-section navUser-section--alt">
         {{#if customer.store_credit.value '>' 0}}
-            <li class="navUser-item">
+            <li class="navUser-item navUser-item--credit">
                 <a class="navUser-action navUser-action--storeCredit"
                    data-dropdown="storeCredit-dropdown"
                    data-options="align:bottom"
@@ -19,7 +23,8 @@
                 </div>
             </li>
         {{/if}}
-        <li class="navUser-item">
+		{{#if show_compare}}
+        <li class="navUser-item navUser-item--comparison">
             <a class="navUser-action navUser-item--compare"
                href="{{urls.compare}}"
                data-compare-nav
@@ -28,13 +33,13 @@
                 {{lang 'common.compare'}} <span class="countPill countPill--positive countPill--alt"></span>
             </a>
         </li>
+        {{/if}}
         {{#if theme_settings.social_icon_placement_top}}
             <li class="navUser-item navUser-item--social">
                 {{> components/common/social-links}}
             </li>
-            <li class="navUser-item navUser-item--divider">|</li>
         {{/if}}
-        <li class="navUser-item">
+        <li class="navUser-item navUser-item--search">
             <button class="navUser-action navUser-action--quickSearch"
                type="button"
                id="quick-search-expand"
@@ -46,7 +51,7 @@
             </button>
         </li>
         {{#if settings.gift_certificates_enabled}}
-            <li class="navUser-item">
+            <li class="navUser-item navUser-item--gift">
                 <a class="navUser-action"
                    href="{{urls.gift_certificate.purchase}}"
                    aria-label="{{lang 'common.gift_cert'}}"
@@ -102,7 +107,6 @@
             <div class="dropdown-menu" id="cart-preview-dropdown" data-dropdown-content aria-hidden="true"></div>
         </li>
     </ul>
-    <div class="dropdown dropdown--quickSearch" id="quickSearch" aria-hidden="true" data-prevent-quick-search-close>
-        {{> components/common/quick-search name='nav-quick-search'}}
-    </div>
+
+	</div>
 </nav>
