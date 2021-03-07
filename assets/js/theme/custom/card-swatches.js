@@ -1,6 +1,8 @@
-import $ from 'jquery';
-	
-$(document).ready(function() {
+/**
+ * Adds swatches to product cards.
+ * templates > components > products > card.html
+*/
+export default function () {
 	$('.card-figure__swatches').each(function() {
 		const url = $(this).attr('href');
 		const swatches = $(this).parent().next('.card-body').children('.card-swatches');
@@ -20,4 +22,4 @@ $(document).ready(function() {
 			}
 		});		
 	});
-});
+}

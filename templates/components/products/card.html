@@ -133,5 +133,10 @@
             {{/or}}
         </div>
         {{> components/products/bulk-discount-rates}}
+	    {{#if show_cart_action}}
+			{{#if has_options}}
+		        <div class="card-swatches"></div>
+			{{/if}}
+		{{/if}}
     </div>
 </article>
