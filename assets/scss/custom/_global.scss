@@ -80,16 +80,14 @@ details:focus:not(:focus-visible),
 	}
 }
 
-.navPages-list .navPage-subMenu-mobile,
-.navPages-list .navPages-action-mobile,
-.navPages-list:not(.navPages-list-depth-max) .navPages-action.has-subMenu.navPages-action-mobile,
-.navPages-list-depth-max .navPages-action-mobile {
+.navPages-list-simple .navPage-subMenu-mobile,
+.navPages-list-simple .navPages-action-mobile {
 	@include breakpoint("medium") {
-		display: none;
+		display: none !important;
 	}
 }
 
-.navPages-action-desktop {
+.navPages-list-simple .navPages-action-desktop {
 	display: none;
 	@include breakpoint("medium") {
 		display: flex;
@@ -100,19 +98,24 @@ details:focus:not(:focus-visible),
 	}
 }
 
-.navPage-subMenu.is-open {
+.navPages-list-simple .navPage-subMenu.is-open {
 	@include breakpoint("medium") {
 		display: none;
 	}
 }
 
-.navPages-item:hover div.navPage-subMenu {
+.navPages-list-simple .navPages-item:hover div.navPage-subMenu {
 	@include breakpoint("medium") {
 		display: block;
 		left: 0;
 		width: 100%;
 	}
 }
+
+.navPage-subMenu-action {
+	white-space: nowrap;
+}
+
 
 
 

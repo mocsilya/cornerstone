@@ -4,7 +4,7 @@
         {{> components/common/quick-search name='nav-menu-quick-search'}}
     </div>
 	-->
-    <ul class="navPages-list{{#if theme_settings.navigation_design '!==' 'simple'}} navPages-list-depth-max{{/if}}">
+    <ul class="navPages-list{{#if theme_settings.navigation_design '!==' 'simple'}} navPages-list-depth-max {{else}} navPages-list-simple {{/if}}">
         {{#each categories}}
             <li class="navPages-item">
             {{#if ../theme_settings.navigation_design '===' 'simple'}}
@@ -17,49 +17,13 @@
         {{/each}}
         {{#unless theme_settings.hide_content_navigation}}
             {{#each pages}}
-                <li class="navPages-item navPages-item-page">
-                    {{#if children}}
-                    <a class="navPages-action has-subMenu{{#if name '==' ../page.title}} activePage{{/if}} navPages-action-mobile"
-                        href="{{url}}"
-                        data-collapsible="navPages-{{id}}"
-                        aria-label="{{name}}"
-                     >
-                         {{name}}
-                         <i class="icon navPages-action-moreIcon" aria-hidden="true">
-                            <svg><use xlink:href="#icon-chevron-down" /></svg>
-                         </i>
-                    </a>
-                    <a class="navPages-action{{#if name '==' ../page.title}} activePage{{/if}} navPages-action-desktop"
-                        href="{{url}}"
-                        aria-label="{{name}}"
-                     >
-                         {{name}}
-                         <i class="icon navPages-action-moreIcon" aria-hidden="true">
-                            <svg><use xlink:href="#icon-chevron-down" /></svg>
-                         </i>
-                     </a>
-                    <div class="navPage-subMenu" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
-	                    <ul class="navPage-subMenu-list">
-		                {{#each children}}
-			                <li class="navPage-subMenu-item">
-				                <a class="navPage-subMenu-action navPages-action{{#if is_active}} activePage{{/if}}"
-				                    href="{{url}}"
-				                    aria-label="{{name}}"
-				                >
-					                {{name}}
-				                </a>
-			                </li>
-                        {{/each}}
-                        </ul>
-                    </div>
-                    {{else}}
-                    <a class="navPages-action{{#if name '==' ../page.title}} activePage{{/if}}"
-                        href="{{url}}"
-                        aria-label="{{name}}"
-                     >
-                         {{name}}
-                     </a>
-                    {{/if}}
+                <li class="navPages-item">
+	            {{#if ../theme_settings.navigation_design '===' 'simple'}}
+	                {{> components/common/navigation-list-page}}
+	            {{/if}}
+	            {{#if ../theme_settings.navigation_design '===' 'alternate'}}
+	                {{> components/common/navigation-list-alternate-page}}
+	            {{/if}}
                 </li>
             {{/each}}
         {{/unless}}

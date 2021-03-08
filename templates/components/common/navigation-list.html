@@ -1,14 +1,14 @@
 {{#if children}}
 <a class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}} navPages-action-mobile"
-   href="{{url}}"
-   data-collapsible="navPages-{{id}}"
+	href="{{url}}" 
+	data-collapsible="navPages-{{id}}" 
 >
     {{name}}
     <i class="icon navPages-action-moreIcon" aria-hidden="true">
         <svg><use xlink:href="#icon-chevron-down" /></svg>
     </i>
 </a>
-<a class="navPages-action{{#if name '==' ../page.title}} activePage{{/if}} navPages-action-desktop"
+<a class="navPages-action{{#if is_active}} activePage{{/if}} navPages-action-desktop"
 	href="{{url}}"
 	aria-label="{{name}}"
 >
