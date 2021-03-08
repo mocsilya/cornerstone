@@ -107,10 +107,20 @@ details:focus:not(:focus-visible),
 // Homepage Products
 // =============================================================================
 
+.page-default .tabs {
+	margin-top: 2rem;
+}
+
 .page-heading-featured,
 .page-heading-top,
 .page-heading-new {
 	margin: 5rem 0 1.5rem 0;
+}
+
+.tab-content .page-heading-featured,
+.tab-content .page-heading-top,
+.tab-content .page-heading-new {
+	display: none;
 }
 
 
