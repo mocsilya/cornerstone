@@ -1,9 +1,6 @@
-<h2 class="page-heading">{{lang 'products.featured' }}</h2>
-
-<ul class="productGrid productGrid--maxCol{{ columns }}" data-product-type="featured" {{#if settings.data_tag_enabled}} data-list-name="Featured Products" {{/if}}>
-    {{#each products}}
-        <li class="product">
-                {{>components/products/card settings=../settings theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
-        </li>
-    {{/each}}
-</ul>
+<h2 class="page-heading page-heading-featured">{{lang 'products.featured' }}</h2>
+{{#if settings.data_tag_enabled}}
+	{{> components/products/carousel products=products columns=theme_settings.homepage_featured_products_column_count customArrowClass='js-featured-product-arrow' list="Featured Products"}}
+{{else}}
+	{{> components/products/carousel products=products columns=theme_settings.homepage_featured_products_column_count customArrowClass='js-featured-product-arrow'}}
+{{/if}}
