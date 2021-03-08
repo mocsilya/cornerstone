@@ -6,7 +6,7 @@
                     <a class="navPage-subMenu-action navPages-action navPages-action-depth-max has-subMenu{{#if name '==' ../page.title}} activePage{{/if}}" href="{{url}}" data-collapsible="navPages-{{#replace ' ' name}}{{/replace}}">
                         {{name}}<i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
                     </a>
-                    {{> components/common/navigation-dropdown-page}}
+                    {{> components/custom/navigation-dropdown-page}}
                 {{else}}
                     <a class="navPage-subMenu-action navPages-action{{#if name '==' ../page.title}} activePage{{/if}}" href="{{url}}">{{name}}</a>
                 {{/if}}
