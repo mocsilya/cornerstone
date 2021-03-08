@@ -19,6 +19,16 @@ details:focus:not(:focus-visible),
 	box-shadow: none !important;
 }
 
+.tabs {
+	font-size: 0;
+	text-align: center;
+}
+
+.tab {
+	float: none;
+	display: inline-block;
+}
+
 // header
 // =============================================================================
 
@@ -103,6 +113,8 @@ details:focus:not(:focus-visible),
 		width: 100%;
 	}
 }
+
+
 
 // Homepage Products
 // =============================================================================
