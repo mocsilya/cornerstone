@@ -153,6 +153,39 @@ details:focus:not(:focus-visible),
 	}
 }
 
+.navPages-item-page .navPage-subMenu-horizontal.is-open {
+	@include breakpoint("medium") {
+		margin-right: $navPage-subMenu-horizontal-width;
+		margin-left: auto;
+		left: auto;
+		right: 0;
+		border-left: 0;
+		border-right: 1px solid stencilColor("navPages-subMenu-separatorColor");
+	}
+}
+
+.navPages-item-page .has-subMenu.is-root + .navPage-subMenu-horizontal {
+	@include breakpoint("medium") {
+		left: inherit;
+		right: inherit;
+		margin: auto;
+		border-left: 0;
+		border-right: 0;
+	}
+}
+
+.navPages-item-page .navPage-subMenu-horizontal .navPages-action-depth-max.has-subMenu .navPages-action-moreIcon,
+.navPages-item-page .navPage-subMenu-horizontal .navPages-action-depth-max.has-subMenu.is-open .navPages-action-moreIcon {
+	@include breakpoint("medium") {
+		transform: rotate(90deg);
+		float: left;
+		margin-right: spacing("half");
+		margin-left: 0;
+		margin-top: .5rem;
+	}
+    
+}
+
 
 
 
