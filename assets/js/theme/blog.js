@@ -1,0 +1,11 @@
+/*
+ Import all blog specific js
+ */
+import PageManager from './page-manager';
+import menuHelper from './custom/menu-helper';
+
+export default class Blog extends PageManager {
+	onReady() {
+        menuHelper();
+    }
+}

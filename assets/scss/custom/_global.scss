@@ -131,6 +131,21 @@ details:focus:not(:focus-visible),
 	}
 }
 
+.navPages-list-depth-max.subMenu-is-open .navPages-item-page {
+	display: list-item;
+}
+
+.navPages-list-depth-max.subMenu-is-open .navPages-item-page.is-hidden {
+	display: none;
+	@include breakpoint("medium") {
+		display: inline-block;
+	}
+}
+
+.navPages-list-depth-max .navPages-action-moreIcon {
+	pointer-events: none;
+}
+
 .navPage-subMenu-action {
 	white-space: nowrap;
 	@include breakpoint("medium") {
