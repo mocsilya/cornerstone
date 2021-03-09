@@ -14,5 +14,16 @@
                 </li>
             {{/each}}
         {{/unless}}
+		{{#each breadcrumbs}}
+		    {{#if @index 1}}
+		        <span class="breadcrumb-menu breadcrumb-menu-1">{{name}}</span>
+		    {{/if}}
+		    {{#if @index 2}}
+		        <span class="breadcrumb-menu breadcrumb-menu-2">{{name}}</span>
+		    {{/if}}
+		    {{#if @index 3}}
+		        <span class="breadcrumb-menu breadcrumb-menu-3">{{name}}</span>
+		    {{/if}}
+		{{/each}}
     </ol>
 </nav>

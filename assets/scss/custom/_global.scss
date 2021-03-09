@@ -19,6 +19,13 @@ details:focus:not(:focus-visible),
 	box-shadow: none !important;
 }
 
+
+
+
+
+// Tabs
+// =============================================================================
+
 .tabs {
 	font-size: 0;
 	text-align: center;
@@ -27,6 +34,18 @@ details:focus:not(:focus-visible),
 .tab {
 	float: none;
 	display: inline-block;
+}
+
+
+
+
+
+
+// Breadcrumbs
+// =============================================================================
+
+.breadcrumb-menu {
+	display: none; //used for info page parent detection
 }
 
 // header
@@ -114,6 +133,9 @@ details:focus:not(:focus-visible),
 
 .navPage-subMenu-action {
 	white-space: nowrap;
+	@include breakpoint("medium") {
+		white-space: normal;
+	}
 }
 
 
