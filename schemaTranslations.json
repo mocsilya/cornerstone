@@ -412,6 +412,15 @@
     "uk": "Блог",
     "zh": "博客"
   },
+  "i18n.CustomFooterBlogPosts": {
+    "default": "At least one blog post must be published to use this feature."
+  },
+  "i18n.CustomFooterShowBlog": {
+    "default": "Show recent posts in footer"
+  },
+  "i18n.CustomFooterBlogBackground": {
+    "default": "Blog footer background"
+  },
   "i18n.SizeOfImages": {
     "default": "Size of images",
     "fr": "Taille des images",
@@ -705,6 +714,12 @@
     "uk": "Значки соціальних медіа",
     "zh": "社交媒体图标"
   },
+  "i18n.CustomFooterNewsletter": {
+    "default": "Newsletter"
+  },
+  "i18n.CustomFooterNewsletterBackground": {
+    "default": "Newsletter footer background"
+  },
   "i18n.SocialAccountsMustBeSet": {
     "default": "Social accounts must be set up to use this feature.",
     "fr": "Les comptes sociaux doivent être mis en place pour utiliser cette fonctionnalité.",
@@ -712,19 +727,19 @@
     "uk": "Для використання цієї функції потрібно створити соціальні акаунти.",
     "zh": "必须设置社交账户才能使用该功能。"
   },
-  "i18n.ShowSocialMediaIcons": {
-    "default": "Show social media icons",
-    "fr": "Afficher les icônes des médias sociaux",
-    "it": "Mostra icone social media",
-    "uk": "Показати піктограми соціальних медіа",
-    "zh": "显示社交媒体图标"
+  "i18n.ShowSocialMediaIconsTop": {
+    "default": "Show header social media icons",
+    "fr": "Afficher en-tête les icônes des médias sociaux",
+    "it": "Mostra header icone social media",
+    "uk": "Показати заголовок піктограми соціальних медіа",
+    "zh": "显示头部社交媒体图标"
   },
-  "i18n.FooterPlacement": {
-    "default": "Footer Placement",
-    "fr": "Placement du pied de page",
-    "it": "Posizionamento Footer",
-    "uk": "Розміщення нижнього колонтитулу",
-    "zh": "页脚位置"
+  "i18n.ShowSocialMediaIconsBottom": {
+    "default": "Show footer social media icons",
+    "fr": "Afficher pied de page les icônes des médias sociaux",
+    "it": "Mostra footer icone social media",
+    "uk": "Показати колонтитулу піктограми соціальних медіа",
+    "zh": "显示页脚社交媒体图标"
   },
   "i18n.None": {
     "default": "None",
@@ -746,6 +761,9 @@
     "it": "Sfondo footer",
     "uk": "Фон нижнього колонтитулу",
     "zh": "页脚背景"
+  },
+  "i18n.CustomFooterBorder": {
+    "default": "Footer border / divider"
   },
   "i18n.DisplaySettings": {
     "default": "Display settings",
@@ -1061,6 +1079,9 @@
     "it": "Numero di nuovi prodotti",
     "uk": "Кількість нових товарів",
     "zh": "新产品数量"
+  },
+  "i18n.CustomHomepageShowTabs": {
+    "default": "Show products in tabs"
   },
   "i18n.ProductSaleBadges": {
     "default": "Product sale badges",

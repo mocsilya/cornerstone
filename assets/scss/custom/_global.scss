@@ -222,8 +222,146 @@ details:focus:not(:focus-visible),
 	background-size: cover;
 	margin-right: 2px;
 	margin-bottom: 2px;
-	border-radius: 100%;
-	height: 1.25rem;
-	width: 1.25rem;
+	border-radius: 50%;
+	height: 1rem;
+	width: 1rem;
 }
 
+// Footer
+// =============================================================================
+
+.footer {
+	border-top: 0;
+}
+
+
+
+// Footer Newsletter
+// =============================================================================
+
+.footer-newsletter {
+	background-color: stencilColor("custom-footer-newsletter-backgroundColor");
+	padding: spacing("double") 0;
+}
+
+.footer-newsletter-col {
+	@include breakpoint("medium") {
+		max-width: 50vw;
+		margin: auto;
+	}
+}
+
+.footer-newsletter .newsletter-heading {
+	margin-top: 0;
+	text-align: center;
+}
+
+.footer-newsletter .newsletter-subtext {
+	text-align: center;
+}
+
+.footer-newsletter .form,
+.footer-newsletter .form-field {
+	margin: 0;
+}
+
+
+
+// Footer Blog
+// =============================================================================
+
+.footer-blog {
+	background-color: stencilColor("custom-footer-blog-backgroundColor");
+	padding: spacing("single") 0;
+}
+
+.footer-blog-list {
+	@include breakpoint("medium") {
+		display: flex;
+		justify-content: center;
+		gap: spacing("single");
+	}
+	@include breakpoint("large") {
+		gap: spacing("double");
+	}
+}
+
+.footer-blog-list,
+.footer-blog-list li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.footer-blog-list li {
+	padding: spacing("single") 0;
+	@include breakpoint("medium") {
+		flex: 1 0 0;
+	}
+}
+
+.footer-blog-img {
+	width: 100%;
+	display: block;
+}
+
+.footer-blog-img img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.footer-blog-publish {
+	margin: .5rem 0;
+}
+
+.footer-blog-date,
+.footer-blog-author {
+	display: block;
+}
+
+.footer-blog-title {
+	margin-top: 0;
+	font-size: 1.25rem;
+	margin: .75rem 0;
+}
+
+.footer-blog-button {
+	margin: 0;
+}
+
+
+
+// Footer Social
+// =============================================================================
+
+.footer-social {
+	border-bottom: 1px solid stencilColor("custom-footer-borderColor");
+	padding: 0 0 spacing("double") 0;
+	margin-bottom: spacing("double");
+}
+
+.footer-social .socialLinks {
+	font-size: 0;
+	text-align: center;
+}
+
+.footer-social .socialLinks-item {
+	margin: 0 spacing("half");
+}
+
+.footer-social .socialLinks .icon,
+.footer-social .socialLinks--alt .icon {
+	height: 2rem;
+	width: 2rem;
+}
+
+
+
+// Footer Bar
+// =============================================================================
+
+.footer-bar {
+	border-top: 1px solid stencilColor("custom-footer-borderColor");
+	padding-top: spacing("double");
+}

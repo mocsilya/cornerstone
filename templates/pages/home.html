@@ -26,7 +26,7 @@ blog:
     {{/each}}
 
 <div class="main full">
-{{#if theme_settings.homepage_show_tabs}}
+{{#if theme_settings.custom_homepage_show_tabs}}
 	{{#or (if products.featured) (if products.top_sellers) (if products.new)}}
 		<ul class="tabs" data-tab role="tablist">
 		    {{#if products.featured}}
