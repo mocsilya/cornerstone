@@ -839,9 +839,15 @@
       },
       {
         "type": "checkbox",
+        "label": "i18n.ShowSocialMediaIconsTop",
+        "force_reload": true,
+        "id": "social_icon_placement_top"
+      },
+      {
+        "type": "checkbox",
         "label": "i18n.ShowSocialMediaIconsBottom",
         "force_reload": true,
-        "id": "social_icon_placement_bottom",
+        "id": "social_icon_placement_bottom"
       },
       {
         "type": "heading",
