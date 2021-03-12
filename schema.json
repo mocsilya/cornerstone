@@ -808,7 +808,47 @@
       {
         "type": "color",
         "label": "i18n.CustomFooterNewsletterBackground",
-        "id": "custom-footer-newsletter-backgroundColor"
+        "id": "custom-footer-newsletter-background"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomFooterNewsletterText",
+        "id": "custom-footer-newsletter-text"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomFooterNewsletterInputText",
+        "id": "custom-footer-newsletter-input-text"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomFooterNewsletterInputBorder",
+        "id": "custom-footer-newsletter-input-border"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomFooterNewsletterInputBackground",
+        "id": "custom-footer-newsletter-input-background"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomFooterNewsletterButton",
+        "id": "custom-footer-newsletter-button"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomFooterNewsletterButtonHover",
+        "id": "custom-footer-newsletter-button-hover"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomFooterNewsletterButtonBackground",
+        "id": "custom-footer-newsletter-button-background"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomFooterNewsletterButtonBackgroundHover",
+        "id": "custom-footer-newsletter-button-background-hover"
       },
       {
         "type": "heading",
@@ -827,7 +867,32 @@
       {
         "type": "color",
         "label": "i18n.CustomFooterBlogBackground",
-        "id": "custom-footer-blog-backgroundColor"
+        "id": "custom-footer-blog-background"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomFooterBlogText",
+        "id": "custom-footer-blog-text"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomFooterBlogButton",
+        "id": "custom-footer-blog-button"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomFooterBlogButtonHover",
+        "id": "custom-footer-blog-button-hover"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomFooterBlogButtonBackground",
+        "id": "custom-footer-blog-button-background"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomFooterBlogButtonBackgroundHover",
+        "id": "custom-footer-blog-button-background-hover"
       },
       {
         "type": "heading",
@@ -850,6 +915,16 @@
         "id": "social_icon_placement_bottom"
       },
       {
+        "type": "color",
+        "label": "i18n.CustomFooterSocial",
+        "id": "custom-footer-social"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomFooterSocialHover",
+        "id": "custom-footer-social-hover"
+      },
+      {
         "type": "heading",
         "content": "i18n.Footer"
       },
@@ -861,7 +936,27 @@
       {
         "type": "color",
         "label": "i18n.CustomFooterBorder",
-        "id": "custom-footer-borderColor"
+        "id": "custom-footer-border"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomFooterTitle",
+        "id": "custom-footer-title"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomFooterText",
+        "id": "custom-footer-text"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomFooterLink",
+        "id": "custom-footer-link"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomFooterLinkHover",
+        "id": "custom-footer-link-hover"
       },
       {
         "type": "heading",

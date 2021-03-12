@@ -421,6 +421,21 @@
   "i18n.CustomFooterBlogBackground": {
     "default": "Blog footer background"
   },
+  "i18n.CustomFooterBlogText": {
+    "default": "Blog footer text"
+  },
+  "i18n.CustomFooterBlogButton": {
+    "default": "Read more button text"
+  },
+  "i18n.CustomFooterBlogButtonHover": {
+    "default": "Read more button text hover"
+  },
+  "i18n.CustomFooterBlogButtonBackground": {
+    "default": "Read more button background"
+  },
+  "i18n.CustomFooterBlogButtonBackgroundHover": {
+    "default": "Read more button background hover"
+  },
   "i18n.SizeOfImages": {
     "default": "Size of images",
     "fr": "Taille des images",
@@ -718,7 +733,31 @@
     "default": "Newsletter"
   },
   "i18n.CustomFooterNewsletterBackground": {
-    "default": "Newsletter footer background"
+    "default": "Newsletter background"
+  },
+  "i18n.CustomFooterNewsletterText": {
+    "default": "Newsletter text"
+  },
+  "i18n.CustomFooterNewsletterInputText": {
+    "default": "Email input text"
+  },
+  "i18n.CustomFooterNewsletterInputBorder": {
+    "default": "Email input border"
+  },
+  "i18n.CustomFooterNewsletterInputBackground": {
+    "default": "Email input background"
+  },
+  "i18n.CustomFooterNewsletterButton": {
+    "default": "Subscribe button text"
+  },
+  "i18n.CustomFooterNewsletterButtonHover": {
+    "default": "Subscribe button hover text"
+  },
+  "i18n.CustomFooterNewsletterButtonBackground": {
+    "default": "Subscribe button background"
+  },
+  "i18n.CustomFooterNewsletterButtonBackgroundHover": {
+    "default": "Subscribe button background hover"
   },
   "i18n.SocialAccountsMustBeSet": {
     "default": "Social accounts must be set up to use this feature.",
@@ -740,6 +779,12 @@
     "it": "Mostra footer icone social media",
     "uk": "Показати колонтитулу піктограми соціальних медіа",
     "zh": "显示页脚社交媒体图标"
+  },
+  "i18n.CustomFooterSocial": {
+    "default": "Footer social icons"
+  },
+  "i18n.CustomFooterSocialHover": {
+    "default": "Footer social icons hover"
   },
   "i18n.None": {
     "default": "None",
@@ -763,7 +808,19 @@
     "zh": "页脚背景"
   },
   "i18n.CustomFooterBorder": {
-    "default": "Footer border / divider"
+    "default": "Footer divider"
+  },
+  "i18n.CustomFooterTitle": {
+    "default": "Footer column titles"
+  },
+  "i18n.CustomFooterText": {
+    "default": "Footer text"
+  },
+  "i18n.CustomFooterLink": {
+    "default": "Footer link"
+  },
+  "i18n.CustomFooterLinkHover": {
+    "default": "Footer link hover"
   },
   "i18n.DisplaySettings": {
     "default": "Display settings",

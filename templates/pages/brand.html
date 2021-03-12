@@ -2,6 +2,9 @@
 brand:
     products:
         limit: {{theme_settings.brandpage_products_per_page}}
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
 ---
 {{inject "brandProductsPerPage" theme_settings.brandpage_products_per_page}}
 {{#partial "head"}}

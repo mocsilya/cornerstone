@@ -16,7 +16,7 @@ import carousel from './common/carousel';
 import loadingProgressBar from './global/loading-progress-bar';
 import svgInjector from './global/svg-injector';
 import scrollDetect from './custom/scroll-detect';
-import footerColumns from './custom/footer-columns';
+import footerHelper from './custom/footer-helper';
 
 export default class Global extends PageManager {
     onReady() {
@@ -38,6 +38,6 @@ export default class Global extends PageManager {
         loadingProgressBar();
         svgInjector();
         scrollDetect();
-		footerColumns();
+		footerHelper();
     }
 }

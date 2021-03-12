@@ -6,17 +6,30 @@
 // General Changes
 // =============================================================================
 
-input:focus:not(:focus-visible),
-button:focus:not(:focus-visible),
-textarea:focus:not(:focus-visible),
-select:focus:not(:focus-visible),
-details:focus:not(:focus-visible),
-[href]:focus:not(:focus-visible),
-[tabindex]:focus:not(:focus-visible),
-[tabindex]:not([tabindex="-1"]):focus:not(:focus-visible),
-[contenteditable="true"]:focus:not(:focus-visible) {
-	outline: none !important;
-	box-shadow: none !important;
+$outline-width:  0;
+$outline-style:  none;
+$outline-color:  transparent;
+$outline-offset: 0;
+
+input,
+button,
+textarea,
+select,
+details,
+[href],
+[tabindex]:not([tabindex="-1"]),
+[contenteditable="true"] {        
+    &:focus {
+        outline: $outline-width $outline-style $outline-color !important;
+        outline-offset: $outline-offset !important;        
+    }
+}
+
+label {
+    input:focus + & {
+        outline: $outline-width $outline-style $outline-color !important;
+        outline-offset: $outline-offset !important;        
+    }
 }
 
 
@@ -48,12 +61,15 @@ details:focus:not(:focus-visible),
 	display: none; //used for info page parent detection
 }
 
+
+
 // header
 // =============================================================================
 
 .header {
 	border-bottom: 0;
 }
+
 
 
 // Nav User
@@ -66,6 +82,12 @@ details:focus:not(:focus-visible),
 .navUser-item--search,
 .navUser-item--cart {
 	display: inline-block;
+}
+
+.navUser .dropdown-menu,
+.navUser .dropdown-menu:focus {
+	box-shadow: none;
+	outline: none;
 }
 
 @media (max-width: 800px) {
@@ -218,6 +240,15 @@ details:focus:not(:focus-visible),
 
 
 
+// Modal Subscriibe
+// =============================================================================
+
+#modal-subscribe .newsletter-heading,
+#modal-subscribe .newsletter-subtext  {
+	text-align: center;
+}
+
+
 // Product Card
 // =============================================================================
 
@@ -235,6 +266,8 @@ details:focus:not(:focus-visible),
 	width: 1rem;
 }
 
+
+
 // Footer
 // =============================================================================
 
@@ -242,7 +275,20 @@ details:focus:not(:focus-visible),
 	border-top: 0;
 }
 
+
+// Footer Info
+// =============================================================================
+
+.footer-info a {
+	color: stencilColor("custom-footer-link");
+}
+
+.footer-info a:hover {
+	color: stencilColor("custom-footer-link-hover");
+}
+
 .footer-info-col {
+	color: stencilColor("custom-footer-text");
 	@include breakpoint("medium") {
 		width: 33.33333333%;
 	}
@@ -299,6 +345,18 @@ details:focus:not(:focus-visible),
 }
 
 .footer-info-heading {
+	color: stencilColor("custom-footer-title");
+}
+
+.footer-info-list a {
+	color: stencilColor("custom-footer-link");
+}
+
+.footer-info-list a:hover {
+	color: stencilColor("custom-footer-link-hover");
+}
+
+.footer-info-heading {
 	margin-bottom: .875rem;
 	font-weight: 700;
 }
@@ -309,7 +367,7 @@ details:focus:not(:focus-visible),
 // =============================================================================
 
 .footer-newsletter {
-	background-color: stencilColor("custom-footer-newsletter-backgroundColor");
+	background-color: stencilColor("custom-footer-newsletter-background");
 	padding: spacing("double") 0;
 }
 
@@ -323,10 +381,12 @@ details:focus:not(:focus-visible),
 .footer-newsletter .newsletter-heading {
 	margin-top: 0;
 	text-align: center;
+	color: stencilColor("custom-footer-newsletter-text");
 }
 
 .footer-newsletter .newsletter-subtext {
 	text-align: center;
+	color: stencilColor("custom-footer-newsletter-text");
 }
 
 .footer-newsletter .form,
@@ -334,13 +394,30 @@ details:focus:not(:focus-visible),
 	margin: 0;
 }
 
+.footer-newsletter .form-input {
+	color: stencilColor("custom-footer-newsletter-input-text");
+	border-color: stencilColor("custom-footer-newsletter-input-border");
+	background-color: stencilColor("custom-footer-newsletter-input-background");
+}
+
+.footer-newsletter .button {
+	color: stencilColor("custom-footer-newsletter-button");
+	background-color: stencilColor("custom-footer-newsletter-button-background");
+	border-color: stencilColor("custom-footer-newsletter-button-background");
+}
+
+.footer-newsletter .button:hover {
+	color: stencilColor("custom-footer-newsletter-button-hover");
+	background-color: stencilColor("custom-footer-newsletter-button-background-hover");
+	border-color: stencilColor("custom-footer-newsletter-button-background-hover");
+}
 
 
 // Footer Blog
 // =============================================================================
 
 .footer-blog {
-	background-color: stencilColor("custom-footer-blog-backgroundColor");
+	background-color: stencilColor("custom-footer-blog-background");
 	padding: spacing("single") 0;
 }
 
@@ -365,7 +442,7 @@ details:focus:not(:focus-visible),
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	color: stencilColor("custom-footer-blog-color");
+	color: stencilColor("custom-footer-blog-text");
 }
 
 .footer-blog-list li {
@@ -408,17 +485,19 @@ details:focus:not(:focus-visible),
 	margin-top: 0;
 	font-size: 1.25rem;
 	margin: .75rem 0;
-	color: stencilColor("custom-footer-blog-color");
+	color: stencilColor("custom-footer-blog-text");
 }
 
 .footer-blog-button {
-	color: stencilColor("custom-footer-blog-button-color");
-	background-color: stencilColor("custom-footer-blog-button-backgroundColor");
+	color: stencilColor("custom-footer-blog-button");
+	background-color: stencilColor("custom-footer-blog-button-background");
+	border-color: stencilColor("custom-footer-blog-button-background");
 }
 
 .footer-blog-button:hover {
-	color: stencilColor("custom-footer-blog-button-colorHover");
-	background-color: stencilColor("custom-footer-blog-button-backgroundColorHover");
+	color: stencilColor("custom-footer-blog-button-hover");
+	background-color: stencilColor("custom-footer-blog-button-background-hover");
+	border-color: stencilColor("custom-footer-blog-button-background-hover");
 }
 
 
@@ -427,7 +506,7 @@ details:focus:not(:focus-visible),
 // =============================================================================
 
 .footer-social {
-	border-bottom: 1px solid stencilColor("custom-footer-borderColor");
+	border-bottom: 1px solid stencilColor("custom-footer-border");
 	padding: 0 0 spacing("double") 0;
 	margin-bottom: spacing("double");
 }
@@ -447,12 +526,33 @@ details:focus:not(:focus-visible),
 	width: 2rem;
 }
 
+.footer-social .socialLinks .icon svg {
+	fill: stencilColor("custom-footer-social");
+}
+
+.footer-social .socialLinks .icon:hover svg {
+	fill: stencilColor("custom-footer-social-hover");
+}
+
 
 
 // Footer Bar
 // =============================================================================
 
 .footer-bar {
-	border-top: 1px solid stencilColor("custom-footer-borderColor");
+	border-top: 1px solid stencilColor("custom-footer-border");
 	padding-top: spacing("double");
+	color: stencilColor("custom-footer-text");
+}
+
+.footer-copyright > .powered-by {
+	color: stencilColor("custom-footer-text");
+}
+
+.footer-copyright a {
+	color: stencilColor("custom-footer-link");
+}
+
+.footer-copyright a:hover {
+	color: stencilColor("custom-footer-link-hover");
 }
