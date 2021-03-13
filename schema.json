@@ -832,22 +832,22 @@
       },
       {
         "type": "color",
-        "label": "i18n.CustomFooterNewsletterButton",
+        "label": "i18n.CustomFooterButton",
         "id": "custom-footer-newsletter-button"
       },
       {
         "type": "color",
-        "label": "i18n.CustomFooterNewsletterButtonHover",
+        "label": "i18n.CustomFooterButtonHover",
         "id": "custom-footer-newsletter-button-hover"
       },
       {
         "type": "color",
-        "label": "i18n.CustomFooterNewsletterButtonBackground",
+        "label": "i18n.CustomFooterButtonBackground",
         "id": "custom-footer-newsletter-button-background"
       },
       {
         "type": "color",
-        "label": "i18n.CustomFooterNewsletterButtonBackgroundHover",
+        "label": "i18n.CustomFooterButtonBackgroundHover",
         "id": "custom-footer-newsletter-button-background-hover"
       },
       {
@@ -876,22 +876,22 @@
       },
       {
         "type": "color",
-        "label": "i18n.CustomFooterBlogButton",
+        "label": "i18n.CustomFooterButton",
         "id": "custom-footer-blog-button"
       },
       {
         "type": "color",
-        "label": "i18n.CustomFooterBlogButtonHover",
+        "label": "i18n.CustomFooterButtonHover",
         "id": "custom-footer-blog-button-hover"
       },
       {
         "type": "color",
-        "label": "i18n.CustomFooterBlogButtonBackground",
+        "label": "i18n.CustomFooterButtonBackground",
         "id": "custom-footer-blog-button-background"
       },
       {
         "type": "color",
-        "label": "i18n.CustomFooterBlogButtonBackgroundHover",
+        "label": "i18n.CustomFooterButtonBackgroundHover",
         "id": "custom-footer-blog-button-background-hover"
       },
       {
@@ -913,6 +913,16 @@
         "label": "i18n.ShowSocialMediaIconsBottom",
         "force_reload": true,
         "id": "social_icon_placement_bottom"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomHeaderSocial",
+        "id": "custom-header-social"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomHeaderSocialHover",
+        "id": "custom-header-social-hover"
       },
       {
         "type": "color",

@@ -424,18 +424,6 @@
   "i18n.CustomFooterBlogText": {
     "default": "Blog footer text"
   },
-  "i18n.CustomFooterBlogButton": {
-    "default": "Read more button text"
-  },
-  "i18n.CustomFooterBlogButtonHover": {
-    "default": "Read more button text hover"
-  },
-  "i18n.CustomFooterBlogButtonBackground": {
-    "default": "Read more button background"
-  },
-  "i18n.CustomFooterBlogButtonBackgroundHover": {
-    "default": "Read more button background hover"
-  },
   "i18n.SizeOfImages": {
     "default": "Size of images",
     "fr": "Taille des images",
@@ -739,25 +727,25 @@
     "default": "Newsletter text"
   },
   "i18n.CustomFooterNewsletterInputText": {
-    "default": "Email input text"
+    "default": "Email box text"
   },
   "i18n.CustomFooterNewsletterInputBorder": {
-    "default": "Email input border"
+    "default": "Email box border"
   },
   "i18n.CustomFooterNewsletterInputBackground": {
-    "default": "Email input background"
+    "default": "Email box background"
   },
-  "i18n.CustomFooterNewsletterButton": {
-    "default": "Subscribe button text"
+  "i18n.CustomFooterButton": {
+    "default": "Button text"
   },
-  "i18n.CustomFooterNewsletterButtonHover": {
-    "default": "Subscribe button hover text"
+  "i18n.CustomFooterButtonHover": {
+    "default": "Button text hover"
   },
-  "i18n.CustomFooterNewsletterButtonBackground": {
-    "default": "Subscribe button background"
+  "i18n.CustomFooterButtonBackground": {
+    "default": "Button background"
   },
-  "i18n.CustomFooterNewsletterButtonBackgroundHover": {
-    "default": "Subscribe button background hover"
+  "i18n.CustomFooterButtonBackgroundHover": {
+    "default": "Button background hover"
   },
   "i18n.SocialAccountsMustBeSet": {
     "default": "Social accounts must be set up to use this feature.",
@@ -779,6 +767,12 @@
     "it": "Mostra footer icone social media",
     "uk": "Показати колонтитулу піктограми соціальних медіа",
     "zh": "显示页脚社交媒体图标"
+  },
+  "i18n.CustomHeaderSocial": {
+    "default": "Header social icons"
+  },
+  "i18n.CustomHeaderSocialHover": {
+    "default": "Header social icons hover"
   },
   "i18n.CustomFooterSocial": {
     "default": "Footer social icons"

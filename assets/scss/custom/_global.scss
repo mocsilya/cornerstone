@@ -32,9 +32,13 @@ label {
     }
 }
 
+.body {
+	margin-bottom: 3rem;
+}
 
-
-
+.container {
+	max-width: 1440px;
+}
 
 // Tabs
 // =============================================================================
@@ -70,6 +74,13 @@ label {
 	border-bottom: 0;
 }
 
+.header .socialLinks .icon svg {
+	fill: stencilColor("custom-header-social");
+}
+
+.header .socialLinks .icon:hover svg {
+	fill: stencilColor("custom-header-social-hover");
+}
 
 
 // Nav User
@@ -101,6 +112,8 @@ label {
 	}
 
 }
+
+
 
 // Nav Pages
 // =============================================================================
@@ -240,6 +253,76 @@ label {
 
 
 
+// Hero Carousel
+// =============================================================================
+
+.heroCarousel.slick-initialized {
+	@include breakpoint("medium") {
+		max-height: none !important;
+		font-size: 0;
+	}
+}
+
+.container-hero.stretch .slick-track {
+	@include breakpoint("medium") {
+		display: flex;
+	}
+}
+
+.heroCarousel .slick-slide {
+	float: none;
+	display: inline-block;
+	font-size: 1rem;
+	vertical-align: top;
+}
+
+
+.container-hero.stretch .slick-slide {
+	@include breakpoint("medium") {
+		display: flex;
+		height: auto;
+	}
+}
+
+.heroCarousel-slide .heroCarousel-image-wrapper {
+	@include breakpoint("medium") {
+		max-height: none !important;
+		height: auto !important;
+	}
+}
+
+.container-hero.stretch .heroCarousel-slide .heroCarousel-image-wrapper {
+	@include breakpoint("medium") {
+		height: 100% !important;
+	}
+}
+
+.heroCarousel-slide.stretch {
+	@include breakpoint("medium") {
+		width: 100%;
+	}
+}
+
+.heroCarousel-slide .heroCarousel-image {
+	@include breakpoint("medium") {
+		width: auto;
+		height: auto;
+	}
+}
+
+.slick-active .heroCarousel-slide .heroCarousel-image {
+	@include breakpoint("medium") {
+		width: 100%;
+	}
+}
+
+.container-hero.stretch .heroCarousel-slide .heroCarousel-image {
+	@include breakpoint("medium") {
+		height: 100%;
+	}
+}
+
+
 // Modal Subscriibe
 // =============================================================================
 
@@ -249,11 +332,66 @@ label {
 }
 
 
+
+// Product Carousel
+// =============================================================================
+
+
+.productCarousel {
+	font-size: 0;
+	margin: 0;
+}
+
+.productCarousel .productCarousel-slide {
+	float: none;
+	display: inline-block;
+	font-size: 1rem;
+	vertical-align: top;
+	height: auto;
+	padding: .75rem;
+	border-top: 1px solid rgba(0,0,0,0.1);
+	border-left: 1px solid rgba(0,0,0,0.1);
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.productCarousel .slick-list {
+	-webkit-box-shadow: inset -1px 0px 0px 0px rgba(0,0,0,0.1); 
+	box-shadow: inset -1px 0px 0px 0px rgba(0,0,0,0.1);
+}
+
+.productCarousel .slick-track {
+	display: flex;
+	//border-left: 1px solid rgba(0,0,0,0.1);
+}
+
+.productCarousel .slick-dots {
+	bottom: -40px;
+}
+
+.productCarousel.slick-dotted {
+	margin-bottom: 40px;
+}
+
+
 // Product Card
 // =============================================================================
 
+.card {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
 .card .card-swatches {
 	margin-top: .5rem;
+}
+
+.card-figure {
+	flex: 0 0 auto;
+}
+
+.card-body {
+	flex: 1 0 auto;
 }
 
 .card .form-option-variant--color,
