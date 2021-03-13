@@ -37,8 +37,16 @@ label {
 }
 
 .container {
-	max-width: 1440px;
+	max-width: calc(1440px + 12rem);
+	@include breakpoint("medium") {
+		padding: 0 3rem;
+	}
+	@include breakpoint("medium") {
+		padding: 0 6rem;
+	}
 }
+
+
 
 // Tabs
 // =============================================================================
@@ -50,7 +58,10 @@ label {
 
 .tab {
 	float: none;
-	display: inline-block;
+	display: block;
+	@include breakpoint("medium") {
+		display: inline-block;
+	}
 }
 
 
@@ -86,6 +97,11 @@ label {
 // Nav User
 // =============================================================================
 
+.navUser {
+	@include breakpoint("medium") {
+		padding: 0;
+	}
+}
 .navUser-action {
 	text-transform: none;
 }
@@ -122,19 +138,17 @@ label {
 	@include breakpoint("medium") {
 		margin-left: auto;
 		margin-right: auto;
-		max-width: 91.71429rem;
-		padding: 0 1.5rem;
+		padding: 0;
 		position: relative;
 		width: 100%;
-	}
-	@include breakpoint("large") {
-		padding: 0 6rem;
+		max-width: 1440px;
 	}
 }
 
 .navPages {
 	@include breakpoint("medium") {
 		position: relative;
+		max-width: 100%;
 	}
 }
 
@@ -256,70 +270,73 @@ label {
 // Hero Carousel
 // =============================================================================
 
+
+.container-hero {
+	max-width: 1440px;
+	padding: 0;
+}
+
 .heroCarousel.slick-initialized {
-	@include breakpoint("medium") {
-		max-height: none !important;
-		font-size: 0;
+	max-height: none !important;
+}
+
+
+.heroCarousel.slick-dotted {
+	@include breakpoint("small") {
+		margin-bottom: 6rem;
 	}
 }
 
-.container-hero.stretch .slick-track {
-	@include breakpoint("medium") {
-		display: flex;
+.heroCarousel .slick-dots {
+	@include breakpoint("small") {
+		bottom: -40px;
 	}
+}
+
+.heroCarousel-play-pause-button {
+	@include breakpoint("small") {
+		left: 0;
+		bottom: -40px;
+	}
+}
+
+.heroCarousel .slick-track {
+	display: flex;
 }
 
 .heroCarousel .slick-slide {
 	float: none;
-	display: inline-block;
+	display: flex;
+	height: auto;
 	font-size: 1rem;
-	vertical-align: top;
 }
 
-
-.container-hero.stretch .slick-slide {
-	@include breakpoint("medium") {
-		display: flex;
-		height: auto;
-	}
+.heroCarousel-slide {
+	width: 100%;
 }
 
 .heroCarousel-slide .heroCarousel-image-wrapper {
-	@include breakpoint("medium") {
-		max-height: none !important;
-		height: auto !important;
-	}
+	max-height: none !important;
+	height: auto !important;
 }
 
-.container-hero.stretch .heroCarousel-slide .heroCarousel-image-wrapper {
-	@include breakpoint("medium") {
-		height: 100% !important;
-	}
-}
-
-.heroCarousel-slide.stretch {
-	@include breakpoint("medium") {
-		width: 100%;
-	}
+.heroCarousel-slide.stretch .heroCarousel-image-wrapper {
+	height: 43.75vw !important;
+	max-height: 80vh !important;
 }
 
 .heroCarousel-slide .heroCarousel-image {
-	@include breakpoint("medium") {
-		width: auto;
-		height: auto;
-	}
+	width: auto;
+	height: auto;
+}
+
+.heroCarousel-slide.stretch .heroCarousel-image {
+	width: 100%;
+	height: 100%;
 }
 
 .slick-active .heroCarousel-slide .heroCarousel-image {
-	@include breakpoint("medium") {
-		width: 100%;
-	}
-}
-
-.container-hero.stretch .heroCarousel-slide .heroCarousel-image {
-	@include breakpoint("medium") {
-		height: 100%;
-	}
+	width: 100%;
 }
 
 
@@ -361,7 +378,6 @@ label {
 
 .productCarousel .slick-track {
 	display: flex;
-	//border-left: 1px solid rgba(0,0,0,0.1);
 }
 
 .productCarousel .slick-dots {
@@ -371,6 +387,36 @@ label {
 .productCarousel.slick-dotted {
 	margin-bottom: 40px;
 }
+
+.productCarousel .slick-next,
+.productCarousel .slick-prev {
+	width: 2.5rem;
+	background: none;
+	border: 0;
+}
+
+.productCarousel .slick-next::before,
+.productCarousel .slick-prev::before {
+	width: 1.25rem;
+}
+
+.productCarousel .slick-next {
+	right: -1.5rem;
+	padding: 0 0 0 1.125rem;
+	@include breakpoint("medium") {
+		right: -2.25rem;
+	}
+}
+
+.productCarousel .slick-prev {
+	left: -1.5rem;
+	padding: 0 0 0 .125rem;
+	@include breakpoint("medium") {
+		left: -2.25rem;
+	}
+}
+
+
 
 
 // Product Card
@@ -513,6 +559,9 @@ label {
 	@include breakpoint("medium") {
 		max-width: 50vw;
 		margin: auto;
+	}
+	@include breakpoint("large") {
+		max-width: 40rem;
 	}
 }
 
