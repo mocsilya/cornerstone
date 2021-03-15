@@ -41,7 +41,7 @@ label {
 	@include breakpoint("medium") {
 		padding: 0 3rem;
 	}
-	@include breakpoint("medium") {
+	@include breakpoint("large") {
 		padding: 0 6rem;
 	}
 }
@@ -417,6 +417,27 @@ label {
 }
 
 
+// Side Bar
+// =============================================================================
+
+.page-sidebar {
+	@include breakpoint("medium") {
+		width: 30%;
+	}
+	@include breakpoint("large") {
+		width: 20%;
+	}
+}
+
+.page-sidebar + .page-content {
+	@include breakpoint("medium") {
+		width: 70%;
+	}
+	@include breakpoint("large") {
+		width: 80%;
+	}
+}
+
 
 
 // Product Card
@@ -426,6 +447,21 @@ label {
 	display: flex;
 	flex-direction: column;
 	height: 100%;
+	margin-bottom: 0;
+}
+
+.card-summary {
+	display: none;
+}
+
+.card-spotlight-actions {
+	display: none;
+	margin-top: 1rem;
+}
+
+.card-spotlight-actions .button--small {
+	vertical-align: top;
+	min-height: 33px;
 }
 
 .card .card-swatches {
@@ -438,6 +474,7 @@ label {
 
 .card-body {
 	flex: 1 0 auto;
+	position: relative;
 }
 
 .card .form-option-variant--color,
@@ -450,6 +487,190 @@ label {
 	width: 1rem;
 }
 
+.sale-flag-sash.spotlight-sash {
+	display: none;
+}
+
+.card-image-0 img,
+.card-image-1 img {
+	transition: all .5s ease-in-out;
+}
+
+img.card-image-default {
+	display: none;
+}
+
+img.card-image-default:only-child {
+	display: block;
+}
+
+.card-image-0 img {
+	opacity: 1;
+}
+
+.card-image-1 img {
+	opacity: 0;
+}
+
+.card-figure__link:hover .card-image-0 img {
+	opacity: 0;
+}
+
+.card-figure__link:hover .card-image-1 img {
+	opacity: 1;
+}
+
+.card-figure__link:hover span.card-image:only-of-type img {
+    opacity: 1;
+}
+
+
+
+// Product Grid
+// =============================================================================
+
+.productGrid {
+	display: grid;
+	grid-columns: repeat 1fr;
+	grid-auto-flow: dense;
+	border-top: 1px solid rgba(0,0,0,0.1);
+	border-left: 1px solid rgba(0,0,0,0.1);
+	@include breakpoint("small") {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	@include breakpoint("medium") {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	@include breakpoint("large") {
+		grid-template-columns:  repeat(4, 1fr);
+	}
+}
+
+.page-sidebar + .page-content .productGrid {
+	@include breakpoint("medium") {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	@include breakpoint("large") {
+		grid-template-columns:  repeat(3, 1fr);
+	}
+}
+
+.productGrid:before,
+.productGrid:after {
+	display: none;
+}
+
+
+.productGrid .product {
+	border-right: 1px solid rgba(0,0,0,0.1);
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	width: 100%;
+	padding: .75rem;
+}
+
+.page-sidebar + .page-content .productGrid .product {
+	width: 100%;
+}
+
+.productGrid .product.spotlight {
+	@include breakpoint("small") {
+		grid-column: 1 / 3;
+	}
+	@include breakpoint("medium") {
+		grid-column: 1 / 4;
+	}
+	@include breakpoint("large") {
+		grid-column: 1 / 5;
+	}
+}
+
+.page-sidebar + .page-content .productGrid .product.spotlight {
+	@include breakpoint("medium") {
+		grid-column: 1 / 3;
+	}
+	@include breakpoint("large") {
+		grid-column: 1 / 4;
+	}
+}
+
+.productGrid .product.spotlight .card {
+	@include breakpoint("medium") {
+		flex-direction: row;
+	}  
+}
+
+.productGrid .product.spotlight .card-figure {
+	@include breakpoint("medium") {
+		flex: 1 0 50%;
+	}  
+}
+
+.productGrid .product.spotlight .card-body {
+	@include breakpoint("medium") {
+		flex: 1 1 auto;
+		font-size: 1.25rem;
+	}  
+}
+
+.productGrid .product.spotlight .card-figcaption {
+	display: none;
+}
+
+.productGrid .product.spotlight .card-spotlight-actions,
+.productGrid .product.spotlight .card-summary {
+	display: block;
+}
+
+.productGrid .product.spotlight .card-brand {
+	font-weight: 700;
+}
+
+.productGrid .product.spotlight .card-title {
+	@include breakpoint("medium") {
+		padding-right: 4rem;
+	}
+}
+
+.productGrid .product.spotlight .card-title,
+.productGrid .product.spotlight .price-now-label,
+.productGrid .product.spotlight .price.price--withTax,
+.productGrid .product.spotlight .price.price--withoutTax {
+	font-weight: 700;
+	@include breakpoint("medium") {
+		font-size: 1.25rem;
+	}
+	@include breakpoint("large") {
+		font-size: 1.5rem;
+	}
+}
+
+.productGrid .product.spotlight .card .form-option-variant--color,
+.productGrid .product.spotlight .card .form-option-variant--pattern {
+	@include breakpoint("medium") {
+		margin-right: 4px;
+		margin-bottom: 4px;
+		height: 2rem;
+		width: 2rem;
+	}
+}
+
+
+.productGrid .product.spotlight .sale-flag-sash.spotlight-sash-top {
+	display: block;
+	@include breakpoint("medium") {
+		display: none;
+	}
+}
+
+.productGrid .product.spotlight .sale-flag-sash.spotlight-sash-bottom {
+	left: auto;
+	top: 14px;
+	right: -35px;
+	transform: rotate(45deg);
+	@include breakpoint("medium") {
+		display: block;
+	}
+}
 
 
 // Footer

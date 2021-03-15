@@ -1,3 +1,9 @@
+{{assignVar "spotlight" "inactive"}}
+{{#filter custom_fields 'hidden' property='name'}}
+	{{#if value '==' 'spotlight'}}
+		{{assignVar "spotlight" "active"}}
+	{{/if}}
+{{/filter}}
 <article
     class="card
     {{#if alternate}} card--alternate{{/if}}"
@@ -40,6 +46,9 @@
                 </div>
             {{/if}}
         {{/or}}
+        <div class="sale-flag-sash spotlight-sash spotlight-sash-top">
+            <span class="sale-text">SPOTLIGHT</span>
+        </div>
 		{{#if show_cart_action}}
 			{{#if has_options}}
 				<a href="{{url}}" 
@@ -62,13 +71,36 @@
 			>
 		{{/if}}
             <div class="card-img-container">
-                {{> components/common/responsive-img
-                    image=image
-                    class="card-image"
-                    fallback_size=theme_settings.productgallery_size
-                    lazyload=theme_settings.lazyload_mode
-                    default_image=theme_settings.default_image_product
-                }}
+				{{#if theme_settings.custom_product_show_alt_image}}
+	                {{#each (limit images 2)}}
+	                    {{#unless this.data '===' ../../image.data}}
+	                        <span class="card-image card-image-{{@index}}">
+	                            {{> components/common/responsive-img
+	                                image=this
+	                                class="card-image"
+	                                fallback_size=theme_settings.productgallery_size
+	                                lazyload=theme_settings.lazyload_mode
+	                                default_image=theme_settings.default_image_product
+	                            }}
+	                        </span>
+	                    {{/unless}}
+	                {{/each}}
+                        {{> components/common/responsive-img
+                            image=default
+                            class="card-image card-image-default"
+                            fallback_size=theme_settings.productgallery_size
+                            lazyload=theme_settings.lazyload_mode
+                            default_image=theme_settings.default_image_product
+                        }}
+				{{else}}
+					{{> components/common/responsive-img
+	                    image=image
+	                    class="card-image"
+	                    fallback_size=theme_settings.productgallery_size
+	                    lazyload=theme_settings.lazyload_mode
+	                    default_image=theme_settings.default_image_product
+	                }}
+				{{/if}}
             </div>
         </a>
 
@@ -109,23 +141,45 @@
         </figcaption>
     </figure>
     <div class="card-body">
+        <div class="sale-flag-sash spotlight-sash spotlight-sash-bottom">
+            <span class="sale-text">SPOTLIGHT</span>
+        </div>
         {{#and rating show_rating}}
-            <p class="card-text" data-test-info-type="productRating">
+            <p class="card-text card-rating" data-test-info-type="productRating">
                 <span class="rating--small">
                     {{> components/products/ratings rating=rating}}
                 </span>
             </p>
         {{/and}}
         {{#if brand.name}}
-            <p class="card-text" data-test-info-type="brandName">{{brand.name}}</p>
+            <p class="card-text card-brand" data-test-info-type="brandName">{{brand.name}}</p>
         {{/if}}
         <h3 class="card-title">
             <a aria-label="{{name}},{{> components/products/product-aria-label}}"
                href="{{url}}" 
                {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>{{name}}</a>
         </h3>
-
-        <div class="card-text" data-test-info-type="price">
+        {{#if summary}}
+            <p class="card-summary">{{{summary}}}</p>
+        {{/if}}
+		{{getVar "spotlight"}}
+		{{#if (getVar "spotlight") '===' 'active'}}
+	        {{#each images}}
+	            {{#unless this.data '===' ../../image.data}}
+	                <span class="card-image-test">
+	                    {{> components/common/responsive-img
+	                        image=this
+	                        class="card-image-test"
+	                        fallback_size=theme_settings.productgallery_size
+	                        lazyload=theme_settings.lazyload_mode
+	                        default_image=theme_settings.default_image_product
+	                    }}
+	                </span>
+	            {{/unless}}
+	        {{/each}}
+		{{/if}}
+        
+        <div class="card-text card-price" data-test-info-type="price">
             {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
                 {{> components/products/price price=price}}
             {{else}}
@@ -138,5 +192,40 @@
 		        <div class="card-swatches"></div>
 			{{/if}}
 		{{/if}}
+        <div class="card-spotlight-actions">
+                {{#unless hide_product_quick_view}}
+                    {{#if theme_settings.show_product_quick_view}}
+                        {{#if settings.data_tag_enabled}}
+                            <button class="button button--small button--secondary quickview" data-event-type="product-click" data-product-id="{{id}}">{{lang 'products.quick_view'}}</button>
+                        {{else}}
+                            <button class="button button--small button--secondary quickview" data-product-id="{{id}}">{{lang 'products.quick_view'}}</button>
+                        {{/if}}
+                    {{/if}}
+                {{/unless}}
+                {{#if show_compare}}
+                    <label class="button button--small button-secondary" for="compare-{{id}}">
+                        {{lang 'products.compare'}} <input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}">
+                    </label>
+                {{/if}}
+                {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+				<div>
+                    {{#if show_cart_action}}
+                        {{#if has_options}}
+                            <a href="{{url}}" data-event-type="product-click" class="button button--large button--primary" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                        {{/if}}
+                        {{#if pre_order}}
+                            <a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--large button--secondary">{{lang 'products.pre_order'}}</a>
+                        {{/if}}
+                        {{#if add_to_cart_url }}
+                            <a href="{{add_to_cart_url}}" data-event-type="product-click" data-button-type="add-cart" class="button button--large button--primary">{{lang 'products.add_to_cart'}}</a>
+                            <span class="product-status-message aria-description--hidden">{{lang 'category.add_cart_announcement'}}</span>
+                        {{/if}}
+                        {{#if out_of_stock_message }}
+                            <a href="{{url}}" data-event-type="product-click" class="button button--large button--secondary" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                        {{/if}}
+                    {{/if}}
+				</div>
+                {{/or}}
+		</div>
     </div>
 </article>
