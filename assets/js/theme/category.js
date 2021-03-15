@@ -4,6 +4,7 @@ import compareProducts from './global/compare-products';
 import FacetedSearch from './common/faceted-search';
 import { createTranslationDictionary } from '../theme/common/utils/translations-utils';
 import cardSwatches from './custom/card-swatches';
+import cardCarousel from './custom/card-carousel';
 
 export default class Category extends CatalogPage {
     constructor(context) {
@@ -49,6 +50,7 @@ export default class Category extends CatalogPage {
         this.ariaNotifyNoProducts();
 		
         cardSwatches();
+		cardCarousel();
     }
 
     ariaNotifyNoProducts() {

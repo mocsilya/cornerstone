@@ -450,7 +450,8 @@ label {
 	margin-bottom: 0;
 }
 
-.card-summary {
+.card-summary,
+.spotlight-carousel {
 	display: none;
 }
 
@@ -600,8 +601,10 @@ img.card-image-default:only-child {
 }
 
 .productGrid .product.spotlight .card-figure {
+	padding: 0 1.5rem 1.5rem 1.5rem;
 	@include breakpoint("medium") {
 		flex: 1 0 50%;
+		
 	}  
 }
 
@@ -609,6 +612,7 @@ img.card-image-default:only-child {
 	@include breakpoint("medium") {
 		flex: 1 1 auto;
 		font-size: 1.25rem;
+		padding-left: .75rem;
 	}  
 }
 
@@ -670,6 +674,39 @@ img.card-image-default:only-child {
 	@include breakpoint("medium") {
 		display: block;
 	}
+}
+
+.productGrid .spotlight-carousel {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: block;
+}
+
+.productGrid .spotlight-carousel .slick-next,
+.productGrid .spotlight-carousel .slick-prev {
+	width: 2.5rem;
+	background: none;
+	border: 0;
+}
+
+.productGrid .spotlight-carousel .slick-next::before,
+.productGrid .spotlight-carousel .slick-prev::before {
+	width: 1.25rem;
+}
+
+.productGrid .spotlight-carousel .slick-next {
+	right: -1.5rem;
+	padding: 0 0 0 1.125rem;
+}
+
+.productGrid .spotlight-carousel .slick-prev {
+	left: -1.5rem;
+	padding: 0 0 0 .125rem;
+}
+
+.productGrid .product.spotlight .card-figure__normal {
+	display: none;
 }
 
 

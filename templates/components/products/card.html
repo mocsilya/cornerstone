@@ -52,25 +52,25 @@
 		{{#if show_cart_action}}
 			{{#if has_options}}
 				<a href="{{url}}" 
-					class="card-figure__link card-figure__swatches"
+					class="card-figure__link card-figure__swatches card-figure__normal"
 					aria-label="{{name}},{{> components/products/product-aria-label}}"
 					{{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}
 				>
 			{{else}}
 				<a href="{{url}}" 
-					class="card-figure__link"
+					class="card-figure__link card-figure__normal"
 					aria-label="{{name}},{{> components/products/product-aria-label}}"
 					{{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}
 				>
 			{{/if}}
 		{{else}}
 			<a href="{{url}}" 
-				class="card-figure__link"
+				class="card-figure__link card-figure__normal"
 				aria-label="{{name}},{{> components/products/product-aria-label}}"
 				{{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}
 			>
 		{{/if}}
-            <div class="card-img-container">
+            <div class="card-img-container card-img-normal">
 				{{#if theme_settings.custom_product_show_alt_image}}
 	                {{#each (limit images 2)}}
 	                    {{#unless this.data '===' ../../image.data}}
@@ -102,7 +102,28 @@
 	                }}
 				{{/if}}
             </div>
-        </a>
+			</a>
+			{{#if (getVar "spotlight") '===' 'active'}}
+				<ul class="spotlight-carousel">
+		        {{#each images}}
+		            {{#unless this.data '===' ../../image.data}}
+		                <li class="spotlight-carousel-item">
+							<span class="card-figure__link card-figure__slider">
+							<div class="card-img-container card-img-slider">
+		                    {{> components/common/responsive-img
+		                        image=this
+		                        class="card-image card-image-slide"
+		                        fallback_size=theme_settings.productgallery_size
+		                        lazyload=theme_settings.lazyload_mode
+		                        default_image=theme_settings.default_image_product
+		                    }}
+							</div>
+						</span>
+		                </li>
+		            {{/unless}}
+		        {{/each}}
+				</ul>
+			{{/if}}
 
         <figcaption class="card-figcaption">
             <div class="card-figcaption-body">
@@ -163,22 +184,7 @@
             <p class="card-summary">{{{summary}}}</p>
         {{/if}}
 		{{getVar "spotlight"}}
-		{{#if (getVar "spotlight") '===' 'active'}}
-	        {{#each images}}
-	            {{#unless this.data '===' ../../image.data}}
-	                <span class="card-image-test">
-	                    {{> components/common/responsive-img
-	                        image=this
-	                        class="card-image-test"
-	                        fallback_size=theme_settings.productgallery_size
-	                        lazyload=theme_settings.lazyload_mode
-	                        default_image=theme_settings.default_image_product
-	                    }}
-	                </span>
-	            {{/unless}}
-	        {{/each}}
-		{{/if}}
-        
+
         <div class="card-text card-price" data-test-info-type="price">
             {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
                 {{> components/products/price price=price}}
@@ -202,11 +208,6 @@
                         {{/if}}
                     {{/if}}
                 {{/unless}}
-                {{#if show_compare}}
-                    <label class="button button--small button-secondary" for="compare-{{id}}">
-                        {{lang 'products.compare'}} <input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}">
-                    </label>
-                {{/if}}
                 {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
 				<div>
                     {{#if show_cart_action}}
