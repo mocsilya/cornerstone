@@ -46,9 +46,11 @@
                 </div>
             {{/if}}
         {{/or}}
-        <div class="sale-flag-sash spotlight-sash spotlight-sash-top">
-            <span class="sale-text">SPOTLIGHT</span>
-        </div>
+		{{#if (getVar "spotlight") '===' 'active'}}
+        	<div class="sale-flag-sash spotlight-sash">
+            	<span class="sale-text">{{theme_settings.custom_card_spotlight_name}}</span>
+        	</div>
+		{{/if}}
 		{{#if show_cart_action}}
 			{{#if has_options}}
 				<a href="{{url}}" 
@@ -71,7 +73,7 @@
 			>
 		{{/if}}
             <div class="card-img-container card-img-normal">
-				{{#if theme_settings.custom_product_show_alt_image}}
+				{{#if theme_settings.custom_card_show_alt_image}}
 	                {{#each (limit images 2)}}
 	                    {{#unless this.data '===' ../../image.data}}
 	                        <span class="card-image card-image-{{@index}}">
@@ -162,9 +164,6 @@
         </figcaption>
     </figure>
     <div class="card-body">
-        <div class="sale-flag-sash spotlight-sash spotlight-sash-bottom">
-            <span class="sale-text">SPOTLIGHT</span>
-        </div>
         {{#and rating show_rating}}
             <p class="card-text card-rating" data-test-info-type="productRating">
                 <span class="rating--small">
@@ -180,11 +179,11 @@
                href="{{url}}" 
                {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>{{name}}</a>
         </h3>
-        {{#if summary}}
+		{{#if (getVar "spotlight") '===' 'active'}}
+        	{{#if summary}}
             <p class="card-summary">{{{summary}}}</p>
-        {{/if}}
-		{{getVar "spotlight"}}
-
+        	{{/if}}
+		{{/if}}
         <div class="card-text card-price" data-test-info-type="price">
             {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
                 {{> components/products/price price=price}}
@@ -198,7 +197,8 @@
 		        <div class="card-swatches"></div>
 			{{/if}}
 		{{/if}}
-        <div class="card-spotlight-actions">
+		{{#if (getVar "spotlight") '===' 'active'}}
+        	<div class="card-spotlight-actions">
                 {{#unless hide_product_quick_view}}
                     {{#if theme_settings.show_product_quick_view}}
                         {{#if settings.data_tag_enabled}}
@@ -208,9 +208,9 @@
                         {{/if}}
                     {{/if}}
                 {{/unless}}
-                {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
-				<div>
+                {{#or customer (if theme_settings.restrict_to_login '!==' true)}}			
                     {{#if show_cart_action}}
+						<div>
                         {{#if has_options}}
                             <a href="{{url}}" data-event-type="product-click" class="button button--large button--primary" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
                         {{/if}}
@@ -224,9 +224,10 @@
                         {{#if out_of_stock_message }}
                             <a href="{{url}}" data-event-type="product-click" class="button button--large button--secondary" data-product-id="{{id}}">{{out_of_stock_message}}</a>
                         {{/if}}
+						</div>
                     {{/if}}
-				</div>
                 {{/or}}
-		</div>
+			</div>
+		{{/if}}
     </div>
 </article>

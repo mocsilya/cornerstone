@@ -46,7 +46,10 @@
   ],
   "settings": {
     "custom_homepage_show_tabs": true,
-    "custom_product_show_alt_image": true,
+    "custom_card_show_alt_image": true,
+    "custom_card_spotlight_name": "Spotlight",
+    "custom-card-spotlight-color": "#ffffff",
+	"custom-card-spotlight-background": "#333333",
     "custom-header-social": "#444444",
     "custom-header-social-hover": "#666666",
 	"custom_footer_show_page_columns": true,

@@ -455,6 +455,12 @@ label {
 	display: none;
 }
 
+.spotlight-sash,
+.product:hover .spotlight-sash {
+	color: stencilColor("custom-card-spotlight-color");
+	background: stencilColor("custom-card-spotlight-background");
+}
+
 .card-spotlight-actions {
 	display: none;
 	margin-top: 1rem;
@@ -486,10 +492,6 @@ label {
 	border-radius: 50%;
 	height: 1rem;
 	width: 1rem;
-}
-
-.sale-flag-sash.spotlight-sash {
-	display: none;
 }
 
 .card-image-0 img,
@@ -600,12 +602,29 @@ img.card-image-default:only-child {
 	}  
 }
 
+.page-sidebar + .page-content .productGrid .product.spotlight .card {
+	@include breakpoint("medium") {
+		flex-direction: column;
+	}
+	@include breakpoint("large") {
+		flex-direction: row;
+	} 
+}
+
 .productGrid .product.spotlight .card-figure {
 	padding: 0 1.5rem 1.5rem 1.5rem;
 	@include breakpoint("medium") {
 		flex: 1 0 50%;
-		
 	}  
+}
+
+.page-sidebar + .page-content .productGrid .product.spotlight .card-figure {
+	@include breakpoint("medium") {
+		flex: 1 0 100%;
+	}
+	@include breakpoint("large") {
+		flex: 1 0 50%;
+	} 
 }
 
 .productGrid .product.spotlight .card-body {
@@ -614,6 +633,15 @@ img.card-image-default:only-child {
 		font-size: 1.25rem;
 		padding-left: .75rem;
 	}  
+}
+
+.page-sidebar + .page-content .productGrid .product.spotlight .card-body {
+	@include breakpoint("medium") {
+		flex: 1 0 100%;
+	}
+	@include breakpoint("large") {
+		flex: 1 1 auto;
+	} 
 }
 
 .productGrid .product.spotlight .card-figcaption {
@@ -627,12 +655,6 @@ img.card-image-default:only-child {
 
 .productGrid .product.spotlight .card-brand {
 	font-weight: 700;
-}
-
-.productGrid .product.spotlight .card-title {
-	@include breakpoint("medium") {
-		padding-right: 4rem;
-	}
 }
 
 .productGrid .product.spotlight .card-title,
@@ -655,24 +677,6 @@ img.card-image-default:only-child {
 		margin-bottom: 4px;
 		height: 2rem;
 		width: 2rem;
-	}
-}
-
-
-.productGrid .product.spotlight .sale-flag-sash.spotlight-sash-top {
-	display: block;
-	@include breakpoint("medium") {
-		display: none;
-	}
-}
-
-.productGrid .product.spotlight .sale-flag-sash.spotlight-sash-bottom {
-	left: auto;
-	top: 14px;
-	right: -35px;
-	transform: rotate(45deg);
-	@include breakpoint("medium") {
-		display: block;
 	}
 }
 
