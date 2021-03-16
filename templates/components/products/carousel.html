@@ -41,7 +41,7 @@
     <button aria-label="{{lang 'carousel.arrowAriaLabel'}} {{products.length}}" class="{{#if customArrowClass}}{{customArrowClass}} {{/if}}js-product-prev-arrow slick-prev slick-arrow"></button>
     {{/if}}
     {{#each products}}
-    <div class="productCarousel-slide js-product-slide">
+    <div class="productCarousel-slide js-product-slide {{#filter custom_fields 'hidden' property='name' }}{{#if value '==' 'spotlight'}} spotlight{{/if}}{{/filter}}">
         {{> components/products/card settings=../settings theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
     </div>
     {{/each}}
