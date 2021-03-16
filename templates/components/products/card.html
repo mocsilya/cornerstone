@@ -54,7 +54,7 @@
 		{{#if show_cart_action}}
 			{{#if has_options}}
 				<a href="{{url}}" 
-					class="card-figure__link card-figure__swatches card-figure__normal"
+					class="card-figure__link figure__swatches card-figure__normal"
 					aria-label="{{name}},{{> components/products/product-aria-label}}"
 					{{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}
 				>
@@ -199,18 +199,8 @@
 		{{/if}}
 		{{#if (getVar "spotlight") '===' 'active'}}
         	<div class="card-spotlight-actions">
-                {{#unless hide_product_quick_view}}
-                    {{#if theme_settings.show_product_quick_view}}
-                        {{#if settings.data_tag_enabled}}
-                            <button class="button button--small button--secondary quickview" data-event-type="product-click" data-product-id="{{id}}">{{lang 'products.quick_view'}}</button>
-                        {{else}}
-                            <button class="button button--small button--secondary quickview" data-product-id="{{id}}">{{lang 'products.quick_view'}}</button>
-                        {{/if}}
-                    {{/if}}
-                {{/unless}}
                 {{#or customer (if theme_settings.restrict_to_login '!==' true)}}			
                     {{#if show_cart_action}}
-						<div>
                         {{#if has_options}}
                             <a href="{{url}}" data-event-type="product-click" class="button button--large button--primary" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
                         {{/if}}
@@ -224,9 +214,17 @@
                         {{#if out_of_stock_message }}
                             <a href="{{url}}" data-event-type="product-click" class="button button--large button--secondary" data-product-id="{{id}}">{{out_of_stock_message}}</a>
                         {{/if}}
-						</div>
                     {{/if}}
                 {{/or}}
+                {{#unless hide_product_quick_view}}
+                    {{#if theme_settings.show_product_quick_view}}
+                        {{#if settings.data_tag_enabled}}
+                            <button class="button button--large button--secondary quickview" data-event-type="product-click" data-product-id="{{id}}">{{lang 'products.quick_view'}}</button>
+                        {{else}}
+                            <button class="button button--large button--secondary quickview" data-product-id="{{id}}">{{lang 'products.quick_view'}}</button>
+                        {{/if}}
+                    {{/if}}
+                {{/unless}}
 			</div>
 		{{/if}}
     </div>

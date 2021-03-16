@@ -1,16 +1,15 @@
+{{assignVar "spotlight" "inactive"}}
+{{#filter custom_fields 'hidden' property='name'}}
+	{{#if value '==' 'spotlight'}}
+		{{assignVar "spotlight" "active"}}
+	{{/if}}
+{{/filter}}
 {{#if settings.data_tag_enabled}}
     <article class="listItem" data-event-type="{{event}}" data-entity-id="{{id}}" data-position="{{position}}" data-name="{{name}}" data-product-category="{{#each category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{brand.name}}" data-product-price="{{#if price.with_tax}}{{price.with_tax.value}}{{else}}{{price.without_tax.value}}{{/if}}">
 {{else}}
     <article class="listItem">
 {{/if}}
     <figure class="listItem-figure">
-        <a href="{{url}}"
-           class="listItem-figure__link"
-           aria-label="{{name}},{{> components/products/product-aria-label}}"
-           {{#if settings.data_tag_enabled}}
-           data-event-type="product-click"
-           {{/if}}
-        >
         {{#or price.sale_price_with_tax.value price.sale_price_without_tax.value}}
             {{#if theme_settings.product_sale_badges '===' 'sash'}}
                 <div class="sale-flag-sash">
@@ -27,23 +26,88 @@
                 </div>
             {{/if}}
         {{/or}}
-        {{> components/common/responsive-img
-            image=image
-            class="listItem-image"
-            fallback_size=theme_settings.productgallery_size
-            lazyload=theme_settings.lazyload_mode
-            default_image=theme_settings.default_image_product
-        }}
+		{{#if (getVar "spotlight") '===' 'active'}}
+        	<div class="sale-flag-sash spotlight-sash">
+            	<span class="sale-text">{{theme_settings.custom_card_spotlight_name}}</span>
+        	</div>
+		{{/if}}
+		{{#if show_cart_action}}
+			{{#if has_options}}
+				<a href="{{url}}" 
+					class="listItem-figure__link figure__swatches listItem-figure__normal"
+					aria-label="{{name}},{{> components/products/product-aria-label}}"
+					{{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}
+				>
+			{{else}}
+				<a href="{{url}}" 
+					class="listItem-figure__link listItem-figure__normal"
+					aria-label="{{name}},{{> components/products/product-aria-label}}"
+					{{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}
+				>
+			{{/if}}
+		{{else}}
+			<a href="{{url}}" 
+				class="listItem-figure__link listItem-figure__normal"
+				aria-label="{{name}},{{> components/products/product-aria-label}}"
+				{{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}
+			>
+		{{/if}}
+        <div class="card-img-container card-img-normal">
+			{{#if theme_settings.custom_card_show_alt_image}}
+                {{#each (limit images 2)}}
+                    {{#unless this.data '===' ../../image.data}}
+                        <span class="card-image card-image-{{@index}}">
+                            {{> components/common/responsive-img
+                                image=this
+                                class="card-image"
+                                fallback_size=theme_settings.productgallery_size
+                                lazyload=theme_settings.lazyload_mode
+                                default_image=theme_settings.default_image_product
+                            }}
+                        </span>
+                    {{/unless}}
+                {{/each}}
+                    {{> components/common/responsive-img
+                        image=default
+                        class="card-image card-image-default"
+                        fallback_size=theme_settings.productgallery_size
+                        lazyload=theme_settings.lazyload_mode
+                        default_image=theme_settings.default_image_product
+                    }}
+			{{else}}
+				{{> components/common/responsive-img
+                    image=image
+                    class="card-image"
+                    fallback_size=theme_settings.productgallery_size
+                    lazyload=theme_settings.lazyload_mode
+                    default_image=theme_settings.default_image_product
+                }}
+			{{/if}}
+        </div>
         </a>
-        {{#unless hide_product_quick_view}}
-            {{#if theme_settings.show_product_quick_view}}
-                <div class="listItem-figureBody">
-                    <button type="button" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}} class="button button--small listItem-button quickview" data-product-id="{{id}}">{{lang 'products.quick_view'}}</button>
-                </div>
-            {{/if}}
-        {{/unless}}
+		{{#if (getVar "spotlight") '===' 'active'}}
+			<ul class="spotlight-carousel">
+	        {{#each images}}
+	            {{#unless this.data '===' ../../image.data}}
+	                <li class="spotlight-carousel-item">
+						<span class="card-figure__link card-figure__slider">
+						<div class="card-img-container card-img-slider">
+	                    {{> components/common/responsive-img
+	                        image=this
+	                        class="card-image card-image-slide"
+	                        fallback_size=theme_settings.productgallery_size
+	                        lazyload=theme_settings.lazyload_mode
+	                        default_image=theme_settings.default_image_product
+	                    }}
+						</div>
+					</span>
+	                </li>
+	            {{/unless}}
+	        {{/each}}
+			</ul>
+		{{/if}}
     </figure>
-    <div class="listItem-body">
+    <div class="listItem-body card-body">
         <div class="listItem-content">
             <div class="listItem-details">
                 {{#if show_rating}}
@@ -63,7 +127,7 @@
                     </a>
                 </h4>
                 {{#if summary}}
-                    <p>{{{summary}}}</p>
+                    <p class="listItem-summary">{{{summary}}}</p>
                 {{/if}}
             </div>
             <div class="listItem-actions">
@@ -71,28 +135,41 @@
                     {{#if price}}
                         <div class="listItem-price">{{> components/products/price price=price}}</div>
                     {{/if}}
-                    {{#if show_cart_action}}
-                        {{#if has_options}}
-                            <a href="{{url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}} class="button button--small" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
-                        {{/if}}
-                        {{#if pre_order}}
-                            <a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--primary">{{lang 'products.pre_order'}}</a>
-                        {{/if}}
-                        {{#if add_to_cart_url }}
-                            <a href="{{add_to_cart_url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}} class="button button--primary">{{lang 'products.add_to_cart'}}</a>
-                        {{/if}}
-                        {{#if out_of_stock_message }}
-                            <a href="{{url}}" data-event-type="product-click" class="button button--small" data-product-id="{{id}}">{{out_of_stock_message}}</a>
-                        {{/if}}
-                    {{/if}}
                 {{else}}
                     {{> components/common/login-for-pricing}}
                 {{/or}}
+				{{#if show_cart_action}}
+					{{#if has_options}}
+						<div class="card-swatches"></div>
+					{{/if}}
+				{{/if}}
+                {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                    {{#if show_cart_action}}
+                        {{#if has_options}}
+                            <a href="{{url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}} class="button button--primary button--small" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                        {{/if}}
+                        {{#if pre_order}}
+                            <a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--small button--primary">{{lang 'products.pre_order'}}</a>
+                        {{/if}}
+                        {{#if add_to_cart_url }}
+                            <a href="{{add_to_cart_url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}} class="button button--small button--primary">{{lang 'products.add_to_cart'}}</a>
+                        {{/if}}
+                        {{#if out_of_stock_message }}
+                            <a href="{{url}}" data-event-type="product-click" class="button button--primary button--small" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                        {{/if}}
+                    {{/if}}
+                {{/or}}
+
                 {{#if show_compare}}
                     <label class="button button--small" for="compare-{{id}}">
                         {{lang "products.compare"}} <input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}">
                     </label>
                 {{/if}}
+		        {{#unless hide_product_quick_view}}
+		            {{#if theme_settings.show_product_quick_view}}
+		                <button type="button" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}} class="button button--small button quickview" data-product-id="{{id}}">{{lang 'products.quick_view'}}</button>
+		            {{/if}}
+		        {{/unless}}
             </div>
         </div>
     </div>

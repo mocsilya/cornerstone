@@ -3,9 +3,9 @@
  * templates > components > products > card.html
 */
 export default function () {
-	$('.card-figure__swatches').each(function() {
+	$('.figure__swatches').each(function() {
 		const url = $(this).attr('href');
-		const swatches = $(this).parent().next('.card-body').children('.card-swatches');
+		const swatches = $(this).parent().next('.card-body').find('.card-swatches');
 		$.ajax({ 
 			url: url, 
 			processData : false,

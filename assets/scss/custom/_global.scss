@@ -425,7 +425,7 @@ label {
 		width: 30%;
 	}
 	@include breakpoint("large") {
-		width: 20%;
+		width: 25%;
 	}
 }
 
@@ -434,7 +434,7 @@ label {
 		width: 70%;
 	}
 	@include breakpoint("large") {
-		width: 80%;
+		width: 75%;
 	}
 }
 
@@ -471,7 +471,7 @@ label {
 	min-height: 33px;
 }
 
-.card .card-swatches {
+.card-swatches {
 	margin-top: .5rem;
 }
 
@@ -485,7 +485,9 @@ label {
 }
 
 .card .form-option-variant--color,
-.card .form-option-variant--pattern {
+.card .form-option-variant--pattern,
+.listItem .form-option-variant--color,
+.listItem .form-option-variant--pattern  {
 	background-size: cover;
 	margin-right: 2px;
 	margin-bottom: 2px;
@@ -515,16 +517,258 @@ img.card-image-default:only-child {
 	opacity: 0;
 }
 
+.listItem-figure__link:hover .card-image-0 img,
 .card-figure__link:hover .card-image-0 img {
 	opacity: 0;
 }
 
+.listItem-figure__link:hover .card-image-1 img,
 .card-figure__link:hover .card-image-1 img {
 	opacity: 1;
 }
 
+.listItem-figure__link:hover span.card-image:only-of-type img,
 .card-figure__link:hover span.card-image:only-of-type img {
     opacity: 1;
+}
+
+.spotlight-carousel {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.spotlight-carousel .slick-next,
+.spotlight-carousel .slick-prev {
+	width: 2.5rem;
+	background: none;
+	border: 0;
+}
+
+.spotlight-carousel .slick-next::before,
+.spotlight-carousel .slick-prev::before {
+	width: 1.25rem;
+}
+
+.spotlight-carousel .slick-next {
+	right: -1.5rem;
+	padding: 0 0 0 1.125rem;
+}
+
+.spotlight-carousel .slick-prev {
+	left: -1.5rem;
+	padding: 0 0 0 .125rem;
+}
+
+
+
+// Product List
+// =============================================================================
+
+.productList {
+	border-top: 1px solid rgba(0,0,0,0.1);
+	border-left: 1px solid rgba(0,0,0,0.1);
+	margin: 0;
+}
+
+.productList:before,
+.productList:after {
+	display: none;
+}
+
+.productList .product {
+	border-right: 1px solid rgba(0,0,0,0.1);
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	display: block;
+	margin: 0;
+	padding: .75rem;
+}
+
+.productList .product + .product {
+	margin: 0;
+}
+
+.productList .listItem {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	display: block;
+	@include breakpoint("small") {
+		display: flex;
+		width: auto;
+	}
+}
+
+.productList .listItem:before,
+.productList .listItem:after {
+	display: none;
+}
+
+.productList .listItem-figure .sale-flag-sash {
+	left: -24px;
+}
+
+.productList .listItem-figure {
+	@include breakpoint("small") {
+		width: auto;
+		display: block;
+		padding: 0;
+		flex: 0 0 40%;
+	}
+	@include breakpoint("medium") {
+		display: block;
+		padding: 0;
+		flex: 0 0 30%;
+	}
+	@include breakpoint("large") {
+		display: block;
+		padding: 0;
+		flex: 0 0 25%;
+	}
+}
+
+.page-sidebar + .page-content .productList .listItem-figure {
+	@include breakpoint("small") {
+		flex: 0 0 30%;
+	}
+	@include breakpoint("medium") {
+		flex: 0 0 25%;
+	}
+	@include breakpoint("large") {
+		flex: 0 0 20%;
+	}
+}
+
+.productList .listItem-body,
+.page-sidebar + .page-content .productList .listItem-body {
+	@include breakpoint("small") {
+		width: auto;
+		display: block;
+		padding: 0 .75rem 0 1.5rem;
+		flex: 1 1 auto;
+	}
+}
+
+.productList .product.spotlight .listItem {
+	@include breakpoint("small") {
+		font-size: 0;
+		display: block;
+	}
+}
+
+.productList .product.spotlight .listItem-figure {
+	padding: 0 1.5rem 1.5rem 1.5rem;
+	margin: 0;
+	@include breakpoint("small") {
+		display: block;
+		font-size: 1rem;
+		width: 100%;
+		vertical-align: top;
+		flex: none;
+	}
+	@include breakpoint("medium") {
+		display: inline-block;
+		width: 50%;
+	}
+}
+
+.page-sidebar + .page-content .productList .product.spotlight .listItem-figure {
+	@include breakpoint("medium") {
+		display: block;
+		width: 100%;
+	}
+	@include breakpoint("large") {
+		display: inline-block;
+		width: 50%;
+	}
+}
+
+.productList .product.spotlight .listItem-body {
+	@include breakpoint("small") {
+		display: block;
+		font-size: 1rem;
+		width: 100%;
+		vertical-align: top;
+		flex: none;
+	}
+}
+
+.page-sidebar + .page-content .productList .product.spotlight .listItem-body {
+	@include breakpoint("medium") {
+		display: block;
+		width: 100%;
+	}
+	@include breakpoint("large") {
+		display: inline-block;
+		width: 50%;
+	}
+	
+}
+
+.listItem-figure__link {
+	margin: 0;
+}
+
+.productList .product.spotlight .listItem-content {
+	display: block;
+}
+
+.productList .product.spotlight .listItem-details,
+.page-sidebar + .page-content .productList .product.spotlight .listItem-details {
+	padding-right: 0;
+}
+
+
+.productList .product.spotlight .listItem-brand {
+	font-weight: 700;
+}
+
+.productList .product.spotlight .listItem-title,
+.productList .product.spotlight .price-now-label,
+.productList .product.spotlight .price.price--withTax,
+.productList .product.spotlight .price.price--withoutTax {
+	font-weight: 700;
+	@include breakpoint("small") {
+		font-size: 1.25rem;
+	}
+	@include breakpoint("medium") {
+		font-size: 1.25rem;
+	}
+	@include breakpoint("large") {
+		font-size: 1.5rem;
+	}
+}
+
+.productList .product.spotlight .form-option-variant--color,
+.productList .product.spotlight .form-option-variant--pattern {
+	@include breakpoint("medium") {
+		margin-right: 4px;
+		margin-bottom: 4px;
+		height: 2rem;
+		width: 2rem;
+	}
+}
+
+
+.productList .product.spotlight .listItem-actions {
+	display: block;
+	width: 100%;
+}
+
+.productList .spotlight-carousel {
+	display: block;
+}
+
+.listItem-actions .button,
+.listItem-actions .button + .button {
+	margin: .375rem .75rem .375rem 0;
+	@include breakpoint("large") {
+		margin: .375rem 0;
+	}
+}
+
+.productList .product.spotlight .listItem-figure__normal {
+	display: none;
 }
 
 
@@ -562,7 +806,6 @@ img.card-image-default:only-child {
 .productGrid:after {
 	display: none;
 }
-
 
 .productGrid .product {
 	border-right: 1px solid rgba(0,0,0,0.1);
@@ -681,32 +924,7 @@ img.card-image-default:only-child {
 }
 
 .productGrid .spotlight-carousel {
-	margin: 0;
-	padding: 0;
-	list-style: none;
 	display: block;
-}
-
-.productGrid .spotlight-carousel .slick-next,
-.productGrid .spotlight-carousel .slick-prev {
-	width: 2.5rem;
-	background: none;
-	border: 0;
-}
-
-.productGrid .spotlight-carousel .slick-next::before,
-.productGrid .spotlight-carousel .slick-prev::before {
-	width: 1.25rem;
-}
-
-.productGrid .spotlight-carousel .slick-next {
-	right: -1.5rem;
-	padding: 0 0 0 1.125rem;
-}
-
-.productGrid .spotlight-carousel .slick-prev {
-	left: -1.5rem;
-	padding: 0 0 0 .125rem;
 }
 
 .productGrid .product.spotlight .card-figure__normal {
