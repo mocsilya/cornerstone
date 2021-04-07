@@ -1,6 +1,19 @@
 # Changelog
 
 ## Draft
+- Fixed unnecessary horizontal scroll on swatch options on PDP. [#2023](https://github.com/bigcommerce/cornerstone/pull/2023)
+
+## 5.3.0 (03-25-2021)
+- Remove AddThis for social sharing, replace with provider sharing links. [#1997](https://github.com/bigcommerce/cornerstone/pull/1997)
+- IE11 - Clicking on Search Does Not Display Search Bar. [#2017](https://github.com/bigcommerce/cornerstone/pull/2017)
+- Alt text should include product name for ratings. [#2015](https://github.com/bigcommerce/cornerstone/pull/2015)
+- Changed insufficient "Change" link text on cart page. [#2014](https://github.com/bigcommerce/cornerstone/pull/2014)
+- Added labeling for edit fields on cart page. [#2016](https://github.com/bigcommerce/cornerstone/pull/2016)
+- Add placeholder for failed to load carousel images and update scalability. [#2009](https://github.com/bigcommerce/cornerstone/pull/2009)
+- Fixed insufficient button label on cart page from action controls. [#2013](https://github.com/bigcommerce/cornerstone/pull/2013)
+- "Skip to main content" now is visible when top banned is absent. [#2010](https://github.com/bigcommerce/cornerstone/pull/2010)
+- Announce subscribing email field as mandatory. [#2011](https://github.com/bigcommerce/cornerstone/pull/2011)
+- Changed insufficient link text for "Read More" links. [#2012](https://github.com/bigcommerce/cornerstone/pull/2012)
 - Added sold out badge on products within PLP. [#2003](https://github.com/bigcommerce/cornerstone/pull/2003)
 - Update focus trap in Modal. [#1998](https://github.com/bigcommerce/cornerstone/pull/1998)
 - Added unique identifiers to product cards on product list pages. [#1999](https://github.com/bigcommerce/cornerstone/pull/1999)
