@@ -61,9 +61,6 @@ label {
 
 
 
-
-
-
 // Breadcrumbs
 // =============================================================================
 
@@ -1249,4 +1246,64 @@ a:hover span.card-image:only-of-type img {
 
 .footer-copyright a:hover {
 	color: stencilColor("custom-footer-link-hover");
+}
+
+
+
+// WIDGET > Custom Blocks
+// =============================================================================
+
+.widget-custom-blocks {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: block;
+    @include breakpoint("medium") {
+		display: flex;
+	}
+}
+
+.widget-custom-blocks li {
+	margin: 0;
+    padding: 0;
+    list-style: none;
+    padding: .75rem;
+    @include breakpoint("medium") {
+        flex: 1;
+	}
+}
+
+.widget-custom-blocks a {
+    display: block;
+    position: relative;
+    margin: 0;
+}
+
+.widget-custom-blocks img {
+    width: 100%;
+}
+
+.widget-custom-blocks .custom-widget-content {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    padding-bottom: 1.5rem;
+}
+
+.widget-custom-blocks .custom-widget-heading,
+.widget-custom-blocks .custom-widget-subtext {
+    text-align: center;
+    display: block;
+    line-height: 1.2;
+}
+
+.widget-custom-blocks .custom-widget-heading {
+    font-weight: 700;
+    padding-bottom: .75rem;
+}
+
+.widget-custom-blocks .custom-widget-subtext {
+    font-weight: 400;
+    padding-bottom: 1.5rem;
 }
