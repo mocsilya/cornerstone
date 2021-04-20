@@ -405,6 +405,18 @@
     "uk": "Показати товари в списку",
     "zh": "以列表形式显示产品"
   },
+  "i18n.CustomCategorySidebarDisplay": {
+    "default": "Category/filter location"
+  },
+  "i18n.CustomCategorySidebarVertical": {
+    "default": "Left sidebar"
+  },
+  "i18n.CustomCategorySidebarHorizontal": {
+    "default": "Above products"
+  },
+  "i18n.CustomCategoryShowParents": {
+    "default": "Show parent/siblings of current category"
+  },
   "i18n.Blog": {
     "default": "Blog",
     "fr": "Blog",
