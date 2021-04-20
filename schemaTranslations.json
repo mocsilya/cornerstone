@@ -837,6 +837,9 @@
     "uk": "Показати марки в нижньому колонтитулі",
     "zh": "在页脚显示品牌"
   },
+  "i18n.CustomFooterShowPageColumns": {
+    "default": "Show parent pages in seperate columns."
+  },
   "i18n.ShowCurrentYearAnd": {
     "default": "Show \"&copy;\", current year and store name",
     "fr": "Afficher \"&copy;\", l’année en cours et le nom de la boutique",
@@ -1134,6 +1137,12 @@
   "i18n.CustomHomepageShowTabs": {
     "default": "Show products in tabs"
   },
+  "i18n.CustomHomepageModal": {
+    "default": "Newsletter"
+  },
+  "i18n.CustomHomepageShowModal": {
+    "default": "Show newsletter signup modal"
+  },
   "i18n.ProductSaleBadges": {
     "default": "Product sale badges",
     "fr": "Badges de vente de produits",
@@ -1259,6 +1268,12 @@
     "it": "Mostra il bottone quickview sulle schede prodotto",
     "uk": "Показати кнопку швидкого перегляду на картках товару",
     "zh": "在产品卡上显示快速查看按钮"
+  },
+  "i18n.ShowSwatchesOnProduct": {
+    "default": "Show swatches on product cards"
+  },
+  "i18n.ShowAlternativeImageOnProduct": {
+    "default": "Show alternative hover image on product cards"
   },
   "i18n.ShowQuantitySelectionOnProduct": {
     "default": "Show quantity selection on product pages",
@@ -1413,6 +1428,15 @@
     "it": "Sfondo bottone",
     "uk": "Фон кнопки",
     "zh": "按钮背景"
+  },
+  "i18n.ProductCardsSpotlight": {
+    "default": "Spotlight label name"
+  },
+  "i18n.ProductCardsSpotlightColor": {
+    "default": "Spotlight label text color"
+  },
+  "i18n.ProductCardsSpotlightBackground": {
+    "default": "Spotlight label background color"
   },
   "i18n.ProductCardsQuickSearch": {
     "default": "Product cards (quick search)",

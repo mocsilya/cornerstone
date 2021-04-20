@@ -85,6 +85,8 @@ blog:
     {{{region name="home_below_new_products"}}}
 {{/if}}
 </div>
-{{> components/custom/modal-subscribe}}
+{{#if theme_settings.custom_homepage_show_modal}}
+	{{> components/custom/modal-subscribe}}
+{{/if}}
 {{/partial}}
 {{> layout/base}}

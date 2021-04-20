@@ -36,16 +36,16 @@ blog:
 {{{category.description}}}
 <div class="page">
     {{#if category.faceted_search_enabled}}
-        <aside class="page-sidebar" id="faceted-search-container">
+        <aside class="page-sidebar page-sidebar-{{theme_settings.custom-category-sidebar-display}}" id="faceted-search-container">
             {{> components/category/sidebar}}
         </aside>
     {{else if category.subcategories}}
-        <aside class="page-sidebar" id="faceted-search-container">
+        <aside class="page-sidebar page-sidebar-{{theme_settings.custom-category-sidebar-display}}" id="faceted-search-container">
             {{> components/category/sidebar}}
         </aside>
     {{else if category.shop_by_price}}
         {{#if theme_settings.shop_by_price_visibility}}
-             <aside class="page-sidebar" id="faceted-search-container">
+             <aside class="page-sidebar page-sidebar-{{theme_settings.custom-category-sidebar-display}}" id="faceted-search-container">
                 {{> components/category/sidebar}}
             </aside>
         {{/if}}

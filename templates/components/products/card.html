@@ -193,7 +193,9 @@
         {{> components/products/bulk-discount-rates}}
 	    {{#if show_cart_action}}
 			{{#if has_options}}
-		        <div class="card-swatches"></div>
+				{{#if theme_settings.custom_card_show_swatches}}
+		        	<div class="card-swatches"></div>
+				{{/if}}
 			{{/if}}
 		{{/if}}
 		{{#if (getVar "spotlight") '===' 'active'}}

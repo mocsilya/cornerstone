@@ -1,6 +1,37 @@
 <nav>
+{{#if theme_settings.custom-category-show-parents}}
+	{{#each categories}}
+    {{#if ../breadcrumbs.[1].name '===' name}}
+        {{#if children}}
+        <div class="sidebarBlock sidebarCategories">
+            <h2 class="sidebarBlock-heading">{{name}}</h2>
+            <ul class="navList">
+            {{#each children}}
+                {{#if children}}
+                <li class="navList-item">
+                    <a class="navList-action{{#if is_active}} activePage{{/if}}" href="{{url}}" title="{{name}}">{{name}}</a>
+                    <ul>
+                        {{#each children}}
+                        <li class="navList-item navList-item-sub">
+                            <a class="navList-action navList-action-sub{{#if is_active}} activePage{{/if}}" href="{{url}}" title="{{name}}">{{name}}</a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </li>
+                {{else}}
+                <li class="navList-item">
+                    <a class="navList-action{{#if is_active}} activePage{{/if}}" href="{{url}}" title="{{name}}">{{name}}</a>
+                </li>
+                {{/if}}
+            {{/each}}
+            </ul>
+        </div>
+        {{/if}}
+    {{/if}}
+	{{/each}}
+{{else}}
     {{#if category.subcategories}}
-        <div class="sidebarBlock">
+        <div class="sidebarBlock sidebarCategories">
             <h2 class="sidebarBlock-heading">{{category.name}}</h2>
             <ul class="navList">
                 {{#each category.subcategories}}
@@ -11,10 +42,11 @@
             </ul>
         </div>
     {{/if}}
+{{/if}}
 
-    {{#if category.faceted_search_enabled}}
-        {{> components/faceted-search/index category}}
-    {{else}}
-        {{> components/category/shop-by-price shop_by_price=category.shop_by_price category_url=category.url}}
-    {{/if}}
+{{#if category.faceted_search_enabled}}
+	{{> components/faceted-search/index category}}
+{{else}}
+	{{> components/category/shop-by-price shop_by_price=category.shop_by_price category_url=category.url}}
+{{/if}}
 </nav>

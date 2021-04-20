@@ -986,6 +986,12 @@
       },
       {
         "type": "checkbox",
+        "label": "i18n.CustomFooterShowPageColumns",
+        "force_reload": true,
+        "id": "custom_footer_show_page_columns"
+      },
+      {
+        "type": "checkbox",
         "label": "i18n.ShowCurrentYearAnd",
         "force_reload": true,
         "id": "show_copyright_footer"
@@ -1373,6 +1379,16 @@
         "label": "i18n.CustomHomepageShowTabs",
         "force_reload": true,
         "id": "custom_homepage_show_tabs"
+      },
+      {
+        "type": "heading",
+        "content": "i18n.CustomHomepageModal"
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.CustomHomepageShowModal",
+        "force_reload": true,
+        "id": "custom_homepage_show_modal"
       }
     ]
   },
@@ -1542,6 +1558,18 @@
         "label": "i18n.ShowQuickviewButtonOnProduct",
         "force_reload": true,
         "id": "show_product_quick_view"
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.ShowSwatchesOnProduct",
+        "force_reload": true,
+        "id": "custom_card_show_swatches"
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.ShowAlternateImageOnProduct",
+        "force_reload": true,
+        "id": "custom_card_show_alt_image"
       },
       {
         "type": "checkbox",
@@ -1929,6 +1957,22 @@
         "type": "color",
         "label": "i18n.ButtonBackground",
         "id": "card-figcaption-button-background"
+      },
+      {
+        "type": "text",
+        "label": "i18n.ProductCardsSpotlight",
+        "force_reload": true,
+        "id": "custom_card_spotlight_name"
+      },
+      {
+        "type": "color",
+        "label": "i18n.ProductCardsSpotlightColor",
+        "id": "custom-card-spotlight-color"
+      },
+      {
+        "type": "color",
+        "label": "i18n.ProductCardsSpotlightBackground",
+        "id": "custom-card-spotlight-background"
       },
       {
         "type": "heading",
