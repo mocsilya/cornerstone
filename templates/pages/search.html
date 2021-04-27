@@ -64,7 +64,7 @@ blog:
             {{> components/faceted-search/index product_results}}
         </aside>
     {{/if}}
-    <main class="page-content">
+    <div class="page-content">
         {{#if forms.search.has_suggestions}}
             <div class="panel panel--large">
                 <div class="panel-body">
@@ -145,7 +145,7 @@ blog:
         </div>
 
         {{{region name="search_below_content"}}}
-    </main>
+    </div>
 </section>
 
 {{/partial}}

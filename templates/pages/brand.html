@@ -34,7 +34,7 @@ blog:
         {{> components/brand/sidebar}}
     </aside>
 
-    <main class="page-content" id="product-listing-container">
+    <div class="page-content" id="product-listing-container">
         {{#if brand.search_error }}
             <p>{{lang 'search.errorMessage'}}</p>
         {{else}}
@@ -45,7 +45,7 @@ blog:
             {{/if}}
             {{{region name="brand_below_content"}}}
         {{/if}}
-    </main>
+    </div>
 </div>
 
 {{/partial}}
