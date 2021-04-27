@@ -126,6 +126,44 @@ label {
 
 }
 
+.navUser .navUser-item--account .dropdown-menu.is-open:before {
+	left: auto;
+	right: 0.78571rem;
+}
+
+.navUser .navUser-item--account .dropdown-menu.is-open:after {
+	left: auto;
+	right: 0.92857rem;
+}
+
+.navUser-text,
+.navUser-icon {
+	display: inline-block;
+	height: 1.5rem;
+	vertical-align: top;
+}
+
+.navUser-action .navUser-icon .icon {
+	height: 1.5rem;
+	width: 1.5rem;
+	margin: 0;
+}
+
+.navUser .navUser-item--social {
+	margin: 0;
+	padding: 0;
+}
+
+.navUser .socialLinks .socialLinks-item {
+	margin: 0;
+	padding: 1rem 0.78571rem;
+}
+
+.navUser .socialLinks .socialLinks-item .icon {
+	vertical-align: top;
+	display: block;
+}
+
 
 
 // Nav Pages
