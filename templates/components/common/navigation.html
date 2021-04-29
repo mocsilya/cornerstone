@@ -3,8 +3,17 @@
     <div class="dropdown dropdown--quickSearch" id="quickSearch" aria-hidden="true" data-prevent-quick-search-close>
         {{> components/common/quick-search name='nav-quick-search'}}
     </div>
-	<ul class="navUser-section navUser-section--norm">
-        <li class="navUser-item navUser-item--search">
+	<ul class="navUser-section navUser-section--norm navUser-section-{{theme_settings.logo-position}}">
+        {{#if theme_settings.social_icon_placement_top}}
+            <li class="navUser-item navUser-item--social">
+                {{> components/common/social-links}}
+            </li>
+        {{/if}}
+		{{#if theme_settings.social_icon_placement_top}}
+		<li class="navUser-item navUser-item--search">
+		{{else}}
+		<li class="navUser-item navUser-item--search navUser-item--widesearch">
+		{{/if}}
             <button class="navUser-action navUser-action--quickSearch"
                type="button"
                id="quick-search-expand"
@@ -12,17 +21,23 @@
                aria-controls="quickSearch"
                aria-label="{{lang 'common.search'}}"
             >
-				<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-search" /></svg></i></span>
-                <span class="navUser-text">{{lang 'common.search'}}</span>
+				<span class="navUser-icon navUser-icon-search"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-search" /></svg></i></span>
+				<span class="navUser-icon navUser-icon-close"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-close" /></svg></i></span>
+                <span class="navUser-text navUser-text-search">{{lang 'common.search'}}</span>
+				<span class="navUser-text navUser-text-close">Close</span>
             </button>
         </li>
 	</ul>
-    <ul class="navUser-section navUser-section--alt">
-        {{#if theme_settings.social_icon_placement_top}}
-            <li class="navUser-item navUser-item--social">
-                {{> components/common/social-links}}
-            </li>
-        {{/if}}
+    {{#if page_type '===' 'default'}}
+        <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
+            {{> components/common/store-logo}}
+        </h1>
+    {{else}}
+        <div class="header-logo header-logo--{{theme_settings.logo-position}}">
+            {{> components/common/store-logo}}
+        </div>
+    {{/if}}
+    <ul class="navUser-section navUser-section--alt navUser-section-{{theme_settings.logo-position}}">
         {{#if customer.store_credit.value '>' 0}}
             <li class="navUser-item navUser-item--credit">
                 <a class="navUser-action navUser-action--storeCredit"
@@ -31,8 +46,14 @@
                    href="{{urls.cart}}"
                    aria-label="{{lang 'common.store_credit_overview' credit=customer.store_credit.formatted}}"
                 >
-					<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-user" /></svg></i></span>
-                    <span class="navUser-text">{{lang 'common.store_credit_overview' credit=customer.store_credit.formatted}}</span>
+					<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-currency" /></svg></i></span>
+                    <span class="navUser-text">{{lang 'common.store_credit_overview' credit=customer.store_credit.formatted}}
+		            <i class="icon" aria-hidden="true">
+		                <svg>
+		                    <use xlink:href="#icon-chevron-down" />
+		                </svg>
+		            </i>
+					</span>
                 </a>
                 <div class="dropdown-menu" id="storeCredit-dropdown" data-dropdown-content aria-hidden="true">
                     {{{lang 'common.store_credit' store_credit=customer.store_credit.formatted}}}
@@ -45,8 +66,9 @@
                data-compare-nav
                aria-label="{{lang 'common.compare'}}"
             >
-				<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-user" /></svg></i></span>
-                <span class="navUser-text">{{lang 'common.compare'}}</span> <span class="countPill countPill--positive countPill--alt"></span>
+				<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-compare" /></svg></i></span>
+                <span class="navUser-text">{{lang 'common.compare'}}</span>
+				<span class="countPill countPill--positive countPill--alt"></span>
             </a>
         </li>
         {{#if settings.gift_certificates_enabled}}
@@ -60,6 +82,49 @@
                 </a>
             </li>
         {{/if}}
+		{{#if settings.show_wishlist}}
+			<li class="navUser-item navUser-item--wishlist">
+			{{#if customer.wishlists}}
+	            <a class="navUser-action navUser-action--wishlist has-dropdown"
+				   href="#"
+	               data-dropdown="wishlistDropdown"
+				   aria-controls="wishlistDropdown"
+				   aria-expanded="false"
+	               aria-label="{{lang 'account.mobile_nav.wishlists'}}"
+	            >
+					<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-heart" /></svg></i></span>
+					<span class="navUser-text">{{lang 'account.mobile_nav.wishlists'}}
+		            <i class="icon" aria-hidden="true">
+		                <svg>
+		                    <use xlink:href="#icon-chevron-down" />
+		                </svg>
+		            </i>
+					</span>
+	            </a>
+				<ul class="dropdown-menu" id="wishlistDropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+            	{{#each customer.wishlists}}
+					<li class="dropdown-menu-item">
+						<a href="{{view_url}}">{{this.name}}</a>
+					</li>
+            	{{/each}}
+					<li class="dropdown-menu-item">
+						<a href="{{urls.account.wishlists.all}}">All {{lang 'account.mobile_nav.wishlists'}}</a>
+					</li>
+					<li class="dropdown-menu-item">
+						<a href="/wishlist.php?action=addwishlist">{{lang 'account.wishlists.create_new'}}</a>
+					</li>
+				</ul>
+			{{else}}
+	            <a class="navUser-action navUser-action--wishlist"
+				   href="{{urls.account.wishlists.all}}"
+	               aria-label="{{lang 'account.mobile_nav.wishlists'}}"
+	            >
+					<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-heart" /></svg></i></span>
+                    <span class="navUser-text">{{lang 'account.mobile_nav.wishlists'}}</span>
+                </a>
+			{{/if}}
+			</li>
+		{{/if}}
         <li class="navUser-item navUser-item--account">
             <a class="navUser-action navUser-action--account has-dropdown"
 			   href="#"
@@ -69,7 +134,11 @@
                aria-label="{{lang 'common.account'}}"
             >
 				<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-user" /></svg></i></span>
+				{{#if customer}}
+				<span class="navUser-text">{{first (split customer.name " ") }}
+				{{else}}
 				<span class="navUser-text">{{lang 'common.account'}}
+				{{/if}}
 	            <i class="icon" aria-hidden="true">
 	                <svg>
 	                    <use xlink:href="#icon-chevron-down" />
@@ -83,7 +152,7 @@
 	                <a href="{{urls.account.index}}"
 	                   aria-label="{{lang 'common.account'}}"
 	                >
-	                    {{lang 'common.account'}}
+	                    {{first (split customer.name " ") }}'s {{lang 'common.account'}}
 	                </a>
 				</li>
 				<li class="dropdown-menu-item">
@@ -122,7 +191,13 @@
                href="{{urls.cart}}"
                aria-label="{{lang 'cart.nav_aria_label'}}"
             >
-				<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-user" /></svg></i></span>
+				<span class="navUser-icon">
+					<i class="icon" aria-hidden="true">
+						<svg>
+							<use xlink:href="#icon-cart" />
+						</svg>
+					</i>
+				</span>
                 <span class="navUser-item-cartLabel navUser-text">{{lang 'common.cart'}}</span>
                 <span class="countPill cart-quantity"></span>
             </a>

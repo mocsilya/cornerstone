@@ -17,15 +17,23 @@
         </div>
     {{/if}}
 {{/if}}
-{{#if settings.show_newsletter_box}}
+
 <section class="footer-newsletter">
 	<div class="container">
+		{{#if settings.show_newsletter_box}}
 		<article class="footer-newsletter-col" data-section-type="newsletterSubscription">
 			{{> components/common/subscription-form}}
 		</article>
+		{{/if}}
+		{{#if theme_settings.social_icon_placement_bottom}}
+		<article class="footer-social-col" data-section-type="footer-social">
+			<h3 class="newsletter-heading">{{lang 'social.connect'}}</h3>
+			<p class="newsletter-subtext">{{lang 'social.connect_intro'}}</p>
+			{{> components/common/social-links}}
+		</article>
+		{{/if}}
 	</div>
 </section>
-{{/if}}
 {{#if theme_settings.custom_footer_show_blog}}
 <section class="footer-blog">
 	<div class="container">
@@ -38,13 +46,6 @@
 <footer class="footer" role="contentinfo">
     <h2 class="footer-title-sr-only">{{lang 'footer.title'}}</h2>
     <div class="container">
-		{{#if theme_settings.social_icon_placement_bottom}}
-		<section class="footer-social">
-			<article class="footer-social-col" data-section-type="footer-social">
-				{{> components/common/social-links}}
-			</article>
-		</section>
-		{{/if}}
         <section class="footer-info">
 			{{#if theme_settings.custom_footer_show_page_columns}}
 			{{#each pages}}
@@ -166,7 +167,16 @@
                 <h3 class="footer-info-heading">{{settings.store_name}}</h3>
                 <address>{{nl2br settings.address}}</address>
                 {{#if settings.phone_number}}
-                    <p class="footer-phone"><strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong></p>
+                    <p class="footer-phone">
+						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-phone" /></svg></i> 
+						<strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong>
+					</p>
+                {{/if}}
+                {{#if theme_settings.custom_email_show}}
+                    <p class="footer-email">
+						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-envelope" /></svg></i> 
+						<a href="mailto:{{theme_settings.custom_email_address}}"><strong>{{lang 'footer.email_us'}}</strong></a>
+					</p>
                 {{/if}}
             </article>
             {{/if}}
@@ -179,21 +189,20 @@
                 {{> components/common/geotrust-ssl-seal}}
             </div>
         {{/if}}
-        {{#if settings.paypal_commerce_credit_message}}
-        <div class="footer-copyright">
-            <p class="paypal-credit">{{nl2br settings.paypal_commerce_credit_message}}</p>
-        </div>
-        {{/if}}
-        {{#if theme_settings.show_powered_by}}
-            <div class="footer-copyright">
+			<div class="footer-text">
+        	{{#if settings.paypal_commerce_credit_message}}
+            	<p class="paypal-credit">{{nl2br settings.paypal_commerce_credit_message}}</p>
+        	{{/if}}
+        	{{#if theme_settings.show_copyright_footer}}
+                <p class="copyright">&copy; {{moment format="YYYY"}} {{settings.store_name}}. {{theme_settings.custom_footer_copyright}}</p>
+        	{{/if}}
+        	{{#if theme_settings.show_powered_by}}
                 <p class="powered-by">{{lang 'footer.powered_by'}} <a href="https://www.bigcommerce.com?utm_source=merchant&amp;utm_medium=poweredbyBC" rel="nofollow">BigCommerce</a></p>
-            </div>
-        {{/if}}
-        {{#if theme_settings.show_copyright_footer}}
-            <div class="footer-copyright">
-                <p class="powered-by">&copy; {{moment format="YYYY"}} {{settings.store_name}} </p>
-            </div>
-        {{/if}}
+        	{{/if}}
+        	{{#if theme_settings.show_designed_by}}
+                <p class="designed-by">Designed by <a href="https://aylis.com/bigcommerce-design" rel="nofollow"><strong>Aylis.com</strong></a></p>
+        	{{/if}}
+			</div>
 		</section>
     </div>
     {{{region name="ssl_site_seal--global"}}}

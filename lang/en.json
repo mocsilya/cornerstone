@@ -10,6 +10,7 @@
         "info": "Info",
         "categories": "Categories",
         "call_us": "{phone_number}",
+        "email_us": "Email",
         "powered_by": "Powered by"
     },
     "home": {
@@ -53,7 +54,7 @@
             "quantity": "Quantity",
             "total": "Total",
             "subtotal": "Subtotal",
-            "enter_code": "Coupon code / Gift certificate",
+            "enter_code": "Coupon code / Voucher",
             "gift_wrapping": "Gift wrapping",
             "shipping": "Shipping",
             "grand_total": "Grand total",
@@ -88,11 +89,11 @@
         },
         "gift_certificates": {
             "change_gift_certificate": "Change {certificate_name}",
-            "add_cert_code": "Add Certificate",
-            "gift_certificate": "Gift Certificate",
-            "code_label": "Gift Certificate ({code})",
-            "cert_code": "Enter your certificate code",
-            "empty_error": "Please enter your valid certificate code.",
+            "add_cert_code": "Add Voucher",
+            "gift_certificate": "Voucher",
+            "code_label": "voucher ({code})",
+            "cert_code": "Enter your voucher code",
+            "empty_error": "Please enter your valid voucher code.",
             "remove": "Remove"
         },
         "shipping_estimator": {
@@ -134,10 +135,10 @@
     },
     "common": {
         "store_credit": "You have <strong>{store_credit}</strong> of store credit. To use it, simply place your order and you will be able to choose store credit as the payment method when it comes time to pay for your order.",
-        "store_credit_overview": "{credit} Store Credit",
+        "store_credit_overview": "{credit}",
         "generic_error": "Oops! Something went wrong.",
-        "currency": "Select Currency: {code}",
-        "currency_switch_promotion" : "Promotions and gift certificates that don't apply to the new currency will be removed from your cart. Are you sure you want to continue?",
+        "currency": "{code}",
+        "currency_switch_promotion" : "Promotions and vouchers that don't apply to the new currency will be removed from your cart. Are you sure you want to continue?",
         "newsletter_signup": "Register for our newsletter",
         "form_submit": "Submit",
         "no_preference": "No Preference",
@@ -163,7 +164,7 @@
         "account": "Account",
         "cart": "Cart",
         "search": "Search",
-        "gift_cert": "Gift Certificates",
+        "gift_cert": "Vouchers",
         "save": "Save",
         "share": "Share",
         "delete": "Delete",
@@ -233,21 +234,21 @@
         "view_brands": "View all brands"
     },
     "gift_certificate": {
-        "heading": "Gift Certificates",
+        "heading": "Gift Vouchers",
         "purchase": {
-            "heading": "Purchase Gift Certificate"
+            "heading": "Purchase Gift Voucher"
         },
         "redeem": {
-            "heading": "Redeem Gift Certificate",
-            "intro": "To redeem a gift certificate at {store_name}, follow the simple steps below.",
-            "item1": "You need your unique gift certificate code, which is part of the gift certificate that was emailed to you as an attachment. It will look something like Z50-Y6K-COS-402.",
+            "heading": "Redeem Gift Voucher",
+            "intro": "To redeem a gift voucher at {store_name}, follow the simple steps below.",
+            "item1": "You need your unique gift voucher code, which is part of the gift voucher that was emailed to you as an attachment. It will look something like Z50-Y6K-COS-402.",
             "item2": "Browse the store and add items to your cart as you normally would.",
             "item3": "Click the '<a href=\"{cart_url}\">View Cart</a>' link to view the contents of your shopping cart.",
-            "item4": "Type your gift certificate code in to the 'Redeem Gift Certificate' box and click 'Go'."
+            "item4": "Type your gift voucher code in to the 'Redeem Gift Voucher' box and click 'Go'."
         },
         "balance": {
-            "heading": "Check Gift Certificate Balance",
-            "intro": "You can check the balance of a gift certificate by typing the code in to the box below."
+            "heading": "Check Gift Voucher Balance",
+            "intro": "You can check the balance of a gift voucher by typing the code in to the box below."
         }
     },
     "create_account": {
@@ -579,16 +580,16 @@
                 "from_email": "Your Email",
                 "message": "Optional Message",
                 "amount": "Amount",
-                "theme": "Gift Certificate Theme",
+                "theme": "Gift Voucher Theme",
                 "custom_range": "(Value must be between {min} and {max})",
-                "agree": "I understand that Gift Certificates expire after {days, plural, one {1 day} other {# days}}",
-                "agree2": "I agree that Gift Certificates are nonrefundable",
+                "agree": "I understand that Gift Vouchers expire after {days, plural, one {1 day} other {# days}}",
+                "agree2": "I agree that Gift Vouchers are nonrefundable",
                 "preview": "Preview",
                 "preview_error": "There was a problem loading the preview. Please try again later.",
-                "submit_value": "Add Gift Certificate to Cart"
+                "submit_value": "Add Gift Voucher to Cart"
             },
             "balance": {
-                "code": "Gift Certificate Code",
+                "code": "Gift Voucher Code",
                 "submit_value": "Check Balance"
             }
         },
@@ -671,7 +672,7 @@
                 "to_email": "You must enter a valid recipient email.",
                 "from_name": "You must enter your name.",
                 "from_email": "You must enter a valid email.",
-                "cert_theme": "You must select a gift certificate theme.",
+                "cert_theme": "You must select a gift voucher theme.",
                 "agree_terms": "You must agree to these terms."
             },
             "payment_method": {
@@ -809,7 +810,7 @@
     },
     "newsletter": {
         "subscribe": "Subscribe to our newsletter",
-        "subscribe_intro": "Get the latest updates on new products and upcoming sales",
+        "subscribe_intro": "Get the latest updates on new products and upcoming sales.",
         "subscribe_submit": "Subscribe",
         "email_placeholder": "Your email address",
         "subscribed_heading": "Thanks for Subscribing!",
@@ -819,7 +820,8 @@
         "unsubscribed_message": "You will no longer receive marketing emails from <b>{store_name}</b>"
     },
     "social": {
-        "connect": "Connect With Us"
+        "connect": "Get Social",
+		"connect_intro": "Connect with us on social media."
     },
     "errors": {
         "shipping_quote_failure": "There was a problem retrieving your shipping quote",
@@ -917,8 +919,8 @@
         "password_match": "Your passwords do not match.",
         "invalid_password": "Passwords must be at least 7 characters and contain both alphabetic and numeric characters.",
         "field_not_blank": " field cannot be blank.",
-        "certificate_amount": "You must enter a gift certificate amount.",
-        "certificate_amount_range": "You must enter a certificate amount between [MIN] and [MAX]",
+        "certificate_amount": "You must enter a gift voucher amount.",
+        "certificate_amount_range": "You must enter a voucher amount between [MIN] and [MAX]",
         "price_min_evaluation": "Min. price must be less than max. price.",
         "price_max_evaluation": "Min. price must be less than max. price.",
         "price_min_not_entered": "Min. price is required.",
@@ -931,8 +933,8 @@
         "password_match": "Your passwords do not match.",
         "invalid_password": "Passwords must be at least 7 characters and contain both alphabetic and numeric characters.",
         "field_not_blank": " field cannot be blank.",
-        "certificate_amount": "You must enter a gift certificate amount.",
-        "certificate_amount_range": "You must enter a certificate amount between [MIN] and [MAX]",
+        "certificate_amount": "You must enter a gift voucher amount.",
+        "certificate_amount_range": "You must enter a voucher amount between [MIN] and [MAX]",
         "price_min_evaluation": "Min. price must be less than max. price.",
         "price_max_evaluation": "Min. price must be less than max. price.",
         "price_min_not_entered": "Min. price is required.",
@@ -945,8 +947,8 @@
         "password_match": "Your passwords do not match.",
         "invalid_password": "Passwords must be at least 7 characters and contain both alphabetic and numeric characters.",
         "field_not_blank": "The field cannot be blank.",
-        "certificate_amount": "You must enter a gift certificate amount.",
-        "certificate_amount_range": "You must enter a certificate amount between [MIN] and [MAX]",
+        "certificate_amount": "You must enter a gift voucher amount.",
+        "certificate_amount_range": "You must enter a voucher amount between [MIN] and [MAX]",
         "price_min_evaluation": "Min. price must be less than max. price.",
         "price_max_evaluation": "Min. price must be less than max. price.",
         "price_min_not_entered": "Min. price is required.",
