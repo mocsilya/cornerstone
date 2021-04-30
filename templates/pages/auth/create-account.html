@@ -5,10 +5,15 @@ blog:
 ---
 {{inject 'passwordRequirements' settings.password_requirements}}
 {{inject 'recaptchaTitle' (lang 'create_account.recaptcha_title')}}
+{{#partial "hero"}}
+<div class="container container-hero">
+	<div class="page-header account-header">
+    	<h1 class="page-heading">{{lang 'create_account.heading' }}</h1>
+		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	</div>
+</div>
+{{/partial}}
 {{#partial "page"}}
-    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-    <h1 class="page-heading">{{lang 'create_account.heading' }}</h1>
-
     <div class="account account--fixed">
         <div class="account-body">
             {{#if forms.create_account.error}}

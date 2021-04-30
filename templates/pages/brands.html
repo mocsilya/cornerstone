@@ -8,12 +8,18 @@ customer:
         limit: 10
 ---
 
+{{#partial "hero"}}
+<div class="container container-hero">
+	<div class="page-header brands-header">
+    	<h1 class="page-heading">{{lang 'brand.label'}}</h1>
+		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	</div>
+</div>
+{{/partial}}
+
 {{#partial "page"}}
 
-{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-
 <section class="page">
-    <h1 class="page-heading">{{lang 'brand.label'}}</h1>
     {{{region name="brands_below_header"}}}
     <ul class="brandGrid">
         {{#each brands}}

@@ -1,0 +1,27 @@
+<a class="navPages-action navPages-action-depth-max has-subMenu is-root{{#if page_type '==' 'brands'}} activePage{{/if}}"
+	href="{{urls.brands}}"
+	data-collapsible="navPages-brands"
+	aria-label="{{lang 'footer.brands'}}"
+>
+	{{lang 'footer.brands'}}
+	<i class="icon navPages-action-moreIcon" aria-hidden="true">
+		<svg><use xlink:href="#icon-chevron-down" /></svg>
+	</i>
+</a>
+<div class="navPage-subMenu navPage-subMenu-horizontal" id="navPages-brands" aria-hidden="true" tabindex="-1">
+	<ul class="navPage-subMenu-list">
+		{{#each shop_by_brand}}
+		<li class="navPage-subMenu-item-child">
+			<a class="navPage-subMenu-action navPages-action{{#if name '==' ../page.title}} activePage{{/if}}" href="{{url}}">{{name}}</a>
+		</li>
+		{{/each}}
+		<li class="navPage-subMenu-item-child">
+            <a class="navPage-subMenu-action navPages-action"
+               href="{{urls.brands}}"
+               aria-label="{{lang 'common.view_all'}}"
+            >
+                {{lang 'common.view_all'}}
+            </a>
+		</li>
+	</ul>
+</div>

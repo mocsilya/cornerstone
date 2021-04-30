@@ -15,6 +15,8 @@ import { createTranslationDictionary } from './common/utils/translations-utils';
 import { creditCardType, storeInstrument, Validators as CCValidators, Formatters as CCFormatters } from './common/payment-method';
 import swal from './global/sweet-alert';
 import compareProducts from './global/compare-products';
+import cardSwatches from './custom/card-swatches';
+import cardCarousel from './custom/card-carousel';
 
 export default class Account extends PageManager {
     constructor(context) {
@@ -84,6 +86,9 @@ export default class Account extends PageManager {
 
         this.bindDeleteAddress();
         this.bindDeletePaymentMethod();
+		
+        cardSwatches();
+		cardCarousel();
     }
 
     /**

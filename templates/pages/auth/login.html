@@ -3,10 +3,16 @@ blog:
     recent_posts:
         limit: {{theme_settings.homepage_blog_posts_count}}
 ---
+{{#partial "hero"}}
+<div class="container container-hero">
+	<div class="page-header account-header">
+    	<h1 class="page-heading">{{lang 'login.heading' }}</h1>
+		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	</div>
+</div>
+{{/partial}}
 {{#partial "page"}}
 <div class="login">
-    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-    <h1 class="page-heading">{{lang 'login.heading' }}</h1>
     {{#if forms.login.error}}
         {{> components/common/alert/alert-error forms.login.error}}
     {{/if}}

@@ -17,9 +17,16 @@ customer:
 ---
 {{inject 'productId' product.id}}
 
-{{#partial "page"}}
+{{#partial "hero"}}
+<div class="container container-hero">
+	<div class="page-header product-header">
+    <h1 class="page-heading">{{product.title}}</h1>
+	{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	</div>
+</div>
+{{/partial}}
 
-    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+{{#partial "page"}}
 
     {{#each product.shipping_messages}}
         {{> components/common/alert/alert-info message}}

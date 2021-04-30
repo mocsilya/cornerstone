@@ -28,6 +28,7 @@ label {
 }
 
 .body {
+	margin-top: 0;
 	margin-bottom: 3rem;
 }
 
@@ -564,6 +565,13 @@ body.scroll .dropdown--quickSearch.is-open {
 	}
 }
 
+.navPages-list-depth-max .navPage-subMenu-action {
+	@include breakpoint("medium") {
+		padding-top: .5rem;
+		padding-bottom: .5rem;
+	}
+}
+
 .navPages-item-page .navPage-subMenu-horizontal.is-open {
 	@include breakpoint("medium") {
 		margin-right: $navPage-subMenu-horizontal-width;
@@ -837,13 +845,54 @@ body.scroll .dropdown--quickSearch.is-open {
 }
 
 
+// Page Header
+// =============================================================================
+
+.page-header {
+	overflow: hidden;
+	position: relative;
+	background-color: stencilColor("custom-page-header-background");
+	margin-bottom: 1.5rem;
+}
+
+.page-header .page-heading {
+	position: relative;
+	z-index: 2;
+	margin: 0;
+	padding: 1.5rem 0;
+	color: stencilColor("custom-page-header-text");
+	@include breakpoint("small") {
+		padding: 1.5rem 0 .25rem 0;
+	}
+}
+
+.page-header nav {
+	position: relative;
+	z-index: 2;
+}
+
+.page-header .breadcrumbs {
+	margin: 0;
+	padding-bottom: 1.5rem;
+}
+
+.page-header .breadcrumb a,
+.page-header .breadcrumb a:hover,
+.page-header .breadcrumb:before,
+.page-header .breadcrumb.is-active > .breadcrumb-label,
+.page-header .breadcrumb.is-active > .breadcrumb-label:hover {
+	color: stencilColor("custom-page-header-text");
+	text-decoration: none;
+}
+
+.page-header .breadcrumb:not(:first-child):before {
+	border-right: 0.1em solid stencilColor("custom-page-header-text");
+}
+
+
 
 // Category
 // =============================================================================
-
-.page-category .body {
-	margin-top: 0;
-}
 
 .page-category .page {
 	margin-top: 1.5rem;
@@ -865,23 +914,6 @@ body.scroll .dropdown--quickSearch.is-open {
 // Category Header
 // =============================================================================
 
-.category-header {
-	overflow: hidden;
-	position: relative;
-	background-color: stencilColor("custom-category-header-background");
-}
-
-.category-header .page-heading {
-	position: relative;
-	z-index: 2;
-	margin: 0;
-	padding: 1.5rem 0;
-	color: stencilColor("custom-category-header-text");
-	@include breakpoint("small") {
-		padding: 1.5rem 0 .25rem 0;
-	}
-}
-
 .category-header-image .page-heading {
 	padding: 8vw 0;
 	@include breakpoint("small") {
@@ -889,34 +921,11 @@ body.scroll .dropdown--quickSearch.is-open {
 	}
 }
 
-.category-header nav {
-	position: relative;
-	z-index: 2;
-}
-
-.category-header .breadcrumbs {
-	margin: 0;
-	padding-bottom: 1.5rem;
-}
-
 .category-header-image .breadcrumbs {
 	padding-bottom: 8vw;
 }
 
-.category-header .breadcrumb a,
-.category-header .breadcrumb a:hover,
-.category-header .breadcrumb:before,
-.category-header .breadcrumb.is-active > .breadcrumb-label,
-.category-header .breadcrumb.is-active > .breadcrumb-label:hover {
-	color: stencilColor("custom-category-header-text");
-	text-decoration: none;
-}
-
-.category-header .breadcrumb:not(:first-child):before {
-	border-right: 0.1em solid stencilColor("custom-category-header-text");
-}
-
-.category-header img {
+.category-header-image img {
 	position: absolute;
 	top: 50%;
     transform: translateY(-50%);
@@ -925,7 +934,7 @@ body.scroll .dropdown--quickSearch.is-open {
 
 
 
-// Side Bar
+// Category Side Bar
 // =============================================================================
 
 .page-sidebar-vertical {
@@ -1007,8 +1016,6 @@ body.scroll .dropdown--quickSearch.is-open {
 
 }
 
-
-
 .page-sidebar-horizontal .facetedSearch-navList {
 	display: none !important;
 }
@@ -1023,6 +1030,39 @@ body.scroll .dropdown--quickSearch.is-open {
 
 .page-sidebar .navList-action.activePage {
 	font-weight: 700;
+}
+
+
+
+
+// Brand Page
+// =============================================================================
+
+
+.page-brand .actionBar {
+	margin: 0;
+	@include breakpoint("medium") {
+		margin: 0 0 0 -0.75rem;
+	}
+}
+
+
+
+// Brand Side Bar
+// =============================================================================
+
+.page-sidebar .sidebar-image {
+	padding: 0 0 1.5rem;
+}
+
+.page-sidebar .brand-image-container,
+.page-sidebar .brand-image-container img {
+	max-width: 100%;
+	max-height: 100px;
+	overflow: hidden;
+	@include breakpoint("medium") {
+		margin: 0;
+	}
 }
 
 
@@ -1530,6 +1570,33 @@ a:hover span.card-image:only-of-type img {
 
 .productGrid .product.spotlight .card-figure__normal {
 	display: none;
+}
+
+
+
+// Product Page
+// =============================================================================
+
+.page-product .breadcrumb.is-active {
+	display: none;
+}
+
+.page-product li.breadcrumb:nth-last-of-type(2) .breadcrumb-label {
+	font-weight: 700;
+}
+
+
+// Account Pages > Wishlists
+// =============================================================================
+
+.card-wishlist-remove {
+	position: relative;
+	top: -32px;
+}
+
+.card-wishlist-remove form,
+.card-wishlist-remove .button {
+	margin: 0;
 }
 
 

@@ -7,14 +7,20 @@ customer:
         limit: 10
 ---
 
-{{#partial "page"}}
-
-{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-
-<section class="page">
+{{#partial "hero"}}
+<div class="container container-hero">
+	<div class="page-header info-header">
     {{#unless theme_settings.hide_page_heading }}
         <h1 class="page-heading">{{ page.title }}</h1>
     {{/unless}}
+		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	</div>
+</div>
+{{/partial}}
+
+{{#partial "page"}}
+
+<section class="page">
 
     {{#if page.sub_pages}}
     <nav class="navBar navBar--sub">

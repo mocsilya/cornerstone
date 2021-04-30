@@ -16,7 +16,7 @@
         {{/unless}}
 		{{#each breadcrumbs}}
 		    {{#if @index 1}}
-		        <span class="breadcrumb-menu breadcrumb-menu-1">{{name}}</span>
+		        <span class="breadcrumb-menu breadcrumb-menu-1">{{#if name '===' 'All Brands'}}Brands{{else}}{{name}}{{/if}}</span>
 		    {{/if}}
 		    {{#if @index 2}}
 		        <span class="breadcrumb-menu breadcrumb-menu-2">{{name}}</span>

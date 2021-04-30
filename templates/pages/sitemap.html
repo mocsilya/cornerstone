@@ -6,9 +6,15 @@ customer:
     wishlists:
         limit: 10
 ---
+{{#partial "hero"}}
+<div class="container container-hero">
+	<div class="page-header blog-header">
+        <h1 class="page-heading">{{lang 'sitemap.page_title'}}</h1>
+		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	</div>
+</div>
+{{/partial}}
 {{#partial "page"}}
-<h1>{{lang 'sitemap.page_title'}}</h1>
-
 <ul>
 {{#each sitemap}}
     <li>

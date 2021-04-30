@@ -425,13 +425,13 @@
       },
       {
         "type": "color",
-        "label": "i18n.CustomCategoryHeaderBackground",
-        "id": "custom-category-header-background"
+        "label": "i18n.CustomPageHeaderBackground",
+        "id": "custom-page-header-background"
       },
       {
         "type": "color",
-        "label": "i18n.CustomCategoryHeaderText",
-        "id": "custom-category-header-text"
+        "label": "i18n.CustomPageHeaderText",
+        "id": "custom-page-header-text"
       },
       {
         "type": "heading",

@@ -377,11 +377,11 @@
     "uk": "Сховати заголовок сторінки контактів",
     "zh": "隐藏联系我们页面头部"
   },
-  "i18n.CustomCategoryHeaderBackground": {
-    "default": "Category header background"
+  "i18n.CustomPageHeaderBackground": {
+    "default": "Page header background"
   },
-  "i18n.CustomCategoryHeaderText": {
-    "default": "Category header text color"
+  "i18n.CustomPageHeaderText": {
+    "default": "Page header text color"
   },
   "i18n.Products": {
     "default": "Products",

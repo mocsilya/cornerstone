@@ -3,6 +3,9 @@ import CatalogPage from './catalog';
 import compareProducts from './global/compare-products';
 import FacetedSearch from './common/faceted-search';
 import { createTranslationDictionary } from '../theme/common/utils/translations-utils';
+import cardSwatches from './custom/card-swatches';
+import cardCarousel from './custom/card-carousel';
+import menuHelper from './custom/menu-helper';
 
 export default class Brand extends CatalogPage {
     constructor(context) {
@@ -19,6 +22,10 @@ export default class Brand extends CatalogPage {
             this.onSortBySubmit = this.onSortBySubmit.bind(this);
             hooks.on('sortBy-submitted', this.onSortBySubmit);
         }
+		
+        cardSwatches();
+		cardCarousel();
+		menuHelper();
     }
 
     initFacetedSearch() {

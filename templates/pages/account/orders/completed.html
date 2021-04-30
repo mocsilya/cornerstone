@@ -3,10 +3,16 @@ customer:
 orders:
 limit: 3
 ---
+{{#partial "hero"}}
+<div class="container container-hero">
+	<div class="page-header account-header">
+    	<h1 class="page-heading">{{lang 'account.orders.details.heading' number=order.id}}</h1>
+		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	</div>
+</div>
+{{/partial}}
 {{#partial "page"}}
 <div class="account">
-    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-    <h2 class="account-heading title">{{lang 'account.orders.heading' }}</h2>
     {{> components/account/navigation account_page='orders'}}
     <div class="account-row orders-row">
         <section class="orders">

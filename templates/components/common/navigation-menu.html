@@ -10,6 +10,20 @@
             {{/if}}
             </li>
         {{/each}}
+	    {{#if theme_settings.navigation_design '===' 'simple'}}
+			{{#and theme_settings.shop_by_brand_show_footer shop_by_brand.length}}
+			<li class="navPages-item navPages-item-page">
+				{{> components/custom/navigation-list-brand}}
+			</li>
+			{{/and}}
+		{{/if}}
+		{{#if theme_settings.navigation_design '===' 'alternate'}}
+			{{#and theme_settings.shop_by_brand_show_footer shop_by_brand.length}}
+			<li class="navPages-item navPages-item-page">
+				{{> components/custom/navigation-list-alternate-brand}}
+			</li>
+			{{/and}}
+		{{/if}}
         {{#unless theme_settings.hide_content_navigation}}
             {{#each pages}}
                 <li class="navPages-item navPages-item-page">

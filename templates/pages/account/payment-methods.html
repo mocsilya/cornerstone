@@ -1,6 +1,13 @@
+{{#partial "hero"}}
+<div class="container container-hero">
+	<div class="page-header account-header">
+        <h1 class="page-heading">{{lang 'account.payment_methods.heading' }}</h1>
+		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	</div>
+</div>
+{{/partial}}
 {{#partial "page"}}
-    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-    <h2 class="page-heading">{{lang 'account.payment_methods.heading' }}</h2>
+
     {{> components/account/navigation account_page='payment_methods'}}
 
     <div class="account account--fixedLarge">

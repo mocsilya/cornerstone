@@ -7,14 +7,21 @@ customer:
     wishlists:
         limit: 10
 ---
+
+{{#partial "hero"}}
+<div class="container container-hero">
+	<div class="page-header checkout-header">
+    	{{> components/cart/page-title}}
+		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	</div>
+</div>
+{{/partial}}
+
 {{#partial "page"}}
 <div class="page">
 
     <div class="page-content" data-cart>
-        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-
-        {{> components/cart/page-title}}
-
+		
         <div data-cart-status>
             {{> components/cart/status-messages}}
         </div>

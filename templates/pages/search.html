@@ -18,15 +18,21 @@ customer:
         <link rel="next" href="{{pagination.product_results.next}}">
     {{/if}}
 {{/partial}}
+{{#partial "hero"}}
+<div class="container container-hero">
+	<div class="page-header search-header">
+    	{{#if forms.search.query}}
+        	{{>components/search/heading}}
+		{{else}}
+			<h1 class="page-heading">Search</h1>
+    	{{/if}}  
+		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	</div>
+</div>
+{{/partial}}
 
 {{#partial "page"}}
-{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 <section class="nav">
-    {{#if forms.search.query}}
-        <div id="search-results-heading">
-            {{>components/search/heading}}
-        </div>
-    {{/if}}
     <nav class="navBar navBar--sub search-nav">
         <span id="search-tabs-widget-description" class="aria-description--hidden">
             {{lang 'search.tabs_accesibility_hint'}}

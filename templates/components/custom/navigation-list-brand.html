@@ -1,0 +1,40 @@
+<a class="navPages-action has-subMenu{{#if page_type '==' 'brands'}} activePage{{/if}} navPages-action-mobile"
+	href="{{urls.brands}}" 
+	data-collapsible="navPages-brands" 
+>
+	{{lang 'footer.brands'}}
+	<i class="icon navPages-action-moreIcon" aria-hidden="true">
+		<svg><use xlink:href="#icon-chevron-down" /></svg>
+	</i>
+</a>
+<a class="navPages-action{{#if page_type '==' 'brands'}} activePage{{/if}} navPages-action-desktop"
+	href="{{urls.brands}}" 
+	aria-label="{{lang 'footer.brands'}}" 
+>
+	{{lang 'footer.brands'}}
+	<i class="icon navPages-action-moreIcon" aria-hidden="true">
+		<svg><use xlink:href="#icon-chevron-down" /></svg>
+	</i>
+</a>
+<div class="navPage-subMenu" id="navPages-brands" aria-hidden="true" tabindex="-1">
+	<ul class="navPage-subMenu-list">
+		{{#each shop_by_brand}}
+		<li class="navPage-subMenu-item">
+                <a class="navPage-subMenu-action navPages-action{{#if name '==' ../page.title}} activePage{{/if}}"
+                   href="{{url}}"
+                   aria-label="{{name}}"
+                >
+                    {{name}}
+                </a>
+		</li>
+		{{/each}}
+		<li class="navPage-subMenu-item">
+            <a class="navPage-subMenu-action navPages-action"
+               href="{{urls.brands}}"
+               aria-label="{{lang 'common.view_all'}}"
+            >
+                {{lang 'common.view_all'}}
+            </a>
+		</li>
+	</ul>
+</div>

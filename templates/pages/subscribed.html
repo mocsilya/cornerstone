@@ -1,15 +1,23 @@
+{{#partial "hero"}}
+<div class="container container-hero">
+	<div class="page-header account-header">
+    <h1 class="page-heading" tabindex="0" role="status" aria-live="assertive">
+        {{#if subscription.error}}
+            {{lang 'newsletter.subscribed_heading_error'}}
+        {{else}}
+            {{lang 'newsletter.subscribed_heading'}}
+        {{/if}}
+    </h1>
+		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	</div>
+</div>
+{{/partial}}
+
 {{#partial "page"}}
 
 <section class="page">
     <div class="page-content page-content--centered">
-        <h1 class="page-heading" tabindex="0" role="status" aria-live="assertive">
-            {{#if subscription.error}}
-                {{lang 'newsletter.subscribed_heading_error'}}
-            {{else}}
-                {{lang 'newsletter.subscribed_heading'}}
-            {{/if}}
-        </h1>
-
+        
         {{#if subscription.error}}
             {{> components/common/alert/alert-error subscription.error}}
         {{else}}

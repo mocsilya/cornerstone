@@ -8,6 +8,8 @@ import Url from 'url';
 import collapsibleFactory from './common/collapsible';
 import 'jstree';
 import nod from './common/nod';
+import cardSwatches from './custom/card-swatches';
+import cardCarousel from './custom/card-carousel';
 
 const leftArrowKey = 37;
 const rightArrowKey = 39;
@@ -207,6 +209,9 @@ export default class Search extends CatalogPage {
         setTimeout(() => {
             $('[data-search-aria-message]').removeClass('u-hidden');
         }, 100);
+		
+        cardSwatches();
+		cardCarousel();
     }
 
     loadTreeNodes(node, cb) {

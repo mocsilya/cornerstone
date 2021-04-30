@@ -6,11 +6,19 @@ customer:
     wishlists:
         limit: 10
 ---
+
+{{#partial "hero"}}
+<div class="container container-hero">
+	<div class="page-header compare-header">
+    	<h1 class="page-heading">{{lang 'compare.header' products=comparisons.length}}</h1>
+		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	</div>
+</div>
+{{/partial}}
+
 {{#partial "page"}}
 {{inject 'comparisons' comparisons}}
 {{inject 'compareRemoveMessage' (lang 'compare.no_remove')}}
-{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-<h1 class="page-heading">{{lang 'compare.header' products=comparisons.length}}</h1>
 <div class="page">
     <div class="page-content">
 

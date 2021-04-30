@@ -45,6 +45,7 @@
     "Firefox ESR"
   ],
   "settings": {
+	"custom_hide_brand_navigation": false,
     "custom_email_show": true,
     "custom_email_address": "support@mysite.com",
     "custom_homepage_show_tabs": true,
@@ -84,8 +85,8 @@
     "custom-footer-link-hover": "#757575",
 	"custom_category_sidebar_display": "vertical",
 	"custom_category_show_parents": true,
-	"custom-category-header-text": "#ffffff",
-	"custom-category-header-background": "#333333",
+	"custom-page-header-text": "#ffffff",
+	"custom-page-header-background": "#333333",
     "hide_breadcrumbs": false,
     "hide_page_heading": false,
     "hide_category_page_heading": false,
@@ -357,7 +358,7 @@
     "social_icon_placement_bottom": true,
     "geotrust_ssl_common_name": "",
     "geotrust_ssl_seal_size": "M",
-    "navigation_design": "simple",
+    "navigation_design": "alternate",
     "price_ranges": true,
     "pdp-price-label": "",
     "pdp_sale_badge_label": "On Sale!",

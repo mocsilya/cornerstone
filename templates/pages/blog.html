@@ -8,14 +8,22 @@ customer:
     wishlists:
         limit: 10
 ---
-{{#partial "page"}}
 
-{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-
-<section class="page">
+{{#partial "hero"}}
+<div class="container container-hero">
+	<div class="page-header blog-header">
     {{#unless theme_settings.hide_blog_page_heading }}
         <h1 class="page-heading">{{ blog.name }}</h1>
     {{/unless}}
+		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	</div>
+</div>
+{{/partial}}
+
+{{#partial "page"}}
+
+<section class="page">
+    
 
     {{#each blog.posts}}
         {{> components/blog/post post=this}}
