@@ -60,9 +60,9 @@
         {{~inject 'carouselContentAnnounceMessage' (lang 'carousel.content_announce_message')}}
     </head>
 	{{#if theme_settings.custom_header_show_bar}}
-    <body class="page-{{page_type}} with-bar">
+    <body class="page-{{page_type}} page-{{lang 'common.currency' code=currency_selector.active_currency_code}} with-bar">
 	{{else}}
-	<body class="page-{{page_type}}">
+	<body class="page-{{page_type}} page-{{lang 'common.currency' code=currency_selector.active_currency_code}}">
 	{{/if}}
         <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
 

@@ -179,7 +179,6 @@ body.scroll .header-bar {
 	}	
 }
 
-
 .header-bar-text {
 	color: stencilColor("custom-header-bar-text");
 	font-weight: 700;
@@ -216,8 +215,8 @@ body.scroll .header-bar {
 }
 
 .header-bar-icon .icon svg {
-	color: stencilColor("custom-header-bar-text");
-	fill: stencilColor("custom-header-bar-text");
+	color: stencilColor("custom-header-bar-icon");
+	fill: stencilColor("custom-header-bar-icon");
 }
 
 

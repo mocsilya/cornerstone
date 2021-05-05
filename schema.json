@@ -333,6 +333,16 @@
         "id": "color-textHeading"
       },
       {
+        "type": "color",
+        "label": "i18n.CustomPageHeaderText",
+        "id": "custom-page-header-text"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomPageHeaderBackground",
+        "id": "custom-page-header-background"
+      },
+      {
         "type": "heading",
         "content": "i18n.LoadingIndicators"
       },
@@ -422,16 +432,6 @@
         "label": "i18n.HideContactUsPageHeading",
         "force_reload": true,
         "id": "hide_contact_us_page_heading"
-      },
-      {
-        "type": "color",
-        "label": "i18n.CustomPageHeaderBackground",
-        "id": "custom-page-header-background"
-      },
-      {
-        "type": "color",
-        "label": "i18n.CustomPageHeaderText",
-        "id": "custom-page-header-text"
       },
       {
         "type": "heading",
