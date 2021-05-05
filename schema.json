@@ -858,7 +858,7 @@
       },
       {
         "type": "color",
-        "label": "i18n.CustomHeaderText",
+        "label": "i18n.CustomHeaderBarText",
         "id": "custom-header-bar-text"
       },
       {
