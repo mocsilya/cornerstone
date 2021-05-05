@@ -41,7 +41,6 @@
 
         {{{head.scripts}}}
 
-
         {{~inject 'zoomSize' theme_settings.zoom_size}}
         {{~inject 'productSize' theme_settings.product_size}}
         {{~inject 'showAdminBar' theme_settings.show-admin-bar}}
@@ -60,7 +59,11 @@
         {{~inject 'carouselActiveDotAriaLabel' (lang 'carousel.active_dot_aria_label')}}
         {{~inject 'carouselContentAnnounceMessage' (lang 'carousel.content_announce_message')}}
     </head>
-    <body class="page-{{page_type}}">
+	{{#if theme_settings.custom_header_show_bar}}
+    <body class="page-{{page_type}} with-bar">
+	{{else}}
+	<body class="page-{{page_type}}">
+	{{/if}}
         <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
 
         {{> components/common/header }}

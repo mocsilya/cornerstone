@@ -79,6 +79,148 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+// header bar
+// =============================================================================
+
+.header-bar {
+	background-color: stencilColor("custom-header-bar-background");
+	color: stencilColor("custom-header-bar-text");
+	@include breakpoint("medium") {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 101;
+	}
+}
+
+body.scroll .header-bar {
+	@include breakpoint("medium") {
+		display: none;
+	}
+}
+
+.header-bar ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex: 1 0 auto;
+	flex-wrap: wrap;
+	@include breakpoint("medium") {
+		justify-content: flex-end;
+		flex-wrap: nowrap;
+	}
+}
+
+.header-bar li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	flex: 1 0 0px;
+	text-align: center;
+	line-height: 1;
+	padding: .5rem 0.78571rem;
+	font-size: 0;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.header-bar li.header-bar-message {
+	flex: 1 0 100%;
+	border-bottom: 1px solid rgba(stencilColor("custom-header-bar-text"), 0.2);
+	@include breakpoint("medium") {
+		flex: 1 1 auto;
+		border-bottom: 0;
+	}
+}
+
+.header-bar ul.header-bar-message-double li.header-bar-message {
+	@include breakpoint("small") {
+		flex: 1 1 50%;
+	}
+}
+
+.header-bar ul.header-bar-message-single.header-bar-contact-active li.header-bar-message {
+	@include breakpoint("medium") {
+		flex: 1 0 auto;
+		text-align: left;
+	}
+}
+
+.header-bar ul.header-bar-message-double.header-bar-contact-active li.header-bar-message {
+	@include breakpoint("medium") {
+		text-align: left;
+	}
+}
+
+.header-bar ul.header-bar-message-double.header-bar-contact-active li:first-child {
+	@include breakpoint("medium") {
+		flex: 0 1 auto;
+	}
+}
+
+.header-bar ul.header-bar-message-double.header-bar-contact-none li:first-child {
+	@include breakpoint("medium") {
+		text-align: left;
+	}
+}
+
+.header-bar ul.header-bar-message-double.header-bar-contact-none li:last-child {
+	@include breakpoint("medium") {
+		text-align: right;
+	}
+}
+
+.header-bar li.header-bar-contact {
+	flex: 1 1 0px;
+	@include breakpoint("medium") {
+		flex: 0 1 auto;
+	}	
+}
+
+
+.header-bar-text {
+	color: stencilColor("custom-header-bar-text");
+	font-weight: 700;
+	font-size: 1rem;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.header-bar-text a {
+	color: stencilColor("custom-header-bar-text");
+}
+
+.header-bar-text a:hover {
+	opacity: 0.5;
+	color: stencilColor("custom-header-bar-text");
+}
+
+.header-bar-contact .header-bar-text a,
+.header-bar-contact .header-bar-text a:hover {
+	text-decoration: none;
+}
+
+.header-bar-icon {
+	display: inline-block;
+	vertical-align: top;
+	padding-right: .5rem;
+	position: relative;
+	top: -1px;
+}
+
+.header-bar-icon .icon {
+	height: 1rem;
+	width: 1rem;
+}
+
+.header-bar-icon .icon svg {
+	color: stencilColor("custom-header-bar-text");
+	fill: stencilColor("custom-header-bar-text");
+}
+
+
 
 // header
 // =============================================================================
@@ -87,9 +229,16 @@ h1, h2, h3, h4, h5, h6 {
 	border-bottom: 0;
 }
 
+body.with-bar .header {
+	@include breakpoint("medium") {
+		padding-top: 2rem;
+	}
+}
+
 body.scroll .header {
 	@include breakpoint("medium") {
 		position: fixed;
+		padding-top: 0;
 	}
 }
 
@@ -319,6 +468,17 @@ body.scroll .header-logo-image {
 	@include breakpoint("large") {
 		top: 94px !important;
 		height: calc(100vh - 94px);
+	}
+}
+
+body.with-bar .dropdown--quickSearch.is-open {
+	@include breakpoint("medium") {
+		top: 102px !important;
+		height: calc(100vh - 102px);
+	}
+	@include breakpoint("large") {
+		top: 122px !important;
+		height: calc(100vh - 122px);
 	}
 }
 
@@ -605,6 +765,13 @@ body.scroll .dropdown--quickSearch.is-open {
     
 }
 
+body.scroll .navPages > ul > li > .navPages-action {
+	@include breakpoint("medium") {
+		padding-top: .375rem;
+		padding-bottom: .375rem;
+	}
+}
+
 
 
 // Homepage Products
@@ -635,6 +802,10 @@ body.scroll .dropdown--quickSearch.is-open {
 .container-hero {
 	max-width: $screen-xlarge;
 	padding: 0;
+}
+
+.heroCarousel {
+	margin-top: 0;
 }
 
 .heroCarousel.slick-initialized {
@@ -1674,8 +1845,13 @@ a:hover span.card-image:only-of-type img {
 	}
 }
 
-.footer address {
+.footer-info-col address {
 	margin-bottom: .75rem;
+}
+
+.footer-info-col .icon svg {
+	color: stencilColor("custom-footer-text");
+	fill: stencilColor("custom-footer-text");
 }
 
 .footer-phone,
