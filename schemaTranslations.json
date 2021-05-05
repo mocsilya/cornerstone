@@ -630,6 +630,39 @@
     "uk": "Колір тексту логотипу",
     "zh": "Logo文字颜色"
   },
+  "i18n.CustomHeaderBar": {
+    "default": "Header bar"
+  },
+  "i18n.CustomHeaderShowBar": {
+    "default": "Show header bar"
+  },
+  "i18n.CustomHeaderShowBarMessage1": {
+    "default": "Show message 1"
+  },
+  "i18n.CustomHeaderShowBarMessage2": {
+    "default": "Show message 2"
+  },
+  "i18n.CustomHeaderBarMessage1Text": {
+    "default": "Message 1 text"
+  },
+  "i18n.CustomHeaderBarMessage2Text": {
+    "default": "Message 1 text"
+  },
+  "i18n.CustomHeaderBarMessage1Icon": {
+    "default": "Message 1 icon"
+  },
+  "i18n.CustomHeaderBarMessage2Icon": {
+    "default": "Message 2 icon"
+  },
+  "i18n.CustomHeaderBarBackground": {
+    "default": "Header bar background"
+  },
+  "i18n.CustomHeaderBarText": {
+    "default": "Header bar text"
+  },
+  "i18n.CustomHeaderBarIcon": {
+    "default": "Header bar icons"
+  },
   "i18n.UtilityNavigation": {
     "default": "Utility navigation",
     "fr": "Navigation utilitaire",
@@ -847,6 +880,9 @@
     "it": "Mostra \"Powered by BigCommerce\"",
     "uk": "Показати \"Працює на BigCommerce\"",
     "zh": "显示\"Powered by BigCommerce\""
+  },
+  "i18n.CustomHeaderShowBrands": {
+    "default": "Show brands in header"
   },
   "i18n.ShowBrandsInFooter": {
     "default": "Show brands in footer",

@@ -755,6 +755,119 @@
       },
       {
         "type": "heading",
+        "content": "i18n.CustomHeaderBar"
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.CustomHeaderShowBar",
+        "force_reload": true,
+        "id": "custom_header_show_bar"
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.CustomHeaderShowBarMessage1",
+        "force_reload": true,
+        "id": "custom_header_show_bar_message1"
+      },
+      {
+        "type": "text",
+        "label": "i18n.CustomHeaderBarMessage1Text",
+        "force_reload": true,
+        "id": "custom_header_bar_message1_text"
+      },
+      {
+        "type": "select",
+        "label": "i18n.CustomHeaderBarMessage1Icon",
+        "id": "custom_header_bar_message1_icon",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "delivery",
+            "label": "Delivery"
+          },
+          {
+            "value": "discount",
+            "label": "Discount"
+          },
+          {
+            "value": "guarantee",
+            "label": "Guarantee"
+          },
+          {
+            "value": "information",
+            "label": "Information"
+          },
+          {
+            "value": "returns",
+            "label": "Returns"
+          },
+          {
+            "value": "security",
+            "label": "Security"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.CustomHeaderShowBarMessage2",
+        "force_reload": true,
+        "id": "custom_header_show_bar_message2"
+      },
+      {
+        "type": "text",
+        "label": "i18n.CustomHeaderBarMessage2Text",
+        "force_reload": true,
+        "id": "custom_header_bar_message2_text"
+      },
+      {
+        "type": "select",
+        "label": "i18n.CustomHeaderBarMessage2Icon",
+        "id": "custom_header_bar_message2_icon",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "delivery",
+            "label": "Delivery"
+          },
+          {
+            "value": "discount",
+            "label": "Discount"
+          },
+          {
+            "value": "guarantee",
+            "label": "Guarantee"
+          },
+          {
+            "value": "information",
+            "label": "Information"
+          },
+          {
+            "value": "returns",
+            "label": "Returns"
+          },
+          {
+            "value": "security",
+            "label": "Security"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomHeaderBarBackground",
+        "id": "custom-header-bar-background"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomHeaderText",
+        "id": "custom-header-bar-text"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomHeaderBarIcon",
+        "id": "custom-header-bar-icon"
+      },
+      {
+        "type": "heading",
         "content": "i18n.UtilityNavigation"
       },
       {
@@ -1014,6 +1127,12 @@
         "label": "i18n.ShowPoweredByBigCommerce",
         "force_reload": true,
         "id": "show_powered_by"
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.CustomHeaderShowBrands",
+        "force_reload": true,
+        "id": "custom_header_show_brands"
       },
       {
         "type": "checkbox",

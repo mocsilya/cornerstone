@@ -11,14 +11,14 @@
             </li>
         {{/each}}
 	    {{#if theme_settings.navigation_design '===' 'simple'}}
-			{{#and theme_settings.shop_by_brand_show_footer shop_by_brand.length}}
+			{{#and theme_settings.custom_header_show_brands shop_by_brand.length}}
 			<li class="navPages-item navPages-item-page">
 				{{> components/custom/navigation-list-brand}}
 			</li>
 			{{/and}}
 		{{/if}}
 		{{#if theme_settings.navigation_design '===' 'alternate'}}
-			{{#and theme_settings.shop_by_brand_show_footer shop_by_brand.length}}
+			{{#and theme_settings.custom_header_show_brands shop_by_brand.length}}
 			<li class="navPages-item navPages-item-page">
 				{{> components/custom/navigation-list-alternate-brand}}
 			</li>
