@@ -678,6 +678,12 @@ body.scroll .dropdown--quickSearch.is-open {
 	text-transform: none;
 }
 
+.navPage-subMenu-item {
+	@include breakpoint("large") {
+		width: 20%;
+	}
+}
+
 .navPages-list-simple .navPage-subMenu-mobile,
 .navPages-list-simple .navPages-action-mobile {
 	@include breakpoint("medium") {

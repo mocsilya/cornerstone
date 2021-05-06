@@ -460,19 +460,19 @@
         "label": "i18n.CustomCategoryMaxColumns",
         "options": [
           {
-            "value": "2",
+            "value": 2,
             "label": "Two"
           },
           {
-            "value": "3",
+            "value": 3,
             "label": "Three"
           },
           {
-            "value": "4",
+            "value": 4,
             "label": "Four"
           },
           {
-            "value": "5",
+            "value": 5,
             "label": "Five"
           }
         ]
@@ -1869,11 +1869,6 @@
         "id": "custom_product_warranty_title"
       },
       {
-        "type": "text",
-        "label": "i18n.CustomProductFieldTitle",
-        "id": "custom_product_field_title"
-      },
-      {
         "type": "select",
         "label": "i18n.CustomProductGallerySize",
         "id": "custom_product_gallery_size",
@@ -1920,7 +1915,7 @@
         "id": "custom_product_tab1_title"
       },
       {
-        "type": "paragraph",
+        "type": "text",
         "label": "i18n.CustomProductTab1Content",
         "id": "custom_product_tab1_content"
       },
@@ -1935,7 +1930,7 @@
         "id": "custom_product_tab2_title"
       },
       {
-        "type": "paragraph",
+        "type": "text",
         "label": "i18n.CustomProductTab2Content",
         "id": "custom_product_tab2_content"
       },

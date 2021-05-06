@@ -1397,10 +1397,7 @@
     "default": "Show warranty under photo gallery"
   },
   "i18n.CustomProductWarrantyTitle": {
-    "default": "Warranty heading"
-  },
-  "i18n.CustomProductFieldTitle": {
-    "default": "Custom fields heading"
+    "default": "Warranty tab label"
   },
   "i18n.CustomProductGallerySize": {
     "default": "Photo gallery size"
@@ -1415,7 +1412,7 @@
     "default": "Tab 1 heading"
   },
   "i18n.CustomProductTab1Content": {
-    "default": "Tab 1 content"
+    "default": "Tab 1 text/html"
   },
   "i18n.CustomProductTab2Show": {
     "default": "Show custom tab 2"
@@ -1424,7 +1421,7 @@
     "default": "Tab 2 heading"
   },
   "i18n.CustomProductTab2Content": {
-    "default": "Tab 2 content"
+    "default": "Tab 2 text/html"
   },
   "i18n.NumberOfProductsDisplayed": {
     "default": "Number of products displayed",
