@@ -4,16 +4,28 @@
             <a class="tab-title" href="#tab-description">{{lang 'products.description'}}</a>
         </li>
     {{/if}}
-    {{#if product.warranty}}
-        <li class="tab {{#unless product.description}}is-active{{/unless}}">
-            <a class="tab-title" href="#tab-warranty">{{lang 'products.warranty'}}</a>
-        </li>
-    {{/if}}
     {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
-        <li class="tab">
+        <li class="tab {{#unless product.description}}is-active{{/unless}}">
             <a class="tab-title" href="#tab-{{dashcase (lowercase (sanitize theme_settings.pdp-custom-fields-tab-label))}}">{{sanitize theme_settings.pdp-custom-fields-tab-label}}</a>
         </li>
     {{/all}}
+	{{#unless theme_settings.custom_product_warranty_gallery}}
+    {{#if product.warranty}}
+        <li class="tab">
+            <a class="tab-title" href="#tab-warranty">{{theme_settings.custom_product_warranty_title}}</a>
+        </li>
+    {{/if}}
+	{{/unless}}
+    {{#if theme_settings.custom_product_tab1_show}}
+        <li class="tab">
+            <a class="tab-title" href="#tab-custom1">{{theme_settings.custom_product_tab1_title}}</a>
+        </li>
+    {{/if}}
+    {{#if theme_settings.custom_product_tab2_show}}
+        <li class="tab">
+            <a class="tab-title" href="#tab-custom2">{{theme_settings.custom_product_tab2_title}}</a>
+        </li>
+    {{/if}}
     {{#all settings.show_product_reviews theme_settings.show_product_reviews product.reviews.total}}
         <li class="tab">
             <a class="tab-title productView-reviewTabLink" href="#tab-reviews">{{lang 'products.reviews.header' total=product.reviews.total}}</a>
@@ -26,13 +38,8 @@
             {{{product.description}}}
         </div>
     {{/if}}
-    {{#if product.warranty}}
-        <div class="tab-content {{#unless product.description}}is-active{{/unless}}" id="tab-warranty">
-            {{{product.warranty}}}
-        </div>
-    {{/if}}
     {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
-      <div class="tab-content" id="tab-{{dashcase (lowercase (sanitize theme_settings.pdp-custom-fields-tab-label))}}">
+      <div class="tab-content {{#unless product.description}}is-active{{/unless}}" id="tab-{{dashcase (lowercase (sanitize theme_settings.pdp-custom-fields-tab-label))}}">
          <dl class="productView-info">
             {{#each product.custom_fields}}
                <dt class="productView-info-name">{{name}}:</dt>
@@ -41,6 +48,21 @@
          </dl>
       </div>
     {{/all}}
+    {{#if product.warranty}}
+        <div class="tab-content" id="tab-warranty">
+            {{{product.warranty}}}
+        </div>
+    {{/if}}
+    {{#if theme_settings.custom_product_tab1_show}}
+        <div class="tab-content" id="tab-custom1">
+			{{{theme_settings.custom_product_tab1_content}}}
+		</div>
+    {{/if}}
+    {{#if theme_settings.custom_product_tab2_show}}
+        <div class="tab-content" id="tab-custom2">
+			{{{theme_settings.custom_product_tab2_content}}}
+		</div>
+    {{/if}}
     {{#all settings.show_product_reviews theme_settings.show_product_reviews}}
        <div class="tab-content" id="tab-reviews">
            {{> components/products/reviews reviews=product.reviews product=product urls=urls}}

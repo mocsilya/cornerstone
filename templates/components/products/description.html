@@ -1,13 +1,41 @@
 {{#if product.description}}
-    <p class="productView-title">{{lang 'products.description'}}</p>
+    <h4 class="productView-title">{{lang 'products.description'}}</h4>
     <div class="productView-description" {{#if settings.data_tag_enabled}} data-event-type="product" {{/if}}>
         {{{product.description}}}
     </div>
 {{/if}}
 
+{{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
+    <h4 class="productView-title">{{sanitize theme_settings.pdp-custom-fields-tab-label}}</h4>
+    <div class="productView-description">
+        <dl class="productView-info">
+           {{#each product.custom_fields}}
+              <dt class="productView-info-name">{{name}}:</dt>
+              <dd class="productView-info-value">{{{value}}}</dd>
+           {{/each}}
+        </dl>
+    </div>
+{{/all}}
+
+{{#unless theme_settings.custom_product_warranty_gallery}}
 {{#if product.warranty}}
-    <p class="productView-title">{{lang 'products.warranty'}}</p>
+    <h4 class="productView-title">{{theme_settings.custom_product_warranty_title}}</h4>
     <div class="productView-description">
         {{{product.warranty}}}
+    </div>
+{{/if}}
+{{/unless}}
+
+{{#if theme_settings.custom_product_tab1_show}}
+    <h4 class="productView-title">{{theme_settings.custom_product_tab1_title}}</h4>
+    <div class="productView-description">
+        {{{theme_settings.custom_product_tab1_content}}}
+    </div>
+{{/if}}
+
+{{#if theme_settings.custom_product_tab2_show}}
+    <h4 class="productView-title">{{theme_settings.custom_product_tab2_title}}</h4>
+    <div class="productView-description">
+        {{{theme_settings.custom_product_tab2_content}}}
     </div>
 {{/if}}

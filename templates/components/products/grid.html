@@ -1,4 +1,4 @@
-<ul class="productGrid">
+<ul class="productGrid productGrid-{{theme_settings.custom_category_max_columns}}">
     {{#each products}}
     <li class="product{{#filter custom_fields 'hidden' property='name' }}{{#if value '==' 'spotlight'}} spotlight{{/if}}{{/filter}}">
             {{>components/products/card settings=../settings show_compare=../show_compare show_rating=../settings.show_product_rating theme_settings=../theme_settings customer=../customer event=../event position=(add @index 1)}}

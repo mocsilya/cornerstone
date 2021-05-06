@@ -455,6 +455,30 @@
       },
       {
         "type": "select",
+        "id": "custom_category_max_columns",
+        "force_reload": true,
+        "label": "i18n.CustomCategoryMaxColumns",
+        "options": [
+          {
+            "value": "2",
+            "label": "Two"
+          },
+          {
+            "value": "3",
+            "label": "Three"
+          },
+          {
+            "value": "4",
+            "label": "Four"
+          },
+          {
+            "value": "5",
+            "label": "Five"
+          }
+        ]
+      },
+      {
+        "type": "select",
         "id": "custom_category_sidebar_display",
         "force_reload": true,
         "label": "i18n.CustomCategorySidebarDisplay",
@@ -764,6 +788,21 @@
         "id": "custom_header_show_bar"
       },
       {
+        "type": "color",
+        "label": "i18n.CustomHeaderBarBackground",
+        "id": "custom-header-bar-background"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomHeaderBarText",
+        "id": "custom-header-bar-text"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomHeaderBarIcon",
+        "id": "custom-header-bar-icon"
+      },
+      {
         "type": "checkbox",
         "label": "i18n.CustomHeaderShowBarMessage1",
         "force_reload": true,
@@ -850,21 +889,6 @@
             "label": "Security"
           }
         ]
-      },
-      {
-        "type": "color",
-        "label": "i18n.CustomHeaderBarBackground",
-        "id": "custom-header-bar-background"
-      },
-      {
-        "type": "color",
-        "label": "i18n.CustomHeaderBarText",
-        "id": "custom-header-bar-text"
-      },
-      {
-        "type": "color",
-        "label": "i18n.CustomHeaderBarIcon",
-        "id": "custom-header-bar-icon"
       },
       {
         "type": "heading",

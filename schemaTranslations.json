@@ -411,6 +411,9 @@
     "uk": "Показати товари в списку",
     "zh": "以列表形式显示产品"
   },
+  "i18n.CustomCategoryMaxColumns": {
+    "default": "Max number of products per row"
+  },
   "i18n.CustomCategorySidebarDisplay": {
     "default": "Category/filter location"
   },

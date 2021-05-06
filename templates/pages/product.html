@@ -36,15 +36,14 @@ customer:
         {{> components/products/product-view schema=true  }}
 
         {{{region name="product_below_content"}}}
-
-        {{#if product.videos.list.length}}
-            {{> components/products/videos product.videos}}
-        {{/if}}
-
-        {{#all settings.show_product_reviews theme_settings.show_product_reviews (if theme_settings.show_product_details_tabs '!==' true)}}
-            {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
-        {{/all}}
-
+		{{#if theme_settings.custom_product_description_location '==' 'underneath'}}
+	        {{#all settings.show_product_reviews theme_settings.show_product_reviews (if theme_settings.show_product_details_tabs '!==' true)}}
+	            {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+	        {{/all}}
+			{{#all product.videos.list.length (if theme_settings.show_product_details_tabs '!==' true)}}
+            	{{> components/products/videos product.videos}}
+        	{{/all}}
+		{{/if}}
         {{> components/products/tabs}}
     </div>
 {{/partial}}

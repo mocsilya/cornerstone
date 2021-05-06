@@ -8,7 +8,7 @@
         {{/if}}
     {{/each}}
 
-    <section class="productView-images" data-image-gallery>
+    <section class="productView-images productView-images-{{theme_settings.custom_product_gallery_size}}" data-image-gallery>
         {{!--
             Note that these image sizes are coupled to image sizes used in /assets/js/theme/common/product-details.js
             for variant/rule image replacement
@@ -69,9 +69,34 @@
                 </li>
             {{/each}}
         </ul>
+		{{#if theme_settings.custom_product_description_location '==' 'side'}}
+        	{{#if product.videos.list.length}}
+            	{{> components/custom/videos product.videos}}
+        	{{/if}}
+		{{/if}}
+		{{#if theme_settings.custom_product_description_location '==' 'underneath'}}
+			{{#all product.videos.list.length (if theme_settings.show_product_details_tabs '==' true)}}
+            	{{> components/custom/videos product.videos}}
+        	{{/all}}
+		{{/if}}
+		{{#if theme_settings.custom_product_warranty_gallery}}
+        	{{#if product.warranty}}
+				<div class="productView-warranty">
+			    	<h4 class="toggle-title">{{theme_settings.custom_product_warranty_title}}</h4>
+			    	<div class="productView-warranty-content">
+			        	{{{product.warranty}}}
+			    	</div>
+				</div>
+        	{{/if}}
+		{{/if}}
+		{{#if theme_settings.custom_product_description_location '==' 'side'}}
+	        {{#all settings.show_product_reviews theme_settings.show_product_reviews (if theme_settings.show_product_details_tabs '!==' true)}}
+	            {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+	        {{/all}}
+		{{/if}}
     </section>
 
-    <section class="productView-details product-data">
+    <section class="productView-details productView-details-{{theme_settings.custom_product_gallery_size}} product-data">
         <div class="productView-product">
             <span style="display: none;" class="productView-title" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</span>
             {{#if product.brand}}
@@ -93,7 +118,9 @@
             </div>
             {{{region name="product_below_price"}}}
             <div class="productView-rating"{{#if product.num_reviews '>' 0}}{{#if schema}} itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"{{/if}}{{/if}}>
-                {{#if settings.show_product_rating}}
+                <dl class="productView-info">
+				{{#if settings.show_product_rating}}
+					<dt class="productView-info-name">
                     {{#if product.num_reviews '>' 0}}
                         {{#if schema}}
                             <meta itemprop="ratingValue" content="{{product.rating}}">
@@ -109,8 +136,10 @@
                     {{else}}
                         <span>{{lang 'products.reviews.link_to_review' total=product.num_reviews}}</span>
                     {{/if}}
-                {{/if}}
+					</dt>
+                {{/if}}		
                 {{#if settings.show_product_reviews}}
+				<dd class="productView-info-value">
                     <a href="{{product.url}}{{#if is_ajax}}#write_review{{/if}}"
                        class="productView-reviewLink productView-reviewLink--new"
                        {{#unless is_ajax}}data-reveal-id="modal-review-form"{{/unless}}
@@ -119,14 +148,16 @@
                        {{lang 'products.reviews.new'}}
                     </a>
                     {{> components/products/modals/writeReview}}
+				</dd>
                 {{/if}}
+				</dl>
             </div>
             {{product.detail_messages}}
             <dl class="productView-info">
                 <dt class="productView-info-name sku-label"{{#unless product.sku}} style="display: none;"{{/unless}}>{{lang 'products.sku'}}</dt>
-                <dd class="productView-info-value" data-product-sku{{#if schema}} itemprop="sku"{{/if}}>{{product.sku}}</dd>
+                <dd class="productView-info-value"{{#unless product.sku}} style="display: none;"{{/unless}} data-product-sku{{#if schema}} itemprop="sku"{{/if}}>{{product.sku}}</dd>
                 <dt class="productView-info-name upc-label"{{#unless product.upc}} style="display: none;"{{/unless}}>{{lang 'products.upc'}}</dt>
-                <dd class="productView-info-value" data-product-upc>{{product.upc}}</dd>
+                <dd class="productView-info-value"{{#unless product.upc}} style="display: none;"{{/unless}} data-product-upc>{{product.upc}}</dd>
                 {{#if schema}}
                     {{#if product.mpn}}<meta itemprop="mpn" content="{{product.mpn}}" />{{/if}}
                     {{#if product.gtin}}<meta itemprop="gtin" content="{{product.gtin}}" />{{/if}}
@@ -215,7 +246,7 @@
         </div>
     </section>
 
-    <section class="productView-details product-options">
+    <section class="productView-details productView-details-{{theme_settings.custom_product_gallery_size}} product-options">
         <div class="productView-options">
             {{#if product.release_date }}
                 <p>{{product.release_date}}</p>
@@ -252,7 +283,7 @@
         {{> components/common/share url=product.url}}
     </section>
 
-    <article class="productView-description"{{#if schema}} itemprop="description"{{/if}}>
+    <article class="productView-description productView-description-{{theme_settings.custom_product_description_location}} productView-description-{{theme_settings.custom_product_gallery_size}}"{{#if schema}} itemprop="description"{{/if}}>
         {{#if theme_settings.show_product_details_tabs}}
             {{> components/products/description-tabs}}
         {{else}}

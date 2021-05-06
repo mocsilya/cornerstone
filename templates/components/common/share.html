@@ -1,7 +1,7 @@
 {{#if settings.add_this.buttons}}
     {{assignVar 'encodedUrl' (encodeURI url)}}
     {{assignVar 'encodedTitle' (encodeURI head.title)}}
-    <div>
+    <div class="share-container">
         <ul class="socialLinks">
             {{#each settings.add_this.buttons}}
                 <li class="socialLinks-item socialLinks-item--{{service}}">
