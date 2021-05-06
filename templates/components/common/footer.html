@@ -162,10 +162,12 @@
             </article>
             {{/and}}
 
-            {{#if settings.address}}
+            
             <article class="footer-info-col footer-info-col--small" data-section-type="storeInfo">
                 <h3 class="footer-info-heading">{{settings.store_name}}</h3>
+				{{#if settings.address}}
                 <address>{{nl2br settings.address}}</address>
+				{{/if}}
                 {{#if settings.phone_number}}
                     <p class="footer-phone">
 						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-phone" /></svg></i> 
@@ -179,7 +181,6 @@
 					</p>
                 {{/if}}
             </article>
-            {{/if}}
 
         </section>
 		<section class="footer-bar">

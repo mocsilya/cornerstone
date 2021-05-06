@@ -1393,6 +1393,39 @@
     "uk": "Фон побажань списку бажань",
     "zh": "心愿单下拉菜单背景"
   },
+  "i18n.CustomProductWarrantyGallery": {
+    "default": "Show warranty under photo gallery"
+  },
+  "i18n.CustomProductWarrantyTitle": {
+    "default": "Warranty heading"
+  },
+  "i18n.CustomProductFieldTitle": {
+    "default": "Custom fields heading"
+  },
+  "i18n.CustomProductGallerySize": {
+    "default": "Photo gallery size"
+  },
+  "i18n.CustomProductDescriptionLocation": {
+    "default": "Descripton/details location"
+  },
+  "i18n.CustomProductTab1Show": {
+    "default": "Show custom tab 1"
+  },
+  "i18n.CustomProductTab1Title": {
+    "default": "Tab 1 heading"
+  },
+  "i18n.CustomProductTab1Content": {
+    "default": "Tab 1 content"
+  },
+  "i18n.CustomProductTab2Show": {
+    "default": "Show custom tab 2"
+  },
+  "i18n.CustomProductTab2Title": {
+    "default": "Tab 2 heading"
+  },
+  "i18n.CustomProductTab2Content": {
+    "default": "Tab 2 content"
+  },
   "i18n.NumberOfProductsDisplayed": {
     "default": "Number of products displayed",
     "fr": "Nombre de produits affichés",

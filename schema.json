@@ -1859,6 +1859,87 @@
         "id": "dropdown--wishList-backgroundColor"
       },
       {
+        "type": "checkbox",
+        "label": "i18n.CustomProductWarrantyGallery",
+        "id": "custom_product_warranty_gallery"
+      },
+      {
+        "type": "text",
+        "label": "i18n.CustomProductWarrantyTitle",
+        "id": "custom_product_warranty_title"
+      },
+      {
+        "type": "text",
+        "label": "i18n.CustomProductFieldTitle",
+        "id": "custom_product_field_title"
+      },
+      {
+        "type": "select",
+        "label": "i18n.CustomProductGallerySize",
+        "id": "custom_product_gallery_size",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "small",
+            "label": "Small"
+          },
+          {
+            "value": "medium",
+            "label": "Medium"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "i18n.CustomProductDescriptionLocation",
+        "id": "custom_product_description_location",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "underneath",
+            "label": "Underneath"
+          },
+          {
+            "value": "side",
+            "label": "Side Column"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.CustomProductTab1Show",
+        "id": "custom_product_tab1_show"
+      },
+      {
+        "type": "text",
+        "label": "i18n.CustomProductTab1Title",
+        "id": "custom_product_tab1_title"
+      },
+      {
+        "type": "paragraph",
+        "label": "i18n.CustomProductTab1Content",
+        "id": "custom_product_tab1_content"
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.CustomProductTab2Show",
+        "id": "custom_product_tab2_show"
+      },
+      {
+        "type": "text",
+        "label": "i18n.CustomProductTab2Title",
+        "id": "custom_product_tab2_title"
+      },
+      {
+        "type": "paragraph",
+        "label": "i18n.CustomProductTab2Content",
+        "id": "custom_product_tab2_content"
+      },
+      {
         "type": "heading",
         "content": "i18n.NumberOfProductsDisplayed"
       },
