@@ -521,6 +521,9 @@ body.scroll .dropdown--quickSearch.is-open {
 	display: none;
 	height: 1.5rem;
 	vertical-align: top;
+	@include breakpoint("xlarge") {
+		display: inline-block;
+	}
 }
 
 .navUser-item--widesearch {

@@ -48,11 +48,13 @@
          </dl>
       </div>
     {{/all}}
+	{{#unless theme_settings.custom_product_warranty_gallery}}
     {{#if product.warranty}}
-        <div class="tab-content" id="tab-warranty">
+        <div class="tab-content warranty-content" id="tab-warranty">
             {{{product.warranty}}}
         </div>
     {{/if}}
+	{{/unless}}
     {{#if theme_settings.custom_product_tab1_show}}
         <div class="tab-content" id="tab-custom1">
 			{{{theme_settings.custom_product_tab1_content}}}
