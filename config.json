@@ -55,6 +55,7 @@
     "custom_card_spotlight_name": "Spotlight",
     "custom-card-spotlight-color": "#ffffff",
 	"custom-card-spotlight-background": "#333333",
+	"custom-card-border": "#ffffff",
 	"custom_header_group_single": true,
 	"custom_header_show_brands": true,
 	"custom_header_show_bar": true,

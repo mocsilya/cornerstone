@@ -1316,6 +1316,9 @@
   "i18n.ShowSwatchesOnProduct": {
     "default": "Show swatches on product cards"
   },
+  "i18n.ShowWarrantyOnProduct": {
+    "default": "Show warranty box content on product cards"
+  },
   "i18n.ShowAlternativeImageOnProduct": {
     "default": "Show alternative hover image on product cards"
   },
@@ -1474,6 +1477,9 @@
     "it": "Schede prodotto",
     "uk": "Картки товарів",
     "zh": "产品卡"
+  },
+  "i18n.CustomCardBorder": {
+    "default": "Product card border color"
   },
   "i18n.ProductHeaderTextColor": {
     "default": "Product header text color",

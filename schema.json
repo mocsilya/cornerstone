@@ -1745,6 +1745,12 @@
       },
       {
         "type": "checkbox",
+        "label": "i18n.ShowWarrantyOnProduct",
+        "force_reload": true,
+        "id": "custom_card_show_warranty"
+      },
+      {
+        "type": "checkbox",
         "label": "i18n.ShowAlternativeImageOnProduct",
         "force_reload": true,
         "id": "custom_card_show_alt_image"
@@ -2191,6 +2197,11 @@
       {
         "type": "heading",
         "content": "i18n.ProductCards"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomCardBorder",
+        "id": "custom-card-border"
       },
       {
         "type": "color",
