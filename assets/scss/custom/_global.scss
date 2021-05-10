@@ -664,6 +664,13 @@ body.scroll .dropdown--quickSearch.is-open {
 	}
 }
 
+
+body.scroll .navPages-container-hide {
+	@include breakpoint("medium") {
+		display: none;
+	}
+}
+
 .page-default .navPages-container {
 	@include breakpoint("medium") {
 		max-width: $screen-xlarge;
@@ -1471,6 +1478,11 @@ a:hover span.card-image:only-of-type img {
 }
 
 .card-warranty table th {
+	font-weight: 700;
+}
+
+.card-message {
+	padding: .5rem 0;
 	font-weight: 700;
 }
 

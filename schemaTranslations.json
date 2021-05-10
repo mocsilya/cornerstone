@@ -715,6 +715,9 @@
     "uk": "Основна навігація",
     "zh": "主导航"
   },
+  "i18n.CustomHeaderScrollNavpages": {
+    "default": "Show main nav when page is scrolled"
+  },
   "i18n.HideLinksToWebPages": {
     "default": "Hide links to web pages",
     "fr": "Masquer les liens vers les pages Web",
@@ -1321,6 +1324,12 @@
   },
   "i18n.ShowAlternativeImageOnProduct": {
     "default": "Show alternative hover image on product cards"
+  },
+  "i18n.CustomCardShowMessage": {
+    "default": "Show a custom message on product cards"
+  },
+  "i18n.CustomCardMessageText": {
+    "default": "Custom message text"
   },
   "i18n.ShowQuantitySelectionOnProduct": {
     "default": "Show quantity selection on product pages",

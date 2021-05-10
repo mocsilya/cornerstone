@@ -242,5 +242,10 @@
                 {{/unless}}
 			</div>
 		{{/if}}
+		{{#if theme_settings.custom_card_show_message}}
+			<div class="card-message">
+				{{theme_settings.custom_card_message_text}}
+			</div>
+		{{/if}}
     </div>
 </article>

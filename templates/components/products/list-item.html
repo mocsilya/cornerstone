@@ -1,7 +1,11 @@
 {{assignVar "spotlight" "inactive"}}
+{{assignVar "warranty" "inactive"}}
 {{#filter custom_fields 'hidden' property='name'}}
 	{{#if value '==' 'spotlight'}}
 		{{assignVar "spotlight" "active"}}
+	{{/if}}
+	{{#if value '==' 'warranty'}}
+		{{assignVar "warranty" "active"}}
 	{{/if}}
 {{/filter}}
 {{#if settings.data_tag_enabled}}
@@ -33,20 +37,20 @@
 		{{#if show_cart_action}}
 			{{#if has_options}}
 				<a href="{{url}}" 
-					class="listItem-figure__link figure__swatches listItem-figure__normal"
+					class="listItem-figure__link{{#if (getVar 'warranty') '===' 'active'}} figure__warranty{{/if}}{{#if theme_settings.custom_card_show_swatches}} figure__swatches{{/if}} listItem-figure__normal"
 					aria-label="{{name}},{{> components/products/product-aria-label}}"
 					{{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}
 				>
 			{{else}}
 				<a href="{{url}}" 
-					class="listItem-figure__link listItem-figure__normal"
+					class="listItem-figure__link{{#if (getVar 'warranty') '===' 'active'}} figure__warranty{{/if}} listItem-figure__normal"
 					aria-label="{{name}},{{> components/products/product-aria-label}}"
 					{{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}
 				>
 			{{/if}}
 		{{else}}
 			<a href="{{url}}" 
-				class="listItem-figure__link listItem-figure__normal"
+				class="listItem-figure__link{{#if (getVar 'warranty') '===' 'active'}} figure__warranty{{/if}}  listItem-figure__normal"
 				aria-label="{{name}},{{> components/products/product-aria-label}}"
 				{{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}
 			>
@@ -137,10 +141,21 @@
                 {{else}}
                     {{> components/common/login-for-pricing}}
                 {{/or}}
-				{{#if show_cart_action}}
+			    {{#if show_cart_action}}
 					{{#if has_options}}
-						<div class="card-swatches"></div>
+						{{#if theme_settings.custom_card_show_swatches}}
+				        	<div class="card-swatches"></div>
+						{{/if}}
 					{{/if}}
+				{{/if}}
+				{{#if (getVar "warranty") '===' 'active'}}
+					<div class="card-warranty" style="display: none;">
+						<a class="button button--small button--secondary has-dropdown" href="" data-dropdown="warranty{{id}}" aria-expanded="false">
+							{{theme_settings.custom_product_warranty_title}}
+						</a>
+						<div class="dropdown-menu" id="warranty{{id}}" data-dropdown-content="" aria-hidden="true">
+						</div>
+					</div>
 				{{/if}}
                 {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
                     {{#if show_cart_action}}
@@ -172,5 +187,10 @@
 		        {{/unless}}
             </div>
         </div>
+		{{#if theme_settings.custom_card_show_message}}
+			<div class="card-message">
+				{{theme_settings.custom_card_message_text}}
+			</div>
+		{{/if}}
     </div>
 </article>
