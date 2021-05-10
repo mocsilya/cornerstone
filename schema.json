@@ -843,6 +843,10 @@
           {
             "value": "security",
             "label": "Security"
+          },
+          {
+            "value": "star",
+            "label": "Star"
           }
         ]
       },
@@ -1151,6 +1155,12 @@
         "label": "i18n.ShowPoweredByBigCommerce",
         "force_reload": true,
         "id": "show_powered_by"
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.CustomHeaderGroupSingle",
+        "force_reload": true,
+        "id": "custom_header_group_single"
       },
       {
         "type": "checkbox",

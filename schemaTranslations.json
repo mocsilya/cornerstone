@@ -884,6 +884,9 @@
     "uk": "Показати \"Працює на BigCommerce\"",
     "zh": "显示\"Powered by BigCommerce\""
   },
+  "i18n.CustomHeaderGroupSingle": {
+    "default": "Group level 2 categories with no subs together "
+  },
   "i18n.CustomHeaderShowBrands": {
     "default": "Show brands in header"
   },
@@ -895,7 +898,7 @@
     "zh": "在页脚显示品牌"
   },
   "i18n.CustomFooterShowPageColumns": {
-    "default": "Show parent pages in seperate columns."
+    "default": "Show pages with sub pages in seperate footer columns."
   },
   "i18n.ShowCurrentYearAnd": {
     "default": "Show copyright, current year and store name",

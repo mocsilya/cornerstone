@@ -3,7 +3,11 @@
         {{#each categories}}
             <li class="navPages-item navPages-item-category">
             {{#if ../theme_settings.navigation_design '===' 'simple'}}
-                {{> components/common/navigation-list}}
+				{{#if ../theme_settings.custom_header_group_single}}
+                	{{> components/custom/navigation-list-group}}
+				{{else}}
+					{{> components/common/navigation-list}}
+				{{/if}}
             {{/if}}
             {{#if ../theme_settings.navigation_design '===' 'alternate'}}
                 {{> components/common/navigation-list-alternate}}
@@ -28,7 +32,11 @@
             {{#each pages}}
                 <li class="navPages-item navPages-item-page">
 	            {{#if ../theme_settings.navigation_design '===' 'simple'}}
-					{{> components/custom/navigation-list-page}}
+					{{#if ../theme_settings.custom_header_group_single}}
+	                	{{> components/custom/navigation-list-group-page}}
+					{{else}}
+						{{> components/custom/navigation-list-page}}
+					{{/if}}
 	            {{/if}}
 	            {{#if ../theme_settings.navigation_design '===' 'alternate'}}
 					{{> components/custom/navigation-list-alternate-page}}

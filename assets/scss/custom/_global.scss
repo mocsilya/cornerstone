@@ -788,6 +788,10 @@ body.scroll .navPages > ul > li > .navPages-action {
 	}
 }
 
+.navPage-subMenu-item-grouphide {
+	display: none;
+}
+
 
 
 // Homepage Products
@@ -1405,6 +1409,56 @@ a:hover span.card-image:only-of-type img {
 .spotlight-carousel .slick-prev {
 	left: -1.5rem;
 	padding: 0 0 0 .125rem;
+}
+
+.card-warranty {
+	position: relative;
+	overflow: visible;
+}
+
+.card-warranty .button {
+	font-size: .75rem;
+	line-height: 1;
+	padding: .375rem .5rem;
+	margin: 0;
+	font-weight: 700;
+}
+
+.card-warranty .dropdown-menu {
+	max-width: 100%;
+	margin-bottom: 2rem;
+	overflow: auto;
+	border: 1px solid stencilColor("button--default-borderColor");
+	background-color: stencilColor("body-bg");
+	padding: .75rem;
+	border-radius: 4px;
+}
+
+.card-warranty .dropdown-menu.is-open {
+	width: 100% !important;
+	left: 0 !important;
+	right: 0 !important;
+	bottom: 0 !important;
+	top: auto !important;
+}
+
+.card-warranty table {
+	margin: 0;
+	padding: 0;
+	border-right: 1px solid rgba(stencilColor("color-textBase"), 0.2);
+	border-bottom: 1px solid rgba(stencilColor("color-textBase"), 0.2);
+}
+
+.card-warranty table td,
+.card-warranty table th {
+	padding: .125rem .25rem;
+	border-left: 1px solid rgba(stencilColor("color-textBase"), 0.2);
+	border-top: 1px solid rgba(stencilColor("color-textBase"), 0.2);
+	font-size: .875rem;
+}
+
+.card-warranty table th {
+	font-weight: 700;
 }
 
 
@@ -2264,7 +2318,6 @@ a:hover span.card-image:only-of-type img {
 	margin: 0 .25rem;
 	vertical-align: top;
 }
-
 
 .productView table {
 	margin: 0;

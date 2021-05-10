@@ -1,0 +1,105 @@
+{{#if children}}
+<a class="navPages-action has-subMenu{{#if name '==' ../page.title}} activePage{{/if}} navPages-action-mobile"
+	href="{{url}}" 
+	data-collapsible="navPages-{{#replace ' ' name}}{{/replace}}" 
+>
+	{{name}}
+	<i class="icon navPages-action-moreIcon" aria-hidden="true">
+		<svg><use xlink:href="#icon-chevron-down" /></svg>
+	</i>
+</a>
+<a class="navPages-action{{#if name '==' ../page.title}} activePage{{/if}} navPages-action-desktop"
+	href="{{url}}" 
+	aria-label="{{name}}" 
+>
+	{{name}}
+	<i class="icon navPages-action-moreIcon" aria-hidden="true">
+		<svg><use xlink:href="#icon-chevron-down" /></svg>
+	</i>
+</a>
+<div class="navPage-subMenu" id="navPages-{{#replace ' ' name}}{{/replace}}" aria-hidden="true" tabindex="-1">
+    <ul class="navPage-subMenu-list">
+        {{#each children}}
+			{{#if children}}
+            	<li class="navPage-subMenu-item">
+	                <a class="navPage-subMenu-action navPages-action has-subMenu{{#if name '==' ../page.title}} activePage{{/if}}"
+	                   href="{{url}}"
+	                   aria-label="{{name}}"
+	                >
+                        {{name}}
+	                    <span class="collapsible-icon-wrapper"
+	                        data-collapsible="navPages-{{#replace ' ' name}}{{/replace}}"
+	                        data-collapsible-disabled-breakpoint="medium"
+	                        data-collapsible-disabled-state="open"
+	                        data-collapsible-enabled-state="closed"
+	                    >
+	                        <i class="icon navPages-action-moreIcon" aria-hidden="true">
+	                            <svg><use xlink:href="#icon-chevron-down" /></svg>
+	                        </i>
+	                    </span>
+                    </a>
+                    <ul class="navPage-childList" id="navPages-{{#replace ' ' name}}{{/replace}}">
+	                    {{#each children}}
+	                    <li class="navPage-childList-item">
+	                        <a class="navPage-childList-action navPages-action{{#if name '==' ../page.title}} activePage{{/if}}"
+	                           href="{{url}}"
+	                           aria-label="{{name}}"
+	                        >
+	                            {{name}}
+	                        </a>
+	                    </li>
+	                    {{/each}}
+                    </ul>
+            	</li>
+			{{/if}}
+        {{/each}}
+		{{assignVar "group" "hide"}}
+		{{#if (getVar "group") '!==' 'show'}}
+		{{#each children}}
+			{{#unless children}}
+				{{assignVar "group" "show"}}
+			{{/unless}}
+		{{/each}}
+		{{/if}}
+    	<li class="navPage-subMenu-item navPage-subMenu-item-group{{getVar 'group'}}">
+            <a class="navPage-subMenu-action navPages-action has-subMenu{{#if name '==' ../page.title}} activePage{{/if}}"
+               href="{{url}}"
+               aria-label="{{name}}"
+            >
+                {{name}}
+                <span class="collapsible-icon-wrapper"
+                    data-collapsible="navPages-{{#replace ' ' name}}{{/replace}}-b"
+                    data-collapsible-disabled-breakpoint="medium"
+                    data-collapsible-disabled-state="open"
+                    data-collapsible-enabled-state="closed"
+                >
+                    <i class="icon navPages-action-moreIcon" aria-hidden="true">
+                        <svg><use xlink:href="#icon-chevron-down" /></svg>
+                    </i>
+                </span>
+            </a>
+            <ul class="navPage-childList" id="navPages-{{#replace ' ' name}}{{/replace}}-b">
+        	{{#each children}}
+				{{#unless children}}
+					<li class="navPage-childList-item">
+                        <a class="navPage-childList-action navPages-action{{#if name '==' ../page.title}} activePage{{/if}}"
+                           href="{{url}}"
+                           aria-label="{{name}}"
+                        >
+                            {{name}}
+                        </a>
+					</li>
+				{{/unless}}
+			{{/each}}
+            </ul>
+    	</li>
+    </ul>
+</div>
+{{else}}
+<a class="navPages-action{{#if name '==' ../page.title}} activePage{{/if}}"
+	href="{{url}}" 
+	aria-label="{{name}}" 
+>
+	{{name}}
+</a>
+{{/if}}
