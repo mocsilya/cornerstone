@@ -1,0 +1,35 @@
+<!-- cart page only -->
+		<script>
+			localStorage.removeItem("allEntries");
+		</script>
+		{{#each cart.items}}
+		<script>
+			//Store cart items in local storage
+			var existingEntries = JSON.parse(localStorage.getItem("allEntries"));
+			if (existingEntries == null) existingEntries = [];
+			var entryCode =  '{{product_id}}';
+			var uncodedName = '{{name}}';
+			var entryName = uncodedName.replace(/['"]+/g, '');
+			var entryName = entryName.replace(/&quot;/g, '');
+			var entryQty = '{{quantity}}';
+			{{#if price_discounted}}
+			var entryPrice = '{{price_discounted.formatted}}';
+			{{else}}
+			var entryPrice = '{{price.formatted}}';
+			{{/if}}
+			var entry = 
+				{ 
+				"code": entryCode,
+				"name": entryName,
+				"qty": entryQty,
+				"price": entryPrice
+				};
+			localStorage.setItem("entry", JSON.stringify(entry));
+			// Save allEntries back to local storage
+			existingEntries.push(entry);
+			localStorage.setItem("allEntries", JSON.stringify(existingEntries));
+			console.log(localStorage.getItem("allEntries"));
+			// Last entry inserted
+			console.log(localStorage.getItem("entry"));
+		</script>		
+		{{/each}}

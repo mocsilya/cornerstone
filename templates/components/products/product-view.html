@@ -96,8 +96,9 @@
 		{{/if}}
     </section>
 
-    <section class="productView-details productView-details-{{theme_settings.custom_product_gallery_size}} product-data">
+    <section class="productView-details{{#if product.brand}} productView-details-{{first (split product.brand.name ' ')}}{{/if}} productView-details-{{theme_settings.custom_product_gallery_size}} product-data">
         <div class="productView-product">
+			{{> components/custom/client/client-product-message}}
             <span style="display: none;" class="productView-title" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</span>
             {{#if product.brand}}
                 <h2 class="productView-brand"{{#if schema}} itemprop="brand" itemscope itemtype="http://schema.org/Brand"{{/if}}>
@@ -248,7 +249,7 @@
         </div>
     </section>
 
-    <section class="productView-details productView-details-{{theme_settings.custom_product_gallery_size}} product-options">
+    <section class="productView-details{{#if product.brand}} productView-details-{{first (split product.brand.name ' ')}}{{/if}} productView-details-{{theme_settings.custom_product_gallery_size}} product-options">
         <div class="productView-options">
             {{#if product.release_date }}
                 <p>{{product.release_date}}</p>
@@ -278,9 +279,9 @@
                     {{/if}}
                 {{/if}}
             </form>
-            {{#if settings.show_wishlist}}
+            {{#all settings.show_wishlist theme_settings.custom_product_wishlist_show}}
                 {{> components/common/wishlist-dropdown}}
-            {{/if}}
+            {{/all}}
         </div>
         {{> components/common/share url=product.url}}
     </section>

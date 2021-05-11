@@ -78,5 +78,12 @@
         </script>
 
         {{{footer.scripts}}}
+		{{#if page_type "==" "category"}}
+			{{> components/custom/client/client-script-category}}
+		{{else if page_type "==" "product"}}
+			{{> components/custom/client/client-script-product}}
+		{{else if page_type "==" "cart"}}
+			{{> components/custom/client/client-script-cart}}
+		{{/if}}
     </body>
 </html>

@@ -11,6 +11,7 @@
 {{assignVar "warranty" "active"}}
 <article
     class="card
+	{{#if brand.name}} card-brand-{{first (split brand.name ' ')}}{{/if}}
     {{#if alternate}} card--alternate{{/if}}"
     data-test="card-{{id}}"
     {{#if settings.data_tag_enabled}}
