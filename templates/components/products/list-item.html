@@ -109,6 +109,32 @@
 	        {{/each}}
 			</ul>
 		{{/if}}
+		{{#if theme_settings.custom_card_show_wishlist}}
+		{{#if customer.wishlists}}
+		<span class="card-wishlist">
+		    <a aria-controls="wishlist-dropdown-{{id}}"
+		       aria-expanded="false"
+		       class="dropdown-menu-button"
+		       data-dropdown="wishlist-dropdown-{{id}}"
+		       href="#"
+		    >
+				<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-heart" /></svg></i>
+		    </a>
+			<ul aria-hidden="true" class="dropdown-menu" data-dropdown-content id="wishlist-dropdown-{{id}}">
+	            {{#each customer.wishlists}}
+				<li>
+					<form action="{{this.add_url}}&product_id={{../id}}" class="form" method="post">
+				    	<input type="submit" class="button button--primary button--small" value="{{this.name}}">
+				    </form>
+				</li>
+	            {{/each}}
+	        	<li>
+	            	<a data-wishlist class="button button--primary button--small" href="/wishlist.php?action=addwishlist&product_id={{id}}">{{lang 'account.wishlists.create_new'}}</a>
+	        	</li>
+			</ul>
+		</span>
+		{{/if}}
+		{{/if}}
     </figure>
     <div class="listItem-body card-body">
         <div class="listItem-content">
