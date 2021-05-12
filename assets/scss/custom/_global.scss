@@ -899,15 +899,11 @@ body.scroll .navPages > ul > li > .navPages-action {
 
 
 .heroCarousel.slick-dotted {
-	@include breakpoint("small") {
-		margin-bottom: 6rem;
-	}
+	margin-bottom: 3.5rem;
 }
 
 .heroCarousel .slick-dots {
-	@include breakpoint("small") {
-		bottom: -40px;
-	}
+	bottom: -40px;
 }
 
 .heroCarousel .slick-dots li {
@@ -2372,9 +2368,14 @@ a:hover span.card-image:only-of-type img {
 .productView-options .form-field {
 	@include breakpoint("small") {
 		padding-left: 40%;
-		margin-bottom: .75rem;
+		margin-bottom: .25rem;
 		position: relative;
+		min-height: 38px;
 	}
+}
+
+.productView-options .form-field span {
+	font-size: 1rem;
 }
 
 .productView-options .form-label {
@@ -2497,6 +2498,54 @@ a:hover span.card-image:only-of-type img {
 .productView table th {
 	font-weight: 700;
 }
+
+
+// Tabs
+// =============================================================================
+
+.tabs {
+	border-bottom: 1px solid stencilColor("custom-tab-active-background");
+	@include breakpoint("medium") {
+		border-bottom: 2px solid stencilColor("custom-tab-active-background");
+	}
+}
+
+.tab {
+	border-top: 1px solid stencilColor("custom-tab-active-background");
+	@include breakpoint("medium") {
+		border: 0;
+		background-color: stencilColor("custom-tab-background");
+	}
+}
+
+.tab.is-active {
+	border: 0;
+	background-color: stencilColor("custom-tab-active-background");
+}
+
+.tab-title {
+	text-align: center;
+	color: stencilColor("color-textLink");
+	@include breakpoint("medium") {
+		color: stencilColor("custom-tab-color");
+	}
+}
+
+.tab-title:hover {
+	color: stencilColor("color-textLink--hover");
+	@include breakpoint("medium") {
+		color: stencilColor("custom-tab-hover-color");
+		background-color: stencilColor("custom-tab-hover-background");
+	}
+}
+
+
+.tab.is-active .tab-title,
+.tab.is-active .tab-title:hover {
+	color: stencilColor("custom-tab-active-color");
+	background-color: stencilColor("custom-tab-active-background");
+}
+
 
 
 

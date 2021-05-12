@@ -230,13 +230,7 @@
                         {{/if}}
                     {{/if}}
                 {{/if}}
-
-                {{#if settings.bulk_discount_enabled}}
-                    <div class="productView-info-bulkPricing">
-                        {{> components/products/bulk-discount-rates bulk_discount_rates=product.bulk_discount_rates}}
-                    </div>
-                {{/if}}
-
+				
                 {{#if theme_settings.show_custom_fields_tabs '!==' true}}
 					{{#each product.custom_fields}}
 					{{#unless name '==' 'hidden'}}
@@ -245,6 +239,13 @@
 					{{/unless}}
 					{{/each}}
                 {{/if}}
+
+                {{#if settings.bulk_discount_enabled}}
+                    <div class="productView-info-bulkPricing">
+                        {{> components/products/bulk-discount-rates bulk_discount_rates=product.bulk_discount_rates}}
+                    </div>
+                {{/if}}
+
             </dl>
         </div>
     </section>
@@ -267,8 +268,8 @@
                 <div class="form-field form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
                     <label class="form-label form-label--alternate">
                         {{lang 'products.current_stock'}}
-                        <span data-product-stock>{{product.stock_level}}</span>
                     </label>
+					<span data-product-stock>{{product.stock_level}}</span>
                 </div>
                 {{> components/products/add-to-cart}}
                 {{#if product.out_of_stock}}
