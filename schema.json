@@ -1785,6 +1785,20 @@
       },
       {
         "type": "checkbox",
+        "label": "i18n.CustomProductAddToCartShow",
+        "force_reload": true,
+        "id": "custom_product_addtocart_show"
+      },
+      {
+        "type": "text",
+        "label": "i18n.CustomProductAddToCartText",
+        "force_reload": true,
+        "reference": "custom_product_addtocart_show",
+        "reference_default": false,
+        "id": "custom_product_addtocart_text"
+      },
+      {
+        "type": "checkbox",
         "label": "i18n.ShowProductDescriptionTabs",
         "force_reload": true,
         "id": "show_product_details_tabs"
@@ -1890,6 +1904,11 @@
             "label": "12"
           }
         ]
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.CustomProductWishlistShow",
+        "id": "custom_product_wishlist_show"
       },
       {
         "type": "color",
@@ -2553,6 +2572,40 @@
         "type": "color",
         "label": "i18n.ButtonBorder",
         "id": "checkRadio-borderColor"
+      },
+      {
+        "type": "heading",
+        "content": "i18n.CustomTabHeading"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomTabColor",
+        "id": "custom-tab-color"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomTabBackground",
+        "id": "custom-tab-background"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomTabHoverColor",
+        "id": "custom-tab-hover-color"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomTabHoverBackground",
+        "id": "custom-tab-hover-background"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomTabActiveColor",
+        "id": "custom-tab-active-color"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomTabActiveBackground",
+        "id": "custom-tab-active-background"
       }
     ]
   },

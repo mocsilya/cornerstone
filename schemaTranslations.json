@@ -1338,6 +1338,12 @@
     "uk": "Показати вибір кількості на сторінках товарів",
     "zh": "在产品页面显示数量选项框"
   },
+  "i18n.CustomProductAddToCartShow": {
+    "default": "Show custom add to cart text on product page"
+  },
+  "i18n.CustomProductAddToCartText": {
+    "default": "Custom add to cart text"
+  },
   "i18n.ShowProductDescriptionTabs": {
     "default": "Show product description tabs",
     "fr": "Afficher les onglets de description de produit",
@@ -1407,6 +1413,9 @@
     "it": "Sfondo menu a discesa lista desideri",
     "uk": "Фон побажань списку бажань",
     "zh": "心愿单下拉菜单背景"
+  },
+  "i18n.CustomProductWishlistShow": {
+    "default": "Show Wishlist on product pages"
   },
   "i18n.CustomProductWarrantyGallery": {
     "default": "Display warranty under photo gallery"
@@ -1764,6 +1773,27 @@
     "it": "Checkbox e bottone radio",
     "uk": "Прапорець і радіо значок",
     "zh": "复选框和单选框图标"
+  },
+  "i18n.CustomTabHeading": {
+    "default": "Tabs"
+  },
+  "i18n.CustomTabColor": {
+    "default": "Tab text color"
+  },
+  "i18n.CustomTabBackground": {
+    "default": "Tab background"
+  },
+  "i18n.CustomTabHoverColor": {
+    "default": "Hover tab text color"
+  },
+  "i18n.CustomTabHoverBackground": {
+    "default": "Hover tab background"
+  },
+  "i18n.CustomTabActiveColor": {
+    "default": "Active tab text color"
+  },
+  "i18n.CustomTabActiveBackground": {
+    "default": "Active tab background"
   },
   "i18n.CheckoutPage": {
     "default": "Checkout Page",

@@ -24,11 +24,11 @@ customer:
 
 <section class="page">
     
-
+	<div class="blog-grid">
     {{#each blog.posts}}
         {{> components/blog/post post=this}}
     {{/each}}
-
+	</div>
     {{> components/common/paginator pagination.blog}}
 </section>
 

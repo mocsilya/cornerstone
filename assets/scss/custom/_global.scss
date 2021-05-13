@@ -2629,6 +2629,60 @@ a:hover span.card-image:only-of-type img {
 }
 
 
+// Blog
+// =============================================================================
+
+.page-blog section.page:before,
+.page-blog section.page:after {
+	@include breakpoint("medium") {
+		display: none;
+	}
+}
+
+.page-blog .blog-grid {
+	@include breakpoint("medium") {
+		padding: 0;
+		display: grid;
+		grid-auto-flow: dense;
+		grid-template-columns: repeat(2, 1fr);
+		border-top: 1px solid stencilColor("custom-card-border");
+		border-left: 1px solid stencilColor("custom-card-border");
+	}
+}
+
+.page-blog article.blog {
+	@include breakpoint("medium") {
+		border-top: 0;
+		border-left: 0;
+		margin: 0;
+		padding: 3rem;
+		border-right: 1px solid stencilColor("custom-card-border");
+		border-bottom: 1px solid stencilColor("custom-card-border");
+	}
+}
+
+.page-blog .blog-post-figure,
+.page-blog .blog-post-body {
+	width: 100%;
+}
+
+.page-blog_post .blog-post-figure,
+.page-blog_post .blog-post-body {
+	@include breakpoint("medium") {
+		width: 66.66667%;
+	}
+	@include breakpoint("large") {
+		width: 66.66667%;
+	}
+}
+
+.blog-thumbnail {
+	max-width: none;
+}
+
+
+
+
 // Footer
 // =============================================================================
 
