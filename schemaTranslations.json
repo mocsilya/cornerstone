@@ -1322,9 +1322,6 @@
   "i18n.ShowWishlistOnProduct": {
     "default": "Show wishlist on product cards"
   },
-  "i18n.ShowWarrantyOnProduct": {
-    "default": "Show warranty box content on product cards"
-  },
   "i18n.ShowAlternativeImageOnProduct": {
     "default": "Show alternative hover image on product cards"
   },

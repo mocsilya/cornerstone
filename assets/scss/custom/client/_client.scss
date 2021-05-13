@@ -41,6 +41,48 @@
 // Form Actions
 // =============================================================================
 
+.productView-options .form-action {
+	float: none;
+	width: 100%;
+	padding: 0;
+}
+
+.productView-options .form-action-buttons .button {
+	margin-left: 0;
+	margin-right: 0;
+	vertical-align: top;
+	width: 100%;
+}
+
+.productView-options .form-action .form-action-buttons-2 .button {
+	@include breakpoint("small") {
+		display: inline-block;
+		width: calc(50% - 0.71429rem);
+	}
+	@include breakpoint("medium") {
+		width: 100%;
+	}
+	@include breakpoint("large") {
+		width: calc(50% - 0.71429rem);
+	}
+}
+
+.productView-options .form-action .form-action-buttons-2 .button:first-child {
+	@include breakpoint("small") {
+		float: right;
+	}
+	@include breakpoint("medium") {
+		float: none;
+	}
+	@include breakpoint("large") {
+		float: right;
+	}
+}
+
+.payment-product .form-action-buttons {
+	display: none;
+}
+
 #form-action-cycle {
 	background: #189ac9;
 	border: 1px solid #189ac9;
@@ -72,12 +114,22 @@
 	color: #fff;
 }
 
-
+.add-to-cart-preorder #form-action-finance,
+.add-to-cart-preorder #form-action-cycle {
+	display: none;
+}
 
 .productView table th {
 	background: #333;
 	color: #fff;
 }
+
+.payment-message {
+	text-align: center;
+	margin-top: 1.5rem;
+}
+
+
 
 // Imega Media / V12 Finance
 // =============================================================================
@@ -88,7 +140,11 @@
     box-shadow: none !important;
 }
 
-#imega-widget-anchor:after {
+.add-to-cart-preorder #imega-widget-anchor {
+	display: none;
+}
+
+#imega-widget:after {
 	content: " ";
 	position: absolute;
 	left: 12px;
@@ -609,5 +665,73 @@
     display: none;
 }
 
+// Product Page
+// =============================================================================
 
+.page-product .productView-brand {
+	margin-top: 2.5rem;
+}
+
+
+// Product Icons
+// =============================================================================
+
+.product-icons-container {
+	position: relative;
+}
+
+.payment-product .product-icons-container {
+	display: none;
+}
+
+.product-icons {
+	position: absolute;
+	right: -2px;
+	left: -2px;
+	top: -2.5rem;
+	font-size: 0;
+	width: 100%;
+	display: flex;
+	overflow: hidden;
+}
+
+.product-icon {
+	margin: 0 2px 2px 2px;
+	flex: 1 1 auto;
+	font-size: .75rem;
+	font-weight: 700;
+	text-align: center;
+	padding: .25rem;
+	border: 1px solid #333;
+	border-radius: 4px;
+	white-space: nowrap;
+	@include breakpoint("small") {
+		font-size: 1rem;
+	}
+	@include breakpoint("medium") {
+		font-size: .875rem;
+	}
+	@include breakpoint("large") {
+		font-size: 1rem;
+	}
+}
+
+.product-icon a,
+.product-icon a:hover {
+	text-decoration: none;
+	color: stencilColor("color-textLink");
+}
+
+.product-icon a.tab-click {
+	text-decoration: underline;
+}
+
+.product-icon a.tab-click:hover {
+	color: stencilColor("color-textLink--hover");
+}
+
+.product-icon .icon svg {
+	color: stencilColor("button--primary-backgroundColor");
+	fill: stencilColor("button--primary-backgroundColor");
+}
 

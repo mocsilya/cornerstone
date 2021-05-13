@@ -15,8 +15,10 @@ import adminBar from './global/adminBar';
 import carousel from './common/carousel';
 import loadingProgressBar from './global/loading-progress-bar';
 import svgInjector from './global/svg-injector';
+import clientGlobal from './custom/client/client-global';
 import scrollDetect from './custom/scroll-detect';
 import footerHelper from './custom/footer-helper';
+import tabClick from './custom/tab-click';
 
 export default class Global extends PageManager {
     onReady() {
@@ -37,7 +39,9 @@ export default class Global extends PageManager {
         }
         loadingProgressBar();
         svgInjector();
+		clientGlobal();
         scrollDetect();
 		footerHelper();
+		tabClick();
     }
 }

@@ -18,21 +18,24 @@ customer:
 {{inject 'productId' product.id}}
 
 {{#partial "hero"}}
+{{assignVar "payment" "inactive"}}
+{{#filter product.custom_fields 'hidden' property='name'}}
+	{{#if value '==' 'payment'}}
+		{{assignVar "payment" "active"}}
+	{{/if}}
+{{/filter}}
 <div class="container container-hero">
 	<div class="page-header product-header">
-    <h1 class="page-heading">{{product.title}}</h1>
-	{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    	<h1 class="page-heading">{{product.title}}</h1>
+		{{#unless (getVar 'payment') '===' 'active'}}
+			{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+		{{/unless}}
 	</div>
 </div>
 {{/partial}}
 
 {{#partial "page"}}
-
-    {{#each product.shipping_messages}}
-        {{> components/common/alert/alert-info message}}
-    {{/each}}
-
-    <div itemscope itemtype="http://schema.org/Product">
+    <div itemscope itemtype="http://schema.org/Product" {{#if (getVar 'payment') '===' 'active'}} class="payment-product"{{/if}}>
         {{> components/products/product-view schema=true  }}
 
         {{{region name="product_below_content"}}}
