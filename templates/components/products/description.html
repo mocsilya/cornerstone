@@ -11,8 +11,8 @@
         <dl class="productView-info">
 			{{#each product.custom_fields}}
 			{{#unless name '==' 'hidden'}}
-           		<dt class="productView-info-name">{{name}}:</dt>
-           		<dd class="productView-info-value">{{{value}}}</dd>
+           		<dt class="productView-info-name customfield-label">{{name}}:</dt>
+           		<dd class="productView-info-value customfield-value">{{{value}}}</dd>
 			{{/unless}}
 			{{/each}}
         </dl>
@@ -32,6 +32,7 @@
     <h4 class="productView-title">{{theme_settings.custom_product_tab1_title}}</h4>
     <div class="productView-description tab1-content">
         {{{theme_settings.custom_product_tab1_content}}}
+		{{> components/custom/client/client-product-tab1}}
     </div>
 {{/if}}
 
@@ -39,5 +40,6 @@
     <h4 class="productView-title">{{theme_settings.custom_product_tab2_title}}</h4>
     <div class="productView-description tab2-content">
         {{{theme_settings.custom_product_tab2_content}}}
+		{{> components/custom/client/client-product-tab2}}
     </div>
 {{/if}}

@@ -17,23 +17,26 @@
         </div>
     {{/if}}
 {{/if}}
-
+{{#or theme_settings.custom_footer_show_newsletter theme_settings.social_icon_placement_bottom}}
 <section class="footer-newsletter">
 	<div class="container">
+	{{#if theme_settings.custom_footer_show_newsletter}}
 		{{#if settings.show_newsletter_box}}
 		<article class="footer-newsletter-col" data-section-type="newsletterSubscription">
 			{{> components/common/subscription-form}}
 		</article>
 		{{/if}}
-		{{#if theme_settings.social_icon_placement_bottom}}
+	{{/if}}
+	{{#if theme_settings.social_icon_placement_bottom}}
 		<article class="footer-social-col" data-section-type="footer-social">
 			<h3 class="newsletter-heading">{{lang 'social.connect'}}</h3>
 			<p class="newsletter-subtext">{{lang 'social.connect_intro'}}</p>
 			{{> components/common/social-links}}
 		</article>
-		{{/if}}
+	{{/if}}
 	</div>
 </section>
+{{/or}}
 {{#if theme_settings.custom_footer_show_blog}}
 <section class="footer-blog">
 	<div class="container">

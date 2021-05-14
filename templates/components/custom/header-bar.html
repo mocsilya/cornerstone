@@ -1,51 +1,61 @@
 {{#if theme_settings.custom_header_show_bar}}
 <div class="header-bar">
 	<div class="container">
-	{{#or theme_settings.custom_phone_show theme_settings.custom_email_show}}
-		{{#and theme_settings.custom_header_show_bar_message1 theme_settings.custom_header_show_bar_message2}}
-			<ul class="header-bar-message-double header-bar-contact-active">
-		{{else if theme_settings.custom_header_show_bar_message1}}
-			<ul class="header-bar-message-single header-bar-contact-active">
-		{{else if theme_settings.custom_header_show_bar_message2}}
-			<ul class="header-bar-message-single header-bar-contact-active">
-		{{else}}
-			<ul>
-		{{/and}}
-	{{else}}
-		{{#and theme_settings.custom_header_show_bar_message1 theme_settings.custom_header_show_bar_message2}}
-			<ul class="header-bar-message-double header-bar-contact-none">
-		{{else if theme_settings.custom_header_show_bar_message1}}
-			<ul class="header-bar-message-single header-bar-contact-none">
-		{{else if theme_settings.custom_header_show_bar_message2}}
-			<ul class="header-bar-message-single header-bar-contact-none">
-		{{else}}
-			<ul>
-		{{/and}}
-	{{/or}}
+		<ul class="header-bar-list{{#or theme_settings.custom_phone_show theme_settings.custom_email_show}} header-bar-list-contact{{/or}}{{#or theme_settings.custom_header_show_bar_message1 theme_settings.custom_header_show_bar_message2 theme_settings.custom_header_show_bar_message3}} header-bar-list-message{{/or}}">
 			{{#if theme_settings.custom_header_show_bar_message1}}
 			<li class="header-bar-message">
+				{{#unless theme_settings.custom_header_bar_message1_icon '==' 'none'}}
 				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-{{theme_settings.custom_header_bar_message1_icon}}" /></svg></i></span>
-				<span class="header-bar-text">{{{theme_settings.custom_header_bar_message1_text}}}</span>
+				{{/unless}}
+				<span class="header-bar-text">
+				{{#if theme_settings.custom_header_bar_message1_link}}
+					<a href="{{theme_settings.custom_header_bar_message1_link}}">{{{theme_settings.custom_header_bar_message1_text}}}</a>
+				{{else}}
+					{{{theme_settings.custom_header_bar_message1_text}}}
+				{{/if}}
+				</span>
 			</li>
 			{{/if}}
 			{{#if theme_settings.custom_header_show_bar_message2}}
 			<li class="header-bar-message">
+				{{#unless theme_settings.custom_header_bar_message2_icon '==' 'none'}}
 				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-{{theme_settings.custom_header_bar_message2_icon}}" /></svg></i></span>
-				<span class="header-bar-text">{{{theme_settings.custom_header_bar_message2_text}}}</span>
+				{{/unless}}
+				<span class="header-bar-text">
+				{{#if theme_settings.custom_header_bar_message2_link}}
+					<a href="{{theme_settings.custom_header_bar_message2_link}}">{{{theme_settings.custom_header_bar_message2_text}}}</a>
+				{{else}}
+					{{{theme_settings.custom_header_bar_message2_text}}}
+				{{/if}}
+				</span>
 			</li>
 			{{/if}}
-			{{#all settings.phone_number theme_settings.custom_phone_show}}
+			{{#if theme_settings.custom_header_show_bar_message3}}
+			<li class="header-bar-message">
+				{{#unless theme_settings.custom_header_bar_message3_icon '==' 'none'}}
+				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-{{theme_settings.custom_header_bar_message3_icon}}" /></svg></i></span>
+				{{/unless}}
+				<span class="header-bar-text">
+				{{#if theme_settings.custom_header_bar_message3_link}}
+					<a href="{{theme_settings.custom_header_bar_message3_link}}">{{{theme_settings.custom_header_bar_message3_text}}}</a>
+				{{else}}
+					{{{theme_settings.custom_header_bar_message3_text}}}
+				{{/if}}
+				</span>
+			</li>
+			{{/if}}
+			{{#or theme_settings.custom_email_show theme_settings.custom_phone_show}}
 			<li class="header-bar-contact">
+			{{#all settings.phone_number theme_settings.custom_phone_show}}
 				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-phone" /></svg></i></span>
 				<span class="header-bar-text">{{lang 'footer.call_us' phone_number=settings.phone_number}}</span>
-			</li>
 			{{/all}}
 			{{#if theme_settings.custom_email_show}}
-			<li class="header-bar-contact">
 				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-envelope" /></svg></i></span>
 				<span class="header-bar-text"><a href="mailto:{{theme_settings.custom_email_address}}">{{lang 'footer.email_us'}}</a></span>
-			</li>
 			{{/if}}
+			</li>
+			{{/or}}
 		</ul>
 	</div>
 </div>

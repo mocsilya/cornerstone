@@ -815,12 +815,18 @@
         "id": "custom_header_bar_message1_text"
       },
       {
+        "type": "text",
+        "label": "i18n.CustomHeaderBarMessage1Link",
+        "force_reload": true,
+        "id": "custom_header_bar_message1_link"
+      },
+      {
         "type": "select",
         "label": "i18n.CustomHeaderBarMessage1Icon",
         "id": "custom_header_bar_message1_icon",
         "force_reload": true,
         "options": [
-          {
+		  {
             "value": "delivery",
             "label": "Delivery"
           },
@@ -847,6 +853,10 @@
           {
             "value": "star",
             "label": "Star"
+          },
+          {
+            "value": "none",
+            "label": "None"
           }
         ]
       },
@@ -861,6 +871,12 @@
         "label": "i18n.CustomHeaderBarMessage2Text",
         "force_reload": true,
         "id": "custom_header_bar_message2_text"
+      },
+      {
+        "type": "text",
+        "label": "i18n.CustomHeaderBarMessage2Link",
+        "force_reload": true,
+        "id": "custom_header_bar_message2_link"
       },
       {
         "type": "select",
@@ -895,6 +911,68 @@
           {
             "value": "star",
             "label": "Star"
+          },
+          {
+            "value": "none",
+            "label": "None"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.CustomHeaderShowBarMessage3",
+        "force_reload": true,
+        "id": "custom_header_show_bar_message3"
+      },
+      {
+        "type": "text",
+        "label": "i18n.CustomHeaderBarMessage3Text",
+        "force_reload": true,
+        "id": "custom_header_bar_message3_text"
+      },
+      {
+        "type": "text",
+        "label": "i18n.CustomHeaderBarMessage3Link",
+        "force_reload": true,
+        "id": "custom_header_bar_message3_link"
+      },
+      {
+        "type": "select",
+        "label": "i18n.CustomHeaderBarMessage3Icon",
+        "id": "custom_header_bar_message2_icon",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "delivery",
+            "label": "Delivery"
+          },
+          {
+            "value": "discount",
+            "label": "Discount"
+          },
+          {
+            "value": "guarantee",
+            "label": "Guarantee"
+          },
+          {
+            "value": "information",
+            "label": "Information"
+          },
+          {
+            "value": "returns",
+            "label": "Returns"
+          },
+          {
+            "value": "security",
+            "label": "Security"
+          },
+          {
+            "value": "star",
+            "label": "Star"
+          },
+          {
+            "value": "none",
+            "label": "None"
           }
         ]
       },
@@ -1188,6 +1266,12 @@
         "label": "i18n.ShowBrandsInFooter",
         "force_reload": true,
         "id": "shop_by_brand_show_footer"
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.CustomFooterShowNewsletter",
+        "force_reload": true,
+        "id": "custom_footer_show_newsletter"
       },
       {
         "type": "checkbox",

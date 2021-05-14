@@ -39,7 +39,7 @@
     }'
 >
     {{#each products}}
-    <div data-product-slide class="productCarousel-slide js-product-slide {{#filter custom_fields 'hidden' property='name' }}{{#if value '==' 'spotlight'}} spotlight{{/if}}{{/filter}}">
+    <div data-product-slide class="productCarousel-slide js-product-slide {{#filter custom_fields 'hidden' property='name' }}{{#if value '==' 'spotlight'}} spotlight{{else if value '==' 'payment'}} payment{{/if}}{{/filter}}">
         {{> components/products/card settings=../settings theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
     </div>
     {{/each}}

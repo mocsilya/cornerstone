@@ -648,17 +648,35 @@
   "i18n.CustomHeaderShowBarMessage2": {
     "default": "Show message 2"
   },
+  "i18n.CustomHeaderShowBarMessage3": {
+    "default": "Show message 3"
+  },
   "i18n.CustomHeaderBarMessage1Text": {
     "default": "Message 1 text"
   },
   "i18n.CustomHeaderBarMessage2Text": {
     "default": "Message 1 text"
   },
+  "i18n.CustomHeaderBarMessage3Text": {
+    "default": "Message 3 text"
+  },
+  "i18n.CustomHeaderBarMessage1Link": {
+    "default": "Message 1 link"
+  },
+  "i18n.CustomHeaderBarMessage2Link": {
+    "default": "Message 2 link"
+  },
+  "i18n.CustomHeaderBarMessage3Link": {
+    "default": "Message 3 link"
+  },
   "i18n.CustomHeaderBarMessage1Icon": {
     "default": "Message 1 icon"
   },
   "i18n.CustomHeaderBarMessage2Icon": {
     "default": "Message 2 icon"
+  },
+  "i18n.CustomHeaderBarMessage3Icon": {
+    "default": "Message 3 icon"
   },
   "i18n.CustomHeaderBarBackground": {
     "default": "Header bar background"
@@ -902,6 +920,9 @@
     "it": "Mostra brand nel footer",
     "uk": "Показати марки в нижньому колонтитулі",
     "zh": "在页脚显示品牌"
+  },
+  "i18n.CustomFooterShowNewsletter": {
+    "default": "Show newsletter in footer"
   },
   "i18n.CustomFooterShowPageColumns": {
     "default": "Show pages with sub pages in seperate footer columns."

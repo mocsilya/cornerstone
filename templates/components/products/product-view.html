@@ -156,28 +156,28 @@
             {{product.detail_messages}}
             <dl class="productView-info">
                 <dt class="productView-info-name sku-label"{{#unless product.sku}} style="display: none;"{{/unless}}>{{lang 'products.sku'}}</dt>
-                <dd class="productView-info-value"{{#unless product.sku}} style="display: none;"{{/unless}} data-product-sku{{#if schema}} itemprop="sku"{{/if}}>{{product.sku}}</dd>
+                <dd class="productView-info-value sku-value"{{#unless product.sku}} style="display: none;"{{/unless}} data-product-sku{{#if schema}} itemprop="sku"{{/if}}>{{product.sku}}</dd>
                 <dt class="productView-info-name upc-label"{{#unless product.upc}} style="display: none;"{{/unless}}>{{lang 'products.upc'}}</dt>
-                <dd class="productView-info-value"{{#unless product.upc}} style="display: none;"{{/unless}} data-product-upc>{{product.upc}}</dd>
+                <dd class="productView-info-value upc-value"{{#unless product.upc}} style="display: none;"{{/unless}} data-product-upc>{{product.upc}}</dd>
                 {{#if schema}}
                     {{#if product.mpn}}<meta itemprop="mpn" content="{{product.mpn}}" />{{/if}}
                     {{#if product.gtin}}<meta itemprop="gtin" content="{{product.gtin}}" />{{/if}}
                 {{/if}}
                 {{#if product.condition}}
-                    <dt class="productView-info-name">{{lang 'products.condition'}}</dt>
-                    <dd class="productView-info-value">{{product.condition}}</dd>
+                    <dt class="productView-info-name condition-label">{{lang 'products.condition'}}</dt>
+                    <dd class="productView-info-value condition-value">{{product.condition}}</dd>
                 {{/if}}
                 {{#if product.availability}}
-                    <dt class="productView-info-name">{{lang 'products.availability'}}</dt>
-                    <dd class="productView-info-value">{{product.availability}}</dd>
+                    <dt class="productView-info-name availability-label">{{lang 'products.availability'}}</dt>
+                    <dd class="productView-info-value availability-value">{{product.availability}}</dd>
                 {{/if}}
                 {{#all product.weight theme_settings.show_product_weight}}
-                    <dt class="productView-info-name">{{lang 'products.weight'}}</dt>
-                    <dd class="productView-info-value" data-product-weight>{{product.weight}}</dd>
+                    <dt class="productView-info-name weight-label">{{lang 'products.weight'}}</dt>
+                    <dd class="productView-info-value weight-value" data-product-weight>{{product.weight}}</dd>
                 {{/all}}
                 {{#all product.width product.height product.depth theme_settings.show_product_dimensions}}
-                    <dt class="productView-info-name">{{lang 'products.width'}}</dt>
-                    <dd class="productView-info-value" data-product-width>
+                    <dt class="productView-info-name dimensions-label">{{lang 'products.width'}}</dt>
+                    <dd class="productView-info-value dimensions-value" data-product-width>
                         {{product.width}}
                         {{#if settings.measurements.length '==' 'Centimeters'}}
                         ({{lang 'products.measurement.metric'}})
@@ -185,8 +185,8 @@
                         ({{lang 'products.measurement.imperial'}})
                         {{/if}}
                     </dd>
-                    <dt class="productView-info-name">{{lang 'products.height'}}</dt>
-                    <dd class="productView-info-value" data-product-height>
+                    <dt class="productView-info-name height-label">{{lang 'products.height'}}</dt>
+                    <dd class="productView-info-value height-value" data-product-height>
                         {{product.height}}
                         {{#if settings.measurements.length '==' 'Centimeters'}}
                         ({{lang 'products.measurement.metric'}})
@@ -194,8 +194,8 @@
                         ({{lang 'products.measurement.imperial'}})
                         {{/if}}
                     </dd>
-                    <dt class="productView-info-name">{{lang 'products.depth'}}</dt>
-                    <dd class="productView-info-value" data-product-depth>
+                    <dt class="productView-info-name depth-label">{{lang 'products.depth'}}</dt>
+                    <dd class="productView-info-value depth-value" data-product-depth>
                         {{product.depth}}
                         {{#if settings.measurements.length '==' 'Centimeters'}}
                         ({{lang 'products.measurement.metric'}})
@@ -205,28 +205,28 @@
                     </dd>
                 {{/all}}
                 {{#if product.min_purchase_quantity}}
-                    <dt class="productView-info-name">{{lang 'products.min_purchase_quantity'}}</dt>
-                    <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.min_purchase_quantity}}</dd>
+                    <dt class="productView-info-name minpurchase-label">{{lang 'products.min_purchase_quantity'}}</dt>
+                    <dd class="productView-info-value minpurchase-value">{{lang 'products.purchase_units' quantity=product.min_purchase_quantity}}</dd>
                 {{/if}}
                 {{#if product.max_purchase_quantity}}
-                    <dt class="productView-info-name">{{lang 'products.max_purchase_quantity'}}</dt>
-                    <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.max_purchase_quantity}}</dd>
+                    <dt class="productView-info-name maxpurchase-label">{{lang 'products.max_purchase_quantity'}}</dt>
+                    <dd class="productView-info-value maxpurchase-value">{{lang 'products.purchase_units' quantity=product.max_purchase_quantity}}</dd>
                 {{/if}}
                 {{#if product.gift_wrapping_available}}
-                    <dt class="productView-info-name">{{lang 'products.gift_wrapping'}}</dt>
-                    <dd class="productView-info-value">{{lang 'products.gift_wrapping_available'}}</dd>
+                    <dt class="productView-info-name giftwrappping-label">{{lang 'products.gift_wrapping'}}</dt>
+                    <dd class="productView-info-value giftwrapping-value">{{lang 'products.gift_wrapping_available'}}</dd>
                 {{/if}}
                 {{#if product.shipping}}
                     {{#if product.shipping.calculated}}
-                        <!--<dt class="productView-info-name">{{lang 'products.shipping'}}</dt>-->
-                        <!--<<dd class="productView-info-value">{{lang 'products.shipping_calculated'}}</dd>-->
+                        <dt class="productView-info-name shipping-label">{{lang 'products.shipping'}}</dt>
+                      	<dd class="productView-info-value shipping-value">{{lang 'products.shipping_calculated'}}</dd>
                     {{else}}
                         {{#if product.shipping.price.value '===' 0}}
-                            <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
-                            <dd class="productView-info-value">{{lang 'products.shipping_free'}}</dd>
+                            <dt class="productView-info-name shipping-label">{{lang 'products.shipping'}}</dt>
+                            <dd class="productView-info-value shipping-value">{{lang 'products.shipping_free'}}</dd>
                         {{else}}
-                            <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
-                            <dd class="productView-info-value">{{lang 'products.shipping_fixed' amount=product.shipping.price.formatted}}</dd>
+                            <dt class="productView-info-name shipping-label">{{lang 'products.shipping'}}</dt>
+                            <dd class="productView-info-value shipping-value">{{lang 'products.shipping_fixed' amount=product.shipping.price.formatted}}</dd>
                         {{/if}}
                     {{/if}}
                 {{/if}}
@@ -234,8 +234,8 @@
                 {{#if theme_settings.show_custom_fields_tabs '!==' true}}
 					{{#each product.custom_fields}}
 					{{#unless name '==' 'hidden'}}
-		           		<dt class="productView-info-name">{{name}}:</dt>
-		           		<dd class="productView-info-value">{{{ sanitize value}}}</dd>
+		           		<dt class="productView-info-name customfield-label">{{name}}:</dt>
+		           		<dd class="productView-info-value customfield-value">{{{ sanitize value}}}</dd>
 					{{/unless}}
 					{{/each}}
                 {{/if}}

@@ -6,16 +6,9 @@
 // Header
 // =============================================================================
 
-.header-bar-message .mtb-shop {
-	display: none;
-	@include breakpoint("small") {
-		display: inline;
-	}
-}
 
-.header-bar-message .header-bar-icon {
-	display: none;
-}
+
+
 
 // Preview Cart
 // =============================================================================
@@ -93,8 +86,9 @@
 	}
 }
 
-.payment-product .form-action-buttons {
-	display: none;
+.payment-product .form-action-buttons,
+.payment-product #imega-widget-anchor {
+	display: none !important;
 }
 
 #form-action-cycle {
@@ -682,8 +676,8 @@
 // Product Page
 // =============================================================================
 
-.page-product .productView-brand {
-	margin-top: 2.5rem;
+.productView-details.product-data {
+	padding-top: 2.5rem;
 }
 
 .facebookLikeBtn {
