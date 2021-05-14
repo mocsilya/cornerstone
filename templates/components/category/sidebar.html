@@ -8,7 +8,7 @@
             <ul class="navList">
             {{#each children}}
                 {{#if children}}
-                <li class="navList-item">
+                <li class="navList-item{{#if is_active}} activeCategory{{/if}}">
                     <a class="navList-action{{#if is_active}} activePage{{/if}}" href="{{url}}" title="{{name}}">{{name}}</a>
                     <ul>
                         {{#each children}}
@@ -19,7 +19,7 @@
                     </ul>
                 </li>
                 {{else}}
-                <li class="navList-item">
+                <li class="navList-item{{#if is_active}} activeCategory{{/if}}">
                     <a class="navList-action{{#if is_active}} activePage{{/if}}" href="{{url}}" title="{{name}}">{{name}}</a>
                 </li>
                 {{/if}}

@@ -442,6 +442,9 @@
   "i18n.CustomFooterBlogBackground": {
     "default": "Blog footer background"
   },
+  "i18n.CustomFooterBlogHeading": {
+    "default": "Blog footer heading"
+  },
   "i18n.CustomFooterBlogText": {
     "default": "Blog footer text"
   },
@@ -902,6 +905,9 @@
   },
   "i18n.CustomFooterShowPageColumns": {
     "default": "Show pages with sub pages in seperate footer columns."
+  },
+  "i18n.CustomFooterShowCategoryColumns": {
+    "default": "Show categories with sub categories in seperate footer columns."
   },
   "i18n.ShowCurrentYearAnd": {
     "default": "Show copyright, current year and store name",

@@ -1,7 +1,7 @@
 {{#if children}}
     <a class="navPages-action navPages-action-depth-max has-subMenu is-root{{#if name '==' ../page.title}} activePage{{/if}}"
        href="{{url}}"
-       data-collapsible="navPages-{{#replace ' ' name}}{{/replace}}"
+       data-collapsible="navPages-{{dashcase name}}"
        aria-label="{{name}}"
     >
         {{name}}

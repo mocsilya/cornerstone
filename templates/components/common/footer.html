@@ -124,7 +124,7 @@
                 </ul>
             </article>
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
-                <h3 class="footer-info-heading">{{lang 'footer.navigate'}}</h3>
+                <h3 class="footer-info-heading">{{lang 'footer.info'}}</h3>
                 <ul class="footer-info-list">
                     {{#each pages}}
                         <li>
@@ -137,6 +137,44 @@
                 </ul>
             </article>
 			{{/if}}
+			{{#if theme_settings.custom_footer_show_category_columns}}
+			{{#each categories}}
+				{{#if children}}
+		            <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
+		                <h3 class="footer-info-heading">{{name}}</h3>
+		                <ul class="footer-info-list">
+		                    {{#each children}}
+		                        <li>
+		                            <a href="{{url}}">{{name}}</a>
+		                        </li>
+		                    {{/each}}
+		                </ul>
+		            </article>
+				{{/if}}
+			{{/each}}
+			{{assignVar "group" "hide"}}
+			{{#if (getVar "group") '!==' 'show'}}
+			{{#each children}}
+				{{#unless children}}
+					{{assignVar "group" "show"}}
+				{{/unless}}
+			{{/each}}
+			{{/if}}
+			{{#if (getVar "group") '===' 'show'}}
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
+                <h3 class="footer-info-heading">{{lang 'footer.categories'}}</h3>
+                <ul class="footer-info-list">
+                    {{#each categories}}
+						{{#unless children}}
+                        <li>
+                            <a href="{{url}}">{{name}}</a>
+                        </li>
+						{{/unless}}
+                    {{/each}}
+				</ul>
+			</article>
+			{{/if}}
+			{{else}}
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
                 <h3 class="footer-info-heading">{{lang 'footer.categories'}}</h3>
                 <ul class="footer-info-list">
@@ -147,7 +185,7 @@
                     {{/each}}
                 </ul>
             </article>
-
+			{{/if}}
             {{#and theme_settings.shop_by_brand_show_footer shop_by_brand.length}}
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-brands">
                 <h3 class="footer-info-heading">{{lang 'footer.brands'}}</h3>
@@ -168,12 +206,12 @@
 				{{#if settings.address}}
                 <address>{{nl2br settings.address}}</address>
 				{{/if}}
-                {{#if settings.phone_number}}
+                {{#all settings.phone_number theme_settings.custom_phone_show}}
                     <p class="footer-phone">
 						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-phone" /></svg></i> 
 						<strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong>
 					</p>
-                {{/if}}
+                {{/all}}
                 {{#if theme_settings.custom_email_show}}
                     <p class="footer-email">
 						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-envelope" /></svg></i> 
@@ -195,7 +233,7 @@
             	<p class="paypal-credit">{{nl2br settings.paypal_commerce_credit_message}}</p>
         	{{/if}}
         	{{#if theme_settings.show_copyright_footer}}
-                <p class="copyright">&copy; {{moment format="YYYY"}} {{settings.store_name}}. {{theme_settings.custom_footer_copyright}}</p>
+                <p class="copyright">&copy; {{moment format="YYYY"}} {{settings.store_name}}. {{{theme_settings.custom_footer_copyright}}}</p>
         	{{/if}}
         	{{#if theme_settings.show_powered_by}}
                 <p class="powered-by">{{lang 'footer.powered_by'}} <a href="https://www.bigcommerce.com?utm_source=merchant&amp;utm_medium=poweredbyBC" rel="nofollow">BigCommerce</a></p>

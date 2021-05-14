@@ -1,7 +1,7 @@
 {{#if children}}
 <a class="navPages-action has-subMenu{{#if name '==' ../page.title}} activePage{{/if}} navPages-action-mobile"
 	href="{{url}}" 
-	data-collapsible="navPages-{{#replace ' ' name}}{{/replace}}" 
+	data-collapsible="navPages-{{dashcase name}}" 
 >
 	{{name}}
 	<i class="icon navPages-action-moreIcon" aria-hidden="true">
@@ -17,7 +17,7 @@
 		<svg><use xlink:href="#icon-chevron-down" /></svg>
 	</i>
 </a>
-<div class="navPage-subMenu" id="navPages-{{#replace ' ' name}}{{/replace}}" aria-hidden="true" tabindex="-1">
+<div class="navPage-subMenu" id="navPages-{{dashcase name}}" aria-hidden="true" tabindex="-1">
 	<ul class="navPage-subMenu-list">
 		{{#each children}}
 		<li class="navPage-subMenu-item">
@@ -28,7 +28,7 @@
                 >
                     {{name}}
                     <span class="collapsible-icon-wrapper"
-                        data-collapsible="navPages-{{#replace ' ' name}}{{/replace}}"
+                        data-collapsible="navPages-{{dashcase name}}"
                         data-collapsible-disabled-breakpoint="medium"
                         data-collapsible-disabled-state="open"
                         data-collapsible-enabled-state="closed"
@@ -38,7 +38,7 @@
                         </i>
                     </span>
                 </a>
-                <ul class="navPage-childList" id="navPages-{{#replace ' ' name}}{{/replace}}">
+                <ul class="navPage-childList" id="navPages-{{dashcase name}}">
                     {{#each children}}
                     <li class="navPage-childList-item">
                         <a class="navPage-childList-action navPages-action{{#if name '==' ../page.title}} activePage{{/if}}"

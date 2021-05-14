@@ -1065,6 +1065,11 @@
       },
       {
         "type": "color",
+        "label": "i18n.CustomFooterBlogHeading",
+        "id": "custom-footer-blog-heading"
+      },
+      {
+        "type": "color",
         "label": "i18n.CustomFooterBlogText",
         "id": "custom-footer-blog-text"
       },
@@ -1189,6 +1194,12 @@
         "label": "i18n.CustomFooterShowPageColumns",
         "force_reload": true,
         "id": "custom_footer_show_page_columns"
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.CustomFooterShowCategoryColumns",
+        "force_reload": true,
+        "id": "custom_footer_show_category_columns"
       },
       {
         "type": "checkbox",

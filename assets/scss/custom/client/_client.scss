@@ -3,6 +3,20 @@
 // =============================================================================
 //
 
+// Header
+// =============================================================================
+
+.header-bar-message .mtb-shop {
+	display: none;
+	@include breakpoint("small") {
+		display: inline;
+	}
+}
+
+.header-bar-message .header-bar-icon {
+	display: none;
+}
+
 // Preview Cart
 // =============================================================================
 
@@ -672,6 +686,10 @@
 	margin-top: 2.5rem;
 }
 
+.facebookLikeBtn {
+	display: none;
+}
+
 
 // Product Icons
 // =============================================================================
@@ -734,4 +752,56 @@
 	color: stencilColor("button--primary-backgroundColor");
 	fill: stencilColor("button--primary-backgroundColor");
 }
+
+
+
+// Footer
+// =============================================================================
+
+
+.cart-actions .button--primary {
+	display: none;
+}
+
+.cart-actions .button--primary:hover {
+	opacity: 0.9;
+}
+
+.cart-actions .button--primary.button--debit {
+	display: inline-block;
+	background: #7fb24c;
+	border: 1px solid #7fb24c;
+	color: #fff;
+}
+
+.cart-actions .button--primary.button--finance {
+	display: inline-block;
+	background: #189ac9;
+	border: 1px solid #189ac9;
+	color: #fff;
+	margin-top: .5rem;
+}
+
+.cart-actions .button--primary.button--cycle {
+	display: inline-block;
+	background: #333;
+	border: 1px solid #333;
+	color: #fff;
+	margin-top: .5rem;
+}
+
+
+
+
+// Footer
+// =============================================================================
+
+.footer {
+	background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/stencil/1268dd20-d3bf-0137-47ce-0242ac110021/e/0a620990-63e9-0139-4d60-266e81368fc3/img/client/footer-bar.png');
+	background-repeat: repeat-x;
+	background-position: center bottom;
+	padding-bottom: 80px;
+}
+
+
 

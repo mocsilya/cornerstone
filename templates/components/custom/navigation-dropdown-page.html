@@ -1,9 +1,9 @@
-<div class="navPage-subMenu navPage-subMenu-horizontal" id="navPages-{{#replace ' ' name}}{{/replace}}" aria-hidden="true" tabindex="-1">
+<div class="navPage-subMenu navPage-subMenu-horizontal" id="navPages-{{dashcase name}}" aria-hidden="true" tabindex="-1">
     <ul class="navPage-subMenu-list">
         {{#each children}}
             <li class="navPage-subMenu-item-child">
                 {{#if children}}
-                    <a class="navPage-subMenu-action navPages-action navPages-action-depth-max has-subMenu{{#if name '==' ../page.title}} activePage{{/if}}" href="{{url}}" data-collapsible="navPages-{{#replace ' ' name}}{{/replace}}">
+                    <a class="navPage-subMenu-action navPages-action navPages-action-depth-max has-subMenu{{#if name '==' ../page.title}} activePage{{/if}}" href="{{url}}" data-collapsible="navPages-{{dashcase name}}">
                         {{name}}<i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
                     </a>
                     {{> components/custom/navigation-dropdown-page}}

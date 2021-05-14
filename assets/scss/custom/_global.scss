@@ -52,9 +52,25 @@ h1, h2, h3, h4, h5, h6 {
 	margin-top: 0  !important;
 }
 
+// alignment tweak on dropdowns (e.g. wishlist)
 .dropdown-menu-button .icon {
 	height: 1rem;
 }
+
+.or-use-label {
+	display: none;
+}
+
+
+// Pagination
+// =============================================================================
+
+.page-category .pagination-list {
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+
 
 
 // Tabs
@@ -689,6 +705,14 @@ body.scroll .navPages-container-hide {
 	text-transform: none;
 }
 
+.navPage-subMenu-item-groupshow .navPages-action.activePage {
+	color: stencilColor("navPages-color");
+}
+
+.navPage-subMenu-item-groupshow .navPages-action.activePage:hover {
+	color: stencilColor("navPages-color-hover");
+}
+
 .navPage-subMenu-item {
 	@include breakpoint("large") {
 		width: 20%;
@@ -716,6 +740,13 @@ body.scroll .navPages-container-hide {
 .navPages-list-simple .navPage-subMenu.is-open {
 	@include breakpoint("medium") {
 		display: none;
+	}
+}
+
+.navPages-list-simple .navPage-subMenu {
+	@include breakpoint("medium") {
+		max-height: calc(100vh - 170px);
+		overflow-y: auto;
 	}
 }
 
@@ -1119,10 +1150,6 @@ body.scroll .navPages > ul > li > .navPages-action {
 	}
 }
 
-.page-category .pagination-list {
-	margin-top: 1.5rem;
-}
-
 
 
 // Category Header
@@ -1189,6 +1216,28 @@ body.scroll .navPages > ul > li > .navPages-action {
 	flex: 0 1 50%;
 	@include breakpoint("small") {
 		flex: 0 1 33.33333%;
+	}
+}
+
+.page-sidebar-vertical .sidebarCategories .navList-item.activeCategory {
+	@include breakpoint("medium") {
+		border-top: 1px solid stencilColor("container-border-global-color-base");
+		border-bottom: 1px solid stencilColor("container-border-global-color-base");
+		padding-top: .5rem;
+		padding-bottom: .5rem;
+		margin-top: .5rem;
+		margin-bottom: .5rem;
+	}
+}
+
+.page-sidebar-horizontal .sidebarCategories .navList-item ul,
+.page-sidebar-vertical .sidebarCategories .navList-item ul {
+	display: none;
+}
+
+.page-sidebar-vertical .sidebarCategories .navList-item.activeCategory ul {
+	@include breakpoint("medium") {
+		display: block;
 	}
 }
 
@@ -2332,6 +2381,14 @@ a:hover span.card-image:only-of-type img {
 	padding: 0;
 }
 
+.tab-content .productView-info-name {
+	width: 200px;
+}
+
+.tab-content .productView-info-value {
+	width: calc(100% - 200px;);
+}
+
 .productView-rating span,
 .productView-rating a {
 	display: inline-block;
@@ -2682,7 +2739,111 @@ a:hover span.card-image:only-of-type img {
 }
 
 
+// Cart
+// =============================================================================
 
+.cart-content-container {
+	display: flex;
+	flex-direction: column;
+	@include breakpoint("medium") {
+		flex-direction: row;
+	}
+}
+
+.cart-content-totals {
+	flex: 1 0 100%;
+	@include breakpoint("medium") {
+		flex: 1 0 auto;
+		padding-right: 1.5rem;
+	}
+}
+
+.cart-content-totals .cart-totals {
+	width: 100%;
+}
+
+.cart-content-actions {
+	flex: 1 0 100%;
+	@include breakpoint("medium") {
+		flex: 0 1 auto;
+		padding-left: 1.5rem;
+	}
+}
+
+.cart-content-actions .FloatRight {
+	float: none;
+}
+
+.cart-content-actions .button {
+	width: 100%;
+	float: none;
+}
+
+.cart-content-actions .button + .button {
+	margin-left: 0;
+}
+
+.cart-content-actions .cart-actions,
+.cart-content-actions .cart-additionalCheckoutButtons {
+	@include breakpoint("medium") {
+		width: 280px;
+	}
+	@include breakpoint("large") {
+		width: 340px;
+	}
+}
+
+.cart-additionalCheckoutButtons .FloatRight div {
+	float: none;
+}
+
+.cart-additionalCheckoutButtons .CheckoutButton:first-child {
+	margin-top: .5rem;
+}
+
+.cart-additionalCheckoutButtons .CheckoutButton:last-child {
+	margin-bottom: .5rem;
+}
+
+.cart-content-actions .PayPalExpressCheckout {
+	background-color: #fec33a;
+	background-image: url('../icons/logo-paypal.svg');
+	background-position: center;
+	background-repeat: no-repeat;
+	border-radius: 4px;
+	margin: .5rem 0;
+}
+
+.cart-content-actions .PayPalExpressCheckout:hover {
+	background-color: #fab000;
+}
+
+.cart-content-actions .PayPalExpressCheckout div,
+.cart-content-actions .PayPalExpressCheckout form {
+	width: 100%;
+	height: 40px;
+	max-height: 40px;
+	overflow: hidden;
+}
+
+.cart-content-actions .PayPalExpressCheckout input {
+	opacity: 0;
+	width: 100%;
+	height: 40px;
+	max-height: 40px;
+	margin: 0;
+	padding: 0;
+}
+
+.cart-content-actions .GooglePayContainer,
+.cart-content-actions .GooglePayContainer div {
+	float: none;
+	width: 100%;
+}
+
+.cart-content-actions .GooglePayContainer button {
+	width: 100%;
+}
 
 // Footer
 // =============================================================================
@@ -2840,6 +3001,7 @@ a:hover span.card-image:only-of-type img {
 .footer-newsletter .newsletter-subtext {
 	text-align: center;
 	color: stencilColor("custom-footer-newsletter-text");
+	font-weight: 700;
 }
 
 .footer-newsletter .form,
@@ -2938,7 +3100,7 @@ a:hover span.card-image:only-of-type img {
 	margin-top: 0;
 	font-size: 1.25rem;
 	margin: .75rem 0;
-	color: stencilColor("custom-footer-blog-text");
+	color: stencilColor("custom-footer-blog-heading");
 }
 
 .footer-blog-button {
