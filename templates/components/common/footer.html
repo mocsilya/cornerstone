@@ -17,7 +17,7 @@
         </div>
     {{/if}}
 {{/if}}
-{{#or theme_settings.custom_footer_show_newsletter theme_settings.social_icon_placement_bottom}}
+{{#or theme_settings.custom_footer_show_newsletter theme_settings.social_icon_placement_bottom theme_settings.custom_footer_client_newsletter}}
 <section class="footer-newsletter">
 	<div class="container">
 	{{#if theme_settings.custom_footer_show_newsletter}}
@@ -29,23 +29,33 @@
 	{{/if}}
 	{{#if theme_settings.social_icon_placement_bottom}}
 		<article class="footer-social-col" data-section-type="footer-social">
-			<h3 class="newsletter-heading">{{lang 'social.connect'}}</h3>
-			<p class="newsletter-subtext">{{lang 'social.connect_intro'}}</p>
+			<h3 class="newsletter-heading">{{theme_settings.custom_footer_social_heading}}</h3>
+			<p class="newsletter-subtext">{{theme_settings.custom_footer_social_message}}</p>
 			{{> components/common/social-links}}
 		</article>
+	{{/if}}
+	{{#if theme_settings.custom_footer_client_newsletter}}
+		{{> components/custom/client/client-newsletter}}
 	{{/if}}
 	</div>
 </section>
 {{/or}}
-{{#if theme_settings.custom_footer_show_blog}}
+
+{{#or theme_settings.custom_footer_show_blog theme_settings.custom_footer_client_blog}}
 <section class="footer-blog">
 	<div class="container">
+	{{#if theme_settings.custom_footer_show_blog}}
 		<article class="footer-blog-col" data-section-type="footer-blog">
 			{{> components/custom/footer-blog}}
 		</article>
+	{{/if}}
+	{{#if theme_settings.custom_footer_client_blog}}
+		{{> components/custom/client/client-blog}}
+	{{/if}}
 	</div>
 </section>
-{{/if}}
+{{/or}}
+
 <footer class="footer" role="contentinfo">
     <h2 class="footer-title-sr-only">{{lang 'footer.title'}}</h2>
     <div class="container">

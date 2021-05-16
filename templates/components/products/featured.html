@@ -1,6 +1,16 @@
-<h2 class="page-heading page-heading-featured">{{lang 'products.featured' }}</h2>
-{{#if settings.data_tag_enabled}}
-	{{> components/products/carousel products=products columns=theme_settings.homepage_featured_products_column_count customArrowClass='js-featured-product-arrow' list="Featured Products"}}
+<h2 class="page-heading page-heading-top">{{theme_settings.custom_homepage_featured_title}}</h2>
+{{#if theme_settings.custom_homepage_featured_carousel}}
+	{{#if settings.data_tag_enabled}}
+		{{> components/products/carousel products=products columns=theme_settings.homepage_featured_products_column_count customArrowClass='js-featured-product-arrow' list="Featured Products"}}
+	{{else}}
+		{{> components/products/carousel products=products columns=theme_settings.homepage_featured_products_column_count customArrowClass='js-featured-product-arrow'}}
+	{{/if}}
 {{else}}
-	{{> components/products/carousel products=products columns=theme_settings.homepage_featured_products_column_count customArrowClass='js-featured-product-arrow'}}
+	<ul class="productGrid productGrid--maxCol{{ columns }} productGrid-{{ columns }}" data-product-type="featured"  {{#if settings.data_tag_enabled}} data-list-name="Featured Products" {{/if}}>
+	{{#each products}}
+		<li class="product{{#filter custom_fields 'hidden' property='name' }}{{#if value '==' 'spotlight'}} spotlight{{else if value '==' 'payment'}} payment{{/if}}{{/filter}}">
+	    	{{>components/products/card settings=../settings theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
+		</li>
+	{{/each}}
+	</ul>
 {{/if}}

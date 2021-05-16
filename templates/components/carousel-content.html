@@ -1,7 +1,19 @@
 <div class="heroCarousel-content{{#unless show_background}} heroCarousel-content--empty{{/unless}}">
-    <div class="heroCarousel-title">{{{heading}}}</div>
+    <h3 class="heroCarousel-title">
+		{{#if button_text}}
+			<a href="{{url}}">{{{heading}}}</a>
+		{{else}}
+			{{{heading}}}
+		{{/if}}
+	</h3>
 	<div class="heroCarousel-inner">
-    	<div class="heroCarousel-description">{{{text}}}</div>
+    	<div class="heroCarousel-description">
+			{{#if button_text}}
+				<a href="{{url}}">{{{text}}}</a>
+			{{else}}
+				{{{text}}}
+			{{/if}}
+		</div>
     	{{#if button_text}}
 			<div class="heroCarousel-button">
         		<a href="{{url}}" aria-label="{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{else}}{{lang 'carousel.slide_number' slide_number=(add @index 1)}}{{/if}}, {{button_text}}" class="heroCarousel-action button button--primary button--large">{{button_text}}</a>
