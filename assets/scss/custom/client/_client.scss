@@ -2,3 +2,855 @@
 // Custom > Client
 // =============================================================================
 //
+
+
+// Header
+// =============================================================================
+
+.header-bar ul {
+	flex-direction: row;
+}
+.header-bar li {
+	flex: 1 1 0px;
+	border-bottom: 0;
+}
+
+.header-bar li.header-bar-message-1 {
+	display: none;
+	@include breakpoint("medium") {
+		display: block;
+	}
+}
+
+.header-bar-icon-custom .icon svg {
+	color: #ffa800;
+	fill: #ffa800;
+}
+
+
+// Card
+// =============================================================================
+.card-message {
+	border: 1px solid #ccc;
+	background: #f5f5f5;
+	text-align: center;
+	padding: .25rem;
+}
+ 
+
+
+// Preview Cart
+// =============================================================================
+
+.previewCartAction-checkout,
+.previewCartCheckout .button--checkout,
+.previewCartCheckout-additionalCheckoutButtons,
+.or-use-label {
+	display: none;
+}
+
+.previewCartAction {
+	padding-bottom: 0;
+	margin-bottom: 1.5rem;
+}
+
+.previewCartAction-viewCart {
+	padding-left: 0.75rem;
+}
+
+.previewCartAction-viewCart,
+.previewCartAction-viewCart .button {
+	width: 100%;
+}
+
+.previewCart-additionalCheckoutButtons {
+	margin-top: 1.5rem;
+	display: none;
+}
+
+.previewCart-additionalCheckoutButtons .CheckoutButton:first-child {
+	margin-top: 0;
+}
+
+
+
+// Form Actions
+// =============================================================================
+
+.productView-options .form-action {
+	float: none;
+	width: 100%;
+	padding: 0;
+}
+
+.productView-options .form-action-buttons .button {
+	margin-left: 0;
+	margin-right: 0;
+	vertical-align: top;
+	width: 100%;
+}
+
+.productView-options .form-action .form-action-buttons-2 .button {
+	@include breakpoint("small") {
+		display: inline-block;
+		width: calc(50% - 0.71429rem);
+	}
+	@include breakpoint("medium") {
+		width: 100%;
+	}
+	@include breakpoint("large") {
+		width: calc(50% - 0.71429rem);
+	}
+}
+
+.productView-options .form-action .form-action-buttons-2 .button:first-child {
+	@include breakpoint("small") {
+		float: right;
+	}
+	@include breakpoint("medium") {
+		float: none;
+	}
+	@include breakpoint("large") {
+		float: right;
+	}
+}
+
+.payment-product .form-action-buttons,
+.payment-product #imega-widget-anchor {
+	display: none !important;
+}
+
+#form-action-cycle {
+	background: #189ac9;
+	border: 1px solid #189ac9;
+	color: #fff;
+	font-weight: 700;
+	@include breakpoint("small") {
+		margin-bottom: 0;
+	}
+	@include breakpoint("medium") {
+		margin-bottom: 1rem;
+	}
+	@include breakpoint("large") {
+		margin-bottom: 0;
+	}
+}
+
+#form-action-finance {
+	background: #cc3333;
+	border: 1px solid #cc3333;
+	color: #fff;
+	font-weight: 700;
+	margin-bottom: 0;
+}
+
+#form-action-finance:hover,
+#form-action-cycle:hover {
+	background: #333;
+	border: 1px solid #333;
+	color: #fff;
+}
+
+.add-to-cart-preorder #form-action-finance,
+.add-to-cart-preorder #form-action-cycle {
+	display: none;
+}
+
+.productView table th {
+	background: #333;
+	color: #fff;
+}
+
+.payment-message {
+	text-align: center;
+	margin-top: 1.5rem;
+}
+
+.productView .upc-label,
+.productView .upc-value,
+.productView .shipping-label,
+.productView .shipping-value {
+    display: none;
+}
+
+
+
+// Imega Media / V12 Finance
+// =============================================================================
+
+#imega-widget-anchor {
+    background: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+
+.add-to-cart-preorder #imega-widget-anchor {
+	display: none;
+}
+
+#imega-widget:after {
+	content: " ";
+	position: absolute;
+	left: 12px;
+	top: -12px;
+	border-top: none;
+	border-right: 12px solid transparent;
+	border-left: 12px solid transparent;
+	border-bottom: 12px solid #cc3333;
+}
+
+#imega-widget-anchor div.imega-anchor-top {
+    background: #fff !important;
+    width: 130px !important;
+    position: absolute !important;
+    left: 0px !important;
+    top: 0px !important;
+    bottom: 0px !important;
+    height: 100% !important;
+}
+
+#imega-widget-anchor div.imega-anchor-top img {
+    display: none !important;
+}
+
+#imega-widget-anchor div.imega-anchor-top #imega-see-info {
+    background: #cc3333 !important;
+    color: #fff !important;
+    text-transform: uppercase !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+    padding: 0px !important;
+    border-radius: 0 !important;
+    height: 100% !important;
+    line-height: 50px !important;
+    min-height: 50px !important;
+    width: 130px !important;
+    text-align: center !important;
+    margin: 0px !important;
+    position: absolute !important;
+    left: 0px !important;
+    top: 0px !important;
+    bottom: 0px !important;
+    border-right: 4px solid #fff !important;
+    display: block !important;
+    text-decoration: underline !important;
+}
+
+#imega-widget-anchor div.imega-anchor-top #imega-see-info:hover {
+    text-decoration: none !important;
+}
+
+#imega-widget-anchor div.imega-anchor-bottom {
+    padding: 2px !important;
+}
+
+#imega-widget-anchor .imega-anchor-bottom .imega-slug {
+    background: #fff !important;
+    color: #333 !important;
+    min-height: 46px !important;
+    padding: 15px 10px !important;
+}
+
+#imega-widget-anchor .imega-anchor-bottom .imega-slug strong {
+    color: #333 !important;
+}
+
+.imega-anchor-top,
+.imega-anchor-bottom,
+#imega-modal-head, 
+#imega-page-mask,
+#imega-close-btn {
+    display: none !important;
+}
+
+#imega-modal {
+    display: block !important;
+    position: static !important;
+    background: none !important;
+    opacity: 1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    height: auto !important;
+    z-index: auto !important;
+    border-radius: 0px !important;
+}
+
+#imega-modal .imega-modal-body h3 {
+    background: #cc3333 !important;
+	border-radius: 4px 4px 0 0 !important;
+}
+
+
+// Card Brands
+// =============================================================================
+
+.card-brand-Cube .card-brand,
+.card-brand-Orbea .card-brand,
+.card-brand-Nukeproof .card-brand,
+.card-brand-Orange .card-brand,
+.card-brand-Evil .card-brand,
+.card-brand-Yeti .card-brand,
+.card-brand-Mondraker .card-brand,
+.card-brand-NS .card-brand {
+	font-size: 0 !important;
+	height: 1.5rem;
+	background-size: contain;
+	background-position: left;
+	background-repeat: no-repeat;
+	color: rgba(0, 0, 0, 0);
+}
+
+.card-brand-Cube .card-brand { background-image: url('https://cdn7.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-cube.jpg'); }
+.card-brand-Orbea .card-brand { background-image: url('https://cdn7.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-orbea.jpg'); }
+.card-brand-Nukeproof .card-brand { background-image: url('https://cdn7.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-nukeproof.jpg'); }
+.card-brand-Orange .card-brand { background-image: url('https://cdn7.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-orange.jpg'); }
+.card-brand-Evil .card-brand { background-image: url('https://cdn7.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-evil.jpg'); }
+.card-brand-Yeti .card-brand { background-image: url('https://cdn7.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-yeti.jpg'); }
+.card-brand-Mondraker .card-brand { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-mondraker3.jpg?t=1598630682'); }
+.card-brand-NS .card-brand { background-image: url('https://cdn7.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-nsbikes.jpg'); }
+
+
+
+
+// -----------------------------------------------------------------------------
+//
+// HIDE PRICES AND CART FOR GBP
+//
+// -----------------------------------------------------------------------------
+
+.message-GBP,
+.message-GBP-Whyte,
+.message-GBP-Trek {
+    display: none;
+}
+
+.page-GBP .productView-details-Whyte .message-GBP-Whyte {
+    display: block;
+    padding: 10px 15px;
+    border: 2px solid #cc0000;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+
+// -----------------------------------------------------------------------------
+//
+// HIDE PRICES AND CART FOR AUD
+//
+// -----------------------------------------------------------------------------
+
+.message-AUD {
+    display: none;
+}
+
+.page-AUD .productView-details-Trek .message-AUD,
+.page-AUD .productView-details-Whyte .message-AUD {
+    display: block;
+    padding: 10px 15px;
+    border: 2px solid #cc0000;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+.page-AUD .card-brand-Trek .card-price,
+.page-AUD .card-brand-Trek .card-figcaption-body,
+.page-AUD .productView-details-Trek .productView-price,
+.page-AUD .productView-details-Trek .productView-options,
+
+.page-AUD .card-brand-Whyte .card-price,
+.page-AUD .card-brand-Whyte .card-figcaption-body,
+.page-AUD .productView-details-Whyte .productView-price,
+.page-AUD .productView-details-Whyte .productView-options {
+    display: none;
+}
+
+
+// -----------------------------------------------------------------------------
+//
+// HIDE PRICES AND CART FOR CAD
+//
+// -----------------------------------------------------------------------------
+
+.message-CAD {
+    display: none;
+}
+
+.page-CAD .productView-details-Trek .message-CAD,
+.page-CAD .productView-details-Whyte .message-CAD {
+    display: block;
+    padding: 10px 15px;
+    border: 2px solid #cc0000;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+.page-CAD .card-brand-Trek .card-price,
+.page-CAD .card-brand-Trek .card-figcaption-body,
+.page-CAD .productView-details-Trek .productView-price,
+.page-CAD .productView-details-Trek .productView-options,
+
+.page-CAD .card-brand-Whyte .card-price,
+.page-CAD .card-brand-Whyte .card-figcaption-body,
+.page-CAD .productView-details-Whyte .productView-price,
+.page-CAD .productView-details-Whyte .productView-options {
+    display: none;
+}
+
+
+// -----------------------------------------------------------------------------
+//
+// HIDE PRICES AND CART FOR EUR
+//
+// -----------------------------------------------------------------------------
+
+.message-EUR,
+.message-EUR-Whyte {
+    display: none;
+}
+
+.page-EUR .productView-details-Trek .message-EUR,
+.page-EUR .productView-details-Whyte .message-EUR-Whyte {
+    display: block;
+    padding: 10px 15px;
+    border: 2px solid #cc0000;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+.page-EUR .card-brand-Trek .card-price,
+.page-EUR .card-brand-Trek .card-figcaption-body,
+.page-EUR .productView-details-Trek .productView-price,
+.page-EUR .productView-details-Trek .productView-options {
+    display: none;
+}
+
+
+
+
+// -----------------------------------------------------------------------------
+//
+// HIDE PRICES AND CART FOR HKD
+//
+// -----------------------------------------------------------------------------
+
+.message-HKD {
+    display: none;
+}
+
+.page-HKD .productView-details-Trek .message-HKD,
+.page-HKD .productView-details-Whyte .message-HKD {
+    display: block;
+    padding: 10px 15px;
+    border: 2px solid #cc0000;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+.page-HKD .card-brand-Trek .card-price,
+.page-HKD .card-brand-Trek .card-figcaption-body,
+.page-HKD .productView-details-Trek .productView-price,
+.page-HKD .productView-details-Trek .productView-options,
+
+.page-HKD .card-brand-Whyte .card-price,
+.page-HKD .card-brand-Whyte .card-figcaption-body,
+.page-HKD .productView-details-Whyte .productView-price,
+.page-HKD .productView-details-Whyte .productView-options {
+    display: none;
+}
+
+
+// -----------------------------------------------------------------------------
+//
+// HIDE PRICES AND CART FOR NZD
+//
+// -----------------------------------------------------------------------------
+
+.message-NZD {
+    display: none;
+}
+
+.page-NZD .productView-details-Trek .message-NZD,
+.page-NZD .productView-details-Whyte .message-NZD {
+    display: block;
+    padding: 10px 15px;
+    border: 2px solid #cc0000;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+.page-NZD .card-brand-Trek .card-price,
+.page-NZD .card-brand-Trek .card-figcaption-body,
+.page-NZD .productView-details-Trek .productView-price,
+.page-NZD .productView-details-Trek .productView-options,
+
+.page-NZD .card-brand-Whyte .card-price,
+.page-NZD .card-brand-Whyte .card-figcaption-body,
+.page-NZD .productView-details-Whyte .productView-price,
+.page-NZD .productView-details-Whyte .productView-options {
+    display: none;
+}
+
+
+// -----------------------------------------------------------------------------
+//
+// HIDE PRICES AND CART FOR NOK
+//
+// -----------------------------------------------------------------------------
+
+.message-NOK {
+    display: none;
+}
+
+.page-NOK .productView-details-Trek .message-NOK,
+.page-NOK .productView-details-Whyte .message-NOK {
+    display: block;
+    padding: 10px 15px;
+    border: 2px solid #cc0000;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+.page-NOK .card-brand-Trek .card-price,
+.page-NOK .card-brand-Trek .card-figcaption-body,
+.page-NOK .productView-details-Trek .productView-price,
+.page-NOK .productView-details-Trek .productView-options,
+
+.page-NOK .card-brand-Whyte .card-price,
+.page-NOK .card-brand-Whyte .card-figcaption-body,
+.page-NOK .productView-details-Whyte .productView-price,
+.page-NOK .productView-details-Whyte .productView-options {
+    display: none;
+}
+
+// -----------------------------------------------------------------------------
+//
+// HIDE PRICES AND CART FOR ZAR
+//
+// -----------------------------------------------------------------------------
+
+.message-ZAR {
+    display: none;
+}
+
+.page-ZAR .productView-details-Trek .message-ZAR,
+.page-ZAR .productView-details-Whyte .message-ZAR {
+    display: block;
+    padding: 10px 15px;
+    border: 2px solid #cc0000;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+.page-ZAR .card-brand-Trek .card-price,
+.page-ZAR .card-brand-Trek .card-figcaption-body,
+.page-ZAR .productView-details-Trek .productView-price,
+.page-ZAR .productView-details-Trek .productView-options,
+
+.page-ZAR .card-brand-Whyte .card-price,
+.page-ZAR .card-brand-Whyte .card-figcaption-body,
+.page-ZAR .productView-details-Whyte .productView-price,
+.page-ZAR .productView-details-Whyte .productView-options {
+    display: none;
+}
+
+// -----------------------------------------------------------------------------
+//
+// HIDE PRICES AND CART FOR SEK
+//
+// -----------------------------------------------------------------------------
+
+.message-SEK {
+    display: none;
+}
+
+.page-SEK .productView-details-Trek .message-SEK,
+.page-SEK .productView-details-Whyte .message-SEK {
+    display: block;
+    padding: 10px 15px;
+    border: 2px solid #cc0000;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+.page-SEK .card-brand-Trek .card-price,
+.page-SEK .card-brand-Trek .card-figcaption-body,
+.page-SEK .productView-details-Trek .productView-price,
+.page-SEK .productView-details-Trek .productView-options,
+
+.page-SEK .card-brand-Whyte .card-price,
+.page-SEK .card-brand-Whyte .card-figcaption-body,
+.page-SEK .productView-details-Whyte .productView-price,
+.page-SEK .productView-details-Whyte .productView-options {
+    display: none;
+}
+
+// -----------------------------------------------------------------------------
+//
+// HIDE PRICES AND CART FOR CHF
+//
+// -----------------------------------------------------------------------------
+
+.message-CHF {
+    display: none;
+}
+
+.page-CHF .productView-details-Trek .message-CHF,
+.page-CHF .productView-details-Whyte .message-CHF {
+    display: block;
+    padding: 10px 15px;
+    border: 2px solid #cc0000;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+.page-CHF .card-brand-Trek .card-price,
+.page-CHF .card-brand-Trek .card-figcaption-body,
+.page-CHF .productView-details-Trek .productView-price,
+.page-CHF .productView-details-Trek .productView-options,
+
+.page-CHF .card-brand-Whyte .card-price,
+.page-CHF .card-brand-Whyte .card-figcaption-body,
+.page-CHF .productView-details-Whyte .productView-price,
+.page-CHF .productView-details-Whyte .productView-options {
+    display: none;
+}
+
+
+// -----------------------------------------------------------------------------
+//
+// HIDE PRICES AND CART FOR AED
+//
+// -----------------------------------------------------------------------------
+
+.message-AED {
+    display: none;
+}
+
+.page-AED .productView-details-Trek .message-AED,
+.page-AED .productView-details-Whyte .message-AED {
+    display: block;
+    padding: 10px 15px;
+    border: 2px solid #cc0000;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+.page-AED .card-brand-Trek .card-price,
+.page-AED .card-brand-Trek .card-figcaption-body,
+.page-AED .productView-details-Trek .productView-price,
+.page-AED .productView-details-Trek .productView-options,
+
+.page-AED .card-brand-Whyte .card-price,
+.page-AED .card-brand-Whyte .card-figcaption-body,
+.page-AED .productView-details-Whyte .productView-price,
+.page-AED .productView-details-Whyte .productView-options {
+    display: none;
+}
+
+
+// -----------------------------------------------------------------------------
+//
+// HIDE PRICES AND CART FOR USD
+//
+// -----------------------------------------------------------------------------
+
+.message-USD {
+    display: none;
+}
+
+.page-USD .productView-details-Trek .message-USD,
+.page-USD .productView-details-Mondraker .message-USD,
+.page-USD .productView-details-Whyte .message-USD {
+    display: block;
+    padding: 10px 15px;
+    border: 2px solid #cc0000;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.page-USD .card-brand-Trek .card-price,
+.page-USD .card-brand-Trek .card-figcaption-body,
+.page-USD .productView-details-Trek .productView-price,
+.page-USD .productView-details-Trek .productView-options,
+
+.page-USD .card-brand-Mondraker .card-price,
+.page-USD .card-brand-Mondraker .card-figcaption-body,
+.page-USD .productView-price-Mondraker,
+.page-USD .productView-details-Mondraker .productView-options,
+
+.page-USD .card-brand-Whyte .card-price,
+.page-USD .card-brand-Whyte .card-figcaption-body,
+.page-USD .productView-details-Whyte .productView-price,
+.page-USD .productView-details-Whyte .productView-options {
+    display: none;
+}
+
+// Product Page
+// =============================================================================
+
+
+.facebookLikeBtn {
+	display: none;
+}
+
+
+// Product Icons
+// =============================================================================
+
+.product-icons-container {
+	position: relative;
+}
+
+.payment-product .product-icons-container {
+	display: none;
+}
+
+.product-icons {
+	position: absolute;
+	right: -2px;
+	top: 0;
+	font-size: 0;
+	width: auto;
+	display: inline-flex;
+	flex-wrap: wrap;
+	overflow: hidden;
+	justify-content: flex-end;
+	max-width: 200px;
+	@include breakpoint("small") {
+		max-width: none;
+		flex-wrap: nowrap;
+	}
+	@include breakpoint("medium") {
+		max-width: 200px;
+		flex-wrap: wrap;
+	}
+	@include breakpoint("large") {
+		max-width: 220px;
+	}
+}
+
+.product-icon {
+	margin: 0 2px 2px 2px;
+	flex: 1 1 0px;
+	font-size: .75rem;
+	font-weight: 700;
+	text-align: center;
+	padding: .25rem .5rem;
+	border: 1px solid #333;
+	border-radius: 4px;
+	white-space: nowrap;
+	@include breakpoint("small") {
+		flex: 0 1 auto;
+	}
+	@include breakpoint("medium") {
+		flex: 1 1 0px;
+	}
+	@include breakpoint("large") {
+		font-size: .875rem;
+	}
+}
+
+.product-icon:first-child {
+	flex: 1 1 100%;
+	@include breakpoint("small") {
+		flex: 0 1 auto;
+	}
+	@include breakpoint("medium") {
+		max-width: none;
+		flex: 1 1 100%;
+	}
+}
+
+.product-icon:first-child a {
+	text-decoration: none;
+}
+
+.product-icon a.tab-click {
+	text-decoration: underline;
+}
+
+.product-icon a.tab-click:hover {
+	color: stencilColor("color-textLink--hover");
+}
+
+.product-icon .icon svg {
+	color: stencilColor("button--primary-backgroundColor");
+	fill: stencilColor("button--primary-backgroundColor");
+}
+
+
+
+// Footer
+// =============================================================================
+
+
+.cart-actions .button--primary {
+	display: none;
+}
+
+.cart-actions .button--primary:hover {
+	opacity: 0.9;
+}
+
+.cart-actions .button--primary.button--debit {
+	display: inline-block;
+	background: #7fb24c;
+	border: 1px solid #7fb24c;
+	color: #fff;
+}
+
+.cart-actions .button--primary.button--finance {
+	display: inline-block;
+	background: #189ac9;
+	border: 1px solid #189ac9;
+	color: #fff;
+	margin-top: .5rem;
+}
+
+.cart-actions .button--primary.button--cycle {
+	display: inline-block;
+	background: #333;
+	border: 1px solid #333;
+	color: #fff;
+	margin-top: .5rem;
+}
+
+
+
+
+// Footer
+// =============================================================================
+
+.footer {
+	background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/stencil/1268dd20-d3bf-0137-47ce-0242ac110021/e/0a620990-63e9-0139-4d60-266e81368fc3/img/client/footer-bar.png');
+	background-repeat: repeat-x;
+	background-position: center bottom;
+	padding-bottom: 80px;
+}
+
+
+
