@@ -62,7 +62,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 div[data-content-region="header_bottom--global"],
-div[data-content-region="header_bottom"] {
+div[data-content-region="header_bottom"],
+div[data-content-region="footer_top--global"] {
 	margin-top: 0px !important;
 }
 
@@ -70,7 +71,7 @@ div[data-content-region="header_bottom"] {
 // Pagination
 // =============================================================================
 
-.page-category .pagination-list {
+.pagination-list {
 	margin-top: 1.5rem;
 	margin-bottom: 1.5rem;
 }
@@ -459,6 +460,26 @@ body.scroll .header-logo-image {
 	outline: none;
 }
 
+.dropdown--quickSearch {
+	background: rgba(stencilColor("dropdown--quickSearch-backgroundColor"), 0.9);
+}
+
+.header .dropdown--quickSearch .container {
+	display: block !important;
+}
+
+.dropdown--quickSearch .form {
+	width: 100%;
+	padding: 0;
+	max-width: none;
+	@include breakpoint("medium") {
+		padding: 0 15%;
+	}
+	@include breakpoint("large") {
+		padding: 0 25%;
+	}
+}
+
 .dropdown--quickSearch.is-open {
 	position: fixed;
 	top: 55px !important;
@@ -505,6 +526,11 @@ body.scroll .dropdown--quickSearch.is-open {
 
 .dropdown--quickSearch .productGrid {
 	padding: 0;
+	background: stencilColor("body-bg");
+}
+
+.dropdown--quickSearch .productGrid .spotlight-carousel {
+	display: none;
 }
 
 .navUser .dropdown-menu.is-open:before,
@@ -822,13 +848,13 @@ body.scroll .navPages > ul > li > .navPages-action {
 // =============================================================================
 
 .page-default .tabs {
-	margin-top: 2rem;
+	margin-top: 1.5rem;
 }
 
 .page-heading-featured,
 .page-heading-top,
 .page-heading-new {
-	margin: 5rem 0 1.5rem 0;
+	margin: 1.5rem 0 .75rem 0;
 }
 
 .tab-content .page-heading-featured,

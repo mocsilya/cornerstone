@@ -1,11 +1,11 @@
 {{#if product_results.products}}
     {{> components/common/modal/modal-close-btn additional_attr='data-drop-down-close'}}
-    <ul class="productGrid" {{#if settings.data_tag_enabled}} data-list-name="Quick Search Results" {{/if}}>
+    <ul class="productGrid productGrid-{{theme_settings.custom_category_max_columns}}" {{#if settings.data_tag_enabled}} data-list-name="Quick Search Results" {{/if}}>
         {{#each product_results.products}}
-        <li class="product">
+        <li class="product{{#filter custom_fields 'hidden' property='name' }}{{#if value '==' 'payment'}} payment{{/if}}{{/filter}}">
                 {{> components/products/card
                         settings=../settings
-                        alternate=true
+                        alternate=false
                         show_compare=../show_compare
                         theme_settings=../theme_settings
                         customer=../customer

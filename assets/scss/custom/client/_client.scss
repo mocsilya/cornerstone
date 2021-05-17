@@ -738,17 +738,17 @@
 	flex-wrap: wrap;
 	overflow: hidden;
 	justify-content: flex-end;
-	max-width: 180px;
+	max-width: 200px;
 	@include breakpoint("small") {
 		max-width: none;
 		flex-wrap: nowrap;
 	}
 	@include breakpoint("medium") {
-		max-width: 190px;
+		max-width: 200px;
 		flex-wrap: wrap;
 	}
 	@include breakpoint("large") {
-		max-width: 210px;
+		max-width: 220px;
 	}
 }
 
@@ -766,11 +766,10 @@
 		flex: 0 1 auto;
 	}
 	@include breakpoint("medium") {
-		font-size: .875rem;
 		flex: 1 1 0px;
 	}
 	@include breakpoint("large") {
-		font-size: 1rem;
+		font-size: .875rem;
 	}
 }
 

@@ -1,7 +1,7 @@
 {{#filter product.custom_fields 'hidden' property='name' }}
 	{{#if value '==' 'payment'}}
 	<div class="payment-message">
-		<p><strong>Please check the amount shown above then click 'Add to {{lang 'common.cart'}}' and proceed through the Checkout.</strong></p>
+		<p><strong>Please check the amount shown above then click '{{#if ../theme_settings.custom_product_addtocart_show}}{{../theme_settings.custom_product_addtocart_text}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}' and proceed through the Checkout.</strong></p>
 		<p>The team will be in touch shortly</p>
 		<p>Thank you for choosing MTB Monster</p>
 	</div>
