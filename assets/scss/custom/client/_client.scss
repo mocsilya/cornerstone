@@ -6,6 +6,21 @@
 // Header
 // =============================================================================
 
+.header-bar ul {
+	flex-direction: row;
+}
+.header-bar li {
+	flex: 1 1 0px;
+	border-bottom: 0;
+}
+
+.header-bar li.header-bar-message-1 {
+	display: none;
+	@include breakpoint("medium") {
+		display: block;
+	}
+}
+
 .header-bar-icon-custom .icon svg {
 	color: #ffa800;
 	fill: #ffa800;
@@ -696,9 +711,6 @@
 // Product Page
 // =============================================================================
 
-.productView-details.product-data {
-	padding-top: 2.5rem;
-}
 
 .facebookLikeBtn {
 	display: none;
@@ -719,39 +731,62 @@
 .product-icons {
 	position: absolute;
 	right: -2px;
-	left: -2px;
-	top: -2.5rem;
+	top: 0;
 	font-size: 0;
-	width: 100%;
-	display: flex;
+	width: auto;
+	display: inline-flex;
+	flex-wrap: wrap;
 	overflow: hidden;
+	justify-content: flex-end;
+	max-width: 180px;
+	@include breakpoint("small") {
+		max-width: none;
+		flex-wrap: nowrap;
+	}
+	@include breakpoint("medium") {
+		max-width: 190px;
+		flex-wrap: wrap;
+	}
+	@include breakpoint("large") {
+		max-width: 210px;
+	}
 }
 
 .product-icon {
 	margin: 0 2px 2px 2px;
-	flex: 1 1 auto;
+	flex: 1 1 0px;
 	font-size: .75rem;
 	font-weight: 700;
 	text-align: center;
-	padding: .25rem;
+	padding: .25rem .5rem;
 	border: 1px solid #333;
 	border-radius: 4px;
 	white-space: nowrap;
 	@include breakpoint("small") {
-		font-size: 1rem;
+		flex: 0 1 auto;
 	}
 	@include breakpoint("medium") {
 		font-size: .875rem;
+		flex: 1 1 0px;
 	}
 	@include breakpoint("large") {
 		font-size: 1rem;
 	}
 }
 
-.product-icon a,
-.product-icon a:hover {
+.product-icon:first-child {
+	flex: 1 1 100%;
+	@include breakpoint("small") {
+		flex: 0 1 auto;
+	}
+	@include breakpoint("medium") {
+		max-width: none;
+		flex: 1 1 100%;
+	}
+}
+
+.product-icon:first-child a {
 	text-decoration: none;
-	color: stencilColor("color-textLink");
 }
 
 .product-icon a.tab-click {

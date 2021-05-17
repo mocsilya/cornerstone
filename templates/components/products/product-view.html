@@ -139,7 +139,7 @@
                     {{/if}}
 					</dt>
                 {{/if}}		
-                {{#if settings.show_product_reviews}}
+                {{#all settings.show_product_reviews theme_settings.show_product_reviews}}
 				<dd class="productView-info-value">
                     <a href="{{product.url}}{{#if is_ajax}}#write_review{{/if}}"
                        class="productView-reviewLink productView-reviewLink--new"
@@ -150,7 +150,7 @@
                     </a>
                     {{> components/products/modals/writeReview}}
 				</dd>
-                {{/if}}
+                {{/all}}
 				</dl>
             </div>
             {{product.detail_messages}}

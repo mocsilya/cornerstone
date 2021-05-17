@@ -1478,6 +1478,42 @@
         "content": "i18n.Products"
       },
       {
+        "type": "checkbox",
+        "label": "i18n.CustomHomepageFeaturedCarousel",
+        "force_reload": true,
+        "id": "custom_homepage_featured_carousel"
+      },
+      {
+        "type": "text",
+        "label": "i18n.CustomHomepageFeaturedTitle",
+        "force_reload": true,
+        "id": "custom_homepage_featured_title"
+      },
+      {
+        "type": "select",
+        "label": "i18n.FeaturedProductsColumnCount",
+        "id": "homepage_featured_products_column_count",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 3,
+            "label": "3"
+          },
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          }
+        ]
+      },
+      {
         "type": "select",
         "label": "i18n.NumberOfFeaturedProducts",
         "id": "homepage_featured_products_count",
@@ -1538,6 +1574,42 @@
         ]
       },
       {
+        "type": "checkbox",
+        "label": "i18n.CustomHomepageTopCarousel",
+        "force_reload": true,
+        "id": "custom_homepage_top_carousel"
+      },
+      {
+        "type": "text",
+        "label": "i18n.CustomHomepageTopTitle",
+        "force_reload": true,
+        "id": "custom_homepage_top_title"
+      },
+      {
+        "type": "select",
+        "label": "i18n.TopProductsColumnCount",
+        "id": "homepage_top_products_column_count",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 3,
+            "label": "3"
+          },
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          }
+        ]
+      },
+      {
         "type": "select",
         "label": "i18n.NumberOfMostPopularProducts",
         "id": "homepage_top_products_count",
@@ -1594,6 +1666,42 @@
           {
             "value": 12,
             "label": "12"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.CustomHomepageNewCarousel",
+        "force_reload": true,
+        "id": "custom_homepage_new_carousel"
+      },
+      {
+        "type": "text",
+        "label": "i18n.CustomHomepageNewTitle",
+        "force_reload": true,
+        "id": "custom_homepage_new_title"
+      },
+      {
+        "type": "select",
+        "label": "i18n.NewProductsColumnCount",
+        "id": "homepage_new_products_column_count",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 3,
+            "label": "3"
+          },
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
           }
         ]
       },

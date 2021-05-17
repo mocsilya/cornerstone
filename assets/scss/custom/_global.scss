@@ -28,7 +28,7 @@ label {
 }
 
 .body {
-	margin-top: 0;
+	margin-top: 0 !important;
 	margin-bottom: 3rem;
 }
 
@@ -59,6 +59,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .or-use-label {
 	display: none;
+}
+
+div[data-content-region="header_bottom--global"],
+div[data-content-region="header_bottom"] {
+	margin-top: 0px !important;
 }
 
 
@@ -136,6 +141,7 @@ body.scroll .header-bar {
 }
 
 .header-bar li {
+	display: block;
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -1015,42 +1021,42 @@ body.scroll .navPages > ul > li > .navPages-action {
 }
 
 .heroCarousel-content {
-	padding-bottom: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 100%;
+	padding: 0;
 	@include breakpoint("small") {
-		padding: .5rem;
-	}
-	@include breakpoint("medium") {
 		background: none;
-		width: 100%;
 		top: auto;
 		bottom: 0;
 		left: 0;
 		right: 0;
 		transform: none;
 		max-height: none;
-		padding: 0;
-		text-align: left;
 	}
 }
 
 .heroCarousel-inner {
-	@include breakpoint("medium") {
-		display: flex;
-		align-items: stretch;
-	}
+	display: flex;
+	align-items: stretch;
+	justify-content: center;
+	width: 100%;
 }
 
 .heroCarousel-title {
 	line-height: 1;
 	padding: 0;
-	margin: .5rem 0;
+	margin: 0;
+	font-size: 1.5rem;
+	padding: .5rem 1rem;
+	background-color: rgba(stencilColor("carousel-bgColor"), 0.9);
+	@include breakpoint("small") {
+		flex: 0 1 auto;
+	}
 	@include breakpoint("medium") {
-		display: inline-block;
-		text-align: left;
-		background-color: rgba(stencilColor("carousel-bgColor"), 0.9);
 		font-size: 2rem;
-		margin: 0;
-		padding: 1rem 2rem;
+		padding: .75rem 2rem;
 	}
 	@include breakpoint("large") {
 		font-size: 3rem;
@@ -1063,20 +1069,20 @@ body.scroll .navPages > ul > li > .navPages-action {
 }
 
 .heroCarousel-description {
-	padding: 0;
-	margin: .5rem 0;
+	padding: .75rem 1rem;
+	margin: 0;
 	font-weight: 700;
 	line-height: 1.2;
+	background-color: rgba(stencilColor("carousel-bgColor"), 0.9);
+	flex: 0 1 auto;
+	font-size: 1rem;
+	line-height: 1;
 	@include breakpoint("medium") {
-		text-align: left;
-		background-color: rgba(stencilColor("carousel-bgColor"), 0.9);
-		flex: 0 1 auto;
 		font-size: 1.25rem;
-		margin: 0;
-		line-height: 1;
-		padding: 1rem 2rem;
+		padding: 1.175rem 2rem;
 	}
 	@include breakpoint("large") {
+		padding: 1.5rem 2rem;
 		font-size: 1.5rem;
 	}
 }
@@ -1087,21 +1093,22 @@ body.scroll .navPages > ul > li > .navPages-action {
 }
 
 .heroCarousel-action {
-	padding: .75rem 1.5rem;
-	margin: .5rem 0;
+	margin: 0;
+	padding: .75rem 1rem;
 	line-height: 1;
 	border: 0;
+	border-radius: 0;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-size: 1rem;
 	@include breakpoint("medium") {
-		margin: 0;
-		border-radius: 0;
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
 		font-size: 1.25rem;
-		padding: 1rem 2rem;
+		padding: 1.175rem 2rem;
 	}
 	@include breakpoint("large") {
+		padding: 1.5rem 2rem;
 		font-size: 1.5rem;
 	}
 }
@@ -2524,6 +2531,11 @@ a:hover span.card-image:only-of-type img {
 	margin-bottom: 0;
 }
 
+.productView-options .form-select--small,
+.productView-options .form-select--date {
+	max-width: none;
+}
+
 .productView-options .dropdown-menu-button .icon {
 	display: none;
 }
@@ -2638,14 +2650,11 @@ a:hover span.card-image:only-of-type img {
 .payment-product .productView-images,
 .payment-product .productView-rating,
 .payment-product .productView-info,
-.payment-product .form-field,
-.payment-product .form-field--increments,
 .payment-product .share-container,
 .payment-product .tabs,
 .payment-product .productCarousel,
 .payment-product .form-wishlist,
 .payment-product .productView-brand,
-.payment-product .productView-title,
 .payment-product .customfields-content,
 .payment-product .warranty-content,
 .payment-product .tab1-content,
@@ -2671,13 +2680,17 @@ a:hover span.card-image:only-of-type img {
 	}
 }
 
+.payment-product .tab-content {
+	padding-bottom: 0;
+}
+
 .payment-product .productView-description .productView-description {
 	padding: 0;
 }
 
 .payment-product .productView-description {
 	order: 1;
-	text-align: center;
+	text-align: left;
 }
 
 .payment-product .productView-details.product-data {
@@ -3077,6 +3090,7 @@ a:hover span.card-image:only-of-type img {
 
 .footer-newsletter {
 	background-color: stencilColor("custom-footer-newsletter-background");
+	margin-top: 0px !important;
 }
 
 .footer-newsletter .container {
@@ -3192,6 +3206,7 @@ a:hover span.card-image:only-of-type img {
 .footer-blog {
 	background-color: stencilColor("custom-footer-blog-background");
 	padding: spacing("single") 0;
+	margin-top: 0px !important;
 }
 
 .footer-blog-list {

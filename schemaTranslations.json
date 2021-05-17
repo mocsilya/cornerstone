@@ -1208,8 +1208,35 @@
     "uk": "Кількість нових товарів",
     "zh": "新产品数量"
   },
+  "i18n.CustomHomepageFeaturedCarousel": {
+    "default": "Display featured products in a carousel"
+  },
+  "i18n.CustomHomepageFeaturedTitle": {
+    "default": "Featured products heading"
+  },
+  "i18n.FeaturedProductsColumnCount": {
+    "default": "Maximum featured products per row (non carousel)"
+  },
+  "i18n.CustomHomepageTopCarousel": {
+    "default": "Display top products in a carousel"
+  },
+  "i18n.CustomHomepageTopTitle": {
+    "default": "Top products heading"
+  },
+  "i18n.TopProductsColumnCount": {
+    "default": "Maximum top products per row (non carousel)"
+  },
+  "i18n.CustomHomepageNewCarousel": {
+    "default": "Display new products in a carousel"
+  },
+  "i18n.CustomHomepageNewTitle": {
+    "default": "New products heading"
+  },
+  "i18n.NewProductsColumnCount": {
+    "default": "Maximum new products per row (non carousel)"
+  },
   "i18n.CustomHomepageShowTabs": {
-    "default": "Show products in tabs"
+    "default": "Show featured, top and new products in a tab menu"
   },
   "i18n.CustomHomepageModal": {
     "default": "Newsletter"

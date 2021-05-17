@@ -3,7 +3,7 @@
 	<div class="container">
 		<ul class="header-bar-list{{#or theme_settings.custom_phone_show theme_settings.custom_email_show}} header-bar-list-contact{{/or}}{{#or theme_settings.custom_header_show_bar_message1 theme_settings.custom_header_show_bar_message2 theme_settings.custom_header_show_bar_message3}} header-bar-list-message{{/or}}">
 			{{#if theme_settings.custom_header_show_bar_message1}}
-			<li class="header-bar-message">
+			<li class="header-bar-message header-bar-message-1">
 				{{#unless theme_settings.custom_header_bar_message1_icon '==' 'none'}}
 				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-{{theme_settings.custom_header_bar_message1_icon}}" /></svg></i></span>
 				{{/unless}}
@@ -18,7 +18,7 @@
 			</li>
 			{{/if}}
 			{{#if theme_settings.custom_header_show_bar_message2}}
-			<li class="header-bar-message">
+			<li class="header-bar-message header-bar-message-2">
 				{{#unless theme_settings.custom_header_bar_message2_icon '==' 'none'}}
 				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-{{theme_settings.custom_header_bar_message2_icon}}" /></svg></i></span>
 				{{/unless}}
@@ -33,7 +33,7 @@
 			</li>
 			{{/if}}
 			{{#if theme_settings.custom_header_show_bar_message3}}
-			<li class="header-bar-message">
+			<li class="header-bar-message header-bar-message-3">
 				{{#unless theme_settings.custom_header_bar_message3_icon '==' 'none'}}
 				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-{{theme_settings.custom_header_bar_message3_icon}}" /></svg></i></span>
 				{{/unless}}
