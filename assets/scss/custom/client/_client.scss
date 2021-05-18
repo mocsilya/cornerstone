@@ -2,3 +2,187 @@
 // Custom > Client
 // =============================================================================
 //
+
+
+
+// Legacy formatting
+// =============================================================================
+
+.span_max, .span_60, .span_50, .span_48, .span_45, .span_40, .span_36, .span_30, .span_24, .span_20, .span_15, .span_12, .span_10 {
+	float: left;
+	width: 100%;
+}
+
+.span_30 .span_10 {
+	width: 33.33333333%;
+}
+
+.span_30 {
+	@include breakpoint("medium") {
+		width: 50%;
+	}
+}
+
+.span_15 {
+	@include breakpoint("medium") {
+		width: 25%;
+	}
+}
+
+.span_10 {
+	@include breakpoint("medium") {
+		width: 16.6666667%;
+	}
+}
+
+.clear {
+	clear: both;
+	height: 0 !important;
+	line-height: 0 !important;
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+}
+.pad {
+	padding: 0 8px;
+}
+
+
+// Header
+// =============================================================================
+
+.header {
+	background: stencilColor("body-bg");
+	@include breakpoint("medium") {
+		background: stencilColor("header-backgroundColor");
+		background: -moz-linear-gradient(top, stencilColor("header-backgroundColor") 0%, stencilColor("body-bg") 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top, stencilColor("header-backgroundColor") 0%, stencilColor("body-bg") 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom, stencilColor("header-backgroundColor") 0%, stencilColor("body-bg") 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("header-backgroundColor")', endColorstr='stencilColor("body-bg")',GradientType=0 ); /* IE6-9 */
+	}
+}
+
+
+// Header Bar
+// =============================================================================
+
+.header-bar {
+	background: stencilColor("custom-header-bar-background");
+	background: -moz-linear-gradient(top, stencilColor("custom-header-bar-background") 0%, stencilColor("body-bg") 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, stencilColor("custom-header-bar-background") 0%, stencilColor("body-bg") 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, stencilColor("custom-header-bar-background") 0%, stencilColor("body-bg") 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("custom-header-bar-background")', endColorstr='stencilColor("body-bg")',GradientType=0 ); /* IE6-9 */
+	@include breakpoint("medium") {
+		background: stencilColor("body-bg");
+	}
+}
+
+
+// Nav Pages
+// =============================================================================
+
+.navPages {
+	background: stencilColor("navPages-subMenu-backgroundColor");
+	background: -moz-linear-gradient(top, stencilColor("navPages-subMenu-backgroundColor") 0%, stencilColor("body-bg") 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, stencilColor("navPages-subMenu-backgroundColor") 0%, stencilColor("body-bg") 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, stencilColor("navPages-subMenu-backgroundColor") 0%, stencilColor("body-bg") 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("navPages-subMenu-backgroundColor")', endColorstr='stencilColor("body-bg")',GradientType=0 ); /* IE6-9 */
+	@include breakpoint("medium") {
+		background: none;
+	}
+}
+
+.navPages-container {
+	@include breakpoint("medium") {
+		background: none;
+	}
+}
+
+.navPage-subMenu {
+	@include breakpoint("medium") {
+		background: stencilColor("navPages-subMenu-backgroundColor");
+		background: -moz-linear-gradient(top, stencilColor("navPages-subMenu-backgroundColor") 0%, stencilColor("body-bg") 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top, stencilColor("navPages-subMenu-backgroundColor") 0%, stencilColor("body-bg") 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom, stencilColor("navPages-subMenu-backgroundColor") 0%, stencilColor("body-bg") 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("navPages-subMenu-backgroundColor")', endColorstr='stencilColor("body-bg")',GradientType=0 ); /* IE6-9 */
+		border-bottom: 2px solid stencilColor("custom-page-header-background");
+	}
+}
+
+
+// Product
+// =============================================================================
+
+.facebookRecommendBtn {
+	display: none;
+}
+
+
+
+// JotForm
+// =============================================================================
+
+#ay-question .formFooter-heightMask,
+#ay-question .formFooter {
+	display: none !important;
+}
+
+.ay-question .form-action {
+	width: 100%;
+}
+
+.ay-question-link.button {
+	width: 100% !important;
+	margin: 0;
+}
+
+#ay-question .form-input {
+    height: auto;
+}
+
+
+
+// Footer
+// =============================================================================
+
+.footer {
+	background: stencilColor("footer-backgroundColor");
+	background: -moz-linear-gradient(top, stencilColor("footer-backgroundColor") 0%, stencilColor("body-bg") 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, stencilColor("footer-backgroundColor") 0%, stencilColor("body-bg") 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, stencilColor("footer-backgroundColor") 0%, stencilColor("body-bg") 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("footer-backgroundColor")', endColorstr='stencilColor("body-bg")',GradientType=0 ); /* IE6-9 */
+}
+
+
+// Gallery Page
+// =============================================================================
+
+ul.gallery-items {
+	display: flex;
+	flex-direction: column;
+	margin: 0 -2px;
+	padding: 0;
+	list-style: none;
+	@include breakpoint("small") {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+}
+
+ul.gallery-items li {
+	display: flex;
+	margin: 2px;
+	padding: 1rem;
+	list-style: none;
+	flex: 1 0 100%;
+	border: 1px solid #ccc;
+	@include breakpoint("small") {
+		flex: 1 1 50%;
+	}
+	@include breakpoint("medium") {
+		flex: 1 1 25%;
+	}
+	@include breakpoint("large") {
+		flex: 1 1 20%;
+	}
+}

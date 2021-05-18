@@ -1,7 +1,7 @@
 <ul class="tabs" data-tab>
     {{#if product.description}}
         <li class="tab is-active">
-            <a class="tab-title" href="#tab-description">{{lang 'products.description'}}</a>
+            <a class="tab-title" href="#tab-description">{{theme_settings.custom_product_description_title}}</a>
         </li>
     {{/if}}
     {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}

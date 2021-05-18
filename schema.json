@@ -2119,6 +2119,11 @@
         "id": "dropdown--wishList-backgroundColor"
       },
       {
+        "type": "text",
+        "label": "i18n.CustomProductDescriptionTitle",
+        "id": "custom_product_description_title"
+      },
+      {
         "type": "checkbox",
         "label": "i18n.CustomProductWarrantyGallery",
         "id": "custom_product_warranty_gallery"

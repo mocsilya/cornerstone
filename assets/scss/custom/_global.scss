@@ -2585,7 +2585,7 @@ a:hover span.card-image:only-of-type img {
 	font-size: 1rem;
 }
 
-.productView-options .form-label {
+.productView-options .form-label:first-child {
 	@include breakpoint("small") {
 		width: 40%;
 		height: 38px;
@@ -2600,6 +2600,7 @@ a:hover span.card-image:only-of-type img {
 .productView-options #add-to-cart-wrapper .form-field--increments {
 	@include breakpoint("small") {
 		margin-bottom: 1rem;
+		margin-top: 1rem;
 	}
 }
 
@@ -2654,6 +2655,18 @@ a:hover span.card-image:only-of-type img {
 .product-options .socialLinks .socialLinks-item {
 	margin: 0 .25rem;
 	vertical-align: top;
+}
+
+[data-product-attribute] .form-option.unavailable:before {
+	left: -20.5%;
+	top: 50%;
+}
+
+.facebookRecommendBtn {
+	position: static !important;
+	width: 113px;
+	height: 20px;
+	margin: 0 auto !important;
 }
 
 .productView table {
