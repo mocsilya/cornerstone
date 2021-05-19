@@ -264,15 +264,15 @@ body.scroll .header {
 
 .header-logo {
 	margin: 0;
-	flex: 1 0 auto;
+	flex: 1 1 auto;
+	padding: 0 .78571rem;
 	@include breakpoint("medium") {
 		flex: 0 1 auto;
 		margin: 0;
-		padding: .5rem 0;
+		padding: .5rem .78571rem;
 	}
 	@include breakpoint("large") {
 		flex: 0 1 auto;
-		padding: 1rem 2rem;
 	}
 }
 
@@ -280,9 +280,7 @@ body.scroll .header {
 	@include breakpoint("medium") {
 		flex: 1 1 0px;
 		order: 1;
-	}
-	@include breakpoint("large") {
-		padding: 1rem 0;
+		padding: .5rem .78571rem .5rem 0;
 	}
 }
 
@@ -290,20 +288,7 @@ body.scroll .header {
 	@include breakpoint("medium") {
 		flex: 1 1 0px;
 		order: 3;
-	}
-	@include breakpoint("large") {
-		padding: 1rem 0;
-	}
-}
-
-.header-logo,
-.header-logo--left,
-.header-logo--right {
-	@include breakpoint("medium") {
-		padding: .5rem 0;
-	}
-	@include breakpoint("large") {
-		padding: .5rem 0;
+		padding: .5rem 0 .5rem .78571rem;
 	}
 }
 
@@ -384,7 +369,7 @@ body.scroll .header-logo-image {
 
 .navUser-section {	
 	float: none;
-	flex: 0 1 auto;
+	flex: 0 0 auto;
 	@include breakpoint("medium") {
 		flex: 1 1 0px;
 	}
@@ -2585,7 +2570,7 @@ a:hover span.card-image:only-of-type img {
 	font-size: 1rem;
 }
 
-.productView-options .form-label {
+.productView-options .form-label:first-child {
 	@include breakpoint("small") {
 		width: 40%;
 		height: 38px;
@@ -2600,6 +2585,7 @@ a:hover span.card-image:only-of-type img {
 .productView-options #add-to-cart-wrapper .form-field--increments {
 	@include breakpoint("small") {
 		margin-bottom: 1rem;
+		margin-top: 1rem;
 	}
 }
 
@@ -2654,6 +2640,18 @@ a:hover span.card-image:only-of-type img {
 .product-options .socialLinks .socialLinks-item {
 	margin: 0 .25rem;
 	vertical-align: top;
+}
+
+[data-product-attribute] .form-option.unavailable:before {
+	left: -20.5%;
+	top: 50%;
+}
+
+.facebookRecommendBtn {
+	position: static !important;
+	width: 113px;
+	height: 20px;
+	margin: 0 auto !important;
 }
 
 .productView table {
