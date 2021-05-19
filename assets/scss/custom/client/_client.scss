@@ -186,3 +186,235 @@ ul.gallery-items li {
 		flex: 1 1 20%;
 	}
 }
+
+
+
+// -----------------------------------------------------------------------------
+//
+// AY PROMOBOX
+//
+// -----------------------------------------------------------------------------
+
+
+.ay-promobox {
+	padding-top: 3rem;
+	background-color: stencilColor("color-secondary");
+}
+
+.ay-promobox .container {
+	padding: 0;
+}
+
+.ay-promobox ul,
+.ay-promobox li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	font-size: 0;
+}
+
+.ay-promobox .ay-promobox-14 li {
+	width: 50%;
+}
+
+.ay-promobox li {
+	font-size: 1rem;
+	display: inline-block;
+	width: 50%;
+	box-sizing: border-box;
+	padding: 0 1.5rem 3rem 1.5rem;
+}
+
+.ay-promobox-item {
+	background-color: stencilColor("color-white");
+	position: relative;
+}
+
+.ay-promobox-item a,
+.ay-promobox-item a img {
+	display: block;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: auto;
+	min-height: 3.5rem;
+}
+
+.ay-promobox-item a:hover,
+.ay-promobox-item a img:hover {
+    opacity: .9;
+    filter: alpha(opacity=90);
+}
+
+.ay-promobox-item span {
+	display: block;
+	min-height: 3.5rem;
+	line-height: 1rem;
+	padding: 0.75rem;
+	position: absolute;
+	left: 0;
+	right: 2.5rem;
+	bottom: 0;
+	background: rgba(255,255,255,.9);
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.ay-promobox {
+	background: #e4e4e6;
+	padding-top: 2%;
+}
+
+.ay-promobox .ay-promobox-6 li {
+	width: 100%;
+}
+
+.ay-promobox .ay-promobox-3 li.ay-promobox-item-1,
+.ay-promobox .ay-promobox-3 li.ay-promobox-item-2 {
+	width: 50%;
+}
+
+.ay-promobox .ay-promobox-3 li.ay-promobox-item-3 {
+	width: 100%;
+}
+
+.ay-promobox ul {
+	padding: 1rem;
+}
+
+.ay-promobox li {
+	vertical-align: top;
+	padding: 0 5px 10px 5px;
+}
+
+.ay-promobox img {
+
+}
+
+.ay-promobox-item {
+	padding: 5px;
+	background: #fff;
+	border: 1px solid #bbb;
+}
+
+.ay-promobox-item span {
+	background: #cb0034;
+	color: #fff;
+	font-size: 15px;
+	right: 5px;
+	bottom: 5px;
+	min-height: auto;
+	padding: 10px 16px 8px 16px;
+	line-height: 20px;
+	text-transform: uppercase !important;
+	display: inline-block;
+	left: auto;
+}
+
+
+    
+// Styling when over 550px 
+// -----------------------------------------------------------------------------
+
+@media (min-width: 551px) {
+
+	.ay-promobox .ay-promobox-14 li {
+		width: 33.33333%;
+	}
+	
+	.ay-promobox-item span {
+		line-height: 2rem;
+	}
+	
+}
+
+
+
+// Styling when over 800px 
+// -----------------------------------------------------------------------------
+
+@media only screen and (min-width: 801px) {
+
+	.ay-promobox .ay-promobox-14 li {
+		width: 25%;
+	}
+	
+}
+
+
+// Styling when over 1023px 
+// -----------------------------------------------------------------------------
+
+@media only screen and (min-width: 1024px) {
+		
+	.ay-promobox .ay-promobox-6 li {
+		width: 33.3333%;
+	}
+	
+	.ay-promobox .ay-promobox-8 li {
+		width: 25%;
+	}
+	
+	.ay-promobox .ay-promobox-14 li {
+		width: 20%;
+	}
+
+}
+
+
+// Styling when over 1260px 
+// -----------------------------------------------------------------------------
+
+@media only screen and (min-width: 1261px) {
+
+	.ay-promobox .container {
+		padding: 0 4.5rem;
+	}
+	
+	.ay-promobox .ay-promobox-14 li {
+		width: 14.28571%;
+	}
+	
+}
+.ay-promobox h1,
+.ay-promobox h2 {
+    text-align: center;
+}
+
+.ay-promobox.ay-as-seen-in {
+    background: #fff !important;
+}
+
+.ay-promobox.ay-as-seen-in .ay-promobox-6 li {
+    width: 33.33333%;
+    padding: 10px;
+    @include breakpoint("medium") {
+		width: 16.6666667%;
+	}
+}
+
+.ay-promobox.ay-as-seen-in .ay-promobox-6 li img {
+    height: auto;
+    width: auto;
+    max-height: 40px;
+    min-height: 40px;
+}
+
+.ay-promobox.ay-three-boxes .ay-promobox-3 li img {
+    width: 100%;
+    height: auto;
+}
+
+.ay-promobox.ay-three-boxes .ay-promobox-3 li.ay-promobox-item-1, .ay-promobox .ay-promobox-3 li.ay-promobox-item-2 {
+    @include breakpoint("medium") {
+		width: 25%;
+	}
+}
+
+.ay-promobox.ay-three-boxes .ay-promobox-3 li.ay-promobox-item-3 {
+    @include breakpoint("medium") {
+		width: 50%;
+	}
+}
+
+
