@@ -55,26 +55,24 @@
 	background: stencilColor("body-bg");
 	@include breakpoint("medium") {
 		background: stencilColor("header-backgroundColor");
-		background: -moz-linear-gradient(top, stencilColor("header-backgroundColor") 0%, stencilColor("body-bg") 100%); /* FF3.6-15 */
-		background: -webkit-linear-gradient(top, stencilColor("header-backgroundColor") 0%, stencilColor("body-bg") 100%); /* Chrome10-25,Safari5.1-6 */
-		background: linear-gradient(to bottom, stencilColor("header-backgroundColor") 0%, stencilColor("body-bg") 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("header-backgroundColor")', endColorstr='stencilColor("body-bg")',GradientType=0 ); /* IE6-9 */
+		background: -moz-linear-gradient(top, stencilColor("header-backgroundColor") 0%, stencilColor("body-bg") 100%);
+		background: -webkit-linear-gradient(top, stencilColor("header-backgroundColor") 0%, stencilColor("body-bg") 100%);
+		background: linear-gradient(to bottom, stencilColor("header-backgroundColor") 0%, stencilColor("body-bg") 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("header-backgroundColor")', endColorstr='stencilColor("body-bg")',GradientType=0 );
 	}
 }
 
 
-// Header Bar
+// Page Heading
 // =============================================================================
 
-.header-bar {
-	background: stencilColor("custom-header-bar-background");
-	background: -moz-linear-gradient(top, stencilColor("custom-header-bar-background") 0%, stencilColor("body-bg") 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top, stencilColor("custom-header-bar-background") 0%, stencilColor("body-bg") 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom, stencilColor("custom-header-bar-background") 0%, stencilColor("body-bg") 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("custom-header-bar-background")', endColorstr='stencilColor("body-bg")',GradientType=0 ); /* IE6-9 */
-	@include breakpoint("medium") {
-		background: stencilColor("body-bg");
-	}
+.page-header {
+	padding-top: 1.5rem;
+	background: stencilColor("custom-page-header-background");
+	background: -moz-linear-gradient(top, stencilColor("custom-page-header-background") 0%, stencilColor("body-bg") 100%);
+	background: -webkit-linear-gradient(top, stencilColor("custom-page-header-background") 0%, stencilColor("body-bg") 100%); 
+	background: linear-gradient(to bottom, stencilColor("custom-page-header-background") 0%, stencilColor("body-bg") 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("custom-page-header-background")', endColorstr='stencilColor("body-bg")',GradientType=0 );
 }
 
 
@@ -83,10 +81,10 @@
 
 .navPages {
 	background: stencilColor("navPages-subMenu-backgroundColor");
-	background: -moz-linear-gradient(top, stencilColor("navPages-subMenu-backgroundColor") 0%, stencilColor("body-bg") 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top, stencilColor("navPages-subMenu-backgroundColor") 0%, stencilColor("body-bg") 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom, stencilColor("navPages-subMenu-backgroundColor") 0%, stencilColor("body-bg") 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("navPages-subMenu-backgroundColor")', endColorstr='stencilColor("body-bg")',GradientType=0 ); /* IE6-9 */
+	background: -moz-linear-gradient(top, stencilColor("navPages-subMenu-backgroundColor") 0%, stencilColor("body-bg") 100%);
+	background: -webkit-linear-gradient(top, stencilColor("navPages-subMenu-backgroundColor") 0%, stencilColor("body-bg") 100%);
+	background: linear-gradient(to bottom, stencilColor("navPages-subMenu-backgroundColor") 0%, stencilColor("body-bg") 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("navPages-subMenu-backgroundColor")', endColorstr='stencilColor("body-bg")',GradientType=0 );
 	@include breakpoint("medium") {
 		background: none;
 	}
@@ -101,10 +99,10 @@
 .navPage-subMenu {
 	@include breakpoint("medium") {
 		background: stencilColor("navPages-subMenu-backgroundColor");
-		background: -moz-linear-gradient(top, stencilColor("navPages-subMenu-backgroundColor") 0%, stencilColor("body-bg") 100%); /* FF3.6-15 */
-		background: -webkit-linear-gradient(top, stencilColor("navPages-subMenu-backgroundColor") 0%, stencilColor("body-bg") 100%); /* Chrome10-25,Safari5.1-6 */
-		background: linear-gradient(to bottom, stencilColor("navPages-subMenu-backgroundColor") 0%, stencilColor("body-bg") 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("navPages-subMenu-backgroundColor")', endColorstr='stencilColor("body-bg")',GradientType=0 ); /* IE6-9 */
+		background: -moz-linear-gradient(top, stencilColor("navPages-subMenu-backgroundColor") 0%, stencilColor("body-bg") 100%);
+		background: -webkit-linear-gradient(top, stencilColor("navPages-subMenu-backgroundColor") 0%, stencilColor("body-bg") 100%);
+		background: linear-gradient(to bottom, stencilColor("navPages-subMenu-backgroundColor") 0%, stencilColor("body-bg") 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("navPages-subMenu-backgroundColor")', endColorstr='stencilColor("body-bg")',GradientType=0 );
 		border-bottom: 2px solid stencilColor("custom-page-header-background");
 	}
 }
@@ -113,9 +111,6 @@
 // Product
 // =============================================================================
 
-.facebookRecommendBtn {
-	display: none;
-}
 
 
 
@@ -147,10 +142,10 @@
 
 .footer {
 	background: stencilColor("footer-backgroundColor");
-	background: -moz-linear-gradient(top, stencilColor("footer-backgroundColor") 0%, stencilColor("body-bg") 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top, stencilColor("footer-backgroundColor") 0%, stencilColor("body-bg") 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom, stencilColor("footer-backgroundColor") 0%, stencilColor("body-bg") 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("footer-backgroundColor")', endColorstr='stencilColor("body-bg")',GradientType=0 ); /* IE6-9 */
+	background: -moz-linear-gradient(top, stencilColor("footer-backgroundColor") 0%, stencilColor("body-bg") 100%);
+	background: -webkit-linear-gradient(top, stencilColor("footer-backgroundColor") 0%, stencilColor("body-bg") 100%);
+	background: linear-gradient(to bottom, stencilColor("footer-backgroundColor") 0%, stencilColor("body-bg") 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("footer-backgroundColor")', endColorstr='stencilColor("body-bg")',GradientType=0 );
 }
 
 
