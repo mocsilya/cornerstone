@@ -69,30 +69,29 @@
                 </li>
             {{/each}}
         </ul>
-		{{#if theme_settings.custom_product_description_location '==' 'side'}}
-        	{{#if product.videos.list.length}}
-            	{{> components/custom/videos product.videos}}
+		{{#if product.videos.list.length}}
+			{{#if theme_settings.custom_product_description_location '==' 'underneath'}}
+				{{> components/custom/videos product.videos}}
         	{{/if}}
+			{{#if theme_settings.custom_product_description_location '==' 'side'}}
+				{{#if theme_settings.show_product_details_tabs}}
+            		{{> components/custom/videos product.videos}}
+				{{else}}
+					{{> components/products/videos product.videos}}
+        		{{/if}}
+			{{/if}}
 		{{/if}}
-		{{#if theme_settings.custom_product_description_location '==' 'underneath'}}
-			{{#all product.videos.list.length (if theme_settings.show_product_details_tabs '==' true)}}
-            	{{> components/custom/videos product.videos}}
-        	{{/all}}
-		{{/if}}
+
 		{{#if theme_settings.custom_product_warranty_gallery}}
         	{{#if product.warranty}}
 				<div class="productView-warranty">
 			    	<h4 class="toggle-title">{{theme_settings.custom_product_warranty_title}}</h4>
 			    	<div class="warranty-content">
 			        	{{{product.warranty}}}
+						{{> components/custom/client/client-product-warranty}}
 			    	</div>
 				</div>
         	{{/if}}
-		{{/if}}
-		{{#if theme_settings.custom_product_description_location '==' 'side'}}
-	        {{#all settings.show_product_reviews theme_settings.show_product_reviews (if theme_settings.show_product_details_tabs '!==' true)}}
-	            {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
-	        {{/all}}
 		{{/if}}
     </section>
 
