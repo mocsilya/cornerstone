@@ -112,6 +112,18 @@
 // =============================================================================
 
 
+.ay-question .button {
+	width: 100%;
+}
+
+.productView-options .form-action,
+.productView-options .form-wishlist  {
+	@include breakpoint("large") {
+		width: 100%;
+		padding: 0;
+		float: none;
+	}
+}
 
 
 // JotForm
@@ -137,8 +149,9 @@
 
 
 
-// Footer
+// Footer 
 // =============================================================================
+
 
 .footer {
 	background: stencilColor("footer-backgroundColor");
@@ -146,6 +159,19 @@
 	background: -webkit-linear-gradient(top, stencilColor("footer-backgroundColor") 0%, stencilColor("body-bg") 100%);
 	background: linear-gradient(to bottom, stencilColor("footer-backgroundColor") 0%, stencilColor("body-bg") 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("footer-backgroundColor")', endColorstr='stencilColor("body-bg")',GradientType=0 );
+}
+
+
+.footer-newsletter {
+	background: stencilColor("custom-footer-newsletter-background");
+	background: -moz-linear-gradient(top, stencilColor("custom-footer-newsletter-background") 0%, stencilColor("body-bg") 100%);
+	background: -webkit-linear-gradient(top, stencilColor("custom-footer-newsletter-background") 0%, stencilColor("body-bg") 100%);
+	background: linear-gradient(to bottom, stencilColor("custom-footer-newsletter-background") 0%, stencilColor("body-bg") 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("custom-footer-newsletter-background")', endColorstr='stencilColor("body-bg")',GradientType=0 );
+}
+
+.footer-newsletter-summary {
+	color: stencilColor("custom-footer-newsletter-text");
 }
 
 
