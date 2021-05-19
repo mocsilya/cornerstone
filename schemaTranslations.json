@@ -1471,6 +1471,9 @@
   "i18n.CustomProductWishlistShow": {
     "default": "Show Wishlist on product pages"
   },
+  "i18n.CustomProductDescriptionTitle": {
+    "default": "Description tab label"
+  },
   "i18n.CustomProductWarrantyGallery": {
     "default": "Display warranty under photo gallery"
   },
