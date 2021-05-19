@@ -1,5 +1,5 @@
 {{#if product.description}}
-    <h4 class="productView-title">{{lang 'products.description'}}</h4>
+    <h4 class="productView-title">{{theme_settings.custom_product_description_title}}</h4>
     <div class="productView-description description-content" {{#if settings.data_tag_enabled}} data-event-type="product" {{/if}}>
         {{{product.description}}}
     </div>
