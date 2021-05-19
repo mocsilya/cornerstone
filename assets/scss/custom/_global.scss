@@ -2360,12 +2360,12 @@ a:hover span.card-image:only-of-type img {
 
 .productView-thumbnails,
 .productView-image + .productView-thumbnails {
-	margin: 1.5rem -0.75rem;
+	margin: 1.5rem -2px;
 	font-size: 0;
 }
 
 .productView-thumbnail {
-    margin: 0 .75rem;
+    margin: 0 2px;
 	padding: 0;
 	width: auto;
 	height: auto;
@@ -2381,6 +2381,23 @@ a:hover span.card-image:only-of-type img {
 	height: get-height(stencilString('productview_thumb_size'));
 	max-width: none;
 	overflow: hidden;
+}
+
+.productView-thumbnails.slick-slider,
+.productView-image + .productView-thumbnails {
+	margin: 1.5rem 0;
+}
+
+.productView-thumbnail.slick-slide {
+	float: left;
+	margin: 0;
+	padding: 2px;
+}
+
+.slick-slide .productView-thumbnail-link {
+	width: 100%;
+	height: auto;
+	box-sizing: border-box;
 }
 
 .videoGallery-item {
