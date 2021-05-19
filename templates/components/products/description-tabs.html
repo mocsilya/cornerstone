@@ -69,7 +69,7 @@
 			{{> components/custom/client/client-product-tab2}}
 		</div>
     {{/if}}
-    {{#all settings.show_product_reviews theme_settings.show_product_reviews}}
+    {{#all settings.show_product_reviews theme_settings.show_product_reviews product.reviews.total}}
        <div class="tab-content" id="tab-reviews">
            {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
        </div>

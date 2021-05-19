@@ -43,3 +43,10 @@
 		{{> components/custom/client/client-product-tab2}}
     </div>
 {{/if}}
+
+{{#all settings.show_product_reviews theme_settings.show_product_reviews product.reviews.total}}
+    <h4 class="productView-title">{{lang 'products.reviews.header' total=product.reviews.total}}</h4>
+    <div class="productView-description review-content">
+        {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+    </div>
+{{/all}}
