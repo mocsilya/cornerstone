@@ -2365,7 +2365,7 @@ a:hover span.card-image:only-of-type img {
 }
 
 .productView-thumbnail {
-    margin: 0 2px;
+    margin: 2px;
 	padding: 0;
 	width: auto;
 	height: auto;
@@ -2384,7 +2384,7 @@ a:hover span.card-image:only-of-type img {
 }
 
 .productView-thumbnails.slick-slider,
-.productView-image + .productView-thumbnails {
+.productView-image + .productView-thumbnails.slick-slider {
 	margin: 1.5rem 0;
 }
 
@@ -3285,6 +3285,7 @@ a:hover span.card-image:only-of-type img {
 	background-color: stencilColor("custom-footer-newsletter-button-background-hover");
 	border-color: stencilColor("custom-footer-newsletter-button-background-hover");
 }
+
 
 .footer-newsletter-summary {
 	margin-top: .75rem;
