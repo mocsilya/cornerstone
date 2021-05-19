@@ -2657,11 +2657,20 @@ a:hover span.card-image:only-of-type img {
 	}
 }
 
+.productView-options .form-option-swatch .form-option-variant--none {
+	height: get-height(stencilString('swatch_option_size'));
+}
+
 .productView-options #add-to-cart-wrapper .form-field--increments {
 	@include breakpoint("small") {
 		margin-bottom: 1rem;
 		margin-top: 1rem;
 	}
+}
+
+.productView-options #add-to-cart-wrapper .form-increment {
+	width: 100%;
+	white-space: nowrap;
 }
 
 .productView-options .form-action {
