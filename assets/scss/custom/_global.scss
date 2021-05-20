@@ -725,6 +725,10 @@ body.scroll .navPages-container-hide {
 	}
 }
 
+.navPages-list-simple .navPages-action-mobile {
+	display: block !important;
+}
+
 .navPages-list-simple .navPage-subMenu-mobile,
 .navPages-list-simple .navPages-action-mobile {
 	@include breakpoint("medium") {
