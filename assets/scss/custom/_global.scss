@@ -2669,8 +2669,27 @@ a:hover span.card-image:only-of-type img {
 }
 
 .productView-options #add-to-cart-wrapper .form-increment {
-	width: 100%;
-	white-space: nowrap;
+	width: 110px;
+	height: 24px;
+	text-align: center;
+	display: inline-block;
+	position: relative;
+}
+
+.productView-options #add-to-cart-wrapper .form-increment .button:first-child {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.productView-options #add-to-cart-wrapper .form-increment .button:last-child {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.productView-options #add-to-cart-wrapper .form-increment .form-input--incrementTotal {
+	padding: 3px 0 0 0;
 }
 
 .productView-options .form-action {
