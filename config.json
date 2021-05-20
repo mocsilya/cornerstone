@@ -122,7 +122,7 @@
     "custom-footer-text": "#333333",
     "custom-footer-link": "#333333",
     "custom-footer-link-hover": "#757575",
-	"custom_category_sidebar_display": "vertical",
+	"custom_category_sidebar_display": "horizontal",
 	"custom_category_show_parents": true,
 	"custom_category_max_columns": 3,
 	"custom-page-header-text": "#333333",
