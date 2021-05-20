@@ -23,6 +23,17 @@
                 data-video-player>
             </iframe>
         </div>
+		{{assignVar "video" "hide"}}
+		{{#each this.list}}
+			{{#if @last}}
+				{{#if @index 0}}
+					{{assignVar "video" "hide"}}
+				{{else}}
+					{{assignVar "video" "show"}}
+				{{/if}}
+			{{/if}}
+		{{/each}}
+		{{#if (getVar "video") '===' 'show'}}
         <ul class="videoGallery-list">
         {{#each this.list}}
             <li class="videoGallery-item">
@@ -38,6 +49,7 @@
             </li>
         {{/each}}
         </ul>
+		{{/if}}
     </div>
 
 </section>

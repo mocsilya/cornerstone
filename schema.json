@@ -2519,13 +2519,18 @@
       },
       {
         "type": "color",
-        "label": "i18n.ProductHeaderTextHoverColor",
-        "id": "card-title-color-hover"
+        "label": "i18n.CustomCardWishlistIcon",
+        "id": "custom-card-wishlist-icon"
       },
       {
         "type": "color",
         "label": "i18n.ButtonTextColor",
         "id": "card-figcaption-button-color"
+      },
+      {
+        "type": "color",
+        "label": "i18n.ButtonBackground",
+        "id": "card-figcaption-button-background"
       },
       {
         "type": "color",
