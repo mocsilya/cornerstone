@@ -56,6 +56,10 @@ customer:
         <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}}" id="faceted-search-container">
             {{> components/category/sidebar}}
         </aside>
+	{{else if theme_settings.custom_category_show_parents}}
+        <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}}" id="faceted-search-container">
+            {{> components/category/sidebar}}
+        </aside>
     {{else if category.shop_by_price}}
         {{#if theme_settings.shop_by_price_visibility}}
              <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}}" id="faceted-search-container">
