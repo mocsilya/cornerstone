@@ -2,3 +2,156 @@
 // Custom > Client
 // =============================================================================
 //
+
+// Hero Carousel
+// =============================================================================
+
+.heroCarousel-action {
+	font-weight: 700;
+}
+
+
+
+// Nav User
+// =============================================================================
+
+.navUser-item--widesearch .navUser-text {
+	@include breakpoint("medium") {
+		border-bottom: solid 1px stencilColor("navUser-color-hover");
+	}
+}
+
+.mobileMenu-toggle .mobileMenu-toggleIcon, .mobileMenu-toggle .mobileMenu-toggleIcon::before, .mobileMenu-toggle .mobileMenu-toggleIcon::after,
+.mobileMenu-toggle.is-open .mobileMenu-toggleIcon::before, .mobileMenu-toggle.is-open .mobileMenu-toggleIcon::after {
+	background: #fff;
+}
+
+
+// Nav Page
+// =============================================================================
+
+.navPage-subMenu {
+	@include breakpoint("medium") {
+		border-bottom: 1px solid #ddd;
+		padding-bottom: 3rem;
+	}
+}
+
+.navPage-subMenu-item > .navPage-subMenu-action {
+	@include breakpoint("medium") {
+		border-bottom: 1px solid #fff;
+	}
+}
+
+.navPage-subMenu-item > .navPage-subMenu-action.has-subMenu {
+	@include breakpoint("medium") {
+		border-bottom: 1px solid stencilColor("navPages-subMenu-separatorColor");
+	}
+}
+
+// Footer
+// =============================================================================
+
+
+.footer-blog h2 {
+	color: stencilColor("custom-footer-blog-heading");
+}
+
+.footer-blog {
+	text-align: center;
+	display: block !important;
+	color: stencilColor("custom-footer-blog-text");
+}
+
+
+// Page Header
+// =============================================================================
+
+
+
+
+
+// Tabs
+// =============================================================================
+
+.tabs {
+	@include breakpoint("medium") {
+		border-bottom: 2px solid stencilColor("custom-tab-active-background");
+	}
+}
+
+.tab {
+	@include breakpoint("medium") {
+		color: stencilColor("custom-tab-background");
+		border: 2px solid #fff;
+		border-bottom: 0;
+		margin-bottom: 0;
+	}
+}
+
+.tab.is-active {
+	@include breakpoint("medium") {
+		border: 2px solid stencilColor("custom-tab-active-background");
+		border-bottom: 2px solid #fff;
+		margin-bottom: -2px;
+	}
+}
+
+.tab-title {
+	border: 2px solid stencilColor("custom-tab-background");
+	background: #fff;
+	@include breakpoint("medium") {
+		border-radius: 0;
+		border: 0;
+	}
+}
+
+.tab-title:hover {
+	border: 2px solid stencilColor("custom-tab-hover-background");
+	background: #fff;
+	@include breakpoint("medium") {
+		border-radius: 0;
+		border: 0;
+		background: stencilColor("custom-tab-background");
+	}
+}
+
+.tab.is-active .tab-title,
+.tab.is-active .tab-title:hover {
+	border: 2px solid stencilColor("custom-tab-active-background");
+	background: #fff;
+	@include breakpoint("medium") {
+		background: #fff;
+		color: stencilColor("custom-tab-active-background");
+		border-radius: 0;
+		border: 0;
+	}
+}
+
+
+
+// Cart
+// =============================================================================
+
+.cart-header-quantity,
+.cart-item-quantity {
+	display: none;
+}
+
+.paypal-button-container {
+	max-width: none;
+}
+
+
+
+/* NEEDS TO GO INTO GLOBAL */
+
+.form-field--increments {
+	display: none;
+}
+
+.cart-content-actions .cart-actions,
+.cart-content-actions .cart-additionalCheckoutButtons {
+	width: 254px;
+}
+
