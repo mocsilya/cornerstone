@@ -62,7 +62,6 @@
 	}
 }
 
-
 // Page Heading
 // =============================================================================
 
@@ -168,10 +167,6 @@
 	background: -webkit-linear-gradient(top, stencilColor("custom-footer-newsletter-background") 0%, stencilColor("body-bg") 100%);
 	background: linear-gradient(to bottom, stencilColor("custom-footer-newsletter-background") 0%, stencilColor("body-bg") 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("custom-footer-newsletter-background")', endColorstr='stencilColor("body-bg")',GradientType=0 );
-}
-
-.footer-newsletter-summary {
-	color: stencilColor("custom-footer-newsletter-text");
 }
 
 
