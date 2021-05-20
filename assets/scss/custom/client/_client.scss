@@ -62,6 +62,12 @@
 	}
 }
 
+.navUser-text {
+	@include breakpoint("xlarge") {
+		display: none;
+	}
+}
+
 // Page Heading
 // =============================================================================
 
@@ -104,6 +110,16 @@
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("navPages-subMenu-backgroundColor")', endColorstr='stencilColor("body-bg")',GradientType=0 );
 		border-bottom: 2px solid stencilColor("custom-page-header-background");
 	}
+}
+
+
+
+
+// Category
+// =============================================================================
+
+.page-sidebar-horizontal .sidebarCategories .navList-action {
+	
 }
 
 
