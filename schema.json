@@ -2519,6 +2519,11 @@
       },
       {
         "type": "color",
+        "label": "i18n.ProductHeaderTextHoverColor",
+        "id": "card-title-color-hover"
+      },
+      {
+        "type": "color",
         "label": "i18n.CustomCardWishlistIcon",
         "id": "custom-card-wishlist-icon"
       },
