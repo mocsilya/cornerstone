@@ -1584,6 +1584,9 @@
     "uk": "Фон кнопки",
     "zh": "按钮背景"
   },
+  "i18n.CustomCardWishlistIcon": {
+    "default": "Wishlist icon color"
+  },
   "i18n.ProductCardsSpotlight": {
     "default": "Spotlight label name"
   },
