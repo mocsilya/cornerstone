@@ -93,7 +93,7 @@
 	"custom_footer_copyright": "",
 	"custom_footer_show_page_columns": false,
 	"custom_footer_show_category_columns": false,
-    "custom_footer_show_blog": false,
+    "custom_footer_show_blog": true,
 	"custom_footer_client_blog": false,
 	"custom_footer_show_newsletter": true,
 	"custom_footer_client_newsletter": false,
