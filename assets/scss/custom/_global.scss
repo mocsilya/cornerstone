@@ -3040,10 +3040,7 @@ a:hover span.card-image:only-of-type img {
 .cart-content-actions .cart-actions,
 .cart-content-actions .cart-additionalCheckoutButtons {
 	@include breakpoint("medium") {
-		width: 280px;
-	}
-	@include breakpoint("large") {
-		width: 340px;
+		width: 254px;
 	}
 }
 
@@ -3348,11 +3345,18 @@ a:hover span.card-image:only-of-type img {
 
 .footer-blog {
 	background-color: stencilColor("custom-footer-blog-background");
-	padding: spacing("single") 0;
 	margin-top: 0px !important;
 }
 
 .footer-blog-list {
+	display: none;
+	padding: spacing("single") 0;
+}
+
+.footer-blog-list-1,
+.footer-blog-list-2,
+.footer-blog-list-3 {
+	display: block;
 	@include breakpoint("small") {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
@@ -3372,7 +3376,6 @@ a:hover span.card-image:only-of-type img {
 .footer-blog-list li {
 	list-style: none;
 	margin: 0;
-	padding: 0;
 	color: stencilColor("custom-footer-blog-text");
 }
 
