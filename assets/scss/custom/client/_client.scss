@@ -2,3 +2,45 @@
 // Custom > Client
 // =============================================================================
 //
+
+.button,
+input.form-input,
+.tab-title {
+	border-radius: 0;
+}
+
+.header-logo__link:hover {
+	color: #fff;
+}
+
+.mobileMenu-toggle .mobileMenu-toggleIcon, .mobileMenu-toggle .mobileMenu-toggleIcon::before, .mobileMenu-toggle .mobileMenu-toggleIcon::after,
+.mobileMenu-toggle.is-open .mobileMenu-toggleIcon::before, .mobileMenu-toggle.is-open .mobileMenu-toggleIcon::after {
+	background: #fff;
+}
+
+.category-header-image.page-header .page-heading,
+.category-header-image.page-header .breadcrumbs{
+    padding: 1.5rem;
+    margin: 0 10%;
+    background: rgba(255,255,255, 0.8);
+    @include breakpoint("small") {
+        margin: 0 15%;
+    }
+    @include breakpoint("medium") {
+        margin: 0 20%;
+    }
+    @include breakpoint("large") {
+        margin: 0 25%;
+    }
+}
+
+.category-header-image.page-header .breadcrumbs {
+    top: auto;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.page-sidebar-horizontal .sidebarCategories .navList-item {
+    @include breakpoint("large") {
+        flex: 0 1 16.6666667%;
+    }
+}
