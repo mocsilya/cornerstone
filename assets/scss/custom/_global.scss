@@ -1074,10 +1074,11 @@ body.scroll .navPages > ul > li > .navPages-action {
 	padding: 0;
 	margin: 0;
 	font-size: 1.5rem;
-	padding: .5rem 1rem;
+	padding: .5rem 1.5rem;
 	background-color: rgba(stencilColor("carousel-bgColor"), 0.9);
 	@include breakpoint("small") {
 		flex: 0 1 auto;
+		padding: .5rem 1rem;
 	}
 	@include breakpoint("medium") {
 		font-size: 2rem;
@@ -1094,7 +1095,7 @@ body.scroll .navPages > ul > li > .navPages-action {
 }
 
 .heroCarousel-description {
-	padding: .75rem 1rem;
+	padding: .5rem 1.5rem;
 	margin: 0;
 	font-weight: 700;
 	line-height: 1.2;
@@ -1102,6 +1103,9 @@ body.scroll .navPages > ul > li > .navPages-action {
 	flex: 0 1 auto;
 	font-size: 1rem;
 	line-height: 1;
+	@include breakpoint("small") {
+		padding: .5rem 1rem;
+	}
 	@include breakpoint("medium") {
 		font-size: 1.25rem;
 		padding: 1.175rem 2rem;
@@ -1118,8 +1122,8 @@ body.scroll .navPages > ul > li > .navPages-action {
 }
 
 .heroCarousel-action {
-	margin: 0;
-	padding: .75rem 1rem;
+	margin: 0 1.5rem;
+	padding: .5rem 1rem;
 	line-height: 1;
 	border: 0;
 	border-radius: 0;
@@ -1128,6 +1132,9 @@ body.scroll .navPages > ul > li > .navPages-action {
 	flex-direction: column;
 	justify-content: center;
 	font-size: 1rem;
+	@include breakpoint("small") {
+		margin: 0;
+	}
 	@include breakpoint("medium") {
 		font-size: 1.25rem;
 		padding: 1.175rem 2rem;
@@ -1244,6 +1251,30 @@ body.scroll .navPages > ul > li > .navPages-action {
 
 .category-header-image {
 	padding: 8vw 0;
+}
+
+.category-header-image .page-heading {
+	padding: 1.5rem;
+}
+
+.category-header-image .page-heading,
+.category-header-image .breadcrumbs {
+    margin: 0 10%;
+    background: rgba(stencilColor("custom-page-header-background"), 0.8);
+    @include breakpoint("small") {
+        margin: 0 15%;
+    }
+    @include breakpoint("medium") {
+        margin: 0 20%;
+    }
+    @include breakpoint("large") {
+        margin: 0 25%;
+    }
+}
+
+.category-header-image .breadcrumbs {
+    top: auto;
+    padding: 0 1.5rem 1.5rem 1.5rem;
 }
 
 .category-header-image img {
