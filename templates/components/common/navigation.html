@@ -21,7 +21,7 @@
                aria-controls="quickSearch"
                aria-label="{{lang 'common.search'}}"
             >
-				<span class="navUser-icon navUser-icon-search"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-search" /></svg></i></span>
+				<span class="navUser-icon navUser-icon-search"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-search{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
 				<span class="navUser-icon navUser-icon-close"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-close" /></svg></i></span>
                 <span class="navUser-text navUser-text-search">{{lang 'common.search'}}</span>
 				<span class="navUser-text navUser-text-close">Close</span>
@@ -46,7 +46,7 @@
                    href="{{urls.cart}}"
                    aria-label="{{lang 'common.store_credit_overview' credit=customer.store_credit.formatted}}"
                 >
-					<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-currency" /></svg></i></span>
+					<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-currency{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
                     <span class="navUser-text">{{lang 'common.store_credit_overview' credit=customer.store_credit.formatted}}
 		            <i class="icon" aria-hidden="true">
 		                <svg>
@@ -66,7 +66,7 @@
                data-compare-nav
                aria-label="{{lang 'common.compare'}}"
             >
-				<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-compare" /></svg></i></span>
+				<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-compare{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
                 <span class="navUser-text">{{lang 'common.compare'}}</span>
 				<span class="countPill countPill--positive countPill--alt"></span>
             </a>
@@ -81,7 +81,7 @@
 				   aria-expanded="false"
 	               aria-label="{{lang 'account.mobile_nav.wishlists'}}"
 	            >
-					<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-heart" /></svg></i></span>
+					<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-heart{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
 					<span class="navUser-text">{{lang 'account.mobile_nav.wishlists'}}
 		            <i class="icon" aria-hidden="true">
 		                <svg>
@@ -108,7 +108,7 @@
 				   href="{{urls.account.wishlists.all}}"
 	               aria-label="{{lang 'account.mobile_nav.wishlists'}}"
 	            >
-					<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-heart" /></svg></i></span>
+					<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-heart{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
                     <span class="navUser-text">{{lang 'account.mobile_nav.wishlists'}}</span>
                 </a>
 			{{/if}}
@@ -122,7 +122,7 @@
 			   aria-expanded="false"
                aria-label="{{lang 'common.account'}}"
             >
-				<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-user" /></svg></i></span>
+				<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-user{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
 				{{#if customer}}
 				<span class="navUser-text">{{first (split customer.name " ") }}
 				{{else}}
@@ -192,7 +192,7 @@
 				<span class="navUser-icon">
 					<i class="icon" aria-hidden="true">
 						<svg>
-							<use xlink:href="#icon-cart" />
+							<use xlink:href="#icon-{{theme_settings.custom_header_cart_type}}{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" />
 						</svg>
 					</i>
 				</span>

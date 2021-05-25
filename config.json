@@ -69,6 +69,8 @@
 	"custom_header_group_single": false,
 	"custom_header_show_brands": true,
 	"custom_header_scroll_navpages": true,
+	"custom_header_icon_style": "outline",
+	"custom_header_cart_type": "cart",
 	"custom_header_show_bar": true,
 	"custom_header_show_bar_message1": true,
 	"custom_header_show_bar_message2": false,

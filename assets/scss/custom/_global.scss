@@ -65,11 +65,13 @@ h1, h2, h3, h4, h5, h6 {
 	display: none;
 }
 
+.hasAdminBar > .banners,
 div[data-content-region="header_bottom--global"],
 div[data-content-region="header_bottom"],
 div[data-content-region="footer_top--global"] {
 	margin-top: 0px !important;
 }
+
 
 
 // Pagination
@@ -79,7 +81,6 @@ div[data-content-region="footer_top--global"] {
 	margin-top: 1.5rem;
 	margin-bottom: 1.5rem;
 }
-
 
 
 
