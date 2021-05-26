@@ -157,6 +157,7 @@
 	"custom-tab-active-background": "#333333",
 	"custom-pagination-color": "#ffffff",
 	"custom-pagination-background": "#333333",
+	"custom_price_from": false,
     "hide_breadcrumbs": false,
     "hide_page_heading": false,
     "hide_category_page_heading": false,

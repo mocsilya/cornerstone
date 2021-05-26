@@ -489,6 +489,9 @@
     "uk": "Показати діапазони цін на продукти з варіантами. Якщо він відключений, він відображатиме ціну товару",
     "zh": "当产品有属性选项时，显示价格范围。如果禁用将显示产品价格"
   },
+  "i18n.CustomPriceFrom": {
+    "default": "Show price from rather than min - max for price ranges."
+  },
   "i18n.PurchaseOptions": {
     "default": "Purchase options",
     "fr": "Options d'achat",

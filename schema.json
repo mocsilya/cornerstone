@@ -540,6 +540,14 @@
         "id": "price_ranges"
       },
       {
+        "type": "checkbox",
+        "label": "i18n.CustomPriceFrom",
+        "force_reload": true,
+        "reference": "price_ranges",
+        "reference_default": false,
+        "id": "custom_price_from"
+      },
+      {
         "type": "heading",
         "content": "i18n.PurchaseOptions"
       },
