@@ -10,8 +10,10 @@ input.form-input,
 }
 
 .header-bar {
-	-webkit-box-shadow: inset 0px -1px 0px 0px rgba(255,255,255, 0.25); 
-	box-shadow: inset 0px -1px 0px 0px  rgba(255,255,255, 0.25);
+    @include breakpoint("medium") {
+		-webkit-box-shadow: inset 0px -1px 0px 0px rgba(255,255,255, 0.25); 
+		box-shadow: inset 0px -1px 0px 0px  rgba(255,255,255, 0.25);
+    }
 }
 
 .page-sidebar-horizontal .sidebarCategories .navList-item {
