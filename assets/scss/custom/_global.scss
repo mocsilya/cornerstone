@@ -305,6 +305,10 @@ body.scroll .header {
 	width: 100%;
 }
 
+.header-logo__link:hover {
+	color: stencilColor("storeName-color");
+}
+
 .header-logo-image-container {
 	transition: min-height 0.2s;
 	@include breakpoint("medium") {
@@ -378,6 +382,13 @@ body.scroll .header-logo-text {
 .mobileMenu-toggle .mobileMenu-toggleIcon::before,
 .mobileMenu-toggle .mobileMenu-toggleIcon::after {
 	height: 3px;
+	background: stencilColor("navUser-color");
+}
+
+.mobileMenu-toggle.is-open
+.mobileMenu-toggleIcon::before,
+.mobileMenu-toggle.is-open .mobileMenu-toggleIcon::after {
+	background: stencilColor("navUser-color");
 }
 
 
