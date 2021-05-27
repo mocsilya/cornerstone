@@ -72,7 +72,6 @@
 // =============================================================================
 
 .page-header {
-	padding-top: 1.5rem;
 	background: stencilColor("custom-page-header-background");
 	background: -moz-linear-gradient(top, stencilColor("custom-page-header-background") 0%, stencilColor("body-bg") 100%);
 	background: -webkit-linear-gradient(top, stencilColor("custom-page-header-background") 0%, stencilColor("body-bg") 100%); 
@@ -110,16 +109,6 @@
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("navPages-subMenu-backgroundColor")', endColorstr='stencilColor("body-bg")',GradientType=0 );
 		border-bottom: 2px solid stencilColor("custom-page-header-background");
 	}
-}
-
-
-
-
-// Category
-// =============================================================================
-
-.page-sidebar-horizontal .sidebarCategories .navList-action {
-	
 }
 
 
@@ -448,5 +437,3 @@ ul.gallery-items li {
 		width: 50%;
 	}
 }
-
-
