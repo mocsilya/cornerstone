@@ -38,17 +38,17 @@ customer:
 		<ul class="tabs" data-tab role="tablist">
 		    {{#if products.featured}}
 		        <li class="tab is-active" role="presentation">
-		            <a class="tab-title" href="#tab-featured" role="tab" tabindex="0" aria-selected="true" controls="tab-featured">{{lang 'products.featured' }}</a>
+		            <a class="tab-title" href="#tab-featured" role="tab" tabindex="0" aria-selected="true" controls="tab-featured">{{theme_settings.custom_homepage_featured_title}}</a>
 		        </li>
 		    {{/if}}
 		    {{#if products.top_sellers}}
 		        <li class="tab" role="presentation">
-		            <a class="tab-title" href="#tab-top" role="tab" tabindex="0" aria-selected="false" controls="tab-top">{{lang 'products.top' }}</a>
+		            <a class="tab-title" href="#tab-top" role="tab" tabindex="0" aria-selected="false" controls="tab-top">{{theme_settings.custom_homepage_top_title}}</a>
 		        </li>
 		    {{/if}}
 		    {{#if products.new}}
 		        <li class="tab" role="presentation">
-		            <a class="tab-title" href="#tab-new" role="tab" tabindex="0" aria-selected="false" controls="tab-new">{{lang 'products.new' }}</a>
+		            <a class="tab-title" href="#tab-new" role="tab" tabindex="0" aria-selected="false" controls="tab-new">{{theme_settings.custom_homepage_new_title}}</a>
 		        </li>
 		    {{/if}}
 		</ul>

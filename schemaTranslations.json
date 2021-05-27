@@ -377,6 +377,12 @@
     "uk": "Сховати заголовок сторінки контактів",
     "zh": "隐藏联系我们页面头部"
   },
+  "i18n.CustomPaginationColor": {
+    "default": "Pagination text color"
+  },
+  "i18n.CustomPaginationBackground": {
+    "default": "Pagination background color"
+  },
   "i18n.CustomPageHeaderBackground": {
     "default": "Page header background"
   },
@@ -482,6 +488,9 @@
     "it": "Mostra range di prezzo per i prodotti con varianti. Se disabilitato sarà mostrato il prezzo del prodotto",
     "uk": "Показати діапазони цін на продукти з варіантами. Якщо він відключений, він відображатиме ціну товару",
     "zh": "当产品有属性选项时，显示价格范围。如果禁用将显示产品价格"
+  },
+  "i18n.CustomPriceFrom": {
+    "default": "Show price from rather than min - max for price ranges."
   },
   "i18n.PurchaseOptions": {
     "default": "Purchase options",
@@ -655,7 +664,7 @@
     "default": "Message 1 text"
   },
   "i18n.CustomHeaderBarMessage2Text": {
-    "default": "Message 1 text"
+    "default": "Message 2 text"
   },
   "i18n.CustomHeaderBarMessage3Text": {
     "default": "Message 3 text"
@@ -728,6 +737,18 @@
     "it": "Sfondo contatore carrello",
     "uk": "Фон лічильника кошику",
     "zh": "购物车计数背景"
+  },
+  "i18n.CustomHeaderSearchLabel": {
+    "default": "Quick search placeholder text"
+  },
+  "i18n.CustomHeaderIconText": {
+    "default": "Show icon text on large screens"
+  },
+  "i18n.CustomHeaderCartType": {
+    "default": "Cart icon type"
+  },
+  "i18n.CustomHeaderIconStyle": {
+    "default": "Header icon style"
   },
   "i18n.MainNavigation": {
     "default": "Main navigation",
@@ -937,6 +958,9 @@
     "uk": "Показати \"&copy;\", рік та назву магазину",
     "zh": "显示\"&copy;\", 当前年份和店铺名称"
   },
+  "i18n.CustomFooterShowSitemap": {
+    "default": "Show sitemap in footer"
+  },
   "i18n.CustomFooterCopyright": {
     "default": "Additional copyright text"
   },
@@ -948,6 +972,12 @@
   },
   "i18n.CustomHeaderMenuBackground": {
     "default": "Main menu background"
+  },
+  "i18n.CustomHeaderMenuLink": {
+    "default": "Main menu text color"
+  },
+  "i18n.CustomHeaderMenuLinkHover": {
+    "default": "Main menu text hover color"
   },
   "i18n.PaymentIcons": {
     "default": "Payment icons",
@@ -1391,6 +1421,9 @@
     "it": "Mostra selezione quantità sulle pagine prodotto",
     "uk": "Показати вибір кількості на сторінках товарів",
     "zh": "在产品页面显示数量选项框"
+  },
+  "i18n.CustomProductTitleLeft": {
+    "default": "Show product title above details rather than in page header."
   },
   "i18n.CustomProductAddToCartShow": {
     "default": "Show custom add to cart text on product page"
