@@ -12,21 +12,6 @@
 
 
 
-// Nav User
-// =============================================================================
-
-.navUser-item--widesearch .navUser-text {
-	@include breakpoint("medium") {
-		border-bottom: solid 1px stencilColor("navUser-color-hover");
-	}
-}
-
-.mobileMenu-toggle .mobileMenu-toggleIcon, .mobileMenu-toggle .mobileMenu-toggleIcon::before, .mobileMenu-toggle .mobileMenu-toggleIcon::after,
-.mobileMenu-toggle.is-open .mobileMenu-toggleIcon::before, .mobileMenu-toggle.is-open .mobileMenu-toggleIcon::after {
-	background: #fff;
-}
-
-
 // Nav Page
 // =============================================================================
 
@@ -62,11 +47,6 @@
 	display: block !important;
 	color: stencilColor("custom-footer-blog-text");
 }
-
-
-// Page Header
-// =============================================================================
-
 
 
 
@@ -143,15 +123,11 @@
 }
 
 
-
-/* NEEDS TO GO INTO GLOBAL */
+// Hide quantity
+// =============================================================================
 
 .form-field--increments {
 	display: none;
 }
 
-.cart-content-actions .cart-actions,
-.cart-content-actions .cart-additionalCheckoutButtons {
-	width: 254px;
-}
 
