@@ -92,9 +92,11 @@
                         </li>
 						{{/unless}}
                     {{/each}}
-                    <li>
-                        <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
-                    </li>
+					{{#if theme_settings.custom_footer_show_sitemap}}
+                    	<li>
+                        	<a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
+                    	</li>
+					{{/if}}
                     <li>
                         <a href="{{urls.cart}}">{{lang 'common.cart'}}</a>
                     </li>
@@ -151,9 +153,11 @@
                             <a href="{{url}}">{{name}}</a>
                         </li>
                     {{/each}}
-                    <li>
-                        <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
-                    </li>
+					{{#if theme_settings.custom_footer_show_sitemap}}
+                    	<li>
+                        	<a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
+                    	</li>
+					{{/if}}
                 </ul>
             </article>
 			{{/if}}

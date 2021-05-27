@@ -26,7 +26,7 @@ customer:
 {{/filter}}
 <div class="container container-hero">
 	<div class="page-header product-header">
-    	<h1 class="page-heading">{{product.title}}</h1>
+    	{{#unless theme_settings.custom_product_title_left}}<h1 class="page-heading">{{product.title}}</h1>{{/unless}}
 		{{#unless (getVar 'payment') '===' 'active'}}
 			{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 		{{/unless}}
@@ -39,8 +39,15 @@ customer:
         {{> components/products/product-view schema=true  }}
 
         {{{region name="product_below_content"}}}
-
-        {{> components/products/tabs}}
     </div>
+{{/partial}}
+{{#partial "base"}}
+{{#or product.related_products product.similar_by_views}}
+	<div class="related-similar">
+		<div class="container">
+			{{> components/products/tabs}}
+		</div>
+	</div>
+{{/or}}
 {{/partial}}
 {{> layout/base}}
