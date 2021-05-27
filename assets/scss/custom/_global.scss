@@ -263,10 +263,12 @@ body.scroll .header {
 }
 
 .header .socialLinks .icon svg {
+	color: stencilColor("custom-header-social");
 	fill: stencilColor("custom-header-social");
 }
 
 .header .socialLinks .icon:hover svg {
+	color: stencilColor("custom-header-social-hover");
 	fill: stencilColor("custom-header-social-hover");
 }
 
@@ -3615,10 +3617,12 @@ a:hover span.card-image:only-of-type img {
 }
 
 .footer-social-col .socialLinks .icon svg {
+	color: stencilColor("custom-footer-social");
 	fill: stencilColor("custom-footer-social");
 }
 
 .footer-social-col .socialLinks .icon:hover svg {
+	color: stencilColor("custom-footer-social-hover");
 	fill: stencilColor("custom-footer-social-hover");
 }
 
