@@ -385,8 +385,7 @@ body.scroll .header-logo-text {
 	background: stencilColor("navUser-color");
 }
 
-.mobileMenu-toggle.is-open
-.mobileMenu-toggleIcon::before,
+.mobileMenu-toggle.is-open .mobileMenu-toggleIcon::before,
 .mobileMenu-toggle.is-open .mobileMenu-toggleIcon::after {
 	background: stencilColor("navUser-color");
 }
@@ -474,6 +473,17 @@ body.scroll .header-logo-text {
 		display: inline-block;
 		
 	}
+}
+
+.countPill {
+	background-color: stencilColor("navUser-color");
+	color: stencilColor("header-backgroundColor");
+}
+
+.navUser-item--cart .navUser-action:hover .countPill,
+.navUser-item--cart .navUser-action.is-open .countPill {
+	background-color: stencilColor("navUser-color-hover");
+	color: stencilColor("header-backgroundColor");
 }
 
 .navUser-item--credit .dropdown-menu {
