@@ -3499,6 +3499,16 @@ a:hover span.card-image:only-of-type img {
 .footer-newsletter {
 	background-color: stencilColor("custom-footer-newsletter-background");
 	margin-top: 0px !important;
+	color: stencilColor("custom-footer-newsletter-text");
+}
+
+.footer-newsletter h1,
+.footer-newsletter h2,
+.footer-newsletter h3,
+.footer-newsletter h4,
+.footer-newsletter h5,
+.footer-newsletter h6 {
+	color: stencilColor("custom-footer-newsletter-text");
 }
 
 .footer-newsletter .container {
@@ -3619,6 +3629,16 @@ a:hover span.card-image:only-of-type img {
 .footer-blog {
 	background-color: stencilColor("custom-footer-blog-background");
 	margin-top: 0px !important;
+	color: stencilColor("custom-footer-blog-text");
+}
+
+.footer-blog h1,
+.footer-blog h2,
+.footer-blog h3,
+.footer-blog h4,
+.footer-blog h5,
+.footer-blog h6 {
+	color: stencilColor("custom-footer-blog-heading");
 }
 
 .footer-blog-list {
@@ -3771,7 +3791,7 @@ a:hover span.card-image:only-of-type img {
 	margin-bottom: .5rem;
 	@include breakpoint("large") {
 		margin-bottom: 0;
-		flex: 1 1 auto;
+		flex: 1 0 auto;
 		text-align: left;
 	}
 }
