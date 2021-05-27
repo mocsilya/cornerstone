@@ -34,20 +34,19 @@
 	}
 }
 
+// hide store into from header
+.navPages-list .navPages-item:last-child {
+	display: none;
+}
+
+
+
 // Footer
 // =============================================================================
 
-
-.footer-blog h2 {
-	color: stencilColor("custom-footer-blog-heading");
-}
-
 .footer-blog {
 	text-align: center;
-	display: block !important;
-	color: stencilColor("custom-footer-blog-text");
 }
-
 
 
 
@@ -110,21 +109,13 @@
 
 
 
-// Cart
+// Hide quantity
 // =============================================================================
 
 .cart-header-quantity,
 .cart-item-quantity {
 	display: none;
 }
-
-.paypal-button-container {
-	max-width: none;
-}
-
-
-// Hide quantity
-// =============================================================================
 
 .form-field--increments {
 	display: none;
