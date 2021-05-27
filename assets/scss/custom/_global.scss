@@ -1181,22 +1181,24 @@ body.scroll .navPages > ul > li > .navPages-action {
 }
 
 .heroCarousel-inner {
+	flex-direction: column;
 	display: flex;
 	align-items: stretch;
 	justify-content: center;
 	width: 100%;
+	@include breakpoint("small") {
+		flex-direction: row;
+	}
 }
 
 .heroCarousel-title {
-	line-height: 1;
-	padding: 0;
+	line-height: 1.2;
+	padding: .5rem 1rem;
 	margin: 0;
 	font-size: 1.5rem;
-	padding: .5rem 1.5rem;
 	background-color: rgba(stencilColor("carousel-bgColor"), 0.9);
 	@include breakpoint("small") {
 		flex: 0 1 auto;
-		padding: .5rem 1rem;
 	}
 	@include breakpoint("medium") {
 		font-size: 2rem;
@@ -1213,17 +1215,13 @@ body.scroll .navPages > ul > li > .navPages-action {
 }
 
 .heroCarousel-description {
-	padding: .5rem 1.5rem;
+	padding: .5rem 1rem;
 	margin: 0;
 	font-weight: 700;
 	line-height: 1.2;
 	background-color: rgba(stencilColor("carousel-bgColor"), 0.9);
 	flex: 0 1 auto;
 	font-size: 1rem;
-	line-height: 1;
-	@include breakpoint("small") {
-		padding: .5rem 1rem;
-	}
 	@include breakpoint("medium") {
 		font-size: 1.25rem;
 		padding: 1.175rem 2rem;
@@ -1239,19 +1237,30 @@ body.scroll .navPages > ul > li > .navPages-action {
 	color: stencilColor("carousel-description-color");
 }
 
-.heroCarousel-action {
-	margin: 0 1.5rem;
+
+.heroCarousel-button {
+	display: flex;
+	justify-content: center;
 	padding: .5rem 1rem;
-	line-height: 1;
+	@include breakpoint("small") {
+		padding: 0;
+	}
+}
+
+.heroCarousel-action {
+	padding: .5rem 1rem;
+	margin: 0;
+	line-height: 1.2;
 	border: 0;
-	border-radius: 0;
+	border-radius: 4px;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	font-size: 1rem;
 	@include breakpoint("small") {
-		margin: 0;
+		border-radius: 0;
+		padding: .5rem 1.5rem;
 	}
 	@include breakpoint("medium") {
 		font-size: 1.25rem;
