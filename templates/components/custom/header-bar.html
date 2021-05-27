@@ -51,10 +51,12 @@
 			<li class="header-bar-contact">
 			{{#all settings.phone_number theme_settings.custom_phone_show}}
 				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-phone" /></svg></i></span>
+				{{> components/custom/client/client-header-phone}}
 				<span class="header-bar-text">{{lang 'footer.call_us' phone_number=settings.phone_number}}</span>
 			{{/all}}
 			{{#if theme_settings.custom_email_show}}
 				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-envelope" /></svg></i></span>
+				{{> components/custom/client/client-header-email}}
 				<span class="header-bar-text"><a href="mailto:{{theme_settings.custom_email_address}}">{{lang 'footer.email_us'}}</a></span>
 			{{/if}}
 			</li>

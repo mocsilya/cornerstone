@@ -434,6 +434,16 @@
         "id": "hide_contact_us_page_heading"
       },
       {
+        "type": "color",
+        "label": "i18n.CustomPaginationColor",
+        "id": "custom-pagination-color"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomPaginationBackground",
+        "id": "custom-pagination-background"
+      },
+      {
         "type": "heading",
         "content": "i18n.Products"
       },
@@ -528,6 +538,14 @@
         "label": "i18n.ShowPriceRangesForProducts",
         "force_reload": true,
         "id": "price_ranges"
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.CustomPriceFrom",
+        "force_reload": true,
+        "reference": "price_ranges",
+        "reference_default": false,
+        "id": "custom_price_from"
       },
       {
         "type": "heading",
@@ -835,6 +853,10 @@
             "label": "Discount"
           },
           {
+            "value": "globe",
+            "label": "Globe"
+          },
+          {
             "value": "guarantee",
             "label": "Guarantee"
           },
@@ -853,6 +875,10 @@
           {
             "value": "star",
             "label": "Star"
+          },
+          {
+            "value": "tick",
+            "label": "Tick"
           },
           {
             "value": "none",
@@ -893,6 +919,10 @@
             "label": "Discount"
           },
           {
+            "value": "globe",
+            "label": "Globe"
+          },
+          {
             "value": "guarantee",
             "label": "Guarantee"
           },
@@ -911,6 +941,10 @@
           {
             "value": "star",
             "label": "Star"
+          },
+          {
+            "value": "tick",
+            "label": "Tick"
           },
           {
             "value": "none",
@@ -951,6 +985,10 @@
             "label": "Discount"
           },
           {
+            "value": "globe",
+            "label": "Globe"
+          },
+          {
             "value": "guarantee",
             "label": "Guarantee"
           },
@@ -969,6 +1007,10 @@
           {
             "value": "star",
             "label": "Star"
+          },
+          {
+            "value": "tick",
+            "label": "Tick"
           },
           {
             "value": "none",
@@ -1006,6 +1048,59 @@
         "id": "navUser-indicator-backgroundColor"
       },
       {
+        "type": "color",
+        "label": "i18n.QuickSearchBackground",
+        "id": "dropdown--quickSearch-backgroundColor"
+      },
+      {
+        "type": "text",
+        "label": "i18n.CustomHeaderSearchLabel",
+        "force_reload": true,
+        "id": "custom_header_search_label"
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.CustomHeaderIconText",
+        "force_reload": true,
+        "id": "custom_header_icon_text"
+      },
+      {
+        "type": "select",
+        "label": "i18n.CustomHeaderCartType",
+        "id": "custom_header_cart_type",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "bag",
+            "label": "Bag"
+          },
+          {
+            "value": "basket",
+            "label": "Basket"
+          },
+          {
+            "value": "cart",
+            "label": "Cart"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "i18n.CustomHeaderIconStyle",
+        "id": "custom_header_icon_style",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "outline",
+            "label": "Outline"
+          },
+          {
+            "value": "solid",
+            "label": "Solid"
+          }
+        ]
+      },
+      {
         "type": "heading",
         "content": "i18n.MainNavigation"
       },
@@ -1031,6 +1126,16 @@
         "type": "color",
         "label": "i18n.CustomHeaderMenuBackground",
         "id": "custom-header-menu-background"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomHeaderMenuLink",
+        "id": "custom-header-menu-link"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomHeaderMenuLinkHover",
+        "id": "custom-header-menu-link-hover"
       },
       {
         "type": "color",
@@ -1067,11 +1172,6 @@
             "label": "i18n.AlternateMaxMenuDisplayDepth"
           }
         ]
-      },
-      {
-        "type": "color",
-        "label": "i18n.QuickSearchBackground",
-        "id": "dropdown--quickSearch-backgroundColor"
       },
       {
         "type": "heading",
@@ -1290,6 +1390,12 @@
         "label": "i18n.ShowCurrentYearAnd",
         "force_reload": true,
         "id": "show_copyright_footer"
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.CustomFooterShowSitemap",
+        "force_reload": true,
+        "id": "custom_footer_show_sitemap"
       },
       {
         "type": "text",
@@ -1985,6 +2091,12 @@
         "label": "i18n.ShowQuantitySelectionOnProduct",
         "force_reload": true,
         "id": "show_product_quantity_box"
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.CustomProductTitleLeft",
+        "force_reload": true,
+        "id": "custom_product_title_left"
       },
       {
         "type": "checkbox",

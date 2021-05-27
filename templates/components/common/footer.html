@@ -20,6 +20,9 @@
 {{{region name="footer_top--global"}}}
 {{#or theme_settings.custom_footer_show_newsletter theme_settings.social_icon_placement_bottom theme_settings.custom_footer_client_newsletter}}
 <section class="footer-newsletter">
+	{{#if theme_settings.custom_footer_client_newsletter}}
+		{{> components/custom/client/client-newsletter-top}}
+	{{/if}}
 	<div class="container">
 	{{#if theme_settings.custom_footer_show_newsletter}}
 		{{#if settings.show_newsletter_box}}
@@ -35,25 +38,28 @@
 			{{> components/common/social-links}}
 		</article>
 	{{/if}}
-	{{#if theme_settings.custom_footer_client_newsletter}}
-		{{> components/custom/client/client-newsletter}}
-	{{/if}}
 	</div>
+	{{#if theme_settings.custom_footer_client_newsletter}}
+		{{> components/custom/client/client-newsletter-bottom}}
+	{{/if}}
 </section>
 {{/or}}
 
 {{#or theme_settings.custom_footer_show_blog theme_settings.custom_footer_client_blog}}
 <section class="footer-blog">
+	{{#if theme_settings.custom_footer_client_blog}}
+		{{> components/custom/client/client-blog-top}}
+	{{/if}}
 	<div class="container">
 	{{#if theme_settings.custom_footer_show_blog}}
 		<article class="footer-blog-col" data-section-type="footer-blog">
 			{{> components/custom/footer-blog}}
 		</article>
 	{{/if}}
-	{{#if theme_settings.custom_footer_client_blog}}
-		{{> components/custom/client/client-blog}}
-	{{/if}}
 	</div>
+	{{#if theme_settings.custom_footer_client_blog}}
+		{{> components/custom/client/client-blog-bottom}}
+	{{/if}}
 </section>
 {{/or}}
 
@@ -86,9 +92,11 @@
                         </li>
 						{{/unless}}
                     {{/each}}
-                    <li>
-                        <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
-                    </li>
+					{{#if theme_settings.custom_footer_show_sitemap}}
+                    	<li>
+                        	<a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
+                    	</li>
+					{{/if}}
                     <li>
                         <a href="{{urls.cart}}">{{lang 'common.cart'}}</a>
                     </li>
@@ -145,9 +153,11 @@
                             <a href="{{url}}">{{name}}</a>
                         </li>
                     {{/each}}
-                    <li>
-                        <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
-                    </li>
+					{{#if theme_settings.custom_footer_show_sitemap}}
+                    	<li>
+                        	<a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
+                    	</li>
+					{{/if}}
                 </ul>
             </article>
 			{{/if}}
@@ -168,7 +178,7 @@
 			{{/each}}
 			{{assignVar "group" "hide"}}
 			{{#if (getVar "group") '!==' 'show'}}
-			{{#each children}}
+			{{#each categories}}
 				{{#unless children}}
 					{{assignVar "group" "show"}}
 				{{/unless}}
