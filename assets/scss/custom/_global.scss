@@ -272,6 +272,59 @@ body.scroll .header {
 	fill: stencilColor("custom-header-social-hover");
 }
 
+.header .socialLinks--circle .icon {
+	border-radius: .75rem;
+}
+
+.header .socialLinks--square .icon {
+	border-radius: 2px;
+}
+
+.header .socialLinks--circle .icon,
+.header .socialLinks--square .icon {
+	padding: .25rem;
+}
+
+.header .socialLinks--circle .icon svg,
+.header .socialLinks--square .icon svg {
+	height: 1rem;
+	width: 1rem;
+}
+
+.header .socialLinks--circle.socialLinks--solid .icon,
+.header .socialLinks--square.socialLinks--solid .icon {
+	background: stencilColor("custom-header-social");
+	-webkit-box-shadow: 0px 0px 0px 2px stencilColor("custom-header-social");
+	box-shadow: 0px 0px 0px 2px stencilColor("custom-header-social");
+}
+
+.header .socialLinks--circle.socialLinks--solid .icon:hover,
+.header .socialLinks--square.socialLinks--solid .icon:hover {
+	background: stencilColor("custom-header-social-hover");
+	-webkit-box-shadow: 0px 0px 0px 2px stencilColor("custom-header-social-hover");
+	box-shadow: 0px 0px 0px 2px stencilColor("custom-header-social-hover");
+}
+
+.header .socialLinks--circle.socialLinks--solid .icon svg,
+.header .socialLinks--circle.socialLinks--solid .icon:hover svg,
+.header .socialLinks--square.socialLinks--solid .icon svg,
+.header .socialLinks--square.socialLinks--solid .icon:hover svg {
+	color: stencilColor("header-backgroundColor");
+	fill: stencilColor("header-backgroundColor");
+}
+
+.header .socialLinks--circle.socialLinks--outline .icon,
+.header .socialLinks--square.socialLinks--outline .icon {
+	-webkit-box-shadow: 0px 0px 0px 2px stencilColor("custom-header-social");
+	box-shadow: 0px 0px 0px 2px stencilColor("custom-header-social");
+}
+
+.header .socialLinks--circle.socialLinks--outline .icon:hover,
+.header .socialLinks--square.socialLinks--outline .icon:hover {
+	-webkit-box-shadow: 0px 0px 0px 2px stencilColor("custom-header-social-hover");
+	box-shadow: 0px 0px 0px 2px stencilColor("custom-header-social-hover");
+}
+
 .header-logo {
 	margin: 0;
 	flex: 1 1 auto;
@@ -737,8 +790,31 @@ body.scroll .dropdown--quickSearch.is-open {
 
 .navUser .socialLinks .socialLinks-item {
 	margin: 0;
-	padding: 1rem 0.78571rem;
+	padding: 1rem 0.25rem;
 }
+
+.navUser .socialLinks .socialLinks-item:first-child {
+	padding: 1rem 0.25rem 1rem 0;
+}
+
+.navUser .socialLinks--circle .socialLinks-item:first-child,
+.navUser .socialLinks--square .socialLinks-item:first-child  {
+	padding: 1rem 0.25rem 1rem 2px;
+}
+
+.navUser .socialLinks .socialLinks-item:last-child {
+	padding: 1rem 0.78571rem 1rem .25rem;
+}
+
+.navUser .socialLinks .socialLinks-item:only-child {
+	padding: 1rem 0.78571rem 1rem 0;
+}
+
+.navUser .socialLinks--circle .socialLinks-item:only-child,
+.navUser .socialLinks--square .socialLinks-item:only-child {
+	padding: 1rem 0.78571rem 1rem 2px;
+}
+
 
 .navUser .socialLinks:before,
 .navUser .socialLinks:after {
@@ -3624,6 +3700,42 @@ a:hover span.card-image:only-of-type img {
 .footer-social-col .socialLinks .icon:hover svg {
 	color: stencilColor("custom-footer-social-hover");
 	fill: stencilColor("custom-footer-social-hover");
+}
+
+.footer-social-col .socialLinks--circle .socialLinks-item,
+.footer-social-col .socialLinks--square .socialLinks-item {
+	margin: 0 .25rem;
+}
+
+.footer-social-col .socialLinks--circle .icon,
+.footer-social-col .socialLinks--square .icon {
+	height: 3rem;
+	width: 3rem;
+	padding: .75rem;
+	background: stencilColor("custom-footer-social");
+}
+
+.footer-social-col .socialLinks--circle .icon {
+	border-radius: 1.5rem;
+}
+
+.footer-social-col .socialLinks--square .icon {
+	border-radius: 4px;
+}
+
+.footer-social-col .socialLinks--circle .icon:hover,
+.footer-social-col .socialLinks--square .icon:hover {
+	background: stencilColor("custom-footer-social-hover");
+}
+
+.footer-social-col .socialLinks--circle .icon svg,
+.footer-social-col .socialLinks--circle .icon:hover svg,
+.footer-social-col .socialLinks--square .icon svg,
+.footer-social-col .socialLinks--square .icon:hover svg {
+	width: 1.5rem;
+	height: 1.5rem;
+	color: stencilColor("custom-footer-newsletter-background");
+	fill: stencilColor("custom-footer-newsletter-background");
 }
 
 
