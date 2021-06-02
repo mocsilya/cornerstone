@@ -118,7 +118,7 @@
 		       data-dropdown="wishlist-dropdown-{{id}}"
 		       href="#"
 		    >
-				<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-heart" /></svg></i>
+				<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-heart{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i>
 		    </a>
 			<ul aria-hidden="true" class="dropdown-menu" data-dropdown-content id="wishlist-dropdown-{{id}}">
 	            {{#each customer.wishlists}}
@@ -141,7 +141,7 @@
 		       data-dropdown="wishlist-dropdown-{{id}}"
 		       href="#"
 		    >
-				<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-heart" /></svg></i>
+				<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-heart{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i>
 		    </a>
 			<ul aria-hidden="true" class="dropdown-menu" data-dropdown-content id="wishlist-dropdown-{{id}}">
 	        	<li>
@@ -232,6 +232,7 @@
 		{{#if theme_settings.custom_card_show_message}}
 			<div class="card-message">
 				{{theme_settings.custom_card_message_text}}
+				{{> components/custom/client/client-card}}
 			</div>
 		{{/if}}
     </div>

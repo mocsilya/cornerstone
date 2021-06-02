@@ -6,7 +6,8 @@
            aria-controls="currencySelection"
            aria-expanded="false"
         >
-			<span class="navUser-icon">{{lang 'common.currency' code=currency_selector.active_currency_code}}</span>
+			<span class="navUser-icon{{#if theme_settings.custom_header_icon_style '===' 'outline'}} navUser-icon-outline{{/if}}">{{lang 'common.currency' code=currency_selector.active_currency_code}}</span>
+			{{#if theme_settings.custom_header_icon_text}}
 			<span class="navUser-text">
             	<i class="icon" aria-hidden="true">
                 	<svg>
@@ -14,6 +15,7 @@
                 	</svg>
             	</i>
 			</span>
+			{{/if}}
         </a>
         <ul class="dropdown-menu" id="currencySelection" data-dropdown-content aria-hidden="true" tabindex="-1">
             {{#each currency_selector.currencies}}
