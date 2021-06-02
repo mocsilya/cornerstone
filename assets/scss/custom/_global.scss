@@ -1503,6 +1503,14 @@ body.scroll .navPages > ul > li > .navPages-action {
 .heroCarousel--nobg .heroCarousel-title,
 .heroCarousel--nobg .heroCarousel-description {
 	background: none;
+}
+
+.heroCarousel--nobg.heroCarousel--left .heroCarousel-title,
+.heroCarousel--nobg.heroCarousel--center .heroCarousel-title,
+.heroCarousel--nobg.heroCarousel--right .heroCarousel-title,
+.heroCarousel--nobg.heroCarousel--left .heroCarousel-description,
+.heroCarousel--nobg.heroCarousel--center .heroCarousel-description,
+.heroCarousel--nobg.heroCarousel--right .heroCarousel-description {
 	@include breakpoint("small") {
 		padding-left: 0;
 		padding-right: 0;
