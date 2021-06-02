@@ -1292,6 +1292,26 @@
         "id": "social_icon_placement_bottom"
       },
       {
+        "type": "select",
+        "label": "i18n.CustomSocialStyle",
+        "id": "custom_social_style",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "normal",
+            "label": "Normal"
+          },
+          {
+            "value": "square",
+            "label": "Square"
+          },
+          {
+            "value": "circle",
+            "label": "Circle"
+          }
+        ]
+      },
+      {
         "type": "color",
         "label": "i18n.CustomHeaderSocial",
         "id": "custom-header-social"
@@ -1520,6 +1540,36 @@
         "id": "homepage_stretch_carousel_images"
       },
       {
+        "type": "checkbox",
+        "label": "i18n.CustomHomepageCarouselContentBackground",
+        "force_reload": true,
+        "id": "custom_homepage_carousel_content_background"
+      },
+      {
+        "type": "select",
+        "label": "i18n.CustomHomepageCarouselContent",
+        "id": "custom_homepage_carousel_content",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "normal",
+            "label": "Normal"
+          },
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
         "type": "color",
         "label": "i18n.ContentBackground",
         "id": "carousel-bgColor"
@@ -1578,6 +1628,26 @@
         "type": "color",
         "label": "i18n.PlayPauseButtonBorder",
         "id": "carousel-play-pause-button-borderColor"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomHomepageCarouselButtonColor",
+        "id": "custom-homepage-carousel-button-color"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomHomepageCarouselButtonColorHover",
+        "id": "custom-homepage-carousel-button-color-hover"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomHomepageCarouselButtonBackground",
+        "id": "custom-homepage-carousel-button-background"
+      },
+      {
+        "type": "color",
+        "label": "i18n.CustomHomepageCarouselButtonBackgroundHover",
+        "id": "custom-homepage-carousel-button-background-hover"
       },
       {
         "type": "heading",
