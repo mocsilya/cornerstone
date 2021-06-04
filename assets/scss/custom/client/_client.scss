@@ -62,11 +62,6 @@
 	}
 }
 
-.navUser-text {
-	@include breakpoint("xlarge") {
-		display: none;
-	}
-}
 
 // Page Heading
 // =============================================================================
@@ -127,6 +122,14 @@
 		padding: 0;
 		float: none;
 	}
+}
+
+.productView-brand {
+	display: none;
+}
+
+h4.productView-title {
+	color: #cb0034;
 }
 
 
