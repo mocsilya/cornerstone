@@ -867,6 +867,9 @@
     "uk": "Показати колонтитулу піктограми соціальних медіа",
     "zh": "显示页脚社交媒体图标"
   },
+  "i18n.CustomSocialStyle": {
+    "default": "Social media icon style"
+  },
   "i18n.CustomHeaderSocial": {
     "default": "Header social icons"
   },
@@ -1126,6 +1129,12 @@
     "uk": "Дозволити зображення розтягуватися на великих екранах",
     "zh": "允许图片在大屏幕上伸展"
   },
+  "i18n.CustomHomepageCarouselContentBackground": {
+    "default": "Show carousel content background"
+  },
+  "i18n.CustomHomepageCarouselContent": {
+    "default": "Carousel content location"
+  },
   "i18n.ContentBackground": {
     "default": "Content background",
     "fr": "Contenu de l’arrière-plan",
@@ -1209,6 +1218,18 @@
     "it": "Play/Pause button border",
     "uk": "Play/Pause button border",
     "zh": "Play/Pause button border"
+  },
+  "i18n.CustomHomepageCarouselButtonColor": {
+    "default": "Carousel button text"
+  },
+  "i18n.CustomHomepageCarouselButtonColorHover": {
+    "default": "Carousel button text hover"
+  },
+  "i18n.CustomHomepageCarouselButtonBackground": {
+    "default": "Carousel button backgroud"
+  },
+  "i18n.CustomHomepageCarouselButtonBackgroundHover": {
+    "default": "Carousel button background hover"
   },
   "i18n.NumberOfFeaturedProducts": {
     "default": "Number of featured products",
