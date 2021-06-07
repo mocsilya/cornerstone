@@ -3,13 +3,6 @@
 // =============================================================================
 //
 
-// Hero Carousel
-// =============================================================================
-
-.heroCarousel-action {
-	font-weight: 700;
-}
-
 
 
 // Nav Page
@@ -34,7 +27,7 @@
 	}
 }
 
-// hide store into from header
+// hide store info from header
 .navPages-list .navPages-item:last-child {
 	display: none;
 }
@@ -122,3 +115,66 @@
 }
 
 
+
+// Widget Custom Blocks
+// =============================================================================
+
+.widget-custom-blocks {
+    flex-wrap: wrap;
+    display: flex;
+    margin: .75rem 0;
+}
+
+.widget-custom-blocks li {
+    flex: 1;
+	min-width: 50%;
+	@include breakpoint("medium") {
+		min-width: 33.33333%;
+	}
+}
+
+.widget-custom-blocks a {
+    background: #000;
+}
+
+.widget-custom-blocks img {
+    transition: opacity 0.3s;
+    -webkit-transition: opacity 0.3s;
+}
+
+.widget-custom-blocks a:hover img {
+    opacity: 0.75;
+}
+
+.widget-custom-blocks .custom-widget-content {
+    padding: 0;
+    background: rgba(0,0,0,0.5);
+}
+
+.widget-custom-blocks .custom-widget-heading,
+.widget-custom-blocks .custom-widget-subtext,
+.widget-custom-blocks .custom-widget-button {
+    display: inline-block;
+    line-height: 20px;
+    padding: .5rem;
+    font-size: 14px !important;
+    @include breakpoint("small") {
+        font-size: 16px !important;
+	}
+    @include breakpoint("medium") {
+        font-size: 18px !important;
+        padding: .75rem;
+	}
+	@include breakpoint("large") {
+        font-size: 20px !important;
+	}
+}
+
+.widget-custom-blocks .custom-widget-button {
+    float: right;
+    padding: .5rem .75rem;
+    font-weight: 700;
+    @include breakpoint("medium") {
+        padding: .75rem 1rem;
+	}
+}
