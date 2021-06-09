@@ -28,6 +28,180 @@
 }
 
 
+
+// Hero Carousel
+// =============================================================================
+
+.heroCarousel-title {
+	@include breakpoint("medium") {
+		padding: 0.5rem 1rem;
+		font-size: 1.5rem;
+	}
+}
+
+.heroCarousel-description,
+.heroCarousel-action {
+	@include breakpoint("medium") {
+		padding: 0.5rem 1rem;
+		font-size: 1rem;
+	}
+}
+
+.page-default .container-hero {
+	display: flex;
+	flex-direction: column;
+	@include breakpoint("medium") {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	@include breakpoint("large") {
+		flex-wrap: nowrap;
+	}
+}
+
+.carousel-brands-top {
+	order: 1;
+	flex: 1 0 100%;
+	padding: 2px 2px 1px 2px;
+	@include breakpoint("medium") {
+		flex: 1 0 50%;
+		padding: 0px 1px 2px 2px;
+	}
+	@include breakpoint("large") {
+		flex: 1 1 0;
+		min-width: 20%;
+		margin-bottom: 4rem;
+		padding: 0;
+	}
+}
+
+.carousel-brands-bottom {
+	order: 2;
+	flex: 1 0 100%;
+	padding: 1px 2px 2px 2px;
+	@include breakpoint("medium") {
+		flex: 1 0 50%;
+		padding: 0px 2px 2px 1px;
+	}
+	@include breakpoint("large") {
+		order: 3;
+		flex: 1 1 0;
+		min-width: 20%;
+		margin-bottom: 4rem;
+		padding: 0;
+	}
+}
+
+.page-default .heroCarousel {
+	order: 3;
+	flex: 1 0 100%;
+	@include breakpoint("large") {
+		order: 2;
+		flex: 1 1 0;
+		min-width: 60%;
+	}
+}
+
+.carousel-brands {
+	background: #333;
+}
+
+.carousel-brands ul {
+	margin: -1px;
+	list-style: none;
+	padding: 0;
+	display: flex;
+	@include breakpoint("medium") {
+		margin: 0 -1px;
+	}
+	@include breakpoint("large") {
+		flex-direction: column;
+		margin: 0;
+		height: 100%;
+	}
+}
+
+.carousel-brands li {
+	margin: 0;
+	padding: 1px;
+	list-style: none;
+	flex: 1 1 0px;
+	@include breakpoint("medium") {
+		padding: 0px 1px;
+	}
+	@include breakpoint("large") {
+		padding: 0px 2px 2px 2px;
+	}
+}
+
+.carousel-brands a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem;
+	background: #fff;
+	height: calc(2rem + 30px);
+	transition: opacity 0.3s;
+	-webkit-transition: opacity 0.3s;
+	@include breakpoint("large") {
+		height: 100%;
+	}
+}
+
+.carousel-brands a:hover {
+	opacity: 0.8;
+}
+
+.carousel-brands img {
+	max-height: 30px;
+
+}
+
+
+.carousel-links {
+	order: 4;
+	padding: 0 .75rem;
+	@include breakpoint("medium") {
+		display: none;
+	}
+}
+
+.carousel-links ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+}
+
+.carousel-links li {
+	margin: 0;
+	padding: 0 .75rem;
+	list-style: none;
+	flex: 1 1 0px;
+	text-align: center;
+}
+
+.carousel-links li a {
+	display: block;
+	padding: 1rem .5rem;
+	border: 2px solid #333;
+	font-weight: 700;
+	border-radius: .5rem;
+	color: #7fb24c;
+	text-decoration: none;
+}
+
+.carousel-links li a:hover {
+	background: #333;
+	color: #7fb24c;
+}
+
+
+
+
+
+
+
 // Card
 // =============================================================================
 .card-message {
@@ -743,6 +917,19 @@
 	margin-top: .5rem;
 }
 
+
+
+// Custom Tabs
+// =============================================================================
+
+#tab-custom1 table,
+#tab-custom2 table,
+#tab-custom1 td,
+#tab-custom2 td,
+#tab-custom1 th,
+#tab-custom2 th {
+	border: 0;
+}
 
 
 
