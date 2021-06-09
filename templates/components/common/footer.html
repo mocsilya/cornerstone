@@ -178,7 +178,7 @@
 			{{/each}}
 			{{assignVar "group" "hide"}}
 			{{#if (getVar "group") '!==' 'show'}}
-			{{#each children}}
+			{{#each categories}}
 				{{#unless children}}
 					{{assignVar "group" "show"}}
 				{{/unless}}

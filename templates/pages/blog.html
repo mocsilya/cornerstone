@@ -1,8 +1,8 @@
 ---
 blog:
     posts:
-        limit: 5
-        pages: 3
+        limit: 24
+        pages: 100
         summary: 200
 customer:
     wishlists:
@@ -23,7 +23,34 @@ customer:
 {{#partial "page"}}
 
 <section class="page">
-    
+	{{assignVar "tag" "hide"}}
+	{{#if (getVar "tag") '!==' 'show'}}
+	{{#each blog.posts}}
+		{{#if tags}}
+			{{assignVar "tag" "show"}}
+		{{/if}}
+	{{/each}}
+	{{/if}}
+	{{#if (getVar "tag") '===' 'show'}}
+	<aside class="page-sidebar page-sidebar-vertical">
+		<nav>
+			<div class="sidebarBlock sidebarCategories">
+				<h2 class="sidebarBlock-heading">Filter by Tag</h2>
+				<ul class="navList navList-tag">
+				{{#each blog.posts}}
+					{{#if tags}}
+						{{#each tags}}
+							<li class="navList-item">
+								<a class="navList-action" href="{{url}}">#{{name}}</a>
+							</li>
+						{{/each}}
+					{{/if}}
+				{{/each}}
+				</ul>
+			</div>
+		</nav>
+	</aside>
+	{{/if}}
 	<div class="blog-grid">
     {{#each blog.posts}}
         {{> components/blog/post post=this}}
