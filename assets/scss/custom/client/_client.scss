@@ -133,6 +133,20 @@ h4.productView-title {
 }
 
 
+
+
+// Card
+// =============================================================================
+
+
+.card-message-inner {
+	text-align: center;
+	background: #666;
+	color: #fff;
+	padding: .5rem;
+}
+
+
 // JotForm
 // =============================================================================
 
@@ -175,6 +189,14 @@ h4.productView-title {
 	background: -webkit-linear-gradient(top, stencilColor("custom-footer-newsletter-background") 0%, stencilColor("body-bg") 100%);
 	background: linear-gradient(to bottom, stencilColor("custom-footer-newsletter-background") 0%, stencilColor("body-bg") 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("custom-footer-newsletter-background")', endColorstr='stencilColor("body-bg")',GradientType=0 );
+}
+
+
+// Widget
+// -----------------------------------------------------------------------------
+
+.custom-widget-link {
+    border: 5px solid #fff;
 }
 
 
@@ -335,6 +357,26 @@ ul.gallery-items li {
 	left: auto;
 }
 
+.special-title {
+    color: #cb0034;
+}
+
+
+div[data-sub-layout-container="5e7f3256-830e-47d3-ac8f-4c815db0bee2"], 
+div[data-sub-layout-container="4958883d-5514-41eb-be8a-95ade0fe8321"] {
+    max-width: calc(1440px + 12rem);
+    margin-left: auto;
+    margin-right: auto;
+    @include breakpoint("small") {
+		padding: 0 .75rem;
+	}
+    @include breakpoint("medium") {
+		padding: 0 2.25rem;
+	}
+	@include breakpoint("large") {
+		padding: 0 5.25rem;
+	}
+}
 
     
 // Styling when over 550px 
@@ -440,3 +482,4 @@ ul.gallery-items li {
 		width: 50%;
 	}
 }
+
