@@ -274,20 +274,27 @@ ul.gallery-items li {
 .ay-promobox-item {
 	background-color: stencilColor("color-white");
 	position: relative;
+	border: none;
+	text-align: center;
 }
 
 .ay-promobox-item a,
-.ay-promobox-item a img {
+.ay-promobox-item img {
 	display: block;
 	margin: 0;
 	padding: 0;
 	width: 100%;
 	height: auto;
 	min-height: 3.5rem;
+	text-align: center;
+}
+
+.ay-promobox-item img {
+	display: inline-block;
 }
 
 .ay-promobox-item a:hover,
-.ay-promobox-item a img:hover {
+.ay-promobox-item img:hover {
     opacity: .9;
     filter: alpha(opacity=90);
 }
@@ -333,14 +340,9 @@ ul.gallery-items li {
 	padding: 0 5px 10px 5px;
 }
 
-.ay-promobox img {
-
-}
-
 .ay-promobox-item {
 	padding: 5px;
 	background: #fff;
-	border: 1px solid #bbb;
 }
 
 .ay-promobox-item span {
