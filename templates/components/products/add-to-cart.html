@@ -7,9 +7,10 @@
 		{{assignVar "quantity" "hide"}}
 	{{/if}}
 {{/filter}}
-<div id="add-to-cart-wrapper"{{#if product.pre_order}} class="add-to-cart-preorder"{{/if}} {{#unless product.can_purchase}}style="display: none"{{/unless}}>
+<div id="add-to-cart-wrapper" class="add-to-cart-wrapper{{#if product.pre_order}} add-to-cart-preorder{{/if}}" {{#unless product.can_purchase}}style="display: none"{{/unless}}>
     {{#or theme_settings.show_product_quantity_box (if (getVar 'quantity') '===' 'show')}}
 		{{#unless (getVar 'quantity') '===' 'hide'}}
+		{{inject 'productQuantityErrorMessage'  (lang 'products.quantity_error_message')}}
         <div class="form-field form-field--increments">
             <label class="form-label form-label--alternate"
                    for="qty[]">{{lang 'products.quantity'}}</label>
