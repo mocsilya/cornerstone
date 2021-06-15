@@ -1,5 +1,15 @@
+{{assignVar "quantity" "none"}}
+{{#filter product.custom_fields 'hidden' property='name'}}
+	{{#if value '==' 'show-quantity'}}
+		{{assignVar "quantity" "show"}}
+	{{/if}}
+	{{#if value '==' 'hide-quantity'}}
+		{{assignVar "quantity" "hide"}}
+	{{/if}}
+{{/filter}}
 <div id="add-to-cart-wrapper"{{#if product.pre_order}} class="add-to-cart-preorder"{{/if}} {{#unless product.can_purchase}}style="display: none"{{/unless}}>
-    {{#if theme_settings.show_product_quantity_box}}
+    {{#or theme_settings.show_product_quantity_box (if (getVar 'quantity') '===' 'show')}}
+		{{#unless (getVar 'quantity') '===' 'hide'}}
         <div class="form-field form-field--increments">
             <label class="form-label form-label--alternate"
                    for="qty[]">{{lang 'products.quantity'}}</label>
@@ -32,7 +42,8 @@
                     </button>
                 </div>
         </div>
-    {{/if}}
+		{{/unless}}
+    {{/or}}
 
     <div class="alertBox productAttributes-message" style="display:none">
         <div class="alertBox-column alertBox-icon">
