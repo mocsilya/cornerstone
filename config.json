@@ -1,6 +1,6 @@
 {
   "name": "Aylis",
-  "version": "5.4.0",
+  "version": "5.6.0",
   "template_engine": "handlebars_v4",
   "meta": {
     "price": 0,
@@ -430,6 +430,8 @@
     "color_badge_product_sold_out_badges": "#007dc6",
     "color_text_product_sold_out_badges": "#ffffff",
     "color_hover_product_sold_out_badges": "#45413f",
+    "focusTooltip-textColor": "#ffffff",
+    "focusTooltip-backgroundColor": "#313440",
     "restrict_to_login": false,
     "swatch_option_size": "40x40",
     "social_icon_placement_top": false,
@@ -452,6 +454,13 @@
     "paymentbuttons-paypal-label": "checkout",
     "paymentbuttons-paypal-tagline": false,
     "paymentbuttons-paypal-fundingicons": false,
+    "paymentbanners-homepage-color": "white",
+    "paymentbanners-homepage-ratio": "8x1",
+    "paymentbanners-cartpage-text-color": "black",
+    "paymentbanners-cartpage-logo-position": "left",
+    "paymentbanners-cartpage-logo-type": "primary",
+    "paymentbanners-proddetailspage-color": "white",
+    "paymentbanners-proddetailspage-ratio": "8x1",
     "supported_card_type_icons": [
       "american_express",
       "diners",

@@ -14,7 +14,7 @@ export default class Brand extends CatalogPage {
     }
 
     onReady() {
-        compareProducts(this.context.urls);
+        compareProducts(this.context);
 
         if ($('#facetedSearch').length > 0) {
             this.initFacetedSearch();
