@@ -1,1 +1,9 @@
+{{assignVar "download" "none"}}
+{{#filter product.custom_fields 'hidden' property='name'}}
+	{{#if value '==' 'hide-download'}}
+		{{assignVar "download" "hide"}}
+	{{/if}}
+{{/filter}}
+{{#unless (getVar 'download') '===' 'hide'}}
 <a target="_blank" class="button button--primary" href="/content/download/{{product.sku}}.pdf">Download PDF Template</a>
+{{/unless}}
