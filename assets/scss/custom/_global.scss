@@ -4130,12 +4130,6 @@ a:hover span.card-image:only-of-type img {
     justify-content: center;
     position: relative;
     min-width: 100%;
-    @include breakpoint("medium") {
-		min-width: 50%;
-	}
-	@include breakpoint("large") {
-		min-width: 33.333333%;
-	}
 }
 
 .custom-widget-link {
@@ -4212,4 +4206,121 @@ a:hover .custom-widget-placeholder {
 .custom-widget-light .custom-widget-heading,
 .custom-widget-light .custom-widget-subtext {
     background: rgba(255,255,255, 0.5);
+}
+
+.custom-widget-2 .custom-widget-item {
+    @include breakpoint("medium") {
+		min-width: 50%;
+	}
+}
+
+.custom-widget-3 .custom-widget-item {
+    @include breakpoint("medium") {
+		min-width: 50%;
+	}
+    @include breakpoint("large") {
+		min-width: 33.33333%;
+	}
+}
+
+.custom-widget-4 .custom-widget-item {
+    @include breakpoint("medium") {
+		min-width: 50%;
+	}
+    @include breakpoint("large") {
+		min-width: 25%;
+	}
+}
+
+.custom-widget-5 .custom-widget-item {
+    @include breakpoint("medium") {
+		min-width: 33.33333%;
+	}
+    @include breakpoint("large") {
+		min-width: 20%;
+	}
+}
+
+.custom-widget-6 .custom-widget-item {
+    @include breakpoint("small") {
+		min-width: 50%;
+	}
+    @include breakpoint("medium") {
+		min-width: 33.33333%;
+	}
+    @include breakpoint("large") {
+		min-width: 16.66667%;
+	}
+}
+
+.custom-widget-7 .custom-widget-item {
+    @include breakpoint("small") {
+		min-width: 50%;
+	}
+    @include breakpoint("medium") {
+		min-width: 25%;
+	}
+    @include breakpoint("large") {
+		min-width: 14.28571%;
+	}
+}
+
+.custom-widget-8 .custom-widget-item {
+    @include breakpoint("small") {
+		min-width: 50%;
+	}
+    @include breakpoint("medium") {
+		min-width: 25%;
+	}
+    @include breakpoint("large") {
+		min-width: 12.5%;
+	}
+}
+
+.custom-widget-9 .custom-widget-item {
+    @include breakpoint("small") {
+		min-width: 33.33333%;
+	}
+    @include breakpoint("medium") {
+		min-width: 20%;
+	}
+    @include breakpoint("large") {
+		min-width: 11.11111%;
+	}
+}
+
+.custom-widget-10 .custom-widget-item {
+    @include breakpoint("small") {
+		min-width: 25%;
+	}
+    @include breakpoint("medium") {
+		min-width: 20%;
+	}
+    @include breakpoint("large") {
+		min-width: 10%;
+	}
+}
+
+.custom-widget-11 .custom-widget-item {
+    @include breakpoint("small") {
+		min-width: 25%;
+	}
+    @include breakpoint("medium") {
+		min-width: 16.66667%;
+	}
+    @include breakpoint("large") {
+		min-width: 9.09090%;
+	}
+}
+
+.custom-widget-12 .custom-widget-item {
+    @include breakpoint("small") {
+		min-width: 25%;
+	}
+    @include breakpoint("medium") {
+		min-width: 16.66667%;
+	}
+    @include breakpoint("large") {
+		min-width: 8.33333%;
+	}
 }
