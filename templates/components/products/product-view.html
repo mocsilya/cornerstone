@@ -74,11 +74,7 @@
 				{{> components/custom/videos product.videos}}
         	{{/if}}
 			{{#if theme_settings.custom_product_description_location '==' 'side'}}
-				{{#if theme_settings.show_product_details_tabs}}
-            		{{> components/custom/videos product.videos}}
-				{{else}}
-					{{> components/products/videos product.videos}}
-        		{{/if}}
+				{{> components/products/videos product.videos}}
 			{{/if}}
 		{{/if}}
 
