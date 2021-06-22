@@ -15,6 +15,7 @@ import adminBar from './global/adminBar';
 import carousel from './common/carousel';
 import loadingProgressBar from './global/loading-progress-bar';
 import svgInjector from './global/svg-injector';
+import { translatePageBuilderValues } from './common/utils/translations-utils';
 import clientGlobal from './custom/client/client-global';
 import scrollDetect from './custom/scroll-detect';
 import footerHelper from './custom/footer-helper';
@@ -23,7 +24,16 @@ import tabClick from './custom/tab-click';
 export default class Global extends PageManager {
     onReady() {
         const {
-            channelId, cartId, productId, categoryId, secureBaseUrl, maintenanceModeSettings, adminBarLanguage, showAdminBar,
+            channelId,
+            cartId,
+            productId,
+            categoryId,
+            secureBaseUrl,
+            maintenanceModeSettings,
+            adminBarLanguage,
+            showAdminBar,
+            isProductCardPresented,
+            isProductListPresented,
         } = this.context;
         cartPreview(secureBaseUrl, cartId);
         quickSearch();
@@ -39,6 +49,10 @@ export default class Global extends PageManager {
         }
         loadingProgressBar();
         svgInjector();
+
+        if (isProductListPresented || isProductCardPresented) {
+            translatePageBuilderValues();
+        }
 		clientGlobal();
         scrollDetect();
 		footerHelper();
