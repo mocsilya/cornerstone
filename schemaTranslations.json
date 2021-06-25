@@ -788,6 +788,39 @@
     "uk": "Режим відображення меню, що випадає",
     "zh": "下拉菜单显示模式"
   },
+  "i18n.CustomHeaderMenu1Show": {
+    "default": "Show image on dropdown menu"
+  },
+  "i18n.CustomHeaderMenu2Show": {
+    "default": "Show image 2 on dropdown menu"
+  },
+  "i18n.CustomHeaderMenu3Show": {
+    "default": "Show image 3 on dropdown menu"
+  },
+  "i18n.CustomHeaderMenu4Show": {
+    "default": "Show image 4 on dropdown menu"
+  },
+  "i18n.CustomHeaderMenu5Show": {
+    "default": "Show image 5 on dropdown menu"
+  },
+  "i18n.CustomHeaderMenu6Show": {
+    "default": "Show image 6 on dropdown menu"
+  },
+  "i18n.CustomHeaderMenuCategory": {
+    "default": "Top level category name (must be exact, e.g. My Category)"
+  },
+  "i18n.CustomHeaderMenuImage": {
+    "default": "Image filename (must be uploaded via Image Manager, e.g. my-picture.jpg)"
+  },
+  "i18n.CustomHeaderMenuWidth": {
+    "default": "Width of image (you can use px or %)"
+  },
+  "i18n.CustomHeaderMenuUrl": {
+    "default": "URL when clicked (excluding domain, e.g. /my-category)"
+  },
+  "i18n.CustomHeaderMenuText": {
+    "default": "Text label"
+  },
   "i18n.SimpleMenuDisplayDepthOf": {
     "default": "Simple (Menu display depth of 3)",
     "fr": "Simple (profondeur d’affichage du menu de 3)",
