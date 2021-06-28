@@ -23,13 +23,13 @@ customer:
 		{{/and}}
 		{{> components/custom/client/client-carousel-bottom}}
 	</div>
+	{{{region name="home_below_carousel"}}}
 {{/partial}}
 
 {{#partial "page"}}
 {{#each shipping_messages}}
 	{{> components/common/alert/alert-info message}}
 {{/each}}
-{{{region name="home_below_carousel"}}}
 <div class="main full">
 {{#if theme_settings.custom_homepage_show_tabs}}
 	{{#or (if products.featured) (if products.top_sellers) (if products.new)}}
