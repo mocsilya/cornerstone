@@ -1174,10 +1174,6 @@
         ]
       },
       {
-        "type": "heading",
-        "content": "i18n.CustomHeaderMenuImages"
-      },
-      {
         "type": "checkbox",
         "label": "i18n.CustomHeaderMenu1Show",
         "force_reload": true,
@@ -1186,37 +1182,27 @@
       {
         "type": "text",
         "label": "i18n.CustomHeaderMenuCategory",
-        "id": "custom_header_menu_1_category",
-        "reference": "custom_header_menu_1_show",
-        "reference_default": false
+        "id": "custom_header_menu_1_category"
       },
       {
         "type": "text",
         "label": "i18n.CustomHeaderMenuImage",
-		"id": "custom_header_menu_1_image",
-        "reference": "custom_header_menu_1_show",
-        "reference_default": false
+		"id": "custom_header_menu_1_image"
       },
       {
         "type": "text",
         "label": "i18n.CustomHeaderMenuWidth",
-		"id": "custom_header_menu_1_width",
-        "reference": "custom_header_menu_1_show",
-        "reference_default": false
+		"id": "custom_header_menu_1_width"
       },
       {
         "type": "text",
         "label": "i18n.CustomHeaderMenuUrl",
-		"id": "custom_header_menu_1_link",
-        "reference": "custom_header_menu_1_show",
-        "reference_default": false
+		"id": "custom_header_menu_1_link"
       },
       {
         "type": "text",
         "label": "i18n.CustomHeaderMenuText",
-		"id": "custom_header_menu_1_text",
-        "reference": "custom_header_menu_1_show",
-        "reference_default": false
+		"id": "custom_header_menu_1_text"
       },
       {
         "type": "checkbox",
