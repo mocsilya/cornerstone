@@ -65,6 +65,7 @@
 	{{else}}
 	<body class="page-{{page_type}} page-{{lang 'common.currency' code=currency_selector.active_currency_code}}">
 	{{/if}}
+		{{> components/custom/client/client-body}}
         <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
 
         {{> components/common/header }}
