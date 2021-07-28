@@ -48,6 +48,7 @@ customer:
 	{{{category.description}}}
 </div>
 <div class="page">
+{{#if category.products}}
     {{#if category.faceted_search_enabled}}
         <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}}" id="faceted-search-container">
             {{> components/category/sidebar}}
@@ -72,6 +73,37 @@ customer:
         {{> components/category/product-listing}}
         {{{region name="category_below_content"}}}
     </div>
+{{else}}
+    <div class="page-content" id="product-listing-container">
+		{{#if category.subcategories}}
+		<ul class="subcategories-grid">
+			{{#each category.subcategories}}
+			<li class="subcategories-grid-item">
+				<div class="subcategories-container">
+					<a href="{{url}}">
+					{{#if image}}
+						<span class="subcategories-image"><img src="{{getImage image 'category_card_size'}}" alt="{{name}}"></span>
+					{{else}}
+						<span class="subcategories-blank">Image Not Found</span>
+					{{/if}}
+						<span class="subcategories-name">{{name}}</span>
+					</a>
+				</div>
+			</li>
+			{{/each}}
+		</ul>
+		{{else}}
+        <p data-no-products-notification
+           role="alert"
+           aria-live="assertive"
+           tabindex="-1"
+        >
+            {{lang 'categories.no_products'}}
+        </p>
+		{{/if}}
+        {{{region name="category_below_content"}}}
+    </div>
+{{/if}}
 </div>
 
 {{/partial}}
