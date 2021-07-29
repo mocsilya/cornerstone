@@ -4,6 +4,170 @@
 //
 
 
+// Instagram Widget Adjustments
+// =============================================================================
+
+.header {
+    z-index: 100001;
+}
+
+.header-bar {
+    z-index: 100002;
+}
+
+.modal-background {
+    z-index: 100004;
+}
+
+#modal,
+#previewModal,
+#modal-review-form,
+#ay-question {
+    z-index: 100005;
+}
+
+
+
+// Carousel
+// =============================================================================
+
+.heroCarousel-content {
+	@include breakpoint("small") {
+		justify-content: flex-start;
+	}
+}
+
+.heroCarousel-inner {
+	@include breakpoint("small") {
+		justify-content: flex-start;
+	}
+	
+}
+
+.heroCarousel-description {
+	@include breakpoint("small") {
+		flex: 1 1 auto;
+		text-align: left;
+	}
+}
+
+
+
+// Product Page
+// =============================================================================
+
+.productView-options .form-field {
+	@include breakpoint("small") {
+		padding-left: 0;
+		text-align: center;
+		margin-bottom: 1.5rem;
+	}
+}
+
+.productView-options .form-label:first-child {
+	background: #f2f2f2;
+	font-weight: 700;
+	padding: .5rem;
+	@include breakpoint("small") {
+		width: 100%;
+		position: static;
+		text-align: center;
+		padding: .75rem;
+		line-height: 1.2;
+		font-size: 1.25rem;
+		text-transform: uppercase;
+		height: auto;
+	}
+}
+
+.productView-options .form-label small {
+	margin-top: 0;
+	color: #ee8600;
+}
+
+.productView-options .form-option {
+	border: none;
+}
+
+.productView-options .form-option-variant {
+	min-width: 4rem;
+	padding: 1rem;
+	background: #45413f;
+	color: #fff;
+}
+
+.productView-options .form-radio:checked + .form-option,
+.productView-options .form-radio:checked + .form-option .form-option-variant {
+	background: #ee8600;
+	border: 0;
+	box-shadow: none;
+}
+
+
+.productView-options .form-select--small {
+	font-weight: 700;
+	width: auto;
+}
+
+.productView-options .form-file::file-selector-button {
+	border: 2px solid #45413f;
+	color: #fff;
+	padding: 1rem 2rem;
+	border-radius: 4px;
+	background-color: #45413f;
+	font-weight: 700;
+}
+
+.productView-options .form-file::file-selector-button:hover {
+	background-color: #ee8600;
+	border: 2px solid #ee8600;
+	cursor: pointer;
+}
+
+.productView-options .form-file::-webkit-file-upload-button {
+	border: 2px solid #45413f;
+	color: #fff;
+	padding: 1rem 2rem;
+	border-radius: 4px;
+	background-color: #45413f;
+	font-weight: 700;
+}
+
+.productView-options .form-file::-webkit-file-upload-button:hover {
+	background-color: #ee8600;
+	border: 2px solid #ee8600;
+	cursor: pointer;
+}
+
+.productView-options .form-action .button--primary {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	font-size: 1.25rem;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.form-fileDescription strong:first-child {
+	display: none;
+}
+
+.ay-question .button {
+	background-color: #45413f;
+	color: #fff;
+	border: 1px solid #45413f;
+}
+
+.ay-question .button:hover {
+	background-color: #666;
+	border: 1px solid #666;
+}
+
+.productView-details.product-options {
+	border: 2px solid #45413f;
+	padding: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
 
 // Nav Page
 // =============================================================================
@@ -102,7 +266,7 @@
 
 
 
-// Cart Hide quantity
+// Cart 
 // =============================================================================
 
 .cart-header-quantity,
@@ -110,6 +274,27 @@
 	display: none;
 }
 
+.estimator-form-label-state,
+.estimator-form-input-state {
+	display: none;
+}
+
+.page-cart .page-content > .cart-content-padding-right {
+	@include breakpoint("medium") {
+		border-bottom: 2px solid #45413f;
+		margin-bottom: 1.5rem;
+	}
+}
+
+.page-cart .page-content > .cart-content-padding-right .cart-item:last-child {
+	border-bottom: none;
+}
+
+.page-cart .cart-header .cart-header-item {
+	background: #45413f;
+	color: #fff;
+	padding: .75rem;
+}
 
 
 // Widget Custom Blocks
@@ -120,7 +305,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     top: auto;
-    bottom: 0;
+    bottom: .75rem;
     left: .75rem;
     right: .75rem;
     transform: none;
