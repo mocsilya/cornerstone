@@ -1162,6 +1162,9 @@
     "uk": "Дозволити зображення розтягуватися на великих екранах",
     "zh": "允许图片在大屏幕上伸展"
   },
+  "i18n.CustomHomepageCarouselAuto": {
+    "default": "Auto play carousel slides"
+  },
   "i18n.CustomHomepageCarouselContentBackground": {
     "default": "Show carousel content background"
   },

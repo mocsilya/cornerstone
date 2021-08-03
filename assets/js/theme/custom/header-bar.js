@@ -9,6 +9,7 @@ export default function loaded () {
         slidesToScroll: 1,
         infinite: true,
 		autoplay: true,
+		fade: true,
 		autoplaySpeed: 6000,
         dots: false,
 		arrows: true,
