@@ -2988,7 +2988,6 @@ a:hover span.card-image:only-of-type img {
     margin: 2px;
 	padding: 0;
 	width: auto;
-	height: auto;
 	display: inline-block;
 	vertical-align: top;
 	float: none;
@@ -3000,7 +2999,6 @@ a:hover span.card-image:only-of-type img {
 	width: get-width(stencilString('productview_thumb_size'));
 	height: get-height(stencilString('productview_thumb_size'));
 	max-width: none;
-	overflow: hidden;
 }
 
 .productView-thumbnails.slick-slider,
@@ -3014,11 +3012,15 @@ a:hover span.card-image:only-of-type img {
 	padding: 2px;
 }
 
+.productView-thumbnails .slick-next,
+.productView-thumbnails .slick-prev {
+	margin-top: 0;
+}
+
 .slick-slide .productView-thumbnail-link {
 	width: 100%;
-	height: auto;
-	box-sizing: border-box;
 }
+
 
 .videoGallery-item {
 	@include breakpoint("medium") {
@@ -3032,24 +3034,28 @@ a:hover span.card-image:only-of-type img {
 	margin-bottom: 0;
 }
 
+.videoGallery-custom.productView-thumbnail {
+	margin-top: 0;
+}
+
 .videoGallery-custom .toggleLink {
-	line-height: 1.5;
 	color: stencilColor("button--primary-color");
-	margin-bottom: 1.5rem;
-	padding-top: .569rem;
-	padding-bottom: .569rem;
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	border-radius: 0;
+	border: 1px solid stencilColor("button--primary-backgroundColor");
 }
 
 .videoGallery-custom .toggleLink:hover {
 	color: stencilColor("button--primary-colorHover");
+	border: 1px solid stencilColor("button--primary-backgroundColorHover");
 }
 
 .videoGallery-custom .toggleLink .icon {
-	height: 1.5rem;
-	width: 1.5rem;
-	position: relative;
-	top: -1px;
-	margin-right: .25rem;
+	height: 3rem;
+	width: 3rem;
 }
 
 .videoGallery-custom .toggleLink .icon svg {
@@ -3076,6 +3082,13 @@ a:hover span.card-image:only-of-type img {
 
 .productView-images .toggleLink-text {
 	font-weight: 700;
+	font-size: .875rem;
+}
+
+.productView-images .toggleLink-text span {
+	padding: 0 .75rem;
+	display: block;
+	text-align: center;
 }
 
 .productView-images .productView-warranty {
