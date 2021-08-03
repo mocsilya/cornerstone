@@ -20,6 +20,7 @@ import clientGlobal from './custom/client/client-global';
 import scrollDetect from './custom/scroll-detect';
 import footerHelper from './custom/footer-helper';
 import tabClick from './custom/tab-click';
+import headerBar from './custom/header-bar';
 
 export default class Global extends PageManager {
     onReady() {
@@ -57,5 +58,6 @@ export default class Global extends PageManager {
         scrollDetect();
 		footerHelper();
 		tabClick();
+		headerBar();
     }
 }
