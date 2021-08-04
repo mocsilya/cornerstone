@@ -42,14 +42,26 @@
                 {{/if}}
             </div>
         </figure>
-        <ul class="productView-thumbnails"{{#gt product.images.length 5}} data-slick='{
+		{{#and product.videos.list.length (if theme_settings.custom_product_description_location '==' 'underneath')}}
+			<ul class="productView-thumbnails"{{#gt product.images.length 3}} data-slick='{
                 "infinite": false,
                 "mobileFirst": true,
                 "dots": false,
                 "accessibility": false,
-                "slidesToShow": 5,
-                "slidesToScroll": 5
+                "slidesToShow": 4,
+                "slidesToScroll": 4
             }'{{/gt}}>
+				{{> components/custom/video-toggle}}
+		{{else}}
+			<ul class="productView-thumbnails"{{#gt product.images.length 4}} data-slick='{
+                "infinite": false,
+                "mobileFirst": true,
+                "dots": false,
+                "accessibility": false,
+                "slidesToShow": 4,
+                "slidesToScroll": 4
+            }'{{/gt}}>
+		{{/and}}
             {{#each product.images}}
                 <li class="productView-thumbnail">
                     <a
@@ -71,7 +83,7 @@
         </ul>
 		{{#if product.videos.list.length}}
 			{{#if theme_settings.custom_product_description_location '==' 'underneath'}}
-				{{> components/custom/videos product.videos}}
+				{{> components/custom/video-player product.videos}}
         	{{/if}}
 			{{#if theme_settings.custom_product_description_location '==' 'side'}}
 				{{> components/products/videos product.videos}}
@@ -126,7 +138,7 @@
                     {{/if}}
                     {{> components/products/ratings rating=product.rating}}
                     {{#if product.num_reviews '>' 0}}
-                        <a href="{{product.url}}#product-reviews" id="productReview_link">
+                        <a href="{{product.url}}{{#if is_ajax}}#product-reviews{{/if}}" id="productReview_link">
                             {{lang 'products.reviews.link_to_review' total=product.num_reviews}}
                         </a>
                     {{else}}
