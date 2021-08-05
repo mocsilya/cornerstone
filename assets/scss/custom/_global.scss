@@ -352,7 +352,7 @@ body.scroll .header {
 	display: inline-flex;
 	align-items: center;
 	min-width: 100%;
-	flex-wrap: no-wrap;
+	flex-wrap: nowrap;
 }
 
 .header .socialLinks .icon svg {
@@ -2990,6 +2990,10 @@ a:hover span.card-image:only-of-type img {
 	padding-top: 0;
 }
 
+.productView-description {
+	margin-top: 3rem;
+}
+
 .productView-description-side {
 	@include breakpoint("medium") {
 		width: 50%;
@@ -3200,7 +3204,7 @@ a:hover span.card-image:only-of-type img {
 	padding-right: 0;
 	border: 0;
 	font-size: 20px;
-	margin: 1.5rem 0 1rem 0;
+	margin: 3rem 0 1rem 0;
 }
 
 .productView-description .productView-title:first-child {
@@ -3210,6 +3214,7 @@ a:hover span.card-image:only-of-type img {
 .productView-description .productView-description {
 	padding-left: 0;
 	padding-right: 0;
+	margin-top: 0;
 	margin-bottom: 1.5rem;
 }
 
@@ -4412,7 +4417,6 @@ a:hover span.card-image:only-of-type img {
 
 .custom-widget-link {
     display: flex;
-    height: 100%;
 }
 
 .custom-widget-image {
@@ -4421,6 +4425,8 @@ a:hover span.card-image:only-of-type img {
     margin: 0;
     transition: opacity 0.5s;
     -webkit-transition: opacity 0.5s;
+	display: block;
+	vertical-align: top;
 }
 
 .custom-widget-placeholder {
