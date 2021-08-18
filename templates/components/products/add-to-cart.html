@@ -1,11 +1,22 @@
-<div id="add-to-cart-wrapper"{{#if product.pre_order}} class="add-to-cart-preorder"{{/if}} {{#unless product.can_purchase}}style="display: none"{{/unless}}>
-    {{#if theme_settings.show_product_quantity_box}}
+{{assignVar "quantity" "none"}}
+{{#filter product.custom_fields 'hidden' property='name'}}
+	{{#if value '==' 'show-quantity'}}
+		{{assignVar "quantity" "show"}}
+	{{/if}}
+	{{#if value '==' 'hide-quantity'}}
+		{{assignVar "quantity" "hide"}}
+	{{/if}}
+{{/filter}}
+<div id="add-to-cart-wrapper" class="add-to-cart-wrapper{{#if product.pre_order}} add-to-cart-preorder{{/if}}" {{#unless product.can_purchase}}style="display: none"{{/unless}}>
+    {{#or theme_settings.show_product_quantity_box (if (getVar 'quantity') '===' 'show')}}
+		{{#unless (getVar 'quantity') '===' 'hide'}}
+		{{inject 'productQuantityErrorMessage'  (lang 'products.quantity_error_message')}}
         <div class="form-field form-field--increments">
             <label class="form-label form-label--alternate"
                    for="qty[]">{{lang 'products.quantity'}}</label>
                 <div class="form-increment" data-quantity-change>
                     <button class="button button--icon" data-action="dec">
-                        <span class="is-srOnly">{{lang 'products.quantity_decrease'}}</span>
+                        <span class="is-srOnly">{{lang 'products.quantity_decrease' name=product.title}}</span>
                         <i class="icon" aria-hidden="true">
                             <svg>
                                 <use xlink:href="#icon-keyboard-arrow-down"/>
@@ -23,7 +34,7 @@
                            pattern="[0-9]*"
                            aria-live="polite">
                     <button class="button button--icon" data-action="inc">
-                        <span class="is-srOnly">{{lang 'products.quantity_increase'}}</span>
+                        <span class="is-srOnly">{{lang 'products.quantity_increase' name=product.title}}</span>
                         <i class="icon" aria-hidden="true">
                             <svg>
                                 <use xlink:href="#icon-keyboard-arrow-up"/>
@@ -32,7 +43,8 @@
                     </button>
                 </div>
         </div>
-    {{/if}}
+		{{/unless}}
+    {{/or}}
 
     <div class="alertBox productAttributes-message" style="display:none">
         <div class="alertBox-column alertBox-icon">

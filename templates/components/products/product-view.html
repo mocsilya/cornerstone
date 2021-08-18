@@ -42,14 +42,26 @@
                 {{/if}}
             </div>
         </figure>
-        <ul class="productView-thumbnails"{{#gt product.images.length 5}} data-slick='{
+		{{#and product.videos.list.length (if theme_settings.custom_product_description_location '==' 'underneath')}}
+			<ul class="productView-thumbnails"{{#gt product.images.length 3}} data-slick='{
                 "infinite": false,
                 "mobileFirst": true,
                 "dots": false,
                 "accessibility": false,
-                "slidesToShow": 5,
-                "slidesToScroll": 5
+                "slidesToShow": 4,
+                "slidesToScroll": 4
             }'{{/gt}}>
+				{{> components/custom/video-toggle}}
+		{{else}}
+			<ul class="productView-thumbnails"{{#gt product.images.length 4}} data-slick='{
+                "infinite": false,
+                "mobileFirst": true,
+                "dots": false,
+                "accessibility": false,
+                "slidesToShow": 4,
+                "slidesToScroll": 4
+            }'{{/gt}}>
+		{{/and}}
             {{#each product.images}}
                 <li class="productView-thumbnail">
                     <a
@@ -71,14 +83,10 @@
         </ul>
 		{{#if product.videos.list.length}}
 			{{#if theme_settings.custom_product_description_location '==' 'underneath'}}
-				{{> components/custom/videos product.videos}}
+				{{> components/custom/video-player product.videos}}
         	{{/if}}
 			{{#if theme_settings.custom_product_description_location '==' 'side'}}
-				{{#if theme_settings.show_product_details_tabs}}
-            		{{> components/custom/videos product.videos}}
-				{{else}}
-					{{> components/products/videos product.videos}}
-        		{{/if}}
+				{{> components/products/videos product.videos}}
 			{{/if}}
 		{{/if}}
 
@@ -100,7 +108,7 @@
 			{{> components/custom/client/client-product-top}}
             <h1 {{#unless theme_settings.custom_product_title_left}}style="display: none;"{{/unless}} class="productView-title" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h1>
             {{#if product.brand}}
-                <h2 class="productView-brand"{{#if schema}} itemprop="brand" itemscope itemtype="http://schema.org/Brand"{{/if}}>
+                <h2 class="productView-brand"{{#if schema}} itemprop="brand" itemscope itemtype="https://schema.org/Brand"{{/if}}>
                     <a href="{{product.brand.url}}"{{#if schema}} itemprop="url"{{/if}}><span{{#if schema}} itemprop="name"{{/if}}>{{product.brand.name}}</span></a>
                 </h2>
             {{/if}}
@@ -128,9 +136,9 @@
                             <meta itemprop="reviewCount" content="{{product.num_reviews}}">
                         {{/if}}
                     {{/if}}
-                        {{> components/products/ratings rating=product.rating}}
+                    {{> components/products/ratings rating=product.rating}}
                     {{#if product.num_reviews '>' 0}}
-                        <a href="{{product.url}}#product-reviews" id="productReview_link">
+                        <a href="{{product.url}}{{#if is_ajax}}#product-reviews{{/if}}" id="productReview_link">
                             {{lang 'products.reviews.link_to_review' total=product.num_reviews}}
                         </a>
                     {{else}}
@@ -139,16 +147,16 @@
 					</dt>
                 {{/if}}		
                 {{#all settings.show_product_reviews theme_settings.show_product_reviews}}
-				<dd class="productView-info-value">
-                    <a href="{{product.url}}{{#if is_ajax}}#write_review{{/if}}"
-                       class="productView-reviewLink productView-reviewLink--new"
-                       {{#unless is_ajax}}data-reveal-id="modal-review-form"{{/unless}}
-                       role="button"
-                    >
-                       {{lang 'products.reviews.new'}}
-                    </a>
-                    {{> components/products/modals/writeReview}}
-				</dd>
+					<dd class="productView-info-value">
+                    	<a href="{{product.url}}{{#if is_ajax}}#write_review{{/if}}" 
+						class="productView-reviewLink productView-reviewLink--new" 
+						{{#unless is_ajax}}data-reveal-id="modal-review-form"{{/unless}} 
+						role="button"
+                    	>
+                       		{{lang 'products.reviews.new'}}
+                    	</a>
+                    	{{> components/products/modals/writeReview}}
+					</dd>
                 {{/all}}
 				</dl>
             </div>

@@ -35,6 +35,11 @@ customer:
 {{/partial}}
 
 {{#partial "page"}}
+	{{#unless (getVar 'payment') '===' 'active'}}
+	{{#each product.shipping_messages}}
+		{{> components/common/alert/alert-info message}}
+	{{/each}}
+	{{/unless}}
     <div itemscope itemtype="http://schema.org/Product" {{#if (getVar 'payment') '===' 'active'}} class="payment-product"{{/if}}>
         {{> components/products/product-view schema=true  }}
 
@@ -42,12 +47,14 @@ customer:
     </div>
 {{/partial}}
 {{#partial "base"}}
-{{#or product.related_products product.similar_by_views}}
-	<div class="related-similar">
-		<div class="container">
-			{{> components/products/tabs}}
+{{#unless (getVar 'payment') '===' 'active'}}
+	{{#or product.related_products product.similar_by_views}}
+		<div class="related-similar">
+			<div class="container">
+				{{> components/products/tabs}}
+			</div>
 		</div>
-	</div>
-{{/or}}
+	{{/or}}
+{{/unless}}
 {{/partial}}
 {{> layout/base}}

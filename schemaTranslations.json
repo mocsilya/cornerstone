@@ -788,6 +788,39 @@
     "uk": "Режим відображення меню, що випадає",
     "zh": "下拉菜单显示模式"
   },
+  "i18n.CustomHeaderMenu1Show": {
+    "default": "Show image on dropdown menu"
+  },
+  "i18n.CustomHeaderMenu2Show": {
+    "default": "Show image 2 on dropdown menu"
+  },
+  "i18n.CustomHeaderMenu3Show": {
+    "default": "Show image 3 on dropdown menu"
+  },
+  "i18n.CustomHeaderMenu4Show": {
+    "default": "Show image 4 on dropdown menu"
+  },
+  "i18n.CustomHeaderMenu5Show": {
+    "default": "Show image 5 on dropdown menu"
+  },
+  "i18n.CustomHeaderMenu6Show": {
+    "default": "Show image 6 on dropdown menu"
+  },
+  "i18n.CustomHeaderMenuCategory": {
+    "default": "Top level category name (must be exact, e.g. My Category)"
+  },
+  "i18n.CustomHeaderMenuImage": {
+    "default": "Image filename (must be uploaded via Image Manager, e.g. my-picture.jpg)"
+  },
+  "i18n.CustomHeaderMenuWidth": {
+    "default": "Width of image (you can use px or %)"
+  },
+  "i18n.CustomHeaderMenuUrl": {
+    "default": "URL when clicked (excluding domain, e.g. /my-category)"
+  },
+  "i18n.CustomHeaderMenuText": {
+    "default": "Text label"
+  },
   "i18n.SimpleMenuDisplayDepthOf": {
     "default": "Simple (Menu display depth of 3)",
     "fr": "Simple (profondeur d’affichage du menu de 3)",
@@ -1128,6 +1161,9 @@
     "it": "Permetti di espandere l'immagine su schermi grandi",
     "uk": "Дозволити зображення розтягуватися на великих екранах",
     "zh": "允许图片在大屏幕上伸展"
+  },
+  "i18n.CustomHomepageCarouselAuto": {
+    "default": "Auto play carousel slides"
   },
   "i18n.CustomHomepageCarouselContentBackground": {
     "default": "Show carousel content background"
@@ -2231,19 +2267,8 @@
     "uk": "Кнопки оплати",
     "zh": "支付按钮"
   },
-  "i18n.ShowPayPalTagline": {
-    "default": "Show PayPal tagline",
-    "fr": "Afficher le slogan de PayPal",
-    "it": "Mostra tagline PayPal",
-    "uk": "Показати лінію оплати PayPal",
-    "zh": "展示 PayPal标签行"
-  },
-  "i18n.ShowFundingIcons": {
-    "default": "Show funding icons",
-    "fr": "Afficher les icônes de financement",
-    "it": "Mostra icone finanziamento",
-    "uk": "Показати піктограми фінансування",
-    "zh": "展示资金图标"
+  "i18n.ButtonContainer": {
+    "default": "Button Container"
   },
   "i18n.ButtonColor": {
     "default": "Button color",
@@ -2318,19 +2343,15 @@
     "uk": "Великий",
     "zh": "大"
   },
-  "i18n.Responsive": {
-    "default": "Responsive",
-    "fr": "Responsive",
-    "it": "Responsive",
-    "uk": "Чуйний",
-    "zh": "响应式"
-  },
   "i18n.ButtonContent": {
     "default": "Button content",
     "fr": "Contenu du bouton",
     "it": "Contenuto bottone",
     "uk": "Зміст кнопки",
     "zh": "按钮内容"
+  },
+  "i18n.SmartPaypalButton": {
+    "default": "Smart Paypal Button"
   },
   "i18n.PayPalCheckout": {
     "default": "PayPal Checkout",
@@ -2376,5 +2397,77 @@
   },
   "i18n.CheckoutPayPalButton": {
     "default": "Checkout PayPal Button"
+  },
+  "i18n.ProductPageBanner": {
+    "default": "Product page banner"
+  },
+  "i18n.BannerStyleColor": {
+    "default": "Banner style color"
+  },
+  "i18n.White-no-border": {
+    "default": "White no border"
+  },
+  "i18n.gray": {
+    "default": "Gray"
+  },
+  "i18n.monochrome": {
+    "default": "Monochrome"
+  },
+  "i18n.grayscale": {
+    "default": "Grayscale"
+  },
+  "i18n.BannerStyleRatio": {
+    "default": "Banner style ratio"
+  },
+  "i18n.8x1": {
+    "default": "8x1"
+  },
+  "i18n.20x1": {
+    "default": "20x1"
+  },
+  "i18n.HomePageBanner": {
+    "default": "Home page banner"
+  },
+  "i18n.BannerTextStyleColor": {
+    "default": "Banner text style color"
+  },
+  "i18n.BannerStyleLogoPosition": {
+    "default": "Banner style logo position"
+  },
+  "i18n.left": {
+    "default": "Left"
+  },
+  "i18n.right": {
+    "default": "Right"
+  },
+  "i18n.top": {
+    "default": "Top"
+  },
+  "i18n.BannerStyleLogoType": {
+    "default": "Banner style logo type"
+  },
+  "i18n.inline": {
+    "default": "Inline"
+  },
+  "i18n.alternative": {
+    "default": "Alternative"
+  },
+  "i18n.none": {
+    "default": "None"
+  },
+  "i18n.PaymentBanners": {
+    "default": "Payment Banners"
+  },
+  "i18n.CartPageBanner": {
+    "default": "Cart page banner"
+  },
+  "i18n.primary": {
+    "default": "Primary"
+  },
+  "i18n.BannersMessaging": {
+    "default": "Please note that in order for the changes to apply, you need navigate to the PayPal Settings in BC Control Panel, disable an appropriate messaging banner(s), click \"Save\" button, enable the banner again and click \"Save\" button again"
+  },
+  "i18n.PaymentButtonsContainer": {
+    "default": "Buttons Container Size"
   }
 }

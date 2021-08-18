@@ -7,6 +7,7 @@ customer:
     wishlists:
         limit: 10
 ---
+{{inject 'cancelButtonText' (lang 'common.cancel')}}
 
 {{#partial "hero"}}
 <div class="container container-hero">
@@ -18,6 +19,7 @@ customer:
 {{/partial}}
 
 {{#partial "page"}}
+{{inject 'invalidEntryMessage' (lang 'cart.invalid_entry_message')}}
 <div class="page">
 
     <div class="page-content" data-cart>
