@@ -7,20 +7,6 @@
 // Header
 // =============================================================================
 
-.header-bar ul {
-	flex-direction: row;
-}
-.header-bar li {
-	flex: 1 1 0px;
-	border-bottom: 0;
-}
-
-.header-bar li.header-bar-message-1 {
-	display: none;
-	@include breakpoint("medium") {
-		display: block;
-	}
-}
 
 .header-bar-icon-custom .icon svg {
 	color: #ffa800;
@@ -28,9 +14,26 @@
 }
 
 
+// Nav Page
+// =============================================================================
+
+
+.navPages > ul > li > .navPages-action {
+	font-family: "Kanit", Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	font-size: 1.25rem;
+}
+
+
+
 
 // Hero Carousel
 // =============================================================================
+
+
+.heroCarousel {
+	margin-bottom: 0;
+}
 
 .heroCarousel-title {
 	@include breakpoint("medium") {
@@ -70,7 +73,7 @@
 	@include breakpoint("large") {
 		flex: 1 1 0;
 		min-width: 20%;
-		margin-bottom: 4rem;
+		margin-bottom: 0;
 		padding: 0;
 	}
 }
@@ -87,7 +90,7 @@
 		order: 3;
 		flex: 1 1 0;
 		min-width: 20%;
-		margin-bottom: 4rem;
+		margin-bottom: 0;
 		padding: 0;
 	}
 }
@@ -104,6 +107,11 @@
 
 .carousel-brands {
 	background: #333;
+	@include breakpoint("large") {
+		background: none;
+		height: 31.9vw;
+		max-height: 459px;
+	}
 }
 
 .carousel-brands ul {
@@ -111,6 +119,7 @@
 	list-style: none;
 	padding: 0;
 	display: flex;
+	align-items: stretch;
 	@include breakpoint("medium") {
 		margin: 0 -1px;
 	}
@@ -118,6 +127,7 @@
 		flex-direction: column;
 		margin: 0;
 		height: 100%;
+		background: #333;
 	}
 }
 
@@ -131,6 +141,7 @@
 	}
 	@include breakpoint("large") {
 		padding: 0px 2px 2px 2px;
+		height: 25%;
 	}
 }
 
@@ -153,10 +164,10 @@
 }
 
 .carousel-brands img {
-	max-height: 30px;
-
+	display: block;
+	max-height: 100%;
+	max-width: 100%;
 }
-
 
 .carousel-links {
 	order: 4;
@@ -184,33 +195,60 @@
 .carousel-links li a {
 	display: block;
 	padding: 1rem .5rem;
-	border: 2px solid #333;
 	font-weight: 700;
 	border-radius: .5rem;
-	color: #7fb24c;
 	text-decoration: none;
+	background: #333;
+	color: #7fb24c;
+	font-family: "Kanit", Arial, Helvetica, sans-serif;
+	font-weight: 700;
+	border: 2px solid #333;
 }
 
 .carousel-links li a:hover {
-	background: #333;
 	color: #7fb24c;
+	border: 2px solid #333;
+	background: #fff;
 }
-
-
-
 
 
 
 
 // Card
 // =============================================================================
+
+
+li.product {
+	overflow: visible;
+}
+
 .card-message {
 	border: 1px solid #ccc;
 	background: #f5f5f5;
 	text-align: center;
 	padding: .25rem;
 }
- 
+
+.card-warranty .dropdown-menu.is-open {
+	min-width: 400px;
+	z-index: 1;
+	left: auto !important;
+	right: -.75rem!important;
+}
+
+.card-warranty .button {
+	margin-bottom: .5rem;
+}
+
+.card-warranty .button.is-open {
+	background: #7fb24c;
+	color: #fff;
+	border: 1px solid #7fb24c;
+}
+
+.card-warranty .table-availability {
+	min-width: 300px;
+}
 
 
 // Preview Cart
@@ -849,11 +887,16 @@
 .product-icons {
 	display: flex;
 	justify-content: center;
+	position: absolute;
+	right: 0px;
+	@include breakpoint("medium") {
+		position: static;
+	}
 }
 
 .product-icon {
 	margin: 0 2px 2px 2px;
-	flex: 1 1 0px;
+	flex: 0 1 0px;
 	font-size: .75rem;
 	font-weight: 700;
 	text-align: center;
@@ -861,6 +904,9 @@
 	border: 1px solid #333;
 	border-radius: 4px;
 	white-space: nowrap;
+	@include breakpoint("medium") {
+		flex: 1 1 0px;
+	}
 }
 
 .product-icon:first-child a {
@@ -881,6 +927,16 @@
 }
 
 
+// Product Page
+// =============================================================================
+
+.productView-description-underneath {
+	margin-top: 0;
+}
+
+.productView-details.product-data {
+	padding-bottom: 0;
+}
 
 // Footer
 // =============================================================================
