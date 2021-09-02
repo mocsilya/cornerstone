@@ -1,5 +1,3 @@
-{{inject "isProductListPresented" true}}
-
 <ul class="productList">
     {{#each products}}
     <li class="product{{#filter custom_fields 'hidden' property='name' }}{{#if value '==' 'spotlight'}} spotlight{{else if value '==' 'payment'}} payment{{/if}}{{/filter}}">
