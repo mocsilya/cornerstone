@@ -5,6 +5,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Draft
+- Fixed images placeholder on hero carousel shifted on mobile when slide has content. [#2112](https://github.com/bigcommerce/cornerstone/pull/2112)
+- Google AMP feature request - Add in release date info for preorder products. [#2107](https://github.com/bigcommerce/cornerstone/pull/2107)
+- Translation for states select field on account signup page. [#2105](https://github.com/bigcommerce/cornerstone/pull/2105)
+- Added description field below payment provider name on "My Account" -> "Payment Methods" page. [#2111](https://github.com/bigcommerce/cornerstone/pull/2111)
+
+## 6.0.0 (08-06-2021)
+- Translation mechanism for config.json has been updated. [#2089](https://github.com/bigcommerce/cornerstone/pull/2089)
+- As a shopper I want to see gift wrapping price in product list the cart. [#2093](https://github.com/bigcommerce/cornerstone/pull/2093)
+- Fixed wishlist dropdown shift on quick view modal. [#2102](https://github.com/bigcommerce/cornerstone/pull/2102)
+- Empty email input in newsletter field should trigger an error. [#2101](https://github.com/bigcommerce/cornerstone/pull/2101)
+- Make Hero Carousel both slide and button clickable when button enabled. [#2098](https://github.com/bigcommerce/cornerstone/pull/2098)
+- "Manage Website Data Collection Preferences" phrase is not translatable. [#2090](https://github.com/bigcommerce/cornerstone/pull/2090)
 - No navigation back to wishlist tab when you are in a wishlist. [#2096](https://github.com/bigcommerce/cornerstone/pull/2096)
 - Reviews pagination navigation buttons reload page and does not open the Reviews tab. [#2048](https://github.com/bigcommerce/cornerstone/pull/2048)
 - Fix social share links for product pages and blog posts [#2082](https://github.com/bigcommerce/cornerstone/pull/2082)
