@@ -2,3 +2,25 @@
 // Custom > Client
 // =============================================================================
 //
+
+.navUser-item--widesearch .navUser-text {
+	@include breakpoint("medium") {
+		width: calc(100% - 30px);
+	}
+}
+
+.heroCarousel-description {
+	@include breakpoint("small") {
+		width: 40%;
+	}
+}
+
+div[data-sub-layout-container="c56902ad-b300-4740-af56-f381f9fbaa19"] .custom-widget-placeholder {
+	background: #f6f0ee !important;
+	background: -moz-linear-gradient(top,  #f6f0ee 1%, #ffffff 100%) !important;
+	background: -webkit-linear-gradient(top,  #f6f0ee 1%,#ffffff 100%) !important;
+	background: linear-gradient(to bottom,  #f6f0ee 1%,#ffffff 100%) !important;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f0ee', endColorstr='#ffffff',GradientType=0 ) !important;
+	border-top-left-radius: .75rem;
+	border-top-right-radius: .75rem;
+}
