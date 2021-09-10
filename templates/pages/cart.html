@@ -11,8 +11,13 @@ customer:
 
 {{#partial "hero"}}
 <div class="container container-hero">
-	<div class="page-header checkout-header">
-    	{{> components/cart/page-title}}
+	{{#if theme_settings.custom_page_header_image_cart}}
+		<div class="page-header checkout-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
+	    <img class="page-header-image" src="/product_images/uploaded_images/{{theme_settings.custom_page_header_image_cart}}" />
+	{{else}}
+		<div class="page-header checkout-header">
+	{{/if}}
+        {{> components/cart/page-title}}
 		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 	</div>
 </div>

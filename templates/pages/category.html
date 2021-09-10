@@ -24,12 +24,12 @@ customer:
 {{#partial "hero"}}
 <div class="container container-hero">
 	{{#if category.image}}
-		<div class="page-header category-header category-header-image">
+		<div class="page-header category-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
 	    {{> components/common/responsive-img
 	        image=category.image
 	        fallback_size=theme_settings.zoom_size
 	        lazyload=theme_settings.lazyload_mode
-	        class="category-header-image"
+	        class="page-header-image"
 	    }}
 	{{else}}
 		<div class="page-header category-header">

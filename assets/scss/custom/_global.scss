@@ -1848,21 +1848,33 @@ body.scroll .navPages > ul > li > .navPages-action {
 
 
 
-// Category Header
+// Page Header
 // =============================================================================
 
-.category-header-image {
-	padding: 8vw 0;
+.page-header-image {
+	width: 100%;
 }
 
-.category-header-image .page-heading,
-.category-header-image .breadcrumbs {
+.page-header-slim {
+	padding: 3vw 0;
+}
+
+.page-header-medium {
+	padding: 6vw 0;
+}
+
+.page-header-deep {
+	padding: 9vw 0;
+}
+
+.page-header-image .page-heading,
+.page-header-image .breadcrumbs {
 	padding: 1.5rem;
 }
 
-.category-header-image .page-heading,
-.category-header-image .breadcrumbs,
-.category-header-image .page-heading + nav .breadcrumbs {
+.page-header-image .page-heading,
+.page-header-image .breadcrumbs,
+.page-header-image .page-heading + nav .breadcrumbs {
     margin: 0 10%;
     background: rgba(stencilColor("custom-page-header-background"), 0.8);
     @include breakpoint("small") {
@@ -1876,12 +1888,12 @@ body.scroll .navPages > ul > li > .navPages-action {
     }
 }
 
-.category-header-image .page-heading + nav .breadcrumbs {
+.page-header-image .page-heading + nav .breadcrumbs {
 	top: auto;
     padding: 0 1.5rem 1.5rem 1.5rem;
 }
 
-.category-header-image img {
+.page-header-image img {
 	position: absolute;
 	top: 50%;
     transform: translateY(-50%);
@@ -3734,9 +3746,23 @@ a:hover span.card-image:only-of-type img {
 }
 
 
+// Search Results
+// =============================================================================
+
+.page-search .panel--large {
+	display: none;
+}
+
+.page-search #search-results-content h3 {
+	margin: 0;
+}
+
 // Blog
 // =============================================================================
 
+.page-blog section.page {
+	padding-top: .5rem;
+}
 .page-blog section.page:before,
 .page-blog section.page:after {
 	@include breakpoint("medium") {
@@ -3783,6 +3809,32 @@ a:hover span.card-image:only-of-type img {
 
 .blog-thumbnail {
 	max-width: none;
+}
+
+.form-blog {
+	font-size: 0;
+}
+
+.form-blog .form-input {
+	width: calc(100% - 50px);
+	display: inline-block;
+	vertical-align: top;
+}
+
+.form-blog .button {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 0 0 .5rem;
+	padding-left: 0.875rem;
+	padding-right: 0.875rem;
+}
+
+.form-blog .button .icon svg {
+	fill: stencilColor("button--primary-color");
+}
+
+.form-blog .button:hover .icon svg {
+	fill: stencilColor("button--primary-colorHover");
 }
 
 
@@ -3914,7 +3966,9 @@ a:hover span.card-image:only-of-type img {
 }
 
 .sitemap-list-item h2 {
-	margin-top: 0;
+	@include breakpoint("medium") {
+		margin-top: 0;
+	}
 }
 
 

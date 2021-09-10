@@ -11,7 +11,12 @@ customer:
 
 {{#partial "hero"}}
 <div class="container container-hero">
-	<div class="page-header blog-header">
+	{{#if theme_settings.custom_page_header_image_blog}}
+		<div class="page-header blog-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
+	    <img class="page-header-image" src="/product_images/uploaded_images/{{theme_settings.custom_page_header_image_blog}}" />
+	{{else}}
+		<div class="page-header blog-header">
+	{{/if}}
     {{#unless theme_settings.hide_blog_page_heading }}
         <h1 class="page-heading">{{ blog.name }}</h1>
     {{/unless}}
@@ -34,6 +39,16 @@ customer:
 	{{#if (getVar "tag") '===' 'show'}}
 	<aside class="page-sidebar page-sidebar-vertical">
 		<nav>
+			<div class="sidebarBlock sidebarSearch">
+				<form class="form form-blog" role="search" action="/search.php?section=content&search_query=" method="get">
+					<div class="form-field form-field--input">
+						<input class="form-input form-blog-search" name="blog_query" type="search">
+						<button class="button button--primary" type="submit">
+		                    <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-search" /></svg></i>
+						</button>
+					</div>
+				</form>
+			</div>
 			<div class="sidebarBlock sidebarCategories">
 				<h2 class="sidebarBlock-heading">Filter by Tag</h2>
 				<ul class="navList navList-tag">
