@@ -10,8 +10,13 @@ customer:
 
 {{#partial "hero"}}
 <div class="container container-hero">
-	<div class="page-header brands-header">
-    	<h1 class="page-heading">{{lang 'brand.label'}}</h1>
+	{{#if theme_settings.custom_page_header_image_brands}}
+		<div class="page-header brands-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
+	    <img class="page-header-image" src="/product_images/uploaded_images/{{theme_settings.custom_page_header_image_brands}}" />
+	{{else}}
+		<div class="page-header brands-header">
+	{{/if}}
+        <h1 class="page-heading">{{lang 'brand.label'}}</h1>
 		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 	</div>
 </div>

@@ -377,17 +377,38 @@
     "uk": "Сховати заголовок сторінки контактів",
     "zh": "隐藏联系我们页面头部"
   },
-  "i18n.CustomPaginationColor": {
+  "i18n.PaginationColor": {
     "default": "Pagination text color"
   },
-  "i18n.CustomPaginationBackground": {
+  "i18n.PaginationBackground": {
     "default": "Pagination background color"
   },
-  "i18n.CustomPageHeaderBackground": {
+  "i18n.PageHeaderBackground": {
     "default": "Page header background"
   },
-  "i18n.CustomPageHeaderText": {
+  "i18n.PageHeaderText": {
     "default": "Page header text color"
+  },
+  "i18n.PageHeaderImageDepth": {
+    "default": "Page header image depth"
+  },
+  "i18n.PageHeaderImageBlog": {
+    "default": "Blog list header image"
+  },
+  "i18n.PageHeaderImageBrands": {
+    "default": "Brand list header image"
+  },
+  "i18n.PageHeaderImageCart": {
+    "default": "Cart header image"
+  },
+  "i18n.PageHeaderImageInfo": {
+    "default": "Info pages header image"
+  },
+  "i18n.PageHeaderImageSearch": {
+    "default": "Search results header image"
+  },
+  "i18n.PageHeaderImageSitemap": {
+    "default": "Sitemap header image"
   },
   "i18n.Products": {
     "default": "Products",
@@ -417,19 +438,19 @@
     "uk": "Показати товари в списку",
     "zh": "以列表形式显示产品"
   },
-  "i18n.CustomCategoryMaxColumns": {
+  "i18n.CategoryMaxColumns": {
     "default": "Max number of products per row"
   },
-  "i18n.CustomCategorySidebarDisplay": {
+  "i18n.CategorySidebarDisplay": {
     "default": "Category/filter location"
   },
-  "i18n.CustomCategorySidebarVertical": {
+  "i18n.CategorySidebarVertical": {
     "default": "Left sidebar"
   },
-  "i18n.CustomCategorySidebarHorizontal": {
+  "i18n.CategorySidebarHorizontal": {
     "default": "Above products"
   },
-  "i18n.CustomCategoryShowParents": {
+  "i18n.CategoryShowParents": {
     "default": "Show parent/siblings of current category"
   },
   "i18n.Blog": {
@@ -439,19 +460,19 @@
     "uk": "Блог",
     "zh": "博客"
   },
-  "i18n.CustomFooterBlogPosts": {
+  "i18n.FooterBlogPosts": {
     "default": "At least one blog post must be published to use this feature."
   },
-  "i18n.CustomFooterShowBlog": {
+  "i18n.FooterShowBlog": {
     "default": "Show recent posts in footer"
   },
-  "i18n.CustomFooterBlogBackground": {
+  "i18n.FooterBlogBackground": {
     "default": "Blog footer background"
   },
-  "i18n.CustomFooterBlogHeading": {
+  "i18n.FooterBlogHeading": {
     "default": "Blog footer heading"
   },
-  "i18n.CustomFooterBlogText": {
+  "i18n.FooterBlogText": {
     "default": "Blog footer text"
   },
   "i18n.SizeOfImages": {
@@ -489,7 +510,7 @@
     "uk": "Показати діапазони цін на продукти з варіантами. Якщо він відключений, він відображатиме ціну товару",
     "zh": "当产品有属性选项时，显示价格范围。如果禁用将显示产品价格"
   },
-  "i18n.CustomPriceFrom": {
+  "i18n.PriceFrom": {
     "default": "Show price from rather than min - max for price ranges."
   },
   "i18n.PurchaseOptions": {
@@ -645,55 +666,55 @@
     "uk": "Колір тексту логотипу",
     "zh": "Logo文字颜色"
   },
-  "i18n.CustomHeaderBar": {
+  "i18n.HeaderBar": {
     "default": "Header bar"
   },
-  "i18n.CustomHeaderShowBar": {
+  "i18n.HeaderShowBar": {
     "default": "Show header bar"
   },
-  "i18n.CustomHeaderShowBarMessage1": {
+  "i18n.HeaderShowBarMessage1": {
     "default": "Show message 1"
   },
-  "i18n.CustomHeaderShowBarMessage2": {
+  "i18n.HeaderShowBarMessage2": {
     "default": "Show message 2"
   },
-  "i18n.CustomHeaderShowBarMessage3": {
+  "i18n.HeaderShowBarMessage3": {
     "default": "Show message 3"
   },
-  "i18n.CustomHeaderBarMessage1Text": {
+  "i18n.HeaderBarMessage1Text": {
     "default": "Message 1 text"
   },
-  "i18n.CustomHeaderBarMessage2Text": {
+  "i18n.HeaderBarMessage2Text": {
     "default": "Message 2 text"
   },
-  "i18n.CustomHeaderBarMessage3Text": {
+  "i18n.HeaderBarMessage3Text": {
     "default": "Message 3 text"
   },
-  "i18n.CustomHeaderBarMessage1Link": {
+  "i18n.HeaderBarMessage1Link": {
     "default": "Message 1 link"
   },
-  "i18n.CustomHeaderBarMessage2Link": {
+  "i18n.HeaderBarMessage2Link": {
     "default": "Message 2 link"
   },
-  "i18n.CustomHeaderBarMessage3Link": {
+  "i18n.HeaderBarMessage3Link": {
     "default": "Message 3 link"
   },
-  "i18n.CustomHeaderBarMessage1Icon": {
+  "i18n.HeaderBarMessage1Icon": {
     "default": "Message 1 icon"
   },
-  "i18n.CustomHeaderBarMessage2Icon": {
+  "i18n.HeaderBarMessage2Icon": {
     "default": "Message 2 icon"
   },
-  "i18n.CustomHeaderBarMessage3Icon": {
+  "i18n.HeaderBarMessage3Icon": {
     "default": "Message 3 icon"
   },
-  "i18n.CustomHeaderBarBackground": {
+  "i18n.HeaderBarBackground": {
     "default": "Header bar background"
   },
-  "i18n.CustomHeaderBarText": {
+  "i18n.HeaderBarText": {
     "default": "Header bar text"
   },
-  "i18n.CustomHeaderBarIcon": {
+  "i18n.HeaderBarIcon": {
     "default": "Header bar icons"
   },
   "i18n.UtilityNavigation": {
@@ -738,16 +759,16 @@
     "uk": "Фон лічильника кошику",
     "zh": "购物车计数背景"
   },
-  "i18n.CustomHeaderSearchLabel": {
+  "i18n.HeaderSearchLabel": {
     "default": "Quick search placeholder text"
   },
-  "i18n.CustomHeaderIconText": {
+  "i18n.HeaderIconText": {
     "default": "Show icon text on large screens"
   },
-  "i18n.CustomHeaderCartType": {
+  "i18n.HeaderCartType": {
     "default": "Cart icon type"
   },
-  "i18n.CustomHeaderIconStyle": {
+  "i18n.HeaderIconStyle": {
     "default": "Header icon style"
   },
   "i18n.MainNavigation": {
@@ -757,7 +778,7 @@
     "uk": "Основна навігація",
     "zh": "主导航"
   },
-  "i18n.CustomHeaderScrollNavpages": {
+  "i18n.HeaderScrollNavpages": {
     "default": "Show main nav when page is scrolled"
   },
   "i18n.HideLinksToWebPages": {
@@ -788,37 +809,37 @@
     "uk": "Режим відображення меню, що випадає",
     "zh": "下拉菜单显示模式"
   },
-  "i18n.CustomHeaderMenu1Show": {
+  "i18n.HeaderMenu1Show": {
     "default": "Show image on dropdown menu"
   },
-  "i18n.CustomHeaderMenu2Show": {
+  "i18n.HeaderMenu2Show": {
     "default": "Show image 2 on dropdown menu"
   },
-  "i18n.CustomHeaderMenu3Show": {
+  "i18n.HeaderMenu3Show": {
     "default": "Show image 3 on dropdown menu"
   },
-  "i18n.CustomHeaderMenu4Show": {
+  "i18n.HeaderMenu4Show": {
     "default": "Show image 4 on dropdown menu"
   },
-  "i18n.CustomHeaderMenu5Show": {
+  "i18n.HeaderMenu5Show": {
     "default": "Show image 5 on dropdown menu"
   },
-  "i18n.CustomHeaderMenu6Show": {
+  "i18n.HeaderMenu6Show": {
     "default": "Show image 6 on dropdown menu"
   },
-  "i18n.CustomHeaderMenuCategory": {
+  "i18n.HeaderMenuCategory": {
     "default": "Top level category name (must be exact, e.g. My Category)"
   },
-  "i18n.CustomHeaderMenuImage": {
+  "i18n.HeaderMenuImage": {
     "default": "Image filename (must be uploaded via Image Manager, e.g. my-picture.jpg)"
   },
-  "i18n.CustomHeaderMenuWidth": {
+  "i18n.HeaderMenuWidth": {
     "default": "Width of image (you can use px or %)"
   },
-  "i18n.CustomHeaderMenuUrl": {
+  "i18n.HeaderMenuUrl": {
     "default": "URL when clicked (excluding domain, e.g. /my-category)"
   },
-  "i18n.CustomHeaderMenuText": {
+  "i18n.HeaderMenuText": {
     "default": "Text label"
   },
   "i18n.SimpleMenuDisplayDepthOf": {
@@ -849,34 +870,34 @@
     "uk": "Значки соціальних медіа",
     "zh": "社交媒体图标"
   },
-  "i18n.CustomFooterNewsletter": {
+  "i18n.FooterNewsletter": {
     "default": "Newsletter"
   },
-  "i18n.CustomFooterNewsletterBackground": {
+  "i18n.FooterNewsletterBackground": {
     "default": "Newsletter background"
   },
-  "i18n.CustomFooterNewsletterText": {
+  "i18n.FooterNewsletterText": {
     "default": "Newsletter text"
   },
-  "i18n.CustomFooterNewsletterInputText": {
+  "i18n.FooterNewsletterInputText": {
     "default": "Email box text"
   },
-  "i18n.CustomFooterNewsletterInputBorder": {
+  "i18n.FooterNewsletterInputBorder": {
     "default": "Email box border"
   },
-  "i18n.CustomFooterNewsletterInputBackground": {
+  "i18n.FooterNewsletterInputBackground": {
     "default": "Email box background"
   },
-  "i18n.CustomFooterButton": {
+  "i18n.FooterButton": {
     "default": "Button text"
   },
-  "i18n.CustomFooterButtonHover": {
+  "i18n.FooterButtonHover": {
     "default": "Button text hover"
   },
-  "i18n.CustomFooterButtonBackground": {
+  "i18n.FooterButtonBackground": {
     "default": "Button background"
   },
-  "i18n.CustomFooterButtonBackgroundHover": {
+  "i18n.FooterButtonBackgroundHover": {
     "default": "Button background hover"
   },
   "i18n.SocialAccountsMustBeSet": {
@@ -900,19 +921,19 @@
     "uk": "Показати колонтитулу піктограми соціальних медіа",
     "zh": "显示页脚社交媒体图标"
   },
-  "i18n.CustomSocialStyle": {
+  "i18n.SocialStyle": {
     "default": "Social media icon style"
   },
-  "i18n.CustomHeaderSocial": {
+  "i18n.HeaderSocial": {
     "default": "Header social icons"
   },
-  "i18n.CustomHeaderSocialHover": {
+  "i18n.HeaderSocialHover": {
     "default": "Header social icons hover"
   },
-  "i18n.CustomFooterSocial": {
+  "i18n.FooterSocial": {
     "default": "Footer social icons"
   },
-  "i18n.CustomFooterSocialHover": {
+  "i18n.FooterSocialHover": {
     "default": "Footer social icons hover"
   },
   "i18n.None": {
@@ -936,19 +957,19 @@
     "uk": "Фон нижнього колонтитулу",
     "zh": "页脚背景"
   },
-  "i18n.CustomFooterBorder": {
+  "i18n.FooterBorder": {
     "default": "Footer divider"
   },
-  "i18n.CustomFooterTitle": {
+  "i18n.FooterTitle": {
     "default": "Footer column titles"
   },
-  "i18n.CustomFooterText": {
+  "i18n.FooterText": {
     "default": "Footer text"
   },
-  "i18n.CustomFooterLink": {
+  "i18n.FooterLink": {
     "default": "Footer link"
   },
-  "i18n.CustomFooterLinkHover": {
+  "i18n.FooterLinkHover": {
     "default": "Footer link hover"
   },
   "i18n.DisplaySettings": {
@@ -965,10 +986,10 @@
     "uk": "Показати \"Працює на BigCommerce\"",
     "zh": "显示\"Powered by BigCommerce\""
   },
-  "i18n.CustomHeaderGroupSingle": {
+  "i18n.HeaderGroupSingle": {
     "default": "Group level 2 categories with no subs together "
   },
-  "i18n.CustomHeaderShowBrands": {
+  "i18n.HeaderShowBrands": {
     "default": "Show brands in header"
   },
   "i18n.ShowBrandsInFooter": {
@@ -978,13 +999,13 @@
     "uk": "Показати марки в нижньому колонтитулі",
     "zh": "在页脚显示品牌"
   },
-  "i18n.CustomFooterShowNewsletter": {
+  "i18n.FooterShowNewsletter": {
     "default": "Show newsletter in footer"
   },
-  "i18n.CustomFooterShowPageColumns": {
+  "i18n.FooterShowPageColumns": {
     "default": "Show pages with sub pages in seperate footer columns."
   },
-  "i18n.CustomFooterShowCategoryColumns": {
+  "i18n.FooterShowCategoryColumns": {
     "default": "Show categories with sub categories in seperate footer columns."
   },
   "i18n.ShowCurrentYearAnd": {
@@ -994,25 +1015,25 @@
     "uk": "Показати \"&copy;\", рік та назву магазину",
     "zh": "显示\"&copy;\", 当前年份和店铺名称"
   },
-  "i18n.CustomFooterShowSitemap": {
+  "i18n.FooterShowSitemap": {
     "default": "Show sitemap in footer"
   },
-  "i18n.CustomFooterCopyright": {
+  "i18n.FooterCopyright": {
     "default": "Additional copyright text"
   },
-  "i18n.CustomEmailShow": {
+  "i18n.EmailShow": {
     "default": "Show email in header and footer"
   },
-  "i18n.CustomEmailAddress": {
+  "i18n.EmailAddress": {
     "default": "Sales/support email"
   },
-  "i18n.CustomHeaderMenuBackground": {
+  "i18n.HeaderMenuBackground": {
     "default": "Main menu background"
   },
-  "i18n.CustomHeaderMenuLink": {
+  "i18n.HeaderMenuLink": {
     "default": "Main menu text color"
   },
-  "i18n.CustomHeaderMenuLinkHover": {
+  "i18n.HeaderMenuLinkHover": {
     "default": "Main menu text hover color"
   },
   "i18n.PaymentIcons": {
@@ -1162,13 +1183,13 @@
     "uk": "Дозволити зображення розтягуватися на великих екранах",
     "zh": "允许图片在大屏幕上伸展"
   },
-  "i18n.CustomHomepageCarouselAuto": {
+  "i18n.HomepageCarouselAuto": {
     "default": "Auto play carousel slides"
   },
-  "i18n.CustomHomepageCarouselContentBackground": {
+  "i18n.HomepageCarouselContentBackground": {
     "default": "Show carousel content background"
   },
-  "i18n.CustomHomepageCarouselContent": {
+  "i18n.HomepageCarouselContent": {
     "default": "Carousel content location"
   },
   "i18n.ContentBackground": {
@@ -1255,16 +1276,16 @@
     "uk": "Play/Pause button border",
     "zh": "Play/Pause button border"
   },
-  "i18n.CustomHomepageCarouselButtonColor": {
+  "i18n.HomepageCarouselButtonColor": {
     "default": "Carousel button text"
   },
-  "i18n.CustomHomepageCarouselButtonColorHover": {
+  "i18n.HomepageCarouselButtonColorHover": {
     "default": "Carousel button text hover"
   },
-  "i18n.CustomHomepageCarouselButtonBackground": {
+  "i18n.HomepageCarouselButtonBackground": {
     "default": "Carousel button backgroud"
   },
-  "i18n.CustomHomepageCarouselButtonBackgroundHover": {
+  "i18n.HomepageCarouselButtonBackgroundHover": {
     "default": "Carousel button background hover"
   },
   "i18n.NumberOfFeaturedProducts": {
@@ -1295,40 +1316,40 @@
     "uk": "Кількість нових товарів",
     "zh": "新产品数量"
   },
-  "i18n.CustomHomepageFeaturedCarousel": {
+  "i18n.HomepageFeaturedCarousel": {
     "default": "Display featured products in a carousel"
   },
-  "i18n.CustomHomepageFeaturedTitle": {
+  "i18n.HomepageFeaturedTitle": {
     "default": "Featured products heading"
   },
   "i18n.FeaturedProductsColumnCount": {
     "default": "Maximum featured products per row (non carousel)"
   },
-  "i18n.CustomHomepageTopCarousel": {
+  "i18n.HomepageTopCarousel": {
     "default": "Display top products in a carousel"
   },
-  "i18n.CustomHomepageTopTitle": {
+  "i18n.HomepageTopTitle": {
     "default": "Top products heading"
   },
   "i18n.TopProductsColumnCount": {
     "default": "Maximum top products per row (non carousel)"
   },
-  "i18n.CustomHomepageNewCarousel": {
+  "i18n.HomepageNewCarousel": {
     "default": "Display new products in a carousel"
   },
-  "i18n.CustomHomepageNewTitle": {
+  "i18n.HomepageNewTitle": {
     "default": "New products heading"
   },
   "i18n.NewProductsColumnCount": {
     "default": "Maximum new products per row (non carousel)"
   },
-  "i18n.CustomHomepageShowTabs": {
+  "i18n.HomepageShowTabs": {
     "default": "Show featured, top and new products in a tab menu"
   },
-  "i18n.CustomHomepageModal": {
+  "i18n.HomepageModal": {
     "default": "Newsletter"
   },
-  "i18n.CustomHomepageShowModal": {
+  "i18n.HomepageShowModal": {
     "default": "Show newsletter signup modal"
   },
   "i18n.ProductSaleBadges": {
@@ -1466,10 +1487,10 @@
   "i18n.ShowAlternativeImageOnProduct": {
     "default": "Show alternative hover image on product cards"
   },
-  "i18n.CustomCardShowMessage": {
+  "i18n.CardShowMessage": {
     "default": "Show a custom message on product cards"
   },
-  "i18n.CustomCardMessageText": {
+  "i18n.CardMessageText": {
     "default": "Custom message text"
   },
   "i18n.ShowQuantitySelectionOnProduct": {
@@ -1479,13 +1500,13 @@
     "uk": "Показати вибір кількості на сторінках товарів",
     "zh": "在产品页面显示数量选项框"
   },
-  "i18n.CustomProductTitleLeft": {
+  "i18n.ProductTitleLeft": {
     "default": "Show product title above details rather than in page header."
   },
-  "i18n.CustomProductAddToCartShow": {
+  "i18n.ProductAddToCartShow": {
     "default": "Show custom add to cart text on product page"
   },
-  "i18n.CustomProductAddToCartText": {
+  "i18n.ProductAddToCartText": {
     "default": "Custom add to cart text"
   },
   "i18n.ShowProductDescriptionTabs": {
@@ -1558,40 +1579,40 @@
     "uk": "Фон побажань списку бажань",
     "zh": "心愿单下拉菜单背景"
   },
-  "i18n.CustomProductWishlistShow": {
+  "i18n.ProductWishlistShow": {
     "default": "Show Wishlist on product pages"
   },
-  "i18n.CustomProductDescriptionTitle": {
+  "i18n.ProductDescriptionTitle": {
     "default": "Description tab label"
   },
-  "i18n.CustomProductWarrantyGallery": {
+  "i18n.ProductWarrantyGallery": {
     "default": "Display warranty under photo gallery"
   },
-  "i18n.CustomProductWarrantyTitle": {
+  "i18n.ProductWarrantyTitle": {
     "default": "Warranty tab label"
   },
-  "i18n.CustomProductGallerySize": {
+  "i18n.ProductGallerySize": {
     "default": "Photo gallery size"
   },
-  "i18n.CustomProductDescriptionLocation": {
+  "i18n.ProductDescriptionLocation": {
     "default": "Descripton/details location"
   },
-  "i18n.CustomProductTab1Show": {
+  "i18n.ProductTab1Show": {
     "default": "Show custom tab 1"
   },
-  "i18n.CustomProductTab1Title": {
+  "i18n.ProductTab1Title": {
     "default": "Tab 1 heading"
   },
-  "i18n.CustomProductTab1Content": {
+  "i18n.ProductTab1Content": {
     "default": "Tab 1 text/html"
   },
-  "i18n.CustomProductTab2Show": {
+  "i18n.ProductTab2Show": {
     "default": "Show custom tab 2"
   },
-  "i18n.CustomProductTab2Title": {
+  "i18n.ProductTab2Title": {
     "default": "Tab 2 heading"
   },
-  "i18n.CustomProductTab2Content": {
+  "i18n.ProductTab2Content": {
     "default": "Tab 2 text/html"
   },
   "i18n.NumberOfProductsDisplayed": {
@@ -1643,7 +1664,7 @@
     "uk": "Картки товарів",
     "zh": "产品卡"
   },
-  "i18n.CustomCardBorder": {
+  "i18n.CardBorder": {
     "default": "Product card border color"
   },
   "i18n.ProductHeaderTextColor": {
@@ -1674,7 +1695,7 @@
     "uk": "Фон кнопки",
     "zh": "按钮背景"
   },
-  "i18n.CustomCardWishlistIcon": {
+  "i18n.CardWishlistIcon": {
     "default": "Wishlist icon color"
   },
   "i18n.ProductCardsSpotlight": {
@@ -1924,25 +1945,25 @@
     "uk": "Прапорець і радіо значок",
     "zh": "复选框和单选框图标"
   },
-  "i18n.CustomTabHeading": {
+  "i18n.TabHeading": {
     "default": "Tabs"
   },
-  "i18n.CustomTabColor": {
+  "i18n.TabColor": {
     "default": "Tab text color"
   },
-  "i18n.CustomTabBackground": {
+  "i18n.TabBackground": {
     "default": "Tab background"
   },
-  "i18n.CustomTabHoverColor": {
+  "i18n.TabHoverColor": {
     "default": "Hover tab text color"
   },
-  "i18n.CustomTabHoverBackground": {
+  "i18n.TabHoverBackground": {
     "default": "Hover tab background"
   },
-  "i18n.CustomTabActiveColor": {
+  "i18n.TabActiveColor": {
     "default": "Active tab text color"
   },
-  "i18n.CustomTabActiveBackground": {
+  "i18n.TabActiveBackground": {
     "default": "Active tab background"
   },
   "i18n.CheckoutPage": {

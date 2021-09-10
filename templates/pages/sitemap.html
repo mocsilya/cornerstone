@@ -8,12 +8,18 @@ customer:
 ---
 {{#partial "hero"}}
 <div class="container container-hero">
-	<div class="page-header blog-header">
+	{{#if theme_settings.custom_page_header_image_sitemap}}
+		<div class="page-header sitemap-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
+	    <img class="page-header-image" src="/product_images/uploaded_images/{{theme_settings.custom_page_header_image_sitemap}}" />
+	{{else}}
+		<div class="page-header sitemap-header">
+	{{/if}}
         <h1 class="page-heading">{{lang 'sitemap.page_title'}}</h1>
 		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 	</div>
 </div>
 {{/partial}}
+
 {{#partial "page"}}
 <ul class="sitemap-list">
 {{#each sitemap}}

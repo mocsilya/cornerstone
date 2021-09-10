@@ -2,8 +2,11 @@
     {{> components/search/content-sort-box sort=pagination.content_results.sort}}
     <ul>
         {{#each content_results}}
-            <strong><a href="{{url}}">{{{title}}}</a></strong>({{type}})
+		<li>
+            <h3><a href="{{url}}">{{{title}}}</a></h3>
+			<strong>Type: {{type}}</strong>
             <p>{{{content}}}</p>
+		</li>
         {{/each}}
     </ul>
     {{> components/common/paginator pagination.content_results reload=true}}
