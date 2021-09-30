@@ -464,7 +464,10 @@
     "default": "At least one blog post must be published to use this feature."
   },
   "i18n.FooterShowBlog": {
-    "default": "Show recent posts in footer"
+    "default": "Show recent posts in the footer"
+  },
+  "i18n.FooterShowBlogHome": {
+    "default": "Show recent posts only on the homepage"
   },
   "i18n.FooterBlogBackground": {
     "default": "Blog footer background"
@@ -810,7 +813,7 @@
     "zh": "下拉菜单显示模式"
   },
   "i18n.HeaderMenu1Show": {
-    "default": "Show image on dropdown menu"
+    "default": "Show image 1 on dropdown menu"
   },
   "i18n.HeaderMenu2Show": {
     "default": "Show image 2 on dropdown menu"
@@ -1020,6 +1023,9 @@
   },
   "i18n.FooterCopyright": {
     "default": "Additional copyright text"
+  },
+  "i18n.PhoneShow": {
+    "default": "Show phone in header and footer"
   },
   "i18n.EmailShow": {
     "default": "Show email in header and footer"

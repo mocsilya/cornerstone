@@ -1023,7 +1023,7 @@
       {
         "type": "select",
         "label": "i18n.HeaderBarMessage3Icon",
-        "id": "custom_header_bar_message2_icon",
+        "id": "custom_header_bar_message3_icon",
         "force_reload": true,
         "options": [
           {
@@ -1232,27 +1232,37 @@
       {
         "type": "text",
         "label": "i18n.HeaderMenuCategory",
-        "id": "custom_header_menu_1_category"
+		"id": "custom_header_menu_1_category",
+        "reference": "custom_header_menu_1_show",
+        "reference_default": false
       },
       {
         "type": "text",
         "label": "i18n.HeaderMenuImage",
-		"id": "custom_header_menu_1_image"
+		"id": "custom_header_menu_1_image",
+        "reference": "custom_header_menu_1_show",
+        "reference_default": false
       },
       {
         "type": "text",
         "label": "i18n.HeaderMenuWidth",
-		"id": "custom_header_menu_1_width"
+		"id": "custom_header_menu_1_width",
+        "reference": "custom_header_menu_1_show",
+        "reference_default": false
       },
       {
         "type": "text",
         "label": "i18n.HeaderMenuUrl",
-		"id": "custom_header_menu_1_link"
+        "id": "custom_header_menu_1_link",
+        "reference": "custom_header_menu_1_show",
+        "reference_default": false
       },
       {
         "type": "text",
         "label": "i18n.HeaderMenuText",
-		"id": "custom_header_menu_1_text"
+        "id": "custom_header_menu_1_text",
+        "reference": "custom_header_menu_1_show",
+        "reference_default": false
       },
       {
         "type": "checkbox",
@@ -1523,6 +1533,12 @@
         "id": "custom_footer_show_blog"
       },
       {
+        "type": "checkbox",
+        "label": "i18n.FooterShowBlogHome",
+        "force_reload": true,
+        "id": "custom_footer_show_blog_home"
+      },
+      {
         "type": "color",
         "label": "i18n.FooterBlogBackground",
         "id": "custom-footer-blog-background"
@@ -1708,6 +1724,12 @@
         "label": "i18n.FooterCopyright",
         "force_reload": true,
         "id": "custom_footer_copyright"
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.PhoneShow",
+        "force_reload": true,
+        "id": "custom_phone_show"
       },
       {
         "type": "checkbox",

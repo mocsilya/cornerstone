@@ -50,13 +50,23 @@
 	{{#if theme_settings.custom_footer_client_blog}}
 		{{> components/custom/client/client-blog-top}}
 	{{/if}}
-	<div class="container">
 	{{#if theme_settings.custom_footer_show_blog}}
-		<article class="footer-blog-col" data-section-type="footer-blog">
-			{{> components/custom/footer-blog}}
-		</article>
+		{{#if settings.request.absolute_path '===' '/'}}
+			<div class="container">
+				<article class="footer-blog-col" data-section-type="footer-blog">
+					{{> components/custom/footer-blog}}
+				</article>
+			</div>
+		{{else}}
+			{{#unless theme_settings.custom_footer_show_blog_home}}
+				<div class="container">
+					<article class="footer-blog-col" data-section-type="footer-blog">
+						{{> components/custom/footer-blog}}
+					</article>
+				</div>
+			{{/unless}}
+		{{/if}}
 	{{/if}}
-	</div>
 	{{#if theme_settings.custom_footer_client_blog}}
 		{{> components/custom/client/client-blog-bottom}}
 	{{/if}}
