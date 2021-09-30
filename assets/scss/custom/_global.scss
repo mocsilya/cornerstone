@@ -3445,9 +3445,6 @@ a:hover span.card-image:only-of-type img {
 		padding: 0 .71429rem 0 0;
 	}
 	@include breakpoint("medium") {
-		padding: 0;
-	}
-	@include breakpoint("large") {
 		float: left;
 		padding: 0 .71429rem 0 0;
 		width: 50%;
@@ -3475,7 +3472,7 @@ a:hover span.card-image:only-of-type img {
 
 .productView-options .form-action .button {
 	margin-right: 0;
-	@include breakpoint("large") {
+	@include breakpoint("medium") {
 		width: 100%;
 	}
 }
