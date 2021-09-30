@@ -66,7 +66,7 @@
 	"custom_card_show_swatches": true,
 	"custom_card_show_wishlist": true,
     "custom_card_show_alt_image": true,
-	"custom_card_show_message": false,
+	"custom_card_show_message": true,
 	"custom_card_message_text": "",
     "custom_card_spotlight_name": "Spotlight",
     "custom-card-spotlight-color": "#ffffff",

@@ -16,6 +16,39 @@
 }
 
 
+// CARD
+// =============================================================================
+
+.card-message a {
+	display: block;
+	padding: .5rem;
+	text-align: center;
+	background: #f1b24a;
+	text-decoration: none;
+	border: none;
+	border-radius: none;
+	color: #164a41;
+}
+
+
+
+// PRODUCT
+// =============================================================================
+
+.delivery-notice {
+	display: block;
+	padding: .5rem;
+	text-align: center;
+	background: #f1b24a;
+	border: none;
+	border-radius: none;
+	color: #164a41;
+	margin-bottom: 1rem;
+}
+
+.delivery-notice a {
+	text-decoration: none;
+}
 
 // WIDGET CUSTOM BLOCKS
 // =============================================================================

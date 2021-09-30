@@ -1,0 +1,32 @@
+{{#each product.custom_fields}}
+                {{#if name '==' 'local'}}
+                       <div class="delivery-notice"><a href="https://www.k9active.co.uk/delivery#food-delivery">Delivery to <span>KY &amp; EH</span> Postcodes only, click for details</a></div>
+                       <style>
+                           .productView.buy-box {
+                                padding-top: 40px;
+                            }
+                            table.producttable {
+                                max-width: 500px;
+                                margin: 0 auto;
+                                display: table;
+                                white-space: break-spaces;
+                            }
+                            table.producttable td {
+                                padding: 10px 0;
+                                width: 50%;
+                            }
+                            a.tosizeguide.food-hidden {
+                                display: none;
+                            }
+                            .delivery-option {
+                                display: none;
+                            }
+                            @media (max-width: 450px){
+                               .productView.buy-box {
+                                    padding-top: 60px;
+                                }
+                            }
+                       </style>
+                    {{else}}
+                {{/if}}    
+            {{/each}} 
