@@ -1245,13 +1245,6 @@
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuWidth",
-		"id": "custom_header_menu_1_width",
-        "reference": "custom_header_menu_1_show",
-        "reference_default": false
-      },
-      {
-        "type": "text",
         "label": "i18n.HeaderMenuUrl",
         "id": "custom_header_menu_1_link",
         "reference": "custom_header_menu_1_show",
@@ -1281,13 +1274,6 @@
         "type": "text",
         "label": "i18n.HeaderMenuImage",
 		"id": "custom_header_menu_2_image",
-        "reference": "custom_header_menu_2_show",
-        "reference_default": false
-      },
-      {
-        "type": "text",
-        "label": "i18n.HeaderMenuWidth",
-		"id": "custom_header_menu_2_width",
         "reference": "custom_header_menu_2_show",
         "reference_default": false
       },
@@ -1327,13 +1313,6 @@
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuWidth",
-        "id": "custom_header_menu_3_width",
-        "reference": "custom_header_menu_3_show",
-        "reference_default": false
-      },
-      {
-        "type": "text",
         "label": "i18n.HeaderMenuUrl",
         "id": "custom_header_menu_3_link",
         "reference": "custom_header_menu_3_show",
@@ -1363,13 +1342,6 @@
         "type": "text",
         "label": "i18n.HeaderMenuImage",
         "id": "custom_header_menu_4_image",
-        "reference": "custom_header_menu_4_show",
-        "reference_default": false
-      },
-      {
-        "type": "text",
-        "label": "i18n.HeaderMenuWidth",
-        "id": "custom_header_menu_4_width",
         "reference": "custom_header_menu_4_show",
         "reference_default": false
       },
@@ -1409,13 +1381,6 @@
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuWidth",
-        "id": "custom_header_menu_5_width",
-        "reference": "custom_header_menu_5_show",
-        "reference_default": false
-      },
-      {
-        "type": "text",
         "label": "i18n.HeaderMenuUrl",
         "id": "custom_header_menu_5_link",
         "reference": "custom_header_menu_5_show",
@@ -1450,13 +1415,6 @@
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuWidth",
-        "id": "custom_header_menu_6_width",
-        "reference": "custom_header_menu_6_show",
-        "reference_default": false
-      },
-      {
-        "type": "text",
         "label": "i18n.HeaderMenuUrl",
         "id": "custom_header_menu_6_link",
         "reference": "custom_header_menu_6_show",
@@ -1468,6 +1426,11 @@
         "id": "custom_header_menu_6_text",
         "reference": "custom_header_menu_6_show",
         "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "i18n.HeaderMenuWidth",
+        "id": "custom_header_menu_width",
       },
       {
         "type": "heading",

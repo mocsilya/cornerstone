@@ -837,10 +837,10 @@
     "default": "Image filename (must be uploaded via Image Manager, e.g. my-picture.jpg)"
   },
   "i18n.HeaderMenuWidth": {
-    "default": "Width of image (you can use px or %)"
+    "default": "Width of images (you can use px or %)"
   },
   "i18n.HeaderMenuUrl": {
-    "default": "URL when clicked (excluding domain, e.g. /my-category)"
+    "default": "URL when clicked (e.g. /my-category)"
   },
   "i18n.HeaderMenuText": {
     "default": "Text label"
