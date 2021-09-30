@@ -3,12 +3,6 @@
 // =============================================================================
 //
 
-.navUser-item--widesearch .navUser-text {
-	@include breakpoint("medium") {
-		width: calc(100% - 30px);
-	}
-}
-
 .heroCarousel-description {
 	@include breakpoint("small") {
 		width: 40%;
@@ -49,6 +43,73 @@
 .delivery-notice a {
 	text-decoration: none;
 }
+
+.page-product .productView-info .customfield-label,
+.page-product .productView-info .customfield-value {
+	display: none;
+}
+
+.page-product .share-container,
+.page-product .facebookLikeBtn {
+	display: none;
+}
+
+.page-product .tab-content table {
+	min-width: 50%;
+}
+
+.page-product .tab-content table td {
+	padding: 1rem;
+	min-width: 50%;
+}
+
+.guides {
+	clear: both;
+}
+
+.tosizeguide {
+	font-weight: 700;
+	font-size: 1.25rem;
+}
+
+.food-opt,
+.delivery-option {
+	font-weight: 700;
+	padding: 1rem 0;
+}
+
+.payment-image {
+	width: 100%;
+	max-width: 300px;
+}
+
+.page-product .base-disclaimer {
+	padding: 1rem 0;
+}
+
+.food_rating {
+    display: table;
+    margin: 1rem 0;
+    max-width: 240px;
+}
+
+.food_rating > h2 {
+    display: table-cell;
+    vertical-align: middle;
+    background-color: #5fdb00;
+    margin: 0;
+    padding: 10px;
+    color: #fff;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.food_rating > img {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
 
 // WIDGET CUSTOM BLOCKS
 // =============================================================================
@@ -125,65 +186,3 @@ div[data-sub-layout-container="c56902ad-b300-4740-af56-f381f9fbaa19"] .custom-wi
 div[data-sub-layout-container="c5d7ec28-af78-43e2-99f7-24d33953a1b5"] .custom-widget-item {
     padding: 1.5rem;
 }
-
-@media (max-width: 800px) {
-	.custom-widget-list.slick-slider {
-	    flex: none;
-	    display: block;
-    }
-    .custom-widget-item.slick-slide {
-        flex: none;
-        display: block;
-        min-width: auto;
-    }
-}
-
-.custom-widget-list .slick-list {
-    @include breakpoint("medium") {
-		flex: 1 0 100%;
-	}
-}
-
-.custom-widget-list .slick-track {
-    @include breakpoint("medium") {
-		width: 100% !important;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-	}
-}
-
-.custom-widget-item.slick-slide {
-    @include breakpoint("medium") {
-		float: none;
-	}
-}
-
-.custom-widget-list .slick-next,
-.custom-widget-list .slick-prev {
-	width: 2.5rem;
-	background: none;
-	border: 0;
-}
-
-.custom-widget-list .slick-next::before,
-.custom-widget-list .slick-prev::before {
-	width: 1.25rem;
-}
-
-.custom-widget-list .slick-next {
-	right: -1.5rem;
-	padding: 0 0 0 1.125rem;
-	@include breakpoint("medium") {
-		right: -2.25rem;
-	}
-}
-
-.custom-widget-list .slick-prev {
-	left: -1.5rem;
-	padding: 0 0 0 .125rem;
-	@include breakpoint("medium") {
-		left: -2.25rem;
-	}
-}
-

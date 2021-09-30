@@ -1,43 +1,34 @@
 <div class="guides">
-        {{#each product.custom_fields}}
-            {{#if name '==' 'local'}}
-                    <a class="tosizeguide top-btn-option" href="javascript:void(0)"><i class="fas fa-bone"></i>Feeding Guidelines</a>
-                {{else}}
-            {{/if}}    
-        {{/each}} 
-        {{#each product.custom_fields}}
-            {{#if name '==' 'delivery'}}
-                <div class="availability-box">
-                    <a class="tosizeguide top-btn-option" href="javascript:void(0)"><i class="far fa-calendar-check"></i>{{value}}</a>
-                </div>
-            {{/if}}    
-        {{/each}} 
-                    <a class="tosizeguide food-hidden" href="javascript:void(0)"><i class="fa fa-window-maximize"></i>Size Guide</a>  
-			</div>   
+	{{#each product.custom_fields}}
+		{{#if name '==' 'local'}}
+			<a class="tosizeguide" href="#description-guide">Feeding Guidelines</a>
+		{{/if}}
+        {{#if name '==' 'delivery'}}
+			<div class="availability-box">
+				<a class="tosizeguide" href="#description-guide">{{value}}</a>
+			</div>
+		{{/if}}  
+	{{/each}}
+	<a class="tosizeguide food-hidden" href="#description-guide">Size Guide</a>  
+</div>   
 
-            {{#each product.custom_fields}}
-                {{#if name '==' 'food-delivery'}}
-<style>
+{{#each product.custom_fields}}
+	{{#if name '==' 'food-delivery'}}
+	<style>.delivery-option { display: none; } </style>                
+	<div class="food-opt">
+		<span class="delivery-label">{{value}}</span>	
+	</div> 
+	{{/if}}
+{{/each}}
 
-                            .delivery-option {
-                                display: none;
-                            }    
-</style>                
-            <div class="food-opt">
-                <span class="delivery-label">{{value}}</span>	
-            </div> 
-            
-                {{/if}}
-            {{/each}}
+<div class="delivery-option">
+	<span class="delivery-label">Easy 60 Day Returns | Delivery from £2.99 | FREE over £45</span>	
+</div> 
 
-            <div class="delivery-option">
-                <span class="delivery-label">Easy 60 Day Returns | Delivery from £2.99 | FREE over £45</span>	
-            </div> 
-        
-        <div class="payment-image">
-            <img src="https://cdn11.bigcommerce.com/s-39evn3p/product_images/uploaded_images/payment-option.jpeg?t=1619261562&_ga=2.213518615.2061772573.1619259400-99617280.1617266424" alt="payment icons">
-        </div> 
-        
-        <div class="base-disclaimer">
-        	<span class="disclaimer">Established online since 2008 | Over 120,000 orders</span>	
-        </div>
+<div class="payment-image">
+	<img src="https://cdn11.bigcommerce.com/s-39evn3p/product_images/uploaded_images/payment-option.jpeg?t=1619261562&_ga=2.213518615.2061772573.1619259400-99617280.1617266424" alt="payment icons">
+</div> 
+
+<div class="base-disclaimer">
+	<span class="disclaimer">Established online since 2008 | Over 120,000 orders</span>	
+</div>
