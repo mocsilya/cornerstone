@@ -1430,7 +1430,7 @@
       {
         "type": "text",
         "label": "i18n.HeaderMenuWidth",
-        "id": "custom_header_menu_width",
+        "id": "custom_header_menu_width"
       },
       {
         "type": "heading",
