@@ -5,6 +5,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Draft
+- Fix product images on PDP has clipped outline. [#2124](https://github.com/bigcommerce/cornerstone/pull/2124)
+- Changed debounce wait time for search to 1200 ms from 200 ms. [#2115](https://github.com/bigcommerce/cornerstone/pull/2115)
+- additional checkout buttons don't work on applying 100% discount coupon. [#2109](https://github.com/bigcommerce/cornerstone/pull/2109)
+- Fix sliding carousel with products cause footer headers flickering. [#2119](https://github.com/bigcommerce/cornerstone/pull/2119)
+
+## 6.1.0 (09-03-2021)
 - Fixed images placeholder on hero carousel shifted on mobile when slide has content. [#2112](https://github.com/bigcommerce/cornerstone/pull/2112)
 - Google AMP feature request - Add in release date info for preorder products. [#2107](https://github.com/bigcommerce/cornerstone/pull/2107)
 - Translation for states select field on account signup page. [#2105](https://github.com/bigcommerce/cornerstone/pull/2105)
