@@ -2119,6 +2119,46 @@ body.scroll .navPages > ul > li > .navPages-action {
 	font-size: 1rem;
 }
 
+
+
+// Category (Alternate Custom Template)
+// =============================================================================
+
+.category-alternate {
+    font-size: 0;
+}
+
+.category-alternate .category-description {
+    font-size: 1.125rem;
+}
+
+.category-alternate .category-description-withsub {
+    @include breakpoint("medium") {
+        display: inline-block;
+        vertical-align: top;
+		width: 50%;
+		padding-right: 3rem;
+	}
+}
+
+.category-alternate .category-description + .category-subcategories {
+    @include breakpoint("medium") {
+        display: inline-block;
+        vertical-align: top;
+		width: 50%;
+	}
+}
+
+.category-alternate .category-description + .category-subcategories .subcategories-grid-item {
+    @include breakpoint("medium") {
+		width: 100%;
+	}
+	@include breakpoint("large") {
+		width: 50%;
+	}
+}
+
+
 // Brand Page
 // =============================================================================
 

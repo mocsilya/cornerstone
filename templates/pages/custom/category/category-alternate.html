@@ -44,8 +44,32 @@ customer:
 
 {{#partial "page"}}
 {{{region name="category_below_header"}}}
-<div class="category-description">
-	{{{category.description}}}
+<div class="category-alternate">
+	{{#if category.description}}
+		<div class="category-description{{#if category.subcategories}} category-description-withsub{{/if}}">
+			{{{category.description}}}
+		</div>
+	{{/if}}
+	{{#if category.subcategories}}
+		<div class="category-subcategories">
+			<ul class="subcategories-grid">
+			{{#each category.subcategories}}
+			<li class="subcategories-grid-item">
+				<div class="subcategories-container">
+					<a href="{{url}}">
+					{{#if image}}
+						<span class="subcategories-image"><img src="{{getImage image 'category_card_size'}}" alt="{{name}}"></span>
+					{{else}}
+						<span class="subcategories-blank">Image Not Found</span>
+					{{/if}}
+						<span class="subcategories-name">{{name}}</span>
+					</a>
+				</div>
+			</li>
+			{{/each}}
+			</ul>
+		</div>
+	{{/if}}
 </div>
 <div class="page">
 {{#if category.products}}
@@ -75,32 +99,6 @@ customer:
     </div>
 {{else}}
     <div class="page-content" id="product-listing-container">
-		{{#if category.subcategories}}
-		<ul class="subcategories-grid">
-			{{#each category.subcategories}}
-			<li class="subcategories-grid-item">
-				<div class="subcategories-container">
-					<a href="{{url}}">
-					{{#if image}}
-						<span class="subcategories-image"><img src="{{getImage image 'category_card_size'}}" alt="{{name}}"></span>
-					{{else}}
-						<span class="subcategories-blank">Image Not Found</span>
-					{{/if}}
-						<span class="subcategories-name">{{name}}</span>
-					</a>
-				</div>
-			</li>
-			{{/each}}
-		</ul>
-		{{else}}
-        <p data-no-products-notification
-           role="alert"
-           aria-live="assertive"
-           tabindex="-1"
-        >
-            {{lang 'categories.no_products'}}
-        </p>
-		{{/if}}
         {{{region name="category_below_content"}}}
     </div>
 {{/if}}
