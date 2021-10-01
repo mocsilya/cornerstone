@@ -1,6 +1,19 @@
+---
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+customer:
+    wishlists:
+        limit: 10
+---
 {{#partial "hero"}}
 <div class="container container-hero">
-	<div class="page-header info-header">
+	{{#if theme_settings.custom_page_header_image_sitemap}}
+		<div class="page-header sitemap-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
+	    <img class="page-header-image" src="/product_images/uploaded_images/{{theme_settings.custom_page_header_image_sitemap}}" />
+	{{else}}
+		<div class="page-header sitemap-header">
+	{{/if}}
     	<h1 class="page-heading">{{lang 'page_not_found.page_heading'}}</h1>
 		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 	</div>
@@ -9,13 +22,31 @@
 {{#partial "page"}}
 
 <div class="page">
-    <section class="page-content page-content--centered">
+    <section class="page-content">
         
         <p class="u-textAlignCenter">
             {{lang 'page_not_found.message'}}
         </p>
 
         {{> components/common/search-box}}
+		
+		<ul class="subcategories-grid">
+			{{#each categories}}
+			<li class="subcategories-grid-item">
+				<div class="subcategories-container">
+					<a href="{{url}}">
+					{{#if image}}
+						<span class="subcategories-image"><img src="{{getImage image 'category_card_size'}}" alt="{{name}}"></span>
+					{{else}}
+						<span class="subcategories-blank">Image Not Found</span>
+					{{/if}}
+						<span class="subcategories-name">{{name}}</span>
+					</a>
+				</div>
+			</li>
+			{{/each}}
+		</ul>
+		
 		{{> components/custom/client/client-404}}
 		
 		<ul class="sitemap-list">
