@@ -46,7 +46,7 @@ customer:
 {{{region name="category_below_header"}}}
 <div class="category-alternate">
 	{{#if category.description}}
-		<div class="category-description">
+		<div class="category-description{{#if category.subcategories}} category-description-withsub{{/if}}">
 			{{{category.description}}}
 		</div>
 	{{/if}}
@@ -99,14 +99,6 @@ customer:
     </div>
 {{else}}
     <div class="page-content" id="product-listing-container">
-        <p data-no-products-notification
-           role="alert"
-           aria-live="assertive"
-           tabindex="-1"
-        >
-            {{lang 'categories.no_products'}}
-        </p>
-		{{/if}}
         {{{region name="category_below_content"}}}
     </div>
 {{/if}}
