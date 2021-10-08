@@ -32,7 +32,7 @@
 
 
 .heroCarousel {
-	margin-bottom: 0;
+	margin-bottom: 1.5rem;
 }
 
 .heroCarousel-title {
@@ -109,8 +109,8 @@
 	background: #333;
 	@include breakpoint("large") {
 		background: none;
-		height: 31.9vw;
-		max-height: 459px;
+		height: 21vw;
+		max-height: 320px;
 	}
 }
 
@@ -165,8 +165,11 @@
 
 .carousel-brands img {
 	display: block;
-	max-height: 100%;
+	max-height: 30px;
 	max-width: 100%;
+	@include breakpoint("large") {
+		max-height: 50px;
+	}
 }
 
 .carousel-links {
@@ -999,5 +1002,28 @@ li.product {
 	padding-bottom: 80px;
 }
 
+
+
+
+
+// WIDGET
+// =============================================================================
+
+.custom-widget-image {
+    align-self: center;
+}
+
+[data-sub-layout="0f0fd5bf-4552-4421-b1da-b5b8f30f7f59"]  .custom-widget-container {
+    padding-top: 1.5rem;
+}
+
+[data-sub-layout="0f0fd5bf-4552-4421-b1da-b5b8f30f7f59"] .custom-widget-list {
+    flex-direction: row;
+}
+ 
+[data-sub-layout="0f0fd5bf-4552-4421-b1da-b5b8f30f7f59"]  .custom-widget-item {
+    width: 33.333333%;
+    min-width: 33.333333%;
+}
 
 
