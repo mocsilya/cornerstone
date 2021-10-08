@@ -9,6 +9,10 @@
 	}
 }
 
+.page-default .body {
+	margin-bottom: 0;
+}
+
 
 // CARD
 // =============================================================================
@@ -186,3 +190,61 @@ div[data-sub-layout-container="c56902ad-b300-4740-af56-f381f9fbaa19"] .custom-wi
 div[data-sub-layout-container="c5d7ec28-af78-43e2-99f7-24d33953a1b5"] .custom-widget-item {
     padding: 1.5rem;
 }
+
+
+
+
+// WIDGET FOR STORE INFO
+// =============================================================================
+
+div[data-content-region="home_below_carousel"] + .container {
+    max-width: none;
+	padding: 0;
+}
+
+.page-default .main .tabs,
+.page-default .main .tabs-contents,
+div[data-content-region="home_below_featured_products"] > div,
+div[data-content-region="home_below_top_products"] > div,
+div[data-content-region="home_below_new_products"] > div {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $container-padding;
+	padding-right: $container-padding;
+    width: layout("fixed");
+	max-width: layout("max") + ($container-padding * 4);
+    @include breakpoint("large") {
+        padding-left: ($container-padding * 4);
+		padding-right: ($container-padding * 4);
+    }
+}
+
+div[data-content-region="home_below_featured_products"] {
+	background-color: #f6f0ee;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+div[data-content-region="home_below_new_products"] {
+	background-color: #4d774e;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	font-family: "Itim", Arial, Helvetica, sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
