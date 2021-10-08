@@ -62,7 +62,6 @@
                     value="{{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{#if theme_settings.custom_product_addtocart_show}}{{theme_settings.custom_product_addtocart_text}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}{{/if}}"
             >
             <span class="product-status-message aria-description--hidden">{{lang 'products.adding_to_cart'}} {{lang 'category.add_cart_announcement'}}</span>
-			{{> components/custom/client/client-product-bottom}}
         </div>
     {{/or}}
 </div>

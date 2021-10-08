@@ -1,4 +1,4 @@
-<div class="heroCarousel-content{{#unless show_background}} heroCarousel-content--empty{{/unless}}">
+<div class="heroCarousel-content{{#and (if heading '==' false) (if text '==' false)}} heroCarousel-content--empty{{/and}}">
 	{{#if heading}}
     <h3 class="heroCarousel-title">
 		{{#if button_text}}

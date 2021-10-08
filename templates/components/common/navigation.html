@@ -38,6 +38,7 @@
         </div>
     {{/if}}
     <ul class="navUser-section navUser-section--alt navUser-section-{{theme_settings.logo-position}}">
+		{{> components/custom/client/client-header-nav}}
         {{#if customer.store_credit.value '>' 0}}
             <li class="navUser-item navUser-item--credit">
                 <a class="navUser-action navUser-action--storeCredit"
