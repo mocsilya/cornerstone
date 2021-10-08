@@ -305,31 +305,6 @@ li.product {
 	width: 100%;
 }
 
-.productView-options .form-action .form-action-buttons-2 .button {
-	@include breakpoint("small") {
-		display: inline-block;
-		width: calc(50% - 0.71429rem);
-	}
-	@include breakpoint("medium") {
-		width: 100%;
-	}
-	@include breakpoint("large") {
-		width: calc(50% - 0.71429rem);
-	}
-}
-
-.productView-options .form-action .form-action-buttons-2 .button:first-child {
-	@include breakpoint("small") {
-		float: right;
-	}
-	@include breakpoint("medium") {
-		float: none;
-	}
-	@include breakpoint("large") {
-		float: right;
-	}
-}
-
 .payment-product .form-action-buttons,
 .payment-product #imega-widget-anchor {
 	display: none !important;
@@ -340,15 +315,7 @@ li.product {
 	border: 1px solid #189ac9;
 	color: #fff;
 	font-weight: 700;
-	@include breakpoint("small") {
-		margin-bottom: 0;
-	}
-	@include breakpoint("medium") {
-		margin-bottom: 1rem;
-	}
-	@include breakpoint("large") {
-		margin-bottom: 0;
-	}
+	margin-bottom: 1rem;
 }
 
 #form-action-finance {
