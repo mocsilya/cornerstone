@@ -1935,6 +1935,29 @@ body.scroll .navPages > ul > li > .navPages-action {
 	width: 100%;
 }
 
+.page-sidebar-horizontal .sidebarCategories-parents {
+	display: none;
+}
+
+.page-sidebar-vertical .sidebarCategories-parents {
+	display: none;
+	@include breakpoint("medium") {
+		display: block;
+	}
+}
+
+.page-sidebar-vertical .sidebarCategories-children {
+	@include breakpoint("medium") {
+		display: none;
+	}
+}
+
+.page-sidebar .sidebarCategories-children {
+	margin-top: 0;
+	border-top: 0;
+	padding-top: 0;
+}
+
 .page-sidebar-horizontal .sidebarCategories .sidebarBlock-heading,
 .page-sidebar-vertical .sidebarCategories .sidebarBlock-heading {
 	display: none;
@@ -2023,6 +2046,12 @@ body.scroll .navPages > ul > li > .navPages-action {
 		text-align: left;
 		margin: 0;
 	    border: 0;
+	}
+}
+
+.page-sidebar-vertical .sidebarCategories .navList-item.activeCategory ul {
+	@include breakpoint("medium") {
+		padding-left: .75rem;
 	}
 }
 
