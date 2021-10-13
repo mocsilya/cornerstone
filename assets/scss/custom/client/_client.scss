@@ -2,3 +2,95 @@
 // Custom > Client
 // =============================================================================
 //
+
+.page-default .container-hero {
+	margin-top: 1.5rem;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: $container-padding;
+	padding-right: $container-padding;
+	width: layout("fixed");
+	max-width: layout("max") + ($container-padding * 4);
+	@include breakpoint("large") {
+		padding-left: ($container-padding * 4);
+		padding-right: ($container-padding * 4);
+	}
+}
+
+
+.heroCarousel:before, .heroCarousel:after {
+	z-index: -1;
+	position: absolute;
+	content: "";
+	bottom: 15px;
+	left: 10px;
+	width: 50%;
+	top: 80%;
+	max-width:300px;
+	background: #777;
+	-webkit-box-shadow: 0 15px 10px #777;
+	-moz-box-shadow: 0 15px 10px #777;
+	box-shadow: 0 15px 10px #777;
+	-webkit-transform: rotate(-3deg);
+	-moz-transform: rotate(-3deg);
+	-o-transform: rotate(-3deg);
+	-ms-transform: rotate(-3deg);
+	transform: rotate(-3deg);
+}
+
+.heroCarousel:after {
+	-webkit-transform: rotate(3deg);
+	-moz-transform: rotate(3deg);
+	-o-transform: rotate(3deg);
+	-ms-transform: rotate(3deg);
+	transform: rotate(3deg);
+	right: 10px;
+	left: auto;
+}
+
+
+// WIDGET FOR CATEGORY BOXES
+// =============================================================================
+
+div[data-content-region="home_below_carousel"] {
+	background: #ebebeb;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+@media (max-width: 800px) {
+	div[data-sub-layout-container="4881a661-cdcb-45c4-909d-06ffd017f87d"] .custom-widget-item {
+		min-width: 50%;
+	}
+}
+
+div[data-sub-layout-container="4881a661-cdcb-45c4-909d-06ffd017f87d"] .custom-widget-link {
+    border: .25rem solid #fff;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3); 
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+}
+
+div[data-sub-layout-container="4881a661-cdcb-45c4-909d-06ffd017f87d"] .custom-widget-content {
+    top: auto;
+    bottom: 1rem;
+    transform: none;
+    left: 1rem;
+    right: 1rem;
+    background: rgba(0,0,0,0.3);
+    flex-direction: row;
+    padding: .75rem;
+}
+
+div[data-sub-layout-container="4881a661-cdcb-45c4-909d-06ffd017f87d"] .custom-widget-heading {
+    flex: 1 1 auto;
+    text-align: left;
+}
+
+div[data-sub-layout-container="4881a661-cdcb-45c4-909d-06ffd017f87d"] .custom-widget-button {
+    flex: 0 1 auto;
+    margin-top: 0;
+}
+
+
+
+
