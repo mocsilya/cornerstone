@@ -351,7 +351,7 @@ body.scroll .header {
 .header .container:not(.header .dropdown--quickSearch .container) {
 	display: inline-flex;
 	align-items: center;
-	min-width: 100%;
+	width: 100%;
 	flex-wrap: nowrap;
 }
 
@@ -541,6 +541,7 @@ body.scroll .header-logo-text {
 .navUser {
 	@include breakpoint("medium") {
 		padding: 0;
+		text-align: center;
 	}
 }
 
@@ -825,7 +826,7 @@ body.hasAdminBar.scroll .dropdown--quickSearch.is-open {
 .navUser-item--widesearch .navUser-text {
 	@include breakpoint("medium") {
 		display: inline-block;
-		width: calc(100% - 25px);
+		width: calc(100% - 30px);
 		text-align: left;
 	}
 }
@@ -1848,21 +1849,33 @@ body.scroll .navPages > ul > li > .navPages-action {
 
 
 
-// Category Header
+// Page Header
 // =============================================================================
 
-.category-header-image {
-	padding: 8vw 0;
+.page-header-image {
+	width: 100%;
 }
 
-.category-header-image .page-heading,
-.category-header-image .breadcrumbs {
+.page-header-slim {
+	padding: 3vw 0;
+}
+
+.page-header-medium {
+	padding: 6vw 0;
+}
+
+.page-header-deep {
+	padding: 9vw 0;
+}
+
+.page-header-image .page-heading,
+.page-header-image .breadcrumbs {
 	padding: 1.5rem;
 }
 
-.category-header-image .page-heading,
-.category-header-image .breadcrumbs,
-.category-header-image .page-heading + nav .breadcrumbs {
+.page-header-image .page-heading,
+.page-header-image .breadcrumbs,
+.page-header-image .page-heading + nav .breadcrumbs {
     margin: 0 10%;
     background: rgba(stencilColor("custom-page-header-background"), 0.8);
     @include breakpoint("small") {
@@ -1876,12 +1889,12 @@ body.scroll .navPages > ul > li > .navPages-action {
     }
 }
 
-.category-header-image .page-heading + nav .breadcrumbs {
+.page-header-image .page-heading + nav .breadcrumbs {
 	top: auto;
     padding: 0 1.5rem 1.5rem 1.5rem;
 }
 
-.category-header-image img {
+.page-header-image img {
 	position: absolute;
 	top: 50%;
     transform: translateY(-50%);
@@ -1920,6 +1933,29 @@ body.scroll .navPages > ul > li > .navPages-action {
 .page-sidebar-horizontal,
 .page-sidebar-horizontal + .page-content {
 	width: 100%;
+}
+
+.page-sidebar-horizontal .sidebarCategories-parents {
+	display: none;
+}
+
+.page-sidebar-vertical .sidebarCategories-parents {
+	display: none;
+	@include breakpoint("medium") {
+		display: block;
+	}
+}
+
+.page-sidebar-vertical .sidebarCategories-children {
+	@include breakpoint("medium") {
+		display: none;
+	}
+}
+
+.page-sidebar .sidebarCategories-children {
+	margin-top: 0;
+	border-top: 0;
+	padding-top: 0;
 }
 
 .page-sidebar-horizontal .sidebarCategories .sidebarBlock-heading,
@@ -2010,6 +2046,12 @@ body.scroll .navPages > ul > li > .navPages-action {
 		text-align: left;
 		margin: 0;
 	    border: 0;
+	}
+}
+
+.page-sidebar-vertical .sidebarCategories .navList-item.activeCategory ul {
+	@include breakpoint("medium") {
+		padding-left: .75rem;
 	}
 }
 
@@ -2105,6 +2147,46 @@ body.scroll .navPages > ul > li > .navPages-action {
 	font-weight: 700;
 	font-size: 1rem;
 }
+
+
+
+// Category (Alternate Custom Template)
+// =============================================================================
+
+.category-alternate {
+    font-size: 0;
+}
+
+.category-alternate .category-description {
+    font-size: 1.125rem;
+}
+
+.category-alternate .category-description-withsub {
+    @include breakpoint("medium") {
+        display: inline-block;
+        vertical-align: top;
+		width: 50%;
+		padding-right: 3rem;
+	}
+}
+
+.category-alternate .category-description + .category-subcategories {
+    @include breakpoint("medium") {
+        display: inline-block;
+        vertical-align: top;
+		width: 50%;
+	}
+}
+
+.category-alternate .category-description + .category-subcategories .subcategories-grid-item {
+    @include breakpoint("medium") {
+		width: 100%;
+	}
+	@include breakpoint("large") {
+		width: 50%;
+	}
+}
+
 
 // Brand Page
 // =============================================================================
@@ -3432,9 +3514,6 @@ a:hover span.card-image:only-of-type img {
 		padding: 0 .71429rem 0 0;
 	}
 	@include breakpoint("medium") {
-		padding: 0;
-	}
-	@include breakpoint("large") {
 		float: left;
 		padding: 0 .71429rem 0 0;
 		width: 50%;
@@ -3462,7 +3541,7 @@ a:hover span.card-image:only-of-type img {
 
 .productView-options .form-action .button {
 	margin-right: 0;
-	@include breakpoint("large") {
+	@include breakpoint("medium") {
 		width: 100%;
 	}
 }
@@ -3734,9 +3813,23 @@ a:hover span.card-image:only-of-type img {
 }
 
 
+// Search Results
+// =============================================================================
+
+.page-search .panel--large {
+	display: none;
+}
+
+.page-search #search-results-content h3 {
+	margin: 0;
+}
+
 // Blog
 // =============================================================================
 
+.page-blog section.page {
+	padding-top: .5rem;
+}
 .page-blog section.page:before,
 .page-blog section.page:after {
 	@include breakpoint("medium") {
@@ -3783,6 +3876,32 @@ a:hover span.card-image:only-of-type img {
 
 .blog-thumbnail {
 	max-width: none;
+}
+
+.form-blog {
+	font-size: 0;
+}
+
+.form-blog .form-input {
+	width: calc(100% - 50px);
+	display: inline-block;
+	vertical-align: top;
+}
+
+.form-blog .button {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 0 0 .5rem;
+	padding-left: 0.875rem;
+	padding-right: 0.875rem;
+}
+
+.form-blog .button .icon svg {
+	fill: stencilColor("button--primary-color");
+}
+
+.form-blog .button:hover .icon svg {
+	fill: stencilColor("button--primary-colorHover");
 }
 
 
@@ -3914,7 +4033,9 @@ a:hover span.card-image:only-of-type img {
 }
 
 .sitemap-list-item h2 {
-	margin-top: 0;
+	@include breakpoint("medium") {
+		margin-top: 0;
+	}
 }
 
 
@@ -4606,5 +4727,44 @@ a:hover .custom-widget-placeholder {
 	}
     @include breakpoint("large") {
 		min-width: 8.33333%;
+	}
+}
+
+.custom-widget-list.slick-slider {
+	flex: none;
+	display: block;
+}
+
+.custom-widget-item.slick-slide {
+	flex: none;
+	display: block;
+	min-width: auto;
+}
+
+.custom-widget-list .slick-next,
+.custom-widget-list .slick-prev {
+	width: 2.5rem;
+	background: none;
+	border: 0;
+}
+
+.custom-widget-list .slick-next::before,
+.custom-widget-list .slick-prev::before {
+	width: 1.25rem;
+}
+
+.custom-widget-list .slick-next {
+	right: -1.5rem;
+	padding: 0 0 0 1.125rem;
+	@include breakpoint("medium") {
+		right: -2.25rem;
+	}
+}
+
+.custom-widget-list .slick-prev {
+	left: -1.5rem;
+	padding: 0 0 0 .125rem;
+	@include breakpoint("medium") {
+		left: -2.25rem;
 	}
 }

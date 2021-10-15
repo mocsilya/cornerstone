@@ -32,6 +32,24 @@ customer:
 </div>
 {{/partial}}
 
+{{#partial "hero"}}
+<div class="container container-hero">
+	{{#if theme_settings.custom_page_header_image_search}}
+		<div class="page-header search-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
+	    <img class="page-header-image" src="/product_images/uploaded_images/{{theme_settings.custom_page_header_image_search}}" />
+	{{else}}
+		<div class="page-header search-header">
+	{{/if}}
+	{{#if forms.search.query}}
+    	{{>components/search/heading}}
+	{{else}}
+		<h1 class="page-heading">Search</h1>
+	{{/if}}  
+	{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	</div>
+</div>
+{{/partial}}
+
 {{#partial "page"}}
 <section class="nav">
     <nav class="navBar navBar--sub search-nav">
