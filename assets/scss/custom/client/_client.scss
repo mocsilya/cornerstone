@@ -115,21 +115,12 @@
 	width: 100%;
 }
 
-.productView-options .form-action,
-.productView-options .form-wishlist  {
-	@include breakpoint("large") {
-		width: 100%;
-		padding: 0;
-		float: none;
-	}
-}
-
 .productView-brand {
 	display: none;
 }
 
 h4.productView-title {
-	color: #cb0034;
+	color: #cda955;
 }
 
 
@@ -346,7 +337,7 @@ ul.gallery-items li {
 }
 
 .ay-promobox-item span {
-	background: #cb0034;
+	background: #cda955;
 	color: #fff;
 	font-size: 15px;
 	right: 5px;
@@ -360,7 +351,7 @@ ul.gallery-items li {
 }
 
 .special-title {
-    color: #cb0034;
+    color: #cda955;
 }
 
 
@@ -485,3 +476,19 @@ div[data-sub-layout-container="4958883d-5514-41eb-be8a-95ade0fe8321"] {
 	}
 }
 
+
+// WIDGET (content for 3 heart boxes)
+// =============================================================================
+
+div[data-sub-layout-container="d29ca040-0a8e-4d8c-b2e5-fa191f8794b2"] {
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: $container-padding;
+	padding-right: $container-padding;
+	width: layout("fixed");
+	max-width: layout("max") + ($container-padding * 4);
+	@include breakpoint("large") {
+		padding-left: ($container-padding * 4);
+		padding-right: ($container-padding * 4);
+	}
+}
