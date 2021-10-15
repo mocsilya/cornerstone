@@ -236,6 +236,7 @@
 
             
             <article class="footer-info-col footer-info-col--small" data-section-type="storeInfo">
+				{{> components/custom/client/client-footer-top}}
                 <h3 class="footer-info-heading">{{settings.store_name}}</h3>
 				{{#if settings.address}}
                 <address>{{nl2br settings.address}}</address>
@@ -252,6 +253,7 @@
 						<a href="mailto:{{theme_settings.custom_email_address}}"><strong>{{lang 'footer.email_us'}}</strong></a>
 					</p>
                 {{/if}}
+				{{> components/custom/client/client-footer-bottom}}
             </article>
 
         </section>
