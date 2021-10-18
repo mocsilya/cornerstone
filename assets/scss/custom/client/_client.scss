@@ -3,14 +3,60 @@
 // =============================================================================
 //
 
-.heroCarousel-description {
-	@include breakpoint("small") {
-		width: 40%;
-	}
-}
-
 .page-default .body {
 	margin-bottom: 0;
+}
+
+
+
+// NEWSLETTER
+// =============================================================================
+
+.newsletter-heading {
+    @include breakpoint("large") {
+        font-size: 32px;
+    }
+}
+
+// BLOG
+// =============================================================================
+
+.footer-blog-img img {
+	border-radius: .5rem;
+}
+
+
+
+
+// FOOTER
+// =============================================================================
+
+.footer-info-heading {
+    @include breakpoint("large") {
+        font-size: 20px;
+    }
+}
+
+.footer-info-col[data-section-type="storeInfo"] .footer-info-heading {
+	display: none;
+}
+
+.footer-info-col[data-section-type="storeInfo"] address {
+	margin-top: 1rem;
+}
+
+body .footer .header-logo__link {
+    @include breakpoint("small") {
+        justify-content: flex-start;
+    }
+}
+
+body .footer .header-logo-image-container,
+body .footer .header-logo-image {
+	max-height: none;
+	max-width: 200px;
+	width: 100%;
+	height: auto;
 }
 
 
@@ -181,6 +227,13 @@ div[data-sub-layout-container="c56902ad-b300-4740-af56-f381f9fbaa19"] .custom-wi
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f0ee', endColorstr='#ffffff',GradientType=0 ) !important;
 	border-top-left-radius: .75rem;
 	border-top-right-radius: .75rem;
+}
+
+div[data-sub-layout-container="c56902ad-b300-4740-af56-f381f9fbaa19"] .custom-widget-heading {
+	font-size: 24px !important;
+    @include breakpoint("xlarge") {
+        font-size: 32px !important;
+    }
 }
 
 
