@@ -3,6 +3,10 @@
 // =============================================================================
 //
 
+h1, h2, h3, h4, h5, h6 {
+	font-family:"Gilroy W05 Black";
+}
+
 .page-default .container-hero {
 	margin-top: 1.5rem;
 	margin-left: auto;
@@ -48,9 +52,116 @@ right: 10px;
 left: auto;
 }
 
-.footer-newsletter {
+
+// Page Banners
+// =============================================================================
+
+.category-header.page-header-image .page-heading,
+.category-header.page-header-image nav {
+	visibility: hidden;
+}
+
+
+
+// Footer
+// =============================================================================
+
+
+.footer-newsletter,
+.footer-about {
 	background-image: url('../img/custom/client/seamless.png');
 }
+
+.footer-about {
+	display: none;
+	padding-top: 3rem;
+}
+
+.footer-instagram {
+	display: none;
+}
+
+.page-default .footer-about,
+.page-default .footer-instagram {
+	display: block;
+}
+
+.footer-about-left,
+.footer-about-right {
+	display: flex;
+	flex: 1 0 0px;
+	@include breakpoint("medium") {
+		flex: 1 1 0px;
+	}
+}
+
+.footer-about-left {
+	padding-bottom: 1.5rem;
+	@include breakpoint("medium") {
+		padding-bottom: 0;
+		padding-right: 1.5rem;
+	}
+}
+
+.footer-about-right {
+	@include breakpoint("medium") {
+		padding-left: 1.5rem;
+	}
+}
+
+.footer-about-left > div,
+.footer-about-right > div {
+	background: #fff;
+	padding: .5rem;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3); 
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+}
+
+.footer-about-right > div {
+	padding: 1.5rem;
+}
+
+
+.footer-blog h2 a,
+.footer-blog h2 a:hover {
+	color: #fff;
+}
+
+.footer-info-col[data-section-type="storeInfo"] h3 {
+	display: none;
+}
+
+.footer-info-col address {
+	margin-top: .75rem;
+}
+
+
+// ELF SIGHT
+// =============================================================================
+
+.header {
+    z-index: 100001;
+}
+
+.header-bar {
+    z-index: 100002;
+}
+
+.modal-background {
+    z-index: 100004;
+}
+
+#modal,
+#previewModal,
+#modal-review-form,
+#ay-question {
+    z-index: 100005;
+}
+
+#eapps-instagram-feed-1 .eapps-instagram-feed-title-container,
+.eapps-instagram-feed-posts-grid-load-more-container { display: none !important; }
+#eapps-instagram-feed-1 .eapps-instagram-feed-container { position: relative; top: 80px; z-index: 100000; background: #a74d7f; margin-top: -80px; }
+
 
 
 // WIDGET FOR CATEGORY BOXES
