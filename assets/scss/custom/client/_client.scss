@@ -247,7 +247,7 @@ div[data-sub-layout-container="c5d7ec28-af78-43e2-99f7-24d33953a1b5"] .custom-wi
 
 
 
-// WIDGET FOR STORE INFO
+// OTHER WIDGETS
 // =============================================================================
 
 div[data-content-region="home_below_carousel"] + .container {
@@ -265,10 +265,20 @@ div[data-content-region="home_below_new_products"] > div {
     padding-left: $container-padding;
 	padding-right: $container-padding;
     width: layout("fixed");
-	max-width: layout("max") + ($container-padding * 4);
+    @include breakpoint("medium") {
+	    padding-left: $container-padding * 2;
+		padding-right: $container-padding * 2;
+    }
     @include breakpoint("large") {
-        padding-left: ($container-padding * 4);
-		padding-right: ($container-padding * 4);
+	    padding-left: $container-padding * 4;
+		padding-right: $container-padding * 4;
+		max-width: calc(1440px + 12rem);
+    }
+}
+
+.page-default .main .tabs {
+    @include breakpoint("large") {
+		max-width: calc(1440px);
     }
 }
 
