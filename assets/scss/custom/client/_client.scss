@@ -94,8 +94,9 @@ body .footer .header-logo-image {
 	text-decoration: none;
 }
 
-.page-product .productView-info .customfield-label,
-.page-product .productView-info .customfield-value {
+.customfield-local,
+.customfield-score,
+.customfield-food-delivery {
 	display: none;
 }
 
@@ -294,20 +295,5 @@ div[data-content-region="home_below_new_products"] {
 	padding-bottom: 2rem;
 	font-family: "Itim", Arial, Helvetica, sans-serif;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
