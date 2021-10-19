@@ -1,20 +1,29 @@
-<ul class="footer-blog-list{{#each blog.recent_posts}}{{#if @last}}{{#if @index 0}} footer-blog-list-1{{else if @index 1}} footer-blog-list-2{{else if @index 2}} footer-blog-list-3{{/if}}{{/if}}{{/each}}">
-	{{#each blog.recent_posts}}
+<ul class="footer-blog-list{{#each blog.recent_posts}}{{#if @last}}{{#if @index 0}} footer-blog-list-1{{else if @index 1}} footer-blog-list-2{{else}} footer-blog-list-3{{/if}}{{/if}}{{/each}}">
+{{#each blog.recent_posts}}
+	{{#if @index 0}}
 	<li>
-		{{#if thumbnail}}
-		<a class="footer-blog-img" href="{{url}}">
-			<img src="{{getImage thumbnail 'blog_size'}}" alt="{{thumbnail.alt}}">
-		</a>
-		{{/if}}
-		<p class="footer-blog-publish">
-			<strong class="footer-blog-author">{{author}}</strong>
-			<span class="footer-blog-date">{{date_published}}</span>
-		</p>
+		{{#if thumbnail}}<a class="footer-blog-img" href="{{url}}"><img src="{{getImage thumbnail 'blog_size'}}" alt="{{thumbnail.alt}}"></a>{{/if}}
+		<p class="footer-blog-publish"><strong class="footer-blog-author">{{author}}</strong><span class="footer-blog-date">{{date_published}}</span></p>
 		<h4 class="footer-blog-title">{{title}}</h4>
-		<p class="footer-blog-summary">
-			{{summary}}&hellip;
-		</p>
+		<p class="footer-blog-summary">{{summary}}&hellip;</p>
 		<a href="{{url}}" class="button button--primary footer-blog-button" role="button">Read More</a>
 	</li>
-	{{/each}}
+	{{else if @index 1}}
+	<li>
+		{{#if thumbnail}}<a class="footer-blog-img" href="{{url}}"><img src="{{getImage thumbnail 'blog_size'}}" alt="{{thumbnail.alt}}"></a>{{/if}}
+		<p class="footer-blog-publish"><strong class="footer-blog-author">{{author}}</strong><span class="footer-blog-date">{{date_published}}</span></p>
+		<h4 class="footer-blog-title">{{title}}</h4>
+		<p class="footer-blog-summary">{{summary}}&hellip;</p>
+		<a href="{{url}}" class="button button--primary footer-blog-button" role="button">Read More</a>
+	</li>
+	{{else if @index 2}}
+	<li>
+		{{#if thumbnail}}<a class="footer-blog-img" href="{{url}}"><img src="{{getImage thumbnail 'blog_size'}}" alt="{{thumbnail.alt}}"></a>{{/if}}
+		<p class="footer-blog-publish"><strong class="footer-blog-author">{{author}}</strong><span class="footer-blog-date">{{date_published}}</span></p>
+		<h4 class="footer-blog-title">{{title}}</h4>
+		<p class="footer-blog-summary">{{summary}}&hellip;</p>
+		<a href="{{url}}" class="button button--primary footer-blog-button" role="button">Read More</a>
+	</li>
+	{{/if}}
+{{/each}}
 </ul>

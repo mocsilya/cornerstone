@@ -27,7 +27,6 @@
 
 
 
-
 // FOOTER
 // =============================================================================
 
@@ -74,6 +73,71 @@ body .footer .header-logo-image {
 	color: #164a41;
 }
 
+
+// FOOD CATEGORY
+// =============================================================================
+
+
+.category-food .subcategories-grid-item {
+    @include breakpoint("small") {
+        width: 50%;
+    }
+    @include breakpoint("large") {
+        width: 25%;
+    }
+}
+
+.category-food .subcategories-container {
+	position: relative;
+}
+
+
+.category-food .subcategories-name {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	padding: .5rem 1rem;
+	background: rgba(255,255,255, 0.75);
+	display: inline-block;
+	white-space: nowrap;
+	border-radius: .25rem;
+}
+
+/* NEEDS DELETING AND ADDING TO MASTER GLOBAL CSS */
+.footer-blog-list li:nth-of-type(1n+4) {
+	display: none;
+}
+/* END */
+
+.blog-food {
+	border-top: 2px dashed #4d774e;
+	border-bottom: 2px dashed #4d774e;
+}
+
+.blog-food h2 {
+	text-align: center;
+	margin-bottom: 0;
+	font-size: 32px;
+}
+
+.blog-food .footer-blog-list {
+	padding-bottom: 0;
+}
+
+.blog-food .footer-blog-list li {
+	color: #164a41;
+}
+
+.blog-food .footer-blog-title {
+	color: #4d774e;
+}
+
+.blog-food-link {
+	text-align: center;
+	padding-bottom: 2rem;
+}
 
 
 // PRODUCT

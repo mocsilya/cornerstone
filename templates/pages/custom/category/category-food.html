@@ -1,0 +1,92 @@
+---
+category:
+    shop_by_price: {{theme_settings.shop_by_price_visibility}}
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+customer:
+    wishlists:
+        limit: 10
+---
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{inject "categoryId" category.id}}
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "hero"}}
+<div class="container container-hero">
+	{{{region name="category_below_header"}}}
+</div>
+{{/partial}}
+
+{{#partial "page"}}
+<div class="category-food">
+	{{#if category.description}}
+		<div class="category-description{{#if category.subcategories}} category-description-withsub{{/if}}">
+			{{{category.description}}}
+		</div>
+	{{/if}}
+	{{#if category.subcategories}}
+		<div class="category-subcategories">
+			<ul class="subcategories-grid">
+			{{#each category.subcategories}}
+			<li class="subcategories-grid-item">
+				<div class="subcategories-container">
+					<a href="{{url}}">
+					{{#if image}}
+						<span class="subcategories-image"><img src="{{getImage image 'category_card_size'}}" alt="{{name}}"></span>
+					{{else}}
+						<span class="subcategories-blank">Image Not Found</span>
+					{{/if}}
+						<span class="subcategories-name">{{name}}</span>
+					</a>
+				</div>
+			</li>
+			{{/each}}
+			</ul>
+		</div>
+	{{/if}}
+</div>
+<div class="page page-food">
+	<div class="page-content" id="product-listing-container">
+	{{{region name="category_above_content"}}}
+	{{#if category.products}}
+        {{> components/category/product-listing}}
+	{{/if}}
+	<div class="blog-food">
+		<h2>Food Blog</h2>
+		<ul class="footer-blog-list footer-blog-list-3">
+		{{#each blog.recent_posts}}
+		{{#if tags}}
+			{{#each tags}}
+				{{#if name '==' 'food'}}
+					<li>
+						{{#if ../thumbnail}}<a class="footer-blog-img" href="{{../url}}"><img src="{{getImage ../thumbnail 'blog_size'}}" alt="{{../thumbnail.alt}}"></a>{{/if}}
+						<p class="footer-blog-publish"><strong class="footer-blog-author">{{../author}}</strong><span class="footer-blog-date">{{../date_published}}</span></p>
+						<h4 class="footer-blog-title">{{../title}}</h4>
+						<p class="footer-blog-summary">{{../summary}}&hellip;</p>
+						<a href="{{../url}}" class="button button--primary footer-blog-button" role="button">Read More</a>
+					</li>
+				{{/if}}
+			{{/each}}
+		{{/if}}
+		{{/each}}
+		</ul>
+		<div class="blog-food-link">
+			<a class="button button--primary button--large" href="/blog/tag/food">VIEW ALL FOOD BLOGS</a>
+		</div>
+	</div>
+	{{{region name="category_below_content"}}}
+	</div>
+</div>
+
+{{/partial}}
+{{> layout/base}}
