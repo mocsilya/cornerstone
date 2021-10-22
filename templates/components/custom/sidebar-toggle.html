@@ -1,0 +1,30 @@
+<fieldset class="form-fieldset actionBar-section page-sidebar-toggle">
+	<div class="actionBar-section form-field">
+	<a href="#faceted-search-container" class="toggleLink" data-collapsible>
+		<span class="toggleLink-text toggleLink-text--on">
+			<label class="form-label">
+			{{#if theme_settings.custom_category_sidebar_display '==' 'vertical'}}
+            	Hide Categories &amp; Filters
+			{{else}}
+				Hide Filters
+			{{/if}}
+			</label>
+            <i class="icon" aria-hidden="true">
+                <svg><use xlink:href="#icon-keyboard-arrow-up"/></svg>
+            </i>
+        </span>
+		<span class="toggleLink-text toggleLink-text--off">
+			<label class="form-label">
+			{{#if theme_settings.custom_category_sidebar_display '==' 'vertical'}}
+            	Show Categories &amp; Filters
+			{{else}}
+				Show Filters
+			{{/if}}
+			</label>
+            <i class="icon" aria-hidden="true">
+                <svg><use xlink:href="#icon-keyboard-arrow-down"/></svg>
+            </i>
+        </span>
+	</a>
+	</div>
+</fieldset>
