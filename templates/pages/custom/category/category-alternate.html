@@ -22,7 +22,7 @@ customer:
 {{/partial}}
 
 {{#partial "hero"}}
-<div class="container container-hero">
+<div class="container container-hero container-hero-alternate">
 	{{#if category.image}}
 		<div class="page-header category-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
 	    {{> components/common/responsive-img
@@ -76,19 +76,27 @@ customer:
     {{#if category.faceted_search_enabled}}
         <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}}" id="faceted-search-container">
             {{> components/category/sidebar}}
+			{{{region name="category_aside"}}}
+			{{{region name="category_aside--global"}}}
         </aside>
     {{else if category.subcategories}}
         <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}}" id="faceted-search-container">
             {{> components/category/sidebar}}
+			{{{region name="category_aside"}}}
+			{{{region name="category_aside--global"}}}
         </aside>
 	{{else if theme_settings.custom_category_show_parents}}
         <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}}" id="faceted-search-container">
             {{> components/category/sidebar}}
+			{{{region name="category_aside"}}}
+			{{{region name="category_aside--global"}}}
         </aside>
     {{else if category.shop_by_price}}
         {{#if theme_settings.shop_by_price_visibility}}
              <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}}" id="faceted-search-container">
                 {{> components/category/sidebar}}
+				{{{region name="category_aside"}}}
+				{{{region name="category_aside--global"}}}
             </aside>
         {{/if}}
     {{/if}}

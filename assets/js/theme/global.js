@@ -21,6 +21,7 @@ import footerHelper from './custom/footer-helper';
 import tabClick from './custom/tab-click';
 import headerBar from './custom/header-bar';
 import widgetHelper from './custom/widget-helper';
+import sidebarHelper from './custom/sidebar-helper';
 
 export default class Global extends PageManager {
     onReady() {
@@ -47,5 +48,6 @@ export default class Global extends PageManager {
 		tabClick();
 		headerBar();
 		widgetHelper();
+		sidebarHelper();
     }
 }
