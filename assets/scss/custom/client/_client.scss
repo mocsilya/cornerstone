@@ -77,7 +77,6 @@ body .footer .header-logo-image {
 // FOOD CATEGORY
 // =============================================================================
 
-
 .category-food .subcategories-grid-item {
     @include breakpoint("small") {
         width: 50%;
@@ -91,7 +90,6 @@ body .footer .header-logo-image {
 	position: relative;
 }
 
-
 .category-food .subcategories-name {
 	position: absolute;
 	left: 50%;
@@ -104,12 +102,6 @@ body .footer .header-logo-image {
 	white-space: nowrap;
 	border-radius: .25rem;
 }
-
-/* NEEDS DELETING AND ADDING TO MASTER GLOBAL CSS */
-.footer-blog-list li:nth-of-type(1n+4) {
-	display: none;
-}
-/* END */
 
 .blog-food {
 	border-top: 2px dashed #4d774e;
@@ -138,6 +130,7 @@ body .footer .header-logo-image {
 	text-align: center;
 	padding-bottom: 2rem;
 }
+
 
 
 // PRODUCT
@@ -281,9 +274,11 @@ div[data-sub-layout-container="27ea5336-4b3c-4b33-8e67-d844fc7add5a"] .custom-wi
 }
 
 
+
 // WIDGET FOR TEXT BOXES
 // =============================================================================
 
+div[data-sub-layout-container="05cb5416-f67d-47ea-aaa5-1fb920a56f7a"] .custom-widget-placeholder,
 div[data-sub-layout-container="c56902ad-b300-4740-af56-f381f9fbaa19"] .custom-widget-placeholder {
 	background: #f6f0ee !important;
 	background: -moz-linear-gradient(top,  #f6f0ee 1%, #ffffff 100%) !important;
@@ -294,12 +289,14 @@ div[data-sub-layout-container="c56902ad-b300-4740-af56-f381f9fbaa19"] .custom-wi
 	border-top-right-radius: .75rem;
 }
 
+div[data-sub-layout-container="05cb5416-f67d-47ea-aaa5-1fb920a56f7a"] .custom-widget-heading,
 div[data-sub-layout-container="c56902ad-b300-4740-af56-f381f9fbaa19"] .custom-widget-heading {
 	font-size: 24px !important;
     @include breakpoint("xlarge") {
         font-size: 32px !important;
     }
 }
+
 
 
 // WIDGET FOR BRANDS
@@ -309,6 +306,16 @@ div[data-sub-layout-container="c5d7ec28-af78-43e2-99f7-24d33953a1b5"] .custom-wi
     padding: 1.5rem;
 }
 
+
+
+// WIDGET FOR FOOD CATEGORY BANNER
+// =============================================================================
+
+div[data-sub-layout-container="99940cbe-55b5-4b75-9c67-29fe631369e7"] {
+    max-width: 1440px;
+    text-align: center;
+    margin: auto;
+}
 
 
 
@@ -360,4 +367,7 @@ div[data-content-region="home_below_new_products"] {
 	font-family: "Itim", Arial, Helvetica, sans-serif;
 }
 
+div[data-sub-layout-container="1955ef7d-d0b4-4847-9ea5-78236b9eb8e8"] {
+    font-family: "Itim", Arial, Helvetica, sans-serif;
+}
 
