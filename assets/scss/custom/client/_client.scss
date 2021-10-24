@@ -7,6 +7,10 @@
 	margin-bottom: 0;
 }
 
+.page-default .card-brand,
+.page-default .card-swatches {
+    display: none;
+}
 
 
 // NEWSLETTER
@@ -261,16 +265,38 @@ div[data-sub-layout-container="27ea5336-4b3c-4b33-8e67-d844fc7add5a"] .custom-wi
     padding: .75rem;
     border-bottom-left-radius: .125rem;
     border-bottom-right-radius: .125rem;
+	@include breakpoint("large") {
+	        padding: 1rem;
+	}
+	@include breakpoint("xlarge") {
+		padding: 1.5rem;
+	}
+}
+
+div[data-sub-layout-container="27ea5336-4b3c-4b33-8e67-d844fc7add5a"] .custom-widget-image {
+    border-radius: .3rem;
 }
 
 div[data-sub-layout-container="27ea5336-4b3c-4b33-8e67-d844fc7add5a"] .custom-widget-heading {
     flex: 1 1 auto;
     text-align: left;
+    @include breakpoint("large") {
+		font-size: 24px !important;
+	}
+	@include breakpoint("xlarge") {
+		font-size: 32px !important;
+	}
 }
 
 div[data-sub-layout-container="27ea5336-4b3c-4b33-8e67-d844fc7add5a"] .custom-widget-button {
     flex: 0 1 auto;
     margin-top: 0;
+	@include breakpoint("large") {
+		font-size: 16px !important;
+	}
+	@include breakpoint("xlarge") {
+		font-size: 20px !important;
+	}
 }
 
 
