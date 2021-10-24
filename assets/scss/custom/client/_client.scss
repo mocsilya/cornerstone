@@ -81,6 +81,10 @@ body .footer .header-logo-image {
 // FOOD CATEGORY
 // =============================================================================
 
+.page-food .actionBar {
+	display: none;
+}
+
 .category-food .subcategories-grid-item {
     @include breakpoint("small") {
         width: 50%;
