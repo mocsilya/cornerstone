@@ -80,12 +80,6 @@ customer:
 			{{{region name="category_aside"}}}
 			{{{region name="category_aside--global"}}}
         </aside>
-	{{else if theme_settings.custom_category_show_parents}}
-        <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}} toggle-content" id="faceted-search-container">
-            {{> components/category/sidebar}}
-			{{{region name="category_aside"}}}
-			{{{region name="category_aside--global"}}}
-        </aside>
     {{else if category.shop_by_price}}
         {{#if theme_settings.shop_by_price_visibility}}
              <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}} toggle-content" id="faceted-search-container">
@@ -94,6 +88,14 @@ customer:
 				{{{region name="category_aside--global"}}}
             </aside>
         {{/if}}
+	{{else if theme_settings.custom_category_show_parents}}
+		{{#if breadcrumbs.[2]}}
+        	<aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}} toggle-content" id="faceted-search-container">
+            	{{> components/category/sidebar}}
+				{{{region name="category_aside"}}}
+				{{{region name="category_aside--global"}}}
+        	</aside>
+    	{{/if}}
     {{/if}}
 
     <div class="page-content" id="product-listing-container">
