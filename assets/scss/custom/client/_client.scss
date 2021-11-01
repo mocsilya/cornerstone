@@ -13,6 +13,8 @@
 }
 
 
+
+
 // NEWSLETTER
 // =============================================================================
 
@@ -22,11 +24,27 @@
     }
 }
 
+.footer-newsletter .button--primary {
+	font-family: "Jost", sans-serif;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
 // BLOG
 // =============================================================================
 
 .footer-blog-img img {
 	border-radius: .5rem;
+}
+
+.footer-blog .footer-blog-title {
+	color: #f1b24a;
+	font-size: 1.5rem;
+}
+
+.footer-blog-button {
+	font-size: 1.25rem;
+	text-transform: uppercase;
 }
 
 
@@ -325,6 +343,11 @@ div[data-sub-layout-container="c56902ad-b300-4740-af56-f381f9fbaa19"] .custom-wi
     @include breakpoint("xlarge") {
         font-size: 32px !important;
     }
+}
+
+div[data-sub-layout-container="05cb5416-f67d-47ea-aaa5-1fb920a56f7a"] .custom-widget-subtext,
+div[data-sub-layout-container="c56902ad-b300-4740-af56-f381f9fbaa19"] .custom-widget-subtext {
+	color: #164a41 !important;
 }
 
 
