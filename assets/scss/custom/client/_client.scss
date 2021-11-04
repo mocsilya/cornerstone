@@ -62,6 +62,62 @@ left: auto;
 }
 
 
+// Product Page
+// =============================================================================
+
+
+.page-product .share-container,
+.page-product .facebookRecommendBtn {
+	display: none;
+}
+
+.page-product .productView-options .form-option-variant {
+	padding: 1rem 2rem;
+	min-width: 90px;
+	background-color: #FDF2ED;
+	font-weight: 700;
+	color: #54183e;
+}
+
+.page-product .productView-options .form-option {
+	border: 2px solid #a74d7f;
+	border-radius: 3px;
+}
+
+.customfield-dietary {
+	display: none;
+}
+
+.dietary-icons {
+	font-size: 0;
+	margin: 0 -5px;
+	text-align: center;
+}
+
+.dietary-icon {
+	display: inline-block;
+	vertical-align: top;
+	padding: 5px;
+	text-align: center;
+}
+
+.dietary-icon img {
+	display: block;
+	margin: 0;
+	margin: 10px;
+	width: 70px;
+}
+
+.dietary-icon span {
+	display: block;
+	text-align: center;
+	line-height: 1.1;
+	font-size: 12px;
+	font-weight: 700;
+	width: 90px;
+}
+
+
 
 // Footer
 // =============================================================================

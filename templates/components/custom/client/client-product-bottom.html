@@ -1,0 +1,20 @@
+<div class="dietary-icons">
+{{#each product.custom_fields}}
+	{{#if name '==' 'dietary'}}
+	<div class="dietary-icon">
+		{{#if value '==' 'Contains Nuts'}}
+			<img src="{{cdn '/assets/img/custom/client/icon-containsnuts.png'}}" />
+		{{else if value '==' 'Dairy Free'}}
+			<img src="{{cdn '/assets/img/custom/client/icon-dairyfree.png'}}" />
+		{{else if value '==' 'Gluten Free'}}
+			<img src="{{cdn '/assets/img/custom/client/icon-glutenfree.png'}}" />
+		{{else if value '==' 'Halal'}}
+			<img src="{{cdn '/assets/img/custom/client/icon-halal.png'}}" />
+		{{else if value '==' 'Vegan'}}
+			<img src="{{cdn '/assets/img/custom/client/icon-vegan.png'}}" />
+		{{/if}}
+		<span>{{value}}</span>
+	</div>
+	{{/if}}
+{{/each}}
+</div>
