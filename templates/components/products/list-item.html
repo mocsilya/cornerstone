@@ -9,15 +9,16 @@
 	{{/if}}
 {{/filter}}
 {{#if settings.data_tag_enabled}}
-    <article class="listItem{{#if brand.name}} card-brand-{{first (split brand.name ' ')}}{{/if}}"
-             data-event-type="{{event}}"
-             data-entity-id="{{id}}"
-             data-position="{{position}}"
-             data-name="{{name}}"
-             data-product-category="{{#each category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}"
-             data-product-brand="{{brand.name}}"
-             data-product-price="{{#if price.with_tax}}{{price.with_tax.value}}{{else}}{{price.without_tax.value}}{{/if}}"
-    >
+    <article class="listItem{{#if brand.name}} card-brand-{{first (split brand.name ' ')}}{{/if}}" data-event-type="{{event}}" data-entity-id="{{id}}" data-position="{{position}}" data-name="{{name}}" data-product-category="{{#each category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{brand.name}}" data-product-price="
+    {{#or customer (unless theme_settings.restrict_to_login)}}
+        {{#if price.with_tax}}
+            {{price.with_tax.value}}
+        {{else}}
+            {{price.without_tax.value}}
+        {{/if}}
+    {{else}}
+        {{lang 'common.login_for_pricing'}}
+    {{/or}}">
 {{else}}
     <article class="listItem{{#if brand.name}} card-brand-{{first (split brand.name ' ')}}{{/if}}">
 {{/if}}
@@ -62,20 +63,20 @@
 			{{#if has_options}}
 				<a href="{{url}}" 
 					class="listItem-figure__link{{#if (getVar 'warranty') '===' 'active'}} figure__warranty{{/if}}{{#if theme_settings.custom_card_show_swatches}} figure__swatches{{/if}} listItem-figure__normal"
-					aria-label="{{name}},{{> components/products/product-aria-label}}"
+					aria-label="{{> components/products/product-info}}"
 					{{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}
 				>
 			{{else}}
 				<a href="{{url}}" 
 					class="listItem-figure__link{{#if (getVar 'warranty') '===' 'active'}} figure__warranty{{/if}} listItem-figure__normal"
-					aria-label="{{name}},{{> components/products/product-aria-label}}"
+					aria-label="{{> components/products/product-info}}"
 					{{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}
 				>
 			{{/if}}
 		{{else}}
 			<a href="{{url}}" 
 				class="listItem-figure__link{{#if (getVar 'warranty') '===' 'active'}} figure__warranty{{/if}}  listItem-figure__normal"
-				aria-label="{{name}},{{> components/products/product-aria-label}}"
+				aria-label="{{> components/products/product-info}}"
 				{{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}
 			>
 		{{/if}}
@@ -187,8 +188,10 @@
                 {{/if}}
                 <h4 class="listItem-title">
                     <a href="{{url}}"
-                        aria-label="{{name}},{{> components/products/product-aria-label}}"
-                        {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}
+                    aria-label="{{> components/products/product-info}}"
+                    {{#if settings.data_tag_enabled}}
+                    data-event-type="product-click"
+                    {{/if}}
                     >
                         {{name}}
                     </a>
