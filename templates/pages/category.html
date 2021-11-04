@@ -47,26 +47,55 @@ customer:
 <div class="category-description">
 	{{{category.description}}}
 </div>
+
+{{#if category.products}}
+    {{#if category.subcategories}}
+        <div class="subcategories-above subcategories--{{theme_settings.custom_category_sidebar_display}}">
+			<ul class="subcategories-grid">
+				{{#each category.subcategories}}
+				<li class="subcategories-grid-item">
+					<div class="subcategories-container">
+						<a href="{{url}}">
+							<span class="subcategories-name">{{name}}</span>
+						</a>
+					</div>
+				</li>
+				{{/each}}
+			</ul>
+        </div>
+    {{/if}}
+{{/if}}
+
 <div class="page">
 {{#if category.products}}
     {{#if category.faceted_search_enabled}}
-        <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}}" id="faceted-search-container">
+        <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}} toggle-content" id="faceted-search-container">
             {{> components/category/sidebar}}
+			{{{region name="category_aside"}}}
+			{{{region name="category_aside--global"}}}
         </aside>
     {{else if category.subcategories}}
-        <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}}" id="faceted-search-container">
+        <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}} toggle-content" id="faceted-search-container">
             {{> components/category/sidebar}}
-        </aside>
-	{{else if theme_settings.custom_category_show_parents}}
-        <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}}" id="faceted-search-container">
-            {{> components/category/sidebar}}
+			{{{region name="category_aside"}}}
+			{{{region name="category_aside--global"}}}
         </aside>
     {{else if category.shop_by_price}}
         {{#if theme_settings.shop_by_price_visibility}}
-             <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}}" id="faceted-search-container">
+             <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}} toggle-content" id="faceted-search-container">
                 {{> components/category/sidebar}}
+				{{{region name="category_aside"}}}
+				{{{region name="category_aside--global"}}}
             </aside>
         {{/if}}
+	{{else if theme_settings.custom_category_show_parents}}
+		{{#if breadcrumbs.[2]}}
+        	<aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}} toggle-content" id="faceted-search-container">
+            	{{> components/category/sidebar}}
+				{{{region name="category_aside"}}}
+				{{{region name="category_aside--global"}}}
+        	</aside>
+    	{{/if}}
     {{/if}}
 
     <div class="page-content" id="product-listing-container">
