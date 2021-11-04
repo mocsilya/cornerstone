@@ -48,6 +48,37 @@
 	left: auto;
 }
 
+.navUser-item--b2blogin .navUser-icon {
+	background-color: stencilColor("navUser-color");
+	color: stencilColor("header-backgroundColor");
+	padding-left: .25rem;
+	padding-right: .25rem;
+	border-radius: .25rem;
+	font-size: .75rem;
+	line-height: 1.5rem;
+}
+
+.navUser-item--b2blogin .navUser-action:hover .navUser-icon,
+.navUser-item--b2blogin .navUser-action.is-open .navUser-icon {
+	background-color: stencilColor("navUser-color-hover");
+	color: stencilColor("header-backgroundColor");
+}
+
+.navUser-item--b2blogin .navUser-icon-outline {
+	background: none;
+	border: 2px solid stencilColor("navUser-color");
+	color: stencilColor("navUser-color");
+	line-height: 1;
+	padding-top: .25rem;
+}
+
+.navUser-item--b2blogin .navUser-action:hover .navUser-icon-outline,
+.navUser-item--b2blogin .navUser-action.is-open .navUser-icon-outline {
+	background: none;
+	border: 2px solid stencilColor("navUser-color-hover");
+	color: stencilColor("navUser-color-hover");
+}
+
 
 // WIDGET FOR CATEGORY BOXES
 // =============================================================================
