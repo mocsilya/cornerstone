@@ -1,3 +1,16 @@
 <form class="actionBar" method="get" data-sort-by="product">
+{{#if category.faceted_search_enabled}}
+	{{> components/custom/sidebar-toggle}}
+{{else if category.subcategories}}
+	{{> components/custom/sidebar-toggle}}
+{{else if category.shop_by_price}}
+	{{#if theme_settings.shop_by_price_visibility}}
+		{{> components/custom/sidebar-toggle}}
+	{{/if}}
+{{else if theme_settings.custom_category_show_parents}}
+	{{#if breadcrumbs.[2]}}
+		{{> components/custom/sidebar-toggle}}
+	{{/if}}
+{{/if}}
     {{> components/category/sort-box sort=sort}}
 </form>
