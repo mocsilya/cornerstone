@@ -301,6 +301,7 @@
 					<span data-product-stock>{{product.stock_level}}</span>
                 </div>
                 {{> components/products/add-to-cart}}
+				{{> components/custom/client/client-product-add}}
                 {{#if product.out_of_stock}}
                     {{#if product.out_of_stock_message}}
                         {{> components/common/alert/alert-error product.out_of_stock_message}}
