@@ -1999,6 +1999,14 @@ body.scroll .navPages > ul > li > .navPages-action {
 	margin-top: 0;
 }
 
+.toggle-click.is-clicked .toggleLink-text--on {
+	display: inline-block;
+}
+
+.toggle-click.is-clicked .toggleLink-text--off {
+	display: none;
+}
+
 .page-sidebar.toggle-content {
 	display: block;
 	@include breakpoint("medium") {
