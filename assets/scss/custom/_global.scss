@@ -2436,14 +2436,17 @@ a:hover span.card-image:only-of-type img {
 }
 
 .card-warranty .dropdown-menu.is-open {
-	width: 100% !important;
+	width: auto !important;
+	max-width: auto !important;
 	left: 0 !important;
 	right: 0 !important;
 	bottom: 0 !important;
 	top: auto !important;
+	overflow: auto;
 }
 
 .card-warranty table {
+	min-width: 300px;
 	margin: 0;
 	padding: 0;
 	border-right: 1px solid rgba(stencilColor("color-textBase"), 0.2);

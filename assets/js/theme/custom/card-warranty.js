@@ -14,7 +14,7 @@ export default function () {
 				const html = $.parseHTML( data );
 				const content = $(html).find('.warranty-content').contents();
 				if ($(content).length > 0) { 
-				    $(warranty).find('.dropdown-menu').append(content);
+				    $(warranty).find('.dropdown-wrap').append(content);
 					$(warranty).show();
 				}
 			}
