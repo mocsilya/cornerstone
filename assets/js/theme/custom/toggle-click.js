@@ -6,5 +6,6 @@ export default function () {
 		e.preventDefault();
 		const clickHref = $(this).attr("href");
 		$(clickHref).toggleClass('is-open');
+		$(this).toggleClass('is-clicked');
 	});
 }
