@@ -3747,6 +3747,7 @@ a:hover span.card-image:only-of-type img {
 	height: 0;
 	overflow: hidden;
 	padding: 0;
+	white-space: normal;
 }
 
 .tab-content.is-active {
@@ -3756,7 +3757,7 @@ a:hover span.card-image:only-of-type img {
 }
 
 .page-tabs .tabs {
-	border-bottom: 1px solid stencilColor("container-border-global-color-base") !important;
+	border: 0 !important;
 }
 
 .page-tabs .tabs .tab {
@@ -3764,40 +3765,29 @@ a:hover span.card-image:only-of-type img {
 	background: none !important;
 	width: 100% !important;
 	padding: 0 !important;
+	border: 0 !important;
 }
 
 .page-tabs .tabs .tab .tab-title,
 .page-tabs .tabs .tab .tab-title:hover {
-	border-top: 1px solid stencilColor("container-border-global-color-base") !important;
+	margin: 1px 0 0 0;
 	display: block;
 	width: 100%;
-	color: stencilColor("color-textHeading") !important;
-	text-align: center;
-	padding: 1rem 0
-}
-
-.page-tabs .tab .page-heading {
-	border-top: 1px solid stencilColor("container-border-global-color-base") !important;
-	padding: 4rem 0 1rem 0;
-	margin: 0;
-	border-bottom: 2px solid stencilColor("container-border-global-color-base") !important;
-	text-align: center;
+	text-align: left;
+	padding: 1rem;
+	border-radius: 0;
 }
 
 .page-tabs h1,
 .page-tabs h2,
 .page-tabs h3 {
-	text-align: center;
+	text-align: left;
 }
 
 .page-tabs .tabs .tab .tab-content {
 	display: none;
 	text-align: left;
 	font-size: 0;
-}
-
-.page-tabs .tabs .tab.is-active .tab-title {
-	opacity: 0.5;
 }
 
 .page-tabs .tabs .tab.is-active .tab-content {
