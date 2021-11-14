@@ -46,6 +46,15 @@ h1, h2, h3, h4, h5, h6 {
 	letter-spacing: 0;
 }
 
+.table-wrap {
+	width: 100%;
+	overflow-x: hidden;
+}
+
+.table-wrap table {
+	min-width: 300px;
+}
+
 .skip-to-main-link {
 	display: none !important;
 }
@@ -1369,6 +1378,56 @@ body.scroll .navPages > ul > li > .navPages-action {
 	border-right: 0.1em solid stencilColor("custom-page-header-text");
 }
 
+.page-header-image {
+	width: 100%;
+}
+
+.page-header-slim {
+	padding: 3vw 0;
+}
+
+.page-header-medium {
+	padding: 6vw 0;
+}
+
+.page-header-deep {
+	padding: 9vw 0;
+}
+
+.page-header-image .page-heading,
+.page-header-image .breadcrumbs {
+	padding: 1.5rem;
+}
+
+.page-header-image .page-heading,
+.page-header-image .breadcrumbs,
+.page-header-image .page-heading + nav .breadcrumbs {
+    margin: 0 10%;
+    background: rgba(stencilColor("custom-page-header-background"), 0.8);
+    @include breakpoint("small") {
+        margin: 0 15%;
+    }
+    @include breakpoint("medium") {
+        margin: 0 20%;
+    }
+    @include breakpoint("large") {
+        margin: 0 25%;
+    }
+}
+
+.page-header-image .page-heading + nav .breadcrumbs {
+	top: auto;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.page-header-image img {
+	position: absolute;
+	top: 50%;
+    transform: translateY(-50%);
+	z-index: 1;
+}
+
+
 
 // Modal Subscriibe
 // =============================================================================
@@ -1863,60 +1922,6 @@ body.scroll .navPages > ul > li > .navPages-action {
 
 
 
-// Page Header
-// =============================================================================
-
-.page-header-image {
-	width: 100%;
-}
-
-.page-header-slim {
-	padding: 3vw 0;
-}
-
-.page-header-medium {
-	padding: 6vw 0;
-}
-
-.page-header-deep {
-	padding: 9vw 0;
-}
-
-.page-header-image .page-heading,
-.page-header-image .breadcrumbs {
-	padding: 1.5rem;
-}
-
-.page-header-image .page-heading,
-.page-header-image .breadcrumbs,
-.page-header-image .page-heading + nav .breadcrumbs {
-    margin: 0 10%;
-    background: rgba(stencilColor("custom-page-header-background"), 0.8);
-    @include breakpoint("small") {
-        margin: 0 15%;
-    }
-    @include breakpoint("medium") {
-        margin: 0 20%;
-    }
-    @include breakpoint("large") {
-        margin: 0 25%;
-    }
-}
-
-.page-header-image .page-heading + nav .breadcrumbs {
-	top: auto;
-    padding: 0 1.5rem 1.5rem 1.5rem;
-}
-
-.page-header-image img {
-	position: absolute;
-	top: 50%;
-    transform: translateY(-50%);
-	z-index: 1;
-}
-
-
-
 // Category Side Bar
 // =============================================================================
 
@@ -1997,6 +2002,14 @@ body.scroll .navPages > ul > li > .navPages-action {
 	padding-top: 0;
 	border-top: 0;
 	margin-top: 0;
+}
+
+.toggle-click.is-clicked .toggleLink-text--on {
+	display: inline-block;
+}
+
+.toggle-click.is-clicked .toggleLink-text--off {
+	display: none;
 }
 
 .page-sidebar.toggle-content {
@@ -2428,14 +2441,21 @@ a:hover span.card-image:only-of-type img {
 }
 
 .card-warranty .dropdown-menu.is-open {
-	width: 100% !important;
+	width: auto !important;
+	max-width: auto !important;
 	left: 0 !important;
 	right: 0 !important;
 	bottom: 0 !important;
 	top: auto !important;
 }
 
+.card-warranty .dropdown-wrap {
+	overflow: auto;
+	max-height: 300px;
+}
+
 .card-warranty table {
+	min-width: 300px;
 	margin: 0;
 	padding: 0;
 	border-right: 1px solid rgba(stencilColor("color-textBase"), 0.2);
@@ -3748,6 +3768,64 @@ a:hover span.card-image:only-of-type img {
 	padding: 1.5rem 0;
 }
 
+.page-tabs .tabs {
+	border: 0;
+}
+
+.page-tabs .tabs .tab {
+	margin: 0 0 1px 0;
+	background: none;
+	width: 100%;
+	padding: 0;
+}
+
+.page-tabs .tabs .tab .tab-title,
+.page-tabs .tabs .tab .tab-title:hover {
+	display: block;
+	width: 100%;
+	padding: 1rem;
+	border-radius: 0;
+	text-align: left;
+}
+
+.page-tabs .tabs .tab .tab-content {
+	display: none;
+	text-align: left;
+	font-size: 0;
+	white-space: normal;
+}
+
+.page-tabs .tabs .tab.is-active .tab-content {
+	display: block;
+}
+
+.page-tabs .tab-content-left,
+.page-tabs .tab-content-right {
+	display: inline-block;
+	font-size: 1rem;
+	vertical-align: top;
+}
+
+.page-tabs .tab-content-right {
+	@include breakpoint("medium") {
+		padding-left: 1.5rem;
+		width: 50%;
+	}
+}
+
+.page-tabs .tab-content-left {
+	@include breakpoint("medium") {
+		padding-right: 1.5rem;
+		width: 50%;
+	}
+}
+
+.page-tabs .tab-content-center {
+	display: block;
+	font-size: 1rem;
+	vertical-align: top;
+}
+
 
 
 // Pagination
@@ -3824,6 +3902,27 @@ a:hover span.card-image:only-of-type img {
 .card-wishlist-remove form,
 .card-wishlist-remove .button {
 	margin: 0;
+}
+
+
+
+// Info Pages
+// =============================================================================
+
+.page-page .page-sidebar + .page-content {
+	@include breakpoint("medium") {
+		width:70%;
+	}
+	@include breakpoint("large") {
+		width: 75%;
+	}
+	@include breakpoint("xlarge") {
+		width: 80%;
+	}
+}
+
+.page-page .page-content--centered {
+	width: 100%;
 }
 
 
@@ -4521,6 +4620,7 @@ a:hover span.card-image:only-of-type img {
 		text-align: left;
 	}
 }
+
 
 
 // WIDGET > Global
