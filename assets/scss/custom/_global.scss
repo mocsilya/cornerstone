@@ -46,6 +46,15 @@ h1, h2, h3, h4, h5, h6 {
 	letter-spacing: 0;
 }
 
+.table-wrap {
+	width: 100%;
+	overflow-x: hidden;
+}
+
+.table-wrap table {
+	min-width: 300px;
+}
+
 .skip-to-main-link {
 	display: none !important;
 }
@@ -2438,7 +2447,11 @@ a:hover span.card-image:only-of-type img {
 	right: 0 !important;
 	bottom: 0 !important;
 	top: auto !important;
+}
+
+.card-warranty .dropdown-wrap {
 	overflow: auto;
+	max-height: 300px;
 }
 
 .card-warranty table {
@@ -3756,48 +3769,30 @@ a:hover span.card-image:only-of-type img {
 }
 
 .page-tabs .tabs {
-	border-bottom: 1px solid stencilColor("container-border-global-color-base") !important;
+	border: 0;
 }
 
 .page-tabs .tabs .tab {
-	margin: 0 !important;
-	background: none !important;
-	width: 100% !important;
-	padding: 0 !important;
+	margin: 0 0 1px 0;
+	background: none;
+	width: 100%;
+	padding: 0;
 }
 
 .page-tabs .tabs .tab .tab-title,
 .page-tabs .tabs .tab .tab-title:hover {
-	border-top: 1px solid stencilColor("container-border-global-color-base") !important;
 	display: block;
 	width: 100%;
-	color: stencilColor("color-textHeading") !important;
-	text-align: center;
-	padding: 1rem 0
-}
-
-.page-tabs .tab .page-heading {
-	border-top: 1px solid stencilColor("container-border-global-color-base") !important;
-	padding: 4rem 0 1rem 0;
-	margin: 0;
-	border-bottom: 2px solid stencilColor("container-border-global-color-base") !important;
-	text-align: center;
-}
-
-.page-tabs h1,
-.page-tabs h2,
-.page-tabs h3 {
-	text-align: center;
+	padding: 1rem;
+	border-radius: 0;
+	text-align: left;
 }
 
 .page-tabs .tabs .tab .tab-content {
 	display: none;
 	text-align: left;
 	font-size: 0;
-}
-
-.page-tabs .tabs .tab.is-active .tab-title {
-	opacity: 0.5;
+	white-space: normal;
 }
 
 .page-tabs .tabs .tab.is-active .tab-content {
@@ -3809,8 +3804,6 @@ a:hover span.card-image:only-of-type img {
 	display: inline-block;
 	font-size: 1rem;
 	vertical-align: top;
-	padding-top: 1.5rem;
-	padding-bottom: 1.5rem;
 }
 
 .page-tabs .tab-content-right {
@@ -3831,10 +3824,7 @@ a:hover span.card-image:only-of-type img {
 	display: block;
 	font-size: 1rem;
 	vertical-align: top;
-	padding: 1.5rem 0;
 }
-
-
 
 
 
@@ -4630,6 +4620,7 @@ a:hover span.card-image:only-of-type img {
 		text-align: left;
 	}
 }
+
 
 
 // WIDGET > Global
