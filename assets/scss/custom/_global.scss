@@ -98,6 +98,14 @@ body.scroll.with-bar {
 	}
 }
 
+// Banners
+// =============================================================================
+
+.banners {
+	color: stencilColor("banner--default-color");
+	background-color: stencilColor("banner--default-backgroundColor");
+}
+
 
 // Pagination
 // =============================================================================
