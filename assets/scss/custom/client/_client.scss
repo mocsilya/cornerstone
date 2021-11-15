@@ -3,6 +3,15 @@
 // =============================================================================
 //
 
+body {
+    font-family: 'Jost', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+    font-family: 'Itim', sans-serif;
+}
+
 .page-default .body {
 	margin-bottom: 0;
 }
@@ -263,6 +272,41 @@ body .footer .header-logo-image {
 	color: #fff;
 	padding-top: .75rem;
 	padding-bottom: .75rem;
+}
+
+
+
+// INFO PAGES
+// =============================================================================
+
+
+.dog-profile {
+    display: flex;
+}
+
+.dog-photo {
+    flex: 0 1 auto;
+    min-width: 100px;
+}
+
+.dog-photo img {
+    border-radius: 100%;
+}
+
+.dog-bio {
+    flex: 1 1 auto;
+    padding-left: 1.5rem;
+}
+
+.dog-bio h2 {
+    margin: 0;
+    color: #4d774e;
+}
+
+.dog-bio h3 {
+    margin: 0 0 1rem 0;
+    font-size: 18px;
+    color: #164a41;
 }
 
 
