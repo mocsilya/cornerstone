@@ -1,5 +1,26 @@
-<div class="productView" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{product.brand.name}}" data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}" data-product-variant="single-product-option"{{/if}}>
-{{#each product.reviews.messages}}
+<div class="productView"
+    {{#if settings.data_tag_enabled}}
+    data-event-type="product"
+    data-entity-id="{{product.id}}"
+    data-name="{{product.title}}"
+    data-product-category="
+    {{#each product.category}}
+        {{#if @last}}{{this}}{{else}}{{this}}, {{/if}}
+    {{/each}}"
+    data-product-brand="{{product.brand.name}}"
+    data-product-price="
+    {{#or customer (unless theme_settings.restrict_to_login)}}
+        {{#if product.price.with_tax}}
+            {{product.price.with_tax.value}}
+        {{else}}
+            {{product.price.without_tax.value}}
+        {{/if}}
+    {{else}}
+        {{lang 'common.login_for_pricing'}}
+    {{/or}}"
+    data-product-variant="single-product-option"{{/if}}>
+
+    {{#each product.reviews.messages}}
         {{#if error}}
             {{> components/common/alert/alert-error error}}
         {{/if}}
@@ -241,8 +262,8 @@
                 {{#if theme_settings.show_custom_fields_tabs '!==' true}}
 					{{#each product.custom_fields}}
 					{{#unless name '==' 'hidden'}}
-		           		<dt class="productView-info-name customfield-label">{{name}}:</dt>
-		           		<dd class="productView-info-value customfield-value">{{{ sanitize value}}}</dd>
+		           		<dt class="productView-info-name customfield-label customfield-{{dashcase name}}">{{name}}:</dt>
+		           		<dd class="productView-info-value customfield-value customfield-{{dashcase name}}">{{{ sanitize value}}}</dd>
 					{{/unless}}
 					{{/each}}
                 {{/if}}
@@ -254,6 +275,7 @@
                 {{/if}}
 
             </dl>
+			{{> components/custom/client/client-product-fields}}
         </div>
     </section>
 
@@ -279,6 +301,7 @@
 					<span data-product-stock>{{product.stock_level}}</span>
                 </div>
                 {{> components/products/add-to-cart}}
+				{{> components/custom/client/client-product-add}}
                 {{#if product.out_of_stock}}
                     {{#if product.out_of_stock_message}}
                         {{> components/common/alert/alert-error product.out_of_stock_message}}
