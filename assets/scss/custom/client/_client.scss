@@ -12,7 +12,18 @@
     display: none;
 }
 
+.hero-image-desktop {
+	display: none;
+    @include breakpoint("medium") {
+        display: block;
+    }
+}
 
+.hero-image-mobile {
+    @include breakpoint("medium") {
+        display: none;
+    }
+}
 
 
 // NEWSLETTER
@@ -242,6 +253,18 @@ body .footer .header-logo-image {
     display: table-cell;
     vertical-align: middle;
 }
+
+.productView table {
+	margin-bottom: 1.5rem;
+}
+
+.productView table th {
+	background-color: #4d774e;
+	color: #fff;
+	padding-top: .75rem;
+	padding-bottom: .75rem;
+}
+
 
 
 
