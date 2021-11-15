@@ -48,6 +48,22 @@
 }
 
 
+.infopage-banner {
+	position: relative;
+}
+
+.infopage-text {
+	position: absolute;
+	left: 8px;
+	bottom: 0;
+	background: rgba(255,255,255, 0.5);
+	padding: 8px 12px;
+}
+
+.infopage-banner img {
+	width: 100%;
+}
+
 // Header
 // =============================================================================
 
