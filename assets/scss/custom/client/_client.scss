@@ -117,12 +117,18 @@ left: auto;
 	width: 90px;
 }
 
-.form-field-gift-message {
+.form-field-gift-message,
+.form-field-select-label-gift-jars-only {
 	display: none;
 }
 
-.form-field-gift-message.is-active {
+.form-field-gift-message.is-active,
+.form-field-select-label-gift-jars-only.is-active {
 	display: block;
+}
+
+.form-field-select-label-gift-jars-only small {
+	display: none;
 }
 
 

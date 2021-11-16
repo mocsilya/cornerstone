@@ -2,24 +2,21 @@
  * Custom global client js
 */
 export default function () { 
-	$('.form-option-wrapper-250g .form-option').click(function() {
-		$('.form-field-gift-message').removeClass('is-active');
-		$('.form-field-gift-message .form-input').val('');
+	$('.form-field-select-format .form-option').click(function() {		
+		if ($(this).hasClass("form-option-ribboned-gift-cube")) {
+			$('.form-field-gift-message').addClass('is-active');
+			$('.form-field-select-label-gift-jars-only').addClass('is-active');
+		} else if ($(this).hasClass("form-option-small-gift-jar")) {
+			$('.form-field-gift-message').addClass('is-active');
+			$('.form-field-select-label-gift-jars-only').addClass('is-active');
+		} else if ($(this).hasClass("form-option-large-gift-jar")) {
+			$('.form-field-gift-message').addClass('is-active');
+			$('.form-field-select-label-gift-jars-only').addClass('is-active');
+		} else {
+			$('.form-field-gift-message').removeClass('is-active');
+			$('.form-field-gift-message .form-input').val('');
+			$('.form-field-select-label-gift-jars-only').removeClass('is-active');
+			$('.form-field-select-label-gift-jars-only .form-select').prop('selectedIndex',0);
+		}
 	});
-	$('.form-option-wrapper-500g .form-option').click(function() {
-		$('.form-field-gift-message').removeClass('is-active');
-		$('.form-field-gift-message .form-input').val('');
-	});
-	$('.form-option-wrapper-1kg .form-option').click(function() {
-		$('.form-field-gift-message').removeClass('is-active');
-		$('.form-field-gift-message .form-input').val('');
-	});
-	$('.form-option-wrapper-3kg .form-option').click(function() {
-		$('.form-field-gift-message').removeClass('is-active');
-		$('.form-field-gift-message .form-input').val('');
-	});
-	$('.form-option-wrapper-filled-gift-cube-10cm .form-option').click(function() {
-		$('.form-field-gift-message').addClass('is-active');
-	});
-	
 }
