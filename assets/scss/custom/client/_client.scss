@@ -23,33 +23,33 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .heroCarousel:before, .heroCarousel:after {
-z-index: -1;
-position: absolute;
-content: "";
-bottom: 15px;
-left: 10px;
-width: 50%;
-top: 80%;
-max-width:300px;
-background: #777;
--webkit-box-shadow: 0 15px 10px #777;
--moz-box-shadow: 0 15px 10px #777;
-box-shadow: 0 15px 10px #777;
--webkit-transform: rotate(-3deg);
--moz-transform: rotate(-3deg);
--o-transform: rotate(-3deg);
--ms-transform: rotate(-3deg);
-transform: rotate(-3deg);
+	z-index: -1;
+	position: absolute;
+	content: "";
+	bottom: 15px;
+	left: 10px;
+	width: 50%;
+	top: 80%;
+	max-width:300px;
+	background: #777;
+	-webkit-box-shadow: 0 15px 10px #777;
+	-moz-box-shadow: 0 15px 10px #777;
+	box-shadow: 0 15px 10px #777;
+	-webkit-transform: rotate(-3deg);
+	-moz-transform: rotate(-3deg);
+	-o-transform: rotate(-3deg);
+	-ms-transform: rotate(-3deg);
+	transform: rotate(-3deg);
 }
 
 .heroCarousel:after {
--webkit-transform: rotate(3deg);
--moz-transform: rotate(3deg);
--o-transform: rotate(3deg);
--ms-transform: rotate(3deg);
-transform: rotate(3deg);
-right: 10px;
-left: auto;
+	-webkit-transform: rotate(3deg);
+	-moz-transform: rotate(3deg);
+	-o-transform: rotate(3deg);
+	-ms-transform: rotate(3deg);
+	transform: rotate(3deg);
+	right: 10px;
+	left: auto;
 }
 
 
@@ -67,12 +67,13 @@ left: auto;
 
 
 .page-product .share-container,
-.page-product .facebookRecommendBtn {
+.page-product .facebookRecommendBtn,
+.page-product .facebookLikeBtn {
 	display: none;
 }
 
 .page-product .productView-options .form-option-variant {
-	padding: 1rem 2rem;
+	padding: .5rem 1rem;
 	min-width: 90px;
 	background-color: #FDF2ED;
 	font-weight: 700;
@@ -191,6 +192,24 @@ left: auto;
 	padding: 1.5rem;
 }
 
+.footer-about-center > div {
+	background: #fff;
+	padding: 1.5rem;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3); 
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+	text-align: center;
+	@include breakpoint("medium") {
+		margin-left: 15%;
+		margin-right: 15%;
+	}
+	@include breakpoint("large") {
+		margin-left: 20%;
+		margin-right: 20%;
+	}
+}
+
+
+
 
 .footer-blog h2 a,
 .footer-blog h2 a:hover {
@@ -244,18 +263,18 @@ div[data-content-region="home_below_carousel"] {
 }
 
 @media (max-width: 800px) {
-	div[data-sub-layout-container="60aa25a1-c0c4-4292-9a0a-8cff51720b62"] .custom-widget-item {
+	div[data-sub-layout-container="79add8fd-39c2-45a4-bd74-45cb85b7f37b"] .custom-widget-item {
 		min-width: 50%;
 	}
 }
 
-div[data-sub-layout-container="60aa25a1-c0c4-4292-9a0a-8cff51720b62"] .custom-widget-link {
+div[data-sub-layout-container="79add8fd-39c2-45a4-bd74-45cb85b7f37b"] .custom-widget-link {
     border: .25rem solid #fff;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3); 
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
 }
 
-div[data-sub-layout-container="60aa25a1-c0c4-4292-9a0a-8cff51720b62"] .custom-widget-content {
+div[data-sub-layout-container="79add8fd-39c2-45a4-bd74-45cb85b7f37b"] .custom-widget-content {
     top: auto;
     bottom: 1rem;
     transform: none;
@@ -266,12 +285,12 @@ div[data-sub-layout-container="60aa25a1-c0c4-4292-9a0a-8cff51720b62"] .custom-wi
     padding: .75rem;
 }
 
-div[data-sub-layout-container="60aa25a1-c0c4-4292-9a0a-8cff51720b62"] .custom-widget-heading {
+div[data-sub-layout-container="79add8fd-39c2-45a4-bd74-45cb85b7f37b"] .custom-widget-heading {
     flex: 1 1 auto;
     text-align: left;
 }
 
-div[data-sub-layout-container="60aa25a1-c0c4-4292-9a0a-8cff51720b62"] .custom-widget-button {
+div[data-sub-layout-container="79add8fd-39c2-45a4-bd74-45cb85b7f37b"] .custom-widget-button {
     flex: 0 1 auto;
     margin-top: 0;
 }

@@ -3,10 +3,7 @@
 */
 export default function () { 
 	$('.form-field-select-format .form-option').click(function() {		
-		if ($(this).hasClass("form-option-ribboned-gift-cube")) {
-			$('.form-field-gift-message').addClass('is-active');
-			$('.form-field-select-label-gift-jars-only').addClass('is-active');
-		} else if ($(this).hasClass("form-option-small-gift-jar")) {
+		if ($(this).hasClass("form-option-small-gift-jar")) {
 			$('.form-field-gift-message').addClass('is-active');
 			$('.form-field-select-label-gift-jars-only').addClass('is-active');
 		} else if ($(this).hasClass("form-option-large-gift-jar")) {

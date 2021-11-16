@@ -275,7 +275,9 @@
                 {{/if}}
 
             </dl>
-			{{> components/custom/client/client-product-fields}}
+			{{#if theme_settings.show_custom_fields_tabs '!==' true}}
+				{{> components/custom/client/client-product-fields}}
+			{{/if}}
         </div>
     </section>
 
