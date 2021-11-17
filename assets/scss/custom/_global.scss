@@ -1882,8 +1882,7 @@ body.scroll .navPages > ul > li > .navPages-action {
 
 .productCarousel .slick-next,
 .productCarousel .slick-prev {
-	width: 2.5rem;
-	background: none;
+	width: 2.25rem;
 	border: 0;
 }
 
@@ -1894,7 +1893,7 @@ body.scroll .navPages > ul > li > .navPages-action {
 
 .productCarousel .slick-next {
 	right: -1.5rem;
-	padding: 0 0 0 1.125rem;
+	padding: 0 0 0 .5rem;
 	@include breakpoint("medium") {
 		right: -2.25rem;
 	}
@@ -1902,10 +1901,14 @@ body.scroll .navPages > ul > li > .navPages-action {
 
 .productCarousel .slick-prev {
 	left: -1.5rem;
-	padding: 0 0 0 .125rem;
+	padding: 0 0 0 .5rem;
 	@include breakpoint("medium") {
 		left: -2.25rem;
 	}
+}
+
+.productCarousel .carousel-tooltip {
+	display: none;
 }
 
 
@@ -2211,6 +2214,98 @@ body.scroll .navPages > ul > li > .navPages-action {
 	@include breakpoint("large") {
 		width: 50%;
 	}
+}
+
+
+// Brands
+// =============================================================================
+
+.brand-jump-list {
+	margin: 0 0 3rem 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+.brand-jump-list-large .brand-jump-item {
+	flex: 0 0 7.6923076%;
+	@include breakpoint("medium") {
+		flex: 1 0 0;
+	}
+}
+
+.brand-jump-list-small .brand-jump-item {
+	flex: 1 0 0;
+}
+
+.brand-jump-item a {
+	display: block;
+	text-decoration: none;
+	padding: 1px;
+}
+
+.brand-jump-item a span {
+	display: block;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	color: stencilColor("button--default-color");
+	border: 1px solid stencilColor("button--default-borderColor");
+}
+
+.brand-jump-item a:hover span {
+	border: 1px solid stencilColor("button--primary-backgroundColor");
+	background: stencilColor("button--primary-backgroundColor");
+	color: stencilColor("button--primary-color");
+}
+
+.brand-group {
+	position: relative;
+}
+
+.brand-group h2 {
+	margin: 0;
+}
+
+.brand-anchor {
+	position: relative;
+	top: -105px;
+	width: 1px;
+	height: 1px;
+	visibility: hidden;
+}
+
+body.with-bar .brand-anchor {
+	@include breakpoint("medium") {
+		top: -148px;
+	}
+}
+
+body.hasAdminBar.has-bar .brand-anchor {
+	@include breakpoint("medium") {
+		top: -184px;
+	}
+}
+
+.brandGrid .brand {
+	padding-top: .75rem;
+	padding-bottom: .75rem;
+}
+
+.brandGrid .card {
+	border: 1px solid stencilColor("container-border-global-color-base");
+}
+
+.brandGrid .card-figure,
+.brandGrid .card-body {
+	padding: .75rem;
+}
+
+.brandGrid .card-title{
+	font-weight: 700;
 }
 
 
