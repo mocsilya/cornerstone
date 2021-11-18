@@ -56,8 +56,8 @@ h1, h2, h3, h4, h5, h6 {
 // Page Banners
 // =============================================================================
 
-.category-header.page-header-image .page-heading,
-.category-header.page-header-image nav {
+.page-header-image .page-heading,
+.page-header-image nav {
 	visibility: hidden;
 }
 
@@ -83,6 +83,25 @@ h1, h2, h3, h4, h5, h6 {
 .page-product .productView-options .form-option {
 	border: 2px solid #a74d7f;
 	border-radius: 3px;
+}
+
+.productView-description .tab {
+	order: 3;
+}
+
+.productView-description .tab-description {
+	order: 1;
+}
+
+.productView-description .tab-warranty {
+	order: 2;
+}
+
+.productView-info-name sku-label,
+.productView-info-value sku-value,
+.productView-info-name upc-label,
+.productView-info-value upc-value {
+	display: none;
 }
 
 .customfield-dietary {
