@@ -47,7 +47,7 @@
   "settings": {
 	"custom_phone_show": true,
     "custom_email_show": true,
-    "custom_email_address": "info@aylis.com",
+    "custom_email_address": "info@mollysmixtures.co.uk",
 	"custom_homepage_carousel_auto": true,
 	"custom_homepage_carousel_content": "normal",
 	"custom_homepage_carousel_content_background": true,
@@ -395,7 +395,7 @@
     "spinner-borderColor-dark": "#999999",
     "spinner-borderColor-light": "#ffffff",
     "hide_content_navigation": true,
-    "optimizedCheckout-header-backgroundColor": "#f5f5f5",
+    "optimizedCheckout-header-backgroundColor": "#a74d7f",
     "optimizedCheckout-show-backgroundImage": false,
     "optimizedCheckout-backgroundImage": "",
     "optimizedCheckout-backgroundImage-size": "1000x400",
