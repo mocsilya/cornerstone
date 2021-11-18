@@ -62,6 +62,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+
+// Brands Page
+// =============================================================================
+
+.brandGrid .card {
+	border: 1px solid #a74d7f;
+}
+
+
+// Category Page
+// =============================================================================
+
+.subcategories-blank {
+	display: none;
+}
+
+.subcategories-blank + .subcategories-name {
+	border: 1px solid #a74d7f;
+}
+
+
 // Product Page
 // =============================================================================
 
@@ -97,10 +118,10 @@ h1, h2, h3, h4, h5, h6 {
 	order: 2;
 }
 
-.productView-info-name sku-label,
-.productView-info-value sku-value,
-.productView-info-name upc-label,
-.productView-info-value upc-value {
+.productView-info-name.sku-label,
+.productView-info-value.sku-value,
+.productView-info-name.upc-label,
+.productView-info-value.upc-value {
 	display: none;
 }
 
@@ -251,6 +272,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-info-col address {
 	margin-top: .75rem;
+}
+
+
+// CART
+// =============================================================================
+
+.page-cart .cart-item-change {
+	display: none;
 }
 
 
