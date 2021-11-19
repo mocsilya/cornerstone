@@ -3,6 +3,7 @@
     data-slick='{
         "infinite": false,
         "mobileFirst": true,
+        "swipe": true,
         "slidesToShow": 1,
         "slidesToScroll": 1,
         "slide": "[data-product-slide]",
@@ -40,7 +41,7 @@
 >
     {{#each products}}
     <div data-product-slide class="productCarousel-slide js-product-slide {{#filter custom_fields 'hidden' property='name' }}{{#if value '==' 'spotlight'}} spotlight{{else if value '==' 'payment'}} payment{{/if}}{{/filter}}">
-        {{> components/products/card settings=../settings theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
+        {{> components/products/card show_rating=../settings.show_product_rating settings=../settings theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
     </div>
     {{/each}}
     {{#if products.length '>' 1}}

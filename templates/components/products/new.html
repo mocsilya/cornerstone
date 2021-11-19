@@ -9,7 +9,7 @@
 	<ul class="productGrid productGrid--maxCol{{ columns }} productGrid-{{ columns }}" data-product-type="new"  {{#if settings.data_tag_enabled}} data-list-name="New Products" {{/if}}>
 	{{#each products}}
 		<li class="product{{#filter custom_fields 'hidden' property='name' }}{{#if value '==' 'spotlight'}} spotlight{{else if value '==' 'payment'}} payment{{/if}}{{/filter}}">
-	    	{{>components/products/card settings=../settings theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
+	    	{{>components/products/card show_rating=../settings.show_product_rating settings=../settings theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
 		</li>
 	{{/each}}
 	</ul>

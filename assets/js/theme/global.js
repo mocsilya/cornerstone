@@ -19,8 +19,10 @@ import clientGlobal from './custom/client/client-global';
 import scrollDetect from './custom/scroll-detect';
 import footerHelper from './custom/footer-helper';
 import tabClick from './custom/tab-click';
+import toggleClick from './custom/toggle-click';
 import headerBar from './custom/header-bar';
 import widgetHelper from './custom/widget-helper';
+import sidebarHelper from './custom/sidebar-helper';
 
 export default class Global extends PageManager {
     onReady() {
@@ -45,7 +47,9 @@ export default class Global extends PageManager {
         scrollDetect();
 		footerHelper();
 		tabClick();
+		toggleClick();
 		headerBar();
 		widgetHelper();
+		sidebarHelper();
     }
 }

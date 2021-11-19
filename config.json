@@ -45,7 +45,7 @@
     "Firefox ESR"
   ],
   "settings": {
-	"custom_phone_show": false,
+	"custom_phone_show": true,
     "custom_email_show": false,
     "custom_email_address": "contact.mtbmonster@mtbmonster.com",
 	"custom_homepage_carousel_auto": true,
@@ -86,7 +86,7 @@
 	"custom_header_show_bar_message3": true,
 	"custom_header_bar_message1_text": "Mountain Bike & E-MTB Shop",
 	"custom_header_bar_message2_text": "Read Reviews",
-	"custom_header_bar_message3_text": "We Ship Worldwide",
+	"custom_header_bar_message3_text": "Worlds Best Bike Brands",
 	"custom_header_bar_message1_link": "",
 	"custom_header_bar_message2_link": "https://g.page/MTBMonster?share",
 	"custom_header_bar_message3_link": "/shipping-tax-and-delivery-information/",
@@ -311,7 +311,8 @@
     "color-greyLight": "#999999",
     "color-greyLighter": "#cccccc",
     "color-greyLightest": "#e5e5e5",
-    "banner--deafault-backgroundColor": "#707070",
+    "banner--default-color": "#ffffff",
+	"banner--default-backgroundColor": "#707070",
     "button--default-color": "#666666",
     "button--default-colorHover": "#333333",
     "button--default-colorActive": "#000000",

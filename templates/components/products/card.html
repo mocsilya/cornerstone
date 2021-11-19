@@ -28,11 +28,15 @@
         {{/each}}"
         data-product-brand="{{brand.name}}"
         data-product-price="
-        {{#if price.with_tax}}
-            {{price.with_tax.value}}
+        {{#or customer (unless theme_settings.restrict_to_login)}}
+            {{#if price.with_tax}}
+                {{price.with_tax.value}}
+            {{else}}
+                {{price.without_tax.value}}
+            {{/if}}
         {{else}}
-            {{price.without_tax.value}}
-        {{/if}}"
+            {{lang 'common.login_for_pricing'}}
+        {{/or}}"
     {{/if}}>
     <figure class="card-figure">
         {{#if stock_level '===' 0}}
@@ -75,20 +79,20 @@
 			{{#if has_options}}
 				<a href="{{url}}" 
 					class="card-figure__link{{#if (getVar 'warranty') '===' 'active'}} figure__warranty{{/if}}{{#if theme_settings.custom_card_show_swatches}} figure__swatches{{/if}} card-figure__normal"
-					aria-label="{{name}},{{> components/products/product-aria-label}}"
+					aria-label="{{> components/products/product-info}}"
 					{{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}
 				>
 			{{else}}
 				<a href="{{url}}" 
 					class="card-figure__link{{#if (getVar 'warranty') '===' 'active'}} figure__warranty{{/if}} card-figure__normal"
-					aria-label="{{name}},{{> components/products/product-aria-label}}"
+					aria-label="{{> components/products/product-info}}"
 					{{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}
 				>
 			{{/if}}
 		{{else}}
 			<a href="{{url}}" 
 				class="card-figure__link{{#if (getVar 'warranty') '===' 'active'}} figure__warranty{{/if}} card-figure__normal"
-				aria-label="{{name}},{{> components/products/product-aria-label}}"
+				aria-label="{{> components/products/product-info}}"
 				{{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}
 			>
 		{{/if}}
@@ -237,7 +241,7 @@
             <p class="card-text card-brand" data-test-info-type="brandName">{{brand.name}}</p>
         {{/if}}
         <h3 class="card-title">
-            <a aria-label="{{name}},{{> components/products/product-aria-label}}"
+            <a aria-label="{{> components/products/product-info}}"
                href="{{url}}"
                {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}
             >
@@ -270,6 +274,7 @@
 					{{theme_settings.custom_product_warranty_title}}
 				</a>
 				<div class="dropdown-menu" id="warranty{{id}}" data-dropdown-content="" aria-hidden="true">
+					<div class="dropdown-wrap"></div>
 				</div>
 			</div>
 		{{/if}}
