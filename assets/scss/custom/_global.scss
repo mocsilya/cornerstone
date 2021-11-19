@@ -674,10 +674,11 @@ body.scroll .header-logo-text {
 .navUser-item--cart .previewCart-additionalCheckoutButtons  {
 	text-align: center;
 	padding-bottom: 10px;
+	margin-bottom: 0;
 }
 
 .navUser-item--cart .previewCart-additionalCheckoutButtons > div.FloatRight {
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	max-width: 250px;
 	margin-left: auto;
 	margin-right: auto;
@@ -686,34 +687,6 @@ body.scroll .header-logo-text {
 
 .navUser-item--cart .previewCart-additionalCheckoutButtons .FloatRight div {
 	float: none;
-}
-
-/* PAYPAL */
-.navUser-item--cart .previewCart-additionalCheckoutButtons .paypal-smart-buttons {
-	max-height: 40px;
-	overflow: hidden;
-	margin: 0;
-}
-
-.navUser-item--cart #paypalexpress-button-container .paypal-smart-buttons > div > .zoid-outlet {
-	margin: 0 !important;
-}
-
-.navUser-item--cart .previewCart-additionalCheckoutButtons .paypal-smart-buttons > div.paypal-button {
-	width: 100% !important;
-	min-width: 250px !important;
-}
-
-/* GOOGLE */
-.navUser-item--cart .previewCart-additionalCheckoutButtons .GooglePayCheckout button {
-	margin: 0;
-	width: 100%;
-	max-width: 250px;
-	min-width: 250px;
-}
-
-.navUser-item--cart .previewCart-additionalCheckoutButtons .GooglePayContainer > div {
-	width: 100%;
 }
 
 
@@ -2592,6 +2565,7 @@ a:hover span.card-image:only-of-type img {
 .card-warranty {
 	position: relative;
 	overflow: visible;
+	margin-bottom: .5rem;
 }
 
 .card-warranty .button {
@@ -3837,7 +3811,7 @@ a:hover span.card-image:only-of-type img {
 }
 
 .previewCartCheckout .button:not(:last-child) {
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	max-width: 250px;
 	margin-left: auto;
 	margin-right: auto;
@@ -3847,27 +3821,13 @@ a:hover span.card-image:only-of-type img {
 	text-align: center;
 }
 
-.previewCartCheckout-additionalCheckoutButtons > div {
+.previewCartCheckout-additionalCheckoutButtons > div,
+.previewCartCheckout-additionalCheckoutButtons .CheckoutButton,
+.previewCartCheckout-additionalCheckoutButtons .CheckoutButton:first-child {
+	margin-top: 10px;
 	max-width: 250px;
 	margin-left: auto;
 	margin-right: auto;
-}
-
-/* PAYPAL */
-.previewCartCheckout-additionalCheckoutButtons .paypal-smart-buttons {
-	max-height: 40px;
-	overflow: hidden;
-	margin: 0;
-}
-
-.previewCartCheckout-additionalCheckoutButtons .paypal-smart-buttons > div.paypal-button {
-	width: 100% !important;
-	min-width: 250px !important;
-}
-
-/* GOOGLE */
-.previewCartCheckout-additionalCheckoutButtons .GooglePayCheckout button {
-	margin: 0;
 }
 
 
@@ -4336,67 +4296,6 @@ a:hover span.card-image:only-of-type img {
 	text-align: center;
 }
 
-/* PAYPAL */
-
-.cart-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons {
-	margin: 0  !important;
-	max-height: 40px;
-	overflow: hidden;
-}
-
-.cart-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons > div > .zoid-outlet {
-	margin-top: 0 !important;
-}
-
-.cart-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons > div > .zoid-outlet > iframe.zoid-component-frame {
-	z-index: 99 !important;
-}
-
-/*
-
-.cart-content-actions .PayPalExpressCheckout {
-	background-color: #fec33a;
-	background-image: url('../icons/logo-paypal.svg');
-	background-position: center;
-	background-repeat: no-repeat;
-	border-radius: 4px;
-	margin: .5rem 0;
-}
-
-.cart-content-actions .PayPalExpressCheckout:hover {
-	background-color: #fab000;
-}
-
-.cart-content-actions .PayPalExpressCheckout div,
-.cart-content-actions .PayPalExpressCheckout form {
-	width: 100%;
-	height: 40px;
-	max-height: 40px;
-	overflow: hidden;
-}
-
-.cart-content-actions .PayPalExpressCheckout input {
-	opacity: 0;
-	width: 100%;
-	height: 40px;
-	max-height: 40px;
-	margin: 0;
-	padding: 0;
-}
-
-*/
-
-/* GOOGLE */
-
-.cart-additionalCheckoutButtons #googlepaystripe-container2 {
-	margin: 0 !important;
-}
-
-.cart-additionalCheckoutButtons .GooglePayContainer button {
-	width: 100%;
-	min-width: 250px;
-	margin: 0 !important;
-}
 
 
 // Sitemap
@@ -4896,6 +4795,108 @@ a:hover span.card-image:only-of-type img {
 		text-align: left;
 	}
 }
+
+
+
+// Payment Buttons
+// =============================================================================
+
+/* PAYPAL */
+
+.navUser-item--cart #paypalexpress-button-container .paypal-smart-buttons,
+.previewCartCheckout-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons,
+.cart-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons {
+	max-height: 40px !important;
+	overflow: hidden !important;
+	margin: 0 !important;
+}
+
+.navUser-item--cart #paypalexpress-button-container .paypal-smart-buttons > div > .zoid-outlet,
+.previewCartCheckout-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons > div > .zoid-outlet,
+.cart-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons > div > .zoid-outlet  {
+	margin: 0 !important;
+}
+
+.cart-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons > div > .zoid-outlet > iframe.zoid-component-frame {
+	z-index: 99 !important;
+}
+
+.navUser-item--cart #paypalexpress-button-container .paypal-smart-buttons > div.paypal-button,
+.previewCartCheckout-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons > div.paypal-button,
+.cart-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons > div.paypal-button {
+	width: 100% !important;
+	min-width: 250px !important;
+	max-width: 250px !important;
+}
+
+.navUser-item--cart .PayPalExpressCheckout,
+.previewCartCheckout-additionalCheckoutButtons .PayPalExpressCheckout,
+.cart-additionalCheckoutButtons .PayPalExpressCheckout {
+	background-color: #fec33a;
+	background-image: url('../icons/logo-paypal.svg');
+	background-position: center;
+	background-repeat: no-repeat;
+	border-radius: 4px;
+	margin: 0;
+}
+
+.navUser-item--cart .PayPalExpressCheckout:hover,
+.previewCartCheckout-additionalCheckoutButtons  .PayPalExpressCheckout:hover,
+.cart-additionalCheckoutButtons .PayPalExpressCheckout:hover {
+	background-color: #fab000;
+}
+
+.navUser-item--cart .PayPalExpressCheckout div,
+.navUser-item--cart .PayPalExpressCheckout form,
+.previewCartCheckout-additionalCheckoutButtons .PayPalExpressCheckout div,
+.previewCartCheckout-additionalCheckoutButtons .PayPalExpressCheckout form,
+.cart-additionalCheckoutButtons .PayPalExpressCheckout div,
+.cart-additionalCheckoutButtons .PayPalExpressCheckout form {
+	width: 100%;
+	height: 40px;
+	max-height: 40px;
+	overflow: hidden;
+}
+
+.navUser-item--cart .PayPalExpressCheckout input,
+.previewCartCheckout-additionalCheckoutButtons .PayPalExpressCheckout input,
+.cart-additionalCheckoutButtons .PayPalExpressCheckout input {
+	opacity: 0;
+	width: 250px;
+	height: 40px;
+	max-height: 40px;
+	margin: 0;
+	padding: 0;
+}
+
+/* END PAYPAL */
+
+
+/* GOOGLE */
+
+.navUser-item--cart .previewCart-additionalCheckoutButtons .GooglePayCheckout button,
+.previewCartCheckout-additionalCheckoutButtons .GooglePayCheckout button,
+.cart-additionalCheckoutButtons .GooglePayCheckout button {
+	margin: 0 !important;
+	width: 100% !important;
+	max-width: 250px;
+	min-width: 250px;
+}
+
+
+.navUser-item--cart .previewCart-additionalCheckoutButtons #googlepaystripe-container2,
+.previewCartCheckout-additionalCheckoutButtons #googlepaystripe-container2,
+.cart-additionalCheckoutButtons #googlepaystripe-container2 {
+	margin: 0 !important;
+}
+
+.navUser-item--cart .previewCart-additionalCheckoutButtons .GooglePayContainer > div,
+.previewCartCheckout-additionalCheckoutButtons .GooglePayContainer > div,
+.cart-additionalCheckoutButtons .GooglePayContainer > div {
+	width: 100% !important;
+}
+
+/* END GOOGLE */
 
 
 

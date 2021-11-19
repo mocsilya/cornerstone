@@ -232,27 +232,6 @@ li.product {
 	padding: .25rem;
 }
 
-.card-warranty .dropdown-menu.is-open {
-	min-width: 400px;
-	z-index: 1;
-	left: auto !important;
-	right: -.75rem!important;
-}
-
-.card-warranty .button {
-	margin-bottom: .5rem;
-}
-
-.card-warranty .button.is-open {
-	background: #7fb24c;
-	color: #fff;
-	border: 1px solid #7fb24c;
-}
-
-.card-warranty .table-availability {
-	min-width: 300px;
-}
-
 
 // Preview Cart
 // =============================================================================
@@ -262,11 +241,6 @@ li.product {
 .previewCartCheckout-additionalCheckoutButtons,
 .or-use-label {
 	display: none;
-}
-
-.previewCartAction {
-	padding-bottom: 0;
-	margin-bottom: 1.5rem;
 }
 
 .previewCartAction-viewCart {
@@ -279,12 +253,7 @@ li.product {
 }
 
 .previewCart-additionalCheckoutButtons {
-	margin-top: 1.5rem;
-	display: none;
-}
-
-.previewCart-additionalCheckoutButtons .CheckoutButton:first-child {
-	margin-top: 0;
+	display: none !important;
 }
 
 
@@ -315,7 +284,7 @@ li.product {
 	border: 1px solid #189ac9;
 	color: #fff;
 	font-weight: 700;
-	margin-bottom: 1rem;
+	margin-bottom: 10px;
 }
 
 #form-action-finance {
@@ -323,7 +292,7 @@ li.product {
 	border: 1px solid #cc3333;
 	color: #fff;
 	font-weight: 700;
-	margin-bottom: 0;
+	margin-bottom: 0px;
 }
 
 #form-action-finance:hover,
@@ -353,6 +322,20 @@ li.product {
 .productView .shipping-label,
 .productView .shipping-value {
     display: none;
+}
+
+
+
+// Video player
+// =============================================================================
+.videoGallery-custom .toggleLink {
+	background: #cc3333;
+	border: 1px solid #cc3333;
+}
+
+.videoGallery-custom .toggleLink:hover {
+	background: #333;
+	border: 1px solid #333;
 }
 
 
@@ -507,10 +490,11 @@ li.product {
     display: none;
 }
 
+/*
 .page-GBP .productView-details-Whyte .message-GBP-Whyte {
     display: block;
 }
-
+*/
 
 
 // -----------------------------------------------------------------------------
@@ -925,6 +909,7 @@ li.product {
 	background: #7fb24c;
 	border: 1px solid #7fb24c;
 	color: #fff;
+	margin-top: 8px;
 }
 
 .cart-actions .button--primary.button--finance {
