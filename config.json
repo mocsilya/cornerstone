@@ -173,7 +173,7 @@
 	"custom_category_max_columns": 5,
     "custom-page-header-text": "#54183e",
     "custom-page-header-background": "#fdf2ed",
-    "custom_page_header_image_depth": "medium",
+    "custom_page_header_image_depth": "deep",
     "custom_page_header_image_blog": "",
     "custom_page_header_image_brands": "brands-01.jpg",
     "custom_page_header_image_cart": "cart-01.jpg",
