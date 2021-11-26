@@ -961,6 +961,19 @@ li.product {
 // WIDGET
 // =============================================================================
 
+.custom-widget-item.show-mobile {
+	@include breakpoint("medium") {
+		display: none;
+	}
+}
+
+.custom-widget-item.hide-mobile {
+	display: none;
+	@include breakpoint("medium") {
+		display: flex;
+	}
+}
+
 .custom-widget-image {
     align-self: center;
 }
