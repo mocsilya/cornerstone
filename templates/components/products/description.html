@@ -12,8 +12,8 @@
         <dl class="productView-info">
 			{{#each product.custom_fields}}
 			{{#unless name '==' 'hidden'}}
-           		<dt class="productView-info-name customfield-label">{{name}}:</dt>
-           		<dd class="productView-info-value customfield-value">{{{value}}}</dd>
+           		<dt class="productView-info-name customfield-label customfield-{{dashcase name}}">{{name}}:</dt>
+           		<dd class="productView-info-value customfield-value customfield-{{dashcase name}}">{{{value}}}</dd>
 			{{/unless}}
 			{{/each}}
         </dl>

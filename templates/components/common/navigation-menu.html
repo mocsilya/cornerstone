@@ -2,7 +2,7 @@
     <ul class="navPages-list{{#if theme_settings.navigation_design '!==' 'simple'}} navPages-list-depth-max {{else}} navPages-list-simple {{/if}}">
         {{> components/custom/client/client-header-menu-start}}
 		{{#each categories}}
-            <li class="navPages-item navPages-item-category">
+            <li class="navPages-item navPages-item-category navPages-item-{{dashcase name}}">
             {{#if ../theme_settings.navigation_design '===' 'simple'}}
 				{{#if children}}
 				<a class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}} navPages-action-mobile"
@@ -106,21 +106,21 @@
         {{/each}}
 	    {{#if theme_settings.navigation_design '===' 'simple'}}
 			{{#and theme_settings.custom_header_show_brands shop_by_brand.length}}
-			<li class="navPages-item navPages-item-page">
+			<li class="navPages-item navPages-item-page navPages-item-brands">
 				{{> components/custom/navigation-list-brand}}
 			</li>
 			{{/and}}
 		{{/if}}
 		{{#if theme_settings.navigation_design '===' 'alternate'}}
 			{{#and theme_settings.custom_header_show_brands shop_by_brand.length}}
-			<li class="navPages-item navPages-item-page">
+			<li class="navPages-item navPages-item-page navPages-item-brands">
 				{{> components/custom/navigation-list-alternate-brand}}
 			</li>
 			{{/and}}
 		{{/if}}
         {{#unless theme_settings.hide_content_navigation}}
             {{#each pages}}
-                <li class="navPages-item navPages-item-page">
+                <li class="navPages-item navPages-item-page navPages-item-{{dashcase name}}">
 	            {{#if ../theme_settings.navigation_design '===' 'simple'}}
 					{{#if ../theme_settings.custom_header_group_single}}
 	                	{{> components/custom/navigation-list-group-page}}
