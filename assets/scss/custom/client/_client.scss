@@ -227,6 +227,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-instagram h2 {
 	color: #fdf2ed;
+	background: #A74D7F;
+	padding-top: 2.28571rem;
+    padding-bottom: 0.78571rem;
+	margin: 0;
+	position: relative;
+	z-index: 99999;
 }
 
 .footer-instagram h2 a {
@@ -322,7 +328,9 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 100004;
 }
 
+.modal,
 #modal,
+#alert-modal,
 #previewModal,
 #modal-review-form,
 #ay-question {

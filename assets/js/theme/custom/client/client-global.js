@@ -16,4 +16,6 @@ export default function () {
 			$('.form-field-select-label-gift-jars-only .form-select').prop('selectedIndex',0);
 		}
 	});
+	// Elfsight
+	$('#eapps-instagram-feed-1 a:last-child').attr('style','display: none !important');
 }
