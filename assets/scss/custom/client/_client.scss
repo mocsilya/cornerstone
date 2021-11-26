@@ -899,10 +899,6 @@ li.product {
 	padding-bottom: 0;
 }
 
-// Footer
-// =============================================================================
-
-
 .cart-actions .button--primary {
 	display: none;
 }
@@ -961,6 +957,138 @@ li.product {
 	padding-bottom: 80px;
 }
 
+
+// Blog
+// =============================================================================
+
+.footer-blog > .container {
+	@include breakpoint("large") {
+		display: flex;
+	}
+}
+
+.footer-blog .container .container {
+	padding: 0;
+	max-width: none;
+	@include breakpoint("large") {
+		flex: 1 0 66.6666666%;
+		width: auto;
+		padding-left: 3rem;
+		border-left: 1px solid #666;
+	}
+}
+
+.footer-blog-list {
+	@include breakpoint("large") {
+		margin-top: 4.2rem;
+		grid-template-columns: 1fr;
+	}
+}
+
+.footer-blog-list li,
+.footer-blog-list li:first-child {
+	@include breakpoint("large") {
+		padding-top: 0;
+		padding-left: 280px;
+		position: relative;
+		min-height: 280px;
+	}
+	@include breakpoint("xlarge") {
+		padding-left: 330px;
+		min-height: 330px;
+	}
+}
+
+.footer-blog-img {
+	background: #fff;
+	padding: .75rem;
+	border-radius: 4px;
+	@include breakpoint("large") {
+		width: calc(280px - 1.5rem);
+		max-height: calc(280px - 1.5rem);
+		overflow: hidden;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	@include breakpoint("xlarge") {
+		width: calc(330px - 1.5rem);
+		max-height: calc(330px - 1.5rem);
+	}
+}
+
+.footer-blog-social {
+	display: flex;
+	flex-direction: column;
+	@include breakpoint("medium") {
+		flex-direction: row;
+	}
+	@include breakpoint("large") {
+		flex-direction: column;
+		padding-right: 3rem;
+		flex: 1 0 33.3333333%;
+		border-right: 1px solid #666;
+	}
+}
+
+.footer-blog-youtube {
+	text-align: center;
+	@include breakpoint("medium") {
+		flex: 1 0 0;
+		padding-right: 1.5rem;
+	}
+	@include breakpoint("large") {
+		padding-right: 0;
+	}
+}
+
+.videoContainer {
+	margin: 0 auto;
+	background: #fff;
+	padding: .75rem .75rem 1.5rem .75rem;
+	max-width: calc(540px + 1.5rem);
+	border-radius: 4px;
+	margin-bottom: 1.5rem;
+}
+
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	height: 0;
+}
+
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.youtube-subscribe {
+	margin-top: 1.5rem;
+}
+
+.footer-blog-instagram {
+	text-align: center;
+	@include breakpoint("medium") {
+		flex: 1 0 0;
+		padding-left: 1.5rem;
+	}
+	@include breakpoint("large") {
+		padding-left: 0;
+	}
+}
+
+.instaContainer {
+	margin: 0 auto;
+	background: #fff;
+	padding: .75rem;
+	min-width: calc(324px + 1.5rem);
+	max-width: calc(540px + 1.5rem);
+	border-radius: 4px;
+	margin-bottom: 1.5rem;
+}
 
 
 
