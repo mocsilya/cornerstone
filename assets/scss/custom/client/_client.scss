@@ -30,8 +30,12 @@
 
 
 
+// Page Header
+// =============================================================================
 
-
+.page-header-image .breadcrumbs, .page-header-image .page-heading, .page-header-image .page-heading+nav .breadcrumbs {
+    background-color: rgba(0,0,0, 0.7);
+}
 
 
 // Hero Carousel
@@ -226,11 +230,6 @@
 
 // Card
 // =============================================================================
-
-
-li.product {
-	overflow: visible;
-}
 
 .card-message {
 	border: 1px solid #ccc;
@@ -1090,7 +1089,17 @@ li.product {
 	margin-bottom: 1.5rem;
 }
 
+.footer-blog-viewall {
+	text-align: center;
+	padding: 1.5rem 0;
+	@include breakpoint("large") {
+		border-top: 2px solid #666;
+	}
+}
 
+.footer-blog-viewall .button {
+	margin: 0 auto;
+}
 
 
 // WIDGET

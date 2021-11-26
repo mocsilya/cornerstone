@@ -1,3 +1,4 @@
+{{#and (if page_type '!==' 'blog' ) (if page_type '!==' 'blog_post')}}
 <div class="container">
 <article class="footer-blog-social">
 	<div class="footer-blog-youtube">
@@ -43,3 +44,4 @@
 		<script async src="//www.instagram.com/embed.js"></script>
 	</div>
 </article>
+{{/and}}
