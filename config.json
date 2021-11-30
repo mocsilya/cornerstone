@@ -73,7 +73,7 @@
 	"custom-card-spotlight-background": "#000000",
 	"custom-card-border": "#ebebeb",
 	"custom-card-wishlist-icon": "#000000",
-	"custom_header_group_single": false,
+	"custom_header_group_single": true,
 	"custom_header_show_brands": false,
 	"custom_header_scroll_navpages": true,
 	"custom_header_icon_style": "outline",
