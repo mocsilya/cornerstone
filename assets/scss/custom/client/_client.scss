@@ -79,13 +79,6 @@ div[data-sub-layout-container="e72c7bfb-fdca-44fe-a4db-884e74fddd85"] h4 {
 // WIDGET FOR CATEGORY BOXES
 // =============================================================================
 
-
-@media (max-width: 800px) {
-	div[data-sub-layout-container="08b95f9a-e1ad-460d-9aa8-69bb743fd432"] .custom-widget-item {
-		min-width: 50%;
-	}
-}
-
 div[data-sub-layout-container="08b95f9a-e1ad-460d-9aa8-69bb743fd432"] .custom-widget-link {
     border: .25rem solid #fff;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3); 
