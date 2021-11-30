@@ -67,6 +67,7 @@
 			<ul class="productView-thumbnails"{{#gt product.images.length 3}} data-slick='{
                 "infinite": false,
                 "mobileFirst": true,
+                "swipe": true,
                 "dots": false,
                 "accessibility": false,
                 "slidesToShow": 4,
@@ -77,6 +78,7 @@
 			<ul class="productView-thumbnails"{{#gt product.images.length 4}} data-slick='{
                 "infinite": false,
                 "mobileFirst": true,
+                "swipe": true,
                 "dots": false,
                 "accessibility": false,
                 "slidesToShow": 4,
@@ -275,7 +277,9 @@
                 {{/if}}
 
             </dl>
-			{{> components/custom/client/client-product-fields}}
+			{{#if theme_settings.show_custom_fields_tabs '!==' true}}
+				{{> components/custom/client/client-product-fields}}
+			{{/if}}
         </div>
     </section>
 

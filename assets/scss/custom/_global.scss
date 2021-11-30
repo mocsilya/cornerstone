@@ -98,6 +98,14 @@ body.scroll.with-bar {
 	}
 }
 
+// Banners
+// =============================================================================
+
+.banners {
+	color: stencilColor("banner--default-color");
+	background-color: stencilColor("banner--default-backgroundColor");
+}
+
 
 // Pagination
 // =============================================================================
@@ -639,6 +647,48 @@ body.scroll .header-logo-text {
 	background-color: stencilColor("navUser-color-hover");
 	color: stencilColor("header-backgroundColor");
 }
+
+
+.navUser-item--cart .previewCartAction-checkout,
+.navUser-item--cart .previewCartAction-viewCart {
+	float: none;
+	width: 100%;
+	padding: 0;
+	max-width: 250px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
+}
+
+.navUser-item--cart .previewCartAction-checkout .button,
+.navUser-item--cart .previewCartAction-viewCart .button {
+	padding: .85rem 1.5rem;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.navUser-item--cart .previewCartAction {
+	padding-bottom: 0;
+}
+
+.navUser-item--cart .previewCart-additionalCheckoutButtons  {
+	text-align: center;
+	padding-bottom: 10px;
+	margin-bottom: 0;
+}
+
+.navUser-item--cart .previewCart-additionalCheckoutButtons > div.FloatRight {
+	margin-bottom: 10px;
+	max-width: 250px;
+	margin-left: auto;
+	margin-right: auto;
+	float: none;
+}
+
+.navUser-item--cart .previewCart-additionalCheckoutButtons .FloatRight div {
+	float: none;
+}
+
 
 .navUser-item--credit .dropdown-menu {
 	text-align: left;
@@ -1874,8 +1924,7 @@ body.scroll .navPages > ul > li > .navPages-action {
 
 .productCarousel .slick-next,
 .productCarousel .slick-prev {
-	width: 2.5rem;
-	background: none;
+	width: 2.25rem;
 	border: 0;
 }
 
@@ -1886,7 +1935,7 @@ body.scroll .navPages > ul > li > .navPages-action {
 
 .productCarousel .slick-next {
 	right: -1.5rem;
-	padding: 0 0 0 1.125rem;
+	padding: 0 0 0 .5rem;
 	@include breakpoint("medium") {
 		right: -2.25rem;
 	}
@@ -1894,10 +1943,14 @@ body.scroll .navPages > ul > li > .navPages-action {
 
 .productCarousel .slick-prev {
 	left: -1.5rem;
-	padding: 0 0 0 .125rem;
+	padding: 0 0 0 .5rem;
 	@include breakpoint("medium") {
 		left: -2.25rem;
 	}
+}
+
+.productCarousel .carousel-tooltip {
+	display: none;
 }
 
 
@@ -2206,6 +2259,98 @@ body.scroll .navPages > ul > li > .navPages-action {
 }
 
 
+// Brands
+// =============================================================================
+
+.brand-jump-list {
+	margin: 0 0 3rem 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+.brand-jump-list-large .brand-jump-item {
+	flex: 0 0 7.6923076%;
+	@include breakpoint("medium") {
+		flex: 1 0 0;
+	}
+}
+
+.brand-jump-list-small .brand-jump-item {
+	flex: 1 0 0;
+}
+
+.brand-jump-item a {
+	display: block;
+	text-decoration: none;
+	padding: 1px;
+}
+
+.brand-jump-item a span {
+	display: block;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	color: stencilColor("button--default-color");
+	border: 1px solid stencilColor("button--default-borderColor");
+}
+
+.brand-jump-item a:hover span {
+	border: 1px solid stencilColor("button--primary-backgroundColor");
+	background: stencilColor("button--primary-backgroundColor");
+	color: stencilColor("button--primary-color");
+}
+
+.brand-group {
+	position: relative;
+}
+
+.brand-group h2 {
+	margin: 0;
+}
+
+.brand-anchor {
+	position: relative;
+	top: -105px;
+	width: 1px;
+	height: 1px;
+	visibility: hidden;
+}
+
+body.with-bar .brand-anchor {
+	@include breakpoint("medium") {
+		top: -148px;
+	}
+}
+
+body.hasAdminBar.has-bar .brand-anchor {
+	@include breakpoint("medium") {
+		top: -184px;
+	}
+}
+
+.brandGrid .brand {
+	padding-top: .75rem;
+	padding-bottom: .75rem;
+}
+
+.brandGrid .card {
+	border: 1px solid stencilColor("container-border-global-color-base");
+}
+
+.brandGrid .card-figure,
+.brandGrid .card-body {
+	padding: .75rem;
+}
+
+.brandGrid .card-title{
+	font-weight: 700;
+}
+
+
 // Brand Page
 // =============================================================================
 
@@ -2420,6 +2565,7 @@ a:hover span.card-image:only-of-type img {
 .card-warranty {
 	position: relative;
 	overflow: visible;
+	margin-bottom: .5rem;
 }
 
 .card-warranty .button {
@@ -3623,6 +3769,67 @@ a:hover span.card-image:only-of-type img {
 	font-weight: 700;
 }
 
+.previewCart .productView {
+	@include breakpoint("medium") {
+		width: calc(100% - 292px);
+	}
+	@include breakpoint("large") {
+		flex-direction: row;
+	}
+}
+
+.previewCart .productView-image {
+	@include breakpoint("medium") {
+		width: 100%;
+	}
+	@include breakpoint("large") {
+		flex: 1 0 0;
+		width: auto;
+	}
+}
+
+.previewCart .productView-details {
+	padding-top: 1.5rem;
+	@include breakpoint("medium") {
+		width: 100%;
+	}
+	@include breakpoint("large") {
+		flex: 1 0 0;
+		width: auto;
+	}
+}
+
+.previewCartCheckout {
+	text-align: center;
+	@include breakpoint("medium") {
+		width: 292px;
+	}
+}
+
+.previewCartCheckout .button:first-child {
+	margin-top: 10px;
+}
+
+.previewCartCheckout .button:not(:last-child) {
+	margin-bottom: 10px;
+	max-width: 250px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.previewCartCheckout-additionalCheckoutButtons {
+	text-align: center;
+}
+
+.previewCartCheckout-additionalCheckoutButtons > div,
+.previewCartCheckout-additionalCheckoutButtons .CheckoutButton,
+.previewCartCheckout-additionalCheckoutButtons .CheckoutButton:first-child {
+	margin-top: 10px;
+	max-width: 250px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 
 
 // Payment Product Page
@@ -4053,9 +4260,19 @@ a:hover span.card-image:only-of-type img {
 	float: none;
 }
 
+.cart-content-actions .cart-actions {
+	margin-bottom: 10px;
+	text-align: center;
+}
+
 .cart-content-actions .button {
-	width: 100%;
 	float: none;
+	font-weight: 700;
+	text-transform: uppercase;
+	width: 100%;
+	min-width: 250px;
+	max-width: 250px;
+	margin: 0 auto;
 }
 
 .cart-content-actions .button + .button {
@@ -4069,56 +4286,14 @@ a:hover span.card-image:only-of-type img {
 	}
 }
 
+.cart-additionalCheckoutButtons .FloatRight,
 .cart-additionalCheckoutButtons .FloatRight div {
 	float: none;
 }
 
-.cart-additionalCheckoutButtons .CheckoutButton:first-child {
-	margin-top: .5rem;
-}
-
-.cart-additionalCheckoutButtons .CheckoutButton:last-child {
-	margin-bottom: .5rem;
-}
-
-.cart-content-actions .PayPalExpressCheckout {
-	background-color: #fec33a;
-	background-image: url('../icons/logo-paypal.svg');
-	background-position: center;
-	background-repeat: no-repeat;
-	border-radius: 4px;
-	margin: .5rem 0;
-}
-
-.cart-content-actions .PayPalExpressCheckout:hover {
-	background-color: #fab000;
-}
-
-.cart-content-actions .PayPalExpressCheckout div,
-.cart-content-actions .PayPalExpressCheckout form {
-	width: 100%;
-	height: 40px;
-	max-height: 40px;
-	overflow: hidden;
-}
-
-.cart-content-actions .PayPalExpressCheckout input {
-	opacity: 0;
-	width: 100%;
-	height: 40px;
-	max-height: 40px;
-	margin: 0;
-	padding: 0;
-}
-
-.cart-content-actions .GooglePayContainer,
-.cart-content-actions .GooglePayContainer div {
-	float: none;
-	width: 100%;
-}
-
-.cart-content-actions .GooglePayContainer button {
-	width: 100%;
+.cart-additionalCheckoutButtons > div {
+	margin: 10px 0 0 0;
+	text-align: center;
 }
 
 
@@ -4620,6 +4795,120 @@ a:hover span.card-image:only-of-type img {
 		text-align: left;
 	}
 }
+
+
+
+// Payment Buttons
+// =============================================================================
+
+/* PAYPAL */
+
+.navUser-item--cart #paypalexpress-button-container .paypal-smart-buttons,
+.previewCartCheckout-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons,
+.cart-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons {
+	max-height: 40px !important;
+	overflow: hidden !important;
+	margin: 0 !important;
+}
+
+.navUser-item--cart #paypalexpress-button-container .paypal-smart-buttons > div > .zoid-outlet,
+.previewCartCheckout-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons > div > .zoid-outlet,
+.cart-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons > div > .zoid-outlet  {
+	margin: 0 !important;
+}
+
+.cart-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons > div > .zoid-outlet > iframe.zoid-component-frame {
+	z-index: 99 !important;
+}
+
+.navUser-item--cart #paypalexpress-button-container .paypal-smart-buttons > div.paypal-button,
+.previewCartCheckout-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons > div.paypal-button,
+.cart-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons > div.paypal-button {
+	width: 100% !important;
+	min-width: 250px !important;
+	max-width: 250px !important;
+}
+
+.navUser-item--cart .PayPalExpressCheckout,
+.previewCartCheckout-additionalCheckoutButtons .PayPalExpressCheckout,
+.cart-additionalCheckoutButtons .PayPalExpressCheckout {
+	background-color: #fec33a;
+	background-image: url('../icons/logo-paypal.svg');
+	background-position: center;
+	background-repeat: no-repeat;
+	border-radius: 4px;
+	margin: 0;
+}
+
+.navUser-item--cart .PayPalExpressCheckout:hover,
+.previewCartCheckout-additionalCheckoutButtons  .PayPalExpressCheckout:hover,
+.cart-additionalCheckoutButtons .PayPalExpressCheckout:hover {
+	background-color: #fab000;
+}
+
+.navUser-item--cart #paypalexpress-button-container,
+.navUser-item--cart #paypalexpress-button-container:hover,
+.previewCartCheckout-additionalCheckoutButtons #paypalexpress-button-container,
+.previewCartCheckout-additionalCheckoutButtons #paypalexpress-button-container:hover,
+.cart-additionalCheckoutButtons #paypalexpress-button-container,
+.cart-additionalCheckoutButtons #paypalexpress-button-container:hover {
+	background-image: none;
+	padding-top: 2px;
+	max-height: 40px;
+	overflow: hidden;
+}
+
+.navUser-item--cart .PayPalExpressCheckout > div,
+.navUser-item--cart .PayPalExpressCheckout form,
+.previewCartCheckout-additionalCheckoutButtons .PayPalExpressCheckout > div,
+.previewCartCheckout-additionalCheckoutButtons .PayPalExpressCheckout form,
+.cart-additionalCheckoutButtons .PayPalExpressCheckout > div,
+.cart-additionalCheckoutButtons .PayPalExpressCheckout form {
+	width: 100%;
+	height: 40px;
+	max-height: 40px;
+	overflow: hidden;
+}
+
+.navUser-item--cart .PayPalExpressCheckout input,
+.previewCartCheckout-additionalCheckoutButtons .PayPalExpressCheckout input,
+.cart-additionalCheckoutButtons .PayPalExpressCheckout input {
+	opacity: 0;
+	width: 250px;
+	height: 40px;
+	max-height: 40px;
+	margin: 0;
+	padding: 0;
+}
+
+/* END PAYPAL */
+
+
+/* GOOGLE */
+
+.navUser-item--cart .previewCart-additionalCheckoutButtons .GooglePayCheckout button,
+.previewCartCheckout-additionalCheckoutButtons .GooglePayCheckout button,
+.cart-additionalCheckoutButtons .GooglePayCheckout button {
+	margin: 0 !important;
+	width: 100% !important;
+	max-width: 250px;
+	min-width: 250px;
+}
+
+
+.navUser-item--cart .previewCart-additionalCheckoutButtons #googlepaystripe-container2,
+.previewCartCheckout-additionalCheckoutButtons #googlepaystripe-container2,
+.cart-additionalCheckoutButtons #googlepaystripe-container2 {
+	margin: 0 !important;
+}
+
+.navUser-item--cart .previewCart-additionalCheckoutButtons .GooglePayContainer > div,
+.previewCartCheckout-additionalCheckoutButtons .GooglePayContainer > div,
+.cart-additionalCheckoutButtons .GooglePayContainer > div {
+	width: 100% !important;
+}
+
+/* END GOOGLE */
 
 
 
