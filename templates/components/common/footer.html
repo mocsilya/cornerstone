@@ -18,11 +18,9 @@
     {{/if}}
 {{/if}}
 {{{region name="footer_top--global"}}}
-{{#or theme_settings.custom_footer_show_newsletter theme_settings.social_icon_placement_bottom theme_settings.custom_footer_client_newsletter}}
+{{#or theme_settings.custom_footer_show_newsletter theme_settings.social_icon_placement_bottom}}
 <section class="footer-newsletter">
-	{{#if theme_settings.custom_footer_client_newsletter}}
-		{{> components/custom/client/client-newsletter-top}}
-	{{/if}}
+	{{> components/custom/client/client-newsletter-top}}
 	<div class="container">
 	{{#if theme_settings.custom_footer_show_newsletter}}
 		{{#if settings.show_newsletter_box}}
@@ -39,18 +37,13 @@
 		</article>
 	{{/if}}
 	</div>
-	{{#if theme_settings.custom_footer_client_newsletter}}
-		{{> components/custom/client/client-newsletter-bottom}}
-	{{/if}}
+	{{> components/custom/client/client-newsletter-bottom}}
 </section>
 {{/or}}
 
-{{#or theme_settings.custom_footer_show_blog theme_settings.custom_footer_client_blog}}
+{{#if theme_settings.custom_footer_show_blog}}
 <section class="footer-blog">
-	{{#if theme_settings.custom_footer_client_blog}}
-		{{> components/custom/client/client-blog-top}}
-	{{/if}}
-	{{#if theme_settings.custom_footer_show_blog}}
+	{{> components/custom/client/client-blog-top}}
 		{{#if settings.request.absolute_path '===' '/'}}
 			<div class="container">
 				<article class="footer-blog-col" data-section-type="footer-blog">
@@ -66,12 +59,9 @@
 				</div>
 			{{/unless}}
 		{{/if}}
-	{{/if}}
-	{{#if theme_settings.custom_footer_client_blog}}
-		{{> components/custom/client/client-blog-bottom}}
-	{{/if}}
+	{{> components/custom/client/client-blog-bottom}}
 </section>
-{{/or}}
+{{/if}}
 
 <footer class="footer" role="contentinfo">
     <h2 class="footer-title-sr-only">{{lang 'footer.title'}}</h2>
