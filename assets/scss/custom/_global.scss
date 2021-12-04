@@ -1410,7 +1410,8 @@ body.scroll .navPages > ul > li > .navPages-action {
 	margin: 1rem 0;
 }
 
-.page-header .page-heading + nav .breadcrumbs {
+.page-header .page-heading + nav .breadcrumbs,
+.page-header .breadcrumbs + .breadcrumbs  {
 	margin: 0 0 .5rem 0;
 	top: -.5rem;
 }
@@ -3490,10 +3491,6 @@ a:hover span.card-image:only-of-type img {
 
 .page-product .breadcrumb.is-active {
 	display: none;
-}
-
-.page-product li.breadcrumb:nth-last-of-type(2) .breadcrumb-label {
-	font-weight: 700;
 }
 
 .page-product .productView-brand {
