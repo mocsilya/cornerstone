@@ -1,3 +1,17 @@
+{{assignVar "customfields" "inactive"}}
+{{#each product.custom_fields}}
+	{{#unless name '==' 'hidden'}}
+		{{#unless name '==' 'breadcrumb'}}
+			{{#unless name '==' 'download'}}
+           			{{assignVar "customfields" "active"}}
+           	{{/unless}}
+		{{/unless}}
+	{{/unless}}
+{{/each}}
+{{assignVar "downloads" "inactive"}}
+{{#filter product.custom_fields 'download' property='name'}}
+	{{assignVar "downloads" "active"}}
+{{/filter}}
 {{#if product.description}}
     <h4 class="productView-title">{{theme_settings.custom_product_description_title}}</h4>
     <div class="productView-description description-content" {{#if settings.data_tag_enabled}} data-event-type="product" {{/if}}>
@@ -6,7 +20,30 @@
     </div>
 {{/if}}
 
+{{#if (getVar "downloads") '===' 'active'}}
+	<h4 class="productView-title">Downloads</h4>
+	<div class="productView-description downloads-content">
+		<ul class="productView-download">
+		{{#each product.custom_fields}}
+			{{#if name '==' 'download'}}
+	   			<li class="productView-download-item">
+					<a class="productView-download-link button button--primary" target="_blank" href="{{cdn (concat 'webdav:' value)}}">
+					     <i aria-hidden="true" class="icon">
+							 <svg>
+								 <use xlink:href="#icon-arrow-down" />
+							 </svg>
+					    </i>
+						<span>{{{uppercase (last (split value '.'))}}}&nbsp; : &nbsp;<strong>{{{first (split value '.')}}}</strong></span>
+					</a>
+				</li>
+			{{/if}}
+		{{/each}}
+		</ul>
+	</div>
+{{/if}}
+
 {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
+	{{#if (getVar "customfields") '===' 'active'}}
     <h4 class="productView-title">{{sanitize theme_settings.pdp-custom-fields-tab-label}}</h4>
     <div class="productView-description customfields-content">
         <dl class="productView-info">
@@ -23,6 +60,7 @@
         </dl>
 		{{> components/custom/client/client-product-fields}}
     </div>
+	{{/if}}
 {{/all}}
 
 {{#unless theme_settings.custom_product_warranty_gallery}}

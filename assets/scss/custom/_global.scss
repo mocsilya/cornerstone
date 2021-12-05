@@ -3827,6 +3827,30 @@ a:hover span.card-image:only-of-type img {
 	margin-right: auto;
 }
 
+.productView-download {
+	margin: 0 0 1.5rem 0;
+	padding: 0;
+	list-style: none;
+}
+
+.productView-download-item {
+	margin: 0 0 .5rem 0;
+	padding: 0;
+	list-style: none;
+	display: block;
+}
+
+.productView-download-link {
+	margin: 0;
+}
+
+.productView-download-link .icon svg {
+    fill: stencilColor("button--primary-color");
+}
+
+.productView-download-link:hover .icon svg {
+    fill: stencilColor("button--primary-colorHover");
+}
 
 
 // Payment Product Page
