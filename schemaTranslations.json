@@ -1604,7 +1604,7 @@
     "default": "Tab 1 heading"
   },
   "i18n.ProductTab1Content": {
-    "default": "Tab 1 text/html"
+    "default": "Tab 1 page url (e.g. /my-page-name)"
   },
   "i18n.ProductTab2Show": {
     "default": "Show custom tab 2"
@@ -1613,7 +1613,7 @@
     "default": "Tab 2 heading"
   },
   "i18n.ProductTab2Content": {
-    "default": "Tab 2 text/html"
+    "default": "Tab 2 page url (e.g. /my-page-name)"
   },
   "i18n.NumberOfProductsDisplayed": {
     "default": "Number of products displayed",

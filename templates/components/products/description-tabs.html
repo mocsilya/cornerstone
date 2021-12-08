@@ -88,13 +88,13 @@
 	{{/unless}}
     {{#if theme_settings.custom_product_tab1_show}}
         <div class="tab-content" id="tab-custom1">
-			{{{theme_settings.custom_product_tab1_content}}}
+			<span class="tab1-page">{{{theme_settings.custom_product_tab1_content}}}</span>
 			{{> components/custom/client/client-product-tab1}}
 		</div>
     {{/if}}
     {{#if theme_settings.custom_product_tab2_show}}
         <div class="tab-content" id="tab-custom2">
-			{{{theme_settings.custom_product_tab2_content}}}
+			<span class="tab2-page">{{{theme_settings.custom_product_tab2_content}}}</span>
 			{{> components/custom/client/client-product-tab2}}
 		</div>
     {{/if}}
