@@ -107,16 +107,6 @@ body.scroll.with-bar {
 }
 
 
-// Pagination
-// =============================================================================
-
-.pagination-list {
-	margin-top: 1.5rem;
-	margin-bottom: 1.5rem;
-}
-
-
-
 // Tabs
 // =============================================================================
 
@@ -1410,7 +1400,8 @@ body.scroll .navPages > ul > li > .navPages-action {
 	margin: 1rem 0;
 }
 
-.page-header .page-heading + nav .breadcrumbs {
+.page-header .page-heading + nav .breadcrumbs,
+.page-header .breadcrumbs + .breadcrumbs  {
 	margin: 0 0 .5rem 0;
 	top: -.5rem;
 }
@@ -2368,17 +2359,23 @@ body.hasAdminBar.has-bar .brand-anchor {
 // =============================================================================
 
 .page-sidebar .sidebar-image {
-	padding: 0 0 1.5rem;
+	padding: 1.5rem;
+	margin-bottom: 1.5rem;
+	border: 1px solid stencilColor("input-border-color");
+	border-radius: 4px;
 }
 
 .page-sidebar .brand-image-container,
 .page-sidebar .brand-image-container img {
-	max-width: 100%;
-	max-height: 100px;
-	overflow: hidden;
-	@include breakpoint("medium") {
-		margin: 0;
-	}
+	max-width: none;
+	max-height: none;
+	width: 100%;
+	height: auto;
+	position: static;
+}
+
+.brand-image-container::after {
+	display: none;
 }
 
 
@@ -3492,10 +3489,6 @@ a:hover span.card-image:only-of-type img {
 	display: none;
 }
 
-.page-product li.breadcrumb:nth-last-of-type(2) .breadcrumb-label {
-	font-weight: 700;
-}
-
 .page-product .productView-brand {
 	margin: 0;
 	text-decoration: none;
@@ -3830,6 +3823,30 @@ a:hover span.card-image:only-of-type img {
 	margin-right: auto;
 }
 
+.productView-download {
+	margin: 0 0 1.5rem 0;
+	padding: 0;
+	list-style: none;
+}
+
+.productView-download-item {
+	margin: 0 0 .5rem 0;
+	padding: 0;
+	list-style: none;
+	display: block;
+}
+
+.productView-download-link {
+	margin: 0;
+}
+
+.productView-download-link .icon svg {
+    fill: stencilColor("button--primary-color");
+}
+
+.productView-download-link:hover .icon svg {
+    fill: stencilColor("button--primary-colorHover");
+}
 
 
 // Payment Product Page
@@ -4033,39 +4050,66 @@ a:hover span.card-image:only-of-type img {
 	vertical-align: top;
 }
 
+.tab1-page,
+.tab2-page {
+	display: none;
+}
+
 
 
 // Pagination
 // =============================================================================
 
-.pagination-item {
-	border: 0;
+.pagination-list {
+	text-align: center;
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+	@include breakpoint("medium") {
+		text-align: right;
+	}
 }
 
-.pagination-item .pagination-link {
-	border: 1px solid stencilColor("custom-pagination-background");
-	color: stencilColor("custom-pagination-background");
+.actionBar-pagination {
+	float: right;
+	display: none;
+	@include breakpoint("small") {
+		display: inline-block;
+	}
 }
 
-.pagination-item .pagination-link:hover,
-.pagination-item.pagination-item--current .pagination-link,
+.actionBar-pagination .pagination-list {
+	margin: .35rem 0 1.5rem 1rem;
+	@include breakpoint("small") {
+		text-align: right;
+	}
+}
+
+.pagination-item.pagination-item--previous,
+.pagination-item.pagination-item--next {
+	float: none;
+}
+
+.pagination-item .pagination-link,
 .pagination-item.pagination-item--next .pagination-link,
-.pagination-item.pagination-item--previous .pagination-link {
-	border: 1px solid stencilColor("custom-pagination-background");
-	background: stencilColor("custom-pagination-background");
-	color: stencilColor("custom-pagination-color");
-}
-
-.pagination-item.pagination-item--next .pagination-link:hover,
-.pagination-item.pagination-item--previous .pagination-link:hover {
+.pagination-item.pagination-item--previous .pagination-link  {
 	border: 1px solid stencilColor("custom-pagination-background");
 	background: none;
 	color: stencilColor("custom-pagination-background");
 }
 
+.pagination-item .pagination-link:hover,
+.pagination-item.pagination-item--current .pagination-link,
+.pagination-item.pagination-item--next .pagination-link:hover,
+.pagination-item.pagination-item--previous .pagination-link:hover {
+	border: 1px solid stencilColor("custom-pagination-background");
+	background: stencilColor("custom-pagination-background");
+	color: stencilColor("custom-pagination-color");
+}
 
-.pagination-item.pagination-item--current {
-	margin: 0 0 0 0.35714rem;
+.pagination-list li.pagination-item,
+.pagination-list li.pagination-item.pagination-item--current {
+	margin: 0 0 0 0.25rem;
+	border: 0;
 }
 
 .pagination-item.pagination-item--previous .pagination-link {
@@ -4086,14 +4130,14 @@ a:hover span.card-image:only-of-type img {
 
 .pagination-item--previous > a.pagination-link .icon svg,
 .pagination-item--next > a.pagination-link .icon svg {
-	color: stencilColor("custom-pagination-color");
-	fill: stencilColor("custom-pagination-color");
+	color: stencilColor("custom-pagination-background");
+	fill: stencilColor("custom-pagination-background");
 }
 
 .pagination-item--previous > a.pagination-link:hover .icon svg,
 .pagination-item--next > a.pagination-link:hover .icon svg {
-	color: stencilColor("custom-pagination-background");
-	fill: stencilColor("custom-pagination-background");
+	color: stencilColor("custom-pagination-color");
+	fill: stencilColor("custom-pagination-color");
 }
 
 

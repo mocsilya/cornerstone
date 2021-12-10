@@ -1,26 +1,15 @@
 <form class="actionBar" method="get" data-sort-by="product">
-{{#if theme_settings.custom_category_sidebar_display '==' 'vertical'}}
-	{{#if category.faceted_search_enabled}}
-		{{> components/custom/sidebar-toggle}}
-	{{else if category.subcategories}}
-		{{> components/custom/sidebar-toggle}}
-	{{else if category.shop_by_price}}
-		{{#if theme_settings.shop_by_price_visibility}}
-			{{> components/custom/sidebar-toggle}}
-		{{/if}}
-	{{else if theme_settings.custom_category_show_parents}}
-		{{#if breadcrumbs.[2]}}
-			{{> components/custom/sidebar-toggle}}
-		{{/if}}
+	{{> components/custom/sidebar-toggle}}
+	{{> components/category/sort-box sort=sort}}
+	<fieldset class="form-fieldset actionBar-section actionBar-pagination">
+	{{#if page_type '===' 'category'}}
+    	{{> components/common/paginator pagination.category}}
 	{{/if}}
-{{else}}
-	{{#if category.faceted_search_enabled}}
-		{{> components/custom/sidebar-toggle}}
-	{{else if category.shop_by_price}}
-		{{#if theme_settings.shop_by_price_visibility}}
-			{{> components/custom/sidebar-toggle}}
-		{{/if}}
+	{{#if page_type '===' 'brand'}}
+    	{{> components/common/paginator pagination.brand}}
 	{{/if}}
-{{/if}}
-{{> components/category/sort-box sort=sort}}
+	{{#if page_type '===' 'search'}}
+    	{{> components/common/paginator pagination.product_results}}
+	{{/if}}
+	</fieldset>
 </form>

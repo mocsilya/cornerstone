@@ -9,9 +9,14 @@ customer:
 
 {{#partial "hero"}}
 <div class="container container-hero">
-	<div class="page-header contact-header">
+	{{#if theme_settings.custom_page_header_image_contact}}
+		<div class="page-header contact-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
+	    <img class="page-header-image" src="/product_images/uploaded_images/{{theme_settings.custom_page_header_image_contact}}" />
+	{{else}}
+		<div class="page-header contact-header">
+	{{/if}}
     {{#unless theme_settings.hide_contact_us_page_heading }}
-        <h1 class="page-heading">{{page.title}}</h1>
+        <h1 class="page-heading">{{ page.title }}</h1>
     {{/unless}}
 	{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 	</div>
