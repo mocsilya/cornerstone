@@ -441,7 +441,7 @@ body.scroll .header {
 
 .header-logo--left {
 	@include breakpoint("medium") {
-		flex: 1 1 0px;
+		flex: 0 1 0px;
 		order: 1;
 		padding: .5rem .78571rem .5rem 0;
 	}
@@ -449,7 +449,7 @@ body.scroll .header {
 
 .header-logo--right {
 	@include breakpoint("medium") {
-		flex: 1 1 0px;
+		flex: 0 1 0px;
 		order: 3;
 		padding: .5rem 0 .5rem .78571rem;
 	}
@@ -472,6 +472,18 @@ body.scroll .header {
 	}
 	@include breakpoint("large") {
 		min-height: 80px;
+	}
+}
+
+.header-logo--left .header-logo-image-container {
+	@include breakpoint("medium") {
+		justify-content: flex-start;
+	}
+}
+
+.header-logo--right .header-logo-image-container {
+	@include breakpoint("medium") {
+		justify-content: flex-end;
 	}
 }
 
@@ -580,7 +592,7 @@ body.scroll .header-logo-text {
 .navUser-section--alt.navUser-section-left {
 	@include breakpoint("medium") {
 		order: 3;
-		flex: 0 1 auto;
+		flex: 1 1 auto;
 		text-align: right;
 	}
 }
@@ -596,7 +608,7 @@ body.scroll .header-logo-text {
 .navUser-section--alt.navUser-section-right {
 	@include breakpoint("medium") {
 		order: 2;
-		flex: 0 1 auto;
+		flex: 1 1 auto;
 		text-align: left;
 	}
 }
@@ -862,7 +874,6 @@ body.hasAdminBar.scroll .dropdown--quickSearch.is-open {
 .navUser-item--widesearch {
 	@include breakpoint("medium") {
 		display: block;
-		width: 70%;
 	}
 }
 
@@ -876,7 +887,11 @@ body.hasAdminBar.scroll .dropdown--quickSearch.is-open {
 	@include breakpoint("medium") {
 		display: inline-block;
 		width: calc(100% - 30px);
+		min-width: 160px;
 		text-align: left;
+	}
+	@include breakpoint("large") {
+		min-width: 320px;
 	}
 }
 

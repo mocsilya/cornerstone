@@ -3,10 +3,28 @@
 // =============================================================================
 //
 
+
+// Nav User
+// =============================================================================
+
+.navUser-text-search {
+	@include breakpoint("medium") {
+		border-bottom: 2px solid #1c3147;
+	}
+}
+
+.navUser ul li.navUser-item--trustpilot {
+    padding-top: 1rem;
+}
+
+
+// Nav Pages
+// =============================================================================
+
 .navPages {
 	@include breakpoint("medium") {
-	-webkit-box-shadow: inset 0px -1px 0px 0px #1c3147; 
-	box-shadow: inset 0px -1px 0px 0px #1c3147;
+		-webkit-box-shadow: inset 0px -1px 0px 0px #1c3147; 
+		box-shadow: inset 0px -1px 0px 0px #1c3147;
 	}
 }
 
@@ -22,6 +40,9 @@
 	background: #62b5e5;
 }
 
+
+// Carousel
+// =============================================================================
 
 div[data-sub-layout-container="e72c7bfb-fdca-44fe-a4db-884e74fddd85"],
 .page-default .container-hero {
@@ -74,6 +95,13 @@ div[data-sub-layout-container="e72c7bfb-fdca-44fe-a4db-884e74fddd85"] h4 {
 	left: auto;
 }
 
+
+// Product Pages
+// =============================================================================
+
+.productView-options form + .alertBox {
+	display: flex;
+}
 
 
 // WIDGET FOR CATEGORY BOXES
