@@ -178,6 +178,7 @@
     "custom_page_header_image_info": "banner-info.jpg",
     "custom_page_header_image_search": "banner-search.jpg",
     "custom_page_header_image_sitemap": "banner-sitemap.jpg",
+    "custom_page_header_image_contact": "",
     "custom_product_title_left": true,
 	"custom_product_description_title": "Description",
 	"custom_product_warranty_gallery": false,

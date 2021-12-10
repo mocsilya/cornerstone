@@ -404,6 +404,9 @@
   "i18n.PageHeaderImageInfo": {
     "default": "Info pages header image"
   },
+  "i18n.PageHeaderImageContact": {
+    "default": "Contact header image"
+  },
   "i18n.PageHeaderImageSearch": {
     "default": "Search results header image"
   },

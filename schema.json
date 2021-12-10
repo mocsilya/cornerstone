@@ -384,6 +384,11 @@
       },
       {
         "type": "text",
+        "label": "i18n.PageHeaderImageContact",
+        "id": "custom_page_header_image_contact"
+      },
+      {
+        "type": "text",
         "label": "i18n.PageHeaderImageSearch",
         "id": "custom_page_header_image_search"
       },
