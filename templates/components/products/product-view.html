@@ -67,6 +67,7 @@
 			<ul class="productView-thumbnails"{{#gt product.images.length 3}} data-slick='{
                 "infinite": false,
                 "mobileFirst": true,
+                "swipe": true,
                 "dots": false,
                 "accessibility": false,
                 "slidesToShow": 4,
@@ -77,6 +78,7 @@
 			<ul class="productView-thumbnails"{{#gt product.images.length 4}} data-slick='{
                 "infinite": false,
                 "mobileFirst": true,
+                "swipe": true,
                 "dots": false,
                 "accessibility": false,
                 "slidesToShow": 4,
@@ -122,6 +124,7 @@
 				</div>
         	{{/if}}
 		{{/if}}
+		{{> components/custom/client/client-product-gallery}}
     </section>
 
     <section class="productView-details{{#if product.brand}} productView-details-{{first (split product.brand.name ' ')}}{{/if}} productView-details-{{theme_settings.custom_product_gallery_size}} product-data">
@@ -262,8 +265,12 @@
                 {{#if theme_settings.show_custom_fields_tabs '!==' true}}
 					{{#each product.custom_fields}}
 					{{#unless name '==' 'hidden'}}
-		           		<dt class="productView-info-name customfield-label customfield-{{dashcase name}}">{{name}}:</dt>
-		           		<dd class="productView-info-value customfield-value customfield-{{dashcase name}}">{{{ sanitize value}}}</dd>
+						{{#unless name '==' 'breadcrumb'}}
+							{{#unless name '==' 'download'}}
+		           				<dt class="productView-info-name customfield-label customfield-{{dashcase name}}">{{name}}:</dt>
+		           				<dd class="productView-info-value customfield-value customfield-{{dashcase name}}">{{{ sanitize value}}}</dd>
+							{{/unless}}
+						{{/unless}}
 					{{/unless}}
 					{{/each}}
                 {{/if}}
@@ -275,7 +282,9 @@
                 {{/if}}
 
             </dl>
-			{{> components/custom/client/client-product-fields}}
+			{{#if theme_settings.show_custom_fields_tabs '!==' true}}
+				{{> components/custom/client/client-product-fields}}
+			{{/if}}
         </div>
     </section>
 

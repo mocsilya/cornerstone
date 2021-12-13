@@ -384,6 +384,11 @@
       },
       {
         "type": "text",
+        "label": "i18n.PageHeaderImageContact",
+        "id": "custom_page_header_image_contact"
+      },
+      {
+        "type": "text",
         "label": "i18n.PageHeaderImageSearch",
         "id": "custom_page_header_image_search"
       },
@@ -640,15 +645,6 @@
         "type": "color",
         "label": "i18n.FieldBorderActive",
         "id": "input-border-color-active"
-      },
-      {
-        "type": "heading",
-        "content": "i18n.AdminBar"
-      },
-      {
-        "type": "checkbox",
-        "label": "i18n.ShowAdminBar",
-        "id": "show-admin-bar"
       }
     ]
   },

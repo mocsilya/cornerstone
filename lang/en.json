@@ -7,7 +7,7 @@
         "title": "Footer Start",
         "brands": "Brands",
         "navigate": "Customer Care",
-        "info": "Infomation",
+        "info": "Information",
         "categories": "Products",
         "call_us": "{phone_number}",
         "email_us": "Email",
@@ -179,7 +179,7 @@
             "page_of": "Page {current} of {total}"
         },
         "prices_are_in": "Prices are in {CODE}",
-        "previous": "Previous",
+        "previous": "Back",
         "next": "Next",
         "sorter": {
             "relevance": "Relevance",

@@ -1,11 +1,11 @@
-<div class="form-field" data-product-attribute="input-checkbox">
+<div class="form-field form-field-{{id}} form-field-{{dashcase display_name}}" data-product-attribute="input-checkbox">
     <label class="form-label form-label--alternate form-label--inlineSmall">
         {{display_name}}:
 
         {{> components/common/requireness-msg}}
     </label>
     <input type="hidden" name="attribute[{{id}}]" value="{{noValue}}" />
-    <div class="form-option-wrapper">
+    <div class="form-option-wrapper form-option-wrapper-{{id}} form-option-wrapper-{{dashcase label}}">
         <input
             class="form-checkbox"
             type="checkbox"
