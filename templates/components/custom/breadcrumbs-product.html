@@ -1,12 +1,11 @@
 <nav aria-label="Breadcrumb">
 {{#each product.custom_fields}}
 	{{#if name '==' 'breadcrumb'}}
-		<ol class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList">
-            <li class="breadcrumb" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-                <a class="breadcrumb-label" itemprop="item" href="/">
-                    <span itemprop="name">Home</span>
+		<ol class="breadcrumbs">
+            <li class="breadcrumb">
+                <a class="breadcrumb-label" href="/">
+                    <span>Home</span>
                 </a>
-                <meta itemprop="position" content="1">
             </li>
 		{{#each (split value ',')}}
 			{{#if @index 0}}{{assignVar "crumb1" this}}{{/if}}
@@ -16,103 +15,88 @@
 			{{#if @index 4}}{{assignVar "crumb5" this}}{{/if}}
 			{{#if @last}}
 				{{#if @index 0}}
-					<li class="breadcrumb" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-						<a class="breadcrumb-label" itemprop="item" href="/{{dashcase (getVar 'crumb1')}}/">
-							<span itemprop="name">{{chop (getVar 'crumb1')}}</span>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/">
+							<span>{{chop (getVar 'crumb1')}}</span>
 						</a>
-						<meta itemprop="position" content="2">
 					</li>
 				{{/if}}
 				{{#if @index 1}}
-					<li class="breadcrumb" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-						<a class="breadcrumb-label" itemprop="item" href="/{{dashcase (getVar 'crumb1')}}/">
-							<span itemprop="name">{{chop (getVar 'crumb1')}}</span>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/">
+							<span>{{chop (getVar 'crumb1')}}</span>
 						</a>
-						<meta itemprop="position" content="2">
 					</li>
-					<li class="breadcrumb" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-						<a class="breadcrumb-label" itemprop="item" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/">
-							<span itemprop="name">{{chop (getVar 'crumb2')}}</span>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/">
+							<span>{{chop (getVar 'crumb2')}}</span>
 						</a>
-						<meta itemprop="position" content="3">
 					</li>
 				{{/if}}
 				{{#if @index 2}}
-					<li class="breadcrumb" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-						<a class="breadcrumb-label" itemprop="item" href="/{{dashcase (getVar 'crumb1')}}/">
-							<span itemprop="name">{{chop (getVar 'crumb1')}}</span>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/">
+							<span>{{chop (getVar 'crumb1')}}</span>
 						</a>
-						<meta itemprop="position" content="2">
 					</li>
-					<li class="breadcrumb" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-						<a class="breadcrumb-label" itemprop="item" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/">
-							<span itemprop="name">{{chop (getVar 'crumb2')}}</span>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/">
+							<span>{{chop (getVar 'crumb2')}}</span>
 						</a>
-						<meta itemprop="position" content="3">
 					</li>
-					<li class="breadcrumb" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-						<a class="breadcrumb-label" itemprop="item" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/{{dashcase (getVar 'crumb3')}}/">
-							<span itemprop="name">{{chop (getVar 'crumb3')}}</span>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/{{dashcase (getVar 'crumb3')}}/">
+							<span>{{chop (getVar 'crumb3')}}</span>
 						</a>
-						<meta itemprop="position" content="4">
 					</li>
 				{{/if}}
 				{{#if @index 3}}
-					<li class="breadcrumb" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-						<a class="breadcrumb-label" itemprop="item" href="/{{dashcase (getVar 'crumb1')}}/">
-							<span itemprop="name">{{chop (getVar 'crumb1')}}</span>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/">
+							<span>{{chop (getVar 'crumb1')}}</span>
 						</a>
-						<meta itemprop="position" content="2">
 					</li>
-					<li class="breadcrumb" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-						<a class="breadcrumb-label" itemprop="item" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/">
-							<span itemprop="name">{{chop (getVar 'crumb2')}}</span>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/">
+							<span>{{chop (getVar 'crumb2')}}</span>
 						</a>
-						<meta itemprop="position" content="3">
 					</li>
-					<li class="breadcrumb" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-						<a class="breadcrumb-label" itemprop="item" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/{{dashcase (getVar 'crumb3')}}/">
-							<span itemprop="name">{{chop (getVar 'crumb3')}}</span>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/{{dashcase (getVar 'crumb3')}}/">
+							<span>{{chop (getVar 'crumb3')}}</span>
 						</a>
-						<meta itemprop="position" content="4">
 					</li>
-					<li class="breadcrumb" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-						<a class="breadcrumb-label" itemprop="item" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/{{dashcase (getVar 'crumb3')}}/{{dashcase (getVar 'crumb4')}}/">
-							<span itemprop="name">{{chop (getVar 'crumb4')}}</span>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/{{dashcase (getVar 'crumb3')}}/{{dashcase (getVar 'crumb4')}}/">
+							<span>{{chop (getVar 'crumb4')}}</span>
 						</a>
-						<meta itemprop="position" content="5">
 					</li>
 				{{/if}}
 				{{#if @index 4}}
-					<li class="breadcrumb" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-						<a class="breadcrumb-label" itemprop="item" href="/{{dashcase (getVar 'crumb1')}}/">
-							<span itemprop="name">{{chop (getVar 'crumb1')}}</span>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/">
+							<span>{{chop (getVar 'crumb1')}}</span>
 						</a>
-						<meta itemprop="position" content="2">
 					</li>
-					<li class="breadcrumb" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-						<a class="breadcrumb-label" itemprop="item" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/">
-							<span itemprop="name">{{chop (getVar 'crumb2')}}</span>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/">
+							<span>{{chop (getVar 'crumb2')}}</span>
 						</a>
-						<meta itemprop="position" content="3">
 					</li>
-					<li class="breadcrumb" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-						<a class="breadcrumb-label" itemprop="item" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/{{dashcase (getVar 'crumb3')}}/">
-							<span itemprop="name">{{chop (getVar 'crumb3')}}</span>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/{{dashcase (getVar 'crumb3')}}/">
+							<span>{{chop (getVar 'crumb3')}}</span>
 						</a>
-						<meta itemprop="position" content="4">
 					</li>
-					<li class="breadcrumb" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-						<a class="breadcrumb-label" itemprop="item" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/{{dashcase (getVar 'crumb3')}}/{{dashcase (getVar 'crumb4')}}/">
-							<span itemprop="name">{{chop (getVar 'crumb4')}}</span>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/{{dashcase (getVar 'crumb3')}}/{{dashcase (getVar 'crumb4')}}/">
+							<span>{{chop (getVar 'crumb4')}}</span>
 						</a>
-						<meta itemprop="position" content="5">
 					</li>
-					<li class="breadcrumb" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
-						<a class="breadcrumb-label" itemprop="item" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/{{dashcase (getVar 'crumb3')}}/{{dashcase (getVar 'crumb4')}}/{{dashcase (getVar 'crumb5')}}/">
-							<span itemprop="name">{{chop (getVar 'crumb5')}}</span>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/{{dashcase (getVar 'crumb3')}}/{{dashcase (getVar 'crumb4')}}/{{dashcase (getVar 'crumb5')}}/">
+							<span>{{chop (getVar 'crumb5')}}</span>
 						</a>
-						<meta itemprop="position" content="6">
 					</li>
 				{{/if}}
 			{{/if}}
