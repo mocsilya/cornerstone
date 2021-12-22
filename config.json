@@ -1,6 +1,6 @@
 {
   "name": "Aylis",
-  "version": "6.1.1-rc.2",
+  "version": "6.2.0",
   "template_engine": "handlebars_v4",
   "meta": {
     "price": 0,
@@ -178,6 +178,7 @@
     "custom_page_header_image_info": "",
     "custom_page_header_image_search": "",
     "custom_page_header_image_sitemap": "",
+    "custom_page_header_image_contact": "",
     "custom_product_title_left": false,
 	"custom_product_description_title": "Description",
 	"custom_product_warranty_gallery": true,
@@ -510,7 +511,6 @@
       "paypal"
     ],
     "lazyload_mode": "lazyload+lqip",
-    "show-admin-bar": true,
     "checkout-paymentbuttons-paypal-color": "black",
     "checkout-paymentbuttons-paypal-shape": "rect",
     "checkout-paymentbuttons-paypal-size": "large",

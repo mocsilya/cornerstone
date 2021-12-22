@@ -19,16 +19,24 @@ customer:
 
 {{#partial "hero"}}
 {{assignVar "payment" "inactive"}}
+{{assignVar "breadcrumb" "inactive"}}
 {{#filter product.custom_fields 'hidden' property='name'}}
 	{{#if value '==' 'payment'}}
 		{{assignVar "payment" "active"}}
 	{{/if}}
 {{/filter}}
+{{#filter product.custom_fields 'breadcrumb' property='name'}}
+	{{assignVar "breadcrumb" "active"}}
+{{/filter}}
 <div class="container container-hero">
 	<div class="page-header product-header">
     	{{#unless theme_settings.custom_product_title_left}}<h1 class="page-heading">{{product.title}}</h1>{{/unless}}
 		{{#unless (getVar 'payment') '===' 'active'}}
-			{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+			{{#if (getVar 'breadcrumb') '===' 'active'}}
+				{{> components/custom/breadcrumbs-product}}
+			{{else}}
+				{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+			{{/if}}
 		{{/unless}}
 	</div>
 </div>
@@ -40,11 +48,12 @@ customer:
 		{{> components/common/alert/alert-info message}}
 	{{/each}}
 	{{/unless}}
-    <div itemscope itemtype="http://schema.org/Product" {{#if (getVar 'payment') '===' 'active'}} class="payment-product"{{/if}}>
-        {{> components/products/product-view schema=true  }}
-
+    <div {{#if (getVar 'payment') '===' 'active'}} class="payment-product"{{/if}}>
+        {{> components/products/product-view}}
         {{{region name="product_below_content"}}}
     </div>
+
+    {{> components/products/schema}}
 {{/partial}}
 {{#partial "base"}}
 {{#unless (getVar 'payment') '===' 'active'}}
