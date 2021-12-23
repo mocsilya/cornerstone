@@ -179,7 +179,7 @@
             "page_of": "Page {current} of {total}"
         },
         "prices_are_in": "Prices are in {CODE}",
-        "previous": "Previous",
+        "previous": "Back",
         "next": "Next",
         "sorter": {
             "relevance": "Relevance",

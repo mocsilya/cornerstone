@@ -1,6 +1,6 @@
 {
   "name": "Aylis",
-  "version": "6.1.1-rc.2",
+  "version": "6.2.0",
   "template_engine": "handlebars_v4",
   "meta": {
     "price": 0,
@@ -140,9 +140,7 @@
 	"custom_footer_show_sitemap": true,
     "custom_footer_show_blog": true,
 	"custom_footer_show_blog_home": true,
-	"custom_footer_client_blog": false,
 	"custom_footer_show_newsletter": true,
-	"custom_footer_client_newsletter": false,
 	"custom_footer_newsletter_heading": "Must Have News",
 	"custom_footer_newsletter_message": "Join for occasional emails on exclusive offers and news.",
     "custom-footer-newsletter-background": "#e4e4e6",
@@ -180,6 +178,7 @@
     "custom_page_header_image_info": "",
     "custom_page_header_image_search": "",
     "custom_page_header_image_sitemap": "",
+    "custom_page_header_image_contact": "",
     "custom_product_title_left": true,
 	"custom_product_description_title": "Design notes",
 	"custom_product_warranty_gallery": false,
@@ -512,7 +511,6 @@
       "paypal"
     ],
     "lazyload_mode": "lazyload+lqip",
-    "show-admin-bar": true,
     "checkout-paymentbuttons-paypal-color": "black",
     "checkout-paymentbuttons-paypal-shape": "rect",
     "checkout-paymentbuttons-paypal-size": "large",
