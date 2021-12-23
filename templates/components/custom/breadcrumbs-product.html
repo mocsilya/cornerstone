@@ -1,0 +1,107 @@
+<nav aria-label="Breadcrumb">
+{{#each product.custom_fields}}
+	{{#if name '==' 'breadcrumb'}}
+		<ol class="breadcrumbs">
+            <li class="breadcrumb">
+                <a class="breadcrumb-label" href="/">
+                    <span>Home</span>
+                </a>
+            </li>
+		{{#each (split value ',')}}
+			{{#if @index 0}}{{assignVar "crumb1" this}}{{/if}}
+			{{#if @index 1}}{{assignVar "crumb2" this}}{{/if}}
+			{{#if @index 2}}{{assignVar "crumb3" this}}{{/if}}
+			{{#if @index 3}}{{assignVar "crumb4" this}}{{/if}}
+			{{#if @index 4}}{{assignVar "crumb5" this}}{{/if}}
+			{{#if @last}}
+				{{#if @index 0}}
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/">
+							<span>{{chop (getVar 'crumb1')}}</span>
+						</a>
+					</li>
+				{{/if}}
+				{{#if @index 1}}
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/">
+							<span>{{chop (getVar 'crumb1')}}</span>
+						</a>
+					</li>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/">
+							<span>{{chop (getVar 'crumb2')}}</span>
+						</a>
+					</li>
+				{{/if}}
+				{{#if @index 2}}
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/">
+							<span>{{chop (getVar 'crumb1')}}</span>
+						</a>
+					</li>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/">
+							<span>{{chop (getVar 'crumb2')}}</span>
+						</a>
+					</li>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/{{dashcase (getVar 'crumb3')}}/">
+							<span>{{chop (getVar 'crumb3')}}</span>
+						</a>
+					</li>
+				{{/if}}
+				{{#if @index 3}}
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/">
+							<span>{{chop (getVar 'crumb1')}}</span>
+						</a>
+					</li>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/">
+							<span>{{chop (getVar 'crumb2')}}</span>
+						</a>
+					</li>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/{{dashcase (getVar 'crumb3')}}/">
+							<span>{{chop (getVar 'crumb3')}}</span>
+						</a>
+					</li>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/{{dashcase (getVar 'crumb3')}}/{{dashcase (getVar 'crumb4')}}/">
+							<span>{{chop (getVar 'crumb4')}}</span>
+						</a>
+					</li>
+				{{/if}}
+				{{#if @index 4}}
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/">
+							<span>{{chop (getVar 'crumb1')}}</span>
+						</a>
+					</li>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/">
+							<span>{{chop (getVar 'crumb2')}}</span>
+						</a>
+					</li>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/{{dashcase (getVar 'crumb3')}}/">
+							<span>{{chop (getVar 'crumb3')}}</span>
+						</a>
+					</li>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/{{dashcase (getVar 'crumb3')}}/{{dashcase (getVar 'crumb4')}}/">
+							<span>{{chop (getVar 'crumb4')}}</span>
+						</a>
+					</li>
+					<li class="breadcrumb">
+						<a class="breadcrumb-label" href="/{{dashcase (getVar 'crumb1')}}/{{dashcase (getVar 'crumb2')}}/{{dashcase (getVar 'crumb3')}}/{{dashcase (getVar 'crumb4')}}/{{dashcase (getVar 'crumb5')}}/">
+							<span>{{chop (getVar 'crumb5')}}</span>
+						</a>
+					</li>
+				{{/if}}
+			{{/if}}
+		{{/each}}    
+		</ol>
+	{{/if}}
+{{/each}}
+</nav>
