@@ -1,12 +1,13 @@
-<br>
-Customer Group: {{customer_group_name}}<br>
-Group ID: {{customer_group_id }}<br>
-Currency Code: {{currency_selector.active_currency_code}}<br>
-Currency ID: {{currency_selector.active_currency_id}}<br>
-Currency Count: {{currency_selector.currencies.length}}<br>
-Customer ID: {{#if customer.id}}{{customer.id}}{{else}}Guest{{/if}}<br>
-Path: {{first (split (last (split head.meta_tags "href='")) "'")}}<br>
-<br>
+<div style="border: 1px solid #ccc; padding: 1rem; font-size: 12px;">
+	<h3 class="footer-info-heading" style="margin-top: 0;">Temporary Data Testing</h3>
+	Customer Group: {{customer_group_name}}<br>
+	Group ID: {{customer_group_id }}<br>
+	Currency Code: {{currency_selector.active_currency_code}}<br>
+	Currency ID: {{currency_selector.active_currency_id}}<br>
+	Currency Count: {{currency_selector.currencies.length}}<br>
+	Customer ID: {{#if customer.id}}{{customer.id}}{{else}}Guest{{/if}}<br>
+	Path: {{first (split (last (split head.meta_tags "href='")) "'")}}
+</div>
 {{#unless customer_group_name '==' 'Retail'}}
 <style>
 	.navUser-item--currency { display: none; }
@@ -28,3 +29,4 @@ Path: {{first (split (last (split head.meta_tags "href='")) "'")}}<br>
 	{{/unless}}
 {{/if}}
 </script>
+
