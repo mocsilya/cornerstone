@@ -4,7 +4,7 @@
 //
 
 
-// Instagram Widget Adjustments
+// ELF SIGHT
 // =============================================================================
 
 .header {
@@ -19,12 +19,19 @@
     z-index: 100004;
 }
 
+.modal,
 #modal,
+#alert-modal,
 #previewModal,
 #modal-review-form,
 #ay-question {
     z-index: 100005;
 }
+
+#eapps-instagram-feed-1 .eapps-instagram-feed-title-container,
+.eapps-instagram-feed-posts-grid-load-more-container { display: none !important; }
+#eapps-instagram-feed-1 .eapps-instagram-feed-container { position: relative; top: 80px; z-index: 100000; background: #333333; margin-top: -80px; }
+
 
 
 
@@ -184,6 +191,7 @@
 	background-color: #45413f;
 	color: #fff;
 	border: 1px solid #45413f;
+	width: 100%;
 }
 
 .ay-question .button:hover {
