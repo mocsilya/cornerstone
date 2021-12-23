@@ -44,7 +44,6 @@
 
         {{~inject 'zoomSize' theme_settings.zoom_size}}
         {{~inject 'productSize' theme_settings.product_size}}
-        {{~inject 'showAdminBar' theme_settings.show-admin-bar}}
         {{~inject 'genericError' (lang 'common.generic_error')}}
         {{~inject 'maintenanceModeSettings' settings.maintenance}}
         {{~inject 'adminBarLanguage' (langJson 'admin')}}
@@ -59,6 +58,7 @@
         {{~inject 'carouselArrowAndDotAriaLabel' (lang 'carousel.arrow_and_dot_aria_label')}}
         {{~inject 'carouselActiveDotAriaLabel' (lang 'carousel.active_dot_aria_label')}}
         {{~inject 'carouselContentAnnounceMessage' (lang 'carousel.content_announce_message')}}
+		{{> components/custom/client/client-head}}
     </head>
 	{{#if theme_settings.custom_header_show_bar}}
     <body class="page-{{page_type}} page-{{lang 'common.currency' code=currency_selector.active_currency_code}} with-bar">
@@ -87,5 +87,6 @@
 		{{else if page_type "==" "cart"}}
 			{{> components/custom/client/client-script-cart}}
 		{{/if}}
+		{{> components/custom/client/client-script-global}}
     </body>
 </html>

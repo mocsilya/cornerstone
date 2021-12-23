@@ -7,7 +7,7 @@
         "title": "Footer Start",
         "brands": "Brands",
         "navigate": "Navigate",
-        "info": "Infomation",
+        "info": "Information",
         "categories": "Products",
         "call_us": "{phone_number}",
         "email_us": "Email",
@@ -162,6 +162,7 @@
         "change": "Change",
         "sign_up": "Register",
         "login": "Sign in",
+        "login_for_pricing": "Log in for pricing",
         "logout": "Sign out",
         "account": "Account",
         "cart": "Cart",
@@ -178,7 +179,7 @@
             "page_of": "Page {current} of {total}"
         },
         "prices_are_in": "Prices are in {CODE}",
-        "previous": "Previous",
+        "previous": "Back",
         "next": "Next",
         "sorter": {
             "relevance": "Relevance",
@@ -845,7 +846,7 @@
             "quick_count": "{ count, plural, one {# product result} other {# product results} } for '{ search_query }'",
             "quick_count_live": "product results for",
             "product_count": "Products ({count})",
-            "content_count": "News & Information ({count})"
+            "content_count": "Blog & Information ({count})"
         },
         "faceted": {
             "selected": {
@@ -877,7 +878,7 @@
         "tabs_accesibility_hint": "Use left and right arrows to navigate between tabs."
     },
     "page_not_found": {
-        "page_heading": "404 Error - Page not found",
+        "page_heading": "Whoops! - Page not found",
         "message": "Uh oh, looks like the page you are looking for has moved or no longer exists."
     },
     "server_error": {
@@ -976,6 +977,7 @@
         "accept_all_cookies": "Accept All Cookies",
         "gdpr_settings": "Settings",
         "data_collection_preferences": "Website Data Collection Preferences",
+        "manage_data_collection_preferences": "Manage Website Data Collection Preferences",
         "use_data_by_cookies": " uses data collected by cookies and JavaScript libraries to improve your shopping experience.",
         "data_categories_table": "The table below outlines how we use this data by category. To opt out of a category of data collection, select 'No' and save your preferences.",
         "allow": "Allow",

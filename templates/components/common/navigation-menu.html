@@ -1,7 +1,8 @@
 <nav class="navPages">
     <ul class="navPages-list{{#if theme_settings.navigation_design '!==' 'simple'}} navPages-list-depth-max {{else}} navPages-list-simple {{/if}}">
-        {{#each categories}}
-            <li class="navPages-item navPages-item-category">
+        {{> components/custom/client/client-header-menu-start}}
+		{{#each categories}}
+            <li class="navPages-item navPages-item-category navPages-item-{{dashcase name}}">
             {{#if ../theme_settings.navigation_design '===' 'simple'}}
 				{{#if children}}
 				<a class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}} navPages-action-mobile"
@@ -24,7 +25,7 @@
 				</a>
 				<div class="navPage-subMenu" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
 					{{#and ../theme_settings.custom_header_menu_1_show (if../theme_settings.custom_header_menu_1_category '==' name)}}
-						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_1_width}}">
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
 							<li>
 								{{#if ../theme_settings.custom_header_menu_1_link}}<a href="{{../theme_settings.custom_header_menu_1_link}}">{{/if}}
 								{{#if ../theme_settings.custom_header_menu_1_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_1_image}}" />{{/if}}
@@ -34,7 +35,7 @@
 						</ul>
 					{{/and}}
 					{{#and ../theme_settings.custom_header_menu_2_show (if../theme_settings.custom_header_menu_2_category '==' name)}}
-						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_2_width}}">
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
 							<li>
 								{{#if ../theme_settings.custom_header_menu_2_link}}<a href="{{../theme_settings.custom_header_menu_2_link}}">{{/if}}
 								{{#if ../theme_settings.custom_header_menu_2_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_2_image}}" />{{/if}}
@@ -44,7 +45,7 @@
 						</ul>
 					{{/and}}
 					{{#and ../theme_settings.custom_header_menu_3_show (if../theme_settings.custom_header_menu_3_category '==' name)}}
-						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_3_width}}">
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
 							<li>
 								{{#if ../theme_settings.custom_header_menu_3_link}}<a href="{{../theme_settings.custom_header_menu_3_link}}">{{/if}}
 								{{#if ../theme_settings.custom_header_menu_3_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_3_image}}" />{{/if}}
@@ -54,7 +55,7 @@
 						</ul>
 					{{/and}}
 					{{#and ../theme_settings.custom_header_menu_4_show (if../theme_settings.custom_header_menu_4_category '==' name)}}
-						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_4_width}}">
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
 							<li>
 								{{#if ../theme_settings.custom_header_menu_4_link}}<a href="{{../theme_settings.custom_header_menu_4_link}}">{{/if}}
 								{{#if ../theme_settings.custom_header_menu_4_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_4_image}}" />{{/if}}
@@ -64,7 +65,7 @@
 						</ul>
 					{{/and}}
 					{{#and ../theme_settings.custom_header_menu_5_show (if../theme_settings.custom_header_menu_5_category '==' name)}}
-						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_5_width}}">
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
 							<li>
 								{{#if ../theme_settings.custom_header_menu_5_link}}<a href="{{../theme_settings.custom_header_menu_5_link}}">{{/if}}
 								{{#if ../theme_settings.custom_header_menu_5_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_5_image}}" />{{/if}}
@@ -74,7 +75,7 @@
 						</ul>
 					{{/and}}
 					{{#and ../theme_settings.custom_header_menu_6_show (if../theme_settings.custom_header_menu_6_category '==' name)}}
-						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_6_width}}">
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
 							<li>
 								{{#if ../theme_settings.custom_header_menu_6_link}}<a href="{{../theme_settings.custom_header_menu_6_link}}">{{/if}}
 								{{#if ../theme_settings.custom_header_menu_6_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_6_image}}" />{{/if}}
@@ -105,21 +106,21 @@
         {{/each}}
 	    {{#if theme_settings.navigation_design '===' 'simple'}}
 			{{#and theme_settings.custom_header_show_brands shop_by_brand.length}}
-			<li class="navPages-item navPages-item-page">
+			<li class="navPages-item navPages-item-page navPages-item-brands">
 				{{> components/custom/navigation-list-brand}}
 			</li>
 			{{/and}}
 		{{/if}}
 		{{#if theme_settings.navigation_design '===' 'alternate'}}
 			{{#and theme_settings.custom_header_show_brands shop_by_brand.length}}
-			<li class="navPages-item navPages-item-page">
+			<li class="navPages-item navPages-item-page navPages-item-brands">
 				{{> components/custom/navigation-list-alternate-brand}}
 			</li>
 			{{/and}}
 		{{/if}}
         {{#unless theme_settings.hide_content_navigation}}
             {{#each pages}}
-                <li class="navPages-item navPages-item-page">
+                <li class="navPages-item navPages-item-page navPages-item-{{dashcase name}}">
 	            {{#if ../theme_settings.navigation_design '===' 'simple'}}
 					{{#if ../theme_settings.custom_header_group_single}}
 	                	{{> components/custom/navigation-list-group-page}}
@@ -133,6 +134,7 @@
                 </li>
             {{/each}}
         {{/unless}}
+		{{> components/custom/client/client-header-menu-end}}
     </ul>
     <ul class="navPages-list navPages-list--user">
         {{#if currency_selector.currencies.length '>' 1}}
