@@ -188,7 +188,9 @@
 	        {{/if}}
 	        </ul>
         </li>
-		{{> components/common/currency-selector}}
+	    {{#or customer (unless theme_settings.restrict_to_login)}}
+	        {{> components/common/currency-selector}}
+	    {{/or}}
         <li class="navUser-item navUser-item--cart">
             <a class="navUser-action"
                data-cart-preview

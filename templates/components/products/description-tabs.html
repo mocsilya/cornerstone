@@ -1,3 +1,17 @@
+{{assignVar "customfields" "inactive"}}
+{{#each product.custom_fields}}
+	{{#unless name '==' 'hidden'}}
+		{{#unless name '==' 'breadcrumb'}}
+			{{#unless name '==' 'download'}}
+           			{{assignVar "customfields" "active"}}
+           	{{/unless}}
+		{{/unless}}
+	{{/unless}}
+{{/each}}
+{{assignVar "downloads" "inactive"}}
+{{#filter product.custom_fields 'download' property='name'}}
+	{{assignVar "downloads" "active"}}
+{{/filter}}
 <ul class="tabs" data-tab>
     {{#if product.description}}
         <li class="tab tab-description is-active">
@@ -5,6 +19,7 @@
         </li>
     {{/if}}
     {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
+		{{#if (getVar "customfields") '===' 'active'}}
         <li class="tab tab-customfields {{#unless product.description}}is-active{{/unless}}">
             <a class="tab-title"
                href="#tab-{{dashcase (lowercase (sanitize theme_settings.pdp-custom-fields-tab-label))}}"
@@ -12,6 +27,7 @@
                 {{sanitize theme_settings.pdp-custom-fields-tab-label}}
             </a>
         </li>
+		{{/if}}
     {{/all}}
 	{{#unless theme_settings.custom_product_warranty_gallery}}
     {{#if product.warranty}}
@@ -44,17 +60,23 @@
         </div>
     {{/if}}
     {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
+	  {{#if (getVar "customfields") '===' 'active'}}
       <div class="tab-content {{#unless product.description}}is-active{{/unless}}" id="tab-{{dashcase (lowercase (sanitize theme_settings.pdp-custom-fields-tab-label))}}">
          <dl class="productView-info">
 			{{#each product.custom_fields}}
 			{{#unless name '==' 'hidden'}}
-           		<dt class="productView-info-name customfield-label customfield-{{dashcase name}}">{{name}}:</dt>
-           		<dd class="productView-info-value customfield-value customfield-{{dashcase name}}">{{{value}}}</dd>
+				{{#unless name '==' 'breadcrumb'}}
+					{{#unless name '==' 'download'}}
+           				<dt class="productView-info-name customfield-label customfield-{{dashcase name}}">{{name}}:</dt>
+           				<dd class="productView-info-value customfield-value customfield-{{dashcase name}}">{{{value}}}</dd>
+					{{/unless}}
+				{{/unless}}
 			{{/unless}}
 			{{/each}}
          </dl>
 		 {{> components/custom/client/client-product-fields}}
       </div>
+	  {{/if}}
     {{/all}}
 	{{#unless theme_settings.custom_product_warranty_gallery}}
     {{#if product.warranty}}
@@ -66,13 +88,13 @@
 	{{/unless}}
     {{#if theme_settings.custom_product_tab1_show}}
         <div class="tab-content" id="tab-custom1">
-			{{{theme_settings.custom_product_tab1_content}}}
+			<span class="tab1-page">{{{theme_settings.custom_product_tab1_content}}}</span>
 			{{> components/custom/client/client-product-tab1}}
 		</div>
     {{/if}}
     {{#if theme_settings.custom_product_tab2_show}}
         <div class="tab-content" id="tab-custom2">
-			{{{theme_settings.custom_product_tab2_content}}}
+			<span class="tab2-page">{{{theme_settings.custom_product_tab2_content}}}</span>
 			{{> components/custom/client/client-product-tab2}}
 		</div>
     {{/if}}
@@ -81,4 +103,25 @@
            {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
        </div>
     {{/all}}
+	
+	{{#if (getVar "downloads") '===' 'active'}}
+	<ul class="productView-download">
+	{{#each product.custom_fields}}
+		{{#if name '==' 'download'}}
+   			<li class="productView-download-item">
+				<a class="productView-download-link button button--primary" target="_blank" href="{{cdn (concat 'webdav:' value)}}">
+				     <i aria-hidden="true" class="icon">
+						 <svg>
+							 <use xlink:href="#icon-arrow-down" />
+						 </svg>
+				    </i>
+					<span>{{{uppercase (last (split value '.'))}}}&nbsp; : &nbsp;<strong>{{{first (split value '.')}}}</strong></span>
+				</a>
+			</li>
+		{{/if}}
+	{{/each}}
+	</ul>
+	{{/if}}
+	
+	{{> components/custom/client/client-product-reviews}}
 </div>

@@ -1,38 +1,32 @@
 <nav aria-label="Breadcrumb">
-    <ol class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
+    <ol class="breadcrumbs">
         {{#unless theme_settings.hide_breadcrumbs }}
             {{#each breadcrumbs}}
 				{{#if name '===' 'Home'}}
-                	<li class="breadcrumb {{#if @last}}is-active{{/if}}" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-                    <a class="breadcrumb-label"
-                       itemprop="item"
-                       href="{{url}}"
-                       {{#if @last}}aria-current="page"{{/if}}
-                    >
-                        <span itemprop="name">{{name}}</span>
-                    </a>
-                    <meta itemprop="position" content="{{add @index 1}}" />
+                	<li class="breadcrumb {{#if @last}}is-active{{/if}}">
+                    	<a class="breadcrumb-label"
+                       		href="{{url}}"
+                       	 	{{#if @last}}aria-current="page"{{/if}}
+                    	>
+                        	<span>{{name}}</span>
+                    	</a>
                 	</li>
-					<li class="breadcrumb {{#if @last}}is-active{{/if}}" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-	                <a class="breadcrumb-label"
-	                    itemprop="item"
-	                    href="/brands"
-	                    {{#if @last}}aria-current="page"{{/if}}
-	                >
-	                    <span itemprop="name">All Brands</span>
-	                </a>
-	                    <meta itemprop="position" content="{{add @index 2}}" />
+					<li class="breadcrumb {{#if @last}}is-active{{/if}}">
+	                	<a class="breadcrumb-label"
+	                    	href="/brands"
+	                    	{{#if @last}}aria-current="page"{{/if}}
+	                	>
+	                    	<span>All Brands</span>
+	                	</a>
 	                </li>
 				{{else}}
-	                <li class="breadcrumb {{#if @last}}is-active{{/if}}" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-	                    <a class="breadcrumb-label"
-	                       itemprop="item"
+	                <li class="breadcrumb {{#if @last}}is-active{{/if}}">
+	                    <a class="breadcrumb-label"	
 	                       href="{{url}}"
 	                       {{#if @last}}aria-current="page"{{/if}}
 	                    >
-	                        <span itemprop="name">{{name}}</span>
+	                        <span>{{name}}</span>
 	                    </a>
-	                    <meta itemprop="position" content="{{add @index 2}}" />
 	                </li>
 				{{/if}}
             {{/each}}
