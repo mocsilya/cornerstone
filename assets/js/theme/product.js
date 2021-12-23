@@ -9,6 +9,7 @@ import videoGallery from './product/video-gallery';
 import { classifyForm } from './common/utils/form-utils';
 import modalFactory from './global/modal';
 import cardSwatches from './custom/card-swatches';
+import tabPages from './custom/tab-pages';
 
 export default class Product extends PageManager {
     constructor(context) {
@@ -43,7 +44,7 @@ export default class Product extends PageManager {
 
         if ($reviewForm.length === 0) return;
 
-        const review = new Review($reviewForm);
+        const review = new Review({ $reviewForm });
 
         $('body').on('click', '[data-reveal-id="modal-review-form"]', () => {
             validator = review.registerValidation(this.context);
@@ -61,6 +62,7 @@ export default class Product extends PageManager {
 
         this.productReviewHandler();
 		cardSwatches();
+		tabPages();
     }
 
     ariaDescribeReviewInputs($form) {

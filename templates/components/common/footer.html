@@ -18,11 +18,9 @@
     {{/if}}
 {{/if}}
 {{{region name="footer_top--global"}}}
-{{#or theme_settings.custom_footer_show_newsletter theme_settings.social_icon_placement_bottom theme_settings.custom_footer_client_newsletter}}
+{{#or theme_settings.custom_footer_show_newsletter theme_settings.social_icon_placement_bottom}}
 <section class="footer-newsletter">
-	{{#if theme_settings.custom_footer_client_newsletter}}
-		{{> components/custom/client/client-newsletter-top}}
-	{{/if}}
+	{{> components/custom/client/client-newsletter-top}}
 	<div class="container">
 	{{#if theme_settings.custom_footer_show_newsletter}}
 		{{#if settings.show_newsletter_box}}
@@ -39,29 +37,31 @@
 		</article>
 	{{/if}}
 	</div>
-	{{#if theme_settings.custom_footer_client_newsletter}}
-		{{> components/custom/client/client-newsletter-bottom}}
-	{{/if}}
+	{{> components/custom/client/client-newsletter-bottom}}
 </section>
 {{/or}}
 
-{{#or theme_settings.custom_footer_show_blog theme_settings.custom_footer_client_blog}}
+{{#if theme_settings.custom_footer_show_blog}}
 <section class="footer-blog">
-	{{#if theme_settings.custom_footer_client_blog}}
-		{{> components/custom/client/client-blog-top}}
-	{{/if}}
-	<div class="container">
-	{{#if theme_settings.custom_footer_show_blog}}
-		<article class="footer-blog-col" data-section-type="footer-blog">
-			{{> components/custom/footer-blog}}
-		</article>
-	{{/if}}
-	</div>
-	{{#if theme_settings.custom_footer_client_blog}}
-		{{> components/custom/client/client-blog-bottom}}
-	{{/if}}
+	{{> components/custom/client/client-blog-top}}
+		{{#if settings.request.absolute_path '===' '/'}}
+			<div class="container">
+				<article class="footer-blog-col" data-section-type="footer-blog">
+					{{> components/custom/footer-blog}}
+				</article>
+			</div>
+		{{else}}
+			{{#unless theme_settings.custom_footer_show_blog_home}}
+				<div class="container">
+					<article class="footer-blog-col" data-section-type="footer-blog">
+						{{> components/custom/footer-blog}}
+					</article>
+				</div>
+			{{/unless}}
+		{{/if}}
+	{{> components/custom/client/client-blog-bottom}}
 </section>
-{{/or}}
+{{/if}}
 
 <footer class="footer" role="contentinfo">
     <h2 class="footer-title-sr-only">{{lang 'footer.title'}}</h2>
@@ -226,6 +226,7 @@
 
             
             <article class="footer-info-col footer-info-col--small" data-section-type="storeInfo">
+				{{> components/custom/client/client-footer-top}}
                 <h3 class="footer-info-heading">{{settings.store_name}}</h3>
 				{{#if settings.address}}
                 <address>{{nl2br settings.address}}</address>
@@ -242,16 +243,12 @@
 						<a href="mailto:{{theme_settings.custom_email_address}}"><strong>{{lang 'footer.email_us'}}</strong></a>
 					</p>
                 {{/if}}
+				{{> components/custom/client/client-footer-bottom}}
             </article>
 
         </section>
 		<section class="footer-bar">
 		{{> components/common/payment-icons}}
-        {{#if theme_settings.geotrust_ssl_common_name}}
-            <div class="footer-geotrust-ssl-seal">
-                {{> components/common/geotrust-ssl-seal}}
-            </div>
-        {{/if}}
 			<div class="footer-text">
         	{{#if settings.paypal_commerce_credit_message}}
             	<p class="paypal-credit">{{nl2br settings.paypal_commerce_credit_message}}</p>

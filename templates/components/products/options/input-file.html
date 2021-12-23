@@ -1,4 +1,4 @@
-<div class="form-field" data-product-attribute="input-file">
+<div class="form-field form-field-{{id}} form-field-{{dashcase this.display_name}}" data-product-attribute="input-file">
     <label class="form-label form-label--alternate form-label--inlineSmall" for="attribute_file_{{id}}">
         {{ this.display_name }}:
 
@@ -12,11 +12,10 @@
     {{/if}}
     <p class="form-fileDescription">
         {{#if file_size}}
-            {{lang 'products.max_filesize'}}
-            <strong>{{file_size}}{{lang 'products.kilobytes_abbreviation'}}</strong>,
+            <span class="form-fileMaxText">{{lang 'products.max_filesize'}} </span><strong class="form-fileMaxSize"> {{file_size}}{{lang 'products.kilobytes_abbreviation'}}</strong>
         {{/if}}
         {{#if file_types}}
-            {{lang 'products.filetypes'}} <strong>{{file_types}}</strong>
+            <span class="form-fileTypeText">{{lang 'products.filetypes'}} </span><strong class="form-fileTypeList"> {{file_types}}</strong>
         {{/if}}
     </p>
 

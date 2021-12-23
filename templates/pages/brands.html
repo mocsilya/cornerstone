@@ -1,5 +1,6 @@
 ---
 brands:
+    limit: 100
 blog:
     recent_posts:
         limit: {{theme_settings.homepage_blog_posts_count}}
@@ -10,8 +11,13 @@ customer:
 
 {{#partial "hero"}}
 <div class="container container-hero">
-	<div class="page-header brands-header">
-    	<h1 class="page-heading">{{lang 'brand.label'}}</h1>
+	{{#if theme_settings.custom_page_header_image_brands}}
+		<div class="page-header brands-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
+	    <img class="page-header-image" src="/product_images/uploaded_images/{{theme_settings.custom_page_header_image_brands}}" />
+	{{else}}
+		<div class="page-header brands-header">
+	{{/if}}
+        <h1 class="page-heading">{{lang 'brand.label'}}</h1>
 		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 	</div>
 </div>
@@ -21,32 +27,1081 @@ customer:
 
 <section class="page">
     {{{region name="brands_below_header"}}}
-    <ul class="brandGrid">
-        {{#each brands}}
-            <li class="brand">
-                <article class="card {{#if alternate}}card--alternate{{/if}}">
-                    <figure class="card-figure">
-                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
-                            <div class="card-img-container">
-                                {{> components/common/responsive-img
-                                    image=image
-                                    class="card-image"
-                                    fallback_size=../theme_settings.brand_size
-                                    lazyload=../theme_settings.lazyload_mode
-                                    default_image=../theme_settings.default_image_brand
-                                }}
-                            </div>
-                        </a>
-                    </figure>
-                    <div class="card-body">
-                        <h3 class="card-title">
-                            <a href="{{url}}">{{name}}</a>
-                        </h3>
-                    </div>
-                </article>
-            </li>
-        {{/each}}
-    </ul>
+	{{assignVar "brandA" "inactive"}}
+	{{assignVar "brandB" "inactive"}}
+	{{assignVar "brandC" "inactive"}}
+	{{assignVar "brandD" "inactive"}}
+	{{assignVar "brandE" "inactive"}}
+	{{assignVar "brandF" "inactive"}}
+	{{assignVar "brandG" "inactive"}}
+	{{assignVar "brandH" "inactive"}}
+	{{assignVar "brandI" "inactive"}}
+	{{assignVar "brandJ" "inactive"}}
+	{{assignVar "brandK" "inactive"}}
+	{{assignVar "brandL" "inactive"}}
+	{{assignVar "brandM" "inactive"}}
+	{{assignVar "brandN" "inactive"}}
+	{{assignVar "brandO" "inactive"}}
+	{{assignVar "brandP" "inactive"}}
+	{{assignVar "brandQ" "inactive"}}
+	{{assignVar "brandR" "inactive"}}
+	{{assignVar "brandS" "inactive"}}
+	{{assignVar "brandT" "inactive"}}
+	{{assignVar "brandU" "inactive"}}
+	{{assignVar "brandV" "inactive"}}
+	{{assignVar "brandW" "inactive"}}
+	{{assignVar "brandX" "inactive"}}
+	{{assignVar "brandY" "inactive"}}
+	{{assignVar "brandZ" "inactive"}}
+	{{assignVar "brandCount" 0}}
+	{{#each brands}}
+		{{#startsWith "A" name}}{{assignVar "brandA" "active"}}{{/startsWith}}
+		{{#startsWith "B" name}}{{assignVar "brandB" "active"}}{{/startsWith}}
+		{{#startsWith "C" name}}{{assignVar "brandC" "active"}}{{/startsWith}}
+		{{#startsWith "D" name}}{{assignVar "brandD" "active"}}{{/startsWith}}
+		{{#startsWith "E" name}}{{assignVar "brandE" "active"}}{{/startsWith}}
+		{{#startsWith "F" name}}{{assignVar "brandF" "active"}}{{/startsWith}}
+		{{#startsWith "G" name}}{{assignVar "brandG" "active"}}{{/startsWith}}
+		{{#startsWith "H" name}}{{assignVar "brandH" "active"}}{{/startsWith}}
+		{{#startsWith "I" name}}{{assignVar "brandI" "active"}}{{/startsWith}}
+		{{#startsWith "J" name}}{{assignVar "brandJ" "active"}}{{/startsWith}}
+		{{#startsWith "K" name}}{{assignVar "brandK" "active"}}{{/startsWith}}
+		{{#startsWith "L" name}}{{assignVar "brandL" "active"}}{{/startsWith}}
+		{{#startsWith "M" name}}{{assignVar "brandM" "active"}}{{/startsWith}}
+		{{#startsWith "N" name}}{{assignVar "brandN" "active"}}{{/startsWith}}
+		{{#startsWith "O" name}}{{assignVar "brandO" "active"}}{{/startsWith}}
+		{{#startsWith "P" name}}{{assignVar "brandP" "active"}}{{/startsWith}}
+		{{#startsWith "Q" name}}{{assignVar "brandQ" "active"}}{{/startsWith}}
+		{{#startsWith "R" name}}{{assignVar "brandR" "active"}}{{/startsWith}}
+		{{#startsWith "S" name}}{{assignVar "brandS" "active"}}{{/startsWith}}
+		{{#startsWith "T" name}}{{assignVar "brandT" "active"}}{{/startsWith}}
+		{{#startsWith "U" name}}{{assignVar "brandU" "active"}}{{/startsWith}}
+		{{#startsWith "V" name}}{{assignVar "brandV" "active"}}{{/startsWith}}
+		{{#startsWith "W" name}}{{assignVar "brandW" "active"}}{{/startsWith}}
+		{{#startsWith "X" name}}{{assignVar "brandX" "active"}}{{/startsWith}}
+		{{#startsWith "Y" name}}{{assignVar "brandY" "active"}}{{/startsWith}}
+		{{#startsWith "Z" name}}{{assignVar "brandZ" "active"}}{{/startsWith}}		
+	{{/each}}
+	<!--
+	{{#if (getVar "brandA") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandB") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandC") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandD") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandE") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandF") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandG") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandH") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandI") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandJ") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandK") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandL") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandM") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandN") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandO") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandP") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandQ") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandR") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandS") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandT") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandU") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandV") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandW") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandX") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandY") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	{{#if (getVar "brandZ") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	-->
+	<div class="brand-jump">
+		<ul class="brand-jump-list{{#if (getVar 'brandCount') '>' '13'}} brand-jump-list-large{{else}} brand-jump-list-small{{/if}} brand-jump-list-{{getVar 'brandCount'}}">
+			{{#if (getVar "brandA") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_A"><span>A</span></a></li>{{/if}}
+			{{#if (getVar "brandB") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_B"><span>B</span></a></li>{{/if}}
+			{{#if (getVar "brandC") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_C"><span>C</span></a></li>{{/if}}
+			{{#if (getVar "brandD") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_D"><span>D</span></a></li>{{/if}}
+			{{#if (getVar "brandE") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_E"><span>E</span></a></li>{{/if}}
+			{{#if (getVar "brandF") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_F"><span>F</span></a></li>{{/if}}
+			{{#if (getVar "brandG") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_G"><span>G</span></a></li>{{/if}}
+			{{#if (getVar "brandH") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_H"><span>H</span></a></li>{{/if}}
+			{{#if (getVar "brandI") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_I"><span>I</span></a></li>{{/if}}
+			{{#if (getVar "brandJ") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_J"><span>J</span></a></li>{{/if}}
+			{{#if (getVar "brandK") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_K"><span>K</span></a></li>{{/if}}
+			{{#if (getVar "brandL") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_L"><span>L</span></a></li>{{/if}}
+			{{#if (getVar "brandM") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_M"><span>M</span></a></li>{{/if}}
+			{{#if (getVar "brandN") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_N"><span>N</span></a></li>{{/if}}
+			{{#if (getVar "brandO") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_O"><span>O</span></a></li>{{/if}}
+			{{#if (getVar "brandP") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_P"><span>P</span></a></li>{{/if}}
+			{{#if (getVar "brandQ") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_Q"><span>Q</span></a></li>{{/if}}
+			{{#if (getVar "brandR") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_R"><span>R</span></a></li>{{/if}}
+			{{#if (getVar "brandS") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_S"><span>S</span></a></li>{{/if}}
+			{{#if (getVar "brandT") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_T"><span>T</span></a></li>{{/if}}
+			{{#if (getVar "brandU") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_U"><span>U</span></a></li>{{/if}}
+			{{#if (getVar "brandV") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_V"><span>V</span></a></li>{{/if}}
+			{{#if (getVar "brandW") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_W"><span>W</span></a></li>{{/if}}
+			{{#if (getVar "brandX") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_X"><span>X</span></a></li>{{/if}}
+			{{#if (getVar "brandY") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_Y"><span>Y</span></a></li>{{/if}}
+			{{#if (getVar "brandZ") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_Z"><span>Z</span></a></li>{{/if}}			
+		</ul>
+	</div>
+	{{#if (getVar "brandA") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_A"></span>
+		<h2>A</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "A" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandB") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_B"></span>
+		<h2>B</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "B" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandC") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_C"></span>
+		<h2>C</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "C" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandD") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_D"></span>
+		<h2>D</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "D" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandE") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_E"></span>
+		<h2>E</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "E" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandF") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_F"></span>
+		<h2>F</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "F" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandG") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_G"></span>
+		<h2>G</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "G" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandH") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_H"></span>
+		<h2>H</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "H" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandI") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_I"></span>
+		<h2>I</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "I" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandJ") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_J"></span>
+		<h2>J</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "J" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandK") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_K"></span>
+		<h2>K</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "K" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandL") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_L"></span>
+		<h2>L</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "L" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandM") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_M"></span>
+		<h2>M</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "M" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandN") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_N"></span>
+		<h2>N</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "N" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandO") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_O"></span>
+		<h2>O</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "O" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandP") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_P"></span>
+		<h2>P</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "P" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandQ") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_Q"></span>
+		<h2>Q</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "Q" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandR") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_R"></span>
+		<h2>R</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "R" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandS") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_S"></span>
+		<h2>S</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "S" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandT") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_T"></span>
+		<h2>T</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "T" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandU") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_U"></span>
+		<h2>U</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "U" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandV") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_V"></span>
+		<h2>V</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "V" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandW") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_W"></span>
+		<h2>W</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "W" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandX") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_X"></span>
+		<h2>X</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "X" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandY") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_Y"></span>
+		<h2>Y</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "Y" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandZ") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_Z"></span>
+		<h2>Z</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "Z" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}  
     {{> components/common/paginator pagination.brands}}
     {{{region name="brands_below_content"}}}
 </section>

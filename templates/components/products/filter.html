@@ -1,3 +1,15 @@
 <form class="actionBar" method="get" data-sort-by="product">
-    {{> components/category/sort-box sort=sort}}
+	{{> components/custom/sidebar-toggle}}
+	{{> components/category/sort-box sort=sort}}
+	<fieldset class="form-fieldset actionBar-section actionBar-pagination">
+	{{#if page_type '===' 'category'}}
+    	{{> components/common/paginator pagination.category}}
+	{{/if}}
+	{{#if page_type '===' 'brand'}}
+    	{{> components/common/paginator pagination.brand}}
+	{{/if}}
+	{{#if page_type '===' 'search'}}
+    	{{> components/common/paginator pagination.product_results}}
+	{{/if}}
+	</fieldset>
 </form>

@@ -16,6 +16,7 @@
         </script>
 
         {{> components/common/polyfill-script }}
+        <script>window.consentManagerTranslations = `{{{langJson 'consent_manager'}}}`;</script>
 
         {{!-- Load Lazysizes script ASAP so images will appear --}}
         <script>
@@ -43,7 +44,6 @@
 
         {{~inject 'zoomSize' theme_settings.zoom_size}}
         {{~inject 'productSize' theme_settings.product_size}}
-        {{~inject 'showAdminBar' theme_settings.show-admin-bar}}
         {{~inject 'genericError' (lang 'common.generic_error')}}
         {{~inject 'maintenanceModeSettings' settings.maintenance}}
         {{~inject 'adminBarLanguage' (langJson 'admin')}}
@@ -54,16 +54,18 @@
         {{~inject 'template' template}}
         {{~inject 'validationDictionaryJSON' (langJson 'validation_messages')}}
         {{~inject 'validationFallbackDictionaryJSON' (langJson 'validation_fallback_messages')}}
-        {{~inject 'validationDefaultDictionaryJSON' (langJson 'default_messages')}} 
+        {{~inject 'validationDefaultDictionaryJSON' (langJson 'validation_default_messages')}}
         {{~inject 'carouselArrowAndDotAriaLabel' (lang 'carousel.arrow_and_dot_aria_label')}}
         {{~inject 'carouselActiveDotAriaLabel' (lang 'carousel.active_dot_aria_label')}}
         {{~inject 'carouselContentAnnounceMessage' (lang 'carousel.content_announce_message')}}
+		{{> components/custom/client/client-head}}
     </head>
 	{{#if theme_settings.custom_header_show_bar}}
     <body class="page-{{page_type}} page-{{lang 'common.currency' code=currency_selector.active_currency_code}} with-bar">
 	{{else}}
 	<body class="page-{{page_type}} page-{{lang 'common.currency' code=currency_selector.active_currency_code}}">
 	{{/if}}
+		{{> components/custom/client/client-body}}
         <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
 
         {{> components/common/header }}
@@ -85,5 +87,6 @@
 		{{else if page_type "==" "cart"}}
 			{{> components/custom/client/client-script-cart}}
 		{{/if}}
+		{{> components/custom/client/client-script-global}}
     </body>
 </html>
