@@ -1,15 +1,15 @@
 <div class="guides">
 	{{#each product.custom_fields}}
 		{{#if name '==' 'local'}}
-			<a class="tosizeguide" href="#description-guide">Feeding Guidelines</a>
+			<a class="tosizeguide" href="#tab-description">Feeding Guidelines</a>
 		{{/if}}
         {{#if name '==' 'delivery'}}
 			<div class="availability-box">
-				<a class="tosizeguide" href="#description-guide">{{value}}</a>
+				<a class="tosizeguide" href="#tab-description">{{value}}</a>
 			</div>
 		{{/if}}  
 	{{/each}}
-	<a class="tosizeguide food-hidden" href="#description-guide">Size Guide</a>  
+	<a class="tosizeguide food-hidden" href="#tab-description">Size Guide</a>  
 </div>   
 
 {{#each product.custom_fields}}

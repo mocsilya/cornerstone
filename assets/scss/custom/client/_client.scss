@@ -34,6 +34,55 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
+ol.breadcrumbs {
+	display: block;
+}
+
+// NAV MENU
+// =============================================================================
+
+.countPill {
+	background-color: #f1b24a;
+	color: #164a41;
+}
+
+
+
+// PAGE MENU
+// =============================================================================
+
+
+.navPages-item-brands .navPage-subMenu,
+.navPages-item-brands .icon {
+	display: none !important;
+}
+
+.navPages-item-custom {
+	display: none;
+    @include breakpoint("medium") {
+        display: block;
+    }
+}
+
+.navPages-item-page {
+    @include breakpoint("medium") {
+        display: none;
+    }
+}
+
+.navPages-list + .navPages-list {
+	margin-top: 0;
+	padding-top: 0;
+	border-top: 0;
+}
+
+.navPages-action {
+	font-size: 20px;
+    @include breakpoint("medium") {
+       font-size: 15px;
+    }
+}
+
 
 // NEWSLETTER
 // =============================================================================
@@ -182,6 +231,13 @@ body .footer .header-logo-image {
 // PRODUCT
 // =============================================================================
 
+.productView-details .productView-title {
+	font-size: 24px;
+	@include breakpoint("large") {
+		font-size: 30px;
+	}
+}
+
 .delivery-notice {
 	display: block;
 	padding: .5rem;
@@ -219,6 +275,7 @@ body .footer .header-logo-image {
 
 .guides {
 	clear: both;
+	text-align: left;
 }
 
 .tosizeguide {
@@ -230,6 +287,11 @@ body .footer .header-logo-image {
 .delivery-option {
 	font-weight: 700;
 	padding: 1rem 0;
+	text-align: left;
+}
+
+.base-disclaimer {
+	text-align: left;
 }
 
 .payment-image {
@@ -272,6 +334,13 @@ body .footer .header-logo-image {
 	color: #fff;
 	padding-top: .75rem;
 	padding-bottom: .75rem;
+}
+
+.productView-options .form-action .button--primary,
+.productView-options .form-action .dropdown-menu-button {
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
+	font-size: 1.5rem;
 }
 
 
