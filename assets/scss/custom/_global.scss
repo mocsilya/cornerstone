@@ -1049,6 +1049,14 @@ body.hasAdminBar.scroll .dropdown--quickSearch.is-open {
 	}
 }
 
+
+.navPages-action {
+	font-size: 20px;
+	@include breakpoint("medium") {
+		font-size: 15px;
+	}
+}
+
 .navPages > ul > li > .navPages-action {
 	@include breakpoint("medium") {
 		color: stencilColor("custom-header-menu-link");
@@ -1404,6 +1412,10 @@ body.scroll .navPages > ul > li > .navPages-action {
 	}
 }
 
+ol.breadcrumbs {
+	display: block;
+}
+
 .page-header nav {
 	position: relative;
 	z-index: 2;
@@ -1452,7 +1464,10 @@ body.scroll .navPages > ul > li > .navPages-action {
 
 .page-header-image .page-heading,
 .page-header-image .breadcrumbs {
-	padding: 1.5rem;
+	padding: 1rem;
+    @include breakpoint("small") {
+        padding: 1.5rem;
+    }
 }
 
 .page-header-image .page-heading,
@@ -1473,7 +1488,10 @@ body.scroll .navPages > ul > li > .navPages-action {
 
 .page-header-image .page-heading + nav .breadcrumbs {
 	top: auto;
-    padding: 0 1.5rem 1.5rem 1.5rem;
+    padding: 0 1rem 1rem 1rem;
+    @include breakpoint("small") {
+        padding: 0 1.5rem 1.5rem 1.5rem;
+    }
 }
 
 .page-header-image img {
@@ -3732,6 +3750,13 @@ a:hover span.card-image:only-of-type img {
 	@include breakpoint("medium") {
 		width: 100%;
 	}
+}
+
+.productView-options .form-action .button--primary,
+.productView-options .form-action .dropdown-menu-button {
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
+	font-size: 1.25rem;
 }
 
 .productView-options .form-action .button--primary {
