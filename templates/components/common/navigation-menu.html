@@ -84,8 +84,18 @@
 							</li>
 						</ul>
 					{{/and}}
+					{{assignVar "allsingle" "true"}}
+			        {{#each children}}
+						{{#if children}}
+							{{assignVar "allsingle" "false"}}
+						{{/if}}
+					{{/each}}
 					{{#if ../theme_settings.custom_header_group_single}}
-						{{> components/custom/navigation-list-group}}
+						{{#if (getVar "allsingle") '!==' 'true'}}
+							{{> components/custom/navigation-list-group theme_settings=../theme_settings}}
+						{{else}}
+							{{> components/common/navigation-list}}
+						{{/if}}
 					{{else}}
 						{{> components/common/navigation-list}}
 					{{/if}}
@@ -122,8 +132,18 @@
             {{#each pages}}
                 <li class="navPages-item navPages-item-page navPages-item-{{dashcase name}}">
 	            {{#if ../theme_settings.navigation_design '===' 'simple'}}
+					{{assignVar "allsinglepage" "true"}}
+			        {{#each children}}
+						{{#if children}}
+							{{assignVar "allsinglepage" "false"}}
+						{{/if}}
+					{{/each}}
 					{{#if ../theme_settings.custom_header_group_single}}
-	                	{{> components/custom/navigation-list-group-page}}
+						{{#if (getVar "allsinglepage") '!==' 'true'}}
+							{{> components/custom/navigation-list-group-page theme_settings=../theme_settings}}
+						{{else}}
+							{{> components/custom/navigation-list-page}}
+						{{/if}}
 					{{else}}
 						{{> components/custom/navigation-list-page}}
 					{{/if}}

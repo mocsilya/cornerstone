@@ -74,6 +74,7 @@
 	"custom-card-border": "#dddddd",
 	"custom-card-wishlist-icon": "#333333",
 	"custom_header_group_single": false,
+	"custom_header_group_title": "More ",
 	"custom_header_show_brands": true,
 	"custom_header_scroll_navpages": true,
 	"custom_header_icon_style": "outline",

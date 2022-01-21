@@ -130,6 +130,9 @@
     <section class="productView-details{{#if product.brand}} productView-details-{{first (split product.brand.name ' ')}}{{/if}} productView-details-{{theme_settings.custom_product_gallery_size}} product-data">
         <div class="productView-product">
 			{{> components/custom/client/client-product-top}}
+			<div class="productView-top-global">
+			{{{region name="product_top--global"}}}
+			</div>
             <h1 {{#unless theme_settings.custom_product_title_left}}style="display: none;"{{/unless}} class="productView-title">{{product.title}}</h1>
             {{#if product.brand}}
                 <h2 class="productView-brand">
@@ -313,6 +316,9 @@
                 {{> components/common/wishlist-dropdown}}
             {{/all}}
 			{{> components/custom/client/client-product-bottom}}
+			<div class="productView-bottom-global">
+			{{{region name="product_bottom--global"}}}
+			</div>
         </div>
         {{> components/common/share url=product.url}}
     </section>
