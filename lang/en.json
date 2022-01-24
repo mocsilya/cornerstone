@@ -62,7 +62,7 @@
             "update": "Update shipping cost"
         },
         "preview": {
-            "checkout_now": "Check out now",
+            "checkout_now": "Checkout Securely",
             "checkout_multiple": "or check out with multiple addresses",
             "view_cart": "View Basket"
         },
@@ -128,7 +128,7 @@
         "added_to_cart": {
             "what_next": "Ok, {num_products, plural, one {1 item was} other {# items were}} added to your basket. What's next?",
             "your_cart_contains": "Your basket contains {num_products, plural, one {1 item} other {# items}}",
-            "proceed_to_checkout": "Proceed to checkout",
+            "proceed_to_checkout": "Checkout Securely",
             "order_subtotal": "Order subtotal",
             "continue_shopping": "Continue Shopping",
             "view_or_edit_cart": "View or edit your basket",
