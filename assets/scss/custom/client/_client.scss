@@ -59,7 +59,7 @@ ol.breadcrumbs {
         display: inline-block;
     }
     @include breakpoint("large") {
-		min-width: 400px;
+		min-width: 300px;
 		text-align: left;
     }
 }
@@ -263,7 +263,11 @@ body .footer .header-logo-image {
 }
 
 .form-field.form-field--stock,
-.productView-rating {
+.productView-rating,
+.productView-info .sku-label,
+.productView-info .sku-value,
+.productView-info .upc-label,
+.productView-info .upc-value {
 	display: none;
 }
 
@@ -379,10 +383,6 @@ body .footer .header-logo-image {
 	font-size: 1.5rem;
 }
 
-.previewCart-additionalCheckoutButtons {
-	padding-right: 0;
-}
-
 
 #previewModal {
 	width: calc(292px + 5.5rem);
@@ -402,6 +402,41 @@ body .footer .header-logo-image {
 #previewModal .previewCartCheckout {
 	float: none;
 }
+
+.previewCart .button--primary {
+	background: #f1b24a;
+	color: #164a41;
+	border: 1px solid #f1b24a;
+}
+
+.previewCart .button--primary:hover {
+	background: #164a41;
+	color: #fff;
+	border: 1px solid #164a41;
+}
+
+.previewCart .button--secondary {
+	background: #4d774e;
+	color: #fff;
+	border: 1px solid #4d774e;
+}
+
+.previewCart .button--secondary:hover {
+	background: #164a41;
+	color: #fff;
+	border: 1px solid #164a41;
+}
+
+.previewCart .button--primary .icon svg {
+	color: #164a41;
+	fill: #164a41;
+}
+
+.previewCart .button--primary:hover .icon svg {
+	color: #fff;
+	fill: #fff;
+}
+
 
 
 
@@ -444,7 +479,7 @@ body .footer .header-logo-image {
 // 404
 // =============================================================================
 
-.page-404 .subcategories-grid {
+.page-404 .page-not-found {
 	display: none;
 }
 
