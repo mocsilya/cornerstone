@@ -46,7 +46,7 @@
                 "multiple": "check out with multiple addresses",
                 "or": "or"
             },
-            "button": "Check out",
+            "button": "Checkout Securely",
             "empty_cart": "Your basket is empty",
             "title": "Click here to proceed to checkout",
             "item": "Item",
@@ -63,8 +63,8 @@
         },
         "preview": {
             "checkout_now": "Checkout Securely",
-            "checkout_multiple": "or check out with multiple addresses",
-            "view_cart": "View Basket"
+            "checkout_multiple": "Checkout with multiple addresses",
+            "view_cart": "View or Edit Basket"
         },
         "label": "Your Basket ({quantity, plural, one {# item} other {# items}})",
         "is_empty": "Your basket is empty",
@@ -126,12 +126,12 @@
             "preview": "Preview"
         },
         "added_to_cart": {
-            "what_next": "Ok, {num_products, plural, one {1 item was} other {# items were}} added to your basket. What's next?",
+            "what_next": "Ok, {num_products, plural, one {1 item is} other {# items are}} now in your basket. What's next?",
             "your_cart_contains": "Your basket contains {num_products, plural, one {1 item} other {# items}}",
             "proceed_to_checkout": "Checkout Securely",
             "order_subtotal": "Order subtotal",
             "continue_shopping": "Continue Shopping",
-            "view_or_edit_cart": "View or edit your basket",
+            "view_or_edit_cart": "View or Edit Basket",
             "you_might_also_like": "You may also like"
         }
     },
