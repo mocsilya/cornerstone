@@ -4200,7 +4200,8 @@ a:hover span.card-image:only-of-type img {
 // Info Pages
 // =============================================================================
 
-.page-page .page-sidebar + .page-content {
+.page-page .page-sidebar + .page-content,
+.page-page_contact_form .page-sidebar + .page-content {
 	@include breakpoint("medium") {
 		width:70%;
 	}
@@ -4212,8 +4213,13 @@ a:hover span.card-image:only-of-type img {
 	}
 }
 
-.page-page .page-content--centered {
+.page-page .page-content--centered,
+.page-page_contact_form .page-content--centered {
 	width: 100%;
+}
+
+.page-page_contact_form #contact-us-page .form {
+    max-width: 800px;
 }
 
 
