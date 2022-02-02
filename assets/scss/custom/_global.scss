@@ -107,7 +107,7 @@ body.scroll.with-bar {
 	fill: stencilColor("button--default-color");
 }
 
-.button .icon svg {
+.button:hover .icon svg {
 	color: stencilColor("button--default-colorHover");
 	fill: stencilColor("button--default-colorHover");
 }
@@ -117,7 +117,7 @@ body.scroll.with-bar {
 	fill: stencilColor("button--primary-color");
 }
 
-.button--primary .icon svg {
+.button--primary:hover .icon svg {
 	color: stencilColor("button--primary-colorHover");
 	fill: stencilColor("button--primary-colorHover");
 }
