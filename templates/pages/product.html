@@ -48,11 +48,12 @@ customer:
 		{{> components/common/alert/alert-info message}}
 	{{/each}}
 	{{/unless}}
-    <div itemscope itemtype="http://schema.org/Product" {{#if (getVar 'payment') '===' 'active'}} class="payment-product"{{/if}}>
-        {{> components/products/product-view schema=true  }}
-
+    <div {{#if (getVar 'payment') '===' 'active'}} class="payment-product"{{/if}}>
+        {{> components/products/product-view}}
         {{{region name="product_below_content"}}}
     </div>
+
+    {{> components/products/schema}}
 {{/partial}}
 {{#partial "base"}}
 {{#unless (getVar 'payment') '===' 'active'}}

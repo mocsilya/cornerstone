@@ -7,14 +7,18 @@
 <div class="modal-body">
     <div class="previewCart">
         <section class="previewCartCheckout">
+			
+            <a href="#" class="button button--secondary button--continue" role="button" data-reveal-close>
+                {{lang 'cart.added_to_cart.continue_shopping'}}
+            </a>
 
-            <a href="{{urls.cart}}" class="button button--primary button--cart">
+            <a href="{{urls.cart}}" class="button button--secondary button--cart">
                 {{lang 'cart.added_to_cart.view_or_edit_cart'}}
             </a>
 			
             {{#if cart.show_primary_checkout_button}}
                 <a href="{{urls.checkout.single_address}}" class="button button--primary button--checkout">
-                    {{lang 'cart.added_to_cart.proceed_to_checkout'}}
+                    <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-lock" /></svg></i> <strong>&nbsp;{{lang 'cart.added_to_cart.proceed_to_checkout'}}</strong>
                 </a>
             {{/if}}
 
@@ -26,7 +30,7 @@
 
             {{#if cart.show_multiple_address_shipping}}
                 <div class="previewCartAction-checkoutMultiple">
-                    <a href="{{urls.checkout.multiple_address}}">
+                    <a class="button button--secondary button--multiple" href="{{urls.checkout.multiple_address}}">
                         {{lang 'cart.preview.checkout_multiple'}}
                     </a>
                 </div>
@@ -48,9 +52,7 @@
                 {{lang 'cart.added_to_cart.your_cart_contains' num_products=cart.quantity}}
             </p>
 
-            <a href="#" class="button button--secondary button--continue" role="button" data-reveal-close>
-                {{lang 'cart.added_to_cart.continue_shopping'}}
-            </a>
+            
         </section>
         <section class="productView">
             {{#with cart.added_item}}
@@ -89,7 +91,7 @@
                                 {{name}}
                             </dt>
                             <dd class="productView-info-value">
-                                {{{ sanitize value}}}
+                                {{> components/common/product-options}}
                             </dd>
                         </dl>
                     {{/each}}
