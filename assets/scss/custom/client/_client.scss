@@ -103,6 +103,29 @@ div[data-sub-layout-container="e72c7bfb-fdca-44fe-a4db-884e74fddd85"] h4 {
 	display: flex;
 }
 
+.page-product .share-container,
+.page-product .productView-rating  .productView-info,
+.page-product .productView-info-name.availability-label,
+.page-product .productView-info-value.availability-value {
+	display: none;
+}
+
+.productView-info-custom .icon {
+	vertical-align: top;
+}
+
+.productView-info-custom .icon svg {
+	color: #009900;
+	fill: #009900;
+}
+
+.productView-info-custom span {
+	display: inline-block;
+	line-height: 16px;
+	height: 16px;
+	vertical-align: top;
+	padding-left: .5rem;
+}
 
 // WIDGET FOR CATEGORY BOXES
 // =============================================================================
@@ -113,6 +136,8 @@ div[data-sub-layout-container="08b95f9a-e1ad-460d-9aa8-69bb743fd432"] .custom-wi
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
 }
 
-
+.footer-info-col address {
+	display: none;
+}
 
 

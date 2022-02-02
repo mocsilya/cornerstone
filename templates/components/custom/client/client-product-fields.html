@@ -1,0 +1,12 @@
+<dl class="productView-info productView-info-custom">
+	{{#if product.availability}}
+	<dt class="productView-info-name custom-label">{{lang 'products.availability'}}</dt>
+	<dd class="productView-info-value custom-value">
+		{{#if product.availability '==' 'Stock'}}
+		<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-tick" /></svg></i><span><strong>{{product.availability}}</strong></span>
+		{{else}}
+			{{product.availability}}
+		{{/if}}
+	</dd>
+	{{/if}}
+</dl>
