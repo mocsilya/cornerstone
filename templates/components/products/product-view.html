@@ -37,6 +37,7 @@
         {{#if product.images.length '>' 1 }}
         {{> components/carousel-content-announcement}}
         {{/if}}
+		{{> components/custom/client/client-product-gallery-top}}
         <figure class="productView-image"
                 data-image-gallery-main
                 {{#if product.main_image}}
@@ -124,7 +125,7 @@
 				</div>
         	{{/if}}
 		{{/if}}
-		{{> components/custom/client/client-product-gallery}}
+		{{> components/custom/client/client-product-gallery-bottom}}
     </section>
 
     <section class="productView-details{{#if product.brand}} productView-details-{{first (split product.brand.name ' ')}}{{/if}} productView-details-{{theme_settings.custom_product_gallery_size}} product-data">

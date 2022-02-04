@@ -1078,7 +1078,6 @@ body.hasAdminBar.scroll .dropdown--quickSearch.is-open {
 	}
 }
 
-
 .navPages-action {
 	font-size: 20px;
 	@include breakpoint("medium") {
@@ -1149,6 +1148,10 @@ body.scroll .navPages-container-hide {
 		flex: 1 1 auto;
 		
 	}
+}
+
+.navPages .navPage-subMenu-action:not(.navPages-action-depth-max) + .navPage-childList {
+	border-left: none;
 }
 
 @media (max-width: 800px) {
@@ -1331,7 +1334,16 @@ body.scroll .navPages-container-hide {
 }
 
 .navPages-list:not(.navPages-list-depth-max) .navPages-action-moreIcon  {
+	float: right;
+	margin: 0;
+	padding: .5rem;
+	height: 30px;
+	width: 30px;
+	border: 1px solid stencilColor("navPages-color");
 	@include breakpoint("medium") {
+		height: .875rem;
+		width: .875rem;
+		padding: 0;
 		margin: .25rem 0 0 .375rem;
 	}
 }
