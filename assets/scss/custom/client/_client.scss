@@ -239,6 +239,14 @@
 }
 
 
+// Cart Page
+// =============================================================================
+
+.page-cart .AmazonPayCheckout > p {
+	display: none !important;
+}
+
+
 // Preview Cart
 // =============================================================================
 
@@ -928,6 +936,57 @@
 	border: 1px solid #333;
 	color: #fff;
 	margin-top: .5rem;
+}
+
+.productView-options .form-action .button--primary,
+.productView-options .form-action .dropdown-menu-button {
+	padding-top: 0.85714rem;
+	padding-bottom: 0.85714rem;
+	font-size: 1rem;
+}
+
+
+.product-gallery-message {
+	position: relative;
+}
+
+.product-gallery-message-left {
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: rgba(0,0,0, 0.6);
+	width: auto;
+	z-index: 1;
+}
+
+.product-gallery-message-right {
+	position: absolute;
+	right: 0;
+	top: 0;
+	background: rgba(0,0,0, 0.6);
+	width: auto;
+	z-index: 1;
+}
+
+.product-gallery-message a {
+	color: #fff;
+	display: inline-block;
+	padding: .5rem 1rem;
+	font-family: "Kanit", Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.product-gallery-message span {
+	height: 16px;
+	line-height: 16px;
+	display: inline-block;
+	padding-left: 5px;
+}
+
+.product-gallery-message .icon svg {
+	color: stencilColor("button--primary-backgroundColor");
+	fill: stencilColor("button--primary-backgroundColor");
 }
 
 
