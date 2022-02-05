@@ -29,6 +29,14 @@
 }
 
 
+.navPages .navPage-subMenu-item .navPages-action {
+    font-size: 16px;
+    @include breakpoint("medium") {
+		font-size: 14px;
+	}
+}
+
+
 
 // Page Header
 // =============================================================================
@@ -872,6 +880,7 @@
 	border: 1px solid #333;
 	border-radius: 4px;
 	white-space: nowrap;
+	background: #fff;
 	@include breakpoint("medium") {
 		flex: 1 1 0px;
 	}
@@ -971,17 +980,33 @@
 .product-gallery-message a {
 	color: #fff;
 	display: inline-block;
-	padding: .5rem 1rem;
+	padding: .5rem;
 	font-family: "Kanit", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
+	font-size: 11px;
+	@include breakpoint("small") {
+		font-size: 14px;
+		padding: .5rem 1rem;
+	}
+	@include breakpoint("medium") {
+		font-size: 12px;
+		padding: .5rem;
+	}
+	@include breakpoint("large") {
+		font-size: 16px;
+		padding: .5rem 1rem;
+	}
 }
 
 .product-gallery-message span {
 	height: 16px;
 	line-height: 16px;
 	display: inline-block;
-	padding-left: 5px;
+	padding-left: 2px;
+	@include breakpoint("small") {
+		padding-left: 4px;
+	}
 }
 
 .product-gallery-message .icon svg {
