@@ -1,0 +1,13 @@
+{{#if page_type '==' "category"}}
+<script>
+ga('set', 'contentGroup1', 'Category Page');
+</script>
+{{else if page_type '==' "product"}}
+<script>
+ga('set', 'contentGroup2', 'Product Page');
+</script>
+{{else if page_type '==' "page"}}
+<script>
+ga('set', 'contentGroup3', 'CMS Page');
+</script>
+{{/if}}

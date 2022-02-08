@@ -2,22 +2,29 @@
 	{{#if name '==' 'local'}}
 	<div class="delivery-notice"><a href="https://www.k9active.co.uk/delivery#food-delivery">Delivery to <span>KY &amp; EH</span> Postcodes only, click for details</a></div>
 	<style>
-		.food-hidden,
-		.delivery-option {
+		.custom-size-guide,
+		.custom-general-delivery {
 			display: none;
 		}
 	</style>
-	{{/if}}    
-{{/each}}
-			
-{{#each product.custom_fields}}
+	{{else if name '==' 'food-delivery'}}
+	<style>
+		.custom-general-delivery {
+			display: none;
+		}
+		.custom-food-delivery {
+			display: block !important;
+		}
+	</style>
+	{{/if}}
     {{#if name '==' 'score'}}
             <div class="food_rating">
                 <h2 class="food_rating_score">{{value}}%</h2>
                 <img src="https://cdn11.bigcommerce.com/s-39evn3p/product_images/uploaded_images/rating-99.jpeg?t=1592660748&_ga=2.92096858.1764823517.1592658534-237396862.1592492786" alt="food rating score">
             </div>
-    {{/if}}    
-{{/each}} 
+    {{/if}}
+{{/each}}
+
 <a class="tab-click tab-click-reviews" href="#tab-custom2">
 	<img style="width: 150px; height: 25px; margin-left: -14px;" src="https://stamped.io/inc/image/stars.png?apikey=pubkey-QWE4FG2cvvRd66065K7ks201gPLiRP&sId=33799&productId={{product.id}}" />
 </a>
