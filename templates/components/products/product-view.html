@@ -311,7 +311,7 @@
                     {{/each}}
 					{{> components/custom/client/client-product-options}}
                 </div>
-                <div class="form-field form-field--stock{{#if product.options}} form-field--stock-options{{/if}}{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
+                <div class="form-field form-field--stock{{#if product.options}} form-field--stock-options{{else}} form-field--stock-single{{/if}}{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
                     <label class="form-label form-label--alternate">
                         {{lang 'products.current_stock'}}
                     </label>
