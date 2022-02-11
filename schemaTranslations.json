@@ -1397,7 +1397,10 @@
     "pt-BR": "Plano de fundo do contador do carrinho"
   },
   "i18n.HeaderSearchLabel": {
-    "default": "Quick search placeholder text"
+    "default": "Search placeholder text"
+  },
+  "i18n.HeaderSearchType": {
+    "default": "Search display type"
   },
   "i18n.HeaderIconText": {
     "default": "Show icon text on large screens"

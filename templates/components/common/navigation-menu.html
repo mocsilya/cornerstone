@@ -1,6 +1,11 @@
 <nav class="navPages">
     <ul class="navPages-list{{#if theme_settings.navigation_design '!==' 'simple'}} navPages-list-depth-max {{else}} navPages-list-simple {{/if}}">
-        {{> components/custom/client/client-header-menu-start}}
+	{{#if theme_settings.custom_header_search_type '===' 'box'}}
+		<li class="navPages-item navPages-item-search navPages-item-boxsearch">
+			{{> components/custom/navigation-search}}
+		</li>
+	{{/if}}
+		{{> components/custom/client/client-header-menu-start}}
 		{{#each categories}}
             <li class="navPages-item navPages-item-category navPages-item-{{dashcase name}}">
             {{#if ../theme_settings.navigation_design '===' 'simple'}}
