@@ -37,7 +37,8 @@
         {{#if product.images.length '>' 1 }}
         {{> components/carousel-content-announcement}}
         {{/if}}
-        <figure class="productView-image"
+		{{> components/custom/client/client-product-gallery-top}}
+        <figure class="productView-image toggle-content is-open"
                 data-image-gallery-main
                 {{#if product.main_image}}
                 data-zoom-image="{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size }}"
@@ -63,6 +64,11 @@
                 {{/if}}
             </div>
         </figure>
+		{{#if product.videos.list.length}}
+			{{#if theme_settings.custom_product_description_location '==' 'underneath'}}
+				{{> components/custom/video-player product.videos}}
+        	{{/if}}
+		{{/if}}
 		{{#and product.videos.list.length (if theme_settings.custom_product_description_location '==' 'underneath')}}
 			<ul class="productView-thumbnails"{{#gt product.images.length 3}} data-slick='{
                 "infinite": false,
@@ -85,8 +91,19 @@
                 "slidesToScroll": 4
             }'{{/gt}}>
 		{{/and}}
+		{{assignVar "thumbs" "hide"}}
+		{{#each product.images}}
+			{{#if @last}}
+				{{#if @index 0}}
+					{{assignVar "thumbs" "hide"}}
+				{{else}}
+					{{assignVar "thumbs" "show"}}
+				{{/if}}
+			{{/if}}
+		{{/each}}
+		{{#if (getVar "thumbs") '===' 'show'}}
             {{#each product.images}}
-                <li class="productView-thumbnail">
+                <li class="productView-thumbnail productView-thumbnail-image">
                     <a
                         class="productView-thumbnail-link"
                         href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
@@ -103,11 +120,9 @@
                     </a>
                 </li>
             {{/each}}
+		{{/if}}
         </ul>
 		{{#if product.videos.list.length}}
-			{{#if theme_settings.custom_product_description_location '==' 'underneath'}}
-				{{> components/custom/video-player product.videos}}
-        	{{/if}}
 			{{#if theme_settings.custom_product_description_location '==' 'side'}}
 				{{> components/products/videos product.videos}}
 			{{/if}}
@@ -124,7 +139,7 @@
 				</div>
         	{{/if}}
 		{{/if}}
-		{{> components/custom/client/client-product-gallery}}
+		{{> components/custom/client/client-product-gallery-bottom}}
     </section>
 
     <section class="productView-details{{#if product.brand}} productView-details-{{first (split product.brand.name ' ')}}{{/if}} productView-details-{{theme_settings.custom_product_gallery_size}} product-data">
@@ -296,11 +311,13 @@
                     {{/each}}
 					{{> components/custom/client/client-product-options}}
                 </div>
-                <div class="form-field form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
+                <div class="form-field form-field--stock{{#if product.options}} form-field--stock-options{{else}} form-field--stock-single{{/if}}{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
                     <label class="form-label form-label--alternate">
                         {{lang 'products.current_stock'}}
                     </label>
-					<span data-product-stock>{{product.stock_level}}</span>
+					<span data-product-stock>
+						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-tick" /></svg></i><strong class="in-stock-number">{{product.stock_level}} </strong><span class="in-stock-label">In Stock</span>
+					</span>
                 </div>
                 {{> components/products/add-to-cart}}
 				{{> components/custom/client/client-product-add}}

@@ -249,8 +249,13 @@ export default class ProductDetailsBase {
         if (viewModel.stock.$container.length && isNumber(data.stock)) {
             // if the stock container is hidden, show
             viewModel.stock.$container.removeClass('u-hiddenVisually');
-
-            viewModel.stock.$input.text(data.stock);
+            if (data.stock > "0") {
+                data.stock = "<i class='icon' aria-hidden='true'><svg><use xlink:href='#icon-tick' /></svg></i><strong class='in-stock-number'>" + data.stock + " </strong><span class='in-stock-label'>In Stock</span>";
+            } else {
+                viewModel.stock.$container.addClass('u-hiddenVisually');
+            }
+            viewModel.stock.$input.html(data.stock);
+			
         } else {
             viewModel.stock.$container.addClass('u-hiddenVisually');
             viewModel.stock.$input.text(data.stock);
