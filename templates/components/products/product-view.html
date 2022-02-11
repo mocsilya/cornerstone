@@ -311,11 +311,13 @@
                     {{/each}}
 					{{> components/custom/client/client-product-options}}
                 </div>
-                <div class="form-field form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
+                <div class="form-field form-field--stock{{#if product.options}} form-field--stock-options{{/if}}{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
                     <label class="form-label form-label--alternate">
                         {{lang 'products.current_stock'}}
                     </label>
-					<span data-product-stock>{{product.stock_level}}</span>
+					<span data-product-stock>
+						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-tick" /></svg></i><strong class="in-stock-number">{{product.stock_level}} </strong><span class="in-stock-label">In Stock</span>
+					</span>
                 </div>
                 {{> components/products/add-to-cart}}
 				{{> components/custom/client/client-product-add}}
