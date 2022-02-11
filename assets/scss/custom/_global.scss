@@ -3875,6 +3875,18 @@ a:hover span.card-image:only-of-type img {
 	font-size: 1rem;
 }
 
+.productView-options .form-field--stock .icon {
+	margin-right: 5px;
+	vertical-align: top;
+}
+
+.productView-options .in-stock-number,
+.productView-options .in-stock-label {
+	font-size: 16px;
+	line-height: 16px;
+	vertical-align: top;
+}
+
 .productView-options .form-label:first-child {
 	@include breakpoint("small") {
 		width: 40%;
