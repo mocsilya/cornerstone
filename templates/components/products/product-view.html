@@ -38,7 +38,7 @@
         {{> components/carousel-content-announcement}}
         {{/if}}
 		{{> components/custom/client/client-product-gallery-top}}
-        <figure class="productView-image"
+        <figure class="productView-image toggle-content is-open"
                 data-image-gallery-main
                 {{#if product.main_image}}
                 data-zoom-image="{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size }}"
@@ -64,6 +64,11 @@
                 {{/if}}
             </div>
         </figure>
+		{{#if product.videos.list.length}}
+			{{#if theme_settings.custom_product_description_location '==' 'underneath'}}
+				{{> components/custom/video-player product.videos}}
+        	{{/if}}
+		{{/if}}
 		{{#and product.videos.list.length (if theme_settings.custom_product_description_location '==' 'underneath')}}
 			<ul class="productView-thumbnails"{{#gt product.images.length 3}} data-slick='{
                 "infinite": false,
@@ -86,8 +91,19 @@
                 "slidesToScroll": 4
             }'{{/gt}}>
 		{{/and}}
+		{{assignVar "thumbs" "hide"}}
+		{{#each product.images}}
+			{{#if @last}}
+				{{#if @index 0}}
+					{{assignVar "thumbs" "hide"}}
+				{{else}}
+					{{assignVar "thumbs" "show"}}
+				{{/if}}
+			{{/if}}
+		{{/each}}
+		{{#if (getVar "thumbs") '===' 'show'}}
             {{#each product.images}}
-                <li class="productView-thumbnail">
+                <li class="productView-thumbnail productView-thumbnail-image">
                     <a
                         class="productView-thumbnail-link"
                         href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
@@ -104,11 +120,9 @@
                     </a>
                 </li>
             {{/each}}
+		{{/if}}
         </ul>
 		{{#if product.videos.list.length}}
-			{{#if theme_settings.custom_product_description_location '==' 'underneath'}}
-				{{> components/custom/video-player product.videos}}
-        	{{/if}}
 			{{#if theme_settings.custom_product_description_location '==' 'side'}}
 				{{> components/products/videos product.videos}}
 			{{/if}}

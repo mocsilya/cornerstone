@@ -1105,6 +1105,22 @@
         "id": "custom_header_search_label"
       },
       {
+        "type": "select",
+        "label": "i18n.HeaderSearchType",
+        "id": "custom_header_search_type",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "icon",
+            "label": "Icon"
+          },
+          {
+            "value": "box",
+            "label": "Box"
+          }
+        ]
+      },
+      {
         "type": "checkbox",
         "label": "i18n.HeaderIconText",
         "force_reload": true,
