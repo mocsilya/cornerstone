@@ -66,30 +66,6 @@ ol.breadcrumbs {
 	color: #164a41;
 }
 
-.navUser-item.navUser-item--search {
-    @include breakpoint("medium") {
-		-webkit-box-shadow: inset 0px 0px 0px 2px #4D774E; 
-		box-shadow: inset 0px 0px 0px 2px #4D774E;
-		border-radius: 4px;
-    }
-}
-
-.navUser-action--quickSearch .navUser-text-search {
-    @include breakpoint("medium") {
-        display: inline-block;
-    }
-    @include breakpoint("large") {
-		min-width: 300px;
-		text-align: left;
-    }
-}
-
-.navUser-action--quickSearch[aria-expanded="true"] .navUser-text-search {
-    @include breakpoint("medium") {
-        display: none;
-    }
-}
-
 
 
 // PAGE MENU
@@ -118,10 +94,6 @@ ol.breadcrumbs {
 	margin-top: 0;
 	padding-top: 0;
 	border-top: 0;
-}
-
-.navPages .navPages-list-simple .navPage-subMenu-image li {
-    padding: 0.75rem;
 }
 
 
@@ -297,7 +269,6 @@ body .footer .header-logo-image {
 	}
 }
 
-.form-field.form-field--stock,
 .productView-rating,
 .productView-info .sku-label,
 .productView-info .sku-value,
@@ -417,7 +388,15 @@ body .footer .header-logo-image {
 	padding-bottom: .75rem;
 }
 
-.form-field--stock-custom .icon svg {
+.form-field--stock .in-stock-number {
+	display: none;
+}
+
+.form-field--stock .in-stock-label {
+	font-weight: 700;
+}
+
+.form-field--stock .icon svg {
 	fill: #4d774e;
 	color: #4d774e;
 }
