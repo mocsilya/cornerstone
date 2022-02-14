@@ -103,7 +103,7 @@
     "custom-header-menu-background": "#164a41",
     "custom-header-menu-link": "#ffffff",
     "custom-header-menu-link-hover": "#f1b24a",
-    "custom_header_menu_1_show": true,
+    "custom_header_menu_1_show": false,
     "custom_header_menu_1_category": "Apparel",
     "custom_header_menu_1_image": "reduced-more.gif",
     "custom_header_menu_1_link": "",
