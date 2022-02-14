@@ -745,7 +745,7 @@ body.scroll .header-logo-text {
 }
 
 .navUser .form-search-box {
-	margin: 3px 0 0 0;
+	margin: 0;
 }
 
 .navUser-section-right .navUser-item--widesearch .form-search-box,
@@ -1553,10 +1553,31 @@ body.scroll .navPages > ul > li > .navPages-action {
 
 @media (max-width: 800px) {
 	
-	.navPage-subMenu-item-groupshow .navPages-action.has-subMenu {
+	.navPages-list:not(.navPages-list-depth-max) .navPage-subMenu-item-groupshow {
+		padding: 0;
+	}
+	
+	.navPages-list:not(.navPages-list-depth-max) .navPage-subMenu-item-groupshow .navPages-action.has-subMenu {
 		display: none;
 	}
 	
+	.navPages-list:not(.navPages-list-depth-max) .navPage-subMenu-item-groupshow .navPage-childList {
+		display: block;
+		flex: 1 0 auto;
+		margin: 0;
+		width: 100%;
+		padding-left: 0;
+	}
+	
+	.navPages-list:not(.navPages-list-depth-max) .navPage-subMenu-item-groupshow .navPage-childList-item {
+		padding: 0.78571rem 0;
+	}
+	
+	.navPages-list:not(.navPages-list-depth-max) .navPage-subMenu-item-groupshow .navPage-childList-action {
+		padding: 0 0 0 1.5rem;
+		font-size: 16px;
+		font-weight: 700;
+	}
 }
 
 
