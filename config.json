@@ -81,6 +81,7 @@
     "custom_header_icon_text": true,
     "custom_header_cart_type": "cart",
     "custom_header_search_label": "Search for a product",
+    "custom_header_search_type": "box",
     "custom_header_show_bar": true,
     "custom_header_show_bar_message1": true,
     "custom_header_show_bar_message2": true,
