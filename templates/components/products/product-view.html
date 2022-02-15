@@ -170,7 +170,7 @@
             <div class="productView-rating">
                 <dl class="productView-info">
 				{{#if settings.show_product_rating}}
-					<dt class="productView-info-name">
+					<dt class="productView-info-name"{{#unless theme_settings.show_product_reviews}} style="display: none;"{{/unless}}>
                     {{> components/products/ratings rating=product.rating}}
                     {{#if product.num_reviews '>' 0}}
                         <a href="{{product.url}}{{#if is_ajax}}#product-reviews{{/if}}" id="productReview_link">
@@ -180,9 +180,9 @@
                         <span>{{lang 'products.reviews.link_to_review' total=product.num_reviews}}</span>
                     {{/if}}
 					</dt>
-                {{/if}}		
-                {{#all settings.show_product_reviews theme_settings.show_product_reviews}}
-					<dd class="productView-info-value">
+                {{/if}}				
+                {{#if settings.show_product_reviews}}		
+					<dd class="productView-info-value"{{#unless theme_settings.show_product_reviews}} style="display: none;"{{/unless}}>
                     	<a href="{{product.url}}{{#if is_ajax}}#write_review{{/if}}" 
 						class="productView-reviewLink productView-reviewLink--new" 
 						{{#unless is_ajax}}data-reveal-id="modal-review-form"{{/unless}} 
@@ -192,7 +192,7 @@
                     	</a>
                     	{{> components/products/modals/writeReview}}
 					</dd>
-                {{/all}}
+                {{/if}}
 				</dl>
             </div>
             {{product.detail_messages}}

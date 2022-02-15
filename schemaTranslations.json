@@ -1803,6 +1803,9 @@
   "i18n.EmailAddress": {
     "default": "Sales/support email"
   },
+  "i18n.HeaderMenuDropdown": {
+    "default": "Main menu dropdown type"
+  },
   "i18n.HeaderMenuBackground": {
     "default": "Main menu background"
   },
