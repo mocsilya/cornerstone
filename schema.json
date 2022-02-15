@@ -1185,6 +1185,22 @@
         "id": "custom_header_group_single"
       },
       {
+        "type": "select",
+        "label": "i18n.HeaderMenuDropdown",
+        "id": "custom-header-menu-dropdown",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "hover",
+            "label": "Hover"
+          },
+          {
+            "value": "click",
+            "label": "Click"
+          }
+        ]
+      },
+      {
         "type": "color",
         "label": "i18n.HeaderMenuBackground",
         "id": "custom-header-menu-background"
