@@ -29,15 +29,6 @@
 }
 
 
-.navPages .navPage-subMenu-item .navPages-action {
-    font-size: 16px;
-    @include breakpoint("medium") {
-		font-size: 14px;
-	}
-}
-
-
-
 // Page Header
 // =============================================================================
 
@@ -247,37 +238,56 @@
 }
 
 
-// Cart Page
-// =============================================================================
-
-.page-cart .AmazonPayCheckout > p {
-	display: none !important;
-}
-
-
 // Preview Cart
 // =============================================================================
 
 .previewCartAction-checkout,
-.previewCartCheckout .button--checkout,
-.previewCartCheckout-additionalCheckoutButtons,
-.or-use-label {
-	display: none;
-}
-
-.previewCartAction-viewCart {
-	padding-left: 0.75rem;
-}
-
-.previewCartAction-viewCart,
-.previewCartAction-viewCart .button {
-	width: 100%;
-}
-
 .previewCart-additionalCheckoutButtons {
 	display: none !important;
 }
 
+// Cart Page
+// =============================================================================
+
+.cart-additionalCheckoutButtons {
+	display: none;
+}
+
+.cart-actions .button--primary:hover {
+	opacity: 0.9;
+}
+
+.cart-actions .button--primary.button--finance {
+	display: inline-block;
+	background: #cc3333;
+	border: 1px solid #cc3333;
+	color: #fff;
+	margin-bottom: 10px;
+}
+
+.cart-actions .button--primary.button--cycle {
+	display: inline-block;
+	background: #189ac9;
+	border: 1px solid #189ac9;
+	color: #fff;
+	margin-bottom: 10px;
+}
+
+.cart-actions .button--primary:hover {
+	background: #333;
+	border: 1px solid #333;
+	color: #fff;
+}
+
+.cart-actions .footer-payment-icons {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.cart-actions .footer-payment-icons .footer-payment-icon {
+
+}
 
 
 // Form Actions
@@ -915,45 +925,12 @@
 	padding-bottom: 0;
 }
 
-.cart-actions .button--primary {
-	display: none;
-}
-
-.cart-actions .button--primary:hover {
-	opacity: 0.9;
-}
-
-.cart-actions .button--primary.button--debit {
-	display: inline-block;
-	background: #7fb24c;
-	border: 1px solid #7fb24c;
-	color: #fff;
-	margin-top: 8px;
-}
-
-.cart-actions .button--primary.button--finance {
-	display: inline-block;
-	background: #189ac9;
-	border: 1px solid #189ac9;
-	color: #fff;
-	margin-top: .5rem;
-}
-
-.cart-actions .button--primary.button--cycle {
-	display: inline-block;
-	background: #333;
-	border: 1px solid #333;
-	color: #fff;
-	margin-top: .5rem;
-}
-
 .productView-options .form-action .button--primary,
 .productView-options .form-action .dropdown-menu-button {
 	padding-top: 0.85714rem;
 	padding-bottom: 0.85714rem;
 	font-size: 1rem;
 }
-
 
 .product-gallery-message {
 	position: relative;

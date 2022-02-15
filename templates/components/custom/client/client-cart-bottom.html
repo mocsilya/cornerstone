@@ -1,5 +1,7 @@
 <div class="cart-actions cart-content-padding-right">
-	<a class="button button--primary button--debit" href="{{urls.checkout.single_address}}" title="Credit/Debit Card">Credit/Debit Card</a>
-	<a class="button button--primary button--finance" href="{{urls.checkout.single_address}}" title="Apply For Finance">Apply For Finance</a>
+	<a class="button button--primary button--finance" href="{{urls.checkout.single_address}}" title="Apply For Finance">
+		<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-discount" /></svg></i> <strong>&nbsp;Apply For Finance</strong>
+	</a>
 	<a class="button button--primary button--cycle" href="/cycle-to-work/" title="Cycle To Work">Pay via "Cycle To Work"</a>
+	{{> components/common/payment-icons}}
 </div>
