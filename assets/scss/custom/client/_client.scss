@@ -246,6 +246,8 @@
 	display: none !important;
 }
 
+
+
 // Cart Page
 // =============================================================================
 
@@ -281,14 +283,75 @@
 
 .cart-actions .footer-payment-icons {
 	display: flex;
-	flex-wrap: wrap;
 	justify-content: center;
+	flex-wrap: wrap;
+	height: 5.71428rem;
+	@include breakpoint("small") {
+		height: 2.85714rem;
+	}
+	@include breakpoint("medium") {
+		height: 5.71428rem;
+	}
 }
 
 .cart-actions .footer-payment-icons .footer-payment-icon {
-
+	height: 50%;
+	@include breakpoint("small") {
+		height: 100%;
+	}
+	@include breakpoint("medium") {
+		height: 50%;
+	}
 }
 
+.cart-content-actions {
+	position: relative;
+}
+
+.cart-terms {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(255,255,255, 0.75);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	@include breakpoint("medium") {
+		left: 1.5rem;
+	}
+}
+
+.cart-terms-agree {
+	text-align: center;
+	padding: 1rem;
+	display: inline-block;
+}
+
+.cart-terms-message {
+	color: #333;
+	background: #fff;
+	padding: .5rem 1rem;
+	border-radius: 4px;
+	display: inline-block;
+}
+.cart-terms-message a {
+	color: #7fb24c;
+	font-weight: 700;
+}
+
+.cart-terms-message a:hover {
+	color: #7fb24c;
+	text-decoration: none;
+}
+
+.cart-content-actions .button.cart-terms-click {
+	width: auto;
+	min-width: auto;
+	max-width: none;
+	margin: 10px;
+}
 
 // Form Actions
 // =============================================================================
@@ -353,19 +416,19 @@
 .productView .upc-value,
 .productView .shipping-label,
 .productView .shipping-value {
-    display: none;
+    display: none !important;
 }
 
 
 
 // Video player
 // =============================================================================
-.videoGallery-custom .toggleLink {
+.videoGallery-custom .video-click {
 	background: #cc3333;
 	border: 1px solid #cc3333;
 }
 
-.videoGallery-custom .toggleLink:hover {
+.videoGallery-custom .video-click:hover {
 	background: #333;
 	border: 1px solid #333;
 }
@@ -475,7 +538,12 @@
 
 #imega-modal .imega-modal-body h3 {
     background: #cc3333 !important;
+	color: #ffffff !important;
 	border-radius: 4px 4px 0 0 !important;
+}
+
+#imega-modal .imega-modal-body h3 font {
+	color: #ffffff !important;
 }
 
 
@@ -930,6 +998,7 @@
 	padding-top: 0.85714rem;
 	padding-bottom: 0.85714rem;
 	font-size: 1rem;
+	margin-bottom: 10px;
 }
 
 .product-gallery-message {
