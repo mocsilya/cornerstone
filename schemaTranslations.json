@@ -1803,6 +1803,9 @@
   "i18n.EmailAddress": {
     "default": "Sales/support email"
   },
+  "i18n.HeaderMenuDropdown": {
+    "default": "Main menu dropdown type"
+  },
   "i18n.HeaderMenuBackground": {
     "default": "Main menu background"
   },
@@ -1923,6 +1926,20 @@
     "sv": "Visa Google Pay",
     "es-MX": "Mostrar Google Pay",
     "pt-BR": "Mostrar Google Pay"
+  },
+  "i18n.ShowApplePay": {
+    "default": "Show Apple Pay",
+    "fr": "Afficher Apple Pay",
+    "it": "Mostra Apple Pay",
+    "uk": "Показати Apple Pay",
+    "zh": "显示 Apple Pay",
+    "de": "Apple Pay anzeigen",
+    "es": "Mostrar Apple Pay",
+    "nl": "Apple Pay weergeven",
+    "pt": "Mostrar Apple Pay",
+    "sv": "Visa Apple Pay",
+    "es-MX": "Mostrar Apple Pay",
+    "pt-BR": "Mostrar Apple Pay"
   },
   "i18n.ApplePayColor": {
     "default": "Apple Pay color",
