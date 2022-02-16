@@ -242,7 +242,9 @@
 // =============================================================================
 
 .previewCartAction-checkout,
-.previewCart-additionalCheckoutButtons {
+.previewCart-additionalCheckoutButtons,
+.previewCartCheckout-additionalCheckoutButtons,
+.previewCartCheckout .button--checkout {
 	display: none !important;
 }
 
