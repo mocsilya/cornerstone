@@ -208,6 +208,9 @@ body.scroll .header-bar {
 	line-height: 1;
 	padding: .5rem 0.78571rem;
 	font-size: 0;
+	height: 2rem;
+	overflow: hidden;
+	white-space: nowrap;
 	@include breakpoint("small") {
 		flex: 1 1 50%;
 	}

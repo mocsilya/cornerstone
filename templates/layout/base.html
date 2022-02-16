@@ -60,11 +60,8 @@
         {{~inject 'carouselContentAnnounceMessage' (lang 'carousel.content_announce_message')}}
 		{{> components/custom/client/client-head}}
     </head>
-	{{#if theme_settings.custom_header_show_bar}}
-    <body class="page-{{page_type}} page-{{lang 'common.currency' code=currency_selector.active_currency_code}} with-bar">
-	{{else}}
-	<body class="page-{{page_type}} page-{{lang 'common.currency' code=currency_selector.active_currency_code}}">
-	{{/if}}
+	
+    <body class="page-{{page_type}}{{#if page_type '==' 'page'}} page-{{dashcase (lowercase (sanitize page.title))}}{{/if}}{{#if page_type '==' 'page_contact_form'}} page-{{dashcase (lowercase (sanitize page.title))}}{{/if}}{{#if page_type '==' 'category'}} page-{{dashcase (lowercase (sanitize category.name))}}{{/if}}{{#if page_type '==' 'brand'}} page-{{dashcase (lowercase (sanitize brand.name))}}{{/if}} {{lang 'common.currency' code=currency_selector.active_currency_code}}{{#if theme_settings.custom_header_show_bar}} with-bar{{/if}}">
 		{{> components/custom/client/client-body}}
         <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
 
