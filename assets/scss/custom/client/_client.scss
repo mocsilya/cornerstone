@@ -7,19 +7,27 @@
 // Nav User
 // =============================================================================
 
+.navUser ul li.navUser-item--currency {
+    display: none;
+}
+
 .navUser ul li.navUser-item--trustpilot {
-    max-width: 210px;
+    max-width: 230px;
     overflow: hidden;
+    padding-bottom: 11px;
 }
 
 .navUser ul li.navUser-item--trustpilot .navUser-text {
 	display: inline-block;
+	height: 24px;
+	line-height: 24px;
 }
 
 .navUser ul li.navUser-item--liveperson,
 .navUser ul li.navUser-item--liveperson .navUser-text,
 .navUser ul li.navUser-item--liveperson .navUser-text > div {
 	display: inline-block;
+	font-size: 12px;
 }
 
 .navUser ul li.navUser-item--liveperson .navUser-text div {
@@ -63,7 +71,10 @@
 .navUser ul li.navUser-item--glopal .wi-flag {
 	height: 21px !important;
 	width: 21px !important;
-	border-radius: 7px !important;
+	border-radius: 50%;
+	border: 1px solid stencilColor("header-backgroundColor");
+	-webkit-box-shadow: 0px 0px 0px 2px stencilColor("navUser-color");
+    box-shadow: 0px 0px 0px 2px stencilColor("navUser-color");
 }
 
 
@@ -89,14 +100,6 @@
 	display: none !important;
 }
 
-
-@media (max-width: 800px) {
-	
-	.navPages > ul > li > .navPages-action:focus {
-		color: stencilColor("navPages-color-hover");
-	}
-}
-
 .navPages .navPages-list-simple .navPage-subMenu-image a {
 	color: #fff;
 }
@@ -107,15 +110,6 @@
 
 .navPages .navPages-list-simple .navPage-subMenu-image span {
 	background: #62b5e5;
-}
-
-.navPages-list .navPages-action-moreIcon {
-	position: relative;
-	z-index: 0;
-}
-
-.navPages-list .navPage-subMenu {
-	z-index: 1;
 }
 
 
