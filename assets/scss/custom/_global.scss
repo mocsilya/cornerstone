@@ -1471,6 +1471,14 @@ body.scroll .navPages-container-hide {
 	}
 }
 
+.navPages-click .navPages-list-simple .navPage-subMenu.is-open {
+	@include breakpoint("medium") {
+		display: flex;
+		left: 0;
+		width: 100%;
+	}
+}
+
 .navPages-list-simple .navPage-subMenu {
 	@include breakpoint("medium") {
 		max-height: calc(90vh - 170px);
@@ -5401,16 +5409,19 @@ a:hover .custom-widget-placeholder {
 }
 
 .custom-widget-heading {
+	font-family: stencilFontFamily("headings-font");
     font-weight: 700;
     padding: .5rem 1rem;
 }
 
 .custom-widget-subtext {
+	font-family: stencilFontFamily("body-font");
     font-weight: 400;
     padding: .5rem 1rem;
 }
 
 .custom-widget-button {
+	font-family: stencilFontFamily("body-font");
     line-height: 1.2;
     font-weight: 700;
     margin-top: .75rem;

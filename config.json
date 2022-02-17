@@ -100,7 +100,7 @@
 	"custom-header-bar-icon": "#62b5e5",
     "custom-header-social": "#000000",
     "custom-header-social-hover": "#666666",
-	"custom-header-menu-dropdown": "click",
+	"custom-header-menu-dropdown": "hover",
 	"custom-header-menu-background": "#ffffff",
 	"custom-header-menu-link": "#000000",
 	"custom-header-menu-link-hover": "#666666",
