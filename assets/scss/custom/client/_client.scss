@@ -77,6 +77,17 @@ ol.breadcrumbs {
 	display: none !important;
 }
 
+.navPages-list-simple .navPages-item-brands .navPages-action-mobile {
+    display: none !important;
+}
+
+.navPages-list-simple .navPages-item-brands .navPages-action-desktop {
+    display: block !important;
+    @include breakpoint("medium") {
+        display: inline-block !important;
+    }
+}
+
 .navPages-item-custom {
 	display: none;
     @include breakpoint("medium") {
@@ -192,6 +203,24 @@ body .footer .header-logo-image {
 .page-sidebar + .page-content .productGrid-3 .product.spotlight {
     @include breakpoint("xlarge") {
         grid-column: 1 / 2;
+    }
+}
+
+
+// BRANDS CATEGORY
+// =============================================================================
+
+
+.page-category.page-brands .subcategories-grid-item {
+	width: 50%;
+    @include breakpoint("medium") {
+        width: 33.33333%;
+    }
+    @include breakpoint("large") {
+        width: 25%;
+    }
+    @include breakpoint("xlarge") {
+        width: 20%;
     }
 }
 
