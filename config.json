@@ -248,6 +248,7 @@
     "show_accept_amazonpay": true,
     "show_accept_googlepay": false,
     "show_accept_klarna": true,
+    "show_accept_applepay": false,
     "show_product_details_tabs": true,
     "show_product_reviews": true,
     "show_custom_fields_tabs": false,
