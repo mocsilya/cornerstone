@@ -12,10 +12,13 @@
 }
 
 .navUser ul li.navUser-item--trustpilot {
-    max-width: 230px;
-    overflow: hidden;
 	@include breakpoint("medium") {
 		display: inline-block;
+		max-width: 230px;
+        overflow: hidden;
+	}
+	@include breakpoint("large") {
+		max-width: none;
 	}
 }
 
@@ -59,11 +62,14 @@
     line-height: 1.5rem;
     color: stencilColor("navUser-color");
     cursor: pointer;
-    display: inline-block;
+    display: none;
     font-weight: 700;
 	vertical-align: top;
 	font-size: 12px;
-	width: 30px;
+	@include breakpoint("small") {
+		width: 30px;
+		display: inline-block;
+	}
 	@include breakpoint("large") {
 		width: auto;
 		font-size: 14px;
@@ -81,7 +87,6 @@
 
 .navUser ul li.navUser-item--glopal #wi-country-selector-button {
 	height: 21px !important;
-	width: 21px !important;
 }
 
 .navUser ul li.navUser-item--glopal .wi-flag {
