@@ -1062,6 +1062,45 @@
 	fill: stencilColor("button--primary-backgroundColor");
 }
 
+.productView-options .footer-payment-icons {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 10px;
+}
+
+.productView-options .form-action .button--primary, .productView-options .form-action .dropdown-menu-button {
+	margin-bottom: 0;
+}
+
+#tab-description table,
+#tab-description iframe,
+#tab-custom1 table,
+#tab-custom1 iframe,
+#tab-custom2 table,
+#tab-custom2 iframe {
+	width: 100% !important;
+	height: auto !important;
+}
+
+
+#tab-description iframe,
+#tab-custom1 iframe,
+#tab-custom2 iframe {
+	min-height: 200px;
+	@include breakpoint("small") {
+		min-height: 300px;
+	}
+	@include breakpoint("medium") {
+		min-height: 400px;
+	}
+	@include breakpoint("large") {
+		min-height: 500px;
+	}
+	@include breakpoint("xlarge") {
+		min-height: 600px;
+	}
+	
+}
 
 
 // Custom Tabs
