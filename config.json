@@ -241,7 +241,7 @@
     "shop_by_brand_show_footer": false,
     "show_copyright_footer": true,
     "show_accept_amex": true,
-    "show_accept_discover": true,
+    "show_accept_discover": false,
     "show_accept_mastercard": true,
     "show_accept_paypal": true,
     "show_accept_visa": true,
