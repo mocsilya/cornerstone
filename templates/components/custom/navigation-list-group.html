@@ -1,12 +1,4 @@
     <ul class="navPage-subMenu-list">
-        <li class="navPage-subMenu-item navPage-subMenu-mobile">
-            <a class="navPage-subMenu-action navPages-action"
-               href="{{url}}"
-               aria-label="{{lang 'category.view_all.name' category=name}}"
-            >
-                {{lang 'category.view_all.name' category=name}}
-            </a>
-        </li>
         {{#each children}}
 			{{#if children}}
             	<li class="navPage-subMenu-item">
@@ -81,4 +73,12 @@
 			{{/each}}
             </ul>
     	</li>
+        <li class="navPage-subMenu-item navPage-subMenu-mobile">
+            <a class="navPage-subMenu-action navPages-action"
+               href="{{url}}"
+               aria-label="{{lang 'category.view_all.name' category=name}}"
+            >
+                {{lang 'category.view_all.name' category=name}}
+            </a>
+        </li>
     </ul>
