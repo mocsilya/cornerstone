@@ -535,39 +535,23 @@ body .footer .header-logo-image {
 
 
 
-
-// WIDGET CUSTOM BLOCKS
-// =============================================================================
-
-.custom-widget-heading {
-    font-family: "Itim", Helvetica, sans-serif;
-}
-
-.custom-widget-subtext,
-.custom-widget-button, {
-    font-family: "Jost", Helvetica, sans-serif;
-    font-weight: 700;
-}
-
-
-
 // WIDGET FOR CATEGORY BOXES
 // =============================================================================
 
 @media (max-width: 800px) {
-	div[data-sub-layout-container="27ea5336-4b3c-4b33-8e67-d844fc7add5a"] .custom-widget-item {
+	.home-categories .custom-widget-item {
 		min-width: 50%;
 	}
 }
 
-div[data-sub-layout-container="27ea5336-4b3c-4b33-8e67-d844fc7add5a"] .custom-widget-link {
+.home-categories .custom-widget-link {
     border: .25rem solid #fff;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); 
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
     border-radius: .5rem;
 }
 
-div[data-sub-layout-container="27ea5336-4b3c-4b33-8e67-d844fc7add5a"] .custom-widget-content {
+.home-categories .custom-widget-content {
     top: auto;
     bottom: 1rem;
     transform: none;
@@ -586,11 +570,11 @@ div[data-sub-layout-container="27ea5336-4b3c-4b33-8e67-d844fc7add5a"] .custom-wi
 	}
 }
 
-div[data-sub-layout-container="27ea5336-4b3c-4b33-8e67-d844fc7add5a"] .custom-widget-image {
+.home-categories .custom-widget-image {
     border-radius: .3rem;
 }
 
-div[data-sub-layout-container="27ea5336-4b3c-4b33-8e67-d844fc7add5a"] .custom-widget-heading {
+.home-categories .custom-widget-heading {
     flex: 1 1 auto;
     text-align: left;
     @include breakpoint("large") {
@@ -601,7 +585,7 @@ div[data-sub-layout-container="27ea5336-4b3c-4b33-8e67-d844fc7add5a"] .custom-wi
 	}
 }
 
-div[data-sub-layout-container="27ea5336-4b3c-4b33-8e67-d844fc7add5a"] .custom-widget-button {
+.home-categories .custom-widget-button {
     flex: 0 1 auto;
     margin-top: 0;
 	@include breakpoint("large") {
@@ -617,8 +601,7 @@ div[data-sub-layout-container="27ea5336-4b3c-4b33-8e67-d844fc7add5a"] .custom-wi
 // WIDGET FOR TEXT BOXES
 // =============================================================================
 
-div[data-sub-layout-container="05cb5416-f67d-47ea-aaa5-1fb920a56f7a"] .custom-widget-placeholder,
-div[data-sub-layout-container="c56902ad-b300-4740-af56-f381f9fbaa19"] .custom-widget-placeholder {
+.home-message .custom-widget-placeholder {
 	background: #f6f0ee !important;
 	background: -moz-linear-gradient(top,  #f6f0ee 1%, #ffffff 100%) !important;
 	background: -webkit-linear-gradient(top,  #f6f0ee 1%,#ffffff 100%) !important;
@@ -628,16 +611,14 @@ div[data-sub-layout-container="c56902ad-b300-4740-af56-f381f9fbaa19"] .custom-wi
 	border-top-right-radius: .75rem;
 }
 
-div[data-sub-layout-container="05cb5416-f67d-47ea-aaa5-1fb920a56f7a"] .custom-widget-heading,
-div[data-sub-layout-container="c56902ad-b300-4740-af56-f381f9fbaa19"] .custom-widget-heading {
+.home-message  .custom-widget-heading {
 	font-size: 24px !important;
     @include breakpoint("xlarge") {
         font-size: 32px !important;
     }
 }
 
-div[data-sub-layout-container="05cb5416-f67d-47ea-aaa5-1fb920a56f7a"] .custom-widget-subtext,
-div[data-sub-layout-container="c56902ad-b300-4740-af56-f381f9fbaa19"] .custom-widget-subtext {
+.home-message .custom-widget-subtext {
 	color: #164a41 !important;
 }
 
@@ -646,7 +627,7 @@ div[data-sub-layout-container="c56902ad-b300-4740-af56-f381f9fbaa19"] .custom-wi
 // WIDGET FOR BRANDS
 // =============================================================================
 
-div[data-sub-layout-container="c5d7ec28-af78-43e2-99f7-24d33953a1b5"] .custom-widget-item {
+.home-brands .custom-widget-item {
     padding: 1.5rem;
 }
 
@@ -661,6 +642,23 @@ div[data-sub-layout-container="99940cbe-55b5-4b75-9c67-29fe631369e7"] {
     margin: auto;
 }
 
+
+// WIDGET FOR INSTAGRAM
+// =============================================================================
+
+.instagram-title,
+.instagram-title a {
+	color: #fff;
+	margin-top: 0;
+}
+
+.instagram-title a {
+	text-decoration: none;
+}
+
+.instagram-title a:hover {
+	text-decoration: underline;
+}
 
 
 // OTHER WIDGETS
