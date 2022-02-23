@@ -111,11 +111,20 @@ customer:
     <div class="page-content" id="product-listing-container">
 	{{{region name="category_above_content"}}}
 	{{#if category.subcategories}}		
-		<ul class="subcategories-grid">
+		<ul class="subcategories-grid{{#unless breadcrumbs.[1].name '==' 'Brands'}}{{#unless theme_settings.custom_category_show_blocks}} subcategories-grid-blockless{{/unless}}{{/unless}}">
 			{{#each category.subcategories}}
 			<li class="subcategories-grid-item">
 				<div class="subcategories-container">
 				{{#if ../theme_settings.custom_category_show_blocks}}
+					<a href="{{url}}">
+					{{#if image}}
+						<span class="subcategories-image"><img src="{{getImage image 'category_card_size'}}" alt="{{name}}"></span>
+					{{else}}
+						<span class="subcategories-blank"></span>
+					{{/if}}
+						<span class="subcategories-name">{{name}}</span>
+					</a>
+				{{else if ../breadcrumbs.[1].name '==' 'Brands'}}
 					<a href="{{url}}">
 					{{#if image}}
 						<span class="subcategories-image"><img src="{{getImage image 'category_card_size'}}" alt="{{name}}"></span>
