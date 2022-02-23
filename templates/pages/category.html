@@ -103,11 +103,13 @@ customer:
     {{/if}}
 
     <div class="page-content" id="product-listing-container">
+		{{{region name="category_above_content"}}}
         {{> components/category/product-listing}}
         {{{region name="category_below_content"}}}
     </div>
 {{else}}
     <div class="page-content" id="product-listing-container">
+	{{{region name="category_above_content"}}}
 	{{#if category.subcategories}}		
 		<ul class="subcategories-grid">
 			{{#each category.subcategories}}
