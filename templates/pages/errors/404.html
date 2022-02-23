@@ -8,12 +8,7 @@ customer:
 ---
 {{#partial "hero"}}
 <div class="container container-hero">
-	{{#if theme_settings.custom_page_header_image_sitemap}}
-		<div class="page-header sitemap-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
-	    <img class="page-header-image" src="/product_images/uploaded_images/{{theme_settings.custom_page_header_image_sitemap}}" />
-	{{else}}
-		<div class="page-header sitemap-header">
-	{{/if}}
+	<div class="page-header sitemap-header">
     	<h1 class="page-heading">{{lang 'page_not_found.page_heading'}}</h1>
 		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 	</div>
@@ -23,13 +18,13 @@ customer:
 
 <div class="page">
     <section class="page-content">
-        
-        <p class="u-textAlignCenter">
+        {{{region name="404_above_search"}}}
+        <p class="u-textAlignCenter page-not-found">
             {{lang 'page_not_found.message'}}
         </p>
 
         {{> components/common/search-box}}
-		
+		{{#if theme_settings.custom_404_show_categories}}
 		<ul class="subcategories-grid">
 			{{#each categories}}
 			<li class="subcategories-grid-item">
@@ -38,7 +33,7 @@ customer:
 					{{#if image}}
 						<span class="subcategories-image"><img src="{{getImage image 'category_card_size'}}" alt="{{name}}"></span>
 					{{else}}
-						<span class="subcategories-blank">Image Not Found</span>
+						<span class="subcategories-blank">View Category</span>
 					{{/if}}
 						<span class="subcategories-name">{{name}}</span>
 					</a>
@@ -46,9 +41,12 @@ customer:
 			</li>
 			{{/each}}
 		</ul>
+		{{/if}}
 		
+		{{{region name="404_below_search"}}}
 		{{> components/custom/client/client-404}}
 		
+		{{#if theme_settings.custom_404_show_sitemap}}
 		<ul class="sitemap-list">
 		    <li class="sitemap-list-item">
 		        <h2>{{lang 'footer.info'}}</h2>
@@ -124,6 +122,7 @@ customer:
 		        </ul>
 		    </li>
 		</ul>
+		{{/if}}
     </section>
 </div>
 

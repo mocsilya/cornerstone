@@ -10,6 +10,7 @@ import { classifyForm } from './common/utils/form-utils';
 import modalFactory from './global/modal';
 import cardSwatches from './custom/card-swatches';
 import tabPages from './custom/tab-pages';
+import videoClick from './custom/video-click';
 
 export default class Product extends PageManager {
     constructor(context) {
@@ -61,8 +62,9 @@ export default class Product extends PageManager {
         });
 
         this.productReviewHandler();
-		cardSwatches();
-		tabPages();
+        cardSwatches();
+        tabPages();
+        videoClick();
     }
 
     ariaDescribeReviewInputs($form) {

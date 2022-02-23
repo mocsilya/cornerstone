@@ -108,24 +108,30 @@ customer:
     </div>
 {{else}}
     <div class="page-content" id="product-listing-container">
-		{{#if category.subcategories}}
+	{{#if category.subcategories}}		
 		<ul class="subcategories-grid">
 			{{#each category.subcategories}}
 			<li class="subcategories-grid-item">
 				<div class="subcategories-container">
+				{{#if ../theme_settings.custom_category_show_blocks}}
 					<a href="{{url}}">
 					{{#if image}}
 						<span class="subcategories-image"><img src="{{getImage image 'category_card_size'}}" alt="{{name}}"></span>
 					{{else}}
-						<span class="subcategories-blank">Image Not Found</span>
+						<span class="subcategories-blank"></span>
 					{{/if}}
 						<span class="subcategories-name">{{name}}</span>
 					</a>
+				{{else}}
+					<a href="{{url}}">
+						<span class="subcategories-name">{{name}}</span>
+					</a>
+				{{/if}}
 				</div>
 			</li>
 			{{/each}}
 		</ul>
-		{{else}}
+	{{else}}
         <p data-no-products-notification
            role="alert"
            aria-live="assertive"
@@ -133,7 +139,7 @@ customer:
         >
             {{lang 'categories.no_products'}}
         </p>
-		{{/if}}
+	{{/if}}
         {{{region name="category_below_content"}}}
     </div>
 {{/if}}

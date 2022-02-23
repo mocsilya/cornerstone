@@ -47,7 +47,16 @@ customer:
         {{#replace '%%Syndicate%%' page.content}}
             {{> components/page/rss_feed}}
         {{else}}
-            <p>{{{page.content}}}</p>
+			{{#if page_type '==' "page_contact_form"}}
+		        {{#if forms.contact.success}}
+		            <div id="contact-us-success">{{{lang 'forms.contact_us.successful' shopPath=urls.home}}}</div>
+		        {{else}}
+		            <p>{{{page.content}}}</p>
+		            {{> components/page/contact-us-form}}
+		        {{/if}}
+			{{else}}
+				<p>{{{page.content}}}</p>
+			{{/if}}
         {{/replace}}
     </div>
 
