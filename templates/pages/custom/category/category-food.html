@@ -30,28 +30,8 @@ customer:
 {{#partial "page"}}
 <div class="category-food">
 	{{#if category.description}}
-		<div class="category-description{{#if category.subcategories}} category-description-withsub{{/if}}">
+		<div class="category-description">
 			{{{category.description}}}
-		</div>
-	{{/if}}
-	{{#if category.subcategories}}
-		<div class="category-subcategories">
-			<ul class="subcategories-grid">
-			{{#each category.subcategories}}
-			<li class="subcategories-grid-item">
-				<div class="subcategories-container">
-					<a href="{{url}}">
-					{{#if image}}
-						<span class="subcategories-image"><img src="{{getImage image 'category_card_size'}}" alt="{{name}}"></span>
-					{{else}}
-						<span class="subcategories-blank"></span>
-					{{/if}}
-						<span class="subcategories-name">{{name}}</span>
-					</a>
-				</div>
-			</li>
-			{{/each}}
-			</ul>
 		</div>
 	{{/if}}
 </div>
