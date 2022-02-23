@@ -862,6 +862,9 @@
   "i18n.CategoryShowParents": {
     "default": "Show parent/siblings of current category"
   },
+  "i18n.CategoryShowBlocks": {
+    "default": "Show sub categories as image blocks"
+  },
   "i18n.Blog": {
     "default": "Blog",
     "fr": "Blog",

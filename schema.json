@@ -565,6 +565,12 @@
         "id": "custom_category_show_parents"
       },
       {
+        "type": "checkbox",
+        "label": "i18n.CategoryShowBlocks",
+        "force_reload": true,
+        "id": "custom_category_show_blocks"
+      },
+      {
         "type": "heading",
         "content": "i18n.Blog"
       },
