@@ -502,11 +502,18 @@ body .footer .header-logo-image {
 
 .dog-profile {
     display: flex;
+    margin: 1.5rem 0;
 }
 
 .dog-photo {
-    flex: 0 1 auto;
-    min-width: 100px;
+    flex: 1 1 0px;
+    min-width: 120px;
+    @include breakpoint("small") {
+	    min-width: 150px;
+	}
+	@include breakpoint("large") {
+	    min-width: 200px;
+	}
 }
 
 .dog-photo img {
