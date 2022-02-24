@@ -140,6 +140,11 @@ ol.breadcrumbs {
 	text-transform: uppercase;
 }
 
+.page-blog_post .blog-thumbnail,
+.page-blog_post .blog-title {
+	display: none;
+}
+
 
 
 // FOOTER
@@ -484,7 +489,10 @@ body .footer .header-logo-image {
 }
 
 
-
+.previewCartCheckout-additionalCheckoutButtons p,
+.cart-additionalCheckoutButtons p {
+    display: none !important;
+}
 
 
 
@@ -636,7 +644,7 @@ body .footer .header-logo-image {
 // WIDGET FOR FOOD CATEGORY BANNER
 // =============================================================================
 
-div[data-sub-layout-container="99940cbe-55b5-4b75-9c67-29fe631369e7"] {
+div[data-sub-layout-container="6d8e404c-0e26-4231-8a66-5c3a7746953f"] {
     max-width: 1440px;
     text-align: center;
     margin: auto;
@@ -709,7 +717,4 @@ div[data-content-region="home_below_new_products"] {
 	font-family: "Itim", Arial, Helvetica, sans-serif;
 }
 
-div[data-sub-layout-container="1955ef7d-d0b4-4847-9ea5-78236b9eb8e8"] {
-    font-family: "Itim", Arial, Helvetica, sans-serif;
-}
 
