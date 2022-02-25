@@ -508,6 +508,7 @@ body .footer .header-logo-image {
 .dog-photo {
     flex: 1 1 0px;
     min-width: 120px;
+    max-width: 200px;
     @include breakpoint("small") {
 	    min-width: 150px;
 	}
