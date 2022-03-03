@@ -865,6 +865,9 @@
   "i18n.CategoryShowBlocks": {
     "default": "Show sub categories as image blocks"
   },
+  "i18n.CategoryDescriptionTrim": {
+    "default": "Expandable category descriptions"
+  },
   "i18n.Blog": {
     "default": "Blog",
     "fr": "Blog",

@@ -173,6 +173,7 @@
     "custom_category_show_parents": false,
     "custom_category_max_columns": 3,
     "custom_category_show_blocks": false,
+	"custom_category_description_trim": false,
     "custom-page-header-text": "#45413f",
     "custom-page-header-background": "#f6f0ee",
     "custom_page_header_image_depth": "slim",

@@ -48,9 +48,19 @@ customer:
 
 {{#partial "page"}}
 {{{region name="category_below_header"}}}
-<div class="category-description">
+<div class="category-description{{#if category.description}}{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}{{/if}}">
 	{{{category.description}}}
 </div>
+{{#if category.description}}
+	{{#if theme_settings.custom_category_description_trim}}
+		<div class="category-description-button" style="display: none;">
+			<a class="button button--secondary">
+				<span class="category-description-more">Read More</span>
+				<span class="category-description-less">Read Less</span>
+			</a>
+		</div>
+	{{/if}}
+{{/if}}
 
 {{#if category.products}}
     {{#if category.subcategories}}

@@ -2346,6 +2346,35 @@ ol.breadcrumbs {
 	}
 }
 
+.category-description-trim.is-closed {
+	-webkit-mask:linear-gradient(#fff,transparent);
+	mask:linear-gradient(#fff,transparent);
+	height: 70px;
+}
+
+.category-description-button {
+	text-align: center;
+}
+
+.category-description-button .button {
+	padding: .5rem 1rem;
+	margin-bottom: 0;
+}
+
+.category-description-less {
+	display: none;
+}
+
+.category-description-button.is-open .category-description-more {
+	display: none;
+}
+
+.category-description-button.is-open .category-description-less {
+	display: inline;
+}
+
+
+
 
 
 // Category Side Bar
@@ -2443,9 +2472,6 @@ ol.breadcrumbs {
 	@include breakpoint("medium") {
 		display: none;
 	}
-	@include breakpoint("xlarge") {
-		display: block;
-	}
 }
 
 .page-sidebar.toggle-content.is-open {
@@ -2466,9 +2492,6 @@ ol.breadcrumbs {
 	display: none;
 	@include breakpoint("medium") {
 		display: block;
-	}
-	@include breakpoint("xlarge") {
-		display: none;
 	}
 }
 
