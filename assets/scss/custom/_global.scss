@@ -2350,6 +2350,7 @@ ol.breadcrumbs {
 	-webkit-mask:linear-gradient(#fff,transparent);
 	mask:linear-gradient(#fff,transparent);
 	height: 70px;
+	overflow-y: hidden;
 }
 
 .category-description-button {
