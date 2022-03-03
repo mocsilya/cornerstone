@@ -571,6 +571,12 @@
         "id": "custom_category_show_blocks"
       },
       {
+        "type": "checkbox",
+        "label": "i18n.CategoryDescriptionTrim",
+        "force_reload": true,
+        "id": "custom_category_description_trim"
+      },
+      {
         "type": "heading",
         "content": "i18n.Blog"
       },
