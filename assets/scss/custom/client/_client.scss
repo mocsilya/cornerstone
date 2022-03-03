@@ -4,12 +4,12 @@
 //
 
 body {
-    font-family: 'Jost', sans-serif;
+    font-family: stencilFontFamily("body-font");
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
-    font-family: 'Itim', sans-serif;
+    font-family: stencilFontFamily("headings-font");
 }
 
 .page-default .body {
@@ -118,7 +118,7 @@ ol.breadcrumbs {
 }
 
 .footer-newsletter .button--primary {
-	font-family: "Jost", sans-serif;
+	font-family: stencilFontFamily("body-font");
 	font-weight: 700;
 	text-transform: uppercase;
 }
@@ -182,19 +182,6 @@ body .footer .header-logo-image {
 // CARD
 // =============================================================================
 
-.card-message a {
-	display: block;
-	padding: .5rem;
-	text-align: center;
-	background: #f1b24a;
-	text-decoration: none;
-	border: none;
-	border-radius: none;
-	color: #164a41;
-}
-
-
-
 .page-sidebar + .page-content .productGrid-5 .product.spotlight {
     @include breakpoint("xlarge") {
         grid-column: 1 / 4;
@@ -210,6 +197,28 @@ body .footer .header-logo-image {
         grid-column: 1 / 2;
     }
 }
+
+.card-message a {
+	display: block;
+	padding: .5rem;
+	text-align: center;
+	background: #f1b24a;
+	text-decoration: none;
+	border: none;
+	border-radius: none;
+	color: #164a41;
+}
+
+.card-message .stamped-badge-caption {
+    font-family: stencilFontFamily("body-font");
+    font-size: 12px !important;
+}
+
+.card-message .stamped-badge-caption[data-reviews][data-label][data-version="2"]>span {
+    display: none !important;
+}
+
+
 
 
 // BRANDS CATEGORY
@@ -722,7 +731,7 @@ div[data-content-region="home_below_new_products"] {
 	background-color: #4d774e;
 	padding-top: 2rem;
 	padding-bottom: 2rem;
-	font-family: "Itim", Arial, Helvetica, sans-serif;
+	font-family: stencilFontFamily("headings-font");
 }
 
 

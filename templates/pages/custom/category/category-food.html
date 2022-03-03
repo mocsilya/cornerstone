@@ -30,9 +30,17 @@ customer:
 {{#partial "page"}}
 <div class="category-food">
 	{{#if category.description}}
-		<div class="category-description">
+		<div class="category-description{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}">
 			{{{category.description}}}
 		</div>
+		{{#if theme_settings.custom_category_description_trim}}
+			<div class="category-description-button" style="display: none;">
+				<a class="button button--secondary">
+					<span class="category-description-more">Read More</span>
+					<span class="category-description-less">Read Less</span>
+				</a>
+			</div>
+		{{/if}}
 	{{/if}}
 </div>
 <div class="page page-food">
