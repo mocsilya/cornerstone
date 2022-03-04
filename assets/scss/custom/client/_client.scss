@@ -57,6 +57,10 @@ ol.breadcrumbs {
 	overflow-y: visible;
 }
 
+.heroCarousel--single {
+    margin-bottom: 0;
+}
+
 
 // NAV MENU
 // =============================================================================
@@ -507,8 +511,58 @@ body .footer .header-logo-image {
 // CATEGORY PAGES
 // =============================================================================
 
+.category-description-trim,
+.category-description-trim.is-closed {
+    @include breakpoint("large") {
+        overflow-y: visible;
+        webkit-mask: none;
+        mask: none;
+        height: auto;
+	}
+}
+
 .category-description-button {
 	text-align: left;
+	@include breakpoint("large") {
+	    display: none !important;
+	}
+}
+
+// ALTERNATE CATEGORY PAGES
+// =============================================================================
+
+.category-alternate .category-description-trim {
+    overflow-y: visible;
+    webkit-mask: none;
+    mask: none;
+    height: auto;
+}
+
+.category-alternate .category-description-button {
+    display: none !important;
+}
+
+.category-alternate .category-description-button + .category-subcategories {
+    @include breakpoint("medium") {
+        display: inline-block;
+        vertical-align: top;
+		width: 50%;
+	}
+}
+
+.category-alternate .category-description-button + .category-subcategories .subcategories-grid-item {
+    @include breakpoint("small") {
+		width: 100%;
+	}
+    @include breakpoint("medium") {
+		width: 100%;
+	}
+	@include breakpoint("large") {
+		width: 50%;
+	}
+	@include breakpoint("xlarge") {
+		width: 50%;
+	}
 }
 
 
