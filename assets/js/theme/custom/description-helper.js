@@ -9,7 +9,7 @@ export default function () {
 	$('.category-description-button').click(function(e) {
 		e.preventDefault();
 		$('.category-description-trim').toggleClass('is-closed');
-		if ($(this).hasClass("is-open")) {
+		if ($(this).hasClass('is-open')) {
 			$(this).removeClass('is-open');
 		} else {
 			$(this).addClass('is-open');
