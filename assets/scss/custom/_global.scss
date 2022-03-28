@@ -3608,6 +3608,9 @@ a:hover span.card-image:only-of-type img {
 	}
 	@include breakpoint("large") {
 		flex: 1 0 50%;
+	}
+	@include breakpoint("xlarge") {
+		flex: 1 0 40%;
 	} 
 }
 
