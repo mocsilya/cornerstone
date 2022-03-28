@@ -182,19 +182,9 @@ body .footer .header-logo-image {
 // CARD
 // =============================================================================
 
-.page-sidebar + .page-content .productGrid-5 .product.spotlight {
+.page-sidebar + .page-content .productGrid .product.spotlight .card-figure {
     @include breakpoint("xlarge") {
-        grid-column: 1 / 4;
-    }
-}
-.page-sidebar + .page-content .productGrid-4 .product.spotlight {
-    @include breakpoint("xlarge") {
-        grid-column: 1 / 3;
-    }
-}
-.page-sidebar + .page-content .productGrid-3 .product.spotlight {
-    @include breakpoint("xlarge") {
-        grid-column: 1 / 2;
+        flex: 1 0 40%;
     }
 }
 
