@@ -171,7 +171,7 @@
     "custom-footer-link-hover": "#4d774e",
     "custom_category_sidebar_display": "vertical",
     "custom_category_show_parents": false,
-    "custom_category_max_columns": 3,
+    "custom_category_max_columns": 5,
     "custom_category_show_blocks": false,
     "custom_category_description_trim": true,
     "custom-page-header-text": "#45413f",

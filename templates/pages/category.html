@@ -80,8 +80,19 @@ customer:
     {{/if}}
 {{/if}}
 
+{{assignVar "catbrand" "inactive"}}
+{{#if breadcrumbs.[1].name '==' 'Brands'}}
+	{{#each breadcrumbs}}
+		{{#if @last}}
+			{{#if @index 1}}
+				{{assignVar "catbrand" "active"}}
+			{{/if}}
+		{{/if}}
+	{{/each}}
+{{/if}}
+
 <div class="page">
-{{#if category.products}}
+{{#and (if category.products) (if (getVar "catbrand") '===' 'inactive')}}
     {{#if category.faceted_search_enabled}}
         <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}} toggle-content is-open" id="faceted-search-container">
             {{> components/category/sidebar}}
@@ -163,7 +174,7 @@ customer:
 	{{/if}}
         {{{region name="category_below_content"}}}
     </div>
-{{/if}}
+{{/and}}
 </div>
 
 {{/partial}}
