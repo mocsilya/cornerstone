@@ -183,8 +183,11 @@ body .footer .header-logo-image {
 // =============================================================================
 
 .page-sidebar + .page-content .productGrid .product.spotlight .card-figure {
-    @include breakpoint("xlarge") {
+    @include breakpoint("large") {
         flex: 1 0 40%;
+    }
+    @include breakpoint("xlarge") {
+        flex: 1 0 30%;
     }
 }
 
