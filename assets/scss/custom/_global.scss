@@ -2282,7 +2282,7 @@ ol.breadcrumbs {
 }
 
 .productCarousel .productCarousel-slide.spotlight {
-	box-shadow: 1px 0 0 0 stencilColor("custom-card-spotlight-background");
+	box-shadow: inset -1px 0 0 0 stencilColor("custom-card-spotlight-background");
 	border-top: 1px solid stencilColor("custom-card-spotlight-background");
 	border-left: 1px solid stencilColor("custom-card-spotlight-background");
 	border-bottom: 1px solid stencilColor("custom-card-spotlight-background");
@@ -3604,7 +3604,7 @@ a:hover span.card-image:only-of-type img {
 
 .page-sidebar + .page-content .productGrid .product.spotlight .card-figure {
 	@include breakpoint("medium") {
-		flex: 1 0 100%;
+		flex: 1 0 auto;
 	}
 	@include breakpoint("large") {
 		flex: 1 0 50%;
@@ -3639,6 +3639,11 @@ a:hover span.card-image:only-of-type img {
 
 .productGrid .product.spotlight .card-summary {
 	margin: 1rem 0;
+}
+
+.productGrid .product.spotlight .card-message {
+	display: block;
+	margin-top: 0;
 }
 
 .productGrid .product.spotlight .card-brand {
