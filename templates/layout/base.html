@@ -68,6 +68,12 @@
         {{> components/common/header }}
         {{> components/common/body }}
         {{> components/common/footer }}
+		
+		{{#unless settings.shopper_consent_tracking_enabled}}
+			{{#if settings.is_eu_ip_address}}
+				{{> components/custom/cookie}}
+			{{/if}}
+		{{/unless}}
 
         <script>window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";</script>
         <script src="{{cdn 'assets/dist/theme-bundle.main.js'}}"></script>
