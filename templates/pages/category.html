@@ -62,7 +62,18 @@ customer:
 	{{/if}}
 {{/if}}
 
-{{#if category.products}}
+{{assignVar "catbrand" "inactive"}}
+{{#if breadcrumbs.[1].name '==' 'Brands'}}
+	{{#each breadcrumbs}}
+		{{#if @last}}
+			{{#if @index 1}}
+				{{assignVar "catbrand" "active"}}
+			{{/if}}
+		{{/if}}
+	{{/each}}
+{{/if}}
+
+{{#and (if category.products) (if (getVar "catbrand") '===' 'inactive')}}
     {{#if category.subcategories}}
         <div class="subcategories-above subcategories--{{theme_settings.custom_category_sidebar_display}}">
 			<ul class="subcategories-grid">
@@ -78,18 +89,7 @@ customer:
 			</ul>
         </div>
     {{/if}}
-{{/if}}
-
-{{assignVar "catbrand" "inactive"}}
-{{#if breadcrumbs.[1].name '==' 'Brands'}}
-	{{#each breadcrumbs}}
-		{{#if @last}}
-			{{#if @index 1}}
-				{{assignVar "catbrand" "active"}}
-			{{/if}}
-		{{/if}}
-	{{/each}}
-{{/if}}
+{{/and}}
 
 <div class="page">
 {{#and (if category.products) (if (getVar "catbrand") '===' 'inactive')}}

@@ -94,6 +94,34 @@ h1, h2, h3, h4, h5, h6 {
 	margin-top: 0  !important;
 }
 
+.cookieMessage {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1000;
+}
+
+.cookieMessage-container {
+	padding: .75rem 1.5rem;
+}
+
+.cookieMessage-text {
+	margin: .75rem 0;
+}
+
+.cookieMessage-text p {
+	margin: 0;
+	line-height: 2rem;
+	text-align: center;
+}
+
+.cookieMessage .button {
+	margin: .75rem 0;
+	font-weight: bold;
+	cursor: pointer;
+}
+
 // alignment tweak on dropdowns (e.g. wishlist)
 .dropdown-menu-button .icon {
 	height: 1rem;
