@@ -352,7 +352,7 @@ export default class Account extends PageManager {
         }
 
         if ($passwordElement && $password2Element) {
-            const { password: enterPassword, password_match: matchPassword, invalid_password: invalidPassword } = this.validationDictionary;
+            const { password: enterPassword, password_match: matchPassword } = this.validationDictionary;
             editValidator.remove(passwordSelector);
             editValidator.remove(password2Selector);
             Validators.setPasswordValidation(
@@ -360,7 +360,7 @@ export default class Account extends PageManager {
                 passwordSelector,
                 password2Selector,
                 this.passwordRequirements,
-                createPasswordValidationErrorTextObject(enterPassword, enterPassword, matchPassword, invalidPassword),
+                createPasswordValidationErrorTextObject(enterPassword, enterPassword, matchPassword, this.passwordRequirements.error),
                 true,
             );
         }
