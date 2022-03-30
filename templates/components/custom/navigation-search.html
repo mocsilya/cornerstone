@@ -1,0 +1,15 @@
+<form class="form form-search-box" role="search" action="{{urls.search}}?search_query=&amp;section=product" method="get">
+	<div class="form-field form-field-input">
+		<label class="is-srOnly">{{lang "search.quick_search.input_label"}}</label>
+		<input class="form-input" 
+			name="search_query" 
+			data-error-message="{{lang 'search.error.empty_field'}}" 
+			placeholder="{{#if theme_settings.custom_header_search_label}}{{theme_settings.custom_header_search_label}}{{else}}{{lang 'search.quick_search.input_placeholder'}}{{/if}}" 
+			autocomplete="off"
+			type="search"
+		>
+		<button class="button button--primary" type="submit">
+			<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-search"></use></svg></i>
+		</button>
+	</div>
+</form>

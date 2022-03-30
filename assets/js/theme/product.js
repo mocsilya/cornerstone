@@ -10,6 +10,7 @@ import { classifyForm } from './common/utils/form-utils';
 import modalFactory from './global/modal';
 import cardSwatches from './custom/card-swatches';
 import tabPages from './custom/tab-pages';
+import videoClick from './custom/video-click';
 
 export default class Product extends PageManager {
     constructor(context) {
@@ -21,6 +22,10 @@ export default class Product extends PageManager {
     }
 
     onReady() {
+        cardSwatches();
+        tabPages();
+        videoClick();
+        
         // Listen for foundation modal close events to sanitize URL after review.
         $(document).on('close.fndtn.reveal', () => {
             if (this.url.indexOf('#write_review') !== -1 && typeof window.history.replaceState === 'function') {
@@ -61,8 +66,6 @@ export default class Product extends PageManager {
         });
 
         this.productReviewHandler();
-		cardSwatches();
-		tabPages();
     }
 
     ariaDescribeReviewInputs($form) {
