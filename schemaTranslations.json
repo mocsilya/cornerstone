@@ -1764,21 +1764,6 @@
   "i18n.FooterSocialHover": {
     "default": "Footer social icons hover"
   },
-  "i18n.FooterPlacement": {
-    "default": "Footer Placement",
-    "fr": "Emplacement du pied de page",
-    "it": "Posizione piè di pagina",
-    "uk": "Розміщення нижнього колонтитулу",
-    "zh": "页脚位置",
-    "de": "Platzierung der Fußzeile",
-    "es": "Colocación del pie de página",
-    "nl": "Plaatsing voettekst",
-    "pt": "Local do rodapé",
-    "sv": "Sidfotsplacering",
-    "es-MX": "Colocación del pie de página",
-    "pt-BR": "Local do rodapé",
-    "es-419": "Ubicación del pie de página"
-  },
   "i18n.None": {
     "default": "None",
     "fr": "Aucun",
