@@ -370,21 +370,34 @@ body .footer .header-logo-image {
 	font-size: 16px;
 }
 
+.productView-options .form-action .button,
+.productView-options .form-wishlist .button {
+	margin-bottom: 0;
+}
+
 .custom-food-option,
 .custom-general-delivery,
-.custom-food-delivery  {
+.custom-food-delivery {
+	font-weight: 700;
+	padding: 1rem 0 0 0;
+	text-align: center;
+}
+
+.custom-product-message {
 	font-weight: 700;
 	padding: 1rem 0;
-	text-align: left;
+	text-align: center;
 }
 
-.custom-base-disclaimer {
-	text-align: left;
+.custom-product-message p {
+	margin-bottom: 1rem;
 }
 
-.custom-payment-image {
+.custom-product-message img {
 	width: 100%;
 	max-width: 300px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .page-product .custom-base-disclaimer {
