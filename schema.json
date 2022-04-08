@@ -565,6 +565,18 @@
         "id": "custom_category_show_parents"
       },
       {
+        "type": "checkbox",
+        "label": "i18n.CategoryShowBlocks",
+        "force_reload": true,
+        "id": "custom_category_show_blocks"
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.CategoryDescriptionTrim",
+        "force_reload": true,
+        "id": "custom_category_description_trim"
+      },
+      {
         "type": "heading",
         "content": "i18n.Blog"
       },
@@ -1105,6 +1117,22 @@
         "id": "custom_header_search_label"
       },
       {
+        "type": "select",
+        "label": "i18n.HeaderSearchType",
+        "id": "custom_header_search_type",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "icon",
+            "label": "Icon"
+          },
+          {
+            "value": "box",
+            "label": "Box"
+          }
+        ]
+      },
+      {
         "type": "checkbox",
         "label": "i18n.HeaderIconText",
         "force_reload": true,
@@ -1167,6 +1195,22 @@
         "label": "i18n.HeaderGroupSingle",
         "force_reload": true,
         "id": "custom_header_group_single"
+      },
+      {
+        "type": "select",
+        "label": "i18n.HeaderMenuDropdown",
+        "id": "custom-header-menu-dropdown",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "hover",
+            "label": "Hover"
+          },
+          {
+            "value": "click",
+            "label": "Click"
+          }
+        ]
       },
       {
         "type": "color",
@@ -1747,6 +1791,12 @@
         "label": "i18n.ShowGooglePay",
         "force_reload": true,
         "id": "show_accept_googlepay"
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.ShowApplePay",
+        "force_reload": true,
+        "id": "show_accept_applepay"
       },
       {
         "type": "select",

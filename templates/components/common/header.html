@@ -8,6 +8,11 @@
         {{> components/common/navigation-menu}}
     </div>
 </header>
+{{#if theme_settings.custom_header_search_type '===' 'box'}}
+<div class="header--boxsearch">
+	{{> components/custom/navigation-search}}
+</div>
+{{/if}}
 {{#if theme_settings.custom_header_show_bar}}
 	{{> components/custom/header-bar}}
 {{/if}}

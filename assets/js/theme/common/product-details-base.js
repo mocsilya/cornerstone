@@ -229,28 +229,33 @@ export default class ProductDetailsBase {
 
         // If SKU is available
         if (data.sku) {
-            viewModel.sku.$value.text(data.sku);
+            viewModel.sku.$value.text(data.sku).show();
             viewModel.sku.$label.show();
         } else {
             viewModel.sku.$label.hide();
-            viewModel.sku.$value.text('');
+            viewModel.sku.$value.text('').hide();
         }
 
         // If UPC is available
         if (data.upc) {
-            viewModel.upc.$value.text(data.upc);
+            viewModel.upc.$value.text(data.upc).show();
             viewModel.upc.$label.show();
         } else {
             viewModel.upc.$label.hide();
-            viewModel.upc.$value.text('');
+            viewModel.upc.$value.text('').hide();
         }
 
         // if stock view is on (CP settings)
         if (viewModel.stock.$container.length && isNumber(data.stock)) {
             // if the stock container is hidden, show
             viewModel.stock.$container.removeClass('u-hiddenVisually');
-
-            viewModel.stock.$input.text(data.stock);
+            if (data.stock > "0") {
+                data.stock = "<i class='icon' aria-hidden='true'><svg><use xlink:href='#icon-tick' /></svg></i><strong class='in-stock-number'>" + data.stock + " </strong><span class='in-stock-label'>In Stock</span>";
+            } else {
+                viewModel.stock.$container.addClass('u-hiddenVisually');
+            }
+            viewModel.stock.$input.html(data.stock);
+			
         } else {
             viewModel.stock.$container.addClass('u-hiddenVisually');
             viewModel.stock.$input.text(data.stock);
