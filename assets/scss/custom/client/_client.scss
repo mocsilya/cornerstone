@@ -2,3 +2,62 @@
 // Custom > Client
 // =============================================================================
 //
+
+.header-bar-custom,
+body.scroll .header-bar-custom {
+	display: block !important;
+	position: static;
+	padding: .5rem 0;
+	max-height: none;
+}
+
+
+
+.card-message .product-card-data {
+	display: flex;
+	margin-bottom: 4px;
+}
+
+.card-message .product-card-data:last-child {
+	margin-bottom: 0;
+}
+
+.card-message .product-card-name {
+	flex: 0 1 auto;
+	padding-right: 10px;
+	font-weight: 400;
+}
+
+.card-message .product-card-value {
+	flex: 1 1 auto;
+	text-align: right;
+}
+
+
+.footer-promo .custom-widget-link {
+	display: block;
+}
+
+.footer-promo .custom-widget-image {
+	width: 50%;
+	margin: 0 25%;
+}
+
+.footer-promo .custom-widget-content {
+	display: block;
+	position: static;
+	transform: none;
+	background: #282B2D;
+	border-radius: 10px;
+	margin: 1.5rem 0;
+	padding: 1rem .5rem;
+}
+
+.footer-promo .custom-widget-heading {
+	display: block;
+	color: #48E0A4 !important;
+}
+
+.footer-promo .custom-widget-subtext {
+	display: block;
+}

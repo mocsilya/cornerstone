@@ -1,0 +1,12 @@
+{{#each custom_fields}}
+	{{#unless name '==' 'hidden'}}
+	{{#unless name '==' 'breadcrumb'}}
+		{{#unless name '==' 'download'}}
+			<div class="product-card-data">
+				<span class="product-card-name">{{name}}:</span>
+				<span class="product-card-value">{{{ sanitize value}}}</span>
+			</div>
+		{{/unless}}
+	{{/unless}}
+{{/unless}}
+{{/each}}
