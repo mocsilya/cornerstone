@@ -23,6 +23,7 @@ import toggleClick from './custom/toggle-click';
 import headerBar from './custom/header-bar';
 import widgetHelper from './custom/widget-helper';
 import sidebarHelper from './custom/sidebar-helper';
+import scrollClick from './custom/scroll-click';
 
 export default class Global extends PageManager {
     onReady() {
@@ -49,5 +50,6 @@ export default class Global extends PageManager {
 		headerBar();
 		widgetHelper();
 		sidebarHelper();
+		scrollClick();
     }
 }

@@ -4242,7 +4242,8 @@ a:hover span.card-image:only-of-type img {
 	margin: 0 auto !important;
 }
 
-.productView table {
+.productView table,
+.page-product div[data-content-region="product_below_content"] table {
 	margin: 0;
 	padding: 0;
 	border-right: 1px solid stencilColor("color-textBase");
@@ -4250,14 +4251,21 @@ a:hover span.card-image:only-of-type img {
 }
 
 .productView table td,
-.productView table th {
-	padding: .25rem .5rem;
+.productView table th,
+.page-product div[data-content-region="product_below_content"] table td,
+.page-product div[data-content-region="product_below_content"] table th {
+	padding: .25rem .75rem;
 	border-left: 1px solid stencilColor("color-textBase");
 	border-top: 1px solid stencilColor("color-textBase");
 }
 
-.productView table th {
+.productView table th,
+.page-product div[data-content-region="product_below_content"] table th {
+	padding: .5rem .75rem;
 	font-weight: 700;
+	background: stencilColor("color-textBase");
+	color: stencilColor("body-bg");
+	text-align: left;
 }
 
 .previewCart .productView {
