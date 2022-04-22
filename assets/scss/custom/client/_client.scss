@@ -339,15 +339,6 @@ body .footer .header-logo-image {
 	display: none;
 }
 
-.page-product .tab-content table {
-	min-width: 50%;
-}
-
-.page-product .tab-content table td {
-	padding: 1rem;
-	min-width: 50%;
-}
-
 .custom-size-guide .form-label {
 	display: none;
 	@include breakpoint("small") {
@@ -426,17 +417,6 @@ body .footer .header-logo-image {
     vertical-align: middle;
 }
 
-.productView table {
-	margin-bottom: 1.5rem;
-}
-
-.productView table th {
-	background-color: #4d774e;
-	color: #fff;
-	padding-top: .75rem;
-	padding-bottom: .75rem;
-}
-
 .form-field--stock .in-stock-number {
 	display: none;
 }
@@ -508,6 +488,30 @@ body .footer .header-logo-image {
 .cart-additionalCheckoutButtons p {
     display: none !important;
 }
+
+.page-product .productView-description table,
+.page-product div[data-content-region="product_below_content"] table {
+	margin: 0 0 1.5rem 0;
+	min-width: 50%;
+}
+
+.page-product .productView-description table th,
+.page-product div[data-content-region="product_below_content"] table th {
+	background-color: #4d774e;
+	color: #fff;
+}
+
+.page-product .productView-description table td, 
+.page-product .productView-description table th,
+.page-product div[data-content-region="product_below_content"] table td,
+.page-product div[data-content-region="product_below_content"] table th {
+	padding: .75rem;
+}
+
+h2#size-guide {
+	margin-top: 0;
+}
+
 
 
 // CATEGORY PAGES
