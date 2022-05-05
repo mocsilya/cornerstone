@@ -180,6 +180,21 @@ body.scroll.with-bar {
 }
 
 
+// Alerts
+// =============================================================================
+
+
+.alertBox {
+	background-color: stencilColor("alert-backgroundColor");
+    color: stencilColor("alert-color");
+}
+
+.alertBox svg {
+    fill: stencilColor("alert-color");
+}
+
+
+
 // Banners
 // =============================================================================
 
