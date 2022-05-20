@@ -53,7 +53,7 @@
         <link rel="preload" href="{{cdn 'assets/dist/theme-bundle.main.js'}}" as="script">
 		{{> components/custom/client/client-head}}
     </head>	
-    <body class="page-{{page_type}}{{#if page_type '==' 'page'}} page-{{dashcase (lowercase (sanitize page.title))}}{{/if}}{{#if page_type '==' 'page_contact_form'}} page-{{dashcase (lowercase (sanitize page.title))}}{{/if}}{{#if page_type '==' 'category'}} page-{{dashcase (lowercase (sanitize category.name))}}{{/if}}{{#if page_type '==' 'brand'}} page-{{dashcase (lowercase (sanitize brand.name))}}{{/if}} {{lang 'common.currency' code=currency_selector.active_currency_code}}{{#if theme_settings.custom_header_show_bar}} with-bar{{/if}}">
+    <body class="page-{{page_type}}{{#if page_type '==' 'page'}}{{#if (lowercase page.title) '==' 'header'}} page-headerinfo{{else}} page-{{dashcase (lowercase (sanitize page.title))}}{{/if}}{{/if}}{{#if page_type '==' 'page_contact_form'}} page-{{dashcase (lowercase (sanitize page.title))}}{{/if}}{{#if page_type '==' 'category'}} page-{{dashcase (lowercase (sanitize category.name))}}{{/if}}{{#if page_type '==' 'brand'}} page-{{dashcase (lowercase (sanitize brand.name))}}{{/if}} {{lang 'common.currency' code=currency_selector.active_currency_code}}{{#if theme_settings.custom_header_show_bar}} with-bar{{/if}}">
 		{{> components/custom/client/client-body}}
         <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
 
