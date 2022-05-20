@@ -69,6 +69,7 @@
         <section class="footer-info">
 			{{#if theme_settings.custom_footer_show_page_columns}}
 			{{#each pages}}
+				{{#unless (lowercase name) '==' 'header'}}	
 				{{#if children}}
 		            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
 		                <h3 class="footer-info-heading">{{name}}</h3>
@@ -81,15 +82,18 @@
 		                </ul>
 		            </article>
 				{{/if}}
+				{{/unless}}
 			{{/each}}
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
                 <h3 class="footer-info-heading">{{lang 'footer.navigate'}}</h3>
                 <ul class="footer-info-list">
                     {{#each pages}}
+						{{#unless (lowercase name) '==' 'header'}}	
 						{{#unless children}}
                         <li>
                             <a href="{{url}}">{{name}}</a>
                         </li>
+						{{/unless}}
 						{{/unless}}
                     {{/each}}
 					{{#if theme_settings.custom_footer_show_sitemap}}
@@ -149,9 +153,11 @@
                 <h3 class="footer-info-heading">{{lang 'footer.info'}}</h3>
                 <ul class="footer-info-list">
                     {{#each pages}}
+					{{#unless (lowercase name) '==' 'header'}}
                         <li>
                             <a href="{{url}}">{{name}}</a>
                         </li>
+					{{/unless}}
                     {{/each}}
 					{{#if theme_settings.custom_footer_show_sitemap}}
                     	<li>

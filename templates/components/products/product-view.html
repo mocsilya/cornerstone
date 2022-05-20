@@ -194,7 +194,9 @@
                     	>
                        		{{lang 'products.reviews.new'}}
                     	</a>
+						{{#unless is_ajax}}
                     	{{> components/products/modals/writeReview}}
+						{{/unless}}
 					</dd>
                 {{/if}}
 				</dl>
