@@ -2,3 +2,96 @@
 // Custom > Client
 // =============================================================================
 //
+
+
+.footer {
+	background: #ede4d5;
+	background: -moz-linear-gradient(top,  #ede4d5 0%, #ffffff 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #ede4d5 0%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #ede4d5 0%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ede4d5', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+	
+}
+
+.footer-newsletter article:first-child {
+	@include breakpoint("medium") {
+		border-right: 1px solid #fff;
+	}
+}
+
+.footer-newsletter article:last-child {
+	@include breakpoint("medium") {
+		border-left: 1px solid #fff;
+	}
+}
+
+.footer-blog-img {
+	border: 4px solid #ede4d5;
+	-webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); 
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+}
+
+.custom-widget-alt .custom-widget-item {
+	display: flex;
+	align-items: stretch;
+}
+
+.custom-widget-alt .custom-widget-link {
+	flex-direction: column;
+	text-decoration: none;
+	background: #fff;
+	-webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1); 
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+.custom-widget-alt .custom-widget-image {
+	padding: 1rem;
+}
+
+.custom-widget-alt .custom-widget-content {
+	position: static;
+	transform: none;
+	justify-content: flex-start;
+	align-items: flex-start;
+	padding-bottom: .5rem;
+	background: none;
+}
+
+.custom-widget-alt .custom-widget-light,
+.custom-widget-alt .custom-widget-dark {
+	background: none;
+}
+
+.custom-widget-alt .custom-widget-heading,
+.custom-widget-alt .custom-widget-subtext {
+	text-align: left;
+	display: block;
+	flex: none;
+	width: 100%;
+	background: none;
+}
+
+.custom-widget-alt .custom-widget-button {
+	display: block;
+	width: calc(100% - 2rem);
+	flex: none;
+	margin: 0.5rem 1rem;
+}
+
+.page-default .custom-widget-carousel-yes .custom-widget-link {
+	height: 0;
+	box-sizing: content-box;
+	padding: 0 0 100% 0;
+	border: 1px solid #ccc;
+}
+
+.page-default .custom-widget-carousel-yes .custom-widget-image {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: calc(100% - 4rem);
+}
+
+
+
