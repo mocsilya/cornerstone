@@ -148,6 +148,7 @@
 			<div class="productView-top-global">
 			{{{region name="product_top--global"}}}
 			</div>
+			{{{region name="product_top"}}}
             <h1 {{#unless theme_settings.custom_product_title_left}}style="display: none;"{{/unless}} class="productView-title">{{product.title}}</h1>
             {{#if product.brand}}
                 <h2 class="productView-brand">
@@ -166,6 +167,9 @@
                     {{> components/common/login-for-pricing}}
                 {{/or}}
             </div>
+			<div class="productView-below-price-global">
+			{{{region name="product_below_price--global"}}}
+			</div>
             {{{region name="product_below_price"}}}
             <div class="productView-rating">
                 <dl class="productView-info">
@@ -190,7 +194,9 @@
                     	>
                        		{{lang 'products.reviews.new'}}
                     	</a>
+						{{#unless is_ajax}}
                     	{{> components/products/modals/writeReview}}
+						{{/unless}}
 					</dd>
                 {{/if}}
 				</dl>
@@ -336,6 +342,7 @@
 			<div class="productView-bottom-global">
 			{{{region name="product_bottom--global"}}}
 			</div>
+			{{{region name="product_bottom"}}}
         </div>
         {{> components/common/share url=product.url}}
     </section>

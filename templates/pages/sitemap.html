@@ -27,7 +27,7 @@ customer:
         <h2>{{label}}</h2>
         <ul>
             {{#each body}}
-            <li>
+            <li class=sitemap-{{dashcase label}}>
                 <a href="{{url}}">{{label}}</a>
                 {{#if children}}
                     <ul>
