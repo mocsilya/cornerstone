@@ -4,6 +4,90 @@
 //
 
 
+.category-header {
+	display: none;
+}
+
+.category-description {
+	position: relative;
+	text-align: center;
+	margin-top: 1.5rem;
+	padding: 1.5rem;
+}
+
+.category-description .category-banner {
+    position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	z-index: 1;
+}
+
+.category-description .page-heading {
+    background: rgba(0,0,0,.6);
+    color: #fff;
+	position: relative;
+	z-index: 2;
+	padding: 1.5rem;
+	width: 90%;
+	margin-top: 1.5rem;
+	margin-bottom: 0;
+	margin-left: 5%;
+	margin-right: 5%;
+	@include breakpoint("medium") {
+		width: 70%;
+		margin-left: 15%;
+		margin-right: 15%;
+	}
+	@include breakpoint("large") {
+		width: 50%;
+		margin-left: 25%;
+		margin-right: 25%;
+	}
+}
+
+.category-description .category-summary {
+    background: rgba(255,255,255,.85);
+	color: #000;
+	position: relative;
+	z-index: 3;
+	padding: 1.5rem;
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-bottom: 1.5rem;
+	@include breakpoint("medium") {
+		width: 70%;	
+		margin-left: 15%;
+		margin-right: 15%;
+	}
+	@include breakpoint("large") {
+		width: 50%;
+		margin-left: 25%;
+		margin-right: 25%;
+	}
+	
+}
+
+
+.navPages-item-brands .navPage-childList {
+	display: none !important;
+}
+
+.banners .banner {
+	border: 1px solid #0A3404;
+	padding: 1.5rem;
+}
+
+.banners a {
+	color: #0A3404;
+}
+
+
 .footer {
 	background: #ede4d5;
 	background: -moz-linear-gradient(top,  #ede4d5 0%, #ffffff 100%); /* FF3.6-15 */
