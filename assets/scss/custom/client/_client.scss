@@ -3,6 +3,11 @@
 // =============================================================================
 //
 
+@media (max-width: 800px) {
+    .cat-side-promo {
+        display: none;
+    }
+}
 
 .category-header {
 	display: none;
@@ -87,6 +92,10 @@
 	color: #0A3404;
 }
 
+.productView-info-name.customfield-label,
+.productView-info-value.customfield-value {
+    display: none;
+}
 
 .footer {
 	background: #ede4d5;
