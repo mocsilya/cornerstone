@@ -5,6 +5,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Draft
+- Bump webpack-bundle-analyzer [#2229]https://github.com/bigcommerce/cornerstone/pull/2229
+
+## 6.5.0 (06-24-2022)
+- Category icons do not appear in Search Form [#2221]https://github.com/bigcommerce/cornerstone/pull/2221
+- Incorrect translation displaying in Home Page Carousel for da, sv and no. [#2224]https://github.com/bigcommerce/cornerstone/pull/2224
+- Blog Pages Do Not Include Link Rel Next/Prev Tags. [#2214](https://github.com/bigcommerce/cornerstone/issues/2214).
+- Add lang attribute to html tag to improve checkout accesibility [#2210]https://github.com/bigcommerce/cornerstone/pull/2210
+- Moved custom_fields loop to a dedicated component [#2222](https://github.com/bigcommerce/cornerstone/pull/2222)
+- "None" modifier option is displayed as selected even if there is default modifier option [#2227]https://github.com/bigcommerce/cornerstone/pull/2227
+- Add pickups to storefront invoice [#2216](https://github.com/bigcommerce/cornerstone/pull/2216)
+- Fixed The stored bank account was not displayed in the "payment methods" section [#2225](https://github.com/bigcommerce/cornerstone/pull/2225)
+- Fixed "None" not being selected by default on unrequired Pick Lists without images [#2215](https://github.com/bigcommerce/cornerstone/pull/2215)
 
 ## 6.4.1 (05-16-2022)
 - Incorrect handling of unsuccessful item removing from cart on the Cart page. [#2211](https://github.com/bigcommerce/cornerstone/issues/2211)
