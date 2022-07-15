@@ -11,8 +11,6 @@ body.scroll .header-bar-custom {
 	max-height: none;
 }
 
-
-
 .card-message .product-card-data {
 	display: flex;
 	margin-bottom: 4px;
@@ -61,3 +59,50 @@ body.scroll .header-bar-custom {
 .footer-promo .custom-widget-subtext {
 	display: block;
 }
+
+.custom-widget-howitworks .custom-widget-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 1260px) {
+    .custom-widget-blocks.custom-widget-howitworks .custom-widget-link {
+        background: none;
+        padding: 0;
+        box-shadow: none;
+    }
+}
+
+.custom-widget-4 .custom-widget-item.howitworks-1,
+.custom-widget-4 .custom-widget-item.howitworks-2,
+.custom-widget-4 .custom-widget-item.howitworks-3,
+.custom-widget-4 .custom-widget-item.howitworks-4,
+.custom-widget-4 .custom-widget-item.howitworks-5,
+.custom-widget-4 .custom-widget-item.howitworks-6,
+.custom-widget-4 .custom-widget-item.howitworks-7,
+.custom-widget-4 .custom-widget-item.howitworks-8 {
+    min-width: 25%;
+}
+
+.howitworks-1 { order: 1; }
+.howitworks-2 { order: 2; }
+.howitworks-3 { order: 3; }
+.howitworks-4 { order: 4; }
+.howitworks-5 { order: 8; }
+.howitworks-6 { order: 7; }
+.howitworks-7 { order: 6; }
+.howitworks-8 { order: 5; }
+
+@media only screen and (max-width: 800px) {
+    .custom-widget-howitworks .custom-widget-heading {
+        font-size: 12px !important;
+    }
+    .custom-widget-howitworks .custom-widget-subtext {
+        display: none !important;
+    }
+}
+
+
+
+
+
