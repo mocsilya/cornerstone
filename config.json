@@ -516,8 +516,7 @@
     ],
     "supported_payment_methods": [
       "card",
-      "paypal",
-      "bank"
+      "paypal"
     ],
     "lazyload_mode": "lazyload+lqip",
     "checkout-paymentbuttons-paypal-color": "black",
