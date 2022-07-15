@@ -22,6 +22,10 @@ export default class Product extends PageManager {
     }
 
     onReady() {
+        cardSwatches();
+        tabPages();
+        videoClick();
+        
         // Listen for foundation modal close events to sanitize URL after review.
         $(document).on('close.fndtn.reveal', () => {
             if (this.url.indexOf('#write_review') !== -1 && typeof window.history.replaceState === 'function') {
@@ -62,9 +66,6 @@ export default class Product extends PageManager {
         });
 
         this.productReviewHandler();
-        cardSwatches();
-        tabPages();
-        videoClick();
     }
 
     ariaDescribeReviewInputs($form) {

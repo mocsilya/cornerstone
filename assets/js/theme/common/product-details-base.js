@@ -229,20 +229,20 @@ export default class ProductDetailsBase {
 
         // If SKU is available
         if (data.sku) {
-            viewModel.sku.$value.text(data.sku);
+            viewModel.sku.$value.text(data.sku).show();
             viewModel.sku.$label.show();
         } else {
             viewModel.sku.$label.hide();
-            viewModel.sku.$value.text('');
+            viewModel.sku.$value.text('').hide();
         }
 
         // If UPC is available
         if (data.upc) {
-            viewModel.upc.$value.text(data.upc);
+            viewModel.upc.$value.text(data.upc).show();
             viewModel.upc.$label.show();
         } else {
             viewModel.upc.$label.hide();
-            viewModel.upc.$value.text('');
+            viewModel.upc.$value.text('').hide();
         }
 
         // if stock view is on (CP settings)

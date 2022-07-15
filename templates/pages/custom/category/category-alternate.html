@@ -50,9 +50,17 @@ customer:
 {{{region name="category_below_header"}}}
 <div class="category-alternate">
 	{{#if category.description}}
-		<div class="category-description{{#if category.subcategories}} category-description-withsub{{/if}}">
+		<div class="category-description{{#if category.subcategories}} category-description-withsub{{/if}}{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}">
 			{{{category.description}}}
 		</div>
+		{{#if theme_settings.custom_category_description_trim}}
+			<div class="category-description-button" style="display: none;">
+				<a class="button button--secondary">
+					<span class="category-description-more">Read More</span>
+					<span class="category-description-less">Read Less</span>
+				</a>
+			</div>
+		{{/if}}
 	{{/if}}
 	{{#if category.subcategories}}
 		<div class="category-subcategories">
@@ -118,6 +126,7 @@ customer:
         {{{region name="category_below_content"}}}
     </div>
 {{/if}}
+{{{region name="category_below_all"}}}
 </div>
 
 {{/partial}}
