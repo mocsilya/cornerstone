@@ -72,7 +72,7 @@
 				{{#unless (lowercase name) '==' 'header'}}	
 				{{#if children}}
 		            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
-		                <h3 class="footer-info-heading">{{name}}</h3>
+		                <h3 class="footer-info-heading"><a href="{{url}}">{{name}}</a></h3>
 		                <ul class="footer-info-list">
 		                    {{#each children}}
 		                        <li>
@@ -171,7 +171,7 @@
 			{{#each categories}}
 				{{#if children}}
 		            <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
-		                <h3 class="footer-info-heading">{{name}}</h3>
+		                <h3 class="footer-info-heading"><a href="{{url}}">{{name}}</a></h3>
 		                <ul class="footer-info-list">
 		                    {{#each children}}
 		                        <li>
@@ -192,7 +192,7 @@
 			{{/if}}
 			{{#if (getVar "group") '===' 'show'}}
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
-                <h3 class="footer-info-heading">{{lang 'footer.categories'}}</h3>
+                <h3 class="footer-info-heading">{{theme_settings.custom_header_group_title}} {{lang 'footer.categories'}}</h3>
                 <ul class="footer-info-list">
                     {{#each categories}}
 						{{#unless children}}

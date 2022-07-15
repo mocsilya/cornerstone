@@ -1,4 +1,7 @@
 ---
+blog:
+    recent_posts:
+        limit: 10
 customer:
     wishlists:
         limit: 10
@@ -13,8 +16,33 @@ customer:
 {{/partial}}
 
 {{#partial "page"}}
-
-{{> components/blog/post post=blog.post show_tags=true is_blog_post=true}}
-
+<div class="page">
+	<div class="page-content">
+		{{{region name="blog_post_top"}}}
+		{{{region name="blog_post_top--global"}}}
+		{{> components/blog/post post=blog.post show_tags=true is_blog_post=true}}
+		{{{region name="blog_post_bottom"}}}
+		{{{region name="blog_post_bottom--global"}}}
+	</div>
+	<aside class="page-sidebar page-sidebar-vertical">
+		<nav>
+			<div class="sidebarBlock sidebarRecentPosts">
+				<h2 class="sidebarBlock-heading">{{blog.recent_posts}}</h2>
+				<ul class="navList">
+				{{#each blog.recent_posts}}
+					<li class="navList-item">
+						<a class="navList-action" href="{{url}}">{{title}}</a>
+					</li>
+				{{/each}}
+					<li class="navList-item">
+						<a class="navList-action" href="{{blog.url}}"><strong>&larr; Back to main {{blog.name}}</strong></a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		{{{region name="blog_post_aside"}}}
+		{{{region name="blog_post_aside--global"}}}
+	</aside>
+</div>
 {{/partial}}
 {{> layout/base}}
