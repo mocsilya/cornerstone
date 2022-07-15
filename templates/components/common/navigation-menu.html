@@ -135,6 +135,7 @@
 		{{/if}}
         {{#unless theme_settings.hide_content_navigation}}
             {{#each pages}}
+			{{#unless (lowercase name) '==' 'header'}}	
                 <li class="navPages-item navPages-item-page navPages-item-{{dashcase name}}">
 	            {{#if ../theme_settings.navigation_design '===' 'simple'}}
 					{{assignVar "allsinglepage" "true"}}
@@ -157,11 +158,26 @@
 					{{> components/custom/navigation-list-alternate-page}}
 	            {{/if}}
                 </li>
+			{{/unless}}
             {{/each}}
         {{/unless}}
 		{{> components/custom/client/client-header-menu-end}}
     </ul>
     <ul class="navPages-list navPages-list--user">
+        {{#each pages}}
+			{{#if (lowercase name) '==' 'header'}}
+				{{#each children}}
+                <li class="navPages-item">
+			    	<a class="navPages-action"
+			        	href="{{url}}"
+			            aria-label="{{name}}"
+			         >
+			         	{{name}}
+			         </a>
+                </li>
+				{{/each}}
+			{{/if}}
+        {{/each}}
         {{#if currency_selector.currencies.length '>' 1}}
             <li class="navPages-item">
                 <a class="navPages-action has-subMenu"

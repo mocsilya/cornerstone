@@ -63,16 +63,7 @@
 	  {{#if (getVar "customfields") '===' 'active'}}
       <div class="tab-content {{#unless product.description}}is-active{{/unless}}" id="tab-{{dashcase (lowercase (sanitize theme_settings.pdp-custom-fields-tab-label))}}">
          <dl class="productView-info">
-			{{#each product.custom_fields}}
-			{{#unless name '==' 'hidden'}}
-				{{#unless name '==' 'breadcrumb'}}
-					{{#unless name '==' 'download'}}
-           				<dt class="productView-info-name customfield-label customfield-{{dashcase name}}">{{name}}:</dt>
-           				<dd class="productView-info-value customfield-value customfield-{{dashcase name}}">{{{value}}}</dd>
-					{{/unless}}
-				{{/unless}}
-			{{/unless}}
-			{{/each}}
+            {{> components/products/custom-fields }}
          </dl>
 		 {{> components/custom/client/client-product-fields}}
       </div>

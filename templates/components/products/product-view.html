@@ -148,6 +148,7 @@
 			<div class="productView-top-global">
 			{{{region name="product_top--global"}}}
 			</div>
+			{{{region name="product_top"}}}
             <h1 {{#unless theme_settings.custom_product_title_left}}style="display: none;"{{/unless}} class="productView-title">{{product.title}}</h1>
             {{#if product.brand}}
                 <h2 class="productView-brand">
@@ -166,6 +167,9 @@
                     {{> components/common/login-for-pricing}}
                 {{/or}}
             </div>
+			<div class="productView-below-price-global">
+			{{{region name="product_below_price--global"}}}
+			</div>
             {{{region name="product_below_price"}}}
             <div class="productView-rating">
                 <dl class="productView-info">
@@ -190,7 +194,9 @@
                     	>
                        		{{lang 'products.reviews.new'}}
                     	</a>
+						{{#unless is_ajax}}
                     	{{> components/products/modals/writeReview}}
+						{{/unless}}
 					</dd>
                 {{/if}}
 				</dl>
@@ -270,16 +276,7 @@
                 {{/if}}
 				
                 {{#if theme_settings.show_custom_fields_tabs '!==' true}}
-					{{#each product.custom_fields}}
-					{{#unless name '==' 'hidden'}}
-						{{#unless name '==' 'breadcrumb'}}
-							{{#unless name '==' 'download'}}
-		           				<dt class="productView-info-name customfield-label customfield-{{dashcase name}}">{{name}}:</dt>
-		           				<dd class="productView-info-value customfield-value customfield-{{dashcase name}}">{{{ sanitize value}}}</dd>
-							{{/unless}}
-						{{/unless}}
-					{{/unless}}
-					{{/each}}
+					{{> components/products/custom-fields }}
                 {{/if}}
 
                 {{#if settings.bulk_discount_enabled}}
@@ -287,7 +284,6 @@
                         {{> components/products/bulk-discount-rates bulk_discount_rates=product.bulk_discount_rates}}
                     </div>
                 {{/if}}
-
             </dl>
 			{{#if theme_settings.show_custom_fields_tabs '!==' true}}
 				{{> components/custom/client/client-product-fields}}
@@ -298,7 +294,12 @@
     <section class="productView-details{{#if product.brand}} productView-details-{{first (split product.brand.name ' ')}}{{/if}} productView-details-{{theme_settings.custom_product_gallery_size}} product-options">
         <div class="productView-options">
             {{#if product.release_date }}
-                <p>{{product.release_date}}</p>
+				<div class="alertBox productAttributes-message" style="">
+					<div class="alertBox-column alertBox-icon">
+						<icon glyph="ic-success" class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></icon>
+					</div>
+					<p class="alertBox-column alertBox-message">{{product.release_date}}</p>
+				</div>
             {{/if}}
             <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
                   data-cart-item-add>
@@ -336,6 +337,7 @@
 			<div class="productView-bottom-global">
 			{{{region name="product_bottom--global"}}}
 			</div>
+			{{{region name="product_bottom"}}}
         </div>
         {{> components/common/share url=product.url}}
     </section>
