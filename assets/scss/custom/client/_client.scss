@@ -33,6 +33,11 @@
 
 .navUser ul li.navUser-item--liveperson {
 	display: inline-block;
+	@include breakpoint("medium") {
+		position: fixed;
+		right: 1.5rem;
+		bottom: 4rem;
+	}
 }
 
 .navUser ul li.navUser-item--liveperson .navUser-action {
@@ -42,6 +47,9 @@
 .navUser ul li.navUser-item--liveperson .LPMcontainer {
 	margin: 0 !important;
     padding: 1rem 0.78571rem !important;
+    @include breakpoint("medium") {
+		padding: 0 !important;
+	}
 }
 
 .navUser ul li.navUser-item--liveperson .link {
@@ -49,11 +57,22 @@
 	height: 1.5rem;
 	display: inline-block;
 	vertical-align: middle;
+	@include breakpoint("medium") {
+		padding: .75rem 1.5rem;
+		background: #62b5e5;
+		border-radius: .5rem;
+		height: 3rem;
+		border: 1px solid #fff;
+	}
 }
 
 .navUser ul li.navUser-item--liveperson svg {
 	height: 1.5rem;
 	width: 1.5rem;
+	@include breakpoint("medium") {
+		fill: #fff;
+	    stroke: #fff;
+	}
 }
 
 .navUser ul li.navUser-item--liveperson p {
@@ -67,12 +86,11 @@
 	vertical-align: top;
 	font-size: 12px;
 	@include breakpoint("small") {
-		width: 30px;
 		display: inline-block;
 	}
-	@include breakpoint("large") {
-		width: auto;
+	@include breakpoint("medium") {
 		font-size: 14px;
+		color: #fff;
 	}
 }
 
@@ -235,20 +253,128 @@ div[data-sub-layout-container="b4038d5d-5fd3-489b-9582-ca112832f6d9"] h4 {
 	padding-left: .5rem;
 }
 
+#add-to-cart-wrapper .form-field--increments {
+    margin-top: 0 !important;
+}
+
 
 // GBICS CONNECT
 // =============================================================================
 
-.page-gbics-connect .header,
-.page-gbics-connect .header-bar,
-.page-gbics-connect .page-header {
-	display: none;
+
+body.with-bar.page-gbics-connect .header {
+    @include breakpoint("medium") {
+		padding-top: 0;
+	}
 }
 
-.page-gbics-connect {
-	padding-top: 0;
+.page-gbics-connect .header .navUser > .container {
+    -webkit-box-shadow: 0px 1px 0px 0px #1c3147;
+    box-shadow: 0px 1px 0px 0px #1c3147;
 }
-    
+
+.page-gbics-connect .header-bar,
+.page-gbics-connect .navUser-section,
+.page-gbics-connect .navUser .dropdown--quickSearch,
+.page-gbics-connect .navPages-container,
+.page-gbics-connect .mobileMenu-toggle {
+	display: none !important;
+}
+
+.page-gbics-connect .header-logo {
+    flex: 1 1 auto;
+}
+
+.page-gbics-connect .header-logo .header-logo-image-container {
+    justify-content: center;
+}
+
+.page-gbics-connect #contact-us-page .form {
+    margin: 1.5rem auto;
+    background: #dddddd;
+    background: -moz-linear-gradient(top, #dddddd 0%, #ffffff 100%);
+    background: -webkit-linear-gradient(top, #dddddd 0%,#ffffff 100%);
+    background: linear-gradient(to bottom, #dddddd 0%,#ffffff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', endColorstr='#ffffff',GradientType=0 );
+    padding: 1.5rem;
+    max-width: none;
+    @include breakpoint("medium") {
+		padding: 6rem;
+	}
+	@include breakpoint("large") {
+		padding: 3rem 12rem;
+	}
+	@include breakpoint("xlarge") {
+		padding: 3rem 18rem;
+	}
+}
+
+.gbics-connect-list {
+    padding: 1.5rem;
+    font-weight: 700;
+    list-style: none;
+    margin: 0;
+}
+
+.gbics-connect-list li {
+    margin: 0 0 1.5rem 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+}
+
+.gbics-connect-list i {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    line-height: 1.75rem;
+    font-style: normal;
+    text-align: center;
+    border-radius: 100%;
+    background: #62b5e5;
+    border: 2px solid #fff;
+    color: #fff;
+    position: absolute;
+    left: -3.25rem;
+    top: .5rem;
+}
+
+.gbics-connect-list span {
+    padding: 1rem;
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 4px;
+}
+
+.gbics-connect-list .gbics-connect-list-light {
+    background: rgba(255,255,255, 0.9);
+    color: #000;
+}
+
+.gbics-connect-list .gbics-connect-list-dark {
+    background: rgba(0,0,0, 0.6);
+    color: #fff;
+}
+
+.gbics-connect-list-bullets {
+    padding: 1.5rem 1.5rem 1.5rem 4rem;
+}
+
+.gbics-connect-list-bullets li {
+    margin: 0 0 .5rem 0;
+}
+
+.gbics-connect-list-bullets i {
+    left: -2.5rem;
+    top: 0;
+}
+
+.gbics-connect-list-bullets span {
+    padding: .25rem .5rem;
+}
+
+
+
 
 // WIDGET FOR CATEGORY BOXES
 // =============================================================================
@@ -265,5 +391,4 @@ div[data-sub-layout="a1b5afb6-b2d4-4b55-b11d-f0e400e52214"] .custom-widget-link 
 .footer-info-col address {
 	display: none;
 }
-
 
