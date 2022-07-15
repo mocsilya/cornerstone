@@ -2882,7 +2882,8 @@ body.hasAdminBar.has-bar .brand-anchor {
 	padding: 0;
 }
 
-.product.payment {
+.product.payment,
+.product.search {
 	display: none;
 }
 
@@ -2895,6 +2896,22 @@ body.hasAdminBar.has-bar .brand-anchor {
 
 .card-title {
 	font-weight: 400;
+}
+
+.starwrap,
+.topleft-flag-side,
+.topleft-flag-sash {
+	background: stencilColor("color_badge_product_sold_out_badges");
+	color: stencilColor("color_text_product_sold_out_badges");
+	font-weight: 700;
+	font-size: 14px;
+	text-align: center;
+}
+
+.starwrap:hover,
+.topleft-flag-side:hover,
+.topleft-flag-sash:hover {
+	background: stencilColor("color_hover_product_sold_out_badges");
 }
 
 .card-summary,
@@ -3215,7 +3232,8 @@ a:hover span.card-image:only-of-type img {
 	padding: .75rem;
 }
 
-.productList .product.payment {
+.productList .product.payment,
+.productList .product.search {
 	display: none;
 }
 
@@ -4758,12 +4776,7 @@ a:hover span.card-image:only-of-type img {
 
 .page-blog_post .blog-post-figure,
 .page-blog_post .blog-post-body {
-	@include breakpoint("medium") {
-		width: 66.66667%;
-	}
-	@include breakpoint("large") {
-		width: 66.66667%;
-	}
+	width: 100%;
 }
 
 .blog-thumbnail {
@@ -4795,6 +4808,21 @@ a:hover span.card-image:only-of-type img {
 .form-blog .button:hover .icon svg {
 	fill: stencilColor("button--primary-colorHover");
 }
+
+.page-blog_post .page-content {
+	@include breakpoint("medium") {
+		padding-top: 1.5rem;
+		width: 70%;
+		float: right;
+	}
+}
+
+.page-blog_post .page-sidebar {
+	@include breakpoint("medium") {
+		padding-top: 1.5rem;
+	}
+}
+
 
 
 // Cart
@@ -5009,6 +5037,10 @@ a:hover span.card-image:only-of-type img {
 .footer-info-heading {
 	color: stencilColor("custom-footer-title");
 	font-size: 1.125rem;
+}
+
+.footer-info-heading a {
+	text-decoration: none;
 }
 
 .footer-info-list a {

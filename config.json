@@ -1,6 +1,6 @@
 {
   "name": "Aylis",
-  "version": "6.4.1",
+  "version": "6.5.0",
   "template_engine": "handlebars_v4",
   "meta": {
     "price": 0,
@@ -470,11 +470,11 @@
     "optimizedCheckout-loadingToaster-backgroundColor": "#0A3404",
     "optimizedCheckout-loadingToaster-textColor": "#ffffff",
     "optimizedCheckout-link-hoverColor": "#002fe1",
-    "product_sale_badges": "none",
-    "color_badge_product_sale_badges": "#007dc6",
+    "product_sale_badges": "sash",
+    "color_badge_product_sale_badges": "#cc0000",
     "color_text_product_sale_badges": "#ffffff",
     "color_hover_product_sale_badges": "#000000",
-    "product_sold_out_badges": "none",
+    "product_sold_out_badges": "sash",
     "color_badge_product_sold_out_badges": "#007dc6",
     "color_text_product_sold_out_badges": "#ffffff",
     "color_hover_product_sold_out_badges": "#000000",
@@ -516,7 +516,8 @@
     ],
     "supported_payment_methods": [
       "card",
-      "paypal"
+      "paypal",
+      "bank"
     ],
     "lazyload_mode": "lazyload+lqip",
     "checkout-paymentbuttons-paypal-color": "black",
