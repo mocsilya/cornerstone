@@ -11,7 +11,6 @@ customer:
         limit: 10
 ---
 {{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
-{{inject "categoryId" category.id}}
 {{#partial "head"}}
     {{#if pagination.category.previous}}
         <link rel="prev" href="{{pagination.category.previous}}">
@@ -48,11 +47,32 @@ customer:
 
 {{#partial "page"}}
 {{{region name="category_below_header"}}}
-<div class="category-description">
+<div class="category-description{{#if category.description}}{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}{{/if}}">
 	{{{category.description}}}
 </div>
+{{#if category.description}}
+	{{#if theme_settings.custom_category_description_trim}}
+		<div class="category-description-button" style="display: none;">
+			<a class="button button--secondary">
+				<span class="category-description-more">Read More</span>
+				<span class="category-description-less">Read Less</span>
+			</a>
+		</div>
+	{{/if}}
+{{/if}}
 
-{{#if category.products}}
+{{assignVar "catbrand" "inactive"}}
+{{#if breadcrumbs.[1].name '==' 'Brands'}}
+	{{#each breadcrumbs}}
+		{{#if @last}}
+			{{#if @index 1}}
+				{{assignVar "catbrand" "active"}}
+			{{/if}}
+		{{/if}}
+	{{/each}}
+{{/if}}
+
+{{#and (if category.products) (if (getVar "catbrand") '===' 'inactive')}}
     {{#if category.subcategories}}
         <div class="subcategories-above subcategories--{{theme_settings.custom_category_sidebar_display}}">
 			<ul class="subcategories-grid">
@@ -68,10 +88,10 @@ customer:
 			</ul>
         </div>
     {{/if}}
-{{/if}}
+{{/and}}
 
 <div class="page">
-{{#if category.products}}
+{{#and (if category.products) (if (getVar "catbrand") '===' 'inactive')}}
     {{#if category.faceted_search_enabled}}
         <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}} toggle-content is-open" id="faceted-search-container">
             {{> components/category/sidebar}}
@@ -103,13 +123,15 @@ customer:
     {{/if}}
 
     <div class="page-content" id="product-listing-container">
+		{{{region name="category_above_content"}}}
         {{> components/category/product-listing}}
         {{{region name="category_below_content"}}}
     </div>
 {{else}}
     <div class="page-content" id="product-listing-container">
+	{{{region name="category_above_content"}}}
 	{{#if category.subcategories}}		
-		<ul class="subcategories-grid">
+		<ul class="subcategories-grid{{#unless breadcrumbs.[1].name '==' 'Brands'}}{{#unless theme_settings.custom_category_show_blocks}} subcategories-grid-blockless{{/unless}}{{/unless}}">
 			{{#each category.subcategories}}
 			<li class="subcategories-grid-item">
 				<div class="subcategories-container">
@@ -118,7 +140,16 @@ customer:
 					{{#if image}}
 						<span class="subcategories-image"><img src="{{getImage image 'category_card_size'}}" alt="{{name}}"></span>
 					{{else}}
-						<span class="subcategories-blank">View Category</span>
+						<span class="subcategories-blank"></span>
+					{{/if}}
+						<span class="subcategories-name">{{name}}</span>
+					</a>
+				{{else if ../breadcrumbs.[1].name '==' 'Brands'}}
+					<a href="{{url}}">
+					{{#if image}}
+						<span class="subcategories-image"><img src="{{getImage image 'category_card_size'}}" alt="{{name}}"></span>
+					{{else}}
+						<span class="subcategories-blank"></span>
 					{{/if}}
 						<span class="subcategories-name">{{name}}</span>
 					</a>
@@ -142,7 +173,8 @@ customer:
 	{{/if}}
         {{{region name="category_below_content"}}}
     </div>
-{{/if}}
+{{/and}}
+{{{region name="category_below_all"}}}
 </div>
 
 {{/partial}}

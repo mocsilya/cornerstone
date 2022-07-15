@@ -54,21 +54,37 @@
                 }}
             {{/if}}
         {{else}}
-            {{#or price.sale_price_with_tax.value price.sale_price_without_tax.value}}
-                {{#if theme_settings.pdp_sale_badge_label '===' ''}}
-                    {{> components/products/product-badge
-                        badge-type='sale'
-                        badge_view=theme_settings.product_sale_badges
-                        badge_label=(lang "page_builder.pdp_sale_badge_label")
-                    }}
-                {{else}}
-                    {{> components/products/product-badge
-                        badge-type='sale'
-                        badge_view=theme_settings.product_sale_badges
-                        badge_label=theme_settings.pdp_sale_badge_label
-                    }}
-                {{/if}}
-            {{/or}}
+			{{#if pre_order}}
+				{{#if release_date}}
+		            {{> components/products/product-badge
+		                badge-type='topleft'
+		                badge_view=theme_settings.product_sold_out_badges
+		                badge_label=release_date
+		            }}
+				{{else}}
+		            {{> components/products/product-badge
+		                badge-type='topleft'
+		                badge_view=theme_settings.product_sold_out_badges
+		                badge_label='Pre-Order'
+		            }}
+				{{/if}}
+			{{else}}
+	            {{#or price.sale_price_with_tax.value price.sale_price_without_tax.value}}
+	                {{#if theme_settings.pdp_sale_badge_label '===' ''}}
+	                    {{> components/products/product-badge
+	                        badge-type='sale'
+	                        badge_view=theme_settings.product_sale_badges
+	                        badge_label=(lang "page_builder.pdp_sale_badge_label")
+	                    }}
+	                {{else}}
+	                    {{> components/products/product-badge
+	                        badge-type='sale'
+	                        badge_view=theme_settings.product_sale_badges
+	                        badge_label=theme_settings.pdp_sale_badge_label
+	                    }}
+	                {{/if}}
+	            {{/or}}
+			{{/if}}
         {{/if}}
 		{{#if (getVar "spotlight") '===' 'active'}}
         	<div class="sale-flag-sash spotlight-sash">

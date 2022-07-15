@@ -1,31 +1,33 @@
+{{#unless theme_settings.hide_breadcrumbs }}
 <nav aria-label="Breadcrumb">
-    <ol class="breadcrumbs">
-        {{#unless theme_settings.hide_breadcrumbs }}
-            {{#each breadcrumbs}}
-                <li class="breadcrumb {{#if @last}}is-active{{/if}}">
-                    <a class="breadcrumb-label"
-                       href="{{url}}"
-                       {{#if @last}}aria-current="page"{{/if}}
-                    >
-                        <span>{{name}}</span>
-                    </a>
-                </li>
-            {{/each}}
-        {{/unless}}
-		{{#each breadcrumbs}}
-		    {{#if @index 1}}
-		        <span class="breadcrumb-menu breadcrumb-menu-1">{{#if name '===' 'All Brands'}}Brands{{else}}{{name}}{{/if}}</span>
-		    {{/if}}
-		    {{#if @index 2}}
-		        <span class="breadcrumb-menu breadcrumb-menu-2">{{name}}</span>
-		    {{/if}}
-		    {{#if @index 3}}
-		        <span class="breadcrumb-menu breadcrumb-menu-3">{{name}}</span>
-		    {{/if}}
-		{{/each}}
+	<ol class="breadcrumbs">
+	{{#each breadcrumbs}}
+		<li class="breadcrumb {{#if @last}}is-active{{/if}}">
+			<a class="breadcrumb-label"
+			href="{{url}}"
+			{{#if @last}}aria-current="page"{{/if}}
+			>
+				<span>{{name}}</span>
+			</a>
+		</li>
+	{{/each}}
     </ol>
 </nav>
+{{/unless}}
 
+{{#each breadcrumbs}}
+	{{#if @index 1}}
+	<span class="breadcrumb-menu breadcrumb-menu-1">{{#if name '===' 'All Brands'}}Brands{{else}}{{name}}{{/if}}</span>
+	{{/if}}
+	{{#if @index 2}}
+	<span class="breadcrumb-menu breadcrumb-menu-2">{{name}}</span>
+	{{/if}}
+	{{#if @index 3}}
+	<span class="breadcrumb-menu breadcrumb-menu-3">{{name}}</span>
+	{{/if}}
+{{/each}}
+
+{{#unless theme_settings.hide_breadcrumbs }}
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -45,3 +47,4 @@
     ]
 }
 </script>
+{{/unless}}

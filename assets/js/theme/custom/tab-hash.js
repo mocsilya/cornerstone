@@ -8,7 +8,7 @@ export default function () {
 		const headerHeight = $('.header').outerHeight() * dpr;
 		$(hashHref).siblings().removeClass('is-active');
 		$(hashHref).addClass('is-active');
-		$(".tab").each(function (){
+		$('.tab').each(function (){
 		    $(this).find('a[href="'+hashHref+'"]').parent().addClass('is-active').siblings().removeClass('is-active');
 		});
 		$('html').animate({

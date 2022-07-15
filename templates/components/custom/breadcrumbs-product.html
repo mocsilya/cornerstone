@@ -1,3 +1,4 @@
+{{#unless theme_settings.hide_breadcrumbs }}
 <nav aria-label="Breadcrumb">
 {{#each product.custom_fields}}
 	{{#if name '==' 'breadcrumb'}}
@@ -105,3 +106,23 @@
 	{{/if}}
 {{/each}}
 </nav>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement":
+    [
+        {{#each breadcrumbs}}
+        {
+            "@type": "ListItem",
+            "position": {{add @index 1}},
+            "item": {
+                "@id": {{{JSONstringify url}}},
+                "name": {{{JSONstringify name}}}
+            }
+        }{{#unless @last}},{{/unless}}
+        {{/each}}
+    ]
+}
+</script>
+{{/unless}}
