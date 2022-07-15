@@ -2898,6 +2898,8 @@ body.hasAdminBar.has-bar .brand-anchor {
 	font-weight: 400;
 }
 
+.starwrap,
+.topleft-flag-side,
 .topleft-flag-sash {
 	background: stencilColor("color_badge_product_sold_out_badges");
 	color: stencilColor("color_text_product_sold_out_badges");
@@ -2906,6 +2908,8 @@ body.hasAdminBar.has-bar .brand-anchor {
 	text-align: center;
 }
 
+.starwrap:hover,
+.topleft-flag-side:hover,
 .topleft-flag-sash:hover {
 	background: stencilColor("color_hover_product_sold_out_badges");
 }
