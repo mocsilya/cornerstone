@@ -5040,7 +5040,12 @@ a:hover span.card-image:only-of-type img {
 }
 
 .footer-info-heading a {
+	color: stencilColor("custom-footer-title");
 	text-decoration: none;
+}
+
+.footer-info-heading a:hover {
+	text-decoration: underline;
 }
 
 .footer-info-list a {
@@ -5591,6 +5596,57 @@ a:hover .custom-widget-placeholder {
     transform: translateY(-50%);
 }
 
+.custom-widget-item-top-left .custom-widget-content {
+    justify-content: flex-start;
+    align-items: flex-start;
+    top: 2.25rem;
+    transform: none;
+}
+
+.custom-widget-item-top-centre .custom-widget-content {
+    top: 2.25rem;
+    transform: none;
+}
+
+.custom-widget-item-top-right .custom-widget-content {
+    justify-content: flex-end;
+    align-items: flex-end;
+    top: 2.25rem;
+    transform: none;
+}
+
+.custom-widget-item-middle-left .custom-widget-content {
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.custom-widget-item-middle-right .custom-widget-content {
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.custom-widget-item-bottom-left .custom-widget-content {
+    justify-content: flex-start;
+    align-items: flex-start;
+    top: auto;
+    bottom: 2.25rem;
+    transform: none;
+}
+
+.custom-widget-item-bottom-centre .custom-widget-content {
+    top: auto;
+    bottom: 2.25rem;
+    transform: none;
+}
+
+.custom-widget-item-bottom-right .custom-widget-content {
+    justify-content: flex-end;
+    align-items: flex-end;
+    top: auto;
+    bottom: 2.25rem;
+    transform: none;
+}
+
 .custom-widget-heading,
 .custom-widget-subtext,
 .custom-widget-button {
@@ -5609,6 +5665,11 @@ a:hover .custom-widget-placeholder {
 	font-family: stencilFontFamily("body-font");
     font-weight: 400;
     padding: .5rem 1rem;
+}
+
+.custom-widget-none .custom-widget-heading,
+.custom-widget-none .custom-widget-subtext {
+    padding: .5rem 0;
 }
 
 .custom-widget-button {
@@ -5804,8 +5865,6 @@ a:hover .custom-widget-placeholder {
 .custom-widget-blocks.custom-widget-text-underneath .custom-widget-content {
 	position: static;
 	transform: none;
-	justify-content: flex-start;
-	align-items: flex-start;
 }
 
 .custom-widget-blocks.custom-widget-text-underneath .custom-widget-none {
@@ -5833,18 +5892,11 @@ a:hover .custom-widget-placeholder {
 
 .custom-widget-blocks.custom-widget-text-underneath .custom-widget-heading,
 .custom-widget-blocks.custom-widget-text-underneath .custom-widget-subtext {
-	text-align: left;
-	display: block;
-	flex: none;
-	width: 100%;
 	background: none;
 	padding: .5rem 0;
 }
 
 .custom-widget-blocks.custom-widget-text-underneath .custom-widget-button {
-	display: block;
-	width: 100%;
-	flex: none;
 	margin: 0.5rem 0;
 }
 
