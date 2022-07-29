@@ -475,7 +475,7 @@
     "color_text_product_sale_badges": "#ffffff",
     "color_hover_product_sale_badges": "#000000",
     "product_sold_out_badges": "sash",
-    "color_badge_product_sold_out_badges": "#007dc6",
+    "color_badge_product_sold_out_badges": "#cc0000",
     "color_text_product_sold_out_badges": "#ffffff",
     "color_hover_product_sold_out_badges": "#000000",
     "focusTooltip-textColor": "#ffffff",
