@@ -5040,7 +5040,12 @@ a:hover span.card-image:only-of-type img {
 }
 
 .footer-info-heading a {
+	color: stencilColor("custom-footer-title");
 	text-decoration: none;
+}
+
+.footer-info-heading a:hover {
+	text-decoration: underline;
 }
 
 .footer-info-list a {
