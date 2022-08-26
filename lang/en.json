@@ -1016,5 +1016,13 @@
         "privacy_policy": "Privacy Policy",
         "allow_category_tracking": "Allow [CATEGORY_NAME] tracking",
         "disallow_category_tracking": "Disallow [CATEGORY_NAME] tracking"
+    },
+    "optimized_checkout": {
+        "order_confirmation": {
+            "order_pending_status_text": "We've received your order and are processing your payment. Once the payment is verified, your order will be completed. We will send you an email when it's completed. Please note, this process may take a few minutes depending on the processing times of your chosen method. If you have any questions about your purchase, please get in touch.",
+            "order_incomplete_status_text": "We've received your order and payment. Your order is now being processed by our system. Please note, processing may take a few minutes. If you have any questions about your purchase, please get in touch.",
+            "order_with_support_number_text": "An email will be sent containing information about your purchase. If you have any questions about your purchase, call us on <a href=\"tel://{supportPhoneNumber}\">{supportPhoneNumber}</a>.",
+            "order_without_support_number_text": "An email will be sent containing information about your purchase. If you have any questions about your purchase, please get in touch."
+        }
     }
 }
