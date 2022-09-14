@@ -2,3 +2,66 @@
 // Custom > Client
 // =============================================================================
 //
+
+// MAIN MENU
+// =============================================================================
+
+.navPages-action {
+	@include breakpoint("medium") {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	@include breakpoint("large") {
+		padding-left: 0.78571rem;
+		padding-right: 0.78571rem;
+	}
+}
+
+.navPages > ul > li > .navPages-action {
+	@include breakpoint("medium") {
+		font-size: 14px;
+	}
+	@include breakpoint("large") {
+		font-size: 16px;
+	}
+}
+
+.navPages-list:not(.navPages-list-depth-max) .navPages-action-moreIcon {
+	@include breakpoint("medium") {
+		display: none;
+	}
+}
+
+.navPage-subMenu {
+	@include breakpoint("medium") {
+		border-bottom: 2px solid #4bacc6;
+	}
+}
+
+
+
+// PRODUCT PAGE
+// =============================================================================
+
+.productView-description {
+	@include breakpoint("medium") {
+		margin-top: 1.5rem;
+	}
+}
+
+.page-product .share-container {
+	display: none;
+}
+
+.page-product .price-section .price-section--minor + abbr {
+	color: #999;
+}
+
+
+// FOOTER
+// =============================================================================
+
+.footer-payment-icons svg {
+	color: #fff;
+	fill: #fff;
+}
