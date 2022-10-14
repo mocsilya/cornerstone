@@ -1799,6 +1799,12 @@
   "i18n.HeaderMenuText": {
     "default": "Text label"
   },
+  "i18n.HeaderGlobalRegion": {
+    "default": "Show global header region"
+  },
+  "i18n.FooterGlobalRegion": {
+    "default": "Show global footer region"
+  },
   "i18n.SimpleMenuDisplayDepthOf": {
     "default": "Simple (Menu display depth of 3)",
     "fr": "Simple la profondeur daffichage du menu est égale à 3",
@@ -3382,6 +3388,15 @@
   },
   "i18n.ProductTab2Content": {
     "default": "Tab 2 page url (e.g. /my-page-name)"
+  },
+  "i18n.ProductTab3Show": {
+    "default": "Show custom tab 3"
+  },
+  "i18n.ProductTab3Title": {
+    "default": "Tab 3 heading"
+  },
+  "i18n.ProductTab3Content": {
+    "default": "Tab 3 page url (e.g. /my-page-name)"
   },
   "i18n.NumberOfProductsDisplayed": {
     "default": "Number of products displayed",

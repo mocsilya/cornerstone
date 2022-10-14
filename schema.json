@@ -1473,6 +1473,18 @@
         "id": "custom_header_menu_width"
       },
       {
+        "type": "checkbox",
+        "label": "i18n.HeaderGlobalRegion",
+        "force_reload": true,
+        "id": "custom_header_global_region"
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.FooterGlobalRegion",
+        "force_reload": true,
+        "id": "custom_footer_global_region"
+      },
+      {
         "type": "heading",
         "content": "i18n.FooterNewsletter"
       },
@@ -2705,6 +2717,21 @@
         "type": "text",
         "label": "i18n.ProductTab2Content",
         "id": "custom_product_tab2_content"
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.ProductTab3Show",
+        "id": "custom_product_tab3_show"
+      },
+      {
+        "type": "text",
+        "label": "i18n.ProductTab3Title",
+        "id": "custom_product_tab3_title"
+      },
+      {
+        "type": "text",
+        "label": "i18n.ProductTab3Content",
+        "id": "custom_product_tab3_content"
       },
       {
         "type": "heading",

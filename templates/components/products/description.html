@@ -89,6 +89,14 @@
     </div>
 {{/if}}
 
+{{#if theme_settings.custom_product_tab3_show}}
+    <h4 class="productView-title">{{theme_settings.custom_product_tab3_title}}</h4>
+    <div class="productView-description tab3-content" id="tab-custom3">
+        <span class="tab3-page">{{{theme_settings.custom_product_tab3_content}}}</span>
+		{{> components/custom/client/client-product-tab3}}
+    </div>
+{{/if}}
+
 {{#all settings.show_product_reviews theme_settings.show_product_reviews product.reviews.total}}
     <h4 class="productView-title">{{lang 'products.reviews.header' total=product.reviews.total}}</h4>
     <div class="productView-description review-content" id="tab-reviews">

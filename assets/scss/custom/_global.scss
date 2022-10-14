@@ -132,6 +132,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hasAdminBar > .banners,
+.header-globalregion,
+.footer-globalregion,
 div[data-content-region="header_bottom--global"],
 div[data-content-region="header_bottom"],
 div[data-content-region="footer_top--global"] {
@@ -2894,6 +2896,20 @@ body.hasAdminBar.has-bar .brand-anchor {
 	margin-bottom: 0;
 }
 
+.product.spotlight .card {
+	display: block;
+	height: auto;
+}
+
+.product.spotlight .card:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
 .card-title {
 	font-weight: 400;
 }
@@ -2943,6 +2959,15 @@ body.hasAdminBar.has-bar .brand-anchor {
 	flex: 0 0 auto;
 }
 
+.product.spotlight .card-figure {
+	display: block;
+	flex: none;
+	@include breakpoint("large") {
+		float: left;
+		width: 50%;
+	}
+}
+
 .card-body {
 	display: flex;
 	flex: 1 0 auto;
@@ -2953,8 +2978,14 @@ body.hasAdminBar.has-bar .brand-anchor {
 
 .product.spotlight .card-body {
 	padding: .75rem;
+	display: block;
+	flex: none;
 	@include breakpoint("medium") {
 		padding: 1.5rem .75rem .75rem .75rem;
+	}
+	@include breakpoint("large") {
+		float: right;
+		width: 49%;
 	}
 }
 
