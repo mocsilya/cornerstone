@@ -9,6 +9,6 @@
 {{/filter}}
 {{> components/common/payment-icons}}
 <span class="form-action-buttons form-action-buttons-2">
-	<a id="form-action-cycle" class="button button--secondary" href="/cycle-to-work/?make={{hyphenate product.brand.name}}&model={{hyphenate product.title}}&price=£{{product.price.with_tax.value}}">Pay via 'Cycle To Work'</a>
+	<a id="form-action-cycle" class="button button--secondary" href="/cycle-to-work-pre-order/?make={{hyphenate product.brand.name}}&model={{hyphenate product.title}}&price=£{{product.price.with_tax.value}}">Pay via 'Cycle To Work'</a>
 	<input id="form-action-finance" data-wait-message="{{lang 'products.adding_to_cart'}}" class="button button--secondary" type="submit" value="Apply For Finance">
 </span>
