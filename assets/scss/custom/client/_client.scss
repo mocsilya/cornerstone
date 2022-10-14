@@ -1077,7 +1077,9 @@
 #tab-custom1 table,
 #tab-custom1 iframe,
 #tab-custom2 table,
-#tab-custom2 iframe {
+#tab-custom2 iframe,
+#tab-custom3 table,
+#tab-custom3 iframe{
 	width: 100% !important;
 	height: auto !important;
 }
@@ -1085,7 +1087,8 @@
 
 #tab-description iframe,
 #tab-custom1 iframe,
-#tab-custom2 iframe {
+#tab-custom2 iframe,
+#tab-custom3 iframe {
 	min-height: 200px;
 	@include breakpoint("small") {
 		min-height: 300px;
@@ -1108,10 +1111,13 @@
 
 #tab-custom1 table,
 #tab-custom2 table,
+#tab-custom3 table,
 #tab-custom1 td,
 #tab-custom2 td,
+#tab-custom3 td,
 #tab-custom1 th,
-#tab-custom2 th {
+#tab-custom2 th,
+#tab-custom3 th {
 	border: 0;
 }
 
