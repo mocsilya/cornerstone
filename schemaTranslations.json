@@ -2099,7 +2099,7 @@
     "default": "Show categories with sub categories in seperate footer columns."
   },
   "i18n.ShowCurrentYearAnd": {
-    "default": "Show \"&copy;\", current year and store name",
+    "default": "Show copyright, current year and store name",
     "fr": "Afficher «  » lannée actuelle et le nom de la boutique",
     "it": "Mostra  anno corrente e nome del negozio",
     "uk": "Показати \"&copy;\", рік та назву магазину",
