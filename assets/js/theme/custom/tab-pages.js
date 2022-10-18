@@ -38,4 +38,21 @@ export default function () {
 			});
 		}
 	}
+	if ($('#tab-custom3').length > 0) {
+		if ($('.tab3-page').html()) {
+			const url3 = $('.tab3-page').html();
+			$.ajax({ 
+				url: url3, 
+				processData : false,
+				cache: true,
+				success: function(data) {
+					const html3 = $.parseHTML( data );
+					const content3 = $(html3).find('.page-content').contents();
+					if ($(content3).length > 0) { 
+					    $('#tab-custom3').append(content3);
+					}
+				}
+			});
+		}
+	}
 }

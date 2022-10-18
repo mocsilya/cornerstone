@@ -46,6 +46,11 @@
             <a class="tab-title" href="#tab-custom2">{{theme_settings.custom_product_tab2_title}}</a>
         </li>
     {{/if}}
+    {{#if theme_settings.custom_product_tab3_show}}
+        <li class="tab tab-custom3">
+            <a class="tab-title" href="#tab-custom3">{{theme_settings.custom_product_tab3_title}}</a>
+        </li>
+    {{/if}}
     {{#all settings.show_product_reviews theme_settings.show_product_reviews product.reviews.total}}
         <li class="tab tab-reviews">
             <a class="tab-title productView-reviewTabLink" href="#tab-reviews">{{lang 'products.reviews.header' total=product.reviews.total}}</a>
@@ -87,6 +92,12 @@
         <div class="tab-content" id="tab-custom2">
 			<span class="tab2-page">{{{theme_settings.custom_product_tab2_content}}}</span>
 			{{> components/custom/client/client-product-tab2}}
+		</div>
+    {{/if}}
+    {{#if theme_settings.custom_product_tab3_show}}
+        <div class="tab-content" id="tab-custom3">
+			<span class="tab3-page">{{{theme_settings.custom_product_tab3_content}}}</span>
+			{{> components/custom/client/client-product-tab3}}
 		</div>
     {{/if}}
     {{#all settings.show_product_reviews theme_settings.show_product_reviews product.reviews.total}}
