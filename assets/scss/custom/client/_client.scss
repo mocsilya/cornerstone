@@ -122,6 +122,17 @@
 	}
 }
 
+.navPage-subMenu-image li {
+    border: 1px solid #cda955;
+    background: #fff;
+}
+
+.navPages-list:not(.navPages-list-depth-max) .navPage-subMenu-action {
+    @include breakpoint("medium") {
+		text-align: center;
+	}
+}
+
 
 // Product
 // =============================================================================
