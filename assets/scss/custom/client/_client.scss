@@ -7,16 +7,25 @@
 // Header
 // =============================================================================
 
-
 .header-bar-icon-custom .icon svg {
 	color: #ffa800;
 	fill: #ffa800;
 }
 
 
-// Nav Page
+
+// Zotabox
 // =============================================================================
 
+body.with-bar[zb-bar="show"] .header {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+
+
+// Nav Page
+// =============================================================================
 
 .navPages > ul > li > .navPages-action {
 	font-family: "Kanit", Arial, Helvetica, sans-serif;
