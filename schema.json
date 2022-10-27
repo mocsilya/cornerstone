@@ -349,6 +349,10 @@
         "label": "i18n.PageHeaderImageDepth",
         "options": [
           {
+            "value": "none",
+            "label": "None"
+          },
+          {
             "value": "slim",
             "label": "Slim"
           },

@@ -178,7 +178,7 @@
     "custom_category_description_trim": true,
     "custom-page-header-text": "#ffffff",
     "custom-page-header-background": "#666666",
-    "custom_page_header_image_depth": "medium",
+    "custom_page_header_image_depth": "none",
     "custom_page_header_image_blog": "",
     "custom_page_header_image_brands": "",
     "custom_page_header_image_cart": "",
