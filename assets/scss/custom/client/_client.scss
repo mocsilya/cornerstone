@@ -39,6 +39,30 @@
 }
 
 
+.subcategories-image,
+.subcategories-blank {
+	position: relative;
+	box-sizing: content-box;
+	height: 0;
+	padding: 0 0 100% 0;
+	border: 1px solid #4bacc6;
+	width: calc(100% - 2px);
+}
+
+.subcategories-image img {
+	margin: 10px;
+	width: calc(100% - 20px);
+	max-width: calc(100% - 20px);
+}
+
+.subcategories-above .subcategories-name {
+	border: none;
+	border-radius: 0;
+	background: #4bacc6;
+	color: #fff;
+}
+
+
 
 // PRODUCT PAGE
 // =============================================================================
