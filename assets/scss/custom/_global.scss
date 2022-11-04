@@ -4411,6 +4411,62 @@ a:hover span.card-image:only-of-type img {
     fill: stencilColor("button--primary-colorHover");
 }
 
+.productView-bottom-global,
+.productView-upsell {
+	clear: both;
+}
+
+.upsell-item {
+	display: flex;
+	align-items: center;
+	border: 1px solid stencilColor("container-border-global-color-base");
+	margin-bottom: .75rem;
+}
+
+.upsell-item-image {
+	padding: .75rem;
+	max-width: calc(100px + 1.5rem);
+	display: block;
+	margin: 0;
+}
+
+.upsell-item-details {
+	padding: .75rem .75rem .75rem 0;
+}
+
+.upsell-item-details ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.upsell-item-title {
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.upsell-item-title a {
+	text-decoration: none;
+}
+
+.upsell-item-brand {
+	display: none;
+}
+
+
+.upsell-item-price .price-section--saving {
+	display: none;
+}
+
+.upsell-item-actions {
+	padding-top: .75rem;
+}
+
+.upsell-item-actions .button {
+	margin: 0;
+}
+
+
 
 // Payment Product Page
 // =============================================================================

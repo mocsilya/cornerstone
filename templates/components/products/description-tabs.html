@@ -1,15 +1,14 @@
 {{assignVar "customfields" "inactive"}}
 {{#each product.custom_fields}}
 	{{#unless name '==' 'hidden'}}
-		{{#unless name '==' 'breadcrumb'}}
-			{{#unless name '==' 'download'}}
-           			{{assignVar "customfields" "active"}}
-           	{{/unless}}
-		{{/unless}}
+		{{#startsWith '_' name}}
+		{{else}}
+           	{{assignVar "customfields" "active"}}
+        {{/startsWith}}
 	{{/unless}}
 {{/each}}
 {{assignVar "downloads" "inactive"}}
-{{#filter product.custom_fields 'download' property='name'}}
+{{#filter product.custom_fields '_download' property='name'}}
 	{{assignVar "downloads" "active"}}
 {{/filter}}
 <ul class="tabs" data-tab>
@@ -109,7 +108,7 @@
 	{{#if (getVar "downloads") '===' 'active'}}
 	<ul class="productView-download">
 	{{#each product.custom_fields}}
-		{{#if name '==' 'download'}}
+		{{#if name '==' '_download'}}
    			<li class="productView-download-item">
 				<a class="productView-download-link button button--primary" target="_blank" href="{{cdn (concat 'webdav:' value)}}">
 				     <i aria-hidden="true" class="icon">
