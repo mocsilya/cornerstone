@@ -20,7 +20,7 @@
                         <a href="{{product.url}}" class="button button--small button--primary">{{lang 'products.choose_options'}}</a>
                     {{/if}}
 					{{#unless product.options}}
-                        <a href="/cart.php?action=add&product_id={{product.id}}&qty=1" class="button button--small button--primary">{{lang 'products.add_to_cart'}}</a>
+                        <a {{#if theme_settings.custom_product_addtocart_pinterest}}onclick="pintrk('track', 'addtocart');"{{/if}} href="/cart.php?action=add&product_id={{product.id}}&qty=1" class="button button--small button--primary">{{lang 'products.add_to_cart'}}</a>
                     {{/unless}}
             {{/or}}
 		</div>
