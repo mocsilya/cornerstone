@@ -1,0 +1,28 @@
+<div class="upsell-item">
+	<div class="upsell-item-image">
+		<a href="{{product.url}}"><img src="{{#replace '{:size}' product.main_image.data}}400x400{{/replace}}" alt="{{product.title}}" title="{{product.title}}"></a>
+	</div>
+	<div class="upsell-item-details">
+		<ul>
+			<li class="upsell-item-title"><a href="{{product.url}}">{{product.title}}</a></li>
+			<li class="upsell-item-brand"><a href="{{product.brand.url}}">{{product.brand.name}}</a></li>
+			<li class="upsell-item-price">
+				{{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+					{{> components/products/price price=product.price}}
+				{{else}}
+					{{> components/common/login-for-pricing}}
+				{{/or}}
+			</li>
+		</ul>
+		<div class="upsell-item-actions"{{#unless product.can_purchase}} style="display: none;"{{/unless}}>
+            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                    {{#if product.options}}
+                        <a href="{{product.url}}" class="button button--small button--primary">{{lang 'products.choose_options'}}</a>
+                    {{/if}}
+					{{#unless product.options}}
+                        <a {{#if theme_settings.custom_product_addtocart_pinterest}}onclick="pintrk('track', 'addtocart');"{{/if}} href="/cart.php?action=add&product_id={{product.id}}&qty=1" class="button button--small button--primary">{{lang 'products.add_to_cart'}}</a>
+                    {{/unless}}
+            {{/or}}
+		</div>
+	</div>
+</div>

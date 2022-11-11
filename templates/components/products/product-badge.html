@@ -1,10 +1,22 @@
 {{#if badge_view '===' 'sash'}}
     <div class="{{badge-type}}-flag-sash">
-        <span class="{{badge-type}}-text">{{{badge_label}}}</span>
+		<span class="{{badge-type}}-text">
+			{{#replace 'Available:' badge_label}}
+				Pre-Order:
+			{{else}}
+				{{{badge_label}}}
+			{{/replace}}
+		</span>
     </div>
 {{else if badge_view '===' 'topleft'}}
     <div class="{{badge-type}}-flag-side">
-        <span class="{{badge-type}}-text">{{{badge_label}}}</span>
+		<span class="{{badge-type}}-text">
+			{{#replace 'Available:' badge_label}}
+				Pre-Order:
+			{{else}}
+				{{{badge_label}}}
+			{{/replace}}
+		</span>
     </div>
 {{else if badge_view '===' 'burst'}}
     <div class="starwrap">

@@ -11,9 +11,7 @@ import foundation from './global/foundation';
 import quickView from './global/quick-view';
 import cartPreview from './global/cart-preview';
 import privacyCookieNotification from './global/cookieNotification';
-import adminBar from './global/adminBar';
 import carousel from './common/carousel';
-import loadingProgressBar from './global/loading-progress-bar';
 import svgInjector from './global/svg-injector';
 import clientGlobal from './custom/client/client-global';
 import scrollDetect from './custom/scroll-detect';
@@ -23,12 +21,11 @@ import toggleClick from './custom/toggle-click';
 import headerBar from './custom/header-bar';
 import widgetHelper from './custom/widget-helper';
 import sidebarHelper from './custom/sidebar-helper';
+import scrollClick from './custom/scroll-click';
 
 export default class Global extends PageManager {
     onReady() {
-        const {
-            channelId, cartId, productId, categoryId, secureBaseUrl, maintenanceModeSettings, adminBarLanguage,
-        } = this.context;
+        const { cartId, secureBaseUrl } = this.context;
         cartPreview(secureBaseUrl, cartId);
         quickSearch();
         currencySelector(cartId);
@@ -38,8 +35,6 @@ export default class Global extends PageManager {
         menu();
         mobileMenuToggle();
         privacyCookieNotification();
-        adminBar(secureBaseUrl, channelId, maintenanceModeSettings, JSON.parse(adminBarLanguage), productId, categoryId);
-        loadingProgressBar();
         svgInjector();
 		clientGlobal();
         scrollDetect();
@@ -49,5 +44,6 @@ export default class Global extends PageManager {
 		headerBar();
 		widgetHelper();
 		sidebarHelper();
+		scrollClick();
     }
 }

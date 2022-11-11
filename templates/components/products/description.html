@@ -1,15 +1,14 @@
 {{assignVar "customfields" "inactive"}}
 {{#each product.custom_fields}}
 	{{#unless name '==' 'hidden'}}
-		{{#unless name '==' 'breadcrumb'}}
-			{{#unless name '==' 'download'}}
-           			{{assignVar "customfields" "active"}}
-           	{{/unless}}
-		{{/unless}}
+		{{#startsWith '_' name}}
+		{{else}}
+           	{{assignVar "customfields" "active"}}
+		{{/startsWith}}
 	{{/unless}}
 {{/each}}
 {{assignVar "downloads" "inactive"}}
-{{#filter product.custom_fields 'download' property='name'}}
+{{#filter product.custom_fields '_download' property='name'}}
 	{{assignVar "downloads" "active"}}
 {{/filter}}
 {{#if product.description}}
@@ -25,7 +24,7 @@
 	<div class="productView-description downloads-content" id="tab-downloads">
 		<ul class="productView-download">
 		{{#each product.custom_fields}}
-			{{#if name '==' 'download'}}
+			{{#if name '==' '_download'}}
 	   			<li class="productView-download-item">
 					<a class="productView-download-link button button--primary" target="_blank" href="{{cdn (concat 'webdav:' value)}}">
 					     <i aria-hidden="true" class="icon">
@@ -49,12 +48,11 @@
         <dl class="productView-info">
 			{{#each product.custom_fields}}
 			{{#unless name '==' 'hidden'}}
-				{{#unless name '==' 'breadcrumb'}}
-					{{#unless name '==' 'download'}}
-           				<dt class="productView-info-name customfield-label customfield-{{dashcase name}}">{{name}}:</dt>
-           				<dd class="productView-info-value customfield-value customfield-{{dashcase name}}">{{{value}}}</dd>
-					{{/unless}}
-				{{/unless}}
+				{{#startsWith '_' name}}
+				{{else}}
+           			<dt class="productView-info-name customfield-label customfield-{{dashcase name}}">{{name}}:</dt>
+           			<dd class="productView-info-value customfield-value customfield-{{dashcase name}}">{{{value}}}</dd>
+				{{/startsWith}}
 			{{/unless}}
 			{{/each}}
         </dl>
@@ -86,6 +84,14 @@
     <div class="productView-description tab2-content" id="tab-custom2">
         <span class="tab2-page">{{{theme_settings.custom_product_tab2_content}}}</span>
 		{{> components/custom/client/client-product-tab2}}
+    </div>
+{{/if}}
+
+{{#if theme_settings.custom_product_tab3_show}}
+    <h4 class="productView-title">{{theme_settings.custom_product_tab3_title}}</h4>
+    <div class="productView-description tab3-content" id="tab-custom3">
+        <span class="tab3-page">{{{theme_settings.custom_product_tab3_content}}}</span>
+		{{> components/custom/client/client-product-tab3}}
     </div>
 {{/if}}
 

@@ -46,7 +46,7 @@
                 "multiple": "check out with multiple addresses",
                 "or": "or"
             },
-            "button": "Check out",
+            "button": "Checkout Securely",
             "empty_cart": "Your cart is empty",
             "title": "Click here to proceed to checkout",
             "item": "Item",
@@ -62,9 +62,9 @@
             "update": "Update shipping cost"
         },
         "preview": {
-            "checkout_now": "Check out now",
-            "checkout_multiple": "or check out with multiple addresses",
-            "view_cart": "View Cart"
+            "checkout_now": "Checkout Securely",
+            "checkout_multiple": "Checkout with multiple addresses",
+            "view_cart": "View or Edit Cart"
         },
         "label": "Your Cart ({quantity, plural, one {# item} other {# items}})",
         "is_empty": "Your cart is empty",
@@ -126,12 +126,12 @@
             "preview": "Preview"
         },
         "added_to_cart": {
-            "what_next": "Ok, {num_products, plural, one {1 item was} other {# items were}} added to your cart. What's next?",
+            "what_next": "Ok, {num_products, plural, one {1 item is} other {# items are}} now in your cart. What's next?",
             "your_cart_contains": "Your cart contains {num_products, plural, one {1 item} other {# items}}",
-            "proceed_to_checkout": "Proceed to checkout",
+            "proceed_to_checkout": "Checkout Securely",
             "order_subtotal": "Order subtotal",
             "continue_shopping": "Continue Shopping",
-            "view_or_edit_cart": "View or edit your cart",
+            "view_or_edit_cart": "View or Edit Cart",
             "you_might_also_like": "You may also like"
         }
     },
@@ -154,6 +154,7 @@
         "yes": "Yes",
         "from": "From",
         "to": "to",
+        "ok": "OK",
         "cancel": "Cancel",
         "close": "Close",
         "or": "or",
@@ -346,6 +347,7 @@
                 "ship_to": "Ship To",
                 "ship_to_multi": "Items shipped to {street}, {city}, {state}, {zip}, {country}",
                 "ship_to_multi_text": "Order will be shipped to multiple addresses",
+                "pickup_details": "Pickup Details",
                 "bill_to": "Bill To",
                 "how_to_pay": "Here's how to pay for your order:",
                 "order_details": "Order Details",
@@ -365,7 +367,13 @@
                 "actions": "Actions",
                 "reorder": "Reorder",
                 "return": "Return",
-                "print_invoice": "Print Invoice"
+                "pickup": "Pickup Details",
+                "pickup_method": "Pickup method",
+                "in_store_pickup": "In-store pickup",
+                "print_invoice": "Print Invoice",
+                "phone": "Phone",
+                "email": "Email",
+                "opening_hours": "Opening hours"
             },
             "downloads": {
                 "heading": "Order #{number} Downloads",
@@ -809,6 +817,10 @@
         "qty": "Qty",
         "code": "Code/SKU",
         "shipping_address": "Shipping Address",
+        "fulfillment": "Fulfillment",
+        "digital": "Digital",
+        "shipping": "Shipping",
+        "pickup": "Pickup",
         "product_name": "Product Name",
         "price": "Price",
         "total": "Total",
@@ -901,13 +913,6 @@
     },
     "maintenance": {
         "down": "Down for Maintenance"
-    },
-    "admin": {
-        "maintenance_header": "Your store is down for maintenance.",
-        "maintenance_tooltip": "Only administrators can view the store at the moment. Visit your control panel settings page to disable maintenance mode.",
-        "maintenance_showstore_link": "Click here to see what your visitors will see.",
-        "prelaunch_header": "Your storefront is private. Share your site with preview code:",
-        "page_builder_link": "Design this page in Page Builder"
     },
     "carousel": {
         "arrow_and_dot_aria_label": "Go to slide [SLIDE_NUMBER] of [SLIDES_QUANTITY]",
@@ -1011,5 +1016,21 @@
         "privacy_policy": "Privacy Policy",
         "allow_category_tracking": "Allow [CATEGORY_NAME] tracking",
         "disallow_category_tracking": "Disallow [CATEGORY_NAME] tracking"
+    },
+	"optimized_checkout": {
+        "order_confirmation": {
+			"order_number_text": "Your order number is <strong>{orderNumber}</strong>",
+			"order_pending_review_text": "Your order was sent to us but is currently awaiting payment. Once we receive the payment for your order, it will be completed. If you've already provided payment details then we will process your order manually and send you an email when it's completed.",
+			"order_pending_status_text": "We've received your order and are processing your payment. Once the payment is verified, your order will be completed. We will send you an email when it's completed. Please note, this process may take a few minutes depending on the processing times of your chosen method. If you have any questions about your purchase, email us at <a href=\"mailto:{supportEmail}?Subject=Order {orderNumber}\" target=\"_top\">{supportEmail}</a>.",
+			"order_incomplete_status_text": "We've received your order and payment. Your order is now being processed by our system. Please note, processing may take a few minutes. If you have any questions about your purchase, email us at <a href=\"mailto:{supportEmail}?Subject=Order {orderNumber}\" target=\"_top\">{supportEmail}</a>.",
+			"order_with_downloadable_digital_items_text": "You can download your digital purchases by clicking the links on this page, or by logging into your account at any time. There is also a download link in your confirmation email, which should be arriving shortly.",
+			"order_with_support_number_text": "An email will be sent containing information about your purchase. If you have any questions about your purchase, email us at <a href=\"mailto:{supportEmail}?Subject=Order {orderNumber}\" target=\"_top\">{supportEmail}</a> or call us at <a href=\"tel://{supportPhoneNumber}\">{supportPhoneNumber}</a>.",
+			"order_without_downloadable_digital_items_text": "Once we receive your payment, we'll send a confirmation email with a link to download your digital purchases.",
+			"order_without_support_number_text": "An email will be sent containing information about your purchase. If you have any questions about your purchase, email us at <a href=\"mailto:{supportEmail}?Subject=Order {orderNumber}\" target=\"_top\">{supportEmail}</a>.",
+			"thank_you_customer_heading": "Thank you {name}!",
+			"thank_you_heading": "Thank you!",
+			"continue_shopping": "Continue Shopping »",
+			"order_status_update_facebook_messenger_heading": "Get instant updates of your order to Messenger"
+        }
     }
 }
