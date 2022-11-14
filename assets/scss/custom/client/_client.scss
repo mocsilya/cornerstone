@@ -196,6 +196,19 @@ h1, h2, h3, h4, h5, h6 {
 	display: none;
 }
 
+.form-field-label-wording,
+.form-field-custom-text {
+    display: none;
+}
+
+.form-field-label-wording.is-active,
+.form-field-custom-text.is-active {
+	display: block;
+}
+
+.form-field-label-wording .form-radio + .form-label:last-child {
+	margin-bottom: 0.35714rem;
+}
 
 
 // Footer
