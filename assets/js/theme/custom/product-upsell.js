@@ -1,5 +1,5 @@
 /**
- * TEST SCRIPT
+ * PRODUCT UPSELL
 */
 
 import utils from '@bigcommerce/stencil-utils';
