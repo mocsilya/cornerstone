@@ -53,6 +53,31 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+// Quick Search
+// =============================================================================
+
+.dropdown--quickSearch .form {
+	background: #fff;
+	background: stencilColor("dropdown--quickSearch-backgroundColor");
+	border: 2px solid stencilColor("header-backgroundColor");
+	border-top: 0;
+}
+
+.dropdown--quickSearch .form-field-input .form-input {
+	background: #fff;
+	color: stencilColor("color-textBase");
+	border: 1px solid stencilColor("header-backgroundColor");
+}
+
+.dropdown--quickSearch .form-field-submit .button {
+	color: #fff;
+	background-color: stencilColor("header-backgroundColor");
+	border: 1px solid stencilColor("header-backgroundColor");
+}
+
+
+
+
 // Page Banners
 // =============================================================================
 
@@ -183,16 +208,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .form-field-gift-message,
-.form-field-select-label-gift-jars-only {
+.form-field-select-label-design {
 	display: none;
 }
 
 .form-field-gift-message.is-active,
-.form-field-select-label-gift-jars-only.is-active {
+.form-field-select-label-design.is-active {
 	display: block;
 }
 
-.form-field-select-label-gift-jars-only small {
+.form-field-select-label-design small,
+.form-field-label-wording small,
+.form-field-custom-text small {
 	display: none;
 }
 

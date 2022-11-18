@@ -9,7 +9,7 @@ export default function () {
 	$('.form-field-select-format .form-option').click(function() {		
 		if ($(this).hasClass('form-option-small-gift-jar') || $(this).hasClass('form-option-large-gift-jar')) {
 			$('.form-field-label-wording').addClass('is-active');
-			$('.form-field-select-label-gift-jars-only').addClass('is-active');
+			$('.form-field-select-label-design').addClass('is-active');
 			if ($('.form-field-label-wording .form-radio-none').is(':checked')) {
 				$('.form-field-label-wording .form-radio-none').prop('checked', false);
 				$('.form-radio-use-default-text').prop('checked', true);
@@ -21,8 +21,8 @@ export default function () {
 			$('.form-field-label-wording .form-radio-none').prop('checked', true);
 			$('.form-field-custom-text').removeClass('is-active');
 			$('.form-field-custom-text .form-input').val('');
-			$('.form-field-select-label-gift-jars-only').removeClass('is-active');
-			$('.form-field-select-label-gift-jars-only .form-select').prop('selectedIndex',0);
+			$('.form-field-select-label-design').removeClass('is-active');
+			$('.form-field-select-label-design .form-select').prop('selectedIndex',0);
 		}
 	});
 	
