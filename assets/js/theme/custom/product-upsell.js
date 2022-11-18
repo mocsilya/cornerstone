@@ -1,8 +1,34 @@
 /**
- * TEST SCRIPT
+ * PRODUCT UPSELL
 */
 
 import utils from '@bigcommerce/stencil-utils';
+
+export default function (context) {		
+	if ($('.productView-upsell').length) {
+		var productId = $('.productView-upsell').data('upsell-id');
+	} else {
+		var productId = 0;
+	}
+	//console.log(productId);
+	if (productId !== 0) { 
+		utils.api.product.getById(productId, { template: 'custom/product-upsell-data' }, (err, response) => {
+			if (err) return;			
+			const idList = response.replace( / +/g, '');
+			//console.log(idList);
+			const array = idList.split(',');
+			//console.log(array);
+			$.each(array, function(i, Id){
+			   	utils.api.product.getById(Id, { template: 'custom/product-upsell' }, (err, response) => {
+			   		$('.productView-upsell').append(response);
+				})
+			});
+		})
+	}
+}
+
+/*
+OLD VERSION - DEBUG CONTEXT DOES NOT WORK ON LIVE
 
 export default function (context) {	
 	
@@ -13,8 +39,7 @@ export default function (context) {
 	}
 	if (productId !== 0) { 
 		utils.api.product.getById(productId, { params: { debug: "context" }}, (err, response) => {
-				/*
-				const blogJson = JSON.parse(response);
+
 				const imageSize = '600x600';
 				const imageUrl = response.product.main_image.data.replace('{:size}', imageSize);
 		        console.log('Title:', response.product.title);
@@ -24,7 +49,6 @@ export default function (context) {
 				console.log('Price:', response.product.price);
 				console.log('Image:', imageUrl);
 				console.log('Sale:', response.product.price.sale_price_with_tax.formatted);
-				*/
 				console.log(response.product);
 				var i = 0;
 				$(response.product.custom_fields).each(function() {
@@ -44,3 +68,4 @@ export default function (context) {
 		)
 	}
 }
+*/
