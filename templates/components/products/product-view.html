@@ -338,6 +338,11 @@
 			{{{region name="product_bottom--global"}}}
 			</div>
 			{{{region name="product_bottom"}}}
+			{{#filter product.custom_fields '_upsell' property='name' }}
+	  			<div class="productView-upsell" data-upsell-id="{{../product.id}}">
+			
+	  			</div>
+			{{/filter}}
         </div>
         {{> components/common/share url=product.url}}
     </section>

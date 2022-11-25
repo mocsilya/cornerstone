@@ -17,7 +17,9 @@
         </div>
     {{/if}}
 {{/if}}
-{{{region name="footer_top--global"}}}
+<div class="footer-globalregion"{{#unless theme_settings.custom_footer_global_region}} style="display:none;"{{/unless}}>
+	{{{region name="footer_top--global"}}}
+</div>
 {{#or theme_settings.custom_footer_show_newsletter theme_settings.social_icon_placement_bottom}}
 <section class="footer-newsletter">
 	{{> components/custom/client/client-newsletter-top}}

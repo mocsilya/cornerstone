@@ -1,15 +1,14 @@
 {{assignVar "customfields" "inactive"}}
 {{#each product.custom_fields}}
 	{{#unless name '==' 'hidden'}}
-		{{#unless name '==' 'breadcrumb'}}
-			{{#unless name '==' 'download'}}
-           			{{assignVar "customfields" "active"}}
-           	{{/unless}}
-		{{/unless}}
+		{{#startsWith '_' name}}
+		{{else}}
+           	{{assignVar "customfields" "active"}}
+        {{/startsWith}}
 	{{/unless}}
 {{/each}}
 {{assignVar "downloads" "inactive"}}
-{{#filter product.custom_fields 'download' property='name'}}
+{{#filter product.custom_fields '_download' property='name'}}
 	{{assignVar "downloads" "active"}}
 {{/filter}}
 <ul class="tabs" data-tab>
@@ -44,6 +43,11 @@
     {{#if theme_settings.custom_product_tab2_show}}
         <li class="tab tab-custom2">
             <a class="tab-title" href="#tab-custom2">{{theme_settings.custom_product_tab2_title}}</a>
+        </li>
+    {{/if}}
+    {{#if theme_settings.custom_product_tab3_show}}
+        <li class="tab tab-custom3">
+            <a class="tab-title" href="#tab-custom3">{{theme_settings.custom_product_tab3_title}}</a>
         </li>
     {{/if}}
     {{#all settings.show_product_reviews theme_settings.show_product_reviews product.reviews.total}}
@@ -89,6 +93,12 @@
 			{{> components/custom/client/client-product-tab2}}
 		</div>
     {{/if}}
+    {{#if theme_settings.custom_product_tab3_show}}
+        <div class="tab-content" id="tab-custom3">
+			<span class="tab3-page">{{{theme_settings.custom_product_tab3_content}}}</span>
+			{{> components/custom/client/client-product-tab3}}
+		</div>
+    {{/if}}
     {{#all settings.show_product_reviews theme_settings.show_product_reviews product.reviews.total}}
        <div class="tab-content" id="tab-reviews">
            {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
@@ -98,7 +108,7 @@
 	{{#if (getVar "downloads") '===' 'active'}}
 	<ul class="productView-download">
 	{{#each product.custom_fields}}
-		{{#if name '==' 'download'}}
+		{{#if name '==' '_download'}}
    			<li class="productView-download-item">
 				<a class="productView-download-link button button--primary" target="_blank" href="{{cdn (concat 'webdav:' value)}}">
 				     <i aria-hidden="true" class="icon">
