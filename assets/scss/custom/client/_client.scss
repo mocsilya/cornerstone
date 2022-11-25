@@ -207,8 +207,12 @@ h1, h2, h3, h4, h5, h6 {
 	width: 90px;
 }
 
-.form-field-gift-message,
-.form-field-select-label-design {
+.form-field-gift-message {
+	display: none;
+}
+
+.form-field-select-format + .form-field-select-label-design,
+.form-field-jar-size + .form-field-select-label-design {
 	display: none;
 }
 
@@ -236,6 +240,7 @@ h1, h2, h3, h4, h5, h6 {
 .form-field-label-wording .form-radio + .form-label:last-child {
 	margin-bottom: 0.35714rem;
 }
+
 
 
 // Footer
