@@ -167,6 +167,26 @@
 }
 
 
+.navPage-subMenu-list {
+	@include breakpoint("medium") {
+		text-align: center;
+	}
+}
+
+.navPage-subMenu-item {
+	@include breakpoint("medium") {
+		display: inline-block;
+		float: none;
+	}
+}
+
+.navPage-subMenu-action {
+	@include breakpoint("medium") {
+		text-align: left;
+	}
+}
+
+
 // Carousel
 // =============================================================================
 
