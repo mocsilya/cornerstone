@@ -1,6 +1,6 @@
 {
   "name": "Aylis",
-  "version": "6.3.0",
+  "version": "6.5.0",
   "template_engine": "handlebars_v4",
   "meta": {
     "price": 0,
@@ -135,6 +135,7 @@
     "custom_header_menu_6_link": "",
     "custom_header_menu_6_text": "",
     "custom_header_menu_width": "300px",
+	"custom_header_global_region": true,
     "custom_footer_social_heading": "Get Social",
     "custom_footer_social_message": "Connect with us on social media",
     "custom_footer_copyright": "",
@@ -169,6 +170,7 @@
     "custom-footer-text": "#45413f",
     "custom-footer-link": "#45413f",
     "custom-footer-link-hover": "#4d774e",
+	"custom_footer_global_region": true,
     "custom_category_sidebar_display": "vertical",
     "custom_category_show_parents": false,
     "custom_category_max_columns": 4,
@@ -198,9 +200,13 @@
     "custom_product_tab2_show": true,
     "custom_product_tab2_title": "Reviews",
     "custom_product_tab2_content": "",
+	"custom_product_tab3_show": false,
+	"custom_product_tab3_title": "Tab 3",
+	"custom_product_tab3_content": "",
     "custom_product_wishlist_show": false,
     "custom_product_addtocart_show": false,
     "custom_product_addtocart_text": "",
+	"custom_product_addtocart_pinterest": false,
     "custom-tab-color": "#ffffff",
     "custom-tab-background": "#164a41",
     "custom-tab-hover-color": "#ffffff",
@@ -474,7 +480,7 @@
     "color_badge_product_sale_badges": "#F1B24A",
     "color_text_product_sale_badges": "#164A41",
     "color_hover_product_sale_badges": "#FFFFFF",
-    "product_sold_out_badges": "none",
+    "product_sold_out_badges": "sash",
     "color_badge_product_sold_out_badges": "#007dc6",
     "color_text_product_sold_out_badges": "#ffffff",
     "color_hover_product_sold_out_badges": "#000000",
@@ -516,7 +522,8 @@
     ],
     "supported_payment_methods": [
       "card",
-      "paypal"
+      "paypal",
+      "bank"
     ],
     "lazyload_mode": "lazyload+lqip",
     "checkout-paymentbuttons-paypal-color": "black",

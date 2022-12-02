@@ -11,6 +11,7 @@ import modalFactory from './global/modal';
 import cardSwatches from './custom/card-swatches';
 import tabPages from './custom/tab-pages';
 import videoClick from './custom/video-click';
+import productUpsell from './custom/product-upsell';
 
 export default class Product extends PageManager {
     constructor(context) {
@@ -25,6 +26,7 @@ export default class Product extends PageManager {
         cardSwatches();
         tabPages();
         videoClick();
+		productUpsell();
         
         // Listen for foundation modal close events to sanitize URL after review.
         $(document).on('close.fndtn.reveal', () => {

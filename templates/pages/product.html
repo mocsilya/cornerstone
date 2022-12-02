@@ -25,7 +25,7 @@ customer:
 		{{assignVar "payment" "active"}}
 	{{/if}}
 {{/filter}}
-{{#filter product.custom_fields 'breadcrumb' property='name'}}
+{{#filter product.custom_fields '_breadcrumb' property='name'}}
 	{{assignVar "breadcrumb" "active"}}
 {{/filter}}
 <div class="container container-hero">
