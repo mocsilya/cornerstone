@@ -80,7 +80,7 @@ customer:
 	{{/if}}
 	<div class="blog-grid">
     {{#each blog.posts}}
-        {{> components/blog/post post=this}}
+        {{> components/blog/post post=this theme_settings=../theme_settings}}
     {{/each}}
 	</div>
     {{> components/common/paginator pagination.blog}}

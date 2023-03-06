@@ -1,3 +1,5 @@
+{{inject 'outOfStockDefaultMessage' (lang 'products.out_of_stock_default_message')}}
+
 <div class="productView"
     {{#if settings.data_tag_enabled}}
     data-event-type="product"
@@ -9,7 +11,7 @@
     {{/each}}"
     data-product-brand="{{product.brand.name}}"
     data-product-price="
-    {{#or customer (unless theme_settings.restrict_to_login)}}
+    {{#or customer (unless settings.hide_price_from_guests)}}
         {{#if product.price.with_tax}}
             {{product.price.with_tax.value}}
         {{else}}
@@ -161,7 +163,7 @@
                 </p>
             {{/if}}
             <div class="productView-price">
-                {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                {{#or customer (unless settings.hide_price_from_guests)}}
                     {{> components/products/price price=product.price}}
                 {{else}}
                     {{> components/common/login-for-pricing}}
@@ -320,7 +322,7 @@
 						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-tick" /></svg></i><strong class="in-stock-number">{{product.stock_level}} </strong><span class="in-stock-label">In Stock</span>
 					</span>
                 </div>
-                {{> components/products/add-to-cart}}
+                {{> components/products/add-to-cart with_wallet_buttons=true}}
 				{{> components/custom/client/client-product-add}}
                 {{#if product.out_of_stock}}
                     {{#if product.out_of_stock_message}}

@@ -24,12 +24,11 @@
             window.lazySizesConfig = window.lazySizesConfig || {};
             window.lazySizesConfig.loadMode = 1;
         </script>
-        <script async src="{{cdn 'assets/dist/theme-bundle.head_async.js'}}"></script>
+        <script async src="{{cdn 'assets/dist/theme-bundle.head_async.js' resourceHint='preload' as='script'}}"></script>
         
         {{getFontsCollection font-display='block'}}
         
-        <link rel="preload" href="{{cdn 'assets/dist/theme-bundle.font.js'}}" as="script">
-        <script async src="{{cdn 'assets/dist/theme-bundle.font.js'}}"></script>
+        <script async src="{{cdn 'assets/dist/theme-bundle.font.js' resourceHint='preload' as='script'}}"></script>
 
         {{{stylesheet '/assets/css/theme.css'}}}
 
@@ -48,9 +47,6 @@
         {{~inject 'carouselArrowAndDotAriaLabel' (lang 'carousel.arrow_and_dot_aria_label')}}
         {{~inject 'carouselActiveDotAriaLabel' (lang 'carousel.active_dot_aria_label')}}
         {{~inject 'carouselContentAnnounceMessage' (lang 'carousel.content_announce_message')}}
-
-        {{!-- Get this loading ASAP --}}
-        <link rel="preload" href="{{cdn 'assets/dist/theme-bundle.main.js'}}" as="script">
 		{{> components/custom/client/client-head}}
     </head>	
     <body class="page-{{page_type}}{{#if page_type '==' 'page'}}{{#if (lowercase page.title) '==' 'header'}} page-headerinfo{{else}} page-{{dashcase (lowercase (sanitize page.title))}}{{/if}}{{/if}}{{#if page_type '==' 'page_contact_form'}} page-{{dashcase (lowercase (sanitize page.title))}}{{/if}}{{#if page_type '==' 'category'}} page-{{dashcase (lowercase (sanitize category.name))}}{{/if}}{{#if page_type '==' 'brand'}} page-{{dashcase (lowercase (sanitize brand.name))}}{{/if}} {{lang 'common.currency' code=currency_selector.active_currency_code}}{{#if theme_settings.custom_header_show_bar}} with-bar{{/if}}">
@@ -74,7 +70,7 @@
                 window.stencilBootstrap("{{page_type}}", {{jsContext}}).load();
             }
         </script>
-        <script async defer src="{{cdn 'assets/dist/theme-bundle.main.js'}}" onload="onThemeBundleMain()"></script>
+        <script async defer src="{{cdn 'assets/dist/theme-bundle.main.js' resourceHint='preload' as='script'}}" onload="onThemeBundleMain()"></script>
 
         {{{footer.scripts}}}
 		{{#if page_type "==" "category"}}

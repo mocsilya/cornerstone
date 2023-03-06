@@ -258,9 +258,6 @@
 		<section class="footer-bar">
 		{{> components/common/payment-icons}}
 			<div class="footer-text">
-        	{{#if settings.paypal_commerce_credit_message}}
-            	<p class="paypal-credit">{{nl2br settings.paypal_commerce_credit_message}}</p>
-        	{{/if}}
         	{{#if theme_settings.show_copyright_footer}}
                 <p class="copyright">&copy; {{moment format="YYYY"}} {{settings.store_name}}. {{{theme_settings.custom_footer_copyright}}}</p>
         	{{/if}}

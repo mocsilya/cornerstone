@@ -225,7 +225,7 @@
 	        {{/if}}
 	        </ul>
         </li>
-	    {{#or customer (unless theme_settings.restrict_to_login)}}
+	    {{#or customer (unless settings.hide_price_from_guests)}}
 	        {{> components/common/currency-selector}}
 	    {{/or}}
         <li class="navUser-item navUser-item--cart">
