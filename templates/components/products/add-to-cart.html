@@ -53,7 +53,7 @@
         <p class="alertBox-column alertBox-message"></p>
     </div>
     {{#or customer (unless settings.hide_price_from_guests)}}
-	<div class="add-to-cart-buttons">
+
         <div class="form-action{{#all settings.show_wishlist theme_settings.custom_product_wishlist_show}}{{else}} form-action-maxwidth{{/all}}">
             <input {{#if theme_settings.custom_product_addtocart_pinterest}}onclick="pintrk('track', 'addtocart');"{{/if}}
                     id="form-action-addToCart"
@@ -69,6 +69,6 @@
                 </div>
             {{/if}}
 		</div>
-	</div>
+
     {{/or}}
 </div>
