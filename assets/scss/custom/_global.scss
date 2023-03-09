@@ -958,6 +958,7 @@ body.scroll .header-logo-text {
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
 	color: stencilColor("navUser-color-hover");
+	line-height: 24px;
 }
 
 .dropdown--quickSearch .form-field-submit .button {
@@ -970,8 +971,8 @@ body.scroll .header-logo-text {
 	margin: 0;
 	font-weight: 700;
 	font-size: 16px;
-	line-height: 16px;
-	padding: 0.85714rem 1.5rem;
+	line-height: 24px;
+	padding: .75rem 1.5rem;
 }
 
 .dropdown--quickSearch .form-field-submit .button:hover {
