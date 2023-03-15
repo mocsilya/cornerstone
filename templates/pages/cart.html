@@ -33,14 +33,13 @@ customer:
             {{> components/cart/status-messages}}
         </div>
 		{{> components/custom/client/client-cart-top}}
-
+		{{{region name="cart_above_table"}}}
         {{#if cart.items.length}}
             <div class="loadingOverlay"></div>
 
             <div data-cart-content class="cart-content-padding-right">
                 {{> components/cart/content}}
             </div>
-			
 			<div class="cart-content-container">
 				<div class="cart-content-totals">
 					<div data-cart-totals class="cart-content-padding-right">
@@ -49,11 +48,18 @@ customer:
             		{{{region name="cart_below_totals"}}}
 				</div>
 				<div class="cart-content-actions">
+		        {{#or customer (unless settings.hide_price_from_guests)}}
+		            {{#if cart.additional_checkout_buttons}}
+		                <div data-cart-accelerated-checkout-buttons class="cart-acceleratedCheckoutButtons cart-content-padding-right"></div>
+		            {{/if}}
+					
 		            {{#if cart.show_primary_checkout_button}}
 		                <div class="cart-actions cart-content-padding-right">
-		                    <a class="button button--primary" href="{{urls.checkout.single_address}}" title="{{lang 'cart.checkout.title'}}">{{lang 'cart.checkout.button'}}</a>
+		                    <a class="button button--primary" href="{{urls.checkout.single_address}}" title="{{lang 'cart.checkout.title'}}" data-primary-checkout-now-action>
+								<i class="icon" aria-hidden="true"><svg><use href="#icon-lock" /></svg></i> <strong>&nbsp;{{lang 'cart.checkout.button'}}</strong>
+							</a>
 		                    {{#if cart.show_multiple_address_shipping}}
-		                        <a class="checkoutMultiple" href="{{urls.checkout.multiple_address}}">
+		                        <a class="button checkoutMultiple button--multiple" href="{{urls.checkout.multiple_address}}">
 		                            {{lang 'cart.preview.checkout_multiple'}}
 		                        </a>
 		                    {{/if}}
@@ -67,13 +73,18 @@ customer:
 		            <div data-cart-additional-checkout-buttons class="cart-additionalCheckoutButtons cart-content-padding-right">
 		                {{> components/cart/additional-checkout-buttons}}
 		            </div>
-					
+	            {{else}}
+	                <div class="cart-actions cart-content-padding-right">
+	                    <a class="button" href="{{urls.auth.login}}" title="{{lang 'cart.login_to_checkout'}}">{{lang 'cart.login_to_checkout'}}</a>
+	                </div>
+	            {{/or}}
 					{{> components/custom/client/client-cart-bottom}}
 				</div>
 			</div>
         {{else}}
 			<h3 tabindex="0">{{lang 'cart.checkout.empty_cart'}}</h3>
         {{/if}}
+		{{{region name="cart_below_table"}}}
     </div>
 </div>
 {{/partial}}

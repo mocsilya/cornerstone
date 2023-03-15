@@ -8,6 +8,14 @@ customer:
     wishlists:
         limit: 10
 ---
+{{#partial "head"}}
+    {{#if pagination.blog.previous}}
+        <link rel="prev" href="{{pagination.blog.previous}}">
+    {{/if}}
+    {{#if pagination.blog.next}}
+        <link rel="next" href="{{pagination.blog.next}}">
+    {{/if}}
+{{/partial}}
 
 {{#partial "hero"}}
 <div class="container container-hero">
@@ -28,6 +36,8 @@ customer:
 {{#partial "page"}}
 
 <section class="page">
+	{{{region name="blog_top"}}}
+	{{{region name="blog_top--global"}}}
 	{{assignVar "tag" "hide"}}
 	{{#if (getVar "tag") '!==' 'show'}}
 	{{#each blog.posts}}
@@ -64,14 +74,18 @@ customer:
 				</ul>
 			</div>
 		</nav>
+		{{{region name="blog_aside"}}}
+		{{{region name="blog_aside--global"}}}
 	</aside>
 	{{/if}}
 	<div class="blog-grid">
     {{#each blog.posts}}
-        {{> components/blog/post post=this}}
+        {{> components/blog/post post=this theme_settings=../theme_settings}}
     {{/each}}
 	</div>
     {{> components/common/paginator pagination.blog}}
+	{{{region name="blog_bottom"}}}
+	{{{region name="blog_bottom--global"}}}
 </section>
 
 {{/partial}}

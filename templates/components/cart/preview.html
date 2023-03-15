@@ -7,14 +7,21 @@
 <div class="modal-body">
     <div class="previewCart">
         <section class="previewCartCheckout">
+			
+            <a href="#" class="button button--secondary button--continue" role="button" data-reveal-close>
+                {{lang 'cart.added_to_cart.continue_shopping'}}
+            </a>
 
-            <a href="{{urls.cart}}" class="button button--primary button--cart">
+            <a href="{{urls.cart}}" class="button button--secondary button--cart">
                 {{lang 'cart.added_to_cart.view_or_edit_cart'}}
             </a>
 			
             {{#if cart.show_primary_checkout_button}}
-                <a href="{{urls.checkout.single_address}}" class="button button--primary button--checkout">
-                    {{lang 'cart.added_to_cart.proceed_to_checkout'}}
+                {{#if cart.additional_checkout_buttons}}
+                    <div data-cart-accelerated-checkout-buttons class="previewCartCheckout-acceleratedCheckoutButtons"></div>
+                {{/if}}
+				<a href="{{urls.checkout.single_address}}" class="button button--primary button--checkout" data-primary-checkout-now-action>
+                    <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-lock" /></svg></i> <strong>&nbsp;{{lang 'cart.added_to_cart.proceed_to_checkout'}}</strong>
                 </a>
             {{/if}}
 
@@ -26,7 +33,7 @@
 
             {{#if cart.show_multiple_address_shipping}}
                 <div class="previewCartAction-checkoutMultiple">
-                    <a href="{{urls.checkout.multiple_address}}">
+                    <a class="button button--secondary button--multiple" href="{{urls.checkout.multiple_address}}">
                         {{lang 'cart.preview.checkout_multiple'}}
                     </a>
                 </div>
@@ -36,7 +43,7 @@
                 {{lang 'cart.added_to_cart.order_subtotal'}}
 
                 <strong class="previewCartCheckout-price">
-                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                    {{#or customer (unless settings.hide_price_from_guests)}}
                         {{cart.sub_total.formatted}}
                     {{else}}
                         {{> components/common/login-for-pricing}}
@@ -48,9 +55,7 @@
                 {{lang 'cart.added_to_cart.your_cart_contains' num_products=cart.quantity}}
             </p>
 
-            <a href="#" class="button button--secondary button--continue" role="button" data-reveal-close>
-                {{lang 'cart.added_to_cart.continue_shopping'}}
-            </a>
+            
         </section>
         <section class="productView">
             {{#with cart.added_item}}
@@ -76,7 +81,7 @@
                     </div>
 
                     <div class="productView-price">
-                        {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
+                        {{#or ../customer (unless ../settings.hide_price_from_guests)}}
                             {{quantity}} &times; {{price.formatted}}
                         {{else}}
                             {{> components/common/login-for-pricing}}
@@ -114,3 +119,4 @@
         </section>
     {{/if}}
 </div>
+{{{remote_api_scripts}}}

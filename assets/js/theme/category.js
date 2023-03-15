@@ -6,6 +6,7 @@ import { createTranslationDictionary } from '../theme/common/utils/translations-
 import cardSwatches from './custom/card-swatches';
 import cardWarranty from './custom/card-warranty';
 import cardCarousel from './custom/card-carousel';
+import descriptionHelper from './custom/description-helper';
 
 export default class Category extends CatalogPage {
     constructor(context) {
@@ -53,6 +54,7 @@ export default class Category extends CatalogPage {
         cardSwatches();
 		cardWarranty();
 		cardCarousel();
+		descriptionHelper();
     }
 
     ariaNotifyNoProducts() {

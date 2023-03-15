@@ -1,3 +1,5 @@
+{{inject 'outOfStockDefaultMessage' (lang 'products.out_of_stock_default_message')}}
+
 <div class="productView"
     {{#if settings.data_tag_enabled}}
     data-event-type="product"
@@ -9,7 +11,7 @@
     {{/each}}"
     data-product-brand="{{product.brand.name}}"
     data-product-price="
-    {{#or customer (unless theme_settings.restrict_to_login)}}
+    {{#or customer (unless settings.hide_price_from_guests)}}
         {{#if product.price.with_tax}}
             {{product.price.with_tax.value}}
         {{else}}
@@ -37,7 +39,8 @@
         {{#if product.images.length '>' 1 }}
         {{> components/carousel-content-announcement}}
         {{/if}}
-        <figure class="productView-image"
+		{{> components/custom/client/client-product-gallery-top}}
+        <figure class="productView-image toggle-content is-open"
                 data-image-gallery-main
                 {{#if product.main_image}}
                 data-zoom-image="{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size }}"
@@ -63,6 +66,11 @@
                 {{/if}}
             </div>
         </figure>
+		{{#if product.videos.list.length}}
+			{{#if theme_settings.custom_product_description_location '==' 'underneath'}}
+				{{> components/custom/video-player product.videos}}
+        	{{/if}}
+		{{/if}}
 		{{#and product.videos.list.length (if theme_settings.custom_product_description_location '==' 'underneath')}}
 			<ul class="productView-thumbnails"{{#gt product.images.length 3}} data-slick='{
                 "infinite": false,
@@ -85,8 +93,19 @@
                 "slidesToScroll": 4
             }'{{/gt}}>
 		{{/and}}
+		{{assignVar "thumbs" "hide"}}
+		{{#each product.images}}
+			{{#if @last}}
+				{{#if @index 0}}
+					{{assignVar "thumbs" "hide"}}
+				{{else}}
+					{{assignVar "thumbs" "show"}}
+				{{/if}}
+			{{/if}}
+		{{/each}}
+		{{#if (getVar "thumbs") '===' 'show'}}
             {{#each product.images}}
-                <li class="productView-thumbnail">
+                <li class="productView-thumbnail productView-thumbnail-image">
                     <a
                         class="productView-thumbnail-link"
                         href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
@@ -103,11 +122,9 @@
                     </a>
                 </li>
             {{/each}}
+		{{/if}}
         </ul>
 		{{#if product.videos.list.length}}
-			{{#if theme_settings.custom_product_description_location '==' 'underneath'}}
-				{{> components/custom/video-player product.videos}}
-        	{{/if}}
 			{{#if theme_settings.custom_product_description_location '==' 'side'}}
 				{{> components/products/videos product.videos}}
 			{{/if}}
@@ -124,35 +141,50 @@
 				</div>
         	{{/if}}
 		{{/if}}
-		{{> components/custom/client/client-product-gallery}}
+		{{> components/custom/client/client-product-gallery-bottom}}
     </section>
 
     <section class="productView-details{{#if product.brand}} productView-details-{{first (split product.brand.name ' ')}}{{/if}} productView-details-{{theme_settings.custom_product_gallery_size}} product-data">
         <div class="productView-product">
 			{{> components/custom/client/client-product-top}}
+			<div class="productView-top-global">
+			{{{region name="product_top--global"}}}
+			</div>
+			{{{region name="product_top"}}}
             <h1 {{#unless theme_settings.custom_product_title_left}}style="display: none;"{{/unless}} class="productView-title">{{product.title}}</h1>
             {{#if product.brand}}
                 <h2 class="productView-brand">
-                    <a href="{{product.brand.url}}"><span>{{product.brand.name}}</span></a>
+					{{#if (getVar "b2b-products") '===' 'show'}}
+                    	<a href="{{product.brand.url}}"><span>{{product.brand.name}}</span></a>
+					{{else}}
+						<span>{{product.brand.name}}</span>
+					{{/if}}
                 </h2>
             {{/if}}
-            {{#if product.call_for_price}}
+			{{#if (getVar "b2b-prices") '===' 'show'}}
+            	{{#if product.call_for_price}}
                 <p class="productView-price">
                     <span>{{product.call_for_price}}</span>
                 </p>
-            {{/if}}
+            	{{/if}}
+			{{/if}}
             <div class="productView-price">
-                {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
-                    {{> components/products/price price=product.price}}
+                {{#or customer (unless settings.hide_price_from_guests)}}
+					{{#if (getVar "b2b-prices") '===' 'show'}}
+                    	{{> components/products/price price=product.price}}
+					{{/if}}
                 {{else}}
                     {{> components/common/login-for-pricing}}
                 {{/or}}
             </div>
+			<div class="productView-below-price-global">
+			{{{region name="product_below_price--global"}}}
+			</div>
             {{{region name="product_below_price"}}}
             <div class="productView-rating">
                 <dl class="productView-info">
 				{{#if settings.show_product_rating}}
-					<dt class="productView-info-name">
+					<dt class="productView-info-name"{{#unless theme_settings.show_product_reviews}} style="display: none;"{{/unless}}>
                     {{> components/products/ratings rating=product.rating}}
                     {{#if product.num_reviews '>' 0}}
                         <a href="{{product.url}}{{#if is_ajax}}#product-reviews{{/if}}" id="productReview_link">
@@ -162,9 +194,9 @@
                         <span>{{lang 'products.reviews.link_to_review' total=product.num_reviews}}</span>
                     {{/if}}
 					</dt>
-                {{/if}}		
-                {{#all settings.show_product_reviews theme_settings.show_product_reviews}}
-					<dd class="productView-info-value">
+                {{/if}}				
+                {{#if settings.show_product_reviews}}		
+					<dd class="productView-info-value"{{#unless theme_settings.show_product_reviews}} style="display: none;"{{/unless}}>
                     	<a href="{{product.url}}{{#if is_ajax}}#write_review{{/if}}" 
 						class="productView-reviewLink productView-reviewLink--new" 
 						{{#unless is_ajax}}data-reveal-id="modal-review-form"{{/unless}} 
@@ -172,9 +204,11 @@
                     	>
                        		{{lang 'products.reviews.new'}}
                     	</a>
+						{{#unless is_ajax}}
                     	{{> components/products/modals/writeReview}}
+						{{/unless}}
 					</dd>
-                {{/all}}
+                {{/if}}
 				</dl>
             </div>
             {{product.detail_messages}}
@@ -252,24 +286,15 @@
                 {{/if}}
 				
                 {{#if theme_settings.show_custom_fields_tabs '!==' true}}
-					{{#each product.custom_fields}}
-					{{#unless name '==' 'hidden'}}
-						{{#unless name '==' 'breadcrumb'}}
-							{{#unless name '==' 'download'}}
-		           				<dt class="productView-info-name customfield-label customfield-{{dashcase name}}">{{name}}:</dt>
-		           				<dd class="productView-info-value customfield-value customfield-{{dashcase name}}">{{{ sanitize value}}}</dd>
-							{{/unless}}
-						{{/unless}}
-					{{/unless}}
-					{{/each}}
+					{{> components/products/custom-fields }}
                 {{/if}}
-
+				{{#if (getVar "b2b-prices") '===' 'show'}}
                 {{#if settings.bulk_discount_enabled}}
                     <div class="productView-info-bulkPricing">
                         {{> components/products/bulk-discount-rates bulk_discount_rates=product.bulk_discount_rates}}
                     </div>
                 {{/if}}
-
+				{{/if}}
             </dl>
 			{{#if theme_settings.show_custom_fields_tabs '!==' true}}
 				{{> components/custom/client/client-product-fields}}
@@ -280,7 +305,12 @@
     <section class="productView-details{{#if product.brand}} productView-details-{{first (split product.brand.name ' ')}}{{/if}} productView-details-{{theme_settings.custom_product_gallery_size}} product-options">
         <div class="productView-options">
             {{#if product.release_date }}
-                <p>{{product.release_date}}</p>
+				<div class="alertBox productAttributes-message" style="">
+					<div class="alertBox-column alertBox-icon">
+						<icon glyph="ic-success" class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></icon>
+					</div>
+					<p class="alertBox-column alertBox-message">{{product.release_date}}</p>
+				</div>
             {{/if}}
             <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
                   data-cart-item-add>
@@ -291,15 +321,21 @@
                     {{#each product.options}}
                         {{{dynamicComponent 'components/products/options'}}}
                     {{/each}}
+					{{> components/custom/client/client-product-options}}
                 </div>
-                <div class="form-field form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
+                <div class="form-field form-field--stock{{#if product.options}} form-field--stock-options{{else}} form-field--stock-single{{/if}}{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
                     <label class="form-label form-label--alternate">
                         {{lang 'products.current_stock'}}
                     </label>
-					<span data-product-stock>{{product.stock_level}}</span>
+					<span data-product-stock>
+						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-tick" /></svg></i><strong class="in-stock-number">{{product.stock_level}} </strong><span class="in-stock-label">In Stock</span>
+					</span>
                 </div>
-                {{> components/products/add-to-cart}}
+				{{#if (getVar "b2b-prices") '===' 'show'}}
+                	{{> components/products/add-to-cart with_wallet_buttons=true}}
+				{{/if}}
 				{{> components/custom/client/client-product-add}}
+				{{#if (getVar "b2b-prices") '===' 'show'}}
                 {{#if product.out_of_stock}}
                     {{#if product.out_of_stock_message}}
                         {{> components/common/alert/alert-error product.out_of_stock_message}}
@@ -307,11 +343,25 @@
                         {{> components/common/alert/alert-error (lang 'products.sold_out')}}
                     {{/if}}
                 {{/if}}
+				{{/if}}
             </form>
+			{{#if (getVar "b2b-prices") '===' 'show'}}
+			{{#or customer (unless settings.hide_price_from_guests)}}
             {{#all settings.show_wishlist theme_settings.custom_product_wishlist_show}}
                 {{> components/common/wishlist-dropdown}}
             {{/all}}
+			{{/or}}
+			{{/if}}
 			{{> components/custom/client/client-product-bottom}}
+			<div class="productView-bottom-global">
+			{{{region name="product_bottom--global"}}}
+			</div>
+			{{{region name="product_bottom"}}}
+			{{#filter product.custom_fields '_upsell' property='name' }}
+	  			<div class="productView-upsell" data-upsell-id="{{../product.id}}">
+			
+	  			</div>
+			{{/filter}}
         </div>
         {{> components/common/share url=product.url}}
     </section>

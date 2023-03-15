@@ -25,7 +25,7 @@ customer:
 		{{assignVar "payment" "active"}}
 	{{/if}}
 {{/filter}}
-{{#filter product.custom_fields 'breadcrumb' property='name'}}
+{{#filter product.custom_fields '_breadcrumb' property='name'}}
 	{{assignVar "breadcrumb" "active"}}
 {{/filter}}
 <div class="container container-hero">
@@ -49,7 +49,9 @@ customer:
 	{{/each}}
 	{{/unless}}
     <div {{#if (getVar 'payment') '===' 'active'}} class="payment-product"{{/if}}>
-        {{> components/products/product-view}}
+		{{#if (getVar "b2b-products") '===' 'show'}}
+        	{{> components/products/product-view}}
+		{{/if}}
         {{{region name="product_below_content"}}}
     </div>
 
@@ -57,6 +59,7 @@ customer:
 {{/partial}}
 {{#partial "base"}}
 {{#unless (getVar 'payment') '===' 'active'}}
+	{{#if (getVar "b2b-products") '===' 'show'}}
 	{{#or product.related_products product.similar_by_views}}
 		<div class="related-similar">
 			<div class="container">
@@ -64,6 +67,7 @@ customer:
 			</div>
 		</div>
 	{{/or}}
+	{{/if}}
 {{/unless}}
 {{/partial}}
 {{> layout/base}}
