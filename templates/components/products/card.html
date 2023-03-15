@@ -205,6 +205,7 @@
                         {{lang 'products.compare'}} <input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}">
                     </label>
                 {{/if}}
+				{{#if (getVar "b2b-prices") '===' 'show'}}
                 {{#if show_cart_action}}
                     {{#if has_options}}
                         <a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button" data-product-id="{{id}}"><strong>{{lang 'products.choose_options'}}</strong></a>
@@ -220,8 +221,10 @@
                         <a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button" data-product-id="{{id}}"><strong>{{out_of_stock_message}}</strong></a>
                     {{/if}}
                 {{/if}}
+				{{/if}}
             </div>
         </figcaption>
+		{{#if (getVar "b2b-prices") '===' 'show'}}
 		{{#if theme_settings.custom_card_show_wishlist}}
 		{{#if customer.wishlists}}
 		<span class="card-wishlist">
@@ -264,6 +267,7 @@
 		</span>
 		{{/if}}
 		{{/if}}
+		{{/if}}
     </figure>
     <div class="card-body">
         {{#and rating show_rating}}
@@ -291,12 +295,16 @@
 		{{/if}}
         <div class="card-text card-price" data-test-info-type="price">
             {{#or customer (unless settings.hide_price_from_guests)}}
-                {{> components/products/price price=price}}
+				{{#if (getVar "b2b-prices") '===' 'show'}}
+                	{{> components/products/price price=price}}
+				{{/if}}
             {{else}}
                 {{> components/common/login-for-pricing}}
             {{/or}}
         </div>
-        {{> components/products/bulk-discount-rates}}
+		{{#if (getVar "b2b-prices") '===' 'show'}}
+        	{{> components/products/bulk-discount-rates}}
+		{{/if}}
 	    {{#if show_cart_action}}
 			{{#if has_options}}
 				{{#if theme_settings.custom_card_show_swatches}}
@@ -316,6 +324,7 @@
 		{{/if}}
 		{{#if (getVar "spotlight") '===' 'active'}}
         	<div class="card-spotlight-actions">
+					{{#if (getVar "b2b-prices") '===' 'show'}}
                     {{#if show_cart_action}}
                         {{#if has_options}}
                             <a href="{{url}}" data-event-type="product-click" class="button button--large button--primary" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
@@ -331,6 +340,7 @@
                             <a href="{{url}}" data-event-type="product-click" class="button button--large button--secondary" data-product-id="{{id}}">{{out_of_stock_message}}</a>
                         {{/if}}
                     {{/if}}
+					{{/if}}
                 {{#unless hide_product_quick_view}}
                     {{#if theme_settings.show_product_quick_view}}
                         {{#if settings.data_tag_enabled}}

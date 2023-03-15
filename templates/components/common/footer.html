@@ -98,10 +98,12 @@
 						{{/unless}}
 						{{/unless}}
                     {{/each}}
-					{{#if theme_settings.custom_footer_show_sitemap}}
+					{{#if (getVar "b2b-products") '===' 'show'}}
+						{{#if theme_settings.custom_footer_show_sitemap}}
                     	<li>
                         	<a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
                     	</li>
+						{{/if}}
 					{{/if}}
                     <li>
                         <a href="{{urls.cart}}">{{lang 'common.cart'}}</a>
@@ -161,14 +163,17 @@
                         </li>
 					{{/unless}}
                     {{/each}}
-					{{#if theme_settings.custom_footer_show_sitemap}}
+					{{#if (getVar "b2b-products") '===' 'show'}}
+						{{#if theme_settings.custom_footer_show_sitemap}}
                     	<li>
                         	<a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
                     	</li>
+						{{/if}}
 					{{/if}}
                 </ul>
             </article>
 			{{/if}}
+			{{#if (getVar "b2b-products") '===' 'show'}}
 			{{#if theme_settings.custom_footer_show_category_columns}}
 			{{#each categories}}
 				{{#if children}}
@@ -231,7 +236,7 @@
                 </ul>
             </article>
             {{/and}}
-
+			{{/if}}
             
             <article class="footer-info-col footer-info-col--small" data-section-type="storeInfo">
 				{{> components/custom/client/client-footer-top}}

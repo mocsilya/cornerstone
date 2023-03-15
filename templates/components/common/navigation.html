@@ -1,9 +1,11 @@
 <nav class="navUser">
 	<div class="container">
-	{{#if theme_settings.custom_header_search_type '===' 'icon'}}
-    <div class="dropdown dropdown--quickSearch" id="quickSearch" aria-hidden="true" data-prevent-quick-search-close>
-        {{> components/common/quick-search name='nav-quick-search'}}
-    </div>
+	{{#if (getVar "b2b-products") '===' 'show'}}
+		{{#if theme_settings.custom_header_search_type '===' 'icon'}}
+    	<div class="dropdown dropdown--quickSearch" id="quickSearch" aria-hidden="true" data-prevent-quick-search-close>
+        	{{> components/common/quick-search name='nav-quick-search'}}
+    	</div>
+		{{/if}}
 	{{/if}}
 	<ul class="navUser-section navUser-section--norm navUser-section-{{theme_settings.logo-position}}">
         {{#if theme_settings.social_icon_placement_top}}
@@ -16,6 +18,7 @@
 		{{else}}
 		<li class="navUser-item navUser-item--search navUser-item--widesearch navUser-item--{{theme_settings.custom_header_search_type}}search">
 		{{/if}}
+		{{#if (getVar "b2b-products") '===' 'show'}}
 		{{#if theme_settings.custom_header_search_type '===' 'icon'}}
             <button class="navUser-action navUser-action--quickSearch"
                type="button"
@@ -31,6 +34,7 @@
             </button>
 		{{else}}
 		    {{> components/custom/navigation-search}}
+		{{/if}}
 		{{/if}}
         </li>
 	</ul>

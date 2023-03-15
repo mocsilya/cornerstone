@@ -1755,6 +1755,48 @@ body.scroll .navPages > ul > li > .navPages-action {
 }
 
 
+// B2B Message
+// =============================================================================
+
+.b2b-message {
+	text-align: center;
+	background-color: stencilColor("color-warning");
+	color: stencilColor("color-warningLight");
+	padding: 1.5rem;
+	font-weight: 700;
+}
+
+.page-login .b2b-message-guest,
+.page-createaccount .b2b-message-guest,
+.page-forgotpassword .b2b-message-guest {
+	display: none;
+}
+
+.b2b-message-action {
+	margin-top: .75rem;
+}
+
+.b2b-message-action .button--primary {
+	color: stencilColor("color-warning");
+	background-color: stencilColor("color-warningLight");
+	border: 1px solid stencilColor("color-warningLight");
+}
+
+.b2b-message-action .button--secondary {
+	color: stencilColor("color-warningLight");
+	background-color: stencilColor("color-warning");
+	border: 1px solid stencilColor("color-warningLight");
+}
+
+.b2b-message-action .button {
+	margin-bottom: 0;
+}
+
+.b2b-message-action .button:hover {
+	opacity: 0.8;
+}
+
+
 
 // Homepage Products
 // =============================================================================
@@ -5066,6 +5108,10 @@ a:hover span.card-image:only-of-type img {
 @media (min-width: 1024px) {
 	.footer-info-col {
 		width: 25%;
+	}
+	
+	.footer-info-3 .footer-info-col {
+		width: 33.33333333%;
 	}
 }
 

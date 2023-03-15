@@ -1,11 +1,14 @@
 <nav class="navPages navPages-{{theme_settings.custom-header-menu-dropdown}}">
     <ul class="navPages-list{{#if theme_settings.navigation_design '!==' 'simple'}} navPages-list-depth-max {{else}} navPages-list-simple {{/if}}">
-	{{#if theme_settings.custom_header_search_type '===' 'box'}}
+	{{#if (getVar "b2b-products") '===' 'show'}}
+		{{#if theme_settings.custom_header_search_type '===' 'box'}}
 		<li class="navPages-item navPages-item-search navPages-item-boxsearch">
 			{{> components/custom/navigation-search}}
 		</li>
+		{{/if}}
 	{{/if}}
 		{{> components/custom/client/client-header-menu-start}}
+		{{#if (getVar "b2b-products") '===' 'show'}}
 		{{#each categories}}
             <li class="navPages-item navPages-item-category navPages-item-{{dashcase name}}">
             {{#if ../theme_settings.navigation_design '===' 'simple'}}
@@ -132,6 +135,7 @@
 				{{> components/custom/navigation-list-alternate-brand}}
 			</li>
 			{{/and}}
+		{{/if}}
 		{{/if}}
         {{#unless theme_settings.hide_content_navigation}}
             {{#each pages}}
