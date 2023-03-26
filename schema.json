@@ -995,6 +995,10 @@
           {
             "value": "box",
             "label": "Box"
+          },
+          {
+            "value": "none",
+            "label": "None"
           }
         ]
       },
