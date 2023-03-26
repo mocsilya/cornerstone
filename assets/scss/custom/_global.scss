@@ -1191,6 +1191,43 @@ body.hasAdminBar.scroll .dropdown--quickSearch.is-open {
 	color: stencilColor("navUser-color-hover");
 }
 
+.navUser-item--currency .dropdown-menu-item > a {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.navUser-item--currency .dropdown-menu-item:first-child {
+	padding-top: 1rem;
+}
+
+.navUser-item--currency .dropdown-menu-item:last-child {
+	padding-bottom: 1rem;
+}
+
+.navUser-item--currency .navUser-icon img {
+	margin-top: -3px;
+	margin-right: 2px;
+}
+
+.currency-flag {
+	display: inline-block;
+	vertical-align: top;
+	padding-top: 6px;
+	padding-right: 8px;
+	height: 18px;
+	min-width: 24px;
+}
+
+.currency-flag img {
+	vertical-align: top;
+}
+
+.currency-text {
+	display: inline-block;
+	min-height: 18px;
+	line-height: 18px;
+}
+
 .navUser-action .navUser-icon .icon {
 	height: 1.5rem;
 	width: 1.5rem;
@@ -1319,6 +1356,11 @@ body.hasAdminBar.scroll .dropdown--quickSearch.is-open {
 		fill: stencilColor("custom-header-menu-link-hover");
 		stroke: stencilColor("custom-header-menu-link-hover");
 	}
+}
+
+.navPages .navPages-action-homeIcon {
+	width: 24px;
+	height: 24px;
 }
 
 .navPages-click > ul > li > .navPages-action-mobile.is-open {

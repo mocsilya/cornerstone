@@ -7,6 +7,7 @@
     <div class="navPages-container {{#unless theme_settings.custom_header_scroll_navpages}} navPages-container-hide{{/unless}}" id="menu" data-menu>
         {{> components/common/navigation-menu}}
     </div>
+	{{> components/custom/client/client-header}}
 </header>
 {{#if (getVar "b2b-products") '===' 'show'}}
 	{{#if theme_settings.custom_header_search_type '===' 'box'}}

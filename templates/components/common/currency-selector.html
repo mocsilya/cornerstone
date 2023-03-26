@@ -6,7 +6,7 @@
            aria-controls="currencySelection"
            aria-expanded="false"
         >
-			<span class="navUser-icon{{#if theme_settings.custom_header_icon_style '===' 'outline'}} navUser-icon-outline{{/if}}">{{lang 'common.currency' code=currency_selector.active_currency_code}}</span>
+			<span class="navUser-icon{{#if theme_settings.custom_header_icon_style '===' 'outline'}} navUser-icon-outline{{/if}}">{{#each currency_selector.currencies}}{{#if is_active}}{{{flag}}}{{/if}}{{/each}} {{lang 'common.currency' code=currency_selector.active_currency_code}}</span>
 			{{#if theme_settings.custom_header_icon_text}}
 			<span class="navUser-text">
             	<i class="icon" aria-hidden="true">
@@ -27,11 +27,8 @@
                    {{/if}}
                    data-warning="{{lang 'common.currency_switch_promotion'}}"
                 >
-                {{#if is_active}}
-                    <strong>{{name}}</strong>
-                {{else}}
-                    {{name}}
-                {{/if}}
+					<span class="currency-flag">{{{flag}}}</span>
+					<span class="currency-text">{{#if is_active}}<strong>{{name}}</strong>{{else}}{{name}}{{/if}}</span>
                 </a>
             </li>
             {{/each}}
