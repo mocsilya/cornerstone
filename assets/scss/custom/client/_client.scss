@@ -2,3 +2,180 @@
 // Custom > Client
 // =============================================================================
 //
+
+// =============================================================================
+// Header
+// =============================================================================
+//
+
+.header {
+	@include breakpoint("medium") {
+		-webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2); 
+		box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.2);
+	}
+}
+
+.navPages-container {
+	@include breakpoint("medium") {
+		display: none;
+	}
+}
+
+@media (max-width: 800px) {	
+	body,
+	.navPages-container.is-open {
+		padding-top: 85px;
+	}
+	.navPages-item-conceive-women .navPages-action {
+		color: #e36197;
+	}
+	.navPages-item-conceive-men .navPages-action {
+		color: #2975ab;
+	}
+	.navPages-item-conceive-women .navPages-action:hover,
+	.navPages-item-conceive-men .navPages-action:hover {
+		opacity: 0.8;
+	}
+}
+
+.navUser-item--custom .navUser-action {
+	background-color: #f5ebf0;
+	color: stencilColor("color-primary");
+	margin-left: 1px;
+	border-radius: .5rem;
+}
+
+.navUser-item--custom .navUser-action:hover {
+	background-color: stencilColor("color-primary");
+	color: #fff;
+}
+
+.navUser-item--home .navUser-action {
+	min-width: 49px;
+	text-align: center;
+	padding-top: .9rem;
+	padding-bottom: 1.1rem;
+}
+
+.navUser-item--home .icon {
+	color: stencilColor("color-primary");
+}
+
+.navUser-item--home .navUser-action svg {
+	fill: stencilColor("color-primary");
+	stroke: stencilColor("color-primary");
+}
+
+.navUser-item--home .navUser-action:hover svg {
+	fill: #fff;
+	stroke: #fff;
+}
+
+.navUser-item--home,
+.navUser-item--stories,
+.navUser-item--questions {
+	display: none;
+	@include breakpoint("large") {
+		display: inline-block;
+	}
+}
+
+.navUser ul li.navUser-item--questions {
+	@include breakpoint("large") {
+		padding-right: 0.78571rem;
+	}
+}
+
+.navUser ul li.navUser-item--cfm {
+	padding-right: 0.78571rem;
+	@include breakpoint("large") {
+		padding-right: 0;
+	}
+}
+
+.navUser-item--cfw .navUser-action,
+.navUser-item--cfm .navUser-action {
+	padding: 10px 0.78571rem 9px 0.78571rem;
+	line-height: 16px;
+	color: #fff;
+}
+
+.navUser-item--cfw .navUser-action:hover,
+.navUser-item--cfm .navUser-action:hover {
+	opacity: 0.8;
+}
+
+.navUser-item--cfw .navUser-action {
+	background-color: #e36197;
+}
+
+.navUser-item--cfm .navUser-action {
+	background-color: #2975ab;
+}
+
+.navUser-item--cfw span,
+.navUser-item--cfm span {
+	display: block;
+	font-size: 10px;
+	text-align: center;
+	line-height: 14px;
+}
+
+.navUser-item--phone {
+	display: inline-block;
+	color: #666;
+}
+
+.navUser-item--phone .dropdown-menu-item span {
+	display: block;
+	padding: 0.28571rem 1.14286rem;
+}
+
+.navUser-item--phone .dropdown-menu-item:first-child span {
+	padding-top: 0.78571rem;
+}
+
+.navUser-item--phone .dropdown-menu-item:last-child span {
+	padding-bottom: 0.78571rem;
+}
+
+.navUser-item--phone strong {
+	color: stencilColor("color-primary");
+}
+
+.custom-mob-nav {
+	position: absolute;
+	top: 55px;
+	left: 0;
+	right: 0;
+	display: flex;
+	@include breakpoint("medium") {
+		display: none;
+	}
+}
+
+.custom-mob-nav div {
+	flex: 1 1 0;
+}
+
+.custom-mob-nav-cfw {
+	background-color: #e36197;
+}
+
+.custom-mob-nav-cfm {
+	background-color: #2975ab;
+}
+
+.custom-mob-nav div a {
+	display: block;
+	padding: 5px 0;
+	line-height: 20px;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+	font-weight: 700;
+}
+
+.custom-mob-nav div a:hover {
+	opacity: 0.8;
+}
