@@ -1,0 +1,20 @@
+{{#if currency_selector.currencies.length '>' 1}}
+<div class="productView-currency">
+	<strong>Change Currency</strong>
+	<ul>
+	{{#each currency_selector.currencies}}
+		<li>
+			<a href="{{{switch_url}}}"{{#if is_active}} class="currency-active"{{/if}} 
+				data-currency-code="{{{code}}}"
+				{{#if cart_currency_switch_url.length '>' 0 }}
+				data-cart-currency-switch-url="{{{cart_currency_switch_url}}}"
+				{{/if}}
+				data-warning="{{lang 'common.currency_switch_promotion'}}"
+			>
+				<span>{{{flag}}}</span>
+			</a>
+		</li>
+	{{/each}}
+	</ul>
+</div>
+{{/if}}

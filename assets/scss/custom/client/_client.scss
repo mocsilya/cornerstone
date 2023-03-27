@@ -186,6 +186,60 @@
 	opacity: 0.8;
 }
 
+.page-header.product-header {
+	display: none;
+}
+
+.quick-add {
+	display: none;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -80px;
+	background-color: rgba(100,42,117,.15);
+	@include breakpoint("medium") {
+		bottom: -50px;
+	}
+}
+
+.page-fertilitysmart-fertility-pills-for-women .quick-add {
+	background-color: rgba(227,97,151,.15);
+}
+
+.page-fertilitysmart-fertility-pills-for-men .quick-add {
+	background-color: rgba(41,117,171,.15);
+}
+
+body.scroll .quick-add {
+	display: block;
+}
+
+.quick-add .container {
+	justify-content: center;
+	padding: 0;
+}
+
+.quick-add-buttons {
+	padding: 5px 0;
+}
+
+.quick-add .button {
+	margin: 0 2px;
+	min-width: 150px;
+}
+
+.quick-add .button--addthree {
+	background-color: #df4661;
+	border: 1px solid #df4661;
+}
+
+.quick-add .button--addthree:hover {
+	background-color: #e56b81;
+	border: 1px solid #e56b81;
+}
+
+
+
 
 // =============================================================================
 // GENERAL BODY
@@ -209,43 +263,6 @@ h1, h2, h3, h4, h5, h6, .button {
 	}
 }
 
-.page-header.product-header {
-	display: none;
-}
-
-
-.quick-add {
-	display: none;
-	position: absolute;
-	left: 0;
-	right: 0;
-	bottom: -50px;
-	background-color: rgba(100,42,117,.15);
-}
-
-.page-fertilitysmart-fertility-pills-for-women .quick-add {
-	background-color: rgba(227,97,151,.15);
-}
-
-.page-fertilitysmart-fertility-pills-for-men .quick-add {
-	background-color: rgba(41,117,171,.15);
-}
-
-body.scroll .quick-add {
-	display: block;
-}
-
-.quick-add .container {
-	justify-content: center;
-}
-
-.quick-add-buttons {
-	padding: 5px 0;
-}
-
-.quick-add .button {
-	margin: 0 .25rem;
-}
 
 
 // =============================================================================
@@ -257,8 +274,103 @@ body.scroll .quick-add {
 	padding-top: 3rem;
 }
 
+.minidesc-content h3 {
+    font-size: 16px;
+    margin-top: 0;
+	text-transform: none;
+	letter-spacing: 0;
+}
 
+.minidesc-content ul {
+    padding: 0;
+    margin: 0 0 1.5em 0;
+    list-style: none;
+}
 
+.minidesc-content ul li {
+    display: block;
+    padding: 0 0 0 30px;
+    line-height: 24px;
+    margin: 0 0 8px 0;
+    list-style: none;
+    background-image: url("../img/custom/tick.png");
+    background-position: left top;
+    background-repeat: no-repeat;
+	font-size: 13px;
+}
+
+.page-fertilitysmart-fertility-pills-for-women .minidesc-content ul li {
+    background-image: url("../img/custom/tick-cfw.png")
+}
+
+.page-fertilitysmart-fertility-pills-for-men .minidesc-content ul li {
+    background-image: url("../img/custom/tick-cfm.png")
+}
+
+.minidesc-content .YouSave {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #df4661;
+    font-size: 1.5em;
+    border: 4px solid #df4661;
+    border-radius: 5px;
+    text-align: center;
+    padding: 10px 0;
+    margin-bottom: 1.5rem;
+}
+
+.productView-info-name.sku-label,
+.productView-info-value.sku-value {
+	display: none;
+}
+
+.productView-currency {
+	margin: 0 0 1.5rem 0;
+}
+
+.productView-currency ul {
+	margin: .5rem 0 0 0;
+	padding: 0;
+	list-style: none;
+	font-size: 0;
+}
+
+.productView-currency li {
+	margin: 0 4px 4px 0;
+	padding: 0;
+	list-style: none;
+	display: inline-block;
+}
+
+.productView-currency a {
+	display: inline-block;
+	padding: 5px 7px;
+	border: 1px solid #ccc;
+}
+
+.productView-currency a:hover {
+	border: 1px solid #666;
+}
+
+.productView-currency a.currency-active  {
+	border: 1px solid #000;
+}
+
+.productView-currency span {
+	display: block;
+	width: 16px;
+	text-align: center;
+	line-height: 11px;
+}
+
+.productView-currency img {
+	margin: 0;
+	vertical-align: top;
+}
+
+.product-options .share-container {
+	display: none;
+}
 
 
 // =============================================================================
@@ -268,6 +380,16 @@ body.scroll .quick-add {
 .footer-info-heading {
 	font-weight: 500;
 	text-transform: uppercase;
+}
+
+.footer-info .footer-info-col:first-child li:first-child a {
+	color: #e36197;
+	font-weight: 700;
+}
+
+.footer-info .footer-info-col:first-child li:last-child a {
+	color: #2975ab;
+	font-weight: 700;
 }
 
 .footer-phone-container {
@@ -306,3 +428,5 @@ body.scroll .quick-add {
 .footer-phone-container strong {
 	color: stencilColor("custom-footer-title");
 }
+
+
