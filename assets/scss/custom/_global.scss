@@ -3872,7 +3872,12 @@ a:hover span.card-image:only-of-type img {
 
 .productView-description-side {
 	@include breakpoint("medium") {
+		clear: both;
+	}
+	@include breakpoint("large") {
 		width: 50%;
+		clear: right;
+		float: right;
 	}
 }
 
@@ -4076,6 +4081,10 @@ a:hover span.card-image:only-of-type img {
 	font-size: 20px;
 	line-height: 1.2;
 	margin: 0 0 1rem 0;
+}
+
+.productView-details .minidesc-content {
+	margin-bottom: 1.5rem;
 }
 
 .productView-description .productView-title {
