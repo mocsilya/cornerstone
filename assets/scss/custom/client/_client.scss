@@ -3,10 +3,12 @@
 // =============================================================================
 //
 
+
+
 // =============================================================================
 // Header
 // =============================================================================
-//
+
 
 .header {
 	@include breakpoint("medium") {
@@ -35,6 +37,11 @@
 	.navPages-item-conceive-women .navPages-action:hover,
 	.navPages-item-conceive-men .navPages-action:hover {
 		opacity: 0.8;
+	}
+	.navPages-item-products,
+	#navPages-information.navPage-subMenu .navPage-subMenu-item:first-child,
+	#navPages-information.navPage-subMenu .navPage-subMenu-item:nth-child(2) {
+		display: none;
 	}
 }
 
@@ -178,4 +185,124 @@
 
 .custom-mob-nav div a:hover {
 	opacity: 0.8;
+}
+
+
+// =============================================================================
+// GENERAL BODY
+// =============================================================================
+
+h1, h2, h3, h4, h5, h6, .button {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.page-header {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	@include breakpoint("small") {
+		padding-top: 1.5rem;
+		padding-bottom: 1.5rem;
+	}
+	@include breakpoint("medium") {
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+	}
+}
+
+.page-header.product-header {
+	display: none;
+}
+
+
+.quick-add {
+	display: none;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -50px;
+	background-color: rgba(100,42,117,.15);
+}
+
+body.scroll .quick-add {
+	display: block;
+}
+
+.quick-add .container {
+	justify-content: center;
+}
+
+.quick-add-buttons {
+	padding: 5px 0;
+}
+
+.quick-add .button {
+	margin: 0 .25rem;
+}
+
+
+// =============================================================================
+// PRODUCT
+// =============================================================================
+
+
+.productView {
+	padding-top: 3rem;
+}
+
+
+
+
+
+// =============================================================================
+// FOOTER
+// =============================================================================
+
+.footer {
+	//background: -moz-linear-gradient(top,  stencilColor("footer-backgroundColor") 0%, #ffffff 100%); /* FF3.6-15 */
+	//background: -webkit-linear-gradient(top,  stencilColor("footer-backgroundColor") 0%, #ffffff 100%); /* Chrome10-25,Safari5.1-6 */
+	//background: linear-gradient(to bottom,  stencilColor("footer-backgroundColor") 0%, #ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	//filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("footer-backgroundColor")', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+.footer-info-heading {
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.footer-phone-container {
+	margin-bottom: .5rem;
+}
+
+.footer-phone-container span {
+	display: inline-block;
+}
+
+.footer-phone-container .icon {
+	margin-right: .25rem;
+	color: stencilColor("custom-footer-title");
+}
+
+.footer-phone-container .icon svg {
+	margin-right: .25rem;
+	fill: stencilColor("custom-footer-title");
+	stroke: stencilColor("custom-footer-title");
+}
+
+.footer-phone-left {
+	display: inline-block;
+	line-height: 16px;
+	min-width: 90px;
+	text-align: left;
+}
+
+.footer-phone-right {
+	display: inline-block;
+	line-height: 16px;
+	min-width: 110px;
+	text-align: right;
+}
+
+.footer-phone-container strong {
+	color: stencilColor("custom-footer-title");
 }

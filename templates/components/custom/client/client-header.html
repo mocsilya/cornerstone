@@ -2,3 +2,12 @@
 	<div class="custom-mob-nav-cfw"><a href="/fertilitysmart-conceive-for-women">CONCEIVE FOR WOMEN</a></div>
 	<div class="custom-mob-nav-cfm"><a href="/fertilitysmart-conceive-for-men">CONCEIVE FOR MEN</a></div>
 </div>
+{{#if page_type '==' 'product'}}
+<div class="quick-add">
+	<div class="container">
+		<div class="quick-add-buttons">
+			<a class="button button--primary" href="/cart.php?action=add&sku={{product.sku}}">Add to {{lang 'common.cart'}}</a><a class="button button--primary" href="/cart.php?action=buy&sku={{product.sku}}&qty=3">Buy 3 for 2</a>
+		</div>
+	</div>
+</div>
+{{/if}}
