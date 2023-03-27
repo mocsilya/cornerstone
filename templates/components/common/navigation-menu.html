@@ -21,6 +21,7 @@
 				</a>
 			</li>
 			{{/if}}
+		{{#if theme_settings.custom_header_show_categories}}
 		{{#each categories}}
             <li class="navPages-item navPages-item-category navPages-item-{{dashcase name}}">
             {{#if ../theme_settings.navigation_design '===' 'simple'}}
@@ -134,6 +135,7 @@
             {{/if}}
             </li>
         {{/each}}
+		{{/if}}
 	    {{#if theme_settings.navigation_design '===' 'simple'}}
 			{{#and theme_settings.custom_header_show_brands shop_by_brand.length}}
 			<li class="navPages-item navPages-item-page navPages-item-brands">
