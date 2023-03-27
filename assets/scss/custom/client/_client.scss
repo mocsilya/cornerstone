@@ -4,7 +4,6 @@
 //
 
 
-
 // =============================================================================
 // Header
 // =============================================================================
@@ -224,6 +223,14 @@ h1, h2, h3, h4, h5, h6, .button {
 	background-color: rgba(100,42,117,.15);
 }
 
+.page-fertilitysmart-fertility-pills-for-women .quick-add {
+	background-color: rgba(227,97,151,.15);
+}
+
+.page-fertilitysmart-fertility-pills-for-men .quick-add {
+	background-color: rgba(41,117,171,.15);
+}
+
 body.scroll .quick-add {
 	display: block;
 }
@@ -257,13 +264,6 @@ body.scroll .quick-add {
 // =============================================================================
 // FOOTER
 // =============================================================================
-
-.footer {
-	//background: -moz-linear-gradient(top,  stencilColor("footer-backgroundColor") 0%, #ffffff 100%); /* FF3.6-15 */
-	//background: -webkit-linear-gradient(top,  stencilColor("footer-backgroundColor") 0%, #ffffff 100%); /* Chrome10-25,Safari5.1-6 */
-	//background: linear-gradient(to bottom,  stencilColor("footer-backgroundColor") 0%, #ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	//filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("footer-backgroundColor")', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
-}
 
 .footer-info-heading {
 	font-weight: 500;
