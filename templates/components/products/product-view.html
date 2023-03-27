@@ -130,10 +130,12 @@
 			{{/if}}
 		{{/if}}
 
-		{{#if theme_settings.custom_product_warranty_gallery}}
+		{{#if theme_settings.custom_product_warranty_location '==' 'gallery'}}
         	{{#if product.warranty}}
 				<div class="productView-warranty">
+					{{#if theme_settings.custom_product_warranty_title.length}}
 			    	<h4 class="toggle-title">{{theme_settings.custom_product_warranty_title}}</h4>
+					{{/if}}
 			    	<div class="warranty-content">
 			        	{{{product.warranty}}}
 						{{> components/custom/client/client-product-warranty}}
@@ -151,7 +153,9 @@
 			{{{region name="product_top--global"}}}
 			</div>
 			{{{region name="product_top"}}}
-            <h1 {{#unless theme_settings.custom_product_title_left}}style="display: none;"{{/unless}} class="productView-title">{{product.title}}</h1>
+			{{#if theme_settings.custom_product_title_left}}
+            <h1 class="productView-title">{{product.title}}</h1>
+			{{/if}}
             {{#if product.brand}}
                 <h2 class="productView-brand">
 					{{#if (getVar "b2b-products") '===' 'show'}}
@@ -161,6 +165,19 @@
 					{{/if}}
                 </h2>
             {{/if}}
+			{{#if theme_settings.custom_product_warranty_location '==' 'minidesc'}}
+	        	{{#if product.warranty}}
+					<div class="productView-minidesc">
+						{{#if theme_settings.custom_product_warranty_title.length}}
+				    	<h4 class="minidesc-title">{{theme_settings.custom_product_warranty_title}}</h4>
+						{{/if}}
+				    	<div class="minidesc-content">
+				        	{{{product.warranty}}}
+							{{> components/custom/client/client-product-warranty}}
+				    	</div>
+					</div>
+	        	{{/if}}
+			{{/if}}
 			{{#if (getVar "b2b-prices") '===' 'show'}}
             	{{#if product.call_for_price}}
                 <p class="productView-price">
