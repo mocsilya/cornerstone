@@ -1,4 +1,148 @@
 // =============================================================================
 // Custom > Client
 // =============================================================================
-//
+
+
+// MAIN MENU
+// =============================================================================
+
+.navPages-action {
+	@include breakpoint("medium") {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	@include breakpoint("large") {
+		padding-left: 0.78571rem;
+		padding-right: 0.78571rem;
+	}
+}
+
+.navPages > ul > li > .navPages-action {
+	@include breakpoint("medium") {
+		font-size: 14px;
+	}
+	@include breakpoint("large") {
+		font-size: 16px;
+	}
+}
+
+.navPages-list:not(.navPages-list-depth-max) .navPages-action-moreIcon {
+	@include breakpoint("medium") {
+		display: none;
+	}
+}
+
+.navPage-subMenu {
+	@include breakpoint("medium") {
+		border-bottom: 2px solid #32885d;
+	}
+}
+
+.card {
+    position: relative;
+}
+
+.card-body {
+    position: static;
+}
+
+.card-message .sale-flag-sash {
+    top: 15px;
+    left: -35px;
+}
+
+.productCarousel .productCarousel-slide {
+    overflow: hidden;
+}
+
+
+
+// PRODUCT PAGE
+// =============================================================================
+
+.productView-description {
+	@include breakpoint("medium") {
+		margin-top: 1.5rem;
+	}
+}
+
+.page-product .share-container {
+	display: none;
+}
+
+.page-product .price-section .price-section--minor + abbr {
+	color: #999;
+}
+
+.productView-info-name.customfield-badge,
+.productView-info-value.customfield-badge {
+    display: none;
+}
+
+
+// FOOTER
+// =============================================================================
+
+.footer-payment-icons svg {
+	color: #999;
+	fill: #999;
+}
+
+
+// Custom Blocks
+// =============================================================================
+
+
+.custom-widget-inline .custom-widget-list {
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+.custom-widget-inline .custom-widget-item {
+	min-width: 50%;
+	@include breakpoint("medium") {
+		min-width: 25%;
+	}
+	@include breakpoint("large") {
+		min-width: 25%;
+	}
+}
+
+.custom-widget-inline .custom-widget-link {
+    -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.25); 
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.25);
+}
+
+.custom-widget-inline .custom-widget-content {
+    top: auto;
+    bottom: .75rem;
+    left: .75rem;
+    right: .75rem;
+    transform: none;
+    flex-direction: row;
+}
+
+.custom-widget-inline .custom-widget-heading {
+	display: flex;
+    padding: .675rem 1rem;
+    text-align: left;
+    min-height: 57px;
+	align-items: center;
+    flex: 1 1 100%;
+	@include breakpoint("large") {
+		min-height: 38px;
+	}
+}
+
+.custom-widget-inline .custom-widget-button {
+	display: flex;
+	align-items: center;
+    margin-top: 0;
+    border-radius: 0;
+    min-height: 57px;
+    flex: 0 1 auto;
+    padding: .75rem 1rem;
+	@include breakpoint("large") {
+		min-height: 38px;
+	}
+}
+
