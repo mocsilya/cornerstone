@@ -1,3 +1,4 @@
+{{#or (if product.sku '===' 'FS-CFW') (if product.sku '===' 'FS-CFM')}}
 <div class="productView-image-ingredients">
     <ul>
         <li class="ingredient-cfw">
@@ -29,6 +30,7 @@
 		<a class="button button--secondary scroll-click" href="#ingredients">All Ingredients</a>
 	</div>
 </div>
+{{/or}}
 </div>
 <div class="productView-trust-wrap">
 	<div class="productView-trust-2">
