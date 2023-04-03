@@ -2050,6 +2050,14 @@ ol.breadcrumbs {
 	max-height: none !important;
 }
 
+.heroCarousel .slick-prev,
+.heroCarousel .slick-next {
+	top: 40%;
+	@include breakpoint("small") {
+		top: 50%;
+	}
+}
+
 .heroCarousel .slick-dots {
 	bottom: -1.5rem;
 	@include breakpoint("medium") {
@@ -2144,7 +2152,7 @@ ol.breadcrumbs {
 	padding: .5rem 1rem;
 	margin: 0;
 	font-size: 1.5rem;
-	background-color: rgba(stencilColor("carousel-bgColor"), 0.9);
+	background-color: rgba(stencilColor("carousel-bgColor"), 0.8);
 	@include breakpoint("small") {
 		flex: 0 1 auto;
 	}
@@ -2167,7 +2175,7 @@ ol.breadcrumbs {
 	margin: 0;
 	font-weight: 700;
 	line-height: 1.2;
-	background-color: rgba(stencilColor("carousel-bgColor"), 0.9);
+	background-color: rgba(stencilColor("carousel-bgColor"), 0.8);
 	flex: 0 1 auto;
 	font-size: 1rem;
 	@include breakpoint("medium") {
@@ -2235,22 +2243,22 @@ ol.breadcrumbs {
 		top: 50%;
 		bottom: auto;
 		transform: translateY(-50%);
-		padding: 0 1.5rem;
+		padding: 0 5rem;
 	}
 	@include breakpoint("medium") {
-		padding: 0 3rem;
+		padding: 0 6.5rem;
 	}
 }
 
 .heroCarousel--left .heroCarousel-content {
 	@include breakpoint("large") {
-		padding: 0 50% 0 6rem;
+		padding: 0 50% 0 6.5rem;
 	}
 }
 
 .heroCarousel--right .heroCarousel-content {
 	@include breakpoint("large") {
-		padding: 0 6rem 0 50%;
+		padding: 0 6.5rem 0 50%;
 	}
 }
 
