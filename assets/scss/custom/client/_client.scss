@@ -328,10 +328,20 @@ h1, h2, h3, h4, h5, h6, .button {
 // =============================================================================
 
 .heroCarousel--left .heroCarousel-content {
+	text-align: center;
 	@include breakpoint("small") {
-		top: 70%;
+		top: 72%;
 		left: 18%;
 		padding: 0;
+	}
+	@include breakpoint("large") {
+		top: 67%;
+	}
+}
+
+.heroCarousel--left .heroCarousel-inner {
+	@include breakpoint("small") {
+		width: 36%;
 	}
 }
 
@@ -341,21 +351,33 @@ h1, h2, h3, h4, h5, h6, .button {
 		padding-top: 0;
 		font-size: 12px;
 		line-height: 16px;
-		width: 38%;
 	}
 	@include breakpoint("medium") {
 		font-size: 14px;
 		line-height: 20px;
 	}
-	@include breakpoint("medium") {
+	@include breakpoint("large") {
 		font-size: 16px;
 		line-height: 24px;
+	}
+}
+
+.heroCarousel--left .heroCarousel-button {
+	@include breakpoint("small") {
+		width: 100%;
+		justify-content: center;
 	}
 }
 
 .heroCarousel--left .button {
 	@include breakpoint("small") {
 		border-radius: 5px;
+		padding-top: .5rem;
+		padding-bottom: .5rem;
+	}
+	@include breakpoint("medium") {
+		padding-top: 1rem;
+		padding-bottom: 1rem;
 	}
 }
 
@@ -411,16 +433,40 @@ div[data-content-region=home_below_carousel] div div[data-layout-name="Layout"]:
     background-image: url("../img/custom/tick-cfm.png");
 }
 
-.minidesc-content .YouSave {
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #df4661;
-    font-size: 1.5em;
-    border: 4px solid #df4661;
+.minidesc-content .product-offer {
+	display: block;
+    border: 3px solid #eee;
     border-radius: 5px;
     text-align: center;
-    padding: 10px 0;
-    margin-bottom: 1.5rem;
+    padding: 1rem;
+    margin-bottom: .5rem;
+	text-decoration: none;
+}
+
+.minidesc-content .offer-heading {
+	display: block;
+    font-size: 1.25em;
+	font-weight: 700;
+	margin-bottom: .25rem;
+	text-transform: uppercase;
+}
+
+.minidesc-content .offer-text {
+	display: block;
+}
+
+.minidesc-content .YouSave {
+    border: 3px solid #df4661;
+	color: #df4661;
+}
+
+.minidesc-content .YouSave:hover {
+    background: #df4661;
+	color: #fff;
+}
+
+.minidesc-content .YouSave .offer-text {
+	font-weight: 700;
 }
 
 .productView-info-name.sku-label,
@@ -488,6 +534,18 @@ div[data-content-region=home_below_carousel] div div[data-layout-name="Layout"]:
 	text-decoration: none;
 	cursor: default;
 	opacity: 1;
+}
+
+.page-fertilitysmart-fertility-pills-for-women .product-shipping span,
+.page-fertilitysmart-fertility-pills-for-women .product-shipping a,
+.page-fertilitysmart-fertility-pills-for-women .product-shipping a:hover {
+	color: #e36197;
+}
+
+.page-fertilitysmart-fertility-pills-for-men .product-shipping span,
+.page-fertilitysmart-fertility-pills-for-men .product-shipping a,
+.page-fertilitysmart-fertility-pills-for-men .product-shipping a:hover {
+	color: #2975ab;
 }
 
 .product-shipping .header-bar-icon .icon svg {
@@ -1142,12 +1200,17 @@ div[data-content-region=home_below_carousel] div div[data-layout-name="Layout"]:
 }
 
 .page-cart .page-header.checkout-header {
+	background: none;
 	padding-top: .5rem;
 	padding-bottom: .5rem;
 	@include breakpoint("medium") {
 		padding-top: 1rem;
 		padding-bottom: 1rem;
 	}
+}
+
+.page-cart .page-header .page-heading {
+	display: none;
 }
 
 @media (max-width:'550px') {
@@ -1243,6 +1306,10 @@ div[data-content-region=home_below_carousel] div div[data-layout-name="Layout"]:
 	}
 }
 
+.page-cart .product-shipping {
+	margin: 1rem 0;
+}
+
 .cart-content-actions .footer-payment-icons {
 	margin-bottom: 1.5rem;
 }
@@ -1296,6 +1363,10 @@ div[data-content-region=home_below_carousel] div div[data-layout-name="Layout"]:
 .footer-info .footer-info-col:first-child li:last-child a {
 	color: #2975ab;
 	font-weight: 700;
+}
+
+.footer-info-col address {
+	font-style: normal;
 }
 
 .footer-phone-container {
