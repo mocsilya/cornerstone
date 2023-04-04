@@ -20,13 +20,7 @@
         <ul class="dropdown-menu" id="currencySelection" data-dropdown-content aria-hidden="true" tabindex="-1">
             {{#each currency_selector.currencies}}
             <li class="dropdown-menu-item">
-                <a href="{{{switch_url}}}"
-                   data-currency-code="{{{code}}}"
-                   {{#if cart_currency_switch_url.length '>' 0 }}
-                   data-cart-currency-switch-url="{{{cart_currency_switch_url}}}"
-                   {{/if}}
-                   data-warning="{{lang 'common.currency_switch_promotion'}}"
-                >
+                <a href="{{{switch_url}}}" data-currency-code="{{{code}}}">
 					<span class="currency-flag">{{{flag}}}</span>
 					<span class="currency-text">{{#if is_active}}<strong>{{name}}</strong>{{else}}{{name}}{{/if}}</span>
                 </a>
