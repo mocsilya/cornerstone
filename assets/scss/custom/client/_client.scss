@@ -199,6 +199,10 @@
 	color: stencilColor("color-primary");
 }
 
+.navUser-item--currency .dropdown-menu {
+	max-width: 220px;
+}
+
 .custom-mob-nav {
 	position: absolute;
 	top: 55px;
@@ -288,7 +292,8 @@ body.scroll .quick-add {
 	border: 1px solid #e56b81;
 }
 
-.previewCartAction-checkoutMultiple {
+.previewCartAction-checkoutMultiple,
+.previewCart-additionalCheckoutButtons .PaypalCommerceCheckout {
 	display: none;
 }
 
@@ -1312,6 +1317,10 @@ div[data-content-region=home_below_carousel] div div[data-layout-name="Layout"]:
 
 .cart-content-actions .footer-payment-icons {
 	margin-bottom: 1.5rem;
+}
+
+.page-cart .cart-additionalCheckoutButtons .PaypalCommerceCheckout {
+	display: none;
 }
 
 .productGrid-bundle {
