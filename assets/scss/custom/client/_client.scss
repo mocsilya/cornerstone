@@ -475,7 +475,10 @@ div[data-content-region=home_below_carousel] div div[data-layout-name="Layout"]:
 }
 
 .productView-info-name.sku-label,
-.productView-info-value.sku-value {
+.productView-info-value.sku-value,
+.productView-info-name.upc-label,
+.productView-info-value.upc-value,
+.productView-info-bulkPricing {
 	display: none;
 }
 
@@ -523,8 +526,9 @@ div[data-content-region=home_below_carousel] div div[data-layout-name="Layout"]:
 	vertical-align: top;
 }
 
-.product-options .share-container {
-	display: none;
+.product-options .share-container,
+.page-product .add-to-cart-wallet-buttons {
+    display: none;
 }
 
 .product-shipping {
@@ -1319,7 +1323,8 @@ div[data-content-region=home_below_carousel] div div[data-layout-name="Layout"]:
 	margin-bottom: 1.5rem;
 }
 
-.page-cart .cart-additionalCheckoutButtons .PaypalCommerceCheckout {
+.page-cart .cart-additionalCheckoutButtons .PaypalCommerceCheckout,
+.page-cart div[data-content-region="cart_below_totals"] {
 	display: none;
 }
 
