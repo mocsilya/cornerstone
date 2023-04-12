@@ -140,6 +140,7 @@
 			        	{{{product.warranty}}}
 						{{> components/custom/client/client-product-warranty}}
 			    	</div>
+					{{{region name="product_warranty"}}}
 				</div>
         	{{/if}}
 		{{/if}}
@@ -175,6 +176,7 @@
 				        	{{{product.warranty}}}
 							{{> components/custom/client/client-product-warranty}}
 				    	</div>
+						{{{region name="product_warranty"}}}
 					</div>
 	        	{{/if}}
 			{{/if}}
@@ -315,6 +317,7 @@
             </dl>
 			{{#if theme_settings.show_custom_fields_tabs '!==' true}}
 				{{> components/custom/client/client-product-fields}}
+				{{{region name="product_fields"}}}
 			{{/if}}
         </div>
     </section>

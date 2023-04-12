@@ -19,6 +19,7 @@
         {{{product.description}}}
 		{{> components/custom/client/client-product-description}}
     </div>
+	{{{region name="product_description"}}}
 {{/if}}
 
 {{#if (getVar "downloads") '===' 'active'}}
@@ -62,6 +63,7 @@
         </dl>
 		{{> components/custom/client/client-product-fields}}
     </div>
+	{{{region name="product_fields"}}}
 	{{/if}}
 {{/all}}
 
@@ -74,6 +76,7 @@
         {{{product.warranty}}}
 		{{> components/custom/client/client-product-warranty}}
     </div>
+	{{{region name="product_warranty"}}}
 {{/if}}
 {{/if}}
 
@@ -85,6 +88,7 @@
         <span class="tab1-page">{{{theme_settings.custom_product_tab1_content}}}</span>
 		{{> components/custom/client/client-product-tab1}}
     </div>
+	{{{region name="product_tab1"}}}
 {{/if}}
 
 {{#if theme_settings.custom_product_tab2_show}}
@@ -95,6 +99,7 @@
         <span class="tab2-page">{{{theme_settings.custom_product_tab2_content}}}</span>
 		{{> components/custom/client/client-product-tab2}}
     </div>
+	{{{region name="product_tab2"}}}
 {{/if}}
 
 {{#if theme_settings.custom_product_tab3_show}}
@@ -105,6 +110,7 @@
         <span class="tab3-page">{{{theme_settings.custom_product_tab3_content}}}</span>
 		{{> components/custom/client/client-product-tab3}}
     </div>
+	{{{region name="product_tab3"}}}
 {{/if}}
 
 {{#all settings.show_product_reviews theme_settings.show_product_reviews product.reviews.total}}
@@ -112,6 +118,7 @@
     <div class="productView-description review-content" id="tab-reviews">
         {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
     </div>
+	{{{region name="product_reviews"}}}
 {{/all}}
 
 {{> components/custom/client/client-product-reviews}}
