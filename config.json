@@ -219,6 +219,7 @@
 	"custom-pagination-background": "#333333",
 	"custom_price_from": false,
 	"custom_social_style": "normal",
+	"custom_cart_removemodal_show": true,
 	"custom_b2b": false,
 	"custom_b2b_pending_message": "YOUR ACCOUNT IS PENDING AUTHORISATION",
 	"custom_b2b_pending_group": "",
