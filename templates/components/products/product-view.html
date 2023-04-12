@@ -391,9 +391,10 @@
         {{/if}}
     </article>
 </div>
-
+{{#if theme_settings.custom_product_addtocart_modal}}
 <div id="previewModal" class="modal modal--large" data-reveal>
     {{> components/common/modal/modal-close-btn }}
     <div class="modal-content"></div>
     <div class="loadingOverlay"></div>
 </div>
+{{/if}}
