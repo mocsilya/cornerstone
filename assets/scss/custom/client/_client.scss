@@ -292,6 +292,11 @@ body.scroll .quick-add {
 	border: 1px solid #e56b81;
 }
 
+.quick-add .button--addone,
+.quick-add .button--addthree {
+	display: none;
+}
+
 .previewCartAction-checkoutMultiple,
 .previewCart-additionalCheckoutButtons .PaypalCommerceCheckout {
 	display: none;
@@ -324,6 +329,7 @@ h1, h2, h3, h4, h5, h6, .button {
 }
 
 .cookieMessage {
+	display: none !important;
 	background: #efe9f1;
 }
 
@@ -460,14 +466,15 @@ div[data-content-region=home_below_carousel] div div[data-layout-name="Layout"]:
 	display: block;
 }
 
-.minidesc-content .YouSave {
+.minidesc-content .YouSave,
+.minidesc-content .YouSave:hover {
     border: 3px solid #df4661;
-	color: #df4661;
+    background: #df4661;
+	color: #fff;
 }
 
 .minidesc-content .YouSave:hover {
-    background: #df4661;
-	color: #fff;
+    opacity: 0.9;
 }
 
 .minidesc-content .YouSave .offer-text {
@@ -1338,7 +1345,28 @@ div[data-content-region=home_below_carousel] div div[data-layout-name="Layout"]:
 	}
 }
 
+.productGrid-bundle .product {
+	padding: 0 0 1.5rem 0;
+	@include breakpoint("large") {
+		padding: 0;
+	}
+}
+
+.productGrid-bundle .card-figure {
+	padding: .5rem .5rem 0 .5rem;
+}
+
+.productGrid-bundle .card-figure a {
+	display: block;
+	text-align: center;
+}
+
+.productGrid-bundle .card-figure img {
+	margin: auto;
+}
+
 .productGrid-bundle .card-body {
+	padding: 0 .5rem .5rem .5rem;
 	justify-content: center;
 }
 
