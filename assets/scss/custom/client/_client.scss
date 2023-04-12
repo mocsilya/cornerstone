@@ -533,6 +533,10 @@ div[data-content-region=home_below_carousel] div div[data-layout-name="Layout"]:
 	vertical-align: top;
 }
 
+.productView-options .form-action .button--primary {
+	width: 100%;
+}
+
 .product-options .share-container,
 .page-product .add-to-cart-wallet-buttons {
     display: none;
@@ -552,6 +556,17 @@ div[data-content-region=home_below_carousel] div div[data-layout-name="Layout"]:
 	opacity: 1;
 }
 
+.product-shipping .header-bar-icon,
+.product-shipping .header-bar-text {
+	font-size: 1.25rem;
+}
+
+.product-shipping .header-bar-icon .icon {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+
 .page-fertilitysmart-fertility-pills-for-women .product-shipping span,
 .page-fertilitysmart-fertility-pills-for-women .product-shipping a,
 .page-fertilitysmart-fertility-pills-for-women .product-shipping a:hover {
@@ -567,6 +582,16 @@ div[data-content-region=home_below_carousel] div div[data-layout-name="Layout"]:
 .product-shipping .header-bar-icon .icon svg {
 	color: stencilColor("color-textBase");
 	fill: stencilColor("color-textBase");
+}
+
+.page-fertilitysmart-fertility-pills-for-women .product-shipping .header-bar-icon .icon svg {
+	color: #e36197;
+	fill: #e36197;
+}
+
+.page-fertilitysmart-fertility-pills-for-men .product-shipping .header-bar-icon .icon svg {
+	color: #2975ab;
+	fill: #2975ab;
 }
 
 .product-shipping .header-bar-text-gbp,
