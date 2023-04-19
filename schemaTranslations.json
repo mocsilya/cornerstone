@@ -3161,8 +3161,8 @@
   "i18n.ProductDescriptionTitle": {
     "default": "Description tab label"
   },
-  "i18n.ProductWarrantyGallery": {
-    "default": "Display warranty under photo gallery"
+  "i18n.ProductWarrantyLocation": {
+    "default": "Warranty content location"
   },
   "i18n.ProductWarrantyTitle": {
     "default": "Warranty tab label"

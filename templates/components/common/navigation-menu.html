@@ -9,6 +9,19 @@
 	{{/if}}
 		{{> components/custom/client/client-header-menu-start}}
 		{{#if (getVar "b2b-products") '===' 'show'}}
+			{{#if theme_settings.custom-header-menu-home}}
+			<li class="navPages-item navPages-item-home">
+				<a class="navPages-action navPages-action-mobile" href="{{urls.home}}">
+				    Home
+				</a>
+				<a class="navPages-action navPages-action-desktop" href="{{urls.home}}">
+				    <i class="icon navPages-action-homeIcon" aria-hidden="true">
+				        <svg><use xlink:href="#icon-home{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg>
+				    </i>
+				</a>
+			</li>
+			{{/if}}
+		{{#if theme_settings.custom_header_show_categories}}
 		{{#each categories}}
             <li class="navPages-item navPages-item-category navPages-item-{{dashcase name}}">
             {{#if ../theme_settings.navigation_design '===' 'simple'}}
@@ -122,6 +135,7 @@
             {{/if}}
             </li>
         {{/each}}
+		{{/if}}
 	    {{#if theme_settings.navigation_design '===' 'simple'}}
 			{{#and theme_settings.custom_header_show_brands shop_by_brand.length}}
 			<li class="navPages-item navPages-item-page navPages-item-brands">

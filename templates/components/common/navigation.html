@@ -32,7 +32,8 @@
                 <span class="navUser-text navUser-text-search">{{theme_settings.custom_header_search_label}}</span>
 				<span class="navUser-text navUser-text-close">Close</span>
             </button>
-		{{else}}
+		{{/if}}
+		{{#if theme_settings.custom_header_search_type '===' 'box'}}
 		    {{> components/custom/navigation-search}}
 		{{/if}}
 		{{/if}}

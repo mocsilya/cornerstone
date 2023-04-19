@@ -785,6 +785,10 @@
             "label": "Information"
           },
           {
+            "value": "natural",
+            "label": "Natural"
+          },
+          {
             "value": "returns",
             "label": "Returns"
           },
@@ -991,6 +995,10 @@
           {
             "value": "box",
             "label": "Box"
+          },
+          {
+            "value": "none",
+            "label": "None"
           }
         ]
       },
@@ -2474,9 +2482,24 @@
         "id": "custom_product_description_title"
       },
       {
-        "type": "checkbox",
-        "label": "i18n.ProductWarrantyGallery",
-        "id": "custom_product_warranty_gallery"
+        "type": "select",
+        "label": "i18n.ProductWarrantyLocation",
+        "id": "custom_product_warranty_location",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "normal",
+            "label": "Normal"
+          },
+          {
+            "value": "gallery",
+            "label": "Under Photos"
+          },
+          {
+            "value": "minidesc",
+            "label": "Above Price"
+          }
+        ]
       },
       {
         "type": "text",
