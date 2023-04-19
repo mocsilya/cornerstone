@@ -2,3 +2,68 @@
 // Custom > Client
 // =============================================================================
 //
+
+.header {
+	background: #44b463; /* Old browsers */
+	background: -moz-linear-gradient(left,  stencilColor("header-backgroundColor") 0%, #44b463 50%, stencilColor("header-backgroundColor") 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  stencilColor("header-backgroundColor") 0%,#44b463 50%,stencilColor("header-backgroundColor") 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right,  stencilColor("header-backgroundColor") 0%,#44b463 50%,stencilColor("header-backgroundColor") 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("header-backgroundColor")', endColorstr='stencilColor("header-backgroundColor")',GradientType=1 ); /* IE6-9 */
+}
+
+.heroCarousel-content {
+	margin-top: 1.5rem;
+	@include breakpoint("small") {
+		margin-top: 0;
+	}
+}
+
+
+.heroCarousel-title {
+	@include breakpoint("small") {
+		text-shadow: 0 0 20px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.5);
+	}
+	@include breakpoint("medium") {
+		font-size: 3rem;
+	}
+	@include breakpoint("large") {
+		font-size: 5rem;
+	}
+}
+
+.heroCarousel-description {
+	@include breakpoint("small") {
+		text-shadow: 0 0 20px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.5);
+	}
+	@include breakpoint("medium") {
+		font-size: 2rem;
+	}
+	@include breakpoint("large") {
+		font-size: 3rem;
+	}
+}
+
+.heroCarousel-button {
+	@include breakpoint("small") {
+		margin-top: 1rem;
+	}
+	@include breakpoint("medium") {
+		margin-top: 1.5rem;
+	}
+}
+
+.heroCarousel-button .button {
+	border-radius: 0;
+	color: stencilColor("custom-homepage-carousel-button-color");
+	border: 4px solid stencilColor("custom-homepage-carousel-button-background");
+	background: none !important;
+	@include breakpoint("small") {
+		text-shadow: 0 0 20px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.5), 0 0 20px rgba(255,255,255,0.5);
+	}
+}
+
+.heroCarousel-button .button:hover {
+	color: stencilColor("custom-homepage-carousel-button-color");
+	border: 4px solid stencilColor("custom-homepage-carousel-button-background-hover");
+	background: none !important;
+}
