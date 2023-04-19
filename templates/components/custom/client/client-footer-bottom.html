@@ -1,5 +1,4 @@
-<div style="border: 1px solid #ccc; padding: 1rem; font-size: 12px;">
-	<h3 class="footer-info-heading" style="margin-top: 0;">Temporary Data Testing</h3>
+<div style="display:none;">
 	Customer Group: {{customer_group_name}}<br>
 	Group ID: {{customer_group_id }}<br>
 	Currency Code: {{currency_selector.active_currency_code}}<br>
@@ -8,25 +7,4 @@
 	Customer ID: {{#if customer.id}}{{customer.id}}{{else}}Guest{{/if}}<br>
 	Path: {{first (split (last (split head.meta_tags "href='")) "'")}}
 </div>
-{{#unless customer_group_name '==' 'Retail'}}
-<style>
-	.navUser-item--currency { display: none; }
-</style>
-{{/unless}}
-<script>
-{{#if customer_group_name '==' 'EU Zero'}}
-	{{#unless currency_selector.active_currency_id '==' '2'}}	
-	window.onload = function() {
-		window.location.href = "{{first (split (last (split head.meta_tags "href='")) "'")}}?setCurrencyId=2";
-	}
-	{{/unless}}
-{{/if}}
-{{#if customer_group_name '==' 'UK Zero'}}
-	{{#unless currency_selector.active_currency_id '==' '1'}}
-	window.onload = function() {
-		window.location.href = "{{first (split (last (split head.meta_tags "href='")) "'")}}?setCurrencyId=1";
-	}
-	{{/unless}}
-{{/if}}
-</script>
 
