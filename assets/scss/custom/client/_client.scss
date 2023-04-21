@@ -3,13 +3,39 @@
 // =============================================================================
 //
 
-.header {
-	background: #44b463; /* Old browsers */
-	background: -moz-linear-gradient(left,  stencilColor("header-backgroundColor") 0%, #44b463 50%, stencilColor("header-backgroundColor") 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(left,  stencilColor("header-backgroundColor") 0%,#44b463 50%,stencilColor("header-backgroundColor") 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to right,  stencilColor("header-backgroundColor") 0%,#44b463 50%,stencilColor("header-backgroundColor") 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("header-backgroundColor")', endColorstr='stencilColor("header-backgroundColor")',GradientType=1 ); /* IE6-9 */
+.header-bar-message .header-bar-text {
+	font-weight: 400;
 }
+
+
+.navPages-container {
+	@include breakpoint("medium") {
+		background: #44b463; 
+		background: -moz-linear-gradient(left,  stencilColor("custom-header-menu-background") 0%, #44b463 50%, stencilColor("custom-header-menu-background") 100%); 
+		background: -webkit-linear-gradient(left,  stencilColor("custom-header-menu-background") 0%,#44b463 50%,stencilColor("custom-header-menu-background") 100%); 
+		background: linear-gradient(to right,  stencilColor("custom-header-menu-background") 0%,#44b463 50%,stencilColor("custom-header-menu-background") 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("custom-header-menu-background")', endColorstr='stencilColor("custom-header-menu-background")',GradientType=1 );
+	}
+}
+
+.navPages > ul > li > .navPages-action {
+	@include breakpoint("medium") {
+		transition: .5s;
+	}
+}
+
+.navPages > ul > li > .navPages-action:hover {
+	@include breakpoint("medium") {
+		background-color: #93c840;
+	}
+}
+
+.navPage-subMenu.is-open {
+	@include breakpoint("medium") {
+		border-bottom: 1px solid stencilColor("navPages-subMenu-separatorColor");
+	}
+}
+
 
 .heroCarousel-content {
 	margin-top: 1.5rem;
