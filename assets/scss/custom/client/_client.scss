@@ -2,3 +2,14 @@
 // Custom > Client
 // =============================================================================
 //
+
+.navPage-subMenu {
+    @include breakpoint("medium") {
+		border-bottom: 2px solid #00599b;
+	}
+}
+
+.footer-payment-icons svg {
+	color: #fff;
+	fill: #fff;
+}
