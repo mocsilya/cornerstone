@@ -2,3 +2,167 @@
 // Custom > Client
 // =============================================================================
 //
+
+.header {
+	background-image: url('../img/custom/header-bg.png');
+}
+
+.header-bar-text {
+	font-family: sans-serif;
+}
+
+.slick-initialized .slick-slide.header-bar-contact {
+    @include breakpoint("medium") {
+		display: none;
+	}
+}
+
+.header-bar li.header-bar-message-3 {
+    @include breakpoint("medium") {
+		text-align: right;
+	}
+}
+
+body:not(.scroll) .header-logo--left {
+    @include breakpoint("large") {
+		min-width: 240px;
+	}
+}
+
+body:not(.scroll) .header-logo-image-container {
+    @include breakpoint("large") {
+		overflow: visible;
+	}
+}
+
+body:not(.scroll) .header-logo-image {
+    @include breakpoint("large") {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 130px;
+		max-height: 130px;
+		width: auto;
+	}
+}
+
+.navUser-item--custom .navUser-text {
+	display: inline-block;
+	font-size: 1.5rem;
+	font-family: stencilFontFamily("headings-font");
+	font-weight: 400;
+	text-indent: 4px;
+	cursor: default;
+}
+
+.navUser-item--custom .navUser-action:hover {
+	color: stencilColor('navUser-color');
+}
+
+.navUser-item--custom .navUser-icon svg {
+	color: #cc0f1c;
+	fill: #cc0f1c;
+}
+
+body:not(.scroll) .navPages {
+    @include breakpoint("large") {
+		text-align: left;
+		background-color: stencilColor("custom-header-menu-background");
+		margin-left: 240px;
+		width: calc(100% - 240px);
+		max-width: calc(1440px - 240px);
+		border-top-left-radius: .5rem;
+	}
+}
+
+body:not(.scroll) .navPages-container {
+	max-width: calc(1440px + 12rem);
+    @include breakpoint("large") {
+		padding-left: 6rem;
+		padding-right: 0;
+		background: none;
+	}
+}
+
+.navPages-hover .navPages-list-simple .navPages-item:hover div.navPage-subMenu {
+    @include breakpoint("medium") {
+		border-top: 1px solid stencilColor("navPages-color-hover");
+	}
+}
+
+.heatometer {
+	max-width: 1440px;
+	text-align: center;
+	display: flex;
+	margin: auto;
+	background: #557c20; /* Old browsers */
+	background: -moz-linear-gradient(left,  #557c20 0%, #e9c300 25%, #eda202 50%, #eb7a0a 75%, #d32418 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  #557c20 0%,#e9c300 25%,#eda202 50%,#eb7a0a 75%,#d32418 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right,  #557c20 0%,#e9c300 25%,#eda202 50%,#eb7a0a 75%,#d32418 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#557c20', endColorstr='#d32418',GradientType=1 ); /* IE6-9 */
+}
+
+.heatometer div {
+	flex: 1 1 0;
+}
+
+.heatometer .heat-mild { background: url("https://cdn2.bigcommerce.com/n-pktq5q/6yytk8/templates/__custom/images/ay-subheader-2.png?t=1474032478") right -6px no-repeat; }
+.heatometer .heat-medium { background: url("https://cdn2.bigcommerce.com/n-pktq5q/6yytk8/templates/__custom/images/ay-subheader-3.png?t=1474032478") right -6px no-repeat; }
+.heatometer .heat-hot { background: url("https://cdn2.bigcommerce.com/n-pktq5q/6yytk8/templates/__custom/images/ay-subheader-4.png?t=1474032478") right -6px no-repeat; }
+.heatometer .heat-painful { background: url("https://cdn2.bigcommerce.com/n-pktq5q/6yytk8/templates/__custom/images/ay-subheader-5.png?t=1474032478") right -6px no-repeat; }
+
+
+.heatometer a {
+	display: block;
+	padding: 24px .5rem 10px .5rem;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+	font-family: stencilFontFamily("headings-font");
+	font-weight: 400;
+	line-height: 16px;
+	background-position: top left;
+	background-repeat: repeat-x;
+	background-image: url('../img/custom/heatometer.png');
+	border-right: 1px solid #fff;
+	transition: .5s;
+    @include breakpoint("small") {
+		font-size: 16px;
+	}
+}
+
+.heatometer div:last-child a {
+	border-right: 0;
+}
+
+.heatometer a:hover {
+	background-color: rgba(0,0,0,0.5);
+}
+
+.heatometer span {
+	display: none;
+    @include breakpoint("medium") {
+		display: inline;
+	}
+}
+
+.tab-title {
+	font-family: stencilFontFamily("headings-font");
+	font-size: 18px;
+}
+
+.footer-blog {
+	background-image: url('../img/custom/header-bg.png');
+}
+
+.footer-blog-img {
+	border: 5px solid #fff;
+}
+
+.footer {
+	background-image: url('../img/custom/footer-bg.png');
+}
+
+.footer-payment-icons .footer-payment-icon {
+	fill: stencilColor("custom-footer-text");
+}

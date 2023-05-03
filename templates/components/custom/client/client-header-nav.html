@@ -1,0 +1,8 @@
+{{#if settings.phone_number}}
+<li class="navUser-item navUser-item--custom">
+	<span class="navUser-action navUser-item--phone">
+		<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-phone{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}"></use></svg></i></span>
+		<span class="navUser-text">{{settings.phone_number}}</span>
+	</span>
+</li>
+{{/if}}
