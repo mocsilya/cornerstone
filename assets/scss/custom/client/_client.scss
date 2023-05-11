@@ -136,5 +136,10 @@ div[data-sub-layout-container="4881a661-cdcb-45c4-909d-06ffd017f87d"] .custom-wi
 }
 
 
-
+.page-product .add-to-cart-wallet-buttons,
+.previewCartCheckout-additionalCheckoutButtons,
+.previewCart-additionalCheckoutButtons,
+.cart-additionalCheckoutButtons {
+	display: none !important;
+}
 
