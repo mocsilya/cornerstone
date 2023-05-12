@@ -1,0 +1,336 @@
+		{{#each categories}}
+            <li class="navPages-item navPages-item-category navPages-item-{{dashcase name}}">
+				{{#if name '==' 'E-Liquids'}}
+				<a class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}} navPages-action-mobile"
+					href="{{url}}" 
+					data-collapsible="navPages-{{id}}" 
+				>
+				    {{name}}
+				    <i class="icon navPages-action-moreIcon" aria-hidden="true">
+				        <svg><use xlink:href="#icon-chevron-down" /></svg>
+				    </i>
+				</a>
+				<a class="navPages-action{{#if is_active}} activePage{{/if}} navPages-action-desktop"
+					href="{{url}}"
+					aria-label="{{name}}"
+				>
+					{{name}}
+					<i class="icon navPages-action-moreIcon" aria-hidden="true">
+						<svg><use xlink:href="#icon-chevron-down" /></svg>
+					</i>
+				</a>
+				<div class="navPage-subMenu" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
+					{{#and ../theme_settings.custom_header_menu_1_show (if../theme_settings.custom_header_menu_1_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_1_link}}<a href="{{../theme_settings.custom_header_menu_1_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_1_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_1_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_1_text}}<span>{{../theme_settings.custom_header_menu_1_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_1_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_2_show (if../theme_settings.custom_header_menu_2_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_2_link}}<a href="{{../theme_settings.custom_header_menu_2_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_2_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_2_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_2_text}}<span>{{../theme_settings.custom_header_menu_2_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_2_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_3_show (if../theme_settings.custom_header_menu_3_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_3_link}}<a href="{{../theme_settings.custom_header_menu_3_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_3_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_3_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_3_text}}<span>{{../theme_settings.custom_header_menu_3_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_3_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_4_show (if../theme_settings.custom_header_menu_4_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_4_link}}<a href="{{../theme_settings.custom_header_menu_4_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_4_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_4_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_4_text}}<span>{{../theme_settings.custom_header_menu_4_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_4_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_5_show (if../theme_settings.custom_header_menu_5_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_5_link}}<a href="{{../theme_settings.custom_header_menu_5_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_5_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_5_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_5_text}}<span>{{../theme_settings.custom_header_menu_5_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_5_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_6_show (if../theme_settings.custom_header_menu_6_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_6_link}}<a href="{{../theme_settings.custom_header_menu_6_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_6_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_6_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_6_text}}<span>{{../theme_settings.custom_header_menu_6_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_6_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+				    <ul class="navPage-subMenu-list">
+				            <li class="navPage-subMenu-item">
+				                    <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+				                       href="/e-liquids/"
+				                       aria-label="E-Liquid Type"
+				                    >
+				                        E-Liquid Type
+				                        <span class="collapsible-icon-wrapper"
+				                            data-collapsible="navPages-e-liquid-type"
+				                            data-collapsible-disabled-breakpoint="medium"
+				                            data-collapsible-disabled-state="open"
+				                            data-collapsible-enabled-state="closed"
+				                        >
+				                            <i class="icon navPages-action-moreIcon" aria-hidden="true">
+				                                <svg><use href="#icon-chevron-down" /></svg>
+				                            </i>
+				                        </span>
+				                    </a>
+				                    <ul class="navPage-childList" id="navPages-e-liquid-type">
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/e-liquids/?_bc_fsnf=1&E-Liquid+Type=10+ml"
+				                               aria-label="10ml"
+				                            >
+				                                10ml
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/nic-salts"
+				                               aria-label="Nic Salts"
+				                            >
+				                                Nic Salts
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/e-juice/short-fill-e-liquids/"
+				                               aria-label="Shortfills"
+				                            >
+				                                Shortfills
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/nicotine-shots/"
+				                               aria-label="Nicotine Shots"
+				                            >
+				                                Nicotine Shots
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/e-liquids/?_bc_fsnf=1&E-Liquid+Type=Prefilled+Pods"
+				                               aria-label="Prefilled Pods"
+				                            >
+				                                Prefilled Pods
+				                            </a>
+				                        </li>
+				                    </ul>
+				            </li>
+				            <li class="navPage-subMenu-item">
+				                    <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+				                       href="/e-liquids/"
+				                       aria-label="Flavour Type"
+				                    >
+				                        Flavour Type
+				                        <span class="collapsible-icon-wrapper"
+				                            data-collapsible="navPages-flavour-type"
+				                            data-collapsible-disabled-breakpoint="medium"
+				                            data-collapsible-disabled-state="open"
+				                            data-collapsible-enabled-state="closed"
+				                        >
+				                            <i class="icon navPages-action-moreIcon" aria-hidden="true">
+				                                <svg><use href="#icon-chevron-down" /></svg>
+				                            </i>
+				                        </span>
+				                    </a>
+				                    <ul class="navPage-childList" id="navPages-flavour-type">
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/e-liquids/?_bc_fsnf=1&Flavour+Type=Tobacco"
+				                               aria-label="Tobacco"
+				                            >
+				                                Tobacco
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/e-liquids/?_bc_fsnf=1&Flavour+Type=Menthol"
+				                               aria-label="Menthol"
+				                            >
+				                                Menthol
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/e-liquids/?_bc_fsnf=1&Flavour+Type=Sweet"
+				                               aria-label="Sweet"
+				                            >
+				                                Sweet
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/e-liquids/?_bc_fsnf=1&Flavour+Type=Fruity"
+				                               aria-label="Fruity"
+				                            >
+				                                Fruity
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/e-liquids/?_bc_fsnf=1&Flavour+Type=Desserts"
+				                               aria-label="Desserts"
+				                            >
+				                                Desserts
+				                            </a>
+				                        </li>
+				                    </ul>
+				            </li>
+				            <li class="navPage-subMenu-item">
+				                    <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+				                       href="/pg-vg-ratio/"
+				                       aria-label="PG/VG Ratio"
+				                    >
+				                        PG/VG Ratio
+				                        <span class="collapsible-icon-wrapper"
+				                            data-collapsible="navPages-pgvg-ratio"
+				                            data-collapsible-disabled-breakpoint="medium"
+				                            data-collapsible-disabled-state="open"
+				                            data-collapsible-enabled-state="closed"
+				                        >
+				                            <i class="icon navPages-action-moreIcon" aria-hidden="true">
+				                                <svg><use href="#icon-chevron-down" /></svg>
+				                            </i>
+				                        </span>
+				                    </a>
+				                    <ul class="navPage-childList" id="navPages-pgvg-ratio">
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/high-pg-e-liquids/"
+				                               aria-label="High PG"
+				                            >
+				                                High PG
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/50pg-50vg-eliquids/"
+				                               aria-label="50:50 PG/VG"
+				                            >
+				                                50:50 PG/VG
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/high-vg-e-liquids/"
+				                               aria-label="High VG"
+				                            >
+				                                High VG
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/100-vg-e-liquids/"
+				                               aria-label="100% VG"
+				                            >
+				                                100% VG
+				                            </a>
+				                        </li>
+				                    </ul>
+				            </li>
+				            <li class="navPage-subMenu-item">
+				                    <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+				                       href="https://www.pure-eliquids.com/e-liquids/?_bc_fsnf=1&brand%5B%5D=18&brand%5B%5D=20&brand%5B%5D=15&brand%5B%5D=13&brand%5B%5D=2"
+				                       aria-label="Popular Brands"
+				                    >
+				                        Popular Brands
+				                        <span class="collapsible-icon-wrapper"
+				                            data-collapsible="navPages-eliquid-popular"
+				                            data-collapsible-disabled-breakpoint="medium"
+				                            data-collapsible-disabled-state="open"
+				                            data-collapsible-enabled-state="closed"
+				                        >
+				                            <i class="icon navPages-action-moreIcon" aria-hidden="true">
+				                                <svg><use href="#icon-chevron-down" /></svg>
+				                            </i>
+				                        </span>
+				                    </a>
+				                    <ul class="navPage-childList" id="navPages-eliquid-popular">
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/dinner-lady/"
+				                               aria-label="Dinner Lady"
+				                            >
+				                                Dinner Lady
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/elfliq-elf-bar/"
+				                               aria-label="Elfliq"
+				                            >
+				                                Elfliq
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/ivg/"
+				                               aria-label="IVG"
+				                            >
+				                                IVG
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/pod-salt/"
+				                               aria-label="Pod Salt"
+				                            >
+				                                Pod Salt
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/vsavi-eliquids/"
+				                               aria-label="VSAVI"
+				                            >
+				                                VSAVI
+				                            </a>
+				                        </li>
+				                    </ul>
+				            </li>
+
+				        <li class="navPage-subMenu-item navPage-subMenu-mobile">
+				            <a class="navPage-subMenu-action navPages-action"
+				               href="{{url}}"
+				               aria-label="{{lang 'category.view_all.name' category=name}}"
+				            >
+				                {{lang 'category.view_all.name' category=name}}
+				            </a>
+				        </li>
+				    </ul>
+				</div>
+				{{else}}
+				<a class="navPages-action{{#if is_active}} activePage{{/if}}"
+				   href="{{url}}"
+				   aria-label="{{name}}"
+				>
+				    {{name}}
+				</a>
+				{{/if}}
+            </li>
+        {{/each}}
