@@ -90,6 +90,7 @@ body.with-bar .header {
 	}
 }
 
+.navPages-item-boxsearch .form-search-box .form-input, 
 .header--boxsearch .form-search-box .form-input,
 .navUser .form-search-box .form-input {
 	border-top-color: #ffb41d;
@@ -97,6 +98,7 @@ body.with-bar .header {
 	border-left-color: #ffb41d;
 }
 
+.navPages-item-boxsearch .form-search-box .button, 
 .header--boxsearch .form-search-box .button,
 .navUser .form-search-box .button {
     background: #ffb41d;
@@ -106,6 +108,7 @@ body.with-bar .header {
 	border-bottom: 1px solid #ffb41d;
 }
 
+.navPages-item-boxsearch .form-search-box .button:hover,
 .header--boxsearch .form-search-box .button:hover,
 .navUser .form-search-box .button:hover {
     background: #ffc756;
