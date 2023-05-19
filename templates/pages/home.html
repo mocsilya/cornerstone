@@ -32,6 +32,7 @@ customer:
 {{/each}}
 <div class="main full">
 {{#if theme_settings.custom_homepage_show_tabs}}
+	{{#if (getVar "b2b-products") '===' 'show'}}
 	{{#or (if products.featured) (if products.top_sellers) (if products.new)}}
 		<ul class="tabs" data-tab role="tablist">
 		    {{#if products.featured}}
@@ -68,23 +69,30 @@ customer:
 			{{/if}}
 		</div>
 	{{/or}}
+	{{/if}}
 	{{{region name="home_below_featured_products"}}}
 	{{{region name="home_below_top_products"}}}
 	{{{region name="home_below_new_products"}}}
 {{else}}
-    {{#if products.featured}}
-        {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
-    {{/if}}
+	{{#if (getVar "b2b-products") '===' 'show'}}
+    	{{#if products.featured}}
+    		{{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+    	{{/if}}
+	{{/if}}
     {{{region name="home_below_featured_products"}}}
-
-    {{#if products.top_sellers}}
-        {{> components/products/top products=products.top_sellers columns=theme_settings.homepage_top_products_column_count}}
-    {{/if}}
+	
+	{{#if (getVar "b2b-products") '===' 'show'}}
+    	{{#if products.top_sellers}}
+    		{{> components/products/top products=products.top_sellers columns=theme_settings.homepage_top_products_column_count}}
+    	{{/if}}
+	{{/if}}
     {{{region name="home_below_top_products"}}}
-
-    {{#if products.new}}
-        {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
-    {{/if}}
+	
+	{{#if (getVar "b2b-products") '===' 'show'}}
+    	{{#if products.new}}
+        	{{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
+    	{{/if}}
+	{{/if}}
     {{{region name="home_below_new_products"}}}
 {{/if}}
 </div>

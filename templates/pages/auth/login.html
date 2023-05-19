@@ -6,7 +6,11 @@ blog:
 {{#partial "hero"}}
 <div class="container container-hero">
 	<div class="page-header account-header">
-    	<h1 class="page-heading">{{lang 'login.heading' }}</h1>
+		{{#if theme_settings.custom_b2b}}
+    		<h1 class="page-heading">Business Sign In</h1>
+		{{else}}
+			<h1 class="page-heading">{{lang 'login.heading' }}</h1>
+		{{/if}}
 		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 	</div>
 </div>
@@ -40,9 +44,17 @@ blog:
             <div class="new-customer">
                 <div class="panel">
                     <div class="panel-header">
-                        <h2 class="panel-title">{{lang 'login.new_customer.heading' }}</h2>
+						{{#if theme_settings.custom_b2b}}
+                        	<h2 class="panel-title">Request Business Account</h2>
+						{{else}}
+							<h2 class="panel-title">{{lang 'login.new_customer.heading' }}</h2>
+						{{/if}}
                     </div>
                     <div class="panel-body">
+						{{#if theme_settings.custom_b2b}}
+							<p class="new-customer-intro" style="margin-bottom: 1.5rem;">Once you have created an account, we will review your details before authorising your purchasing capability.</p>
+							<a href="{{urls.auth.create_account}}"><button class="button button--primary">Create Business Account</button></a>
+						{{else}}
                         <p class="new-customer-intro">{{lang 'login.new_customer.intro' }}</p>
                         <ul class="new-customer-fact-list">
                             <li class="new-customer-fact">{{lang 'login.new_customer.fact1' }}</li>
@@ -52,6 +64,7 @@ blog:
                             <li class="new-customer-fact">{{lang 'login.new_customer.fact5' }}</li>
                         </ul>
                         <a href="{{urls.auth.create_account}}"><button class="button button--primary">{{lang 'login.new_customer.create_account' }}</button></a>
+						{{/if}}
                     </div>
                 </div>
             </div>
