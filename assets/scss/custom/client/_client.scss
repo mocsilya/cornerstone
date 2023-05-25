@@ -3,12 +3,14 @@
 // =============================================================================
 
 header.header {
+	/*
 	-webkit-box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.1);
 	box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.1);
 	@include breakpoint("medium") {
 		-webkit-box-shadow: 0px 5px 3px 0px rgba(0,0,0,0.2);
 		box-shadow: 0px 5px 3px 0px rgba(0,0,0,0.2);
 	}
+	*/
 }
 
 
@@ -108,30 +110,41 @@ body.scroll .navPages > ul > li > .navPages-action.is-open:hover {
 // =============================================================================
 
 @media screen and (max-width: 550px) {
-	.heroCarousel--nobg .heroCarousel-content {
+	.heroCarousel-content {
 		padding: 2rem 0;
 		background-color: stencilColor('custom-header-menu-background');
 	}
-	.heroCarousel--nobg .heroCarousel-title a,
-	.heroCarousel--nobg .heroCarousel-title a:hover {
+	.heroCarousel-title a,
+	.heroCarousel-title a:hover {
 		color: stencilColor('custom-header-menu-link');
 	}
-	.heroCarousel--nobg .heroCarousel-description a,
-	.heroCarousel--nobg .heroCarousel-description a:hover {
+	.heroCarousel-description a,
+	.heroCarousel-description a:hover {
 		color: stencilColor('custom-header-menu-link');
 	}
-	.heroCarousel--nobg .heroCarousel-action {
+	.heroCarousel-action {
 		color: stencilColor('custom-homepage-carousel-button-color');
 		background-color: stencilColor('custom-homepage-carousel-button-background');
 	}
-	.heroCarousel--nobg .heroCarousel-action:hover {
+	.heroCarousel-action:hover {
 		color: stencilColor('custom-homepage-carousel-button-color-hover');
 		background-color: stencilColor('custom-homepage-carousel-button-background-hover');
 	}
 }
 
-.heroCarousel--nobg .heroCarousel-title {
+.heroCarousel--left .heroCarousel-content,
+.heroCarousel-inner {
+    justify-content: center;
+    text-align: center;
+    @include breakpoint("medium") {
+	    justify-content: flex-start;
+	    text-align: left;
+    }
+}
+
+h3.heroCarousel-title {
     @include breakpoint("small") {
+		font-size: 50px;
         text-shadow: 0 0 24px black;
     }
     @include breakpoint("medium") {
@@ -139,8 +152,10 @@ body.scroll .navPages > ul > li > .navPages-action.is-open:hover {
     }
 }
 
-.heroCarousel--nobg .heroCarousel-description {
+.heroCarousel-description {
+	margin: auto;
     @include breakpoint("small") {
+		font-size: 30px;
         text-shadow: 0 0 16px black;
     }
     @include breakpoint("medium") {
@@ -148,18 +163,36 @@ body.scroll .navPages > ul > li > .navPages-action.is-open:hover {
     }
 }
 
-.heroCarousel--nobg .heroCarousel-action {
+.heroCarousel-action {
 	border-radius: 100px;
+    @include breakpoint("small") {
+		font-size: 30px;
+    }
 }
 
-.heroCarousel--nobg .heroCarousel-button {
+.heroCarousel-button {
 	margin-top: .5rem;
+	margin-left: auto;
+	margin-right: auto;
     @include breakpoint("small") {
 		border-radius: 100px;
-		box-shadow: rgba(0, 0, 0, 0.75) 0px 5px 30px;
     }
     @include breakpoint("medium") {
 		margin-top: 1.5rem;
+    }
+}
+
+.heroCarousel-slide .heroCarousel-image.heroCarousel-image-desktop {
+	display: none;
+    @include breakpoint("medium") {
+		display: block;
+    }
+}
+
+.heroCarousel-slide .heroCarousel-image.heroCarousel-image-mobile {
+	display: block;
+    @include breakpoint("medium") {
+		display: none;
     }
 }
 
@@ -231,6 +264,15 @@ body.scroll .navPages > ul > li > .navPages-action.is-open:hover {
 		background-position: bottom;
 }
 
+.custom-widget-blocks.custom-widget-sleek .custom-widget-link .custom-widget-button,
+.custom-widget-blocks.custom-widget-sleek .custom-widget-link:hover .custom-widget-button {
+	transition: all .5s ease;
+}
+
+.custom-widget-blocks.custom-widget-sleek .custom-widget-link:hover .custom-widget-button {
+	padding: 0.75rem 0.75rem 0.75rem 2.25rem;
+}
+
 // =============================================================================
 // Custom Header Bar
 // =============================================================================
@@ -240,13 +282,17 @@ body.scroll .navPages > ul > li > .navPages-action.is-open:hover {
 	flex-direction: column;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	background: stencilColor('custom-header-bar-background');
+	background: #1f8cc5;
 	//background: -moz-linear-gradient(top,  #ffffff 0%, stencilColor('custom-header-bar-background') 100%); /* FF3.6-15 */
 	//background: -webkit-linear-gradient(top,  #ffffff 0%,stencilColor('custom-header-bar-background') 100%); /* Chrome10-25,Safari5.1-6 */
 	//background: linear-gradient(to bottom,  #ffffff 0%,stencilColor('custom-header-bar-background') 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     @include breakpoint("medium") {
 		flex-direction: row;
     }
+}
+
+.page-default .custom-bar {
+	background: rgba(31,140,197, 0.75);
 }
 
 @media screen and (max-width: 800px) {
@@ -305,10 +351,24 @@ body.scroll .navPages > ul > li > .navPages-action.is-open:hover {
 	padding-right: 20px;
 	padding-left: 10px;
 	font-weight: 700;
-	color: stencilColor('navPages-subMenu-backgroundColor');
+	color: #fff;
 }
 
+.page-default .header-globalregion {
+	position: relative;
+	z-index: 2;
+}
 
+.page-default div[data-content-region="header_bottom--global"] {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+}
+
+.page-default .container-hero {
+	z-index: 1;
+}
 
 // =============================================================================
 // Footer
