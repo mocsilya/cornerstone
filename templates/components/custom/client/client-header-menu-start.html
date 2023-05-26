@@ -324,6 +324,719 @@
 				        </li>
 				    </ul>
 				</div>
+				{{else if name '==' 'Disposables'}}
+				<a class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}} navPages-action-mobile"
+					href="{{url}}" 
+					data-collapsible="navPages-{{id}}" 
+				>
+				    {{name}}
+				    <i class="icon navPages-action-moreIcon" aria-hidden="true">
+				        <svg><use xlink:href="#icon-chevron-down" /></svg>
+				    </i>
+				</a>
+				<a class="navPages-action{{#if is_active}} activePage{{/if}} navPages-action-desktop"
+					href="{{url}}"
+					aria-label="{{name}}"
+				>
+					{{name}}
+					<i class="icon navPages-action-moreIcon" aria-hidden="true">
+						<svg><use xlink:href="#icon-chevron-down" /></svg>
+					</i>
+				</a>
+				<div class="navPage-subMenu" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
+					{{#and ../theme_settings.custom_header_menu_1_show (if../theme_settings.custom_header_menu_1_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_1_link}}<a href="{{../theme_settings.custom_header_menu_1_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_1_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_1_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_1_text}}<span>{{../theme_settings.custom_header_menu_1_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_1_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_2_show (if../theme_settings.custom_header_menu_2_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_2_link}}<a href="{{../theme_settings.custom_header_menu_2_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_2_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_2_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_2_text}}<span>{{../theme_settings.custom_header_menu_2_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_2_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_3_show (if../theme_settings.custom_header_menu_3_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_3_link}}<a href="{{../theme_settings.custom_header_menu_3_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_3_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_3_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_3_text}}<span>{{../theme_settings.custom_header_menu_3_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_3_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_4_show (if../theme_settings.custom_header_menu_4_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_4_link}}<a href="{{../theme_settings.custom_header_menu_4_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_4_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_4_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_4_text}}<span>{{../theme_settings.custom_header_menu_4_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_4_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_5_show (if../theme_settings.custom_header_menu_5_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_5_link}}<a href="{{../theme_settings.custom_header_menu_5_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_5_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_5_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_5_text}}<span>{{../theme_settings.custom_header_menu_5_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_5_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_6_show (if../theme_settings.custom_header_menu_6_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_6_link}}<a href="{{../theme_settings.custom_header_menu_6_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_6_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_6_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_6_text}}<span>{{../theme_settings.custom_header_menu_6_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_6_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+				    <ul class="navPage-subMenu-list">
+				            <li class="navPage-subMenu-item">
+				                    <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+				                       href="/disposable-vape-kits/?_bc_fsnf=1&brand%5B%5D=17&brand%5B%5D=19&brand%5B%5D=15"
+				                       aria-label="Disposables"
+				                    >
+				                        Popular Brands
+				                        <span class="collapsible-icon-wrapper"
+				                            data-collapsible="navPages-disposables-brands"
+				                            data-collapsible-disabled-breakpoint="medium"
+				                            data-collapsible-disabled-state="open"
+				                            data-collapsible-enabled-state="closed"
+				                        >
+				                            <i class="icon navPages-action-moreIcon" aria-hidden="true">
+				                                <svg><use href="#icon-chevron-down" /></svg>
+				                            </i>
+				                        </span>
+				                    </a>
+				                    <ul class="navPage-childList" id="navPages-disposables-brands">
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/elf-bar/?_bc_fsnf=1&Vape+Kit+Type=Disposables"
+				                               aria-label="Elf Bar"
+				                            >
+				                                Elf Bar
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/disposable-vape-kits/?_bc_fsnf=1&brand=19"
+				                               aria-label="Geek Bar"
+				                            >
+				                                Geek Bar
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/disposable-vape-kits/?_bc_fsnf=1&brand=15"
+				                               aria-label="Pod Salts"
+				                            >
+				                                Pod Salts
+				                            </a>
+				                        </li>
+				                    </ul>
+				            </li>
+
+				        <li class="navPage-subMenu-item navPage-subMenu-mobile">
+				            <a class="navPage-subMenu-action navPages-action"
+				               href="{{url}}"
+				               aria-label="{{lang 'category.view_all.name' category=name}}"
+				            >
+				                {{lang 'category.view_all.name' category=name}}
+				            </a>
+				        </li>
+				    </ul>
+				</div>
+				{{else if name '==' 'Vape Kits'}}
+				<a class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}} navPages-action-mobile"
+					href="{{url}}" 
+					data-collapsible="navPages-{{id}}" 
+				>
+				    {{name}}
+				    <i class="icon navPages-action-moreIcon" aria-hidden="true">
+				        <svg><use xlink:href="#icon-chevron-down" /></svg>
+				    </i>
+				</a>
+				<a class="navPages-action{{#if is_active}} activePage{{/if}} navPages-action-desktop"
+					href="{{url}}"
+					aria-label="{{name}}"
+				>
+					{{name}}
+					<i class="icon navPages-action-moreIcon" aria-hidden="true">
+						<svg><use xlink:href="#icon-chevron-down" /></svg>
+					</i>
+				</a>
+				<div class="navPage-subMenu" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
+					{{#and ../theme_settings.custom_header_menu_1_show (if../theme_settings.custom_header_menu_1_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_1_link}}<a href="{{../theme_settings.custom_header_menu_1_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_1_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_1_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_1_text}}<span>{{../theme_settings.custom_header_menu_1_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_1_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_2_show (if../theme_settings.custom_header_menu_2_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_2_link}}<a href="{{../theme_settings.custom_header_menu_2_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_2_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_2_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_2_text}}<span>{{../theme_settings.custom_header_menu_2_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_2_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_3_show (if../theme_settings.custom_header_menu_3_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_3_link}}<a href="{{../theme_settings.custom_header_menu_3_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_3_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_3_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_3_text}}<span>{{../theme_settings.custom_header_menu_3_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_3_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_4_show (if../theme_settings.custom_header_menu_4_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_4_link}}<a href="{{../theme_settings.custom_header_menu_4_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_4_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_4_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_4_text}}<span>{{../theme_settings.custom_header_menu_4_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_4_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_5_show (if../theme_settings.custom_header_menu_5_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_5_link}}<a href="{{../theme_settings.custom_header_menu_5_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_5_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_5_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_5_text}}<span>{{../theme_settings.custom_header_menu_5_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_5_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_6_show (if../theme_settings.custom_header_menu_6_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_6_link}}<a href="{{../theme_settings.custom_header_menu_6_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_6_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_6_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_6_text}}<span>{{../theme_settings.custom_header_menu_6_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_6_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+				    <ul class="navPage-subMenu-list">
+				            <li class="navPage-subMenu-item">
+				                    <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+				                       href="/vape-kits/"
+				                       aria-label="Vape Kit Types"
+				                    >
+				                        Vape Kit Types
+				                        <span class="collapsible-icon-wrapper"
+				                            data-collapsible="navPages-vapekit-types"
+				                            data-collapsible-disabled-breakpoint="medium"
+				                            data-collapsible-disabled-state="open"
+				                            data-collapsible-enabled-state="closed"
+				                        >
+				                            <i class="icon navPages-action-moreIcon" aria-hidden="true">
+				                                <svg><use href="#icon-chevron-down" /></svg>
+				                            </i>
+				                        </span>
+				                    </a>
+				                    <ul class="navPage-childList" id="navPages-vapekit-types">
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/disposable-vape-kits/"
+				                               aria-label="Disposables"
+				                            >
+				                                Disposables
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/pod-kits/"
+				                               aria-label="Prefilled Pod Kits"
+				                            >
+				                                Prefilled Pod Kits
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/refillable-pod-kits/"
+				                               aria-label="Refillable Pod Kits"
+				                            >
+				                                Refillable Pod Kits
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/vape-pen-kits/"
+				                               aria-label="Vape Pen"
+				                            >
+				                                Vape Pen
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/vape-kits/?_bc_fsnf=1&Vape+Kit+Type=All+In+One+%28AIO%29"
+				                               aria-label="All In One (AIO)"
+				                            >
+				                                All In One (AIO)
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/vape-kits/?_bc_fsnf=1&Vape+Kit+Type=Cigarette+Type"
+				                               aria-label="Cigarette Type"
+				                            >
+				                                Cigarette Type
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/vape-mods/"
+				                               aria-label="Vape Mods"
+				                            >
+				                                Vape Mods
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/shisha-pens/"
+				                               aria-label="Shisha Pens"
+				                            >
+				                                Shisha Pens
+				                            </a>
+				                        </li>
+				                    </ul>
+				            </li>
+				            <li class="navPage-subMenu-item">
+				                    <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+				                       href="/vape-kits/"
+				                       aria-label="User Level"
+				                    >
+				                        User Level
+				                        <span class="collapsible-icon-wrapper"
+				                            data-collapsible="navPages-user-level"
+				                            data-collapsible-disabled-breakpoint="medium"
+				                            data-collapsible-disabled-state="open"
+				                            data-collapsible-enabled-state="closed"
+				                        >
+				                            <i class="icon navPages-action-moreIcon" aria-hidden="true">
+				                                <svg><use href="#icon-chevron-down" /></svg>
+				                            </i>
+				                        </span>
+				                    </a>
+				                    <ul class="navPage-childList" id="navPages-user-level">
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/vape-kits/?_bc_fsnf=1&User+Level=New+To+Vaping"
+				                               aria-label="New To Vaping"
+				                            >
+				                                New To Vaping
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/vape-kits/?_bc_fsnf=1&User+Level=Starter+Kits"
+				                               aria-label="Starter Kits"
+				                            >
+				                                Starter Kits
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/vape-kits/?_bc_fsnf=1&User+Level=Intermediate+Kits"
+				                               aria-label="Intermediate Kits"
+				                            >
+				                                Intermediate Kits
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/vape-kits/?_bc_fsnf=1&User+Level=Advanced+Kits"
+				                               aria-label="Advanced Kits"
+				                            >
+				                                Advanced Kits
+				                            </a>
+				                        </li>
+				                    </ul>
+				            </li>
+				            <li class="navPage-subMenu-item">
+				                    <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+				                       href="/vape-kits/?_bc_fsnf=1&brand%5B%5D=7&brand%5B%5D=19&brand%5B%5D=6&brand%5B%5D=9&brand%5B%5D=16&brand%5B%5D=28&brand%5B%5D=1"
+				                       aria-label="Vape Kit Brands"
+				                    >
+				                        Popular Brands
+				                        <span class="collapsible-icon-wrapper"
+				                            data-collapsible="navPages-vapekit-brands"
+				                            data-collapsible-disabled-breakpoint="medium"
+				                            data-collapsible-disabled-state="open"
+				                            data-collapsible-enabled-state="closed"
+				                        >
+				                            <i class="icon navPages-action-moreIcon" aria-hidden="true">
+				                                <svg><use href="#icon-chevron-down" /></svg>
+				                            </i>
+				                        </span>
+				                    </a>
+				                    <ul class="navPage-childList" id="navPages-vapekit-brands">
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/aspire-devices/"
+				                               aria-label="Aspire"
+				                            >
+				                                Aspire
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/geekvape-devices/"
+				                               aria-label="GeekVape"
+				                            >
+				                                GeekVape
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/innokin-devices/"
+				                               aria-label="Innokin"
+				                            >
+				                                Innokin
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/smok-devices/"
+				                               aria-label="SMOK"
+				                            >
+				                                SMOK
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/uwell-devices/"
+				                               aria-label="Uwell"
+				                            >
+				                                Uwell
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/vaporesso-devices/"
+				                               aria-label="Vaporesso"
+				                            >
+				                                Vaporesso
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/voopoo-devices/"
+				                               aria-label="VOOPOO"
+				                            >
+				                                VOOPOO
+				                            </a>
+				                        </li>
+				                    </ul>
+				            </li>
+							
+
+				        <li class="navPage-subMenu-item navPage-subMenu-mobile">
+				            <a class="navPage-subMenu-action navPages-action"
+				               href="{{url}}"
+				               aria-label="{{lang 'category.view_all.name' category=name}}"
+				            >
+				                {{lang 'category.view_all.name' category=name}}
+				            </a>
+				        </li>
+				    </ul>
+				</div>
+				{{else if name '==' 'Pods'}}
+				<a class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}} navPages-action-mobile"
+					href="{{url}}" 
+					data-collapsible="navPages-{{id}}" 
+				>
+				    {{name}}
+				    <i class="icon navPages-action-moreIcon" aria-hidden="true">
+				        <svg><use xlink:href="#icon-chevron-down" /></svg>
+				    </i>
+				</a>
+				<a class="navPages-action{{#if is_active}} activePage{{/if}} navPages-action-desktop"
+					href="{{url}}"
+					aria-label="{{name}}"
+				>
+					{{name}}
+					<i class="icon navPages-action-moreIcon" aria-hidden="true">
+						<svg><use xlink:href="#icon-chevron-down" /></svg>
+					</i>
+				</a>
+				<div class="navPage-subMenu" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
+					{{#and ../theme_settings.custom_header_menu_1_show (if../theme_settings.custom_header_menu_1_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_1_link}}<a href="{{../theme_settings.custom_header_menu_1_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_1_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_1_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_1_text}}<span>{{../theme_settings.custom_header_menu_1_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_1_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_2_show (if../theme_settings.custom_header_menu_2_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_2_link}}<a href="{{../theme_settings.custom_header_menu_2_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_2_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_2_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_2_text}}<span>{{../theme_settings.custom_header_menu_2_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_2_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_3_show (if../theme_settings.custom_header_menu_3_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_3_link}}<a href="{{../theme_settings.custom_header_menu_3_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_3_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_3_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_3_text}}<span>{{../theme_settings.custom_header_menu_3_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_3_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_4_show (if../theme_settings.custom_header_menu_4_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_4_link}}<a href="{{../theme_settings.custom_header_menu_4_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_4_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_4_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_4_text}}<span>{{../theme_settings.custom_header_menu_4_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_4_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_5_show (if../theme_settings.custom_header_menu_5_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_5_link}}<a href="{{../theme_settings.custom_header_menu_5_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_5_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_5_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_5_text}}<span>{{../theme_settings.custom_header_menu_5_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_5_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_6_show (if../theme_settings.custom_header_menu_6_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_6_link}}<a href="{{../theme_settings.custom_header_menu_6_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_6_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_6_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_6_text}}<span>{{../theme_settings.custom_header_menu_6_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_6_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+				    <ul class="navPage-subMenu-list">
+				            <li class="navPage-subMenu-item">
+				                    <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+				                       href="/vape-pods/"
+				                       aria-label="Pod Type"
+				                    >
+				                        Type
+				                        <span class="collapsible-icon-wrapper"
+				                            data-collapsible="navPages-pod-type"
+				                            data-collapsible-disabled-breakpoint="medium"
+				                            data-collapsible-disabled-state="open"
+				                            data-collapsible-enabled-state="closed"
+				                        >
+				                            <i class="icon navPages-action-moreIcon" aria-hidden="true">
+				                                <svg><use href="#icon-chevron-down" /></svg>
+				                            </i>
+				                        </span>
+				                    </a>
+				                    <ul class="navPage-childList" id="navPages-pod-type">
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/vape-pods/refillable-pods/"
+				                               aria-label="Refillable Pods"
+				                            >
+				                                Refillable Pods
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/vape-pods/prefilled-pod/"
+				                               aria-label="Prefilled Pods"
+				                            >
+				                                Prefilled Pods
+				                            </a>
+				                        </li>
+				                    </ul>
+				            </li>
+
+				        <li class="navPage-subMenu-item navPage-subMenu-mobile">
+				            <a class="navPage-subMenu-action navPages-action"
+				               href="{{url}}"
+				               aria-label="{{lang 'category.view_all.name' category=name}}"
+				            >
+				                {{lang 'category.view_all.name' category=name}}
+				            </a>
+				        </li>
+				    </ul>
+				</div>
+				{{else if name '==' 'Accessories'}}
+				<a class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}} navPages-action-mobile"
+					href="{{url}}" 
+					data-collapsible="navPages-{{id}}" 
+				>
+				    {{name}}
+				    <i class="icon navPages-action-moreIcon" aria-hidden="true">
+				        <svg><use xlink:href="#icon-chevron-down" /></svg>
+				    </i>
+				</a>
+				<a class="navPages-action{{#if is_active}} activePage{{/if}} navPages-action-desktop"
+					href="{{url}}"
+					aria-label="{{name}}"
+				>
+					{{name}}
+					<i class="icon navPages-action-moreIcon" aria-hidden="true">
+						<svg><use xlink:href="#icon-chevron-down" /></svg>
+					</i>
+				</a>
+				<div class="navPage-subMenu" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
+					{{#and ../theme_settings.custom_header_menu_1_show (if../theme_settings.custom_header_menu_1_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_1_link}}<a href="{{../theme_settings.custom_header_menu_1_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_1_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_1_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_1_text}}<span>{{../theme_settings.custom_header_menu_1_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_1_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_2_show (if../theme_settings.custom_header_menu_2_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_2_link}}<a href="{{../theme_settings.custom_header_menu_2_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_2_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_2_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_2_text}}<span>{{../theme_settings.custom_header_menu_2_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_2_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_3_show (if../theme_settings.custom_header_menu_3_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_3_link}}<a href="{{../theme_settings.custom_header_menu_3_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_3_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_3_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_3_text}}<span>{{../theme_settings.custom_header_menu_3_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_3_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_4_show (if../theme_settings.custom_header_menu_4_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_4_link}}<a href="{{../theme_settings.custom_header_menu_4_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_4_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_4_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_4_text}}<span>{{../theme_settings.custom_header_menu_4_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_4_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_5_show (if../theme_settings.custom_header_menu_5_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_5_link}}<a href="{{../theme_settings.custom_header_menu_5_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_5_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_5_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_5_text}}<span>{{../theme_settings.custom_header_menu_5_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_5_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+					{{#and ../theme_settings.custom_header_menu_6_show (if../theme_settings.custom_header_menu_6_category '==' name)}}
+						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+							<li>
+								{{#if ../theme_settings.custom_header_menu_6_link}}<a href="{{../theme_settings.custom_header_menu_6_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_6_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_6_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_6_text}}<span>{{../theme_settings.custom_header_menu_6_text}}</span>{{/if}}
+								{{#if ../theme_settings.custom_header_menu_6_link}}</a>{{/if}}
+							</li>
+						</ul>
+					{{/and}}
+				    <ul class="navPage-subMenu-list">
+				            <li class="navPage-subMenu-item">
+				                    <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+				                       href="/accessories/"
+				                       aria-label="Accessories"
+				                    >
+				                        Accessory Types
+				                        <span class="collapsible-icon-wrapper"
+				                            data-collapsible="navPages-accessory-type"
+				                            data-collapsible-disabled-breakpoint="medium"
+				                            data-collapsible-disabled-state="open"
+				                            data-collapsible-enabled-state="closed"
+				                        >
+				                            <i class="icon navPages-action-moreIcon" aria-hidden="true">
+				                                <svg><use href="#icon-chevron-down" /></svg>
+				                            </i>
+				                        </span>
+				                    </a>
+				                    <ul class="navPage-childList" id="navPages-accessory-type">
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/accessories/?_bc_fsnf=1&Accessory+Type=Batteries"
+				                               aria-label="Batteries"
+				                            >
+				                                Batteries
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/accessories/?_bc_fsnf=1&Accessory+Type=Carry+Cases"
+				                               aria-label="Carry Cases"
+				                            >
+				                                Carry Cases
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/accessories/?_bc_fsnf=1&Accessory+Type=Chargers"
+				                               aria-label="Chargers"
+				                            >
+				                                Chargers
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/accessories/?_bc_fsnf=1&Accessory+Type=Other"
+				                               aria-label="Other"
+				                            >
+				                                Other
+				                            </a>
+				                        </li>
+				                    </ul>
+				            </li>
+
+				        <li class="navPage-subMenu-item navPage-subMenu-mobile">
+				            <a class="navPage-subMenu-action navPages-action"
+				               href="{{url}}"
+				               aria-label="{{lang 'category.view_all.name' category=name}}"
+				            >
+				                {{lang 'category.view_all.name' category=name}}
+				            </a>
+				        </li>
+				    </ul>
+				</div>
 				{{else}}
 				<a class="navPages-action{{#if is_active}} activePage{{/if}}"
 				   href="{{url}}"
