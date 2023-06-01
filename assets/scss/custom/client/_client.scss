@@ -2,3 +2,94 @@
 // Custom > Client
 // =============================================================================
 //
+
+.green {
+	color: #30a825;
+}
+
+.orange {
+	color: #f86e21;
+}
+
+.header {
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(left, stencilColor('header-backgroundColor') 0%, #ffffff 50%, stencilColor('header-backgroundColor') 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, stencilColor('header-backgroundColor') 0%,#ffffff 50%, stencilColor('header-backgroundColor') 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, stencilColor('header-backgroundColor') 0%,#ffffff 50%, stencilColor('header-backgroundColor') 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("header-backgroundColor")', endColorstr='stencilColor("header-backgroundColor")',GradientType=1 ); /* IE6-9 */
+}
+
+body:not(.page-category.page-brands) #main-content {
+	@include breakpoint("medium") {
+		background-image: url('../img/custom/body-bg.gif');
+		background-position: top center;
+		background-repeat: repeat-x;
+	}
+}
+
+.page-header {
+	@include breakpoint("medium") {
+		background: none;
+	}
+}
+
+.dropdown--quickSearch .form-field-input .form-input {
+	@include breakpoint("medium") {
+		background: #fff;
+	}
+}
+
+.dropdown--quickSearch .form-field-submit .button,
+.dropdown--quickSearch .form-field-submit .button:hover {
+	@include breakpoint("medium") {
+	    background: #f86e21;
+	    border: 1px solid #f86e21;
+		border-left: 0;
+		color: #fff;
+	}
+}
+
+.page-product #main-content > .container:not(.container-hero) > div:first-child,
+body:not(.page-category.page-brands) #main-content > .container:not(.container-hero) .page {
+	background: #fff;
+	@include breakpoint("medium") {
+		padding-top: 1.5rem;
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+		border-top-left-radius: .25rem;
+		border-top-right-radius: .25rem;
+	}
+	@include breakpoint("large") {
+		padding-top: 3rem;
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
+}
+
+.footer {
+	padding: 6rem 3rem;
+	background-image: url('../img/custom/footer-bg.png');
+	background-position: top center;
+	background-repeat: repeat-x;
+}
+
+.footer-newsletter {
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(left, stencilColor('custom-footer-newsletter-background') 0%, #ffffff 50%, stencilColor('custom-footer-newsletter-background') 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, stencilColor('custom-footer-newsletter-background') 0%,#ffffff 50%, stencilColor('custom-footer-newsletter-background') 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, stencilColor('custom-footer-newsletter-background') 0%,#ffffff 50%, stencilColor('custom-footer-newsletter-background') 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("custom-footer-newsletter-background")', endColorstr='stencilColor("custom-footer-newsletter-background")',GradientType=1 ); /* IE6-9 */
+}
+
+.footer-payment-icons svg {
+	fill: stencilColor('custom-footer-text');
+}
+
+.subcategories-above .subcategories-name {
+	border: 1px solid #68b1d9;
+	background-color: #fff;
+}
+
+.custom-widget-blocks.custom-widget-brand-logo .custom-widget-link {
+	padding: 0 0 50% 0;
+}
