@@ -2272,11 +2272,14 @@ ol.breadcrumbs {
 }
 
 .heroCarousel-action {
-	padding: .5rem 1rem;
+	padding-top: .5rem;
+	padding-left: 1rem;
+	padding-bottom: .5rem;
+	padding-right: 1rem;
 	margin: 0;
 	line-height: 1.2;
+	border-radius: 0;
 	border: 0;
-	border-radius: 1rem;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -2286,16 +2289,90 @@ ol.breadcrumbs {
 	color: stencilColor("custom-homepage-carousel-button-color");
 	background: stencilColor("custom-homepage-carousel-button-background");
 	@include breakpoint("small") {
-		border-radius: 0;
-		padding: .5rem 1.5rem;
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
 	}
 	@include breakpoint("medium") {
 		font-size: 1.25rem;
-		padding: 1.175rem 2rem;
+		padding-top: 1.175rem;
+		padding-left: 2rem;
+		padding-bottom: 1.175rem;
+		padding-right: 2rem;
 	}
 	@include breakpoint("large") {
-		padding: 1.5rem 2rem;
 		font-size: 1.5rem;
+		padding-top: 1.5rem;
+		padding-left: 2.5rem;
+		padding-bottom: 1.5rem;
+		padding-right: 2.5rem;
+	}
+}
+
+.heroCarousel-action:hover {
+	padding-left: 2rem;
+	padding-right: 2rem;
+	color: stencilColor("custom-homepage-carousel-button-color-hover");
+	background: stencilColor("custom-homepage-carousel-button-background-hover");
+	@include breakpoint("small") {
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
+	@include breakpoint("medium") {
+		padding-left: 4rem;
+		padding-right: 4rem;
+	}
+	@include breakpoint("large") {
+		padding-left: 5rem;
+		padding-right: 5rem;
+	}
+}
+
+.heroCarousel--left .heroCarousel-action,
+.heroCarousel--right .heroCarousel-action,
+.heroCarousel--center .heroCarousel-action {
+	border-radius: 50vh;
+}
+
+.heroCarousel-slide--color .heroCarousel-action {
+	border-width: .25rem;
+	border-style: solid;
+	padding-top: .25rem;
+	padding-left: .75rem;
+	padding-bottom: .25rem;
+	padding-right: .75rem;
+	@include breakpoint("small") {
+		padding-left: 1.25rem;
+		padding-right: 1.25rem;
+	}
+	@include breakpoint("medium") {
+		border-width: .5rem;
+		padding-top: .675rem;
+		padding-left: 1.5rem;
+		padding-bottom: .675rem;
+		padding-right: 1.5rem;
+	}
+	@include breakpoint("large") {
+		padding-top: 1rem;
+		padding-left: 2rem;
+		padding-bottom: 1rem;
+		padding-right: 2rem;
+	}
+}
+
+.heroCarousel-slide--color .heroCarousel-action:hover {
+	padding-left: 1.75rem;
+	padding-right: 1.75rem;
+	@include breakpoint("small") {
+		padding-left: 2.75rem;
+		padding-right: 2.75rem;
+	}
+	@include breakpoint("medium") {
+		padding-left: 3.5rem;
+		padding-right: 3.5rem;
+	}
+	@include breakpoint("large") {
+		padding-left: 4.5rem;
+		padding-right: 4.5rem;
 	}
 }
 
@@ -2305,25 +2382,6 @@ ol.breadcrumbs {
 	@include breakpoint("small") {
 		margin-top: 1rem;
 	}
-}
-
-.heroCarousel--left .heroCarousel-action,
-.heroCarousel--right .heroCarousel-action,
-.heroCarousel--center .heroCarousel-action {
-	@include breakpoint("small") {
-		border-radius: 1rem;
-	}
-	@include breakpoint("medium") {
-		border-radius: 2.5rem;
-	}
-	@include breakpoint("large") {
-		border-radius: 3rem;
-	}
-}
-
-.heroCarousel-action:hover {
-	color: stencilColor("custom-homepage-carousel-button-color-hover");
-	background: stencilColor("custom-homepage-carousel-button-background-hover");
 }
 
 .heroCarousel--left .heroCarousel-content,
@@ -2493,6 +2551,7 @@ ol.breadcrumbs {
 }
 
 @media (max-width: 800px) {
+	
 	.heroCarousel-slide--mobile .heroCarousel-content {
 		position: absolute;
 		top: 50%;
@@ -2506,55 +2565,164 @@ ol.breadcrumbs {
 		background: none;
 	}
 	
+	.heroCarousel-slide--mobile .heroCarousel-inner {
+		display: block;
+	}
+	
 	.heroCarousel-slide--mobile .heroCarousel-title {
 		display: inline-block;
 	}
 	
-	.heroCarousel-slide--mobile .heroCarousel-inner {
-		display: block;
+	.heroCarousel-slide--mobile .heroCarousel-title, 
+	.heroCarousel-slide--mobile .heroCarousel-title a,
+	.heroCarousel-slide--mobile .heroCarousel-title a:hover {
+		color: stencilColor("carousel-title-color");
 	}
 	
 	.heroCarousel-slide--mobile .heroCarousel-description {
 		display: inline-block;
 	}
 	
+	.heroCarousel-slide--mobile .heroCarousel-description,
+	.heroCarousel-slide--mobile .heroCarousel-description a,
+	.heroCarousel-slide--mobile .heroCarousel-description a:hover {
+		color: stencilColor("carousel-description-color");
+	}
+	
 	.heroCarousel-slide--mobile .heroCarousel-button {
 		display: block;
-		margin-top: 1rem;
 		padding: 0;
 	}
 	
-	.heroCarousel-slide--mobile .heroCarousel-action {
+	.heroCarousel--left .heroCarousel-slide--mobile .heroCarousel-button,
+	.heroCarousel--right .heroCarousel-slide--mobile .heroCarousel-button,
+	.heroCarousel--center .heroCarousel-slide--mobile .heroCarousel-button {
+		margin-top: 1rem;
+	}
+	
+	.heroCarousel-slide--mobile .heroCarousel-action  {
 		display: inline-block;
-		border-radius: 3rem;
-		padding: 1rem 1.5rem;
-		
+		padding-top: 1.5rem;
+		padding-left: 2rem;
+		padding-bottom: 1.5rem;
+		padding-right: 2rem;
+	}
+	
+	.heroCarousel-slide--mobile .heroCarousel-action:hover {
+		padding-left: 4rem;
+		padding-right: 4rem;
 	}
 
-	.heroCarousel--nobg .heroCarousel-slide--mobile .heroCarousel-title, 
-	.heroCarousel--nobg .heroCarousel-slide--mobile .heroCarousel-title a,
-	.heroCarousel--nobg .heroCarousel-slide--mobile .heroCarousel-title a:hover {
-		color: stencilColor("carousel-title-color");
+	.heroCarousel-slide--mobile.heroCarousel-slide--color .heroCarousel-action {
+		border-width: .5rem;
+		padding-top: 1rem;
+		padding-left: 1.5rem;
+		padding-bottom: 1rem;
+		padding-right: 1.5rem;
 	}
 
-	.heroCarousel--nobg .heroCarousel-slide--mobile .heroCarousel-description,
-	.heroCarousel--nobg .heroCarousel-slide--mobile .heroCarousel-description a,
-	.heroCarousel--nobg .heroCarousel-slide--mobile .heroCarousel-description a:hover {
-		color: stencilColor("carousel-description-color");
+	.heroCarousel-slide--mobile.heroCarousel-slide--color .heroCarousel-action:hover {
+		padding-left: 3.5rem;
+		padding-right: 3.5rem;
 	}
 
-	.heroCarousel--nobg .heroCarousel-slide--mobile .heroCarousel-action {
+	.heroCarousel-slide--mobile .heroCarousel-action {
 		color: stencilColor("custom-homepage-carousel-button-color");
 		background: stencilColor("custom-homepage-carousel-button-background");
 	}
 
-	.heroCarousel--nobg .heroCarousel-slide--mobile .heroCarousel-action:hover {
+	.heroCarousel-slide--mobile .heroCarousel-action:hover {
 		color: stencilColor("custom-homepage-carousel-button-color-hover");
 		background: stencilColor("custom-homepage-carousel-button-background-hover");
 	}
 	
+
 }
 
+.heroCarousel-slide--1.heroCarousel-slide--color .heroCarousel-title,
+.heroCarousel-slide--1.heroCarousel-slide--color .heroCarousel-title a,
+.heroCarousel-slide--1.heroCarousel-slide--color .heroCarousel-title a:hover
+.heroCarousel-slide--1.heroCarousel-slide--color .heroCarousel-description,
+.heroCarousel-slide--1.heroCarousel-slide--color .heroCarousel-description a,
+.heroCarousel-slide--1.heroCarousel-slide--color .heroCarousel-description a:hover {
+	color: stencilColor("custom-homepage-carousel-color-1");
+}
+
+.heroCarousel-slide--2.heroCarousel-slide--color .heroCarousel-title,
+.heroCarousel-slide--2.heroCarousel-slide--color .heroCarousel-title a,
+.heroCarousel-slide--2.heroCarousel-slide--color .heroCarousel-title a:hover
+.heroCarousel-slide--2.heroCarousel-slide--color .heroCarousel-description,
+.heroCarousel-slide--2.heroCarousel-slide--color .heroCarousel-description a,
+.heroCarousel-slide--2.heroCarousel-slide--color .heroCarousel-description a:hover {
+	color: stencilColor("custom-homepage-carousel-color-2");
+}
+
+.heroCarousel-slide--3.heroCarousel-slide--color .heroCarousel-title,
+.heroCarousel-slide--3.heroCarousel-slide--color .heroCarousel-title a,
+.heroCarousel-slide--3.heroCarousel-slide--color .heroCarousel-title a:hover
+.heroCarousel-slide--3.heroCarousel-slide--color .heroCarousel-description,
+.heroCarousel-slide--3.heroCarousel-slide--color .heroCarousel-description a,
+.heroCarousel-slide--3.heroCarousel-slide--color .heroCarousel-description a:hover {
+	color: stencilColor("custom-homepage-carousel-color-3");
+}
+
+.heroCarousel-slide--4.heroCarousel-slide--color .heroCarousel-title,
+.heroCarousel-slide--4.heroCarousel-slide--color .heroCarousel-title a,
+.heroCarousel-slide--4.heroCarousel-slide--color .heroCarousel-title a:hover
+.heroCarousel-slide--4.heroCarousel-slide--color .heroCarousel-description,
+.heroCarousel-slide--4.heroCarousel-slide--color .heroCarousel-description a,
+.heroCarousel-slide--4.heroCarousel-slide--color .heroCarousel-description a:hover {
+	color: stencilColor("custom-homepage-carousel-color-4");
+}
+
+.heroCarousel-slide--5.heroCarousel-slide--color .heroCarousel-title,
+.heroCarousel-slide--5.heroCarousel-slide--color .heroCarousel-title a,
+.heroCarousel-slide--5.heroCarousel-slide--color .heroCarousel-title a:hover
+.heroCarousel-slide--5.heroCarousel-slide--color .heroCarousel-description,
+.heroCarousel-slide--5.heroCarousel-slide--color .heroCarousel-description a,
+.heroCarousel-slide--5.heroCarousel-slide--color .heroCarousel-description a:hover {
+	color: stencilColor("custom-homepage-carousel-color-5");
+}
+
+.heroCarousel-slide--color .heroCarousel-action,
+.heroCarousel-slide--color .heroCarousel-action:hover {
+	background: rgba($carousel-bgColor, 0.8);
+}
+
+.heroCarousel--nobg .heroCarousel-slide--color .heroCarousel-action,
+.heroCarousel--nobg .heroCarousel-slide--color .heroCarousel-action:hover {
+	background: none;
+}
+
+.heroCarousel-slide--1.heroCarousel-slide--color .heroCarousel-action,
+.heroCarousel-slide--1.heroCarousel-slide--color .heroCarousel-action:hover {
+	border-color: stencilColor("custom-homepage-carousel-color-1");
+	color: stencilColor("custom-homepage-carousel-color-1");
+}
+
+.heroCarousel-slide--2.heroCarousel-slide--color .heroCarousel-action,
+.heroCarousel-slide--2.heroCarousel-slide--color .heroCarousel-action:hover {
+	border-color: stencilColor("custom-homepage-carousel-color-2");
+	color: stencilColor("custom-homepage-carousel-color-2");
+}
+
+.heroCarousel-slide--3.heroCarousel-slide--color .heroCarousel-action,
+.heroCarousel-slide--3.heroCarousel-slide--color .heroCarousel-action:hover {
+	border-color: stencilColor("custom-homepage-carousel-color-3");
+	color: stencilColor("custom-homepage-carousel-color-3");
+}
+
+.heroCarousel-slide--4.heroCarousel-slide--color .heroCarousel-action,
+.heroCarousel-slide--4.heroCarousel-slide--color .heroCarousel-action:hover {
+	border-color: stencilColor("custom-homepage-carousel-color-4");
+	color: stencilColor("custom-homepage-carousel-color-4");
+}
+
+.heroCarousel-slide--5.heroCarousel-slide--color .heroCarousel-action,
+.heroCarousel-slide--5.heroCarousel-slide--color .heroCarousel-action:hover {
+	border-color: stencilColor("custom-homepage-carousel-color-5");
+	color: stencilColor("custom-homepage-carousel-color-5");
+}
 
 
 // Product Carousel
