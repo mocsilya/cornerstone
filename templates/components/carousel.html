@@ -20,7 +20,7 @@
     {{else}}
     <a href="{{url}}" data-hero-slide="{{@index}}" aria-label="{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{else}}{{lang 'carousel.slide_number' slide_number=(add @index 1)}}{{/if}}">
     {{/if}}
-        <div class="heroCarousel-slide{{#if ../theme_settings.homepage_stretch_carousel_images}} stretch{{/if}}{{#if @first}} heroCarousel-slide--first{{/if}}{{#if ../theme_settings.custom_homepage_carousel_mob-images}} heroCarousel-slide--mobile{{else}} heroCarousel-slide--desktop{{/if}} heroCarousel-slide--{{#if @index 0}}1{{else if @index 1}}2{{else if @index 2}}3{{else if @index 3}}4{{else}}5{{/if}}">
+        <div class="heroCarousel-slide{{#if ../theme_settings.homepage_stretch_carousel_images}} stretch{{/if}}{{#if @first}} heroCarousel-slide--first{{/if}}{{#if ../theme_settings.custom_homepage_carousel_mob-images}} heroCarousel-slide--mobile{{else}} heroCarousel-slide--desktop{{/if}} heroCarousel-slide--{{#if @index 0}}1{{#if ../theme_settings.custom-homepage-carousel-color-1}} heroCarousel-slide--color{{/if}}{{else if @index 1}}2{{#if ../theme_settings.custom-homepage-carousel-color-2}} heroCarousel-slide--color{{/if}}{{else if @index 2}}3{{#if ../theme_settings.custom-homepage-carousel-color-3}} heroCarousel-slide--color{{/if}}{{else if @index 3}}4{{#if ../theme_settings.custom-homepage-carousel-color-4}} heroCarousel-slide--color{{/if}}{{else}}5{{#if ../theme_settings.custom-homepage-carousel-color-5}} heroCarousel-slide--color{{/if}}{{/if}}">
             {{#if button_text}}
             <a href="{{url}}" class="heroCarousel-image-wrapper">
             {{else}}
