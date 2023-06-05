@@ -109,90 +109,31 @@ body.scroll .navPages > ul > li > .navPages-action.is-open:hover {
 // Hero Carousel
 // =============================================================================
 
-@media screen and (max-width: 550px) {
-	.heroCarousel-content {
-		padding: 2rem 0;
-		background-color: stencilColor('custom-header-menu-background');
-	}
-	.heroCarousel-title a,
-	.heroCarousel-title a:hover {
-		color: stencilColor('custom-header-menu-link');
-	}
-	.heroCarousel-description a,
-	.heroCarousel-description a:hover {
-		color: stencilColor('custom-header-menu-link');
-	}
-	.heroCarousel-action {
-		color: stencilColor('custom-homepage-carousel-button-color');
-		background-color: stencilColor('custom-homepage-carousel-button-background');
-	}
-	.heroCarousel-action:hover {
-		color: stencilColor('custom-homepage-carousel-button-color-hover');
-		background-color: stencilColor('custom-homepage-carousel-button-background-hover');
-	}
-}
-
-.heroCarousel--left .heroCarousel-content,
-.heroCarousel-inner {
-    justify-content: center;
-    text-align: center;
-    @include breakpoint("medium") {
-	    justify-content: flex-start;
-	    text-align: left;
-    }
-}
-
 h3.heroCarousel-title {
+	font-size: 30px;
     @include breakpoint("small") {
-		font-size: 50px;
-        text-shadow: 0 0 24px black;
+		font-size: 40px;
     }
     @include breakpoint("medium") {
-        text-shadow: 0 0 32px black;
+        font-size: 30px;
+		margin-top: 70px;
+    }
+    @include breakpoint("large") {
+        font-size: 40px;
     }
 }
 
-.heroCarousel-description {
-	margin: auto;
-    @include breakpoint("small") {
-		font-size: 30px;
-        text-shadow: 0 0 16px black;
-    }
-    @include breakpoint("medium") {
-        text-shadow: 0 0 24px black;
-    }
-}
-
+.heroCarousel-description,
 .heroCarousel-action {
-	border-radius: 100px;
+	font-size: 16px;
     @include breakpoint("small") {
-		font-size: 30px;
-    }
-}
-
-.heroCarousel-button {
-	margin-top: .5rem;
-	margin-left: auto;
-	margin-right: auto;
-    @include breakpoint("small") {
-		border-radius: 100px;
+		font-size: 20px;
     }
     @include breakpoint("medium") {
-		margin-top: 1.5rem;
+        font-size: 16px;
     }
-}
-
-.heroCarousel-slide .heroCarousel-image.heroCarousel-image-desktop {
-	display: none;
     @include breakpoint("medium") {
-		display: block;
-    }
-}
-
-.heroCarousel-slide .heroCarousel-image.heroCarousel-image-mobile {
-	display: block;
-    @include breakpoint("medium") {
-		display: none;
+        font-size: 20px;
     }
 }
 
