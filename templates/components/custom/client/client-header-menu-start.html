@@ -1,0 +1,159 @@
+<li class="navPages-item navPages-item-category navPages-item-clothing">
+    <a class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}} navPages-action-mobile" href="#" 
+        data-collapsible="navPages-clothing" 
+    >
+        Clothing
+        <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+    </a>
+	<a class="navPages-action{{#if is_active}} activePage{{/if}} navPages-action-desktop"
+		href="#"
+		aria-label="Clothing"
+	>
+    	Clothing
+        <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+	</a>
+	<div class="navPage-subMenu" id="navPages-clothing" aria-hidden="true" tabindex="-1">
+        <ul class="navPage-subMenu-list">
+		{{#each categories}}
+		{{#or (if name '==' 'Bodywarmers') (if name '==' 'Fleece Jackets') (if name '==' 'Headwear') (if name '==' 'Hoods') (if name '==' 'Jackets') (if name '==' 'Joggers') (if name '==' 'Knitwear') (if name '==' 'Polos') (if name '==' 'Shirts & Blouses') (if name '==' 'Softshell Jackets') (if name '==' 'Sports & Leisure') (if name '==' 'Sweatshirts') (if name '==' 'T-Shirts') (if name '==' 'Trousers & Coveralls') (if name '==' 'Underwear & Socks')}}
+            <li class="navPage-subMenu-item">
+                <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+                    href="{{url}}"
+                    aria-label="{{name}}"
+                >
+                    {{name}}
+                </a>
+            </li>
+		{{/or}}
+		{{/each}}
+        </ul>
+	</div>
+</li>
+
+<li class="navPages-item navPages-item-category navPages-item-carry">
+    <a class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}} navPages-action-mobile" href="#" 
+        data-collapsible="navPages-carry" 
+    >
+        Carry
+        <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+    </a>
+	<a class="navPages-action{{#if is_active}} activePage{{/if}} navPages-action-desktop"
+		href="#"
+		aria-label="Carry"
+	>
+    	Carry
+        <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+	</a>
+	<div class="navPage-subMenu" id="navPages-carry" aria-hidden="true" tabindex="-1">
+        <ul class="navPage-subMenu-list">
+		{{#each categories}}
+		{{#or (if name '==' 'Backpacks & Messengers') (if name '==' 'Bags & Luggage') (if name '==' 'Fashion & Boutique Bags') (if name '==' 'Holdalls') (if name '==' 'Laptop & Business Bags') (if name '==' 'Shoe & Boot Bags') (if name '==' 'Shoppers & Totes') (if name '==' 'Travel Bags & Luggage')}}
+            <li class="navPage-subMenu-item">
+                <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+                    href="{{url}}"
+                    aria-label="{{name}}"
+                >
+                    {{name}}
+                </a>
+            </li>
+		{{/or}}
+		{{/each}}
+        </ul>
+	</div>
+</li>
+
+<li class="navPages-item navPages-item-category navPages-item-kids">
+    <a class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}} navPages-action-mobile" href="#" 
+        data-collapsible="navPages-kids" 
+    >
+        Kids
+        <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+    </a>
+	<a class="navPages-action{{#if is_active}} activePage{{/if}} navPages-action-desktop"
+		href="#"
+		aria-label="Kids"
+	>
+    	Kids
+        <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+	</a>
+	<div class="navPage-subMenu" id="navPages-kids" aria-hidden="true" tabindex="-1">
+        <ul class="navPage-subMenu-list">
+		{{#each categories}}
+		{{#or (if name '==' 'Baby & Toddler') (if name '==' 'Childrens') (if name '==' 'School Bags')}}
+            <li class="navPage-subMenu-item">
+                <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+                    href="{{url}}"
+                    aria-label="{{name}}"
+                >
+                    {{name}}
+                </a>
+            </li>
+		{{/or}}
+		{{/each}}
+        </ul>
+	</div>
+</li>
+
+<li class="navPages-item navPages-item-category navPages-item-work">
+    <a class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}} navPages-action-mobile" href="#" 
+        data-collapsible="navPages-work" 
+    >
+        Work
+        <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+    </a>
+	<a class="navPages-action{{#if is_active}} activePage{{/if}} navPages-action-desktop"
+		href="#"
+		aria-label="Work"
+	>
+    	Work
+        <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+	</a>
+	<div class="navPage-subMenu" id="navPages-work" aria-hidden="true" tabindex="-1">
+        <ul class="navPage-subMenu-list">
+		{{#each categories}}
+		{{#or (if name '==' 'Hi-Vis & PPE') (if name '==' 'Hospitality') (if name '==' 'Retail Ready') (if name '==' 'Workwear')}}
+            <li class="navPage-subMenu-item">
+                <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+                    href="{{url}}"
+                    aria-label="{{name}}"
+                >
+                    {{name}}
+                </a>
+            </li>
+		{{/or}}
+		{{/each}}
+        </ul>
+	</div>
+</li>
+
+<li class="navPages-item navPages-item-category navPages-item-other">
+    <a class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}} navPages-action-mobile" href="#" 
+        data-collapsible="navPages-other" 
+    >
+        Other
+        <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+    </a>
+	<a class="navPages-action{{#if is_active}} activePage{{/if}} navPages-action-desktop"
+		href="#"
+		aria-label="Other"
+	>
+    	Other
+        <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+	</a>
+	<div class="navPage-subMenu" id="navPages-other" aria-hidden="true" tabindex="-1">
+        <ul class="navPage-subMenu-list">
+		{{#each categories}}
+		{{#or (if name '==' 'Accessories') (if name '==' 'Aprons') (if name '==' 'Footwear') (if name '==' 'Gloves & Scarves') (if name '==' 'Misc.') (if name '==' 'Towels')}}
+            <li class="navPage-subMenu-item">
+                <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+                    href="{{url}}"
+                    aria-label="{{name}}"
+                >
+                    {{name}}
+                </a>
+            </li>
+		{{/or}}
+		{{/each}}
+        </ul>
+	</div>
+</li>
