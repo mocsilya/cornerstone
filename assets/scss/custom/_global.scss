@@ -5344,6 +5344,19 @@ a:hover span.card-image:only-of-type img {
 	max-width: none;
 }
 
+.blog-video {
+	position: relative;
+	padding-bottom: 56.25%;
+}
+
+.blog-video iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
 .form-blog {
 	font-size: 0;
 }
@@ -5382,6 +5395,10 @@ a:hover span.card-image:only-of-type img {
 	@include breakpoint("medium") {
 		padding-top: 1.5rem;
 	}
+}
+
+.sidebarRecentPosts .button {
+	margin-bottom: 1.5rem;
 }
 
 
@@ -5887,6 +5904,19 @@ a:hover span.card-image:only-of-type img {
 
 .footer-blog-list li:nth-of-type(1n+4) {
 	display: none;
+}
+
+.footer-blog-video {
+	position: relative;
+	padding-bottom: 56.25%;
+}
+
+.footer-blog-video iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 
 .footer-blog-img {
