@@ -140,6 +140,7 @@
 			        	{{{product.warranty}}}
 						{{> components/custom/client/client-product-warranty}}
 			    	</div>
+					{{{region name="product_warranty"}}}
 				</div>
         	{{/if}}
 		{{/if}}
@@ -175,6 +176,7 @@
 				        	{{{product.warranty}}}
 							{{> components/custom/client/client-product-warranty}}
 				    	</div>
+						{{{region name="product_warranty"}}}
 					</div>
 	        	{{/if}}
 			{{/if}}
@@ -315,6 +317,7 @@
             </dl>
 			{{#if theme_settings.show_custom_fields_tabs '!==' true}}
 				{{> components/custom/client/client-product-fields}}
+				{{{region name="product_fields"}}}
 			{{/if}}
         </div>
     </section>
@@ -375,6 +378,10 @@
 			</div>
 			{{{region name="product_bottom"}}}
 			{{#filter product.custom_fields '_upsell' property='name' }}
+				<div class="productView-upsell-regions">
+				{{{region name="product_upsell--global"}}}
+				{{{region name="product_upsell"}}}
+				</div>
 	  			<div class="productView-upsell" data-upsell-id="{{../product.id}}">
 			
 	  			</div>
@@ -391,9 +398,10 @@
         {{/if}}
     </article>
 </div>
-
+{{#if theme_settings.custom_product_addtocart_modal}}
 <div id="previewModal" class="modal modal--large" data-reveal>
     {{> components/common/modal/modal-close-btn }}
     <div class="modal-content"></div>
     <div class="loadingOverlay"></div>
 </div>
+{{/if}}

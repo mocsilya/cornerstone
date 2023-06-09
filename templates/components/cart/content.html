@@ -149,6 +149,7 @@
                         --
                     {{/or}}
                     {{#or can_modify (if type '==' 'GiftCertificate')}}
+						{{#if ../theme_settings.custom_cart_removemodal_show}}
                         <button class="cart-remove icon"
                                 data-cart-itemid="{{id}}"
                                 data-confirm-delete="{{lang 'cart.confirm_delete'}}"
@@ -156,6 +157,11 @@
                         >
                             <svg><use href="#icon-close"></use></svg>
                         </button>
+						{{else}}
+						<a class="cart-remove-alt icon" href="cart.php?action=remove&item={{id}}" onclick="Cart.RemoveItem('{{id}}'); return false;"  title="Remove">
+							<svg><use href="#icon-close"></use></svg>
+						</a>
+						{{/if}}
                     {{/or}}
                 </td>
             </tr>
