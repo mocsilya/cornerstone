@@ -38,7 +38,7 @@
         "title": "Checkout"
     },
     "cart": {
-        "nav_aria_label": "Cart with 0 items",
+        "nav_aria_label": "Basket with 0 items",
         "continue_shopping": "Click here to continue shopping",
         "login_to_checkout": "Login to proceed to checkout",
         "items": "{NUM, plural, =0{(0 items)} one {(# item)} other {(# items)}}",
@@ -48,7 +48,7 @@
                 "or": "or"
             },
             "button": "Checkout Securely",
-            "empty_cart": "Your cart is empty",
+            "empty_cart": "Your basket is empty",
             "title": "Click here to proceed to checkout",
             "item": "Item",
             "price": "Price",
@@ -57,27 +57,27 @@
             "subtotal": "Subtotal",
             "enter_code": "Coupon code / Voucher",
             "gift_wrapping": "Gift wrapping",
-            "shipping": "Shipping",
+            "shipping": "Delivery",
             "grand_total": "Grand total",
             "select": "Select",
-            "update": "Update shipping cost"
+            "update": "Update delivery cost"
         },
         "preview": {
             "checkout_now": "Checkout Securely",
             "checkout_multiple": "Checkout with multiple addresses",
-            "view_cart": "View or Edit Cart"
+            "view_cart": "View or Edit Basket"
         },
-        "label": "Your Cart ({quantity, plural, one {# item} other {# items}})",
-        "is_empty": "Your cart is empty",
+        "label": "Your Basket ({quantity, plural, one {# item} other {# items}})",
+        "is_empty": "Your basket is empty",
         "invalid_entry_message": "[ENTRY] is not a valid entry",
         "coupon_code": "Coupon Code",
         "discount": "Discount",
         "included_in_total": " Included in Total",
         "remove_file": "Remove this file",
-        "freeshipping": "Free Shipping",
+        "freeshipping": "Free Delivery",
         "reconfigure_product": "Configure '{name}'",
-        "shipping_peritem": "Per Item Shipping",
-        "remove_item": "Remove {name} from cart",
+        "shipping_peritem": "Per Item Delivery",
+        "remove_item": "Remove {name} from basket",
         "confirm_delete": "Are you sure you want to delete this item?",
         "coupons": {
             "empty_error": "Please enter your coupon code.",
@@ -102,10 +102,10 @@
             "cancel": "Cancel",
             "select_a_country": "Country",
             "select_a_state": "State/province",
-            "estimate_shipping": "Estimate Shipping",
+            "estimate_shipping": "Estimate Delivery",
             "suburb_city": "Suburb/city",
             "zip_postal_code": "Zip/postcode",
-            "free_shipping": "Free shipping",
+            "free_shipping": "Free delivery",
             "hide_ups_rates": "Hide UPS Rates",
             "show_ups_rates": "Show UPS Rates",
             "empty_country_error": "The 'Country' field cannot be blank.",
@@ -127,12 +127,12 @@
             "preview": "Preview"
         },
         "added_to_cart": {
-            "what_next": "Ok, {num_products, plural, one {1 item is} other {# items are}} now in your cart. What's next?",
-            "your_cart_contains": "Your cart contains {num_products, plural, one {1 item} other {# items}}",
+            "what_next": "Ok, {num_products, plural, one {1 item is} other {# items are}} now in your basket. What's next?",
+            "your_cart_contains": "Your basket contains {num_products, plural, one {1 item} other {# items}}",
             "proceed_to_checkout": "Checkout Securely",
             "order_subtotal": "Order subtotal",
             "continue_shopping": "Continue Shopping",
-            "view_or_edit_cart": "View or Edit Cart",
+            "view_or_edit_cart": "View or Edit Basket",
             "you_might_also_like": "You may also like"
         }
     },
@@ -141,7 +141,7 @@
         "store_credit_overview": "{credit}",
         "generic_error": "Oops! Something went wrong.",
         "currency": "{code}",
-        "currency_switch_promotion" : "Promotions and vouchers that don't apply to the new currency will be removed from your cart. Are you sure you want to continue?",
+        "currency_switch_promotion" : "Promotions and vouchers that don't apply to the new currency will be removed from your basket. Are you sure you want to continue?",
         "newsletter_signup": "Register for our newsletter",
         "form_submit": "Submit",
         "no_preference": "No Preference",
@@ -167,7 +167,7 @@
         "login_for_pricing": "Log in for pricing",
         "logout": "Sign out",
         "account": "Account",
-        "cart": "Cart",
+        "cart": "Basket",
         "search": "Search",
         "gift_cert": "Vouchers",
         "save": "Save",
@@ -219,7 +219,7 @@
         "header": "Comparing {products, plural, one {# Product} other {# Products}}",
         "remove": "Remove",
         "no_remove": "At least 2 products are needed to make a valid comparison.",
-        "add_to_cart": "Add to cart",
+        "add_to_cart": "Add to basket",
         "no_compare": "You must select at least two products to compare"
     },
     "category": {
@@ -248,8 +248,8 @@
             "heading": "Redeem Gift Voucher",
             "intro": "To redeem a gift voucher at {store_name}, follow the simple steps below.",
             "item1": "You need your unique gift voucher code, which is part of the gift voucher that was emailed to you as an attachment. It will look something like Z50-Y6K-COS-402.",
-            "item2": "Browse the store and add items to your cart as you normally would.",
-            "item3": "Click the '<a href=\"{cart_url}\">View Cart</a>' link to view the contents of your shopping cart.",
+            "item2": "Browse the store and add items to your basket as you normally would.",
+            "item3": "Click the '<a href=\"{cart_url}\">View Basket</a>' link to view the contents of your shopping basket.",
             "item4": "Type your gift voucher code in to the 'Redeem Gift Voucher' box and click 'Go'."
         },
         "balance": {
@@ -276,7 +276,7 @@
             "heading": "New Customer?",
             "intro": "Create an account with us and you'll be able to:",
             "fact1": "Check out faster",
-            "fact2": "Save multiple shipping addresses",
+            "fact2": "Save multiple delivery addresses",
             "fact3": "Access your order history",
             "fact4": "Track new orders",
             "fact5": "Save items to your Wish List",
@@ -361,9 +361,9 @@
                 "card_ending": "ending in {card}",
                 "shipments": {
                   "date": "Date Shipped",
-                  "method": "Shipping Method",
+                  "method": "Delivery Method",
                   "link": "Tracking Link",
-                  "header": "Shipping Details"
+                  "header": "Delivery Details"
                 },
                 "actions": "Actions",
                 "reorder": "Reorder",
@@ -558,7 +558,7 @@
         "address": {
             "add": {
                 "heading": "Add New Address",
-                "description": "Use the form below to change any/all details of your shipping address. Click the 'Save Address' button when you are done."
+                "description": "Use the form below to change any/all details of your delivery address. Click the 'Save Address' button when you are done."
             },
             "edit": {
                 "heading": "Update Address"
@@ -603,7 +603,7 @@
                 "agree2": "I agree that Gift Vouchers are nonrefundable",
                 "preview": "Preview",
                 "preview_error": "There was a problem loading the preview. Please try again later.",
-                "submit_value": "Add Gift Voucher to Cart"
+                "submit_value": "Add Gift Voucher to Basket"
             },
             "balance": {
                 "code": "Gift Voucher Code",
@@ -630,9 +630,9 @@
             "by_setting": "Search By Setting",
             "search": "Search",
             "free_shipping": {
-                "title": "Free Shipping",
-                "free": "Only Free Shipping",
-                "paid": "Only Paid Shipping"
+                "title": "Free Delivery",
+                "free": "Only Free Delivery",
+                "paid": "Only Paid Delivery"
             },
             "featured_products": {
                 "title": "Featured Products",
@@ -755,8 +755,8 @@
             "hide": "Hide Videos",
             "show": "Watch Videos"
         },
-        "add_to_cart": "Add to Cart",
-        "adding_to_cart": "Adding to cart…",
+        "add_to_cart": "Add to Basket",
+        "adding_to_cart": "Adding to basket…",
         "options": "Options",
         "none": "None",
         "sku": "SKU:",
@@ -764,9 +764,9 @@
         "condition": "Condition:",
         "availability": "Availability:",
         "swatch_option_announcement": "Selected {swatch_name} is",
-        "shipping": "Shipping:",
-        "shipping_fixed": "{amount} (Fixed Shipping Cost)",
-        "shipping_free": "Free Shipping",
+        "shipping": "Delivery:",
+        "shipping_fixed": "{amount} (Fixed Delivery Cost)",
+        "shipping_free": "Free Delivery",
         "shipping_calculated": "Calculated at Checkout",
         "sold_out": "Sold Out",
         "out_of_stock_default_message": "Sold Out",
@@ -817,14 +817,14 @@
         "order": "Order:",
         "payment_method": "Payment Method:",
         "order_date": "Order Date:",
-        "shipping_method": "Shipping Method:",
+        "shipping_method": "Delivery Method:",
         "order_items": "Order Items",
         "qty": "Qty",
         "code": "Code/SKU",
-        "shipping_address": "Shipping Address",
+        "shipping_address": "Delivery Address",
         "fulfillment": "Fulfillment",
         "digital": "Digital",
-        "shipping": "Shipping",
+        "shipping": "Delivery",
         "pickup": "Pickup",
         "product_name": "Product Name",
         "price": "Price",
