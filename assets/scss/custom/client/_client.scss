@@ -3,16 +3,11 @@
 // =============================================================================
 //
 
-.navPage-subMenu {
-    @include breakpoint("medium") {
-		border-bottom: 2px solid #00599b;
-	}
-}
 
-.footer-payment-icons svg {
-	color: #fff;
-	fill: #fff;
-}
+// =============================================================================
+// Header
+// =============================================================================
+
 
 .header-bar {
     @include breakpoint("medium") {
@@ -116,4 +111,37 @@ body.with-bar .header {
 	border-top: 1px solid #ffb41d;
 	border-right: 1px solid #ffb41d;
 	border-bottom: 1px solid #ffb41d;
+}
+
+.navPage-subMenu {
+    @include breakpoint("medium") {
+		border-bottom: 2px solid #00599b;
+	}
+}
+
+.navPages > ul > li.navPages-item-clearance > .navPages-action {
+	color: #cc0000;
+    @include breakpoint("medium") {
+		background: #cc0000;
+		color: #fff;
+	}
+}
+
+.navPages > ul > li.navPages-item-clearance > .navPages-action:hover {
+	color: #dd0000;
+    @include breakpoint("medium") {
+		background: #dd0000;
+		color: #fff;
+	}
+}
+
+
+// =============================================================================
+// Footer
+// =============================================================================
+
+
+.footer-payment-icons svg {
+	color: #fff;
+	fill: #fff;
 }
