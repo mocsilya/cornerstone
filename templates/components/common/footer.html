@@ -17,6 +17,27 @@
         </div>
     {{/if}}
 {{/if}}
+
+{{#if page_type '==' 'default'}}
+	{{{region name="home_below_bottom_banner"}}}
+{{else if page_type '==' 'category'}}
+	{{{region name="category_below_bottom_banner"}}}
+{{else if page_type '==' 'product'}}
+	{{{region name="product_below_bottom_banner"}}}
+{{else if page_type '==' 'page'}}
+	{{{region name="page_below_bottom_banner"}}}
+{{else if page_type '==' 'brands'}}
+	{{{region name="brands_below_bottom_banner"}}}
+{{else if page_type '==' 'brand'}}
+	{{{region name="brand_below_bottom_banner"}}}
+{{else if page_type '==' 'cart'}}
+	{{{region name="cart_below_bottom_banner"}}}
+{{else if page_type '==' 'search'}}
+	{{{region name="search_below_bottom_banner"}}}
+{{else}}
+	{{{region name="general_below_bottom_banner"}}}
+{{/if}}
+
 <div class="footer-globalregion"{{#unless theme_settings.custom_footer_global_region}} style="display:none;"{{/unless}}>
 	{{{region name="footer_top--global"}}}
 </div>
@@ -259,6 +280,7 @@
 					</p>
                 {{/if}}
 				{{> components/custom/client/client-footer-bottom}}
+				{{{region name="footer_info--global"}}}
             </article>
 
         </section>
