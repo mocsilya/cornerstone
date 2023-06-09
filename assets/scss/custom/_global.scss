@@ -3714,6 +3714,15 @@ a:hover span.card-image:only-of-type img {
 	top: 0;
 }
 
+.productList .product.spotlight .listItem-figure .sale-flag-sash {
+	display: none;
+}
+
+.productList .product.spotlight .listItem-figure .spotlight-sash {
+	display: block;
+}
+
+
 .productList .listItem-figure {
 	@include breakpoint("small") {
 		width: auto;
@@ -4200,6 +4209,14 @@ a:hover span.card-image:only-of-type img {
 
 .productGrid .product.spotlight .card-figure__normal {
 	display: none;
+}
+
+.productGrid .product.spotlight .card .sale-flag-sash {
+	display: none;
+}
+
+.productGrid .product.spotlight .card .spotlight-sash {
+	display: block;
 }
 
 
