@@ -28,6 +28,7 @@ customer:
 {{#filter product.custom_fields '_breadcrumb' property='name'}}
 	{{assignVar "breadcrumb" "active"}}
 {{/filter}}
+{{{region name="product_below_menu"}}}
 <div class="container container-hero">
 	<div class="page-header product-header">
     	{{#unless theme_settings.custom_product_title_left}}<h1 class="page-heading">{{product.title}}</h1>{{/unless}}
