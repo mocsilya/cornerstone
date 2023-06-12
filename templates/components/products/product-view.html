@@ -378,6 +378,10 @@
 			</div>
 			{{{region name="product_bottom"}}}
 			{{#filter product.custom_fields '_upsell' property='name' }}
+				<div class="productView-upsell-regions">
+				{{{region name="product_upsell--global"}}}
+				{{{region name="product_upsell"}}}
+				</div>
 	  			<div class="productView-upsell" data-upsell-id="{{../product.id}}">
 			
 	  			</div>
