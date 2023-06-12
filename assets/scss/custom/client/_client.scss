@@ -136,7 +136,95 @@ div[data-content-region="category_below_header"] img {
 	height: auto !important;
 }
 
+div[data-content-region="category_below_menu"] div[data-placement-status="ACTIVE"] + div[data-placement-status="ACTIVE"] {
+	display: none;
+}
+
 .icon--ratingFull svg {
 	color: #ffc425;
 	fill: #ffc425;
+}
+
+.page-blog_post .breadcrumb.is-active,
+.page-blog_post .blog-post-figure {
+	display: none;
+}
+
+.page-blog_post .blog-header .blog-date {
+	@include breakpoint("medium") {
+		text-align: left;
+	}
+}
+
+div[data-content-region="blog_banner"] div > div > div {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+#search-results-content ul {
+	list-style-type: none;
+}
+
+#search-results-content h3 a  {
+	text-decoration: none;
+	color: stencilColor("button--primary-backgroundColor");
+}
+
+#search-results-content h3 a:hover {
+	text-decoration: none;
+	color: stencilColor("button--primary-backgroundColorHover");
+}
+
+.navPage-subMenu .navPage-subMenu-action,
+.navPage-subMenu .navPage-childList-action,
+.navPage-subMenu .navPages-action.activePage {
+	color: #000;
+	color: stencilColor("navPages-color");
+}
+
+.navPage-subMenu .navPage-subMenu-action:hover,
+.navPage-subMenu .navPage-childList-action:hover,
+.navPage-subMenu .navPages-action.activePage:hover {
+	color: #000;
+	color: stencilColor("navPages-color-hover");
+}
+
+div[data-content-region="product_below_price"] a,
+div[data-content-region="product_below_price--global"] a {
+	color: stencilColor("button--primary-backgroundColor") !important;
+}
+
+div[data-content-region="product_below_price"] a:hover,
+div[data-content-region="product_below_price--global"] a:hover {
+	color: stencilColor("button--primary-backgroundColorHover") !important;
+}
+
+div[data-content-region="product_below_price"] {
+	margin-bottom: 1.5rem;
+}
+
+div[data-content-region="product_below_price"] div > div > div,
+div[data-content-region="product_below_price--global"] div > div > div {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+
+.productView-description-underneath.productView-description-large {
+	@include breakpoint("large") {
+		width: 60%;
+		margin-top: 1.5rem;
+	}
+}
+
+.productView-description-underneath.productView-description-large .tabs {
+	@include breakpoint("large") {
+		justify-content: flex-start;
+	}
+}
+
+.productView-description-underneath.productView-description-large .tab:first-child {
+	@include breakpoint("large") {
+		margin-left: 0;
+	}
 }
