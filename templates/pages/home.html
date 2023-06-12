@@ -31,6 +31,7 @@ customer:
 	{{> components/common/alert/alert-info message}}
 {{/each}}
 <div class="main full">
+{{{region name="home_below_top_banner"}}}
 {{#if theme_settings.custom_homepage_show_tabs}}
 	{{#if (getVar "b2b-products") '===' 'show'}}
 	{{#or (if products.featured) (if products.top_sellers) (if products.new)}}
