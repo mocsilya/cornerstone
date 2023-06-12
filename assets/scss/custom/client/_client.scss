@@ -122,3 +122,21 @@
 		display: none;
 	}
 }
+
+
+div[data-content-region="category_below_menu"] div > div > div,
+div[data-content-region="category_below_header"] div > div > div {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+div[data-content-region="category_below_menu"] img,
+div[data-content-region="category_below_header"] img {
+	width: 100% !important;
+	height: auto !important;
+}
+
+.icon--ratingFull svg {
+	color: #ffc425;
+	fill: #ffc425;
+}
