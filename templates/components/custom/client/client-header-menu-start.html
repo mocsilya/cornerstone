@@ -772,110 +772,12 @@
 			</li>
 			{{else if name '==' 'Coils'}}
             <li class="navPages-item navPages-item-category navPages-item-{{dashcase name}}">
-				{{#if children}}
-				<a class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}} navPages-action-mobile"
-					href="{{url}}" 
-					data-collapsible="navPages-{{id}}" 
-				>
-				    {{name}}
-				    <i class="icon navPages-action-moreIcon" aria-hidden="true">
-				        <svg><use xlink:href="#icon-chevron-down" /></svg>
-				    </i>
-				</a>
-				<a class="navPages-action{{#if is_active}} activePage{{/if}} navPages-action-desktop"
-					href="{{url}}"
-					aria-label="{{name}}"
-				>
-					{{name}}
-					<i class="icon navPages-action-moreIcon" aria-hidden="true">
-						<svg><use xlink:href="#icon-chevron-down" /></svg>
-					</i>
-				</a>
-				<div class="navPage-subMenu" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
-					{{#and ../theme_settings.custom_header_menu_1_show (if../theme_settings.custom_header_menu_1_category '==' name)}}
-						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
-							<li>
-								{{#if ../theme_settings.custom_header_menu_1_link}}<a href="{{../theme_settings.custom_header_menu_1_link}}">{{/if}}
-								{{#if ../theme_settings.custom_header_menu_1_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_1_image}}" />{{/if}}
-								{{#if ../theme_settings.custom_header_menu_1_text}}<span>{{../theme_settings.custom_header_menu_1_text}}</span>{{/if}}
-								{{#if ../theme_settings.custom_header_menu_1_link}}</a>{{/if}}
-							</li>
-						</ul>
-					{{/and}}
-					{{#and ../theme_settings.custom_header_menu_2_show (if../theme_settings.custom_header_menu_2_category '==' name)}}
-						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
-							<li>
-								{{#if ../theme_settings.custom_header_menu_2_link}}<a href="{{../theme_settings.custom_header_menu_2_link}}">{{/if}}
-								{{#if ../theme_settings.custom_header_menu_2_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_2_image}}" />{{/if}}
-								{{#if ../theme_settings.custom_header_menu_2_text}}<span>{{../theme_settings.custom_header_menu_2_text}}</span>{{/if}}
-								{{#if ../theme_settings.custom_header_menu_2_link}}</a>{{/if}}
-							</li>
-						</ul>
-					{{/and}}
-					{{#and ../theme_settings.custom_header_menu_3_show (if../theme_settings.custom_header_menu_3_category '==' name)}}
-						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
-							<li>
-								{{#if ../theme_settings.custom_header_menu_3_link}}<a href="{{../theme_settings.custom_header_menu_3_link}}">{{/if}}
-								{{#if ../theme_settings.custom_header_menu_3_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_3_image}}" />{{/if}}
-								{{#if ../theme_settings.custom_header_menu_3_text}}<span>{{../theme_settings.custom_header_menu_3_text}}</span>{{/if}}
-								{{#if ../theme_settings.custom_header_menu_3_link}}</a>{{/if}}
-							</li>
-						</ul>
-					{{/and}}
-					{{#and ../theme_settings.custom_header_menu_4_show (if../theme_settings.custom_header_menu_4_category '==' name)}}
-						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
-							<li>
-								{{#if ../theme_settings.custom_header_menu_4_link}}<a href="{{../theme_settings.custom_header_menu_4_link}}">{{/if}}
-								{{#if ../theme_settings.custom_header_menu_4_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_4_image}}" />{{/if}}
-								{{#if ../theme_settings.custom_header_menu_4_text}}<span>{{../theme_settings.custom_header_menu_4_text}}</span>{{/if}}
-								{{#if ../theme_settings.custom_header_menu_4_link}}</a>{{/if}}
-							</li>
-						</ul>
-					{{/and}}
-					{{#and ../theme_settings.custom_header_menu_5_show (if../theme_settings.custom_header_menu_5_category '==' name)}}
-						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
-							<li>
-								{{#if ../theme_settings.custom_header_menu_5_link}}<a href="{{../theme_settings.custom_header_menu_5_link}}">{{/if}}
-								{{#if ../theme_settings.custom_header_menu_5_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_5_image}}" />{{/if}}
-								{{#if ../theme_settings.custom_header_menu_5_text}}<span>{{../theme_settings.custom_header_menu_5_text}}</span>{{/if}}
-								{{#if ../theme_settings.custom_header_menu_5_link}}</a>{{/if}}
-							</li>
-						</ul>
-					{{/and}}
-					{{#and ../theme_settings.custom_header_menu_6_show (if../theme_settings.custom_header_menu_6_category '==' name)}}
-						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
-							<li>
-								{{#if ../theme_settings.custom_header_menu_6_link}}<a href="{{../theme_settings.custom_header_menu_6_link}}">{{/if}}
-								{{#if ../theme_settings.custom_header_menu_6_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_6_image}}" />{{/if}}
-								{{#if ../theme_settings.custom_header_menu_6_text}}<span>{{../theme_settings.custom_header_menu_6_text}}</span>{{/if}}
-								{{#if ../theme_settings.custom_header_menu_6_link}}</a>{{/if}}
-							</li>
-						</ul>
-					{{/and}}
-					{{assignVar "allsingle" "true"}}
-			        {{#each children}}
-						{{#if children}}
-							{{assignVar "allsingle" "false"}}
-						{{/if}}
-					{{/each}}
-					{{#if ../theme_settings.custom_header_group_single}}
-						{{#if (getVar "allsingle") '!==' 'true'}}
-							{{> components/custom/navigation-list-group theme_settings=../theme_settings}}
-						{{else}}
-							{{> components/common/navigation-list}}
-						{{/if}}
-					{{else}}
-						{{> components/common/navigation-list}}
-					{{/if}}
-				</div>
-				{{else}}
 				<a class="navPages-action{{#if is_active}} activePage{{/if}}"
 				   href="{{url}}"
 				   aria-label="{{name}}"
 				>
 				    {{name}}
 				</a>
-				{{/if}}
             </li>
 			{{else if name '==' 'Vape Pods'}}
             <li class="navPages-item navPages-item-category navPages-item-{{dashcase name}}">
@@ -959,28 +861,43 @@
 							</li>
 						</ul>
 					{{/and}}
-					{{assignVar "allsingle" "true"}}
-			        {{#each children}}
-						{{#if children}}
-							{{assignVar "allsingle" "false"}}
-						{{/if}}
-					{{/each}}
-					{{#if ../theme_settings.custom_header_group_single}}
-						{{#if (getVar "allsingle") '!==' 'true'}}
-							{{> components/custom/navigation-list-group theme_settings=../theme_settings}}
-						{{else}}
-							{{> components/common/navigation-list}}
-						{{/if}}
-					{{else}}
-						{{> components/common/navigation-list}}
-					{{/if}}
+				    <ul class="navPage-subMenu-list">
+				        {{#each children}}
+				            <li class="navPage-subMenu-item">
+				                    <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+				                       href="{{url}}"
+				                       aria-label="{{name}}"
+				                    >
+				                        {{name}}
+				                        <span class="collapsible-icon-wrapper"
+				                            data-collapsible="navPages-{{id}}"
+				                            data-collapsible-disabled-breakpoint="medium"
+				                            data-collapsible-disabled-state="open"
+				                            data-collapsible-enabled-state="closed"
+				                        >
+				                            <i class="icon navPages-action-moreIcon" aria-hidden="true">
+				                                <svg><use href="#icon-chevron-down" /></svg>
+				                            </i>
+				                        </span>
+				                    </a>
+								</li>
+							{{/each}}
+					        <li class="navPage-subMenu-item navPage-subMenu-mobile">
+					            <a class="navPage-subMenu-action navPages-action"
+					               href="{{url}}"
+					               aria-label="{{lang 'category.view_all.name' category=name}}"
+					            >
+					                {{lang 'category.view_all.name' category=name}}
+					            </a>
+					        </li>
+						</ul>
 				</div>
 				{{else}}
 				<a class="navPages-action{{#if is_active}} activePage{{/if}}"
 				   href="{{url}}"
 				   aria-label="{{name}}"
 				>
-				    {{name}}
+				    Pods
 				</a>
 				{{/if}}
             </li>
@@ -1138,15 +1055,6 @@
 				        </li>
 				    </ul>
 				</div>
-			</li>
-			{{else if name '==' 'New In'}}
-			<li class="navPages-item navPages-item-category navPages-item-{{dashcase name}}">	
-				<a class="navPages-action{{#if is_active}} activePage{{/if}}"
-				   href="{{url}}"
-				   aria-label="{{name}}"
-				>
-				    New
-				</a>
 			</li>
 			{{/if}}
         {{/each}}
