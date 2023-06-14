@@ -160,7 +160,31 @@ body:not(.scroll) .navPages-container {
 }
 
 .footer {
-	background-image: url('../img/custom/footer-bg.png');
+	background-image: url('../img/custom/fire.png');
+	background-position: center bottom;
+	background-repeat: repeat-x;
+}
+
+.footer .container {
+	background-image: url('../img/custom/footer-stamp.png');
+	background-position: right .75rem center;
+	background-repeat: no-repeat;
+    @include breakpoint("medium") {
+		background-position: right 2.25rem center;
+	}
+    @include breakpoint("large") {
+		background-position: right 5.25rem center;
+	}
+}
+
+.footer-info {
+	background-color: rgba(0,0,0, 0.2);
+	padding: 3rem 1.5rem 0 1.5rem;
+	border-radius: .5rem;
+}
+
+.footer-bar {
+	border-top: 0;
 }
 
 .footer-payment-icons .footer-payment-icon {
