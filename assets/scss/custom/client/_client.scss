@@ -323,7 +323,7 @@ body:not(.scroll) .navPages-container {
 
 
 @media (max-width: 1023px) {
-	div[data-content-region="home_below_carousel"] div[data-layout-name="Layout"] > div {
+	div[data-content-region="home_below_top_banner"] div[data-layout-name="Layout"] > div {
 		flex-basis: 100% !important;
 		max-width: 100% !important;
 	}
