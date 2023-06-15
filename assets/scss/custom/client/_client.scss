@@ -1320,3 +1320,39 @@ body.with-bar[zb-bar="show"] .header {
     width: 33.333333%;
     min-width: 33.333333%;
 }
+
+
+
+// JOBS
+// =============================================================================
+
+.job-posting {
+    border: 2px solid #ccc;
+    border-radius: .5rem;
+    padding: 1.5rem;
+}
+
+.job-posting h2 {
+    color: #7fb24c;
+    font-size: 1.5rem;
+    margin-top: .5rem;
+}
+
+.job-posting p {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.job-posting p:has(strong) {
+    margin-bottom: .75rem;
+}
+
+.job-posting p:has(strong) + p {
+    margin-top: .75rem;
+}
+
+.job-posting ul {
+    margin-top: .75rem;
+    margin-bottom: 1.5rem;
+}
+
