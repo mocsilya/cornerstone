@@ -3072,9 +3072,22 @@ ol.breadcrumbs {
 	}
 }
 
+.subcategories-above.subcategories--vertical.subcategories--noproducts {
+	@include breakpoint("medium") {
+		display: block;
+	}
+}
+
 .subcategories-above.subcategories--vertical .subcategories-blank,
 .subcategories-above.subcategories--vertical .subcategories-image {
 	display: none;
+}
+
+.subcategories-above.subcategories--vertical.subcategories--noproducts .subcategories-blank,
+.subcategories-above.subcategories--vertical.subcategories--noproducts .subcategories-image {
+	@include breakpoint("medium") {
+		display: block;
+	}
 }
 
 .subcategories-above {
