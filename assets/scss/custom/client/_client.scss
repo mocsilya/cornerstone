@@ -431,5 +431,51 @@ div[data-sub-layout-container="79add8fd-39c2-45a4-bd74-45cb85b7f37b"] .custom-wi
 }
 
 
+// OCCASION BANNER
+// =============================================================================
+
+@media screen and (max-width: 800px) {
+    
+    .occasion-banner .custom-widget-list,
+    .occasion-banner .custom-widget-item {
+        display: block;
+    }
+    
+    .occasion-banner .custom-widget-content {
+        padding: 10px;
+        position: static;
+        transform: none;
+        justify-content: center;
+        align-items: center;
+        display: block;
+        flex: none;
+        text-align: center;
+    }
+    
+    .occasion-banner .custom-widget-link {
+        display: block;
+        text-decoration: none;
+    }
+    
+    .occasion-banner .custom-widget-heading {
+        font-size: 18px !important;
+        text-align: center;
+        display: block;
+        width: 100%;
+    }
+    
+    .occasion-banner .custom-widget-subtext {
+        font-size: 14px !important;
+        text-align: center;
+        display: block;
+        width: 100%;
+    }
+    
+    .occasion-banner .custom-widget-button {
+        font-size: 14px !important;
+        display: inline-block;
+        margin: 10px 0;
+    }
+}
 
 
