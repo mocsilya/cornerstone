@@ -46,26 +46,9 @@
         "content": "i18n.BodyTextAndLinks"
       },
       {
-        "type": "font",
+        "type": "text",
         "label": "i18n.BodyTextFontFamily",
-        "id": "body-font",
-        "options": [
-          {
-            "group": "i18n.Karla",
-            "label": "i18n.Karla",
-            "value": "Google_Karla_400"
-          },
-          {
-            "group": "i18n.Roboto",
-            "label": "i18n.Roboto",
-            "value": "Google_Roboto_400"
-          },
-          {
-            "group": "i18n.SourceSansPro",
-            "label": "i18n.SourceSansPro",
-            "value": "Google_Source+Sans+Pro_400"
-          }
-        ]
+        "id": "body-font"
       },
       {
         "type": "select",
@@ -134,36 +117,9 @@
         "content": "i18n.Headings"
       },
       {
-        "type": "font",
+        "type": "text",
         "label": "i18n.HeadingFontFamily",
-        "id": "headings-font",
-        "options": [
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.MontserratLight",
-            "value": "Google_Montserrat_400"
-          },
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSans",
-            "value": "Google_Open+Sans_400"
-          },
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSansBold",
-            "value": "Google_Open+Sans_700"
-          },
-          {
-            "group": "i18n.Roboto",
-            "label": "i18n.Roboto",
-            "value": "Google_Roboto_400"
-          },
-          {
-            "group": "i18n.Volkhov",
-            "label": "i18n.Volkhov",
-            "value": "Google_Volkhov_400"
-          }
-        ]
+        "id": "headings-font"
       },
       {
         "type": "select",
@@ -623,12 +579,6 @@
         "content": "i18n.PurchaseOptions"
       },
       {
-        "type": "checkbox",
-        "label": "i18n.HidePurchaseOptionsPriceAnd",
-        "force_reload": true,
-        "id": "restrict_to_login"
-      },
-      {
         "type": "heading",
         "content": "i18n.FormInputFields"
       },
@@ -833,6 +783,10 @@
           {
             "value": "information",
             "label": "Information"
+          },
+          {
+            "value": "natural",
+            "label": "Natural"
           },
           {
             "value": "returns",
@@ -1041,6 +995,10 @@
           {
             "value": "box",
             "label": "Box"
+          },
+          {
+            "value": "none",
+            "label": "None"
           }
         ]
       },
@@ -1718,31 +1676,6 @@
       },
       {
         "type": "checkbox",
-        "label": "i18n.ShowApplePay",
-        "force_reload": true,
-        "id": "show_accept_applepay"
-      },
-      {
-        "type": "select",
-        "label": "i18n.ApplePayColor",
-        "id": "applePay-button",
-        "options": [
-          {
-            "value": "black",
-            "label": "i18n.BlackWhiteText"
-          },
-          {
-            "value": "white",
-            "label": "i18n.WhiteBlackText"
-          },
-          {
-            "value": "white-border",
-            "label": "i18n.WhiteBlackTextWithBorder"
-          }
-        ]
-      },
-      {
-        "type": "checkbox",
         "label": "i18n.ShowKlarna",
         "force_reload": true,
         "id": "show_accept_klarna"
@@ -2407,12 +2340,6 @@
       },
       {
         "type": "checkbox",
-        "label": "i18n.ShowQuantitySelectionOnProduct",
-        "force_reload": true,
-        "id": "show_product_quantity_box"
-      },
-      {
-        "type": "checkbox",
         "label": "i18n.ProductTitleLeft",
         "force_reload": true,
         "id": "custom_product_title_left"
@@ -2555,9 +2482,24 @@
         "id": "custom_product_description_title"
       },
       {
-        "type": "checkbox",
-        "label": "i18n.ProductWarrantyGallery",
-        "id": "custom_product_warranty_gallery"
+        "type": "select",
+        "label": "i18n.ProductWarrantyLocation",
+        "id": "custom_product_warranty_location",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "normal",
+            "label": "Normal"
+          },
+          {
+            "value": "gallery",
+            "label": "Under Photos"
+          },
+          {
+            "value": "minidesc",
+            "label": "Above Price"
+          }
+        ]
       },
       {
         "type": "text",
@@ -2644,6 +2586,12 @@
         "type": "text",
         "label": "i18n.ProductTab3Content",
         "id": "custom_product_tab3_content"
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.ShowQuickPaymentButtons",
+        "force_reload": true,
+        "id": "show_quick_payment_buttons"
       },
       {
         "type": "heading",
@@ -3508,51 +3456,9 @@
         "content": "i18n.Headings"
       },
       {
-        "type": "font",
+        "type": "text",
         "label": "i18n.Heading1FontFamily",
-        "id": "optimizedCheckout-headingPrimary-font",
-        "options": [
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSans",
-            "value": "Google_Open+Sans_400"
-          },
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSansBold",
-            "value": "Google_Open+Sans_700"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.MontserratLight",
-            "value": "Google_Montserrat_400"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.MontserratBold",
-            "value": "Google_Montserrat_700"
-          },
-          {
-            "group": "i18n.Karla",
-            "label": "i18n.Karla",
-            "value": "Google_Karla_400"
-          },
-          {
-            "group": "i18n.Roboto",
-            "label": "i18n.Roboto",
-            "value": "Google_Roboto_400"
-          },
-          {
-            "group": "i18n.SourceSansPro",
-            "label": "i18n.SourceSansPro",
-            "value": "Google_Source+Sans+Pro_400"
-          },
-          {
-            "group": "i18n.Volkhov",
-            "label": "i18n.Volkhov",
-            "value": "Google_Volkhov_400"
-          }
-        ]
+        "id": "optimizedCheckout-headingPrimary-font"
       },
       {
         "type": "color",
@@ -3560,51 +3466,9 @@
         "id": "optimizedCheckout-headingPrimary-color"
       },
       {
-        "type": "font",
+        "type": "text",
         "label": "i18n.Heading2FontFamily",
-        "id": "optimizedCheckout-headingSecondary-font",
-        "options": [
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSans",
-            "value": "Google_Open+Sans_400"
-          },
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSansBold",
-            "value": "Google_Open+Sans_700"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.MontserratLight",
-            "value": "Google_Montserrat_400"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.MontserratBold",
-            "value": "Google_Montserrat_700"
-          },
-          {
-            "group": "i18n.Karla",
-            "label": "i18n.Karla",
-            "value": "Google_Karla_400"
-          },
-          {
-            "group": "i18n.Roboto",
-            "label": "i18n.Roboto",
-            "value": "Google_Roboto_400"
-          },
-          {
-            "group": "i18n.SourceSansPro",
-            "label": "i18n.SourceSansPro",
-            "value": "Google_Source+Sans+Pro_400"
-          },
-          {
-            "group": "i18n.Volkhov",
-            "label": "i18n.Volkhov",
-            "value": "Google_Volkhov_400"
-          }
-        ]
+        "id": "optimizedCheckout-headingSecondary-font"
       },
       {
         "type": "color",
@@ -3630,51 +3494,9 @@
         "content": "i18n.BodyTextAndLinks"
       },
       {
-        "type": "font",
+        "type": "text",
         "label": "i18n.BodyTextFontFamily",
-        "id": "optimizedCheckout-contentPrimary-font",
-        "options": [
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSans",
-            "value": "Google_Open+Sans_400"
-          },
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSansBold",
-            "value": "Google_Open+Sans_700"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.MontserratLight",
-            "value": "Google_Montserrat_400"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.Montserrat",
-            "value": "Google_Montserrat_500"
-          },
-          {
-            "group": "i18n.Karla",
-            "label": "i18n.Karla",
-            "value": "Google_Karla_400"
-          },
-          {
-            "group": "i18n.Roboto",
-            "label": "i18n.Roboto",
-            "value": "Google_Roboto_400"
-          },
-          {
-            "group": "i18n.SourceSansPro",
-            "label": "i18n.SourceSansPro",
-            "value": "Google_Source+Sans+Pro_400"
-          },
-          {
-            "group": "i18n.Volkhov",
-            "label": "i18n.Volkhov",
-            "value": "Google_Volkhov_400"
-          }
-        ]
+        "id": "optimizedCheckout-contentPrimary-font"
       },
       {
         "type": "color",
@@ -3682,51 +3504,9 @@
         "id": "optimizedCheckout-contentPrimary-color"
       },
       {
-        "type": "font",
+        "type": "text",
         "label": "i18n.SecondaryTextFontFamily",
-        "id": "optimizedCheckout-contentSecondary-font",
-        "options": [
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSans",
-            "value": "Google_Open+Sans_400"
-          },
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSansBold",
-            "value": "Google_Open+Sans_700"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.MontserratLight",
-            "value": "Google_Montserrat_400"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.Montserrat",
-            "value": "Google_Montserrat_500"
-          },
-          {
-            "group": "i18n.Karla",
-            "label": "i18n.Karla",
-            "value": "Google_Karla_400"
-          },
-          {
-            "group": "i18n.Roboto",
-            "label": "i18n.Roboto",
-            "value": "Google_Roboto_400"
-          },
-          {
-            "group": "i18n.SourceSansPro",
-            "label": "i18n.SourceSansPro",
-            "value": "Google_Source+Sans+Pro_400"
-          },
-          {
-            "group": "i18n.Volkhov",
-            "label": "i18n.Volkhov",
-            "value": "Google_Volkhov_400"
-          }
-        ]
+        "id": "optimizedCheckout-contentSecondary-font"
       },
       {
         "type": "color",
@@ -3734,51 +3514,9 @@
         "id": "optimizedCheckout-contentSecondary-color"
       },
       {
-        "type": "font",
+        "type": "text",
         "label": "i18n.LinkFontFamily",
-        "id": "optimizedCheckout-link-font",
-        "options": [
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSans",
-            "value": "Google_Open+Sans_400"
-          },
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSansBold",
-            "value": "Google_Open+Sans_700"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.MontserratLight",
-            "value": "Google_Montserrat_400"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.Montserrat",
-            "value": "Google_Montserrat_500"
-          },
-          {
-            "group": "i18n.Karla",
-            "label": "i18n.Karla",
-            "value": "Google_Karla_400"
-          },
-          {
-            "group": "i18n.Roboto",
-            "label": "i18n.Roboto",
-            "value": "Google_Roboto_400"
-          },
-          {
-            "group": "i18n.SourceSansPro",
-            "label": "i18n.SourceSansPro",
-            "value": "Google_Source+Sans+Pro_400"
-          },
-          {
-            "group": "i18n.Volkhov",
-            "label": "i18n.Volkhov",
-            "value": "Google_Volkhov_400"
-          }
-        ]
+        "id": "optimizedCheckout-link-font"
       },
       {
         "type": "color",
@@ -3795,51 +3533,9 @@
         "content": "i18n.PrimaryActionButton"
       },
       {
-        "type": "font",
+        "type": "text",
         "label": "i18n.ButtonTextFontFamily",
-        "id": "optimizedCheckout-buttonPrimary-font",
-        "options": [
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSans",
-            "value": "Google_Open+Sans_400"
-          },
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSansBold",
-            "value": "Google_Open+Sans_700"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.MontserratLight",
-            "value": "Google_Montserrat_400"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.Montserrat",
-            "value": "Google_Montserrat_500"
-          },
-          {
-            "group": "i18n.Karla",
-            "label": "i18n.Karla",
-            "value": "Google_Karla_400"
-          },
-          {
-            "group": "i18n.Roboto",
-            "label": "i18n.Roboto",
-            "value": "Google_Roboto_400"
-          },
-          {
-            "group": "i18n.SourceSansPro",
-            "label": "i18n.SourceSansPro",
-            "value": "Google_Source+Sans+Pro_400"
-          },
-          {
-            "group": "i18n.Volkhov",
-            "label": "i18n.Volkhov",
-            "value": "Google_Volkhov_400"
-          }
-        ]
+        "id": "optimizedCheckout-buttonPrimary-font"
       },
       {
         "type": "color",
@@ -3906,51 +3602,9 @@
         "content": "i18n.SecondaryActionButton"
       },
       {
-        "type": "font",
+        "type": "text",
         "label": "i18n.ButtonTextFontFamily",
-        "id": "optimizedCheckout-buttonSecondary-font",
-        "options": [
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSans",
-            "value": "Google_Open+Sans_400"
-          },
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSansBold",
-            "value": "Google_Open+Sans_700"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.MontserratLight",
-            "value": "Google_Montserrat_400"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.Montserrat",
-            "value": "Google_Montserrat_500"
-          },
-          {
-            "group": "i18n.Karla",
-            "label": "i18n.Karla",
-            "value": "Google_Karla_400"
-          },
-          {
-            "group": "i18n.Roboto",
-            "label": "i18n.Roboto",
-            "value": "Google_Roboto_400"
-          },
-          {
-            "group": "i18n.SourceSansPro",
-            "label": "i18n.SourceSansPro",
-            "value": "Google_Source+Sans+Pro_400"
-          },
-          {
-            "group": "i18n.Volkhov",
-            "label": "i18n.Volkhov",
-            "value": "Google_Volkhov_400"
-          }
-        ]
+        "id": "optimizedCheckout-buttonSecondary-font"
       },
       {
         "type": "color",
@@ -4111,12 +3765,146 @@
       },
       {
         "type": "heading",
-        "content": "i18n.SmartPaypalButton"
+        "content": "i18n.QuickPaymentButtons"
+      },
+      {
+        "type": "select",
+        "label": "i18n.NumberOfButtonsAlwaysVisible",
+        "force_reload": true,
+        "id": "paymentbuttons-number-of-buttons",
+        "options": [
+          {
+            "value": 1,
+            "label": "1"
+          },
+          {
+            "value": 2,
+            "label": "2"
+          }
+        ]
+      },
+      {
+        "type": "sort",
+        "label": "i18n.ProviderSortingOrderLabel",
+        "id": "paymentbuttons-provider-sorting",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "paypal",
+            "label": "i18n.PayPalProviderSortingLabel",
+            "enabledBy": "paypal"
+          },
+          {
+            "value": "paypal-credit",
+            "label": "i18n.PayPalCreditProviderSortingLabel",
+            "enabledBy": "paypal-credit"
+          },
+          {
+            "value": "paypal-venmo",
+            "label": "i18n.PayPalVenmoProviderSortingLabel",
+            "enabledBy": "paypal-venmo"
+          },
+          {
+            "value": "sepa",
+            "label": "i18n.PayPalSepaProviderSortingLabel",
+            "enabledBy": "sepa"
+          },
+          {
+            "value": "googlepay",
+            "label": "i18n.GooglepayProviderSortingLabel",
+            "enabledBy": "googlepay"
+          },
+          {
+            "value": "applepay",
+            "label": "i18n.ApplepayProviderSortingLabel",
+            "enabledBy": "applepay"
+          },
+          {
+            "value": "afterpay",
+            "label": "i18n.AfterpayProviderSortingLabel",
+            "enabledBy": "afterpay"
+          },
+          {
+            "value": "amazonpay",
+            "label": "i18n.AmazonProviderSortingLabel",
+            "enabledBy": "amazonpay"
+          },
+          {
+            "value": "masterpass",
+            "label": "i18n.MasterpassProviderSortingLabel",
+            "enabledBy": "masterpass"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "i18n.PaypalAcceleratedCheckoutButton",
+        "enable": "payPalAcceleratedCheckoutEnabled"
+      },
+      {
+        "type": "color",
+        "label": "i18n.ButtonColor",
+        "id": "paymentbuttons-paypal-accelerated-checkout-color",
+        "enable": "payPalAcceleratedCheckoutEnabled"
+      },
+      {
+        "type": "color",
+        "label": "i18n.ContentColor",
+        "id": "paymentbuttons-paypal-accelerated-content-color",
+        "enable": "payPalAcceleratedCheckoutEnabled"
+      },
+      {
+        "type": "select",
+        "label": "i18n.ButtonContent",
+        "id": "paymentbuttons-paypal-accelerated-content-label",
+        "enable": "payPalAcceleratedCheckoutEnabled",
+        "options": [
+          {
+            "value": "buy",
+            "label": "i18n.Buy"
+          },
+          {
+            "value": "checkout",
+            "label": "i18n.Checkout"
+          },
+          {
+            "value": "pay",
+            "label": "i18n.Pay"
+          },
+          {
+            "value": "buynow",
+            "label": "i18n.BuyNow"
+          },
+          {
+            "value": "paynow",
+            "label": "i18n.PayNow"
+          },
+          {
+            "value": "checkoutnow",
+            "label": "i18n.CheckoutNow"
+          },
+          {
+            "value": "proceedtocheckout",
+            "label": "i18n.ProceedToCheckout"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "label": "i18n.BorderColor",
+        "id": "paymentbuttons-paypal-accelerated-border-color",
+        "enable": "payPalAcceleratedCheckoutEnabled"
+      },
+      {
+        "type": "heading",
+        "content": "i18n.SmartPaypalButton",
+        "enable": "payPalProvidersEnabled"
       },
       {
         "type": "select",
         "label": "i18n.ButtonColor",
         "id": "paymentbuttons-paypal-color",
+        "enable": "payPalProvidersEnabled",
         "force_reload": true,
         "options": [
           {
@@ -4145,6 +3933,7 @@
         "type": "select",
         "label": "i18n.ButtonShape",
         "id": "paymentbuttons-paypal-shape",
+        "enable": "payPalProvidersEnabled",
         "force_reload": true,
         "options": [
           {
@@ -4161,6 +3950,7 @@
         "type": "select",
         "label": "i18n.ButtonContent",
         "id": "paymentbuttons-paypal-label",
+        "enable": "payPalProvidersEnabled",
         "force_reload": true,
         "options": [
           {
@@ -4182,29 +3972,15 @@
         ]
       },
       {
-        "type": "select",
-        "label": "i18n.DisplayStyle",
-        "id": "paymentbuttons-paypal-layout",
-        "force_reload": true,
-        "options": [
-          {
-            "value": "horizontal",
-            "label": "i18n.ShowButtonsHorizontally"
-          },
-          {
-            "value": "vertical",
-            "label": "i18n.ShowButtonsVertically"
-          }
-        ]
-      },
-      {
         "type": "heading",
-        "content": "i18n.CheckoutPayPalButton"
+        "content": "i18n.CheckoutPayPalButton",
+        "enable": "payPalProvidersEnabled"
       },
       {
         "type": "select",
         "label": "i18n.ButtonColor",
         "id": "checkout-paymentbuttons-paypal-color",
+        "enable": "payPalProvidersEnabled",
         "force_reload": true,
         "options": [
           {
@@ -4233,6 +4009,7 @@
         "type": "select",
         "label": "i18n.ButtonShape",
         "id": "checkout-paymentbuttons-paypal-shape",
+        "enable": "payPalProvidersEnabled",
         "force_reload": true,
         "options": [
           {
@@ -4249,6 +4026,7 @@
         "type": "select",
         "label": "i18n.ButtonSize",
         "id": "checkout-paymentbuttons-paypal-size",
+        "enable": "payPalProvidersEnabled",
         "force_reload": true,
         "options": [
           {
@@ -4269,6 +4047,7 @@
         "type": "select",
         "label": "i18n.ButtonContent",
         "id": "checkout-paymentbuttons-paypal-label",
+        "enable": "payPalProvidersEnabled",
         "force_reload": true,
         "options": [
           {
@@ -4286,6 +4065,127 @@
           {
             "value": "paypal",
             "label": "i18n.PayPal"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "i18n.GooglePaySettings",
+        "enable": "googleProvidersEnabled"
+      },
+      {
+        "type": "select",
+        "label": "i18n.ButtonColor",
+        "id": "googlepay-button-color",
+        "enable": "googleProvidersEnabled",
+        "options": [
+          {
+            "value": "black",
+            "label": "i18n.BlackWhiteText"
+          },
+          {
+            "value": "white",
+            "label": "i18n.WhiteBlackText"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "i18n.ApplePaySettings",
+        "enable": "appleProvidersEnabled"
+      },
+      {
+        "type": "select",
+        "label": "i18n.ButtonColor",
+        "id": "applePay-button",
+        "enable": "appleProvidersEnabled",
+        "options": [
+          {
+            "value": "black",
+            "label": "i18n.BlackWhiteText"
+          },
+          {
+            "value": "white",
+            "label": "i18n.WhiteBlackText"
+          },
+          {
+            "value": "white-border",
+            "label": "i18n.WhiteBlackTextWithBorder"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "i18n.AfterPaySettings",
+        "enable": "afterpayProvidersEnabled"
+      },
+      {
+        "type": "select",
+        "label": "i18n.ButtonColor",
+        "id": "afterpay-button-color",
+        "enable": "afterpayProvidersEnabled",
+        "options": [
+          {
+            "value": "black-mint",
+            "label": "i18n.BlackOnMintText"
+          },
+          {
+            "value": "mint-black",
+            "label": "i18n.MintOnBlackText"
+          },
+          {
+            "value": "white",
+            "label": "i18n.BlackWhiteText"
+          },
+          {
+            "value": "black",
+            "label": "i18n.WhiteBlackText"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "i18n.AmazonSettings",
+        "enable": "amazonProvidersEnabled"
+      },
+      {
+        "type": "select",
+        "label": "i18n.ButtonColor",
+        "id": "amazon-button-color",
+        "enable": "amazonProvidersEnabled",
+        "options": [
+          {
+            "value": "Gold",
+            "label": "i18n.Gold"
+          },
+          {
+            "value": "LightGray",
+            "label": "i18n.LightGray"
+          },
+          {
+            "value": "DarkGray",
+            "label": "i18n.DarkGray"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "i18n.MasterpassSettings",
+        "enable": "masterpassProvidersEnabled"
+      },
+      {
+        "type": "select",
+        "label": "i18n.ButtonColor",
+        "id": "masterpass-button-color",
+        "enable": "masterpassProvidersEnabled",
+        "options": [
+          {
+            "value": "black",
+            "label": "i18n.BlackWhiteText"
+          },
+          {
+            "value": "white",
+            "label": "i18n.WhiteBlackText"
           }
         ]
       }

@@ -21,6 +21,7 @@ customer:
 {{/partial}}
 
 {{#partial "hero"}}
+{{{region name="category_below_menu"}}}
 <div class="container container-hero">
 	{{#if breadcrumbs.[1].name '==' 'Brands'}}
 		<div class="page-header category-header">
@@ -98,7 +99,7 @@ customer:
 		{{/if}}
 	{{/each}}
 {{/if}}
-
+{{#if (getVar "b2b-products") '===' 'show'}}
 {{#if category.subcategories}}
     <div class="subcategories-above subcategories--{{theme_settings.custom_category_sidebar_display}}">
 		<ul class="subcategories-grid{{#unless breadcrumbs.[1].name '==' 'Brands'}}{{#unless theme_settings.custom_category_show_blocks}} subcategories-grid-blockless{{/unless}}{{/unless}}">
@@ -138,10 +139,11 @@ customer:
 		</ul>
     </div>
 {{/if}}
-
+{{/if}}
 
 <div class="page">
 {{#and (if category.products) (if (getVar "catbrand") '===' 'inactive')}}
+	{{#if (getVar "b2b-products") '===' 'show'}}
     {{#if category.faceted_search_enabled}}
         <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}} toggle-content is-open" id="faceted-search-container">
             {{> components/category/sidebar}}
@@ -171,6 +173,7 @@ customer:
         	</aside>
     	{{/if}}
     {{/if}}
+	{{/if}}
 
     <div class="page-content" id="product-listing-container">
 		{{{region name="category_above_content"}}}

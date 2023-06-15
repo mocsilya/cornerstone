@@ -2,7 +2,30 @@
 {{#each blog.recent_posts}}
 	{{#if @index 0}}
 	<li>
+		{{assignVar "blogVideo1" "hide"}}
+		{{#each tags}}
+			{{#startsWith '_youtube:' name}}
+				{{assignVar "blogVideo1" "show"}}
+	            <div class="footer-blog-video">
+					<iframe
+	                id="player"
+	                class="lazyload"
+	                type="text/html"
+	                width="640"
+	                height="390"
+	                frameborder="0"
+	                webkitAllowFullScreen
+	                mozallowfullscreen
+	                allowFullScreen
+	                data-src="//www.youtube.com/embed/{{{after (split name '_youtube:') 1}}}?rel=0"
+	                data-video-player>
+	            	</iframe>
+				</div>
+			{{/startsWith}}
+		{{/each}}
+		{{#if (getVar "blogVideo1") '===' 'hide'}}
 		{{#if thumbnail}}<a class="footer-blog-img" href="{{url}}"><img src="{{getImage thumbnail 'blog_size'}}" alt="{{thumbnail.alt}}"></a>{{/if}}
+		{{/if}}
 		<p class="footer-blog-publish"><strong class="footer-blog-author">{{author}}</strong><span class="footer-blog-date">{{date_published}}</span></p>
 		<h4 class="footer-blog-title">{{title}}</h4>
 		<p class="footer-blog-summary">{{summary}}&hellip;</p>
@@ -10,7 +33,30 @@
 	</li>
 	{{else if @index 1}}
 	<li>
+		{{assignVar "blogVideo2" "hide"}}
+		{{#each tags}}
+			{{#startsWith '_youtube:' name}}
+				{{assignVar "blogVideo2" "show"}}
+	            <div class="footer-blog-video">
+					<iframe
+	                id="player"
+	                class="lazyload"
+	                type="text/html"
+	                width="640"
+	                height="390"
+	                frameborder="0"
+	                webkitAllowFullScreen
+	                mozallowfullscreen
+	                allowFullScreen
+	                data-src="//www.youtube.com/embed/{{{after (split name '_youtube:') 1}}}?rel=0"
+	                data-video-player>
+	            	</iframe>
+				</div>
+			{{/startsWith}}
+		{{/each}}
+		{{#if (getVar "blogVideo2") '===' 'hide'}}
 		{{#if thumbnail}}<a class="footer-blog-img" href="{{url}}"><img src="{{getImage thumbnail 'blog_size'}}" alt="{{thumbnail.alt}}"></a>{{/if}}
+		{{/if}}
 		<p class="footer-blog-publish"><strong class="footer-blog-author">{{author}}</strong><span class="footer-blog-date">{{date_published}}</span></p>
 		<h4 class="footer-blog-title">{{title}}</h4>
 		<p class="footer-blog-summary">{{summary}}&hellip;</p>
@@ -18,7 +64,30 @@
 	</li>
 	{{else if @index 2}}
 	<li>
+		{{assignVar "blogVideo3" "hide"}}
+		{{#each tags}}
+			{{#startsWith '_youtube:' name}}
+				{{assignVar "blogVideo3" "show"}}
+	            <div class="footer-blog-video">
+					<iframe
+	                id="player"
+	                class="lazyload"
+	                type="text/html"
+	                width="640"
+	                height="390"
+	                frameborder="0"
+	                webkitAllowFullScreen
+	                mozallowfullscreen
+	                allowFullScreen
+	                data-src="//www.youtube.com/embed/{{{after (split name '_youtube:') 1}}}?rel=0"
+	                data-video-player>
+	            	</iframe>
+				</div>
+			{{/startsWith}}
+		{{/each}}
+		{{#if (getVar "blogVideo3") '===' 'hide'}}
 		{{#if thumbnail}}<a class="footer-blog-img" href="{{url}}"><img src="{{getImage thumbnail 'blog_size'}}" alt="{{thumbnail.alt}}"></a>{{/if}}
+		{{/if}}
 		<p class="footer-blog-publish"><strong class="footer-blog-author">{{author}}</strong><span class="footer-blog-date">{{date_published}}</span></p>
 		<h4 class="footer-blog-title">{{title}}</h4>
 		<p class="footer-blog-summary">{{summary}}&hellip;</p>

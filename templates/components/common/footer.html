@@ -17,6 +17,27 @@
         </div>
     {{/if}}
 {{/if}}
+
+{{#if page_type '==' 'default'}}
+	{{{region name="home_below_bottom_banner"}}}
+{{else if page_type '==' 'category'}}
+	{{{region name="category_below_bottom_banner"}}}
+{{else if page_type '==' 'product'}}
+	{{{region name="product_below_bottom_banner"}}}
+{{else if page_type '==' 'page'}}
+	{{{region name="page_below_bottom_banner"}}}
+{{else if page_type '==' 'brands'}}
+	{{{region name="brands_below_bottom_banner"}}}
+{{else if page_type '==' 'brand'}}
+	{{{region name="brand_below_bottom_banner"}}}
+{{else if page_type '==' 'cart'}}
+	{{{region name="cart_below_bottom_banner"}}}
+{{else if page_type '==' 'search'}}
+	{{{region name="search_below_bottom_banner"}}}
+{{else}}
+	{{{region name="general_below_bottom_banner"}}}
+{{/if}}
+
 <div class="footer-globalregion"{{#unless theme_settings.custom_footer_global_region}} style="display:none;"{{/unless}}>
 	{{{region name="footer_top--global"}}}
 </div>
@@ -98,10 +119,12 @@
 						{{/unless}}
 						{{/unless}}
                     {{/each}}
-					{{#if theme_settings.custom_footer_show_sitemap}}
+					{{#if (getVar "b2b-products") '===' 'show'}}
+						{{#if theme_settings.custom_footer_show_sitemap}}
                     	<li>
                         	<a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
                     	</li>
+						{{/if}}
 					{{/if}}
                     <li>
                         <a href="{{urls.cart}}">{{lang 'common.cart'}}</a>
@@ -161,14 +184,18 @@
                         </li>
 					{{/unless}}
                     {{/each}}
-					{{#if theme_settings.custom_footer_show_sitemap}}
+					{{#if (getVar "b2b-products") '===' 'show'}}
+						{{#if theme_settings.custom_footer_show_sitemap}}
                     	<li>
                         	<a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
                     	</li>
+						{{/if}}
 					{{/if}}
                 </ul>
             </article>
 			{{/if}}
+			{{#if (getVar "b2b-products") '===' 'show'}}
+			{{#if theme_settings.custom_footer_show_categories}}
 			{{#if theme_settings.custom_footer_show_category_columns}}
 			{{#each categories}}
 				{{#if children}}
@@ -218,6 +245,7 @@
                 </ul>
             </article>
 			{{/if}}
+			{{/if}}
             {{#and theme_settings.shop_by_brand_show_footer shop_by_brand.length}}
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-brands">
                 <h3 class="footer-info-heading">{{lang 'footer.brands'}}</h3>
@@ -231,7 +259,7 @@
                 </ul>
             </article>
             {{/and}}
-
+			{{/if}}
             
             <article class="footer-info-col footer-info-col--small" data-section-type="storeInfo">
 				{{> components/custom/client/client-footer-top}}
@@ -241,26 +269,24 @@
 				{{/if}}
                 {{#all settings.phone_number theme_settings.custom_phone_show}}
                     <p class="footer-phone">
-						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-phone" /></svg></i> 
+						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-phone{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i> 
 						<strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong>
 					</p>
                 {{/all}}
                 {{#if theme_settings.custom_email_show}}
                     <p class="footer-email">
-						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-envelope" /></svg></i> 
+						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-envelope{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i> 
 						<a href="mailto:{{theme_settings.custom_email_address}}"><strong>{{lang 'footer.email_us'}}</strong></a>
 					</p>
                 {{/if}}
 				{{> components/custom/client/client-footer-bottom}}
+				{{{region name="footer_info--global"}}}
             </article>
 
         </section>
 		<section class="footer-bar">
 		{{> components/common/payment-icons}}
 			<div class="footer-text">
-        	{{#if settings.paypal_commerce_credit_message}}
-            	<p class="paypal-credit">{{nl2br settings.paypal_commerce_credit_message}}</p>
-        	{{/if}}
         	{{#if theme_settings.show_copyright_footer}}
                 <p class="copyright">&copy; {{moment format="YYYY"}} {{settings.store_name}}. {{{theme_settings.custom_footer_copyright}}}</p>
         	{{/if}}
