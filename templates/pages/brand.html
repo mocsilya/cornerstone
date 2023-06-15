@@ -19,6 +19,7 @@ customer:
     {{/if}}
 {{/partial}}
 {{#partial "hero"}}
+{{{region name="brand_below_menu"}}}
 <div class="container container-hero">
 	<div class="page-header brand-header">
     <h1 class="page-heading">{{brand.name}}</h1>
@@ -29,6 +30,7 @@ customer:
 {{#partial "page"}}
 {{{region name="brand_below_header"}}}
 <div class="page">
+	{{#if (getVar "b2b-products") '===' 'show'}}
     <aside class="page-sidebar toggle-content is-open" id="faceted-search-container">
 		{{#if brand.image}}
 		<div class="sidebar-image">
@@ -43,7 +45,7 @@ customer:
 		{{/if}}
         {{> components/brand/sidebar}}
     </aside>
-
+	{{/if}}
     <div class="page-content" id="product-listing-container">
         {{#if brand.search_error }}
             <p>{{lang 'search.errorMessage'}}</p>
