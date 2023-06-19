@@ -45,7 +45,7 @@
   ],
   "settings": {
 	"custom_phone_show": true,
-    "custom_email_show": false,
+    "custom_email_show": true,
     "custom_email_address": "info@physical-sports.co.uk",
 	"custom_homepage_carousel_transition": "slide",
 	"custom_homepage_carousel_mob-images": false,
@@ -512,7 +512,7 @@
     "focusTooltip-backgroundColor": "#313440",
     "swatch_option_size": "40x40",
     "social_icon_placement_top": false,
-    "social_icon_placement_bottom": true,
+    "social_icon_placement_bottom": false,
     "geotrust_ssl_common_name": "",
     "geotrust_ssl_seal_size": "M",
     "navigation_design": "simple",
