@@ -124,12 +124,10 @@ h1, h2, h3, h4, h5, h6 {
 // =============================================================================
 
 .subcategories-blank {
-	display: none;
+	border: 0;
+	background: #FDF2ED;
 }
 
-.subcategories-blank + .subcategories-name {
-	border: 1px solid #a74d7f;
-}
 
 
 // Product Page
@@ -407,14 +405,15 @@ div[data-sub-layout-container="79add8fd-39c2-45a4-bd74-45cb85b7f37b"] .custom-wi
     border: .25rem solid #fff;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3); 
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+    position: relative;
 }
 
 div[data-sub-layout-container="79add8fd-39c2-45a4-bd74-45cb85b7f37b"] .custom-widget-content {
     top: auto;
-    bottom: 1rem;
+    bottom: 0;
     transform: none;
-    left: 1rem;
-    right: 1rem;
+    left: 0;
+    right: 0;
     background: rgba(0,0,0,0.3);
     flex-direction: row;
     padding: .75rem;
