@@ -53,8 +53,24 @@ body.with-bar[zb-bar="show"] .header {
 	color: #ffdd00;
 }
 
-body.currency-gbp .navPages > ul > li.navPages-item-international {
+.navPages > ul > li.navPages-item-international {
 	display: none;
+}
+
+body:not(.currency-gbp) .navPages > ul > li.navPages-item-category {
+	display: none;
+}
+
+
+
+// Nav User
+// =============================================================================
+
+
+.navUser-item--currency .dropdown-menu.is-open {
+	min-width: 250px;
+	right: 50px;
+	left: auto !important;
 }
 
 
@@ -64,6 +80,19 @@ body.currency-gbp .navPages > ul > li.navPages-item-international {
 .page-header-image .breadcrumbs, .page-header-image .page-heading, .page-header-image .page-heading+nav .breadcrumbs {
     background-color: rgba(0,0,0, 0.7);
 }
+
+
+// Home
+// =============================================================================
+
+body:not(.currency-gbp) .main div[data-content-region="home_below_top_banner"] + h2,
+body:not(.currency-gbp) .main ul[data-product-type="featured"],
+body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-hero .carousel-brands,
+body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-hero .heroCarousel,
+body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-hero .carousel-links {
+	display: none;
+}
+
 
 
 // Hero Carousel
@@ -251,6 +280,49 @@ body.currency-gbp .navPages > ul > li.navPages-item-international {
 	color: #7fb24c;
 	border: 2px solid #333;
 	background: #fff;
+}
+
+.carousel-international {
+	padding: 3rem 1.5rem;
+	background: #7fb24c;
+	text-align: center;
+	min-width: 100%;
+	margin-bottom: 1.5rem;
+	@include breakpoint("medium") {
+		padding: 4.5rem 3rem;
+	}
+	@include breakpoint("large") {
+		padding: 6rem;
+	}
+}
+
+.carousel-international h2 {
+	margin: 0;
+	color: #fff;
+	text-align: center;
+	font-size: 16px;
+	@include breakpoint("small") {
+		font-size: 18px;
+	}
+	@include breakpoint("medium") {
+		font-size: 24px;
+	}
+	@include breakpoint("large") {
+		font-size: 30px;
+	}
+}
+
+.carousel-international-mob {
+	@include breakpoint("medium") {
+		display: none;
+	}
+}
+
+.carousel-international-desk {
+	display: none;
+	@include breakpoint("medium") {
+		display: block;
+	}
 }
 
 
@@ -1161,6 +1233,15 @@ body.currency-usd .productView-details-Whyte .productView-options {
 	background-position: center bottom;
 	padding-bottom: 80px;
 }
+
+body:not(.currency-gbp) article[data-section-type="footer-categories"] li {
+	display: none;
+}
+
+body:not(.currency-gbp) article[data-section-type="footer-categories"] li:last-child {
+	display: list-item;
+}
+
 
 
 // Blog

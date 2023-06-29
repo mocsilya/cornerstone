@@ -1,0 +1,150 @@
+{{#unless currency_selector.active_currency_code '==' 'GBP'}}
+	{{#each categories}}
+		{{#if name '==' 'International'}}
+			{{#if ../currency_selector.active_currency_code '==' 'AUD'}}
+				{{#filter children 'Australia' property='name'}}
+					<li class="navPages-item navPages-item-custom navPages-item-{{dashcase name}}">
+						<a class="navPages-action{{#if is_active}} activePage{{/if}}"
+		   			 		href="{{url}}"
+		   				 	aria-label="{{name}}"
+						>
+		    				{{name}}
+						</a>
+					</li>
+				{{/filter}}
+			{{/if}}
+			{{#if ../currency_selector.active_currency_code '==' 'CAD'}}
+				{{#filter children 'Canada' property='name'}}
+					<li class="navPages-item navPages-item-custom navPages-item-{{dashcase name}}">
+						<a class="navPages-action{{#if is_active}} activePage{{/if}}"
+		   			 		href="{{url}}"
+		   				 	aria-label="{{name}}"
+						>
+		    				{{name}}
+						</a>
+					</li>
+				{{/filter}}
+			{{/if}}
+			{{#if ../currency_selector.active_currency_code '==' 'CHF'}}
+				{{#filter children 'Swiss Franc' property='name'}}
+					<li class="navPages-item navPages-item-custom navPages-item-{{dashcase name}}">
+						<a class="navPages-action{{#if is_active}} activePage{{/if}}"
+		   			 		href="{{url}}"
+		   				 	aria-label="{{name}}"
+						>
+		    				{{name}}
+						</a>
+					</li>
+				{{/filter}}
+			{{/if}}
+			{{#if ../currency_selector.active_currency_code '==' 'EUR'}}
+				{{#filter children 'EU' property='name'}}
+					<li class="navPages-item navPages-item-custom navPages-item-{{dashcase name}}">
+						<a class="navPages-action{{#if is_active}} activePage{{/if}}"
+		   			 		href="{{url}}"
+		   				 	aria-label="{{name}}"
+						>
+		    				{{name}}
+						</a>
+					</li>
+				{{/filter}}
+			{{/if}}
+			{{#if ../currency_selector.active_currency_code '==' 'HKD'}}
+				{{#filter children 'Hong Kong' property='name'}}
+					<li class="navPages-item navPages-item-custom navPages-item-{{dashcase name}}">
+						<a class="navPages-action{{#if is_active}} activePage{{/if}}"
+		   			 		href="{{url}}"
+		   				 	aria-label="{{name}}"
+						>
+		    				{{name}}
+						</a>
+					</li>
+				{{/filter}}
+			{{/if}}
+			{{#if ../currency_selector.active_currency_code '==' 'NZD'}}
+				{{#filter children 'New Zealand' property='name'}}
+					<li class="navPages-item navPages-item-custom navPages-item-{{dashcase name}}">
+						<a class="navPages-action{{#if is_active}} activePage{{/if}}"
+		   			 		href="{{url}}"
+		   				 	aria-label="{{name}}"
+						>
+		    				{{name}}
+						</a>
+					</li>
+				{{/filter}}
+			{{/if}}
+			{{#if ../currency_selector.active_currency_code '==' 'NOK'}}
+				{{#filter children 'Norway' property='name'}}
+					<li class="navPages-item navPages-item-custom navPages-item-{{dashcase name}}">
+						<a class="navPages-action{{#if is_active}} activePage{{/if}}"
+		   			 		href="{{url}}"
+		   				 	aria-label="{{name}}"
+						>
+		    				{{name}}
+						</a>
+					</li>
+				{{/filter}}
+			{{/if}}
+			{{#if ../currency_selector.active_currency_code '==' 'SAR'}}
+				{{#filter children 'Saudi Arabia' property='name'}}
+					<li class="navPages-item navPages-item-custom navPages-item-{{dashcase name}}">
+						<a class="navPages-action{{#if is_active}} activePage{{/if}}"
+		   			 		href="{{url}}"
+		   				 	aria-label="{{name}}"
+						>
+		    				{{name}}
+						</a>
+					</li>
+				{{/filter}}
+			{{/if}}
+			{{#if ../currency_selector.active_currency_code '==' 'ZAR'}}
+				{{#filter children 'South Africa' property='name'}}
+					<li class="navPages-item navPages-item-custom navPages-item-{{dashcase name}}">
+						<a class="navPages-action{{#if is_active}} activePage{{/if}}"
+		   			 		href="{{url}}"
+		   				 	aria-label="{{name}}"
+						>
+		    				{{name}}
+						</a>
+					</li>
+				{{/filter}}
+			{{/if}}
+			{{#if ../currency_selector.active_currency_code '==' 'SEK'}}
+				{{#filter children 'Sweden' property='name'}}
+					<li class="navPages-item navPages-item-custom navPages-item-{{dashcase name}}">
+						<a class="navPages-action{{#if is_active}} activePage{{/if}}"
+		   			 		href="{{url}}"
+		   				 	aria-label="{{name}}"
+						>
+		    				{{name}}
+						</a>
+					</li>
+				{{/filter}}
+			{{/if}}
+			{{#if ../currency_selector.active_currency_code '==' 'AED'}}
+				{{#filter children 'United Emirates' property='name'}}
+					<li class="navPages-item navPages-item-custom navPages-item-{{dashcase name}}">
+						<a class="navPages-action{{#if is_active}} activePage{{/if}}"
+		   			 		href="{{url}}"
+		   				 	aria-label="{{name}}"
+						>
+		    				{{name}}
+						</a>
+					</li>
+				{{/filter}}
+			{{/if}}
+			{{#if ../currency_selector.active_currency_code '==' 'USD'}}
+				{{#filter children 'USA' property='name'}}
+					<li class="navPages-item navPages-item-custom navPages-item-{{dashcase name}}">
+						<a class="navPages-action{{#if is_active}} activePage{{/if}}"
+		   			 		href="{{url}}"
+		   				 	aria-label="{{name}}"
+						>
+		    				{{name}}
+						</a>
+					</li>
+				{{/filter}}
+			{{/if}}
+		{{/if}}
+	{{/each}}
+{{/unless}}

@@ -13,3 +13,10 @@
 		<li><a href="/e-bikes">ELECTRIC BIKES &rarr;</a></li>
 	</ul>
 </div>
+
+{{#unless currency_selector.active_currency_code '==' 'GBP'}}
+	<div class="carousel-international">
+		<div class="carousel-international-desk"><h2>Click the menu link above to view products available for {{currency_selector.active_currency_code}}.</h2></div>
+		<div class="carousel-international-mob"><h2>Open the top left menu to view products available for {{currency_selector.active_currency_code}}.</h2></div>
+	</div>
+{{/unless}}
