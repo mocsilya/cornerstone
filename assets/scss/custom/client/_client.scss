@@ -119,7 +119,13 @@ body.with-bar .header {
 	}
 }
 
-.navPages > ul > li.navPages-item-clearance > .navPages-action {
+
+
+.navPages > ul > li.navPages-item-clearance.navPages-item-category {
+	display: none;
+}
+
+.navPages > ul > li.navPages-item-clearance.navPages-item-page > .navPages-action {
 	color: #cc0000;
     @include breakpoint("medium") {
 		background: #cc0000;
@@ -127,7 +133,7 @@ body.with-bar .header {
 	}
 }
 
-.navPages > ul > li.navPages-item-clearance > .navPages-action:hover {
+.navPages > ul > li.navPages-item-clearance.navPages-item-page > .navPages-action:hover {
 	color: #dd0000;
     @include breakpoint("medium") {
 		background: #dd0000;
