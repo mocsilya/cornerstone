@@ -111,6 +111,11 @@
             	<span class="sale-text">{{theme_settings.custom_card_spotlight_name}}</span>
         	</div>
 		{{/if}}
+		{{#filter custom_fields '_badge' property='name'}}
+        	<a href="{{../url}}"{{#if ../settings.data_tag_enabled}} data-event-type="product-click"{{/if}} class="sale-flag-side badge-custom">
+            	<span class="sale-text">{{value}}</span>
+        	</a>
+		{{/filter}}
 		{{#if show_cart_action}}
 			{{#if has_options}}
 				<a href="{{url}}" 

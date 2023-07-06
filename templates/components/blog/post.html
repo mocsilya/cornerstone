@@ -1,5 +1,29 @@
 <article class="blog">
     <div class="blog-post-figure">
+		{{assignVar "blogVideo" "hide"}}
+		{{#each post.tags}}
+			{{#startsWith '_youtube:' name}}
+				{{assignVar "blogVideo" "show"}}
+				<figure class="blog-thumbnail">
+	            <div class="blog-video">
+					<iframe
+	                id="player"
+	                class="lazyload"
+	                type="text/html"
+	                width="640"
+	                height="390"
+	                frameborder="0"
+	                webkitAllowFullScreen
+	                mozallowfullscreen
+	                allowFullScreen
+	                data-src="//www.youtube.com/embed/{{{after (split name '_youtube:') 1}}}?rel=0"
+	                data-video-player>
+	            	</iframe>
+				</div>
+				</figure>
+			{{/startsWith}}
+		{{/each}}
+		{{#if (getVar "blogVideo") '===' 'hide'}}
         {{#if post.thumbnail}}
             <figure class="blog-thumbnail">
                 <a href="{{post.url}}">
@@ -11,6 +35,7 @@
                 </a>
             </figure>
         {{/if}}
+		{{/if}}
     </div>
 
     <div class="blog-post-body">
@@ -24,6 +49,7 @@
         </header>
 
         <div class="blog-post">
+			{{{region name="blog_banner"}}}
             {{#if post.body}}
                 {{{post.body}}}
             {{else}}
@@ -38,9 +64,12 @@
             {{#if post.tags}}
                 <ul class="tags">
                     {{#each post.tags}}
+					{{#startsWith '_' name}}
+					{{else}}
                     <li class="tag">
                         <a href="{{url}}">#{{name}}</a>
                     </li>
+					{{/startsWith}}
                     {{/each}}
                 </ul>
             {{/if}}
