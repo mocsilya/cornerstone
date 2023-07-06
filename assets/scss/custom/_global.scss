@@ -4546,6 +4546,10 @@ a:hover span.card-image:only-of-type img {
 	font-weight: 700;
 }
 
+.page-product .price-section abbr {
+	font-size: 12px;
+}
+
 .page-product .price-section.rrp-price--withTax,
 .page-product .price-section.rrp-price--withoutTax,
 .page-product .price-section.non-sale-price--withTax,
@@ -4567,6 +4571,11 @@ a:hover span.card-image:only-of-type img {
 
 .page-product .price-section.price-section--saving {
 	order: 3;
+}
+
+.page-product .price-section--withoutTax .price,
+.page-product .price-section--withoutTax abbr {
+	color: stencilColor("color-grey");
 }
 
 .productView-info {
