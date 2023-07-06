@@ -161,7 +161,7 @@
 			{{/if}}
 			</li>
 		{{/if}}
-        <li class="navUser-item navUser-item--account">
+        <li class="navUser-item navUser-item--account {{#if customer}}navUser-item--customer{{else}}navUser-item--guest{{/if}}">
             <a class="navUser-action navUser-action--account has-dropdown"
 			   href="#"
                data-dropdown="accountDropdown"
