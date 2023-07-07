@@ -48,6 +48,22 @@
 	color: stencilColor("navPages-color-hover");
 }
 
+body.scroll .navPages > ul > li > .navPages-action {
+	@include breakpoint("medium") {
+		padding: 0.78571rem 1.14286rem 1.14286rem;
+	}
+}
+
+.header--boxsearch .form-search-box .form-input,
+.navUser .form-search-box .form-input {
+	@include breakpoint("medium") {
+		min-width: 200px;
+	}
+	@include breakpoint("large") {
+		min-width: 500px;
+	}
+}
+
 
 
 // =============================================================================
@@ -206,7 +222,9 @@ div[data-content-region="product_below_price--global"] div > div > div {
 	}
 }
 
-
+.productView-details.product-data dl.productView-info {
+	display: none;
+}
 
 // =============================================================================
 // Category page
@@ -252,6 +270,22 @@ div[data-content-region="blog_banner"] div > div > div {
 	padding-right: 0;
 }
 
+.page-blog_post .page-sidebar {
+	@include breakpoint("medium") {
+		float: right;
+	}
+}
+
+.page-blog_post .page-content {
+	@include breakpoint("medium") {
+		float: left;
+	}
+}
+
+.blogpost-header {
+	padding: 3rem 0;
+}
+
 
 
 // =============================================================================
@@ -272,3 +306,12 @@ div[data-content-region="blog_banner"] div > div > div {
 	color: stencilColor("button--primary-backgroundColorHover");
 }
 
+
+
+// =============================================================================
+// Footer Blog
+// =============================================================================
+
+.footer-blog-list li {
+	text-align: center;
+}
