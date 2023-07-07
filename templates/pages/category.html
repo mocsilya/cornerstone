@@ -101,8 +101,8 @@ customer:
 {{/if}}
 {{#if (getVar "b2b-products") '===' 'show'}}
 {{#if category.subcategories}}
-    <div class="subcategories-above subcategories--{{theme_settings.custom_category_sidebar_display}}">
-		<ul class="subcategories-grid{{#unless breadcrumbs.[1].name '==' 'Brands'}}{{#unless theme_settings.custom_category_show_blocks}} subcategories-grid-blockless{{/unless}}{{/unless}}">
+    <div class="subcategories-above subcategories--{{theme_settings.custom_category_sidebar_display}}{{#unless category.products}} subcategories--noproducts{{/unless}}">
+		<ul class="subcategories-grid{{#if (getVar 'subimage') '===' 'active'}} subcategories-grid-image{{/if}}{{#unless breadcrumbs.[1].name '==' 'Brands'}}{{#unless theme_settings.custom_category_show_blocks}} subcategories-grid-blockless{{/unless}}{{/unless}}">
 			{{#each category.subcategories}}
 			<li class="subcategories-grid-item">
 				<div class="subcategories-container">
