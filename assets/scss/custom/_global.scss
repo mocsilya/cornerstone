@@ -5342,6 +5342,25 @@ a:hover span.card-image:only-of-type img {
 }
 
 
+// Account Pages > Create Account
+// =============================================================================
+
+
+.page-createaccount .form-row {
+	@include breakpoint("small") {
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
+.page-createaccount .form-row--half > .form-field,
+.page-createaccount .form-row--half > .form-field:nth-child(odd) {
+	@include breakpoint("medium") {
+		float: none;
+		clear: none;
+	}
+}
+
+
 
 // Info Pages
 // =============================================================================
