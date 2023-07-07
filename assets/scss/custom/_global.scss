@@ -3031,25 +3031,25 @@ ol.breadcrumbs {
 
 .subcategories-image {
 	display: block;
+	max-height: 8rem;
+	overflow-y: hidden;
 }
 
 .subcategories-image img {
 	display: block;
 	width: 100%;
 	height: auto;
-	min-height: 8rem;
 }
 
 .subcategories-blank {
 	display: block;
 	width: 100%;
-	border: 1px solid stencilColor("container-border-global-color-base");
 	text-align: center;
 	padding: 4rem .75rem;
 	font-size: .75rem;
 	font-weight: 700;
 	text-transform: uppercase;
-	color: stencilColor("color-greyLighter");
+	background-color: stencilColor("container-border-global-color-base");
 }
 
 .subcategories-name {
@@ -3072,9 +3072,22 @@ ol.breadcrumbs {
 	}
 }
 
+.subcategories-above.subcategories--vertical.subcategories--noproducts {
+	@include breakpoint("medium") {
+		display: block;
+	}
+}
+
 .subcategories-above.subcategories--vertical .subcategories-blank,
 .subcategories-above.subcategories--vertical .subcategories-image {
 	display: none;
+}
+
+.subcategories-above.subcategories--vertical.subcategories--noproducts .subcategories-blank,
+.subcategories-above.subcategories--vertical.subcategories--noproducts .subcategories-image {
+	@include breakpoint("medium") {
+		display: block;
+	}
 }
 
 .subcategories-above {
@@ -3108,6 +3121,10 @@ ol.breadcrumbs {
     border: $facetedSearch-toggle-border;
     border-radius: $facetedSearch-toggle-borderRadius;
     border-width: $facetedSearch-toggle-borderWidth;
+}
+
+.subcategories-above .subcategories-grid-image .subcategories-name {
+	border: 0;
 }
 
 
@@ -3362,6 +3379,31 @@ body.hasAdminBar.has-bar .brand-anchor {
 .product:hover .spotlight-sash {
 	color: stencilColor("custom-card-spotlight-color");
 	background: stencilColor("custom-card-spotlight-background");
+}
+
+.sale-flag-side.badge-custom {
+	display: block;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	height: auto;
+	padding: .5rem .75rem;
+	border-radius: 0;
+	text-align: center;
+	background-color: stencilColor("color_badge_product_sold_out_badges");
+	text-decoration: none;
+	color: stencilColor("color_text_product_sold_out_badges");
+}
+
+.sale-flag-side.badge-custom:hover {
+	text-decoration: none;
+	color: stencilColor("color_text_product_sold_out_badges");
+	background-color: stencilColor("color_badge_product_sold_out_badges");
+}
+
+.sale-flag-side.badge-custom .sale-text {
+	font-size: 14px;
+	color: stencilColor("color_text_product_sold_out_badges");
 }
 
 .card-spotlight-actions {
@@ -3654,6 +3696,7 @@ a:hover span.card-image:only-of-type img {
 	transform: none;
 	position: absolute;
 	width: 100%;
+	z-index: 11;
 }
 .card-figcaption-button,
 .card-figcaption-button + .card-figcaption-button {
@@ -4503,6 +4546,10 @@ a:hover span.card-image:only-of-type img {
 	font-weight: 700;
 }
 
+.page-product .price-section abbr {
+	font-size: 12px;
+}
+
 .page-product .price-section.rrp-price--withTax,
 .page-product .price-section.rrp-price--withoutTax,
 .page-product .price-section.non-sale-price--withTax,
@@ -4524,6 +4571,11 @@ a:hover span.card-image:only-of-type img {
 
 .page-product .price-section.price-section--saving {
 	order: 3;
+}
+
+.page-product .price-section--withoutTax .price,
+.page-product .price-section--withoutTax abbr {
+	color: stencilColor("color-grey");
 }
 
 .productView-info {
