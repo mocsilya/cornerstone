@@ -3031,8 +3031,7 @@ ol.breadcrumbs {
 
 .subcategories-image {
 	display: block;
-	max-height: 8rem;
-	overflow-y: hidden;
+	min-height: 8rem;
 }
 
 .subcategories-image img {
