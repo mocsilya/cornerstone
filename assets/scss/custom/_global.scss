@@ -4375,6 +4375,15 @@ a:hover span.card-image:only-of-type img {
 	box-shadow: 0px 0px 0px 1px stencilColor("custom-card-border");
 }
 
+.productView-img-badge {
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding: .5rem 1rem;
+	background-color: stencilColor("color_badge_product_sold_out_badges");
+	color: stencilColor("color_text_product_sold_out_badges");
+}
+
 .productView-thumbnails,
 .productView-image + .productView-thumbnails {
 	margin: 1.5rem -2px;
