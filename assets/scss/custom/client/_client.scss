@@ -11,6 +11,41 @@
 	color: #f86e21;
 }
 
+main.body > .container > div:not(.page-header) {
+	background-color: stencilColor('body-bg');
+}
+
+.login,
+.account--fixed {
+	margin: 0;
+	padding: 0;
+	max-width: none;
+	width: 100%;
+	@include breakpoint("medium") {
+		padding: 1.5rem;
+		border-top-left-radius: .5rem;
+		border-top-right-radius: .5rem;
+	}
+	@include breakpoint("large") {
+		padding: 3rem;
+	}
+}
+
+.account--fixedSmall {
+	@include breakpoint("medium") {
+		padding: 1.5rem;
+		border-top-left-radius: .5rem;
+		border-top-right-radius: .5rem;
+	}
+	@include breakpoint("large") {
+		padding: 3rem;
+	}
+}
+
+.login-row {
+	margin-top: 0;
+}
+
 .header {
 	background: #ffffff; /* Old browsers */
 	background: -moz-linear-gradient(left, stencilColor('header-backgroundColor') 0%, #ffffff 50%, stencilColor('header-backgroundColor') 100%); /* FF3.6-15 */
@@ -23,6 +58,18 @@
 		background: -webkit-linear-gradient(left,  #ffffff 0%,stencilColor('header-backgroundColor') 50%,stencilColor('header-backgroundColor') 100%); /* Chrome10-25,Safari5.1-6 */
 		background: linear-gradient(to right,  #ffffff 0%,stencilColor('header-backgroundColor') 50%,stencilColor('header-backgroundColor') 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='stencilColor('header-backgroundColor')',GradientType=1 ); /* IE6-9 */
+	}
+}
+
+body.with-bar.scroll .header {
+	@include breakpoint("medium") {
+		top: 28px;
+	}
+}
+
+body.with-bar.scroll .header-bar {
+	@include breakpoint("medium") {
+		display: block;
 	}
 }
 
@@ -82,7 +129,29 @@ body:not(.page-category.page-brands) #main-content {
 		min-width: 350px;
 	}
 	@include breakpoint("large") {
-		min-width: 600px;
+		min-width: 500px;
+	}
+}
+
+.navUser-item--custom {
+	display: inline-block;
+}
+
+.navUser-section--norm.navUser-section-left {
+	@include breakpoint("large") {
+		flex: 1 1 0;
+	}
+}
+
+.navUser-section--alt.navUser-section-left {
+	@include breakpoint("large") {
+		flex: 1 1 0;
+	}
+}
+
+.header-logo--left {
+	@include breakpoint("large") {
+		flex: 1 1 0;
 	}
 }
 
@@ -101,6 +170,100 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 		padding-left: 3rem;
 		padding-right: 3rem;
 	}
+}
+
+.subcategories-grid {
+	background: #fff;
+	@include breakpoint("medium") {
+		padding: 1.5rem;
+		border-radius: .25rem;
+		border-radius: .25rem;
+	}
+	@include breakpoint("large") {
+		padding: 3rem;
+	}
+}
+
+
+.sidebarBlock-heading {
+	color: #30a825;
+	font-size: 1.5rem;
+}
+
+.page-sidebar-vertical .sidebarCategories .navList-item ul {
+	display: block;
+}
+
+.page-sidebar-vertical .sidebarCategories .navList-action {
+	font-weight: 700;
+}
+
+.page-sidebar-vertical .sidebarCategories .navList-action-sub {
+	font-weight: 400;
+	text-indent: .5rem;
+}
+
+.productView-info-bulkPricing a {
+	font-weight: 700;
+}
+
+@media (max-width: 1260px) {
+	#tab-description {
+		display: flex;
+		flex-direction: column;
+	}
+	
+	#tab-description p {
+		order: 1;
+	}
+	
+	#tab-description table {
+		order: 2;
+	}
+	
+}
+
+.productView-description .tablespec {
+	margin: 1.5rem 0;
+}
+
+.productView-description-underneath .tablespec {
+	@include breakpoint("large") {
+		width: 400px;
+		float: right;
+		margin: 0 0 1.5rem 1.5rem;
+	}
+}
+
+.productView-description #tab-description > div {
+	display: none;
+}
+
+.productView table,
+.page-product div[data-content-region="product_below_content"] table {
+	border-right: 1px solid #c1e6fa;
+	border-bottom: 1px solid #c1e6fa;
+}
+
+.productView table th,
+.page-product div[data-content-region="product_below_content"] table th {
+	background: #c1e6fa;
+	color: #305e78;
+}
+
+.productView table td,
+.productView table th,
+.page-product div[data-content-region="product_below_content"] table td,
+.page-product div[data-content-region="product_below_content"] table th {
+	border-left: 1px solid #c1e6fa;
+	border-top: 1px solid #c1e6fa;
+}
+
+
+
+.panel-header,
+.panel-body {
+	background-color: #fff;
 }
 
 .footer {

@@ -1,12 +1,14 @@
-<li class="navUser-item navUser-item--currency navUser-item--custom">
+<li class="navUser-item navUser-item--custom">
         <a class="navUser-action" href="/contact">
-			<span class="navUser-icon navUser-icon{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}">CONTACT</span>
-			<span class="navUser-text">
+			<span class="navUser-icon">
             	<i class="icon" aria-hidden="true">
                 	<svg>
-                    	<use href="#icon-chevron-down"></use>
+                    	<use href="#icon-envelope{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}"></use>
                 	</svg>
             	</i>
+			</span>
+			<span class="navUser-text">
+            	Contact
 			</span>
         </a>
 </li>
@@ -24,11 +26,6 @@
 					{{else}}
 						{{lang 'common.account'}}
 					{{/if}}
-	            	<i class="icon" aria-hidden="true">
-	                	<svg>
-	                    	<use xlink:href="#icon-chevron-down" />
-	                	</svg>
-	            	</i>
 				</span>
 				{{/if}}
             </a>
