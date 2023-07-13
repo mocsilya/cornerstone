@@ -414,7 +414,7 @@
 				                    >
 				                        Popular Brands
 				                        <span class="collapsible-icon-wrapper"
-				                            data-collapsible="navPages-disposables-brands"
+				                            data-collapsible="navPages-disposables-brands-popular"
 				                            data-collapsible-disabled-breakpoint="medium"
 				                            data-collapsible-disabled-state="open"
 				                            data-collapsible-enabled-state="closed"
@@ -424,7 +424,7 @@
 				                            </i>
 				                        </span>
 				                    </a>
-				                    <ul class="navPage-childList" id="navPages-disposables-brands">
+				                    <ul class="navPage-childList" id="navPages-disposables-brands-popular">
 				                        <li class="navPage-childList-item">
 				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
 				                               href="/elf-bar/?_bc_fsnf=1&Vape+Kit+Type=Disposables"
@@ -443,10 +443,78 @@
 				                        </li>
 				                        <li class="navPage-childList-item">
 				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
-				                               href="/disposable-vape-kits/?_bc_fsnf=1&brand=15"
-				                               aria-label="Pod Salts"
+				                               href="/disposable-vape-kits/?_bc_fsnf=1&brand=20"
+				                               aria-label="IVG"
 				                            >
-				                                Pod Salts
+				                                IVG
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/disposable-vape-kits/?_bc_fsnf=1&brand=42"
+				                               aria-label="Lost Mary"
+				                            >
+				                                Lost Mary
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/disposable-vape-kits/?_bc_fsnf=1&brand=44"
+				                               aria-label="Elux"
+				                            >
+				                                Elux
+				                            </a>
+				                        </li>
+				                    </ul>
+				            </li>
+				            <li class="navPage-subMenu-item">
+				                    <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+				                       href="/disposable-vape-kits/?_bc_fsnf=1&brand%5B%5D=17&brand%5B%5D=19&brand%5B%5D=15"
+				                       aria-label="Disposables"
+				                    >
+				                        Other Brands
+				                        <span class="collapsible-icon-wrapper"
+				                            data-collapsible="navPages-disposables-brands-other"
+				                            data-collapsible-disabled-breakpoint="medium"
+				                            data-collapsible-disabled-state="open"
+				                            data-collapsible-enabled-state="closed"
+				                        >
+				                            <i class="icon navPages-action-moreIcon" aria-hidden="true">
+				                                <svg><use href="#icon-chevron-down" /></svg>
+				                            </i>
+				                        </span>
+				                    </a>
+				                    <ul class="navPage-childList" id="navPages-disposables-brands-other">
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/disposable-vape-kits/?_bc_fsnf=1&brand=15"
+				                               aria-label="Pod Salt"
+				                            >
+				                                Pod Salt
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/disposable-vape-kits/?_bc_fsnf=1&brand=47"
+				                               aria-label="SKE"
+				                            >
+				                                SKE
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/disposable-vape-kits/?_bc_fsnf=1&brand=43"
+				                               aria-label="Element"
+				                            >
+				                                Element
+				                            </a>
+				                        </li>
+				                        <li class="navPage-childList-item">
+				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                               href="/disposable-vape-kits/?_bc_fsnf=1&brand=6"
+				                               aria-label="Innoken"
+				                            >
+				                                Innoken
 				                            </a>
 				                        </li>
 				                    </ul>
@@ -864,21 +932,11 @@
 				    <ul class="navPage-subMenu-list">
 				        {{#each children}}
 				            <li class="navPage-subMenu-item">
-				                    <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+				                    <a class="navPage-subMenu-action navPages-action {{#if is_active}} activePage{{/if}}"
 				                       href="{{url}}"
 				                       aria-label="{{name}}"
 				                    >
 				                        {{name}}
-				                        <span class="collapsible-icon-wrapper"
-				                            data-collapsible="navPages-{{id}}"
-				                            data-collapsible-disabled-breakpoint="medium"
-				                            data-collapsible-disabled-state="open"
-				                            data-collapsible-enabled-state="closed"
-				                        >
-				                            <i class="icon navPages-action-moreIcon" aria-hidden="true">
-				                                <svg><use href="#icon-chevron-down" /></svg>
-				                            </i>
-				                        </span>
 				                    </a>
 								</li>
 							{{/each}}
@@ -1058,3 +1116,12 @@
 			</li>
 			{{/if}}
         {{/each}}
+		<li class="navPages-item navPages-item-custom navPages-item-brands">
+			<a class="navPages-action" href="/brands/" aria-label="Brands">Brands</a>
+		</li>
+		<li class="navPages-item navPages-item-custom navPages-item-blog">
+			<a class="navPages-action" href="/blog/" aria-label="Blog">Blog</a>
+		</li>
+		<li class="navPages-item navPages-item-custom navPages-item-new-in">
+			<a class="navPages-action" href="/new-in/" aria-label="Blog">New In</a>
+		</li>
