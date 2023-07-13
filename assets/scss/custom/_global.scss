@@ -669,6 +669,12 @@ body.scroll .header-logo-text {
 	background: stencilColor("navUser-color");
 }
 
+.mobileMenu-outline .mobileMenu-toggleIcon,
+.mobileMenu-outline .mobileMenu-toggleIcon::before,
+.mobileMenu-outline .mobileMenu-toggleIcon::after {
+	height: 2px;
+}
+
 .mobileMenu-toggle.is-open .mobileMenu-toggleIcon::before,
 .mobileMenu-toggle.is-open .mobileMenu-toggleIcon::after {
 	background: stencilColor("navUser-color");
@@ -823,6 +829,10 @@ body.scroll .header-logo-text {
 
 .navUser-action {
 	text-transform: none;
+	@include breakpoint("large") {
+		padding-top: .75rem;
+		padding-bottom: .75rem;
+	}
 }
 
 .navUser .dropdown-menu,
@@ -1111,6 +1121,10 @@ body.hasAdminBar.scroll .dropdown--quickSearch.is-open {
 	display: none;
 	height: 1.5rem;
 	vertical-align: top;
+	@include breakpoint("large") {
+		height: 1.5rem;
+		line-height: 2rem;
+	}
 	@include breakpoint("xlarge") {
 		display: inline-block;
 	}
@@ -1132,12 +1146,15 @@ body.hasAdminBar.scroll .dropdown--quickSearch.is-open {
 .navUser-item--widesearch .navUser-text {
 	@include breakpoint("medium") {
 		display: inline-block;
-		width: calc(100% - 30px);
+		width: calc(100% - 3rem);
 		min-width: 160px;
 		text-align: left;
 	}
 	@include breakpoint("large") {
+		width: calc(100% - 4rem);
 		min-width: 320px;
+		height: 2rem;
+		line-height: 2rem;
 	}
 }
 
@@ -1165,6 +1182,9 @@ body.hasAdminBar.scroll .dropdown--quickSearch.is-open {
 	height: 1.5rem;
 	vertical-align: top;
 	text-align: center;
+	@include breakpoint("large") {
+		height: 2rem;
+	}
 }
 
 
@@ -1185,6 +1205,9 @@ body.hasAdminBar.scroll .dropdown--quickSearch.is-open {
 	border-radius: .25rem;
 	font-size: .75rem;
 	line-height: 1.5rem;
+	@include breakpoint("large") {
+		line-height: 2rem;
+	}
 }
 
 .navUser-item--currency .navUser-action:hover .navUser-icon,
@@ -1249,6 +1272,10 @@ body.hasAdminBar.scroll .dropdown--quickSearch.is-open {
 	height: 1.5rem;
 	width: 1.5rem;
 	margin: 0;
+	@include breakpoint("large") {
+		height: 2rem;
+		width: 2rem;
+	}
 }
 
 .navUser .navUser-item--social {
@@ -3031,8 +3058,7 @@ ol.breadcrumbs {
 
 .subcategories-image {
 	display: block;
-	max-height: 8rem;
-	overflow-y: hidden;
+	min-height: 8rem;
 }
 
 .subcategories-image img {
@@ -4347,6 +4373,15 @@ a:hover span.card-image:only-of-type img {
 .productView-image {
 	-webkit-box-shadow: 0px 0px 0px 1px stencilColor("custom-card-border");
 	box-shadow: 0px 0px 0px 1px stencilColor("custom-card-border");
+}
+
+.productView-img-badge {
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding: .5rem 1rem;
+	background-color: stencilColor("color_badge_product_sold_out_badges");
+	color: stencilColor("color_text_product_sold_out_badges");
 }
 
 .productView-thumbnails,
