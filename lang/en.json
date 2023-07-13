@@ -163,9 +163,9 @@
         "compare": "Compare",
         "change": "Change",
         "sign_up": "Register",
-        "login": "Sign in",
+        "login": "Log in",
         "login_for_pricing": "Log in for pricing",
-        "logout": "Sign out",
+        "logout": "Log out",
         "account": "Account",
         "cart": "Cart",
         "search": "Search",
@@ -267,10 +267,10 @@
         "recaptcha_title": "Google recaptcha"
     },
     "login": {
-        "heading": "Sign in",
+        "heading": "Log in",
         "field_email": "Email Address:",
         "field_password": "Password:",
-        "submit_value": "Sign in",
+        "submit_value": "Log in",
         "forgot_password": "Forgot your password?",
         "new_customer": {
             "heading": "New Customer?",
@@ -903,9 +903,9 @@
         "message": "Store is currently unavailable, please try again in a few minutes"
     },
     "forbidden": {
-        "page_heading": "Sorry! Please sign in to continue",
-        "if_you_were_signed_in": "If you were signed in,",
-        "sign_in": "please sign back in",
+        "page_heading": "Sorry! Please log in to continue",
+        "if_you_were_signed_in": "If you were logged in,",
+        "sign_in": "please log back in",
         "to_continue": ", to resume your work in a new session."
     },
     "sitemap": {
