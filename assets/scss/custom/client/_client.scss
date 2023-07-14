@@ -523,6 +523,11 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 }
 
 
+.productView-img-badge {
+	top: auto;
+	bottom: 0;
+}
+
 
 // Video player
 // =============================================================================
@@ -653,6 +658,14 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 // Card Brands
 // =============================================================================
 
+.card-warranty .dropdown-menu.is-open {
+	z-index: 11;
+}
+
+
+// Card Brands
+// =============================================================================
+
 .card-brand-Cube .card-brand,
 .card-brand-Orbea .card-brand,
 .card-brand-Nukeproof .card-brand,
@@ -686,18 +699,44 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 //
 // -----------------------------------------------------------------------------
 
+body:not(.currency-gbp) .navUser-section--norm {
+	visibility: hidden;
+}
 
-body:not(.currency-gbp) .productGrid .product {
+body:not(.currency-gbp) .productGrid .product,
+body:not(.currency-gbp) .productList .product {
 	display: none;
 }
 
-body:not(.currency-gbp) .productGrid .product.show-all {
+body:not(.currency-gbp) .productGrid .product.show-all,
+body:not(.currency-gbp) .productList .product.show-all  {
 	display: inline-block;
 }
 
-body:not(.currency-gbp) .sidebarCategories .navList-item {
+body:not(.currency-gbp) .sidebarCategories .navList-item,
+body:not(.currency-gbp) .subcategories-grid-item {
 	display: none;
 }
+
+body:not(.currency-gbp) .productView-below-price-global,
+body:not(.currency-gbp) div[data-content-region="product_below_price"],
+body:not(.currency-gbp) .related-similar,
+body:not(.currency-gbp) .productView #imega-widget-anchor,
+body:not(.currency-gbp) .productView #form-action-cycle,
+body:not(.currency-gbp) .productView #form-action-finance  {
+	display: none;
+}
+
+.product-message {
+	display: none;
+}
+
+.product-message .alertBox {
+	border: 2px solid #cc0000;
+	border-radius:.5rem;
+	font-weight: 700;
+}
+
 
 
 // -----------------------------------------------------------------------------
@@ -706,17 +745,7 @@ body:not(.currency-gbp) .sidebarCategories .navList-item {
 //
 // -----------------------------------------------------------------------------
 
-.message-GBP,
-.message-GBP-Whyte,
-.message-GBP-Trek {
-    display: none;
-}
 
-/*
-.page-GBP .productView-details-Whyte .message-GBP-Whyte {
-    display: block;
-}
-*/
 
 
 // -----------------------------------------------------------------------------
@@ -725,26 +754,27 @@ body:not(.currency-gbp) .sidebarCategories .navList-item {
 //
 // -----------------------------------------------------------------------------
 
-.message-AUD {
-    display: none;
+body.currency-aud .productGrid .product.show-aud,
+body.currency-aud .productList .product.show-aud {
+	display: inline-block;
 }
 
-body.currency-aud .productView-details-Trek .message-AUD,
-body.currency-aud .productView-details-Whyte .message-AUD {
+body.currency-aud .sidebarCategories .navList-item-australia {
+	display: block;
+}
+
+body.currency-aud .subcategories-grid-item-australia {
+	display: inline-block;
+}
+
+body.currency-aud .productView:not(.show-aud):not(.show-all) .message-aud {
     display: block;
 }
 
-
-body.currency-aud .card-brand-Trek .card-price,
-body.currency-aud .card-brand-Trek .card-figcaption-body,
-body.currency-aud .productView-details-Trek .productView-price,
-body.currency-aud .productView-details-Trek .productView-options,
-
-body.currency-aud .card-brand-Whyte .card-price,
-body.currency-aud .card-brand-Whyte .card-figcaption-body,
-body.currency-aud .productView-details-Whyte .productView-price,
-body.currency-aud .productView-details-Whyte .productView-options {
-    display: none;
+body.currency-aud .productView:not(.show-aud):not(.show-all) .productView-product > div:not(.product-message-container),
+body.currency-aud .productView:not(.show-aud):not(.show-all) .productView-product > h2,
+body.currency-aud .productView:not(.show-aud):not(.show-all) .productView-options {
+	display: none;
 }
 
 
@@ -754,26 +784,27 @@ body.currency-aud .productView-details-Whyte .productView-options {
 //
 // -----------------------------------------------------------------------------
 
-.message-CAD {
-    display: none;
+body.currency-cad .productGrid .product.show-cad,
+body.currency-cad .productList .product.show-cad {
+	display: inline-block;
 }
 
-body.currency-cad .productView-details-Trek .message-CAD,
-body.currency-cad .productView-details-Whyte .message-CAD {
+body.currency-cad .sidebarCategories .navList-item-canada {
+	display: block;
+}
+
+body.currency-cad .subcategories-grid-item-canada {
+	display: inline-block;
+}
+
+body.currency-cad .productView:not(.show-cad):not(.show-all) .message-cad {
     display: block;
 }
 
-
-body.currency-cad .card-brand-Trek .card-price,
-body.currency-cad .card-brand-Trek .card-figcaption-body,
-body.currency-cad .productView-details-Trek .productView-price,
-body.currency-cad .productView-details-Trek .productView-options,
-
-body.currency-cad .card-brand-Whyte .card-price,
-body.currency-cad .card-brand-Whyte .card-figcaption-body,
-body.currency-cad .productView-details-Whyte .productView-price,
-body.currency-cad .productView-details-Whyte .productView-options {
-    display: none;
+body.currency-cad .productView:not(.show-cad):not(.show-all) .productView-product > div:not(.product-message-container),
+body.currency-cad .productView:not(.show-cad):not(.show-all) .productView-product > h2,
+body.currency-cad .productView:not(.show-cad):not(.show-all) .productView-options {
+	display: none;
 }
 
 
@@ -783,31 +814,29 @@ body.currency-cad .productView-details-Whyte .productView-options {
 //
 // -----------------------------------------------------------------------------
 
-.message-EUR,
-.message-EUR-Whyte {
-    display: none;
+body.currency-eur .productGrid .product.show-eur,
+body.currency-eur .productList .product.show-eur {
+	display: inline-block;
 }
 
-body.currency-eur .productView-details-Trek .message-EUR,
-body.currency-eur .productView-details-Whyte .message-EUR-Whyte {
+body.currency-eur .sidebarCategories .navList-item-eu {
+	display: block;
+}
+
+body.currency-eur .subcategories-grid-item-eu {
+	display: inline-block;
+}
+
+body.currency-eur .productView:not(.show-eur):not(.show-all) .message-eur {
     display: block;
 }
 
-
-body.currency-eur .card-brand-Trek .card-price,
-body.currency-eur .card-brand-Trek .card-figcaption-body,
-body.currency-eur .productView-details-Trek .productView-price,
-body.currency-eur .productView-details-Trek .productView-options {
-    display: none;
-}
-
-body:not(.currency-gbp) .productGrid .product {
+body.currency-eur .productView:not(.show-eur):not(.show-all) .productView-product > div:not(.product-message-container),
+body.currency-eur .productView:not(.show-eur):not(.show-all) .productView-product > h2,
+body.currency-eur .productView:not(.show-eur):not(.show-all) .productView-options {
 	display: none;
 }
 
-body.currency-eur .productGrid .product.show-eur {
-	display: inline-block;
-}
 
 
 // -----------------------------------------------------------------------------
@@ -816,26 +845,27 @@ body.currency-eur .productGrid .product.show-eur {
 //
 // -----------------------------------------------------------------------------
 
-.message-HKD {
-    display: none;
+body.currency-hkd .productGrid .product.show-hkd,
+body.currency-hkd .productList .product.show-hkd {
+	display: inline-block;
 }
 
-body.currency-hkd .productView-details-Trek .message-HKD,
-body.currency-hkd .productView-details-Whyte .message-HKD {
+body.currency-hkd .sidebarCategories .navList-item-hong-kong {
+	display: block;
+}
+
+body.currency-hkd .subcategories-grid-item-hong-kong {
+	display: inline-block;
+}
+
+body.currency-hkd .productView:not(.show-hkd):not(.show-all) .message-hkd {
     display: block;
 }
 
-
-body.currency-hkd .card-brand-Trek .card-price,
-body.currency-hkd .card-brand-Trek .card-figcaption-body,
-body.currency-hkd .productView-details-Trek .productView-price,
-body.currency-hkd .productView-details-Trek .productView-options,
-
-body.currency-hkd .card-brand-Whyte .card-price,
-body.currency-hkd .card-brand-Whyte .card-figcaption-body,
-body.currency-hkd .productView-details-Whyte .productView-price,
-body.currency-hkd .productView-details-Whyte .productView-options {
-    display: none;
+body.currency-hkd .productView:not(.show-hkd):not(.show-all) .productView-product > div:not(.product-message-container),
+body.currency-hkd .productView:not(.show-hkd):not(.show-all) .productView-product > h2,
+body.currency-hkd .productView:not(.show-hkd):not(.show-all) .productView-options {
+	display: none;
 }
 
 
@@ -845,26 +875,27 @@ body.currency-hkd .productView-details-Whyte .productView-options {
 //
 // -----------------------------------------------------------------------------
 
-.message-NZD {
-    display: none;
+body.currency-nzd .productGrid .product.show-nzd,
+body.currency-nzd .productList .product.show-nzd {
+	display: inline-block;
 }
 
-body.currency-nzd .productView-details-Trek .message-NZD,
-body.currency-nzd .productView-details-Whyte .message-NZD {
+body.currency-nzd .sidebarCategories .navList-item-new-zealand {
+	display: block;
+}
+
+body.currency-nzd .subcategories-grid-item-new-zealand {
+	display: inline-block;
+}
+
+body.currency-nzd .productView:not(.show-nzd):not(.show-all) .message-nzd {
     display: block;
 }
 
-
-body.currency-nzd .card-brand-Trek .card-price,
-body.currency-nzd .card-brand-Trek .card-figcaption-body,
-body.currency-nzd .productView-details-Trek .productView-price,
-body.currency-nzd .productView-details-Trek .productView-options,
-
-body.currency-nzd .card-brand-Whyte .card-price,
-body.currency-nzd .card-brand-Whyte .card-figcaption-body,
-body.currency-nzd .productView-details-Whyte .productView-price,
-body.currency-nzd .productView-details-Whyte .productView-options {
-    display: none;
+body.currency-nzd .productView:not(.show-nzd):not(.show-all) .productView-product > div:not(.product-message-container),
+body.currency-nzd .productView:not(.show-nzd):not(.show-all) .productView-product > h2,
+body.currency-nzd .productView:not(.show-nzd):not(.show-all) .productView-options {
+	display: none;
 }
 
 
@@ -874,27 +905,61 @@ body.currency-nzd .productView-details-Whyte .productView-options {
 //
 // -----------------------------------------------------------------------------
 
-.message-NOK {
-    display: none;
+body.currency-nok .productGrid .product.show-nok,
+body.currency-nok .productList .product.show-nok {
+	display: inline-block;
 }
 
-body.currency-nok .productView-details-Trek .message-NOK,
-body.currency-nok .productView-details-Whyte .message-NOK {
+body.currency-nok .sidebarCategories .navList-item-norway {
+	display: block;
+}
+
+body.currency-nok .subcategories-grid-item-norway {
+	display: inline-block;
+}
+
+body.currency-nok .productView:not(.show-nok):not(.show-all) .message-nok {
     display: block;
 }
 
-
-body.currency-nok .card-brand-Trek .card-price,
-body.currency-nok .card-brand-Trek .card-figcaption-body,
-body.currency-nok .productView-details-Trek .productView-price,
-body.currency-nok .productView-details-Trek .productView-options,
-
-body.currency-nok .card-brand-Whyte .card-price,
-body.currency-nok .card-brand-Whyte .card-figcaption-body,
-body.currency-nok .productView-details-Whyte .productView-price,
-body.currency-nok .productView-details-Whyte .productView-options {
-    display: none;
+body.currency-nok .productView:not(.show-nok):not(.show-all) .productView-product > div:not(.product-message-container),
+body.currency-nok .productView:not(.show-nok):not(.show-all) .productView-product > h2,
+body.currency-nok .productView:not(.show-nok):not(.show-all) .productView-options {
+	display: none;
 }
+
+
+
+// -----------------------------------------------------------------------------
+//
+// HIDE PRICES AND CART FOR SAR
+//
+// -----------------------------------------------------------------------------
+
+body.currency-sar .productGrid .product.show-sar,
+body.currency-sar .productList .product.show-sar {
+	display: inline-block;
+}
+
+body.currency-sar .sidebarCategories .navList-item-saudi-arabia {
+	display: block;
+}
+
+body.currency-sar .subcategories-grid-item-saudi-arabia {
+	display: inline-block;
+}
+
+body.currency-sar .productView:not(.show-sar):not(.show-all) .message-sar {
+    display: block;
+}
+
+body.currency-sar .productView:not(.show-sar):not(.show-all) .productView-product > div:not(.product-message-container),
+body.currency-sar .productView:not(.show-sar):not(.show-all) .productView-product > h2,
+body.currency-sar .productView:not(.show-sar):not(.show-all) .productView-options {
+	display: none;
+}
+
+
 
 // -----------------------------------------------------------------------------
 //
@@ -902,26 +967,27 @@ body.currency-nok .productView-details-Whyte .productView-options {
 //
 // -----------------------------------------------------------------------------
 
-.message-ZAR {
-    display: none;
+body.currency-zar .productGrid .product.show-zar,
+body.currency-zar .productList .product.show-zar {
+	display: inline-block;
 }
 
-body.currency-zar .productView-details-Trek .message-ZAR,
-body.currency-zar .productView-details-Whyte .message-ZAR {
+body.currency-zar .sidebarCategories .navList-item-south-africa {
+	display: block;
+}
+
+body.currency-zar .subcategories-grid-item-south-africa {
+	display: inline-block;
+}
+
+body.currency-zar .productView:not(.show-zar):not(.show-all) .message-zar {
     display: block;
 }
 
-
-body.currency-zar .card-brand-Trek .card-price,
-body.currency-zar .card-brand-Trek .card-figcaption-body,
-body.currency-zar .productView-details-Trek .productView-price,
-body.currency-zar .productView-details-Trek .productView-options,
-
-body.currency-zar .card-brand-Whyte .card-price,
-body.currency-zar .card-brand-Whyte .card-figcaption-body,
-body.currency-zar .productView-details-Whyte .productView-price,
-body.currency-zar .productView-details-Whyte .productView-options {
-    display: none;
+body.currency-zar .productView:not(.show-zar):not(.show-all) .productView-product > div:not(.product-message-container),
+body.currency-zar .productView:not(.show-zar):not(.show-all) .productView-product > h2,
+body.currency-zar .productView:not(.show-zar):not(.show-all) .productView-options {
+	display: none;
 }
 
 // -----------------------------------------------------------------------------
@@ -930,27 +996,30 @@ body.currency-zar .productView-details-Whyte .productView-options {
 //
 // -----------------------------------------------------------------------------
 
-.message-SEK {
-    display: none;
+body.currency-sek .productGrid .product.show-sek,
+body.currency-sek .productList .product.show-sek {
+	display: inline-block;
 }
 
-body.currency-sek .productView-details-Trek .message-SEK,
-body.currency-sek .productView-details-Whyte .message-SEK {
+body.currency-sek .sidebarCategories .navList-item-sweden {
+	display: block;
+}
+
+body.currency-sek .subcategories-grid-item-sweden {
+	display: inline-block;
+}
+
+body.currency-sek .productView:not(.show-sek):not(.show-all) .message-sek {
     display: block;
 }
 
-
-body.currency-sek .card-brand-Trek .card-price,
-body.currency-sek .card-brand-Trek .card-figcaption-body,
-body.currency-sek .productView-details-Trek .productView-price,
-body.currency-sek .productView-details-Trek .productView-options,
-
-body.currency-sek .card-brand-Whyte .card-price,
-body.currency-sek .card-brand-Whyte .card-figcaption-body,
-body.currency-sek .productView-details-Whyte .productView-price,
-body.currency-sek .productView-details-Whyte .productView-options {
-    display: none;
+body.currency-sek .productView:not(.show-sek):not(.show-all) .productView-product > div:not(.product-message-container),
+body.currency-sek .productView:not(.show-sek):not(.show-all) .productView-product > h2,
+body.currency-sek .productView:not(.show-sek):not(.show-all) .productView-options {
+	display: none;
 }
+
+
 
 // -----------------------------------------------------------------------------
 //
@@ -958,26 +1027,27 @@ body.currency-sek .productView-details-Whyte .productView-options {
 //
 // -----------------------------------------------------------------------------
 
-.message-CHF {
-    display: none;
+body.currency-chf .productGrid .product.show-chf,
+body.currency-chf .productList .product.show-chf {
+	display: inline-block;
 }
 
-body.currency-chf .productView-details-Trek .message-CHF,
-body.currency-chf .productView-details-Whyte .message-CHF {
+body.currency-chf .sidebarCategories .navList-item-swiss-franc {
+	display: block;
+}
+
+body.currency-chf .subcategories-grid-item-swiss-franc {
+	display: inline-block;
+}
+
+body.currency-chf .productView:not(.show-chf):not(.show-all) .message-chf {
     display: block;
 }
 
-
-body.currency-chf .card-brand-Trek .card-price,
-body.currency-chf .card-brand-Trek .card-figcaption-body,
-body.currency-chf .productView-details-Trek .productView-price,
-body.currency-chf .productView-details-Trek .productView-options,
-
-body.currency-chf .card-brand-Whyte .card-price,
-body.currency-chf .card-brand-Whyte .card-figcaption-body,
-body.currency-chf .productView-details-Whyte .productView-price,
-body.currency-chf .productView-details-Whyte .productView-options {
-    display: none;
+body.currency-chf .productView:not(.show-chf):not(.show-all) .productView-product > div:not(.product-message-container),
+body.currency-chf .productView:not(.show-chf):not(.show-all) .productView-product > h2,
+body.currency-chf .productView:not(.show-chf):not(.show-all) .productView-options {
+	display: none;
 }
 
 
@@ -987,26 +1057,27 @@ body.currency-chf .productView-details-Whyte .productView-options {
 //
 // -----------------------------------------------------------------------------
 
-.message-AED {
-    display: none;
+body.currency-aed .productGrid .product.show-aed,
+body.currency-aed .productList .product.show-aed {
+	display: inline-block;
 }
 
-body.currency-aed .productView-details-Trek .message-AED,
-body.currency-aed .productView-details-Whyte .message-AED {
+body.currency-aed .sidebarCategories .navList-item-united-emirates {
+	display: block;
+}
+
+body.currency-aed .subcategories-grid-item-united-emirates {
+	display: inline-block;
+}
+
+body.currency-aed .productView:not(.show-aed):not(.show-all) .message-aed {
     display: block;
 }
 
-
-body.currency-aed .card-brand-Trek .card-price,
-body.currency-aed .card-brand-Trek .card-figcaption-body,
-body.currency-aed .productView-details-Trek .productView-price,
-body.currency-aed .productView-details-Trek .productView-options,
-
-body.currency-aed .card-brand-Whyte .card-price,
-body.currency-aed .card-brand-Whyte .card-figcaption-body,
-body.currency-aed .productView-details-Whyte .productView-price,
-body.currency-aed .productView-details-Whyte .productView-options {
-    display: none;
+body.currency-aed .productView:not(.show-aed):not(.show-all) .productView-product > div:not(.product-message-container),
+body.currency-aed .productView:not(.show-aed):not(.show-all) .productView-product > h2,
+body.currency-aed .productView:not(.show-aed):not(.show-all) .productView-options {
+	display: none;
 }
 
 
@@ -1016,31 +1087,27 @@ body.currency-aed .productView-details-Whyte .productView-options {
 //
 // -----------------------------------------------------------------------------
 
-.message-USD {
-    display: none;
+body.currency-usd .productGrid .product.show-usd,
+body.currency-usd .productList .product.show-usd {
+	display: inline-block;
 }
 
-body.currency-usd .productView-details-Trek .message-USD,
-body.currency-usd .productView-details-Mondraker .message-USD,
-body.currency-usd .productView-details-Whyte .message-USD {
+body.currency-usd .sidebarCategories .navList-item-usa {
+	display: block;
+}
+
+body.currency-usd .subcategories-grid-item-usa {
+	display: inline-block;
+}
+
+body.currency-usd .productView:not(.show-usd):not(.show-all) .message-usd {
     display: block;
 }
 
-body.currency-usd .card-brand-Trek .card-price,
-body.currency-usd .card-brand-Trek .card-figcaption-body,
-body.currency-usd .productView-details-Trek .productView-price,
-body.currency-usd .productView-details-Trek .productView-options,
-
-body.currency-usd .card-brand-Mondraker .card-price,
-body.currency-usd .card-brand-Mondraker .card-figcaption-body,
-body.currency-usd .productView-price-Mondraker,
-body.currency-usd .productView-details-Mondraker .productView-options,
-
-body.currency-usd .card-brand-Whyte .card-price,
-body.currency-usd .card-brand-Whyte .card-figcaption-body,
-body.currency-usd .productView-details-Whyte .productView-price,
-body.currency-usd .productView-details-Whyte .productView-options {
-    display: none;
+body.currency-usd .productView:not(.show-usd):not(.show-all) .productView-product > div:not(.product-message-container),
+body.currency-usd .productView:not(.show-usd):not(.show-all) .productView-product > h2,
+body.currency-usd .productView:not(.show-usd):not(.show-all) .productView-options {
+	display: none;
 }
 
 
