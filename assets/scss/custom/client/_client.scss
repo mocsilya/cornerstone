@@ -680,6 +680,25 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 
 
 
+// -----------------------------------------------------------------------------
+//
+// GLOBAL CURRENCY SETTINGS
+//
+// -----------------------------------------------------------------------------
+
+
+body:not(.currency-gbp) .productGrid .product {
+	display: none;
+}
+
+body:not(.currency-gbp) .productGrid .product.show-all {
+	display: inline-block;
+}
+
+body:not(.currency-gbp) .sidebarCategories .navList-item {
+	display: none;
+}
+
 
 // -----------------------------------------------------------------------------
 //
@@ -782,7 +801,13 @@ body.currency-eur .productView-details-Trek .productView-options {
     display: none;
 }
 
+body:not(.currency-gbp) .productGrid .product {
+	display: none;
+}
 
+body.currency-eur .productGrid .product.show-eur {
+	display: inline-block;
+}
 
 
 // -----------------------------------------------------------------------------
