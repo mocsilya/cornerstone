@@ -1025,6 +1025,10 @@
           {
             "value": "cart",
             "label": "Cart"
+          },
+          {
+            "value": "dolly",
+            "label": "Dolly"
           }
         ]
       },
