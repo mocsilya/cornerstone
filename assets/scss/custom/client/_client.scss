@@ -142,10 +142,66 @@ body.with-bar .header {
 }
 
 
+
+// =============================================================================
+// PayPal Pay In 3
+// =============================================================================
+
+
+.pp-pay-in-3 {
+	text-align: center;
+	background-color: #01318e;
+}
+
+.pp-pay-in-3 img {
+	width: 50%;
+	margin: auto;
+}
+
+.pp-pay-in-3 p {
+	margin-bottom: 0;
+	color: #fff;
+	font-weight: 700;
+}
+
+.productView .pp-pay-in-3 {
+	padding: 1.5rem;
+	display: flex;
+	border-radius: .5rem;
+}
+
+.productView .pp-pay-in-3 img {
+	max-width: 120px;
+}
+
+.productView .pp-pay-in-3 p {
+	margin-top: 0;
+	padding-left: 1.5rem;
+	text-align: left;
+}
+
+.footer-globalregion .pp-pay-in-3 {
+	padding: 3rem;
+}
+
+.footer-globalregion .pp-pay-in-3 img {
+	max-width: 200px;
+}
+
+.footer-globalregion .pp-pay-in-3 p {
+	margin-top: 1.5rem;
+	text-align: center;
+    @include breakpoint("medium") {
+		font-size: 1.25rem;
+		font-weight: 400;
+	}
+}
+
+
+
 // =============================================================================
 // Footer
 // =============================================================================
-
 
 .footer-payment-icons svg {
 	color: #fff;
