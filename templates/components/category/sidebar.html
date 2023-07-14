@@ -9,28 +9,28 @@
             <ul class="navList">
             {{#each children}}
                 {{#if children}}
-                <li class="navList-item{{#if is_active}} activeCategory{{/if}}">
+                <li class="navList-item navList-item-{{dashcase (lowercase (sanitize name))}}{{#if is_active}} activeCategory{{/if}}">
                     <a class="navList-action{{#if is_active}} activePage{{/if}}" href="{{url}}" title="{{name}}">{{name}}</a>
                     <ul>
                     {{#each children}}
 						{{#if children}}
-                        <li class="navList-item navList-item-sub">
+                        <li class="navList-item navList-item-{{dashcase (lowercase (sanitize name))}} navList-item-sub">
                             <a class="navList-action navList-action-sub{{#if is_active}} activePage{{/if}}" href="{{url}}" title="{{name}}">{{name}}</a>
 							<ul>
 							{{#each children}}
 								{{#if children}}
-		                        <li class="navList-item navList-item-sub">
+		                        <li class="navList-item navList-item-{{dashcase (lowercase (sanitize name))}} navList-item-sub">
 		                            <a class="navList-action navList-action-sub{{#if is_active}} activePage{{/if}}" href="{{url}}" title="{{name}}">{{name}}</a>
 									<ul>
 									{{#each children}}
-				                        <li class="navList-item navList-item-sub">
+				                        <li class="navList-item navList-item-{{dashcase (lowercase (sanitize name))}} navList-item-sub">
 				                            <a class="navList-action navList-action-sub{{#if is_active}} activePage{{/if}}" href="{{url}}" title="{{name}}">{{name}}</a>
 				                        </li>
 									{{/each}}
 									</ul>
 		                        </li>
 								{{else}}
-		                        <li class="navList-item navList-item-sub">
+		                        <li class="navList-item navList-item-{{dashcase (lowercase (sanitize name))}} navList-item-sub">
 		                            <a class="navList-action navList-action-sub{{#if is_active}} activePage{{/if}}" href="{{url}}" title="{{name}}">{{name}}</a>
 		                        </li>
 								{{/if}}
@@ -38,7 +38,7 @@
 							</ul>
                         </li>
 						{{else}}
-                        <li class="navList-item navList-item-sub">
+                        <li class="navList-item navList-item-{{dashcase (lowercase (sanitize name))}} navList-item-sub">
                             <a class="navList-action navList-action-sub{{#if is_active}} activePage{{/if}}" href="{{url}}" title="{{name}}">{{name}}</a>
                         </li>
 						{{/if}}
@@ -46,7 +46,7 @@
                     </ul>
                 </li>
                 {{else}}
-                <li class="navList-item{{#if is_active}} activeCategory{{/if}}">
+                <li class="navList-item navList-item-{{dashcase (lowercase (sanitize name))}}{{#if is_active}} activeCategory{{/if}}">
                     <a class="navList-action{{#if is_active}} activePage{{/if}}" href="{{url}}" title="{{name}}">{{name}}</a>
                 </li>
                 {{/if}}
@@ -62,7 +62,7 @@
             <h2 class="sidebarBlock-heading">{{category.name}}</h2>
             <ul class="navList">
                 {{#each category.subcategories}}
-                <li class="navList-item">
+                <li class="navList-item navList-item-{{dashcase (lowercase (sanitize name))}}">
                     <a class="navList-action" href="{{url}}" title="{{name}}">{{name}}</a>
                 </li>
                 {{/each}}

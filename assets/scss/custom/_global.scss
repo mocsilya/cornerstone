@@ -1207,6 +1207,8 @@ body.hasAdminBar.scroll .dropdown--quickSearch.is-open {
 	line-height: 1.5rem;
 	@include breakpoint("large") {
 		line-height: 2rem;
+		padding-left: .5rem;
+		padding-right: .5rem;
 	}
 }
 
@@ -1222,6 +1224,9 @@ body.hasAdminBar.scroll .dropdown--quickSearch.is-open {
 	color: stencilColor("navUser-color");
 	line-height: 1;
 	padding-top: .25rem;
+	@include breakpoint("large") {
+		padding-top: .5rem;
+	}
 }
 
 .navUser-item--currency .navUser-action:hover .navUser-icon-outline,
