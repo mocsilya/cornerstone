@@ -42,6 +42,12 @@ header.header {
 	line-height: 24px;
 }
 
+.header--boxsearch .form-search-box .form-input, .navUser .form-search-box .form-input {
+	@include breakpoint("large") {
+		min-width: 350px;
+	}
+}
+
 
 
 // =============================================================================
@@ -54,7 +60,8 @@ header.header {
 		-moz-transition: all .3s ease-in;
 		-o-transition: all .3s ease-in;
 		-webkit-transition: all .3s ease-in;
-		border-bottom: 0;
+		border-bottom: 5px solid stencilColor('custom-header-menu-background');
+		padding-bottom: calc(1.14286rem - 5px);
 	}
 }
 
@@ -62,12 +69,8 @@ header.header {
 .navPages-list > .navPages-item > .navPages-action:hover,
 .navPages-list > .navPages-item > .navPages-action.is-open:hover {
 	@include breakpoint("medium") {
-		padding-bottom: calc(1.14286rem - 5px);
-		border-bottom: 5px solid stencilColor('navPages-color');
-		max-height: 51px;
-		overflow: hidden;
+		border-bottom: 5px solid stencilColor('button--primary-backgroundColor');
 		color: stencilColor('custom-header-menu-link-hover') !important;
-		background: none;
 	}
 }
 
@@ -83,7 +86,9 @@ body.scroll .navPages > ul > li > .navPages-action.is-open:hover {
 
 .navPage-subMenu {
     @include breakpoint("medium") {
-        border-top: 5px solid stencilColor('navPages-color');
+        border-top: 5px solid stencilColor('button--primary-backgroundColor');
+		-webkit-box-shadow: 0px 13px 15px -7px rgba(0,0,0,0.25);
+		box-shadow: 0px 13px 15px -7px rgba(0,0,0,0.25);
     }
 }
 
@@ -109,32 +114,57 @@ body.scroll .navPages > ul > li > .navPages-action.is-open:hover {
 // Hero Carousel
 // =============================================================================
 
-h3.heroCarousel-title {
-	font-size: 30px;
-    @include breakpoint("small") {
-		font-size: 40px;
-    }
-    @include breakpoint("medium") {
-        font-size: 30px;
-		margin-top: 70px;
-    }
-    @include breakpoint("large") {
-        font-size: 40px;
-    }
+.heroCarousel--split .heroCarousel-content {
+	padding-bottom: 5rem !important;
 }
 
-.heroCarousel-description,
-.heroCarousel-action {
-	font-size: 16px;
-    @include breakpoint("small") {
-		font-size: 20px;
-    }
-    @include breakpoint("medium") {
-        font-size: 16px;
-    }
-    @include breakpoint("medium") {
-        font-size: 20px;
-    }
+
+.heroCarousel--split .slick-dots {
+	bottom: 1.5rem;
+	@include breakpoint("small") {
+		width: auto;
+		display: inline-block !important;
+		left: 50%;
+		margin-left: .75rem;
+	}
+	@include breakpoint("medium") {
+		margin-left: 1.75rem;
+	}
+}
+
+.heroCarousel--split .slick-dots li {
+	height: 3rem;
+	width: 3rem;
+	padding: 0;
+	margin: 0 .25rem;
+}
+
+.heroCarousel--split .slick-dots li button {
+	color: stencilColor('carousel-description-color');
+	height: 100%;
+	width: 100%;
+	border: 2px solid stencilColor('carousel-description-color');
+}
+
+.heroCarousel--split .slick-dots li.slick-active button {
+	color: stencilColor('custom-homepage-carousel-button-background');
+	border: 2px solid stencilColor('custom-homepage-carousel-button-background');
+}
+
+.heroCarousel--split .slick-dots li button::before,
+.heroCarousel--split .slick-dots .carousel-tooltip {
+	display: none;
+}
+
+.heroCarousel--split .slick-dots li button[aria-label="Go to slide 1 of 2"]::before,
+.heroCarousel--split .slick-dots li button[aria-label="Go to slide 1 of 2, active"]::before,
+.heroCarousel--split .slick-dots li button[aria-label="Go to slide 1 of 3"]::before,
+.heroCarousel--split .slick-dots li button[aria-label="Go to slide 1 of 3, active"]::before,
+.heroCarousel--split .slick-dots li button[aria-label="Go to slide 1 of 4"]::before,
+.heroCarousel--split .slick-dots li button[aria-label="Go to slide 1 of 4, active"]::before,
+.heroCarousel--split .slick-dots li button[aria-label="Go to slide 1 of 5"]::before,
+.heroCarousel--split .slick-dots li button[aria-label="Go to slide 1 of 5, active"]::before {
+	
 }
 
 
@@ -143,9 +173,7 @@ h3.heroCarousel-title {
 // Footer
 // =============================================================================
 
-.footer-newsletter .newsletter-heading {
-	color: stencilColor('custom-footer-social-hover');
-}
+
 
 
 
@@ -231,11 +259,11 @@ h3.heroCarousel-title {
 		flex-direction: row;
     }
 }
-
+/*
 .page-default .custom-bar {
 	background: rgba(31,140,197, 0.75);
 }
-
+*/
 @media screen and (max-width: 800px) {
 	.header-globalregion .custom-bar {
 		display: none;
@@ -263,14 +291,14 @@ h3.heroCarousel-title {
 	width: 50px;
 	height: 50px;
 	border-radius: 50px;
-	background-color: stencilColor('custom-header-menu-background');
+	border: 2px solid stencilColor('custom-header-menu-background');
 	display: inline-block;
 	padding: 10px;
 }
 
 .custom-bar-icon .icon {
-	width: 30px;
-	height: 30px;
+	width: 26px;
+	height: 26px;
 	color: stencilColor('custom-header-menu-link-hover');
 }
 
@@ -283,8 +311,8 @@ h3.heroCarousel-title {
 }
 
 .custom-bar-item-3 .custom-bar-icon .icon {
-	width: 40px;
-	height: 40px;
+	width: 36px;
+	height: 36px;
 }
 
 .custom-bar-text {
@@ -294,7 +322,7 @@ h3.heroCarousel-title {
 	font-weight: 700;
 	color: #fff;
 }
-
+/*
 .page-default .header-globalregion {
 	position: relative;
 	z-index: 2;
@@ -310,7 +338,7 @@ h3.heroCarousel-title {
 .page-default .container-hero {
 	z-index: 1;
 }
-
+*/
 // =============================================================================
 // Footer
 // =============================================================================
