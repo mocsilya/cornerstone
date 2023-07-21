@@ -27,16 +27,14 @@ customer:
 	<aside class="page-sidebar page-sidebar-vertical">
 		<nav>
 			<div class="sidebarBlock sidebarRecentPosts">
+				<a class="button button--primary" href="{{blog.url}}" title="back to all blog posts"><strong>&larr; {{blog.name}}</strong></a>
 				<h2 class="sidebarBlock-heading">{{lang 'blog.recent_posts'}}</h2>
 				<ul class="navList">
 				{{#each blog.recent_posts}}
 					<li class="navList-item">
-						<a class="navList-action" href="{{url}}">{{title}}</a>
+						<a class="navList-action" href="{{url}}" title="{{title}}">{{title}}</a>
 					</li>
 				{{/each}}
-					<li class="navList-item">
-						<a class="navList-action" href="{{blog.url}}"><strong>&larr; Back to main {{blog.name}}</strong></a>
-					</li>
 				</ul>
 			</div>
 		</nav>

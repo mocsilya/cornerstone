@@ -65,9 +65,12 @@ customer:
 				{{#each blog.posts}}
 					{{#if tags}}
 						{{#each tags}}
+							{{#startsWith '_' name}}
+							{{else}}
 							<li class="navList-item">
-								<a class="navList-action" href="{{url}}">#{{name}}</a>
+								<a title="{{name}}" class="navList-action" href="{{url}}">#{{name}}</a>
 							</li>
+							{{/startsWith}}
 						{{/each}}
 					{{/if}}
 				{{/each}}
@@ -80,7 +83,7 @@ customer:
 	{{/if}}
 	<div class="blog-grid">
     {{#each blog.posts}}
-        {{> components/blog/post post=this}}
+        {{> components/blog/post post=this theme_settings=../theme_settings}}
     {{/each}}
 	</div>
     {{> components/common/paginator pagination.blog}}
