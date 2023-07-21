@@ -2976,7 +2976,9 @@ ol.breadcrumbs {
 	display: inline;
 }
 
-
+div[data-content-region="category_below_all"] {
+    clear: both;
+}
 
 
 
