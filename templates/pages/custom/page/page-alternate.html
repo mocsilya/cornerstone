@@ -8,6 +8,7 @@ customer:
 ---
 
 {{#partial "hero"}}
+{{{region name="page_below_menu"}}}
 <div class="container container-hero">
 	<div class="page-header info-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
 	    <img class="page-header-image" src="/product_images/uploaded_images/{{dashcase page.title}}.jpg" />
@@ -22,7 +23,7 @@ customer:
 {{#partial "page"}}
 
 <section class="page">
-
+{{{region name="page_builder_content_editor_area_top"}}}
 {{#if page.sub_pages}}
     <aside class="page-sidebar page-sidebar-vertical">
     <nav>
@@ -51,11 +52,11 @@ customer:
 		        {{#if forms.contact.success}}
 		            <div id="contact-us-success">{{{lang 'forms.contact_us.successful' shopPath=urls.home}}}</div>
 		        {{else}}
-		            <p>{{{page.content}}}</p>
+		            {{{page.content}}}
 		            {{> components/page/contact-us-form}}
 		        {{/if}}
 			{{else}}
-				<p>{{{page.content}}}</p>
+				{{{page.content}}}
 			{{/if}}
         {{/replace}}
     </div>
@@ -70,6 +71,7 @@ customer:
             {{/each}}
         </ul>
     {{/if}}
+{{{region name="page_builder_content_editor_area_bottom"}}}
 </section>
 
 {{/partial}}

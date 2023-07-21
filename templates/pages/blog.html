@@ -65,9 +65,12 @@ customer:
 				{{#each blog.posts}}
 					{{#if tags}}
 						{{#each tags}}
+							{{#startsWith '_' name}}
+							{{else}}
 							<li class="navList-item">
-								<a class="navList-action" href="{{url}}">#{{name}}</a>
+								<a title="{{name}}" class="navList-action" href="{{url}}">#{{name}}</a>
 							</li>
+							{{/startsWith}}
 						{{/each}}
 					{{/if}}
 				{{/each}}

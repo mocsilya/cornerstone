@@ -4,9 +4,17 @@
 		<span class="toggleLink-text toggleLink-text--on">
 			<label class="form-label">
 			{{#if theme_settings.custom_category_sidebar_display '==' 'vertical'}}
-            	<strong>Hide Categories &amp; Filters</strong>
+				{{#if category.faceted_search_enabled}}
+            		<strong>Hide Categories &amp; Filters</strong>
+				{{else}}
+					<strong>Hide Categories</strong>
+				{{/if}}
 			{{else}}
-				<strong>Hide Filters</strong>
+				{{#if category.faceted_search_enabled}}
+					<strong>Hide Filters</strong>
+				{{else}}
+					<strong>Hide</strong>
+				{{/if}}
 			{{/if}}
 			</label>
             <i class="icon" aria-hidden="true">
@@ -16,9 +24,17 @@
 		<span class="toggleLink-text toggleLink-text--off">
 			<label class="form-label">
 			{{#if theme_settings.custom_category_sidebar_display '==' 'vertical'}}
-            	<strong>Show Categories &amp; Filters</strong>
+				{{#if category.faceted_search_enabled}}
+            		<strong>Show Categories &amp; Filters</strong>
+				{{else}}
+					<strong>Show Categories</strong>
+				{{/if}}
 			{{else}}
-				<strong>Show Filters</strong>
+				{{#if category.faceted_search_enabled}}
+					<strong>Show Filters</strong>
+				{{else}}
+					<strong>Show</strong>
+				{{/if}}
 			{{/if}}
 			</label>
             <i class="icon" aria-hidden="true">
