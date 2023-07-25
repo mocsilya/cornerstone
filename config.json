@@ -66,6 +66,7 @@
     "custom-homepage-carousel-button-color-hover": "#3c3936",
     "custom-homepage-carousel-button-background": "#93c840",
     "custom-homepage-carousel-button-background-hover": "#006b77",
+    "custom_homepage_product_default": "featured",
     "custom_homepage_show_tabs": true,
     "custom_homepage_featured_carousel": true,
     "custom_homepage_featured_title": "Featured",
