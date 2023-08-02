@@ -6,6 +6,19 @@
 	font-weight: 400;
 }
 
+.navUser ul li.navUser-item--iconsearch {
+    @include breakpoint("medium") {
+        padding-left: 1rem;
+    }
+}
+
+.navUser-item--iconsearch .navUser-action {
+    @include breakpoint("medium") {
+        border-left: 1px solid #ccc;
+        padding-left: 2rem;
+    }
+}
+
 .navPages-container {
 	@include breakpoint("medium") {
 		background: #44b463; 
@@ -32,6 +45,31 @@
 	@include breakpoint("medium") {
 		-webkit-box-shadow: 0px 13px 15px -7px rgba(0,0,0,0.15);
 		box-shadow: 0px 13px 15px -7px rgba(0,0,0,0.15);
+	}
+}
+
+.navPages-list-simple .navPages-item-category.navPages-item-accessories,
+.navPages-list-simple .navPages-item-category.navPages-item-vape-pods {
+    @include breakpoint("medium") {
+		position: relative;
+	}
+}
+
+.navPages-click .navPages-list-simple .navPages-item-category.navPages-item-accessories .navPage-subMenu.is-open,
+.navPages-hover .navPages-list-simple .navPages-item-category.navPages-item-accessories:hover div.navPage-subMenu,
+.navPages-click .navPages-list-simple .navPages-item-category.navPages-item-vape-pods .navPage-subMenu.is-open,
+.navPages-hover .navPages-list-simple .navPages-item-category.navPages-item-vape-pods:hover div.navPage-subMenu {
+    @include breakpoint("medium") {
+		min-width: 250px;
+		left: auto;
+		right: 0;
+	}
+}
+
+.navPages-list-simple .navPages-item-category.navPages-item-accessories .navPage-subMenu-item,
+.navPages-list-simple .navPages-item-category.navPages-item-vape-pods .navPage-subMenu-item{
+    @include breakpoint("medium") {
+		width: 100%;
 	}
 }
 
@@ -244,6 +282,37 @@ body.scroll .navPages > ul > li > .navPages-action {
 }
 
 
+div[data-content-region="home_below_top_banner"] .custom-widget-carousel-no .custom-widget-4 {
+    @include breakpoint("xsmall") {
+		flex-direction: row;
+        flex-wrap: wrap;
+	}
+}
+
+div[data-content-region="home_below_top_banner"] .custom-widget-carousel-no .custom-widget-4 .custom-widget-item {
+    @include breakpoint("xsmall") {
+		min-width: 50%;
+	}
+	@include breakpoint("medium") {
+		min-width: 25%;
+	}
+}
+
+div[data-content-region="home_below_top_products"] .custom-widget-carousel-no .custom-widget-3 {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+div[data-content-region="home_below_top_products"] .custom-widget-carousel-no .custom-widget-3 .custom-widget-item {
+    min-width: 50%;
+    @include breakpoint("medium") {
+		min-width: 33.33333333%;
+	}
+}
+
+
+
+
 // =============================================================================
 // Product page
 // =============================================================================
@@ -279,7 +348,7 @@ div[data-content-region="product_below_price--global"] a:hover {
 }
 
 div[data-content-region="product_below_price"] {
-	margin-bottom: 1.5rem;
+	//margin-bottom: 1.5rem;
 }
 
 div[data-content-region="product_below_price"] div > div > div,
@@ -308,7 +377,10 @@ div[data-content-region="product_below_price--global"] div > div > div {
 	}
 }
 
-.productView-details.product-data dl.productView-info {
+.productView-details.product-data dl.productView-info .customfield-label,
+.productView-details.product-data dl.productView-info .customfield-value,
+.productView-details.product-data dl.productView-info .upc-label,
+.productView-details.product-data dl.productView-info .upc-value {
 	display: none;
 }
 
@@ -322,6 +394,27 @@ div[data-content-region="product_below_price--global"] div > div > div {
 .productView-options .form-field {
 	padding-left: 0;
 }
+
+.page-product .share-container {
+    display: none;
+}
+
+.productView-description #tab-description table {
+    width: 100% !important;
+}
+
+.productView-description #tab-description table th,
+.productView-description #tab-description table td {
+    padding: .25rem !important;
+}
+
+.productView-description #tab-description table td,
+.productView-description #tab-description table span {
+    font-family: stencilFontFamily("body-font") !important;
+    font-size: 1rem !important;
+}
+
+
 
 // =============================================================================
 // Category page
@@ -365,7 +458,23 @@ div[data-content-region="category_below_menu"] div[data-placement-status="ACTIVE
 	opacity: 1;
 }
 
+.page-category.page-coils .subcategories--horizontal,
+.page-category.page-vape-tanks .subcategories--horizontal,
+.page-category.page-accessories .subcategories--horizontal {
+    display: none;
+}
 
+
+// =============================================================================
+// Blog overview
+// =============================================================================
+
+
+.page-blog .blog-grid {
+    @include breakpoint("large") {
+		grid-template-columns: repeat(3,1fr);
+	}
+}
 
 // =============================================================================
 // Blog post
@@ -442,4 +551,24 @@ div[data-content-region="blog_banner"] div > div > div {
 	background-position: right bottom -14px;
 	background-repeat: no-repeat;
 	background-size: 50px;
+}
+
+
+
+// =============================================================================
+// Cart
+// =============================================================================
+
+.page-cart .cart-total.cart-total-shipping {
+    display: none;
+}
+
+
+.cart-content-actions .button {
+    min-width: auto;
+    max-width: none;
+    @include breakpoint("small") {
+		min-width: 250px;
+        max-width: 250px;
+	}
 }
