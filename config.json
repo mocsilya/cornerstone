@@ -100,7 +100,7 @@
     "custom_header_show_bar_message2": true,
     "custom_header_show_bar_message3": false,
     "custom_header_bar_message1_text": "FREE DELIVERY ON ORDERS OVER £35",
-    "custom_header_bar_message2_text": "Don't forget Father's Day 18th June!",
+    "custom_header_bar_message2_text": "Personalised Party Bags Now Available!! ",
     "custom_header_bar_message3_text": "",
     "custom_header_bar_message1_link": "",
     "custom_header_bar_message2_link": "",
@@ -564,7 +564,11 @@
     "afterpay-button-color": "black-mint",
     "amazon-button-color": "Gold",
     "masterpass-button-color": "black",
-    "paymentbuttons-provider-sorting": []
+    "paymentbuttons-provider-sorting": [
+      "paypal",
+      "googlepay",
+      "applepay"
+    ]
   },
   "read_only_files": [
     "/assets/scss/components/citadel",
