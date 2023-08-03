@@ -21,7 +21,7 @@ export default function (context) {
 			$.each(array, function(i, Id){ 
 			   	utils.api.product.getById(Id, { template: 'custom/product-upsell' }, (err, response) => {
 					if (response.indexOf("Whoops! - Page not found") > -1) {
-						console.log("Upsell Item: 404 Not Found", response);
+						console.log("Upsell Item: 404 Not Found");
 					} else {
 						if (!$.trim(response)){   
 						    console.log("Upsell Item: Data Not Loaded");
