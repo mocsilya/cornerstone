@@ -1,6 +1,28 @@
 {{inject 'outOfStockDefaultMessage' (lang 'products.out_of_stock_default_message')}}
 
-<div class="productView"
+{{assignVar "b2b-products" "show"}}
+{{assignVar "b2b-prices" "show"}}
+{{#if theme_settings.custom_b2b}}
+	{{#if customer.id}}
+		{{#if customer_group_name '==' theme_settings.custom_b2b_pending_group}}
+			{{#if theme_settings.custom_b2b_pending_hide_products}}
+				{{assignVar "b2b-products" "hide"}}
+			{{/if}}
+			{{#if theme_settings.custom_b2b_pending_hide_prices}}
+				{{assignVar "b2b-prices" "hide"}}
+			{{/if}}
+		{{/if}}
+	{{else}}
+		{{#if theme_settings.custom_b2b_guest_hide_products}}
+			{{assignVar "b2b-products" "hide"}}
+		{{/if}}
+		{{#if settings.hide_price_from_guests}}
+			{{assignVar "b2b-prices" "hide"}}
+		{{/if}}
+	{{/if}}
+{{/if}}
+
+<div class="productView{{#each product.custom_fields}}{{#if name '==' '_class'}} {{value}}{{/if}}{{/each}}"
     {{#if settings.data_tag_enabled}}
     data-event-type="product"
     data-entity-id="{{product.id}}"
@@ -64,6 +86,9 @@
                 {{#if product.main_image}}
                     </a>
                 {{/if}}
+				{{#filter product.custom_fields '_badge' property='name'}}
+		        	<div class="productView-img-badge">{{value}}</div>
+				{{/filter}}
             </div>
         </figure>
 		{{#if product.videos.list.length}}
