@@ -86,6 +86,9 @@
                 {{#if product.main_image}}
                     </a>
                 {{/if}}
+				{{#filter product.custom_fields '_badge' property='name'}}
+		        	<div class="productView-img-badge">{{value}}</div>
+				{{/filter}}
             </div>
         </figure>
 		{{#if product.videos.list.length}}

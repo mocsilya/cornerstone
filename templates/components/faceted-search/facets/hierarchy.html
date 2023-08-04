@@ -5,7 +5,7 @@
     <div id="facetedSearch-content--{{dashcase facet}}" class="accordion-content{{#unless start_collapsed}} is-open{{/unless}}">
         <ul id="facetedSearch-navList--{{dashcase facet}}" class="navList" data-facet="{{facet}}" data-has-more-results="{{has_more_results}}">
             {{#each items}}
-                <li class="navList-item">
+                <li class="navList-item navList-item-{{dashcase (lowercase (sanitize title))}}">
                     <a
                         href="{{url}}"
                         class="navList-action navList-action--checkbox{{#if selected }} is-selected{{/if}}{{#if has_sub_categories}} has-children{{/if}}"
