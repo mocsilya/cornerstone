@@ -197,6 +197,8 @@ body.scroll.with-bar {
 .alertBox {
 	background-color: stencilColor("alert-backgroundColor");
     color: stencilColor("alert-color");
+	border: 1px solid stencilColor("alert-color");
+	margin-top: 0.78571rem;
 }
 
 .alertBox svg {
@@ -769,6 +771,10 @@ body.scroll .header-logo-text {
 .countPill {
 	background-color: stencilColor("navUser-color");
 	color: stencilColor("header-backgroundColor");
+	width: auto;
+	min-width: 20px;
+	padding-left: 3px;
+	padding-right: 3px;
 }
 
 .navUser-item--cart .navUser-action:hover .countPill,
@@ -1975,6 +1981,23 @@ body.scroll .navPages > ul > li > .navPages-action {
 	margin-bottom: 1.5rem;
 }
 
+.page-header:not(.page-header-image) {
+	padding-top: .25rem;
+	padding-bottom: .25rem;
+	@include breakpoint("small") {
+		padding-top: .5rem;
+		padding-bottom: .5rem;
+	}
+	@include breakpoint("medium") {
+		padding-top: .75rem;
+		padding-bottom: .75rem;
+	}
+	@include breakpoint("large") {
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+	}
+}
+
 .page-header .page-heading {
 	line-height: 1;
 	position: relative;
@@ -2361,7 +2384,8 @@ ol.breadcrumbs {
 
 .heroCarousel--left .heroCarousel-action,
 .heroCarousel--right .heroCarousel-action,
-.heroCarousel--center .heroCarousel-action {
+.heroCarousel--center .heroCarousel-action,
+.heroCarousel--split .heroCarousel-action  {
 	border-radius: 50vh;
 }
 
@@ -2410,7 +2434,8 @@ ol.breadcrumbs {
 
 .heroCarousel--left .heroCarousel-button,
 .heroCarousel--right .heroCarousel-button,
-.heroCarousel--center .heroCarousel-button {
+.heroCarousel--center .heroCarousel-button,
+.heroCarousel--split .heroCarousel-button {
 	@include breakpoint("small") {
 		margin-top: 1rem;
 	}
@@ -2645,7 +2670,7 @@ ol.breadcrumbs {
 		padding-right: 4rem;
 	}
 
-	.heroCarousel-slide--mobile.heroCarousel-slide--color .heroCarousel-action {
+	.heroCarousel-slide--color .heroCarousel-slide--mobile .heroCarousel-action {
 		border-width: .5rem;
 		padding-top: 1rem;
 		padding-left: 1.5rem;
@@ -2653,7 +2678,7 @@ ol.breadcrumbs {
 		padding-right: 1.5rem;
 	}
 
-	.heroCarousel-slide--mobile.heroCarousel-slide--color .heroCarousel-action:hover {
+	.heroCarousel-slide--color .heroCarousel-slide--mobile .heroCarousel-action:hover {
 		padding-left: 3.5rem;
 		padding-right: 3.5rem;
 	}
@@ -2755,6 +2780,88 @@ ol.breadcrumbs {
 	border-color: stencilColor("custom-homepage-carousel-color-5");
 	color: stencilColor("custom-homepage-carousel-color-5");
 }
+
+.heroCarousel--split .slick-slide.has-content {
+	flex-direction: column;
+    @include breakpoint("small") {
+		flex-direction: row;
+    }
+}
+
+.heroCarousel--split .has-content .heroCarousel-slide {
+    @include breakpoint("small") {
+		overflow-x: hidden;
+		width: 50%;
+    }
+}
+
+.heroCarousel--split .has-content .heroCarousel-image-wrapper {
+    @include breakpoint("small") {
+		height: 100% !important;
+    }
+}
+
+.heroCarousel--split .has-content .heroCarousel-image {
+    @include breakpoint("small") {
+		height: 100%;
+		width: auto;
+		object-fit: cover;
+    }
+}
+
+.heroCarousel--split .has-content .heroCarousel-content {
+    @include breakpoint("small") {
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+		padding-right: 5rem;
+		width: 50%;
+		align-items: center;
+		justify-content: center;
+		position: static;
+		background-color: stencilColor("carousel-bgColor");
+		flex-direction: column;
+    }
+    @include breakpoint("medium") {
+		padding-top: 1.5rem;
+		padding-bottom: 1.5rem;
+    }
+}
+
+.heroCarousel--split .has-content .heroCarousel-inner {
+    @include breakpoint("small") {
+		text-align: left;
+		flex-direction: column;
+		justify-content: left;
+    }
+}
+
+.heroCarousel--split .has-content .heroCarousel-title,
+.heroCarousel--split .has-content .heroCarousel-description,
+.heroCarousel--split .has-content .heroCarousel-button {
+    @include breakpoint("small") {
+		margin: 0;
+		background: none;
+		text-align: left;
+		justify-content: left;
+    }
+}
+
+.heroCarousel--split .has-content .heroCarousel-title {
+    @include breakpoint("small") {
+		width: 100%;
+    }
+}
+
+.heroCarousel--split .has-content .heroCarousel-button {
+    @include breakpoint("small") {
+		padding: 0.5rem 1rem;
+    }
+    @include breakpoint("medium") {
+		padding: 0.75rem 2rem;
+    }
+}
+
+
 
 
 // Product Carousel
@@ -2886,7 +2993,9 @@ ol.breadcrumbs {
 	display: inline;
 }
 
-
+div[data-content-region="category_below_all"] {
+    clear: both;
+}
 
 
 
@@ -3969,7 +4078,6 @@ a:hover span.card-image:only-of-type img {
 	display: grid;
 	grid-columns: repeat 1fr;
 	grid-auto-flow: dense;
-	border-top: 1px solid stencilColor("custom-card-border");
 	border-left: 1px solid stencilColor("custom-card-border");
 	margin: 0;
 	@include breakpoint("small") {
@@ -4078,6 +4186,121 @@ a:hover span.card-image:only-of-type img {
 	width: 100%;
 	padding: .75rem;
 }
+
+.productGrid .product:first-child {
+	border-top: 1px solid stencilColor("custom-card-border");
+}
+
+.productGrid-2 .product:nth-child(2) {
+	@include breakpoint("large") {
+		border-top: 1px solid stencilColor("custom-card-border");
+	}
+}
+.page-sidebar + .page-content .productGrid-2 .product:nth-child(2) {
+	@include breakpoint("large") {
+		border-top: 0;
+	}
+	@include breakpoint("xlarge") {
+		border-top: 1px solid stencilColor("custom-card-border");
+	}
+}
+
+.productGrid-3 .product:nth-child(2) {
+	@include breakpoint("medium") {
+		border-top: 1px solid stencilColor("custom-card-border");
+	}
+}
+
+.page-sidebar + .page-content .productGrid-3 .product:nth-child(2) {
+	@include breakpoint("medium") {
+		border-top: 0;
+	}
+	@include breakpoint("large") {
+		border-top: 1px solid stencilColor("custom-card-border");
+	}
+}
+
+.productGrid-3 .product:nth-child(3) {
+	@include breakpoint("large") {
+		border-top: 1px solid stencilColor("custom-card-border");
+	}
+}
+
+.page-sidebar + .page-content .productGrid-3 .product:nth-child(3) {
+	@include breakpoint("large") {
+		border-top: 0;
+	}
+	@include breakpoint("xlarge") {
+		border-top: 1px solid stencilColor("custom-card-border");
+	}
+}
+
+.productGrid-4 .product:nth-child(2) {
+	@include breakpoint("small") {
+		border-top: 1px solid stencilColor("custom-card-border");
+	}
+}
+
+.page-sidebar + .page-content .productGrid-4 .product:nth-child(2) {
+	@include breakpoint("medium") {
+		border-top: 1px solid stencilColor("custom-card-border");
+	}
+}
+
+.productGrid-4 .product:nth-child(3) {
+	@include breakpoint("medium") {
+		border-top: 1px solid stencilColor("custom-card-border");
+	}
+}
+
+.page-sidebar + .page-content .productGrid-4 .product:nth-child(3) {
+	@include breakpoint("medium") {
+		border-top: 0;
+	}
+	@include breakpoint("large") {
+		border-top: 1px solid stencilColor("custom-card-border");
+	}
+}
+
+.productGrid-4 .product:nth-child(4) {
+	@include breakpoint("large") {
+		border-top: 1px solid stencilColor("custom-card-border");
+	}
+}
+
+.page-sidebar + .page-content .productGrid-4 .product:nth-child(4) {
+	@include breakpoint("large") {
+		border-top: 0;
+	}
+	@include breakpoint("xlarge") {
+		border-top: 1px solid stencilColor("custom-card-border");
+	}
+}
+
+.productGrid-5 .product:nth-child(2) {
+	@include breakpoint("small") {
+		border-top: 1px solid stencilColor("custom-card-border");
+	}
+}
+
+.productGrid-5 .product:nth-child(3) {
+	@include breakpoint("medium") {
+		border-top: 1px solid stencilColor("custom-card-border");
+	}
+}
+
+.productGrid-5 .product:nth-child(4) {
+	@include breakpoint("large") {
+		border-top: 1px solid stencilColor("custom-card-border");
+	}
+}
+
+.productGrid-5 .product:nth-child(5) {
+	@include breakpoint("xlarge") {
+		border-top: 1px solid stencilColor("custom-card-border");
+	}
+}
+
 
 .page-sidebar + .page-content .productGrid .product {
 	width: 100%;
@@ -4567,6 +4790,7 @@ a:hover span.card-image:only-of-type img {
 .page-product .productView-brand {
 	margin: 0;
 	text-decoration: none;
+	font-size: 15px;
 }
 
 .page-product .productView-brand a {
@@ -4578,6 +4802,12 @@ a:hover span.card-image:only-of-type img {
 	display: flex;
 	flex-wrap: wrap;
 	font-size: 20px;
+	@include breakpoint("medium") {
+		font-size: 22px;
+	}
+	@include breakpoint("large") {
+		font-size: 24px;
+	}
 }
 
 .page-product .price-section {
@@ -4653,6 +4883,35 @@ a:hover span.card-image:only-of-type img {
 
 .tab-content .productView-info-value {
 	width: calc(100% - 200px);
+}
+
+.productView-info-bulkPricing {
+	float: left;
+	width: 100%;
+	@include breakpoint("small") {
+		float: none;
+	}
+}
+
+.bulkpricing-container {
+	font-size: 13px;
+	font-weight: 700;
+	border: 2px solid stencilColor("color-success");
+	color: stencilColor("color-success");
+	padding: .5rem .75rem;
+	margin-top: 1.5rem;
+	border-radius: .25rem;
+}
+
+.bulkpricing-container ul,
+.bulkpricing-container li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.bulkpricing-container li {
+	padding: .25rem 0;
 }
 
 .productView-rating span,
@@ -4760,6 +5019,10 @@ a:hover span.card-image:only-of-type img {
 	height: get-height(stencilString('swatch_option_size'));
 }
 
+.productView-options .form-input-gift-message {
+	margin-bottom: 1rem;
+}
+
 .productView-options #add-to-cart-wrapper .form-field--increments {
 	@include breakpoint("small") {
 		margin-bottom: 1rem;
@@ -4789,6 +5052,8 @@ a:hover span.card-image:only-of-type img {
 */
 .productView-options #add-to-cart-wrapper .form-increment .form-input--incrementTotal {
 	padding: 3px 0 0 0;
+	width: 4rem;
+	font-size: 18px;
 }
 
 .productView-options .form-action {
@@ -5428,6 +5693,11 @@ a:hover span.card-image:only-of-type img {
     max-width: 800px;
 }
 
+div[data-content-region="page_builder_content_editor_area_bottom"] {
+	width: 100%;
+	clear: both;
+}
+
 
 // Search Results
 // =============================================================================
@@ -5461,6 +5731,9 @@ a:hover span.card-image:only-of-type img {
 		grid-template-columns: repeat(2, 1fr);
 		border-top: 1px solid stencilColor("custom-card-border");
 		border-left: 1px solid stencilColor("custom-card-border");
+	}
+	@include breakpoint("large") {
+		grid-template-columns: repeat(3, 1fr);
 	}
 }
 
@@ -5532,13 +5805,14 @@ a:hover span.card-image:only-of-type img {
 	@include breakpoint("medium") {
 		padding-top: 1.5rem;
 		width: 70%;
-		float: right;
+		float: left;
 	}
 }
 
 .page-blog_post .page-sidebar {
 	@include breakpoint("medium") {
 		padding-top: 1.5rem;
+		float: right;
 	}
 }
 
@@ -5912,6 +6186,7 @@ a:hover span.card-image:only-of-type img {
 .footer-newsletter-summary {
 	color: stencilColor("custom-footer-newsletter-text");
 	margin-top: .75rem;
+	text-align: center;
 }
 
 
