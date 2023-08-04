@@ -1,3 +1,4 @@
+{{#if product.title}}
 <div class="upsell-item">
 	<div class="upsell-item-image">
 		<a href="{{product.url}}"><img src="{{#replace '{:size}' product.main_image.data}}400x400{{/replace}}" alt="{{product.title}}" title="{{product.title}}"></a>
@@ -26,3 +27,4 @@
 		</div>
 	</div>
 </div>
+{{/if}}
