@@ -114,31 +114,99 @@ body.with-bar .header {
 }
 
 .navPage-subMenu {
-    @include breakpoint("medium") {
-		border-bottom: 2px solid #00599b;
+	@include breakpoint("medium") {
+		-webkit-box-shadow: 0px 13px 15px -7px rgba(0,0,0,0.15);
+		box-shadow: 0px 13px 15px -7px rgba(0,0,0,0.15);
 	}
 }
-
-
 
 .navPages > ul > li.navPages-item-clearance.navPages-item-category {
 	display: none;
 }
 
-.navPages > ul > li.navPages-item-clearance.navPages-item-page > .navPages-action {
-	color: #cc0000;
+.navPages-list:not(.navPages-list-depth-max) .navPages-item-category .navPage-subMenu-list {
     @include breakpoint("medium") {
-		background: #cc0000;
-		color: #fff;
+		border-top: 1px solid stencilColor('navPages-subMenu-separatorColor');
+		border-left: 1px solid stencilColor('navPages-subMenu-separatorColor');
+		display: flex;
+		flex-wrap: wrap;
+		align-items: stretch;
+	}
+}
+
+.navPages-list:not(.navPages-list-depth-max) .navPages-item-category .navPage-subMenu-item {
+    @include breakpoint("medium") {
+		padding: 0px !important;
+		float: none;
+		align-items: center;
+		display: flex;
+		border-right: 1px solid stencilColor('navPages-subMenu-separatorColor');
+		border-bottom: 1px solid stencilColor('navPages-subMenu-separatorColor');
+	}
+}
+
+.navPages-list:not(.navPages-list-depth-max) .navPages-item-category .navPage-subMenu-action {
+    @include breakpoint("medium") {
+		padding-left: 1rem;
+		padding-right: 1rem;
+		border-bottom: none;
+	}
+}
+
+.navPages-list:not(.navPages-list-depth-max) .navPages-item-category .navPage-subMenu-item > .navPage-subMenu-action {
+    margin-bottom: 0;
+}
+
+.navPages > ul > li.navPages-item-clearance.navPages-item-page > .navPages-action {
+	color: #ffb41d;
+    @include breakpoint("medium") {
+		background: #ffb41d;
+		color: #312e29;
 	}
 }
 
 .navPages > ul > li.navPages-item-clearance.navPages-item-page > .navPages-action:hover {
-	color: #dd0000;
+	color: #FFC756;
     @include breakpoint("medium") {
-		background: #dd0000;
-		color: #fff;
+		background: #FFC756;
+		color: #312e29;
 	}
+}
+
+.navPages-item-refunds-returns {
+    display: none;
+}
+
+
+.navPages-list-simple .navPages-item-page {
+    @include breakpoint("medium") {
+		position: relative;
+	}
+}
+
+.navPages-click .navPages-list-simple .navPages-item-page .navPage-subMenu.is-open,
+.navPages-hover .navPages-list-simple .navPages-item-page:hover div.navPage-subMenu {
+    @include breakpoint("medium") {
+		min-width: 320px;
+		left: auto;
+		right: 0;
+	}
+}
+
+.navPages-list-simple .navPages-item-page .navPage-subMenu-item {
+    @include breakpoint("medium") {
+		width: 100%;
+	}
+}
+
+.navPages-list:not(.navPages-list-depth-max) .navPages-item-page .navPage-subMenu-action {
+    padding: .25rem 0;
+    border-bottom: 0;
+    margin-bottom: 0
+}
+
+.navPages .navPage-subMenu-action:not(.navPages-action-depth-max)+.navPage-childList {
+    display: none;
 }
 
 
@@ -208,6 +276,14 @@ body.with-bar .header {
 	fill: #fff;
 }
 
+.footer-info-col[data-section-type="footer-webPages"] .link-clearance {
+    display: none;
+}
+
+.footer-info-col[data-section-type="footer-categories"] .link-clearance a {
+    font-weight: 700;
+}
+
 
 // =============================================================================
 // Home
@@ -230,4 +306,126 @@ body.with-bar .header {
 
 .productView-description .tabs-contents table {
 	width: 100% !important;
+}
+
+.page-product .share-container {
+    display: none;
+}
+
+.productView-description {
+    margin-top: 0;
+}
+
+
+
+
+// =============================================================================
+// Pages
+// =============================================================================
+
+.page-page .page-sidebar {
+	float: none;
+	width: 100%;
+}
+
+.page-page .page-sidebar .sidebarCategories .sidebarBlock-heading {
+    display: none;
+}
+
+
+.page-page .page-sidebar .sidebarCategories .navList {
+    display: block;
+    width: 100%;
+    padding: .25rem;
+    font-size: 0;
+    text-align: center;
+}
+
+.page-page .page-sidebar .sidebarCategories .navList li {
+    font-size: 1.125rem;
+    display: inline-block;
+    padding: .25rem;
+}
+
+.page-page .page-sidebar .sidebarCategories .navList li a {
+    display: inline-block;
+    border-radius: .25rem;
+    padding: .5rem .75rem;
+    border: 1px solid #00599b;
+    border-radius: .25rem;
+    @include breakpoint("large") {
+		padding: 1rem 1.5rem;
+	}
+}
+
+.page-page .page-sidebar .sidebarCategories .navList li a:hover {
+    background: #00599b;
+    color: #fff;
+}
+
+.page-page .page-sidebar-vertical .sidebarCategories {
+    display: block;
+}
+
+.page-page .page-sidebar+.page-content,
+.page-page_contact_form .page-sidebar+.page-content {
+    width: 100% !important;
+    float: none;
+}
+
+
+
+
+// =============================================================================
+// Widget
+// =============================================================================
+
+.custom-widget-carousel-no .custom-widget-4,
+.custom-widget-carousel-no .custom-widget-5,
+.custom-widget-carousel-no .custom-widget-6 {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.custom-widget-carousel-no .custom-widget-4 .custom-widget-item {
+    min-width: 50%;
+    max-width: 50%;
+    @include breakpoint("medium") {
+		min-width: 33.333333%;
+        max-width: 33.333333%;
+	}
+	@include breakpoint("large") {
+		min-width: 25%;
+        max-width: 25%;
+	}
+}
+
+.custom-widget-carousel-no .custom-widget-5 .custom-widget-item {
+    min-width: 50%;
+    max-width: 50%;
+    @include breakpoint("medium") {
+		min-width: 33.333333%;
+        max-width: 33.333333%;
+	}
+	@include breakpoint("large") {
+		min-width: 20%;
+        max-width: 20%;
+	}
+}
+
+.custom-widget-carousel-no .custom-widget-6 .custom-widget-item {
+    min-width: 50%;
+    max-width: 50%;
+    @include breakpoint("small") {
+		min-width: 33.333333%;
+        max-width: 33.333333%;
+	}
+	@include breakpoint("medium") {
+		min-width: 20%;
+        max-width: 20%;
+	}
+	@include breakpoint("large") {
+		min-width: 16.6666667%;
+        max-width: 16.6666667%;
+	}
 }
