@@ -4656,6 +4656,10 @@ a:hover span.card-image:only-of-type img {
 	width: 100%;
 }
 
+.toggle.videoGallery:not(.videoGallery-custom) {
+	margin-top: 1.5rem;
+}
+
 
 .videoGallery-item {
 	@include breakpoint("medium") {
