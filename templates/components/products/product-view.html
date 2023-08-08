@@ -207,9 +207,13 @@
 			{{/if}}
 			{{#if (getVar "b2b-prices") '===' 'show'}}
             	{{#if product.call_for_price}}
-                <p class="productView-price">
-                    <span>{{product.call_for_price}}</span>
-                </p>
+				<p class="productView-price">
+				{{#contains product.call_for_price "//"}}
+					<span>{{after (split product.call_for_price '//') 1}}</span>
+				{{else}}
+					<span>{{product.call_for_price}}</span>
+				{{/contains}}
+				</p>
             	{{/if}}
 			{{/if}}
             <div class="productView-price">
