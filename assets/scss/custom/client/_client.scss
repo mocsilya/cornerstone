@@ -94,7 +94,7 @@ body:not(.page-category.page-brands) #main-content {
 		background: none;
 	}
 }
-
+/*
 .page-header ol.breadcrumbs {
 	text-align: left;
 	margin-left: auto;
@@ -111,7 +111,7 @@ body:not(.page-category.page-brands) #main-content {
 		padding-right: 6rem;
 	}
 }
-
+*/
 .header--boxsearch .form-search-box .form-input,
 .navUser .form-search-box .form-input {
 	background: #fff;
@@ -228,6 +228,10 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 	}
 }
 
+.productView-description-underneath {
+	margin-top: 0;
+}
+
 .previewCartCheckout {
 	background: none;
 }
@@ -303,8 +307,16 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 	color: #cc0000;
 }
 
-.button.productView-reviewLink {
+#tab-description .button.productView-reviewLink {
 	padding: .5rem 1.5rem;
+}
+
+#tab-description div {
+	order: 3;
+}
+
+.page-product .share-container {
+	display: none;
 }
 
 .panel-header,
@@ -410,6 +422,28 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 .why-buy li:first-child {
 	text-align: center;
 	@include breakpoint("small") {
+		flex: 1 1 100%;
+	}
+}
+
+.page-sidebar .why-buy li {
+	@include breakpoint("medium") {
+		flex: 1 1 100%;
+	}
+}
+
+#tab-description .why-buy {
+	order: 4;
+}
+
+#tab-description .why-buy li {
+	@include breakpoint("large") {
+		flex: 1 1 50%;
+	}
+}
+
+#tab-description .why-buy li:first-child {
+	@include breakpoint("large") {
 		flex: 1 1 100%;
 	}
 }
