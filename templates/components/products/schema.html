@@ -53,10 +53,13 @@
             "price": "",
             {{/contains}}
             {{else}}
-            {{#if product.price.price_range}}
-            "minPrice": "{{#if product.price.price_range.min.with_tax}}{{product.price.price_range.min.with_tax.value}}{{else}}{{product.price.price_range.min.without_tax.value}}{{/if}}",
-            "maxPrice": "{{#if product.price.price_range.max.with_tax}}{{product.price.price_range.max.with_tax.value}}{{else}}{{product.price.price_range.max.without_tax.value}}{{/if}}",
-            {{else}}
+			{{#if product.price.price_range}}
+			"priceSpecification": {
+				"minPrice": "{{#if product.price.price_range.min.with_tax}}{{product.price.price_range.min.with_tax.value}}{{else}}{{product.price.price_range.min.without_tax.value}}{{/if}}",
+				"maxPrice": "{{#if product.price.price_range.max.with_tax}}{{product.price.price_range.max.with_tax.value}}{{else}}{{product.price.price_range.max.without_tax.value}}{{/if}}"
+			},
+			"price": "{{#if product.price.price_range.min.with_tax}}{{product.price.price_range.min.with_tax.value}}{{else}}{{product.price.price_range.min.without_tax.value}}{{/if}}",
+			{{else}}
             "price": "{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}",
             {{/if}}
             {{/if}}
