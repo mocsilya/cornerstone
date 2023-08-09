@@ -4656,6 +4656,10 @@ a:hover span.card-image:only-of-type img {
 	width: 100%;
 }
 
+.toggle.videoGallery:not(.videoGallery-custom) {
+	margin-top: 1.5rem;
+}
+
 
 .videoGallery-item {
 	@include breakpoint("medium") {
@@ -6560,6 +6564,41 @@ div[data-content-region="page_builder_content_editor_area_bottom"] {
 }
 
 /* END GOOGLE */
+
+
+
+// Countdown Timer
+// =============================================================================
+
+.time-container {
+    text-align: center;
+    padding: .5rem 1.5rem;
+    border-top: 1px solid stencilColor('custom-header-menu-background');
+    border-bottom: 1px solid stencilColor('custom-header-menu-background');
+}
+
+.time-text {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: .5rem;
+    font-weight: 700;
+    @include breakpoint("small") {
+		width: auto;
+	}
+}
+
+.time-data {
+    display: inline-block;
+    text-align: center;
+    padding: .5rem 0;
+    width: 60px;
+    border-radius: .25rem;
+    color: stencilColor('button--primary-color');
+    background: stencilColor('button--primary-backgroundColor');
+    margin: 0 1px;
+    font-weight: 700;
+}
 
 
 
