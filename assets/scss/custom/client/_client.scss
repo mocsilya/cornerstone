@@ -265,6 +265,12 @@ body.with-bar .header {
 	}
 }
 
+body.page-hire-solutions .pp-pay-in-3,
+body.page-blast-media .pp-pay-in-3,
+body.page-spray-booths .pp-pay-in-3 {
+	display: none;
+}
+
 
 
 // =============================================================================
@@ -297,6 +303,28 @@ body.with-bar .header {
 .page-default .tabs .tab-new {
 	order: 1;
 }
+
+
+
+// =============================================================================
+// Category
+// =============================================================================
+
+
+.subcategories-grid-image .subcategories-container {
+	border: 1px solid #eee;
+	border-bottom: 0;
+}
+
+.subcategories-grid-image .subcategories-name {
+	//background: rgba(0, 0, 0, 0.75);
+	background-color: #68737a;
+	color: #fff;
+	border-radius: 0;
+}
+
+
+
 
 
 
