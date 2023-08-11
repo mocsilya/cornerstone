@@ -5290,15 +5290,30 @@ a:hover span.card-image:only-of-type img {
 .upsell-item {
 	display: flex;
 	align-items: center;
-	border: 1px solid stencilColor("container-border-global-color-base");
-	margin-bottom: .75rem;
+	border-top: 1px solid stencilColor("container-border-global-color-base");
+	border-right: 1px solid stencilColor("container-border-global-color-base");
+	border-left: 1px solid stencilColor("container-border-global-color-base");
+}
+
+.upsell-item:last-child {
+	-webkit-box-shadow: 0px 1px 0px 0px stencilColor("container-border-global-color-base"); 
+	box-shadow: 0px 1px 0px 0px stencilColor("container-border-global-color-base");
 }
 
 .upsell-item-image {
 	padding: .5rem;
-	max-width: calc(100px + 1rem);
+	height: calc(100px + 1rem);
 	display: block;
 	margin: 0;
+}
+
+.upsell-item-image a {
+	display: block;
+}
+
+.upsell-item-image img {
+	width: auto;
+	height: 100px;
 }
 
 .upsell-item-details {
@@ -5327,13 +5342,31 @@ a:hover span.card-image:only-of-type img {
 }
 
 
-.upsell-item-price .price-section {
+.upsell-item-price-data {
 	display: inline-block;
 	padding-right: .5rem;
+	color: stencilColor("color-grey");
+	font-weight: 700;
 }
 
-.upsell-item-price .price-section--saving {
-	display: none;
+.upsell-item-price-data abbr {
+	color: stencilColor("color-grey");
+	font-weight: 400;
+}
+
+.upsell-item-price-data abbr[title] {
+	text-decoration: none !important;
+	border-bottom: none !important;
+	cursor: inherit !important;
+}
+
+.upsell-item-price-data:first-child,
+.upsell-item-price-data:first-child abbr {
+	color: stencilColor("color-textBase");
+}
+
+.upsell-item-price-saved strong {
+	color: stencilColor("color-warning");
 }
 
 .upsell-item-actions {
