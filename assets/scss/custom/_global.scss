@@ -3125,6 +3125,10 @@ div[data-content-region="category_below_all"] {
 	padding-right: 0;
 }
 
+.sidebarBlock-heading a {
+	text-decoration: none;
+}
+
 
 // Subcategory Grid
 // =============================================================================
@@ -4656,6 +4660,10 @@ a:hover span.card-image:only-of-type img {
 	width: 100%;
 }
 
+.toggle.videoGallery:not(.videoGallery-custom) {
+	margin-top: 1.5rem;
+}
+
 
 .videoGallery-item {
 	@include breakpoint("medium") {
@@ -5282,15 +5290,30 @@ a:hover span.card-image:only-of-type img {
 .upsell-item {
 	display: flex;
 	align-items: center;
-	border: 1px solid stencilColor("container-border-global-color-base");
-	margin-bottom: .75rem;
+	border-top: 1px solid stencilColor("container-border-global-color-base");
+	border-right: 1px solid stencilColor("container-border-global-color-base");
+	border-left: 1px solid stencilColor("container-border-global-color-base");
+}
+
+.upsell-item:last-child {
+	-webkit-box-shadow: 0px 1px 0px 0px stencilColor("container-border-global-color-base"); 
+	box-shadow: 0px 1px 0px 0px stencilColor("container-border-global-color-base");
 }
 
 .upsell-item-image {
 	padding: .5rem;
-	max-width: calc(100px + 1rem);
+	height: calc(100px + 1rem);
 	display: block;
 	margin: 0;
+}
+
+.upsell-item-image a {
+	display: block;
+}
+
+.upsell-item-image img {
+	width: auto;
+	height: 100px;
 }
 
 .upsell-item-details {
@@ -5319,13 +5342,31 @@ a:hover span.card-image:only-of-type img {
 }
 
 
-.upsell-item-price .price-section {
+.upsell-item-price-data {
 	display: inline-block;
 	padding-right: .5rem;
+	color: stencilColor("color-grey");
+	font-weight: 700;
 }
 
-.upsell-item-price .price-section--saving {
-	display: none;
+.upsell-item-price-data abbr {
+	color: stencilColor("color-grey");
+	font-weight: 400;
+}
+
+.upsell-item-price-data abbr[title] {
+	text-decoration: none !important;
+	border-bottom: none !important;
+	cursor: inherit !important;
+}
+
+.upsell-item-price-data:first-child,
+.upsell-item-price-data:first-child abbr {
+	color: stencilColor("color-textBase");
+}
+
+.upsell-item-price-saved strong {
+	color: stencilColor("color-warning");
 }
 
 .upsell-item-actions {
@@ -6560,6 +6601,41 @@ div[data-content-region="page_builder_content_editor_area_bottom"] {
 }
 
 /* END GOOGLE */
+
+
+
+// Countdown Timer
+// =============================================================================
+
+.time-container {
+    text-align: center;
+    padding: .5rem 1.5rem;
+    border-top: 1px solid stencilColor('custom-header-menu-background');
+    border-bottom: 1px solid stencilColor('custom-header-menu-background');
+}
+
+.time-text {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: .5rem;
+    font-weight: 700;
+    @include breakpoint("small") {
+		width: auto;
+	}
+}
+
+.time-data {
+    display: inline-block;
+    text-align: center;
+    padding: .5rem 0;
+    width: 60px;
+    border-radius: .25rem;
+    color: stencilColor('button--primary-color');
+    background: stencilColor('button--primary-backgroundColor');
+    margin: 0 1px;
+    font-weight: 700;
+}
 
 
 
