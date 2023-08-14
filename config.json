@@ -231,7 +231,7 @@
     "custom-tab-active-color": "#ffffff",
     "custom-tab-active-background": "#00599b",
     "custom-pagination-color": "#ffffff",
-    "custom-pagination-background": "#312E29",
+    "custom-pagination-background": "#00599b",
     "custom_price_from": false,
     "custom_social_style": "normal",
     "custom_cart_removemodal_show": true,

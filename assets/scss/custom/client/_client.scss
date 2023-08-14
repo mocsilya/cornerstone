@@ -295,7 +295,7 @@ body.page-spray-booths .pp-pay-in-3 {
 // Home
 // =============================================================================
 
-
+/*
 .page-default .tabs .tab {
 	order: 2;
 }
@@ -303,7 +303,7 @@ body.page-spray-booths .pp-pay-in-3 {
 .page-default .tabs .tab-new {
 	order: 1;
 }
-
+*/
 
 
 // =============================================================================
@@ -316,15 +316,27 @@ body.page-spray-booths .pp-pay-in-3 {
 	border-bottom: 0;
 }
 
+.subcategories-above .subcategories-grid-item {
+	@include breakpoint("small") {
+		width: 33.333333%;
+	}
+	@include breakpoint("medium") {
+		width: 25%;
+	}
+	@include breakpoint("large") {
+		width: 16.6666667%;
+	}
+}
+
 .subcategories-grid-image .subcategories-name {
-	//background: rgba(0, 0, 0, 0.75);
 	background-color: #68737a;
 	color: #fff;
 	border-radius: 0;
+	min-height: 49px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-
-
-
 
 
 
