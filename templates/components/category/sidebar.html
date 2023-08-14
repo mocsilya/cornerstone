@@ -1,36 +1,46 @@
 <nav>
-{{#if theme_settings.custom_category_sidebar_display '==' 'vertical'}}
+{{assignVar "showparentnosubs" "false"}}
+{{#and (if theme_settings.custom_category_show_parents)(unless category.subcategories)}}
+{{assignVar "showparentnosubs" "true"}}
+{{/and}}
+{{#or (if theme_settings.custom_category_sidebar_display '==' 'vertical') (if (getVar "showparentnosubs") '===' 'true')}}
 {{#if theme_settings.custom_category_show_parents}}
 	{{#each categories}}
     {{#if ../breadcrumbs.[1].name '===' name}}
         {{#if children}}
         <div class="sidebarBlock sidebarCategories sidebarCategories-parents">
-            <h2 class="sidebarBlock-heading">{{name}}</h2>
+            <h2 class="sidebarBlock-heading">
+				{{#if ../theme_settings.custom_category_show_parents}}
+				<a href="{{url}}" title="name">{{name}}</a>
+				{{else}}
+				{{name}}
+				{{/if}}
+			</h2>
             <ul class="navList">
             {{#each children}}
                 {{#if children}}
-                <li class="navList-item{{#if is_active}} activeCategory{{/if}}">
+                <li class="navList-item navList-item-{{dashcase (lowercase (sanitize name))}}{{#if is_active}} activeCategory{{/if}}">
                     <a class="navList-action{{#if is_active}} activePage{{/if}}" href="{{url}}" title="{{name}}">{{name}}</a>
                     <ul>
                     {{#each children}}
 						{{#if children}}
-                        <li class="navList-item navList-item-sub">
+                        <li class="navList-item navList-item-{{dashcase (lowercase (sanitize name))}} navList-item-sub">
                             <a class="navList-action navList-action-sub{{#if is_active}} activePage{{/if}}" href="{{url}}" title="{{name}}">{{name}}</a>
 							<ul>
 							{{#each children}}
 								{{#if children}}
-		                        <li class="navList-item navList-item-sub">
+		                        <li class="navList-item navList-item-{{dashcase (lowercase (sanitize name))}} navList-item-sub">
 		                            <a class="navList-action navList-action-sub{{#if is_active}} activePage{{/if}}" href="{{url}}" title="{{name}}">{{name}}</a>
 									<ul>
 									{{#each children}}
-				                        <li class="navList-item navList-item-sub">
+				                        <li class="navList-item navList-item-{{dashcase (lowercase (sanitize name))}} navList-item-sub">
 				                            <a class="navList-action navList-action-sub{{#if is_active}} activePage{{/if}}" href="{{url}}" title="{{name}}">{{name}}</a>
 				                        </li>
 									{{/each}}
 									</ul>
 		                        </li>
 								{{else}}
-		                        <li class="navList-item navList-item-sub">
+		                        <li class="navList-item navList-item-{{dashcase (lowercase (sanitize name))}} navList-item-sub">
 		                            <a class="navList-action navList-action-sub{{#if is_active}} activePage{{/if}}" href="{{url}}" title="{{name}}">{{name}}</a>
 		                        </li>
 								{{/if}}
@@ -38,7 +48,7 @@
 							</ul>
                         </li>
 						{{else}}
-                        <li class="navList-item navList-item-sub">
+                        <li class="navList-item navList-item-{{dashcase (lowercase (sanitize name))}} navList-item-sub">
                             <a class="navList-action navList-action-sub{{#if is_active}} activePage{{/if}}" href="{{url}}" title="{{name}}">{{name}}</a>
                         </li>
 						{{/if}}
@@ -46,7 +56,7 @@
                     </ul>
                 </li>
                 {{else}}
-                <li class="navList-item{{#if is_active}} activeCategory{{/if}}">
+                <li class="navList-item navList-item-{{dashcase (lowercase (sanitize name))}}{{#if is_active}} activeCategory{{/if}}">
                     <a class="navList-action{{#if is_active}} activePage{{/if}}" href="{{url}}" title="{{name}}">{{name}}</a>
                 </li>
                 {{/if}}
@@ -62,7 +72,7 @@
             <h2 class="sidebarBlock-heading">{{category.name}}</h2>
             <ul class="navList">
                 {{#each category.subcategories}}
-                <li class="navList-item">
+                <li class="navList-item navList-item-{{dashcase (lowercase (sanitize name))}}">
                     <a class="navList-action" href="{{url}}" title="{{name}}">{{name}}</a>
                 </li>
                 {{/each}}
@@ -70,7 +80,7 @@
         </div>
     {{/if}}
 {{/if}}
-{{/if}}
+{{/or}}
 
 {{#if category.faceted_search_enabled}}
 	{{> components/faceted-search/index category}}
