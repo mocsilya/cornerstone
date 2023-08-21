@@ -96,11 +96,11 @@ body:not(.scroll) .navPages-container {
 	text-align: center;
 	display: flex;
 	margin: auto;
-	background: #557c20; /* Old browsers */
-	background: -moz-linear-gradient(left,  #557c20 0%, #e9c300 25%, #eda202 50%, #eb7a0a 75%, #d32418 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(left,  #557c20 0%,#e9c300 25%,#eda202 50%,#eb7a0a 75%,#d32418 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to right,  #557c20 0%,#e9c300 25%,#eda202 50%,#eb7a0a 75%,#d32418 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#557c20', endColorstr='#d32418',GradientType=1 ); /* IE6-9 */
+	background: #65a40f; /* Old browsers */
+	background: -moz-linear-gradient(left,  #65a40f 0%, #f4cc00 25%, #ff9600 50%, #f87b00 75%, #dc0e00 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  #65a40f 0%,#f4cc00 25%,#ff9600 50%,#f87b00 75%,#dc0e00 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right,  #65a40f 0%,#f4cc00 25%,#ff9600 50%,#f87b00 75%,#dc0e00 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#65a40f', endColorstr='#d32418',GradientType=1 ); /* IE6-9 */
 }
 
 .heatometer div {
@@ -115,20 +115,27 @@ body:not(.scroll) .navPages-container {
 
 .heatometer a {
 	display: block;
-	padding: 24px .5rem 10px .5rem;
+	padding: 20px .5rem 14px .5rem;
 	text-align: center;
 	color: #fff;
 	text-decoration: none;
 	font-family: stencilFontFamily("headings-font");
 	font-weight: 400;
-	line-height: 16px;
+	line-height: 1;
 	background-position: top left;
 	background-repeat: repeat-x;
 	background-image: url('../img/custom/heatometer.png');
 	border-right: 1px solid #fff;
 	transition: .5s;
+	font-size: 16px;
     @include breakpoint("small") {
-		font-size: 16px;
+		font-size: 20px;
+	}
+    @include breakpoint("medium") {
+		font-size: 22px;
+	}
+    @include breakpoint("large") {
+		font-size: 24px;
 	}
 }
 
@@ -145,6 +152,10 @@ body:not(.scroll) .navPages-container {
     @include breakpoint("medium") {
 		display: inline;
 	}
+}
+
+.breadcrumb {
+	font-weight: 700;
 }
 
 .page-header .page-heading {
@@ -194,12 +205,37 @@ body:not(.scroll) .navPages-container {
 	display: none;
 }
 
+.page-product .price-section--withoutTax .price,
+.page-product .price-section--withoutTax abbr {
+	color: #009900;
+}
+
 .productView-description .tabs-contents {
 	background-image: url('../img/custom/header-bg.png');
 	padding: 1rem;
 	border-bottom-left-radius: .5rem;
 	border-bottom-right-radius: .5rem;
 }
+
+.ay-question .button {
+   width: 240px;
+   background-color: #473729;
+   color: #ed9e02;
+   font-size: 20px;
+   padding-top: 1.5rem;
+   padding-bottom: 1.5rem;
+}
+
+#ay-question .modal-close:before,
+#ay-question .modal-close:after {
+	display: none;
+}
+
+
+// =============================================================================
+// Footer
+// =============================================================================
+
 
 .footer-newsletter {
 	background-image: url('../img/custom/bg.png');
