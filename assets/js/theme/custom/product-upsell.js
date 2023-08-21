@@ -18,9 +18,17 @@ export default function (context) {
 			//console.log(idList);
 			const array = idList.split(',');
 			//console.log(array);
-			$.each(array, function(i, Id){
+			$.each(array, function(i, Id){ 
 			   	utils.api.product.getById(Id, { template: 'custom/product-upsell' }, (err, response) => {
-			   		$('.productView-upsell').append(response);
+					if (response.indexOf("Whoops! - Page not found") > -1) {
+						console.log("Upsell Item: 404 Not Found");
+					} else {
+						if (!$.trim(response)){   
+						    console.log("Upsell Item: Data Not Loaded");
+						} else {   
+							$('.productView-upsell').append(response);
+						}
+					}			
 				})
 			});
 		})
