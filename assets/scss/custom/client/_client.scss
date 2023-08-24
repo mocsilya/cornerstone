@@ -130,18 +130,6 @@ body.scroll .navPages > ul > li > .navPages-action {
 	}
 }
 
-.header--boxsearch .form-search-box .form-input,
-.navUser .form-search-box .form-input {
-	@include breakpoint("medium") {
-		min-width: 140px;
-		width: 140px;
-	}
-	@include breakpoint("large") {
-		min-width: 300px;
-		width: 300px;
-	}
-}
-
 .navUser-item--custom-desktop {
 	display: none;
 	@include breakpoint("medium") {
@@ -177,7 +165,11 @@ body.scroll .navPages > ul > li > .navPages-action {
 	text-align: center;
 }
 
-
+.navUser-section.navUser-section--alt.navUser-section-left {
+	@include breakpoint("medium") {
+		min-width: 260px;
+	}
+}
 
 // =============================================================================
 // Carousel
