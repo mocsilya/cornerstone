@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="{{ locale_name }}">
     <head>
-        <title>{{ head.title }}</title>
+        <title>{{#if page_type '==' 'blog_post'}}{{#contains head.title settings.store_name}}{{#replace (concat ' - ' settings.store_name) head.title}}{{/replace}}{{else}}{{ head.title }}{{/contains}}{{else}}{{ head.title }}{{/if}}</title>
         {{{ resourceHints }}}
         {{{ head.meta_tags }}}
         {{{ head.config }}}
