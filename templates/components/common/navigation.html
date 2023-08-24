@@ -34,7 +34,19 @@
             </button>
 		{{/if}}
 		{{#if theme_settings.custom_header_search_type '===' 'box'}}
-		    {{> components/custom/navigation-search}}
+			<!--
+			<a class="navUser-action navUser-action--quickSearch has-dropdown" href="#" data-dropdown="searchDropdown" aria-controls="searchDropdown" aria-expanded="false" aria-label="quickSearch">
+				<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-search{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}" /></svg></i></span>
+				<span class="navUser-text">{{theme_settings.custom_header_search_label}}</span>
+			</a>
+			-->
+            <button class="navUser-action navUser-action--quickSearch navUser-action--boxSearch" type="button" aria-controls="quickSearch" aria-expanded="false">
+				<span class="navUser-icon navUser-icon-search"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-search{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}" /></svg></i></span>
+				<span class="navUser-icon navUser-icon-close"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-close{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}" /></svg></i></span>
+            </button>
+			<div class="container-search-box">
+		    	{{> components/custom/navigation-search}}
+			</div>
 		{{/if}}
 		{{/if}}
         </li>

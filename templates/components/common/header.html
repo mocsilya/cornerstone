@@ -9,13 +9,6 @@
     </div>
 	{{> components/custom/client/client-header}}
 </header>
-{{#if (getVar "b2b-products") '===' 'show'}}
-	{{#if theme_settings.custom_header_search_type '===' 'box'}}
-	<div class="header--boxsearch">
-		{{> components/custom/navigation-search}}
-	</div>
-	{{/if}}
-{{/if}}
 {{#if theme_settings.custom_header_show_bar}}
 	{{> components/custom/header-bar}}
 {{/if}}
