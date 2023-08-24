@@ -907,10 +907,11 @@ body.with-bar .form-search-box .dropdown--quickSearch.is-open {
 	top: 79px !important;
 	background: none;
 	@include breakpoint("medium") {
-		width: 600px !important;
+		width: 480px !important;
 	}
 	@include breakpoint("large") {
 		top: 86px !important;
+		width: 600px !important;
 	}
 }
 
@@ -956,6 +957,9 @@ body.scroll .form-search-box .dropdown--quickSearch.is-open {
 	background: stencilColor("body-bg");
 	margin: 0;
 	@include breakpoint("medium") {
+		min-width: 480px;
+	}
+	@include breakpoint("large") {
 		min-width: 600px;
 	}
 }
