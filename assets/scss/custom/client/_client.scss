@@ -47,6 +47,10 @@ body:not(.scroll) .header-logo-image {
 	}
 }
 
+// =============================================================================
+// Nav User
+// =============================================================================
+
 .navUser-item--custom .navUser-text {
 	display: inline-block;
 	font-size: 1.5rem;
@@ -64,6 +68,16 @@ body:not(.scroll) .header-logo-image {
 	color: #cc0f1c;
 	fill: #cc0f1c;
 }
+
+
+.navUser-section.navUser-section--alt.navUser-section-left {
+	min-width: 420px;
+}
+
+
+// =============================================================================
+// Nav Pages
+// =============================================================================
 
 body:not(.scroll) .navPages {
     @include breakpoint("large") {
@@ -90,6 +104,53 @@ body:not(.scroll) .navPages-container {
 		border-top: 1px solid stencilColor("navPages-color-hover");
 	}
 }
+
+.navPages-list:not(.navPages-list-depth-max) .navPages-item .navPage-subMenu-list {
+    @include breakpoint("medium") {
+		border-top: 1px solid stencilColor('navPages-subMenu-separatorColor');
+		border-left: 1px solid stencilColor('navPages-subMenu-separatorColor');
+		display: flex;
+		flex-wrap: wrap;
+		align-items: stretch;
+	}
+}
+
+.navPages-list:not(.navPages-list-depth-max) .navPages-item .navPage-subMenu-item {
+    @include breakpoint("medium") {
+		padding: 0px !important;
+		float: none;
+		align-items: center;
+		display: flex;
+		border-right: 1px solid stencilColor('navPages-subMenu-separatorColor');
+		border-bottom: 1px solid stencilColor('navPages-subMenu-separatorColor');
+	}
+}
+
+.navPages-list:not(.navPages-list-depth-max) .navPages-item .navPage-subMenu-action {
+    @include breakpoint("medium") {
+		padding-left: 1rem;
+		padding-right: 1rem;
+		border-bottom: none;
+	}
+}
+
+.navPages-list:not(.navPages-list-depth-max) .navPages-item .navPage-subMenu-item > .navPage-subMenu-action {
+	@include breakpoint("medium") {
+    	margin-bottom: 0;
+	}
+}
+
+.navPages-list:not(.navPages-list-depth-max) .navPages-item .navPage-childList {
+	@include breakpoint("medium") {
+		display:none !important;
+	}
+}
+
+
+
+// =============================================================================
+// Heatometer
+// =============================================================================
 
 .heatometer {
 	max-width: 1440px;
@@ -154,8 +215,19 @@ body:not(.scroll) .navPages-container {
 	}
 }
 
+
+
+// =============================================================================
+// Page Header
+// =============================================================================
+
+
 .breadcrumb {
 	font-weight: 700;
+}
+
+.page-header {
+	background-image: url('../img/custom/bg.png');
 }
 
 .page-header .page-heading {
@@ -168,6 +240,13 @@ body:not(.scroll) .navPages-container {
 	font-family: stencilFontFamily("headings-font");
 	font-size: 18px;
 }
+
+
+
+// =============================================================================
+// Product Page
+// =============================================================================
+
 
 .tab-content .productView-info-name.customfield-ingredients {
 	width: 100%;
@@ -217,8 +296,19 @@ body:not(.scroll) .navPages-container {
 	border-bottom-right-radius: .5rem;
 }
 
+.productView-options .add-to-cart-wallet-buttons {
+	margin: 0;
+}
+
+.ay-question {
+	clear: both;
+    @include breakpoint("large") {
+		max-width: calc(50% - .71429rem);
+	}
+}
+
 .ay-question .button {
-   width: 240px;
+   width: 100%;
    background-color: #473729;
    color: #ed9e02;
    font-size: 20px;
@@ -289,7 +379,14 @@ body:not(.scroll) .navPages-container {
 	fill: stencilColor("custom-footer-text");
 }
 
-
+.banner-history {
+	padding: 20px 40px; 
+    background: #cc0f1c url('../img/custom/fire.png') center bottom repeat-x;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+	font-family: stencilFontFamily("headings-font");
+}
 
 // =============================================================================
 // Custom > Client
@@ -424,3 +521,20 @@ body:not(.scroll) .navPages-container {
 .promo-welcome h2 {
     margin-top: 0;
 }
+
+.table-expert {
+	border-top : 1px solid #999;
+	border-left: 1px solid #999;
+	width: 100%;
+	margin-bottom: 3rem;
+}
+
+.table-expert td {
+	border-bottom : 1px solid #999;
+	border-right: 1px solid #999;
+	padding: .5rem .75rem;
+}
+
+
+
+

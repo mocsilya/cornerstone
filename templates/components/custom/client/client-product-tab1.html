@@ -1,0 +1,22 @@
+<div id="YotpoPlacement"></div>
+<script
+  src="https://code.jquery.com/jquery-3.7.0.min.js"
+  integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+  crossorigin="anonymous"></script>
+<script type="text/javascript">//<![CDATA[
+var div = document.createElement("div");
+div.setAttribute('class', 'yotpo yotpo-main-widget');
+div.setAttribute('data-product-id',"{{product.id}}");
+div.setAttribute('data-name',"{{product.title}}");
+div.setAttribute('data-url', document.URL);
+div.setAttribute('data-description',"");
+div.setAttribute('data-image-url', "{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size }}");
+$.noConflict();
+jQuery( document ).ready(function( $ ) {
+	if ($(".yotpo.placeholder").length) {
+		$(".yotpo.placeholder").append(div);
+	} else {
+		$("#YotpoPlacement").append(div);
+	}
+});
+//]]></script>
