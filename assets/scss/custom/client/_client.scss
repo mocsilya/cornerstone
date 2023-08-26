@@ -158,21 +158,23 @@ body:not(.scroll) .navPages-container {
 	display: flex;
 	margin: auto;
 	background: #65a40f; /* Old browsers */
-	background: -moz-linear-gradient(left,  #65a40f 0%, #f4cc00 25%, #ff9600 50%, #f87b00 75%, #dc0e00 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(left,  #65a40f 0%,#f4cc00 25%,#ff9600 50%,#f87b00 75%,#dc0e00 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to right,  #65a40f 0%,#f4cc00 25%,#ff9600 50%,#f87b00 75%,#dc0e00 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#65a40f', endColorstr='#d32418',GradientType=1 ); /* IE6-9 */
+	background: -moz-linear-gradient(left,  #20b698 0%, #f4cc00 25%, #ff9600 50%, #f87b00 75%, #cc0f1c 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  #20b698 0%,#f4cc00 25%,#ff9600 50%,#f87b00 75%,#cc0f1c 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right,  #00aaac 0%, #69c22d 25%,#f4cc00 50%,#f87b00 75%,#cc0f1c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#20b698', endColorstr='#cc0f1c',GradientType=1 ); /* IE6-9 */
 }
 
 .heatometer div {
 	flex: 1 1 0;
+	background-position: right -6px;
+	background-repeat: no-repeat;
 }
 
-.heatometer .heat-mild { background: url("https://cdn2.bigcommerce.com/n-pktq5q/6yytk8/templates/__custom/images/ay-subheader-2.png?t=1474032478") right -6px no-repeat; }
-.heatometer .heat-medium { background: url("https://cdn2.bigcommerce.com/n-pktq5q/6yytk8/templates/__custom/images/ay-subheader-3.png?t=1474032478") right -6px no-repeat; }
-.heatometer .heat-hot { background: url("https://cdn2.bigcommerce.com/n-pktq5q/6yytk8/templates/__custom/images/ay-subheader-4.png?t=1474032478") right -6px no-repeat; }
-.heatometer .heat-painful { background: url("https://cdn2.bigcommerce.com/n-pktq5q/6yytk8/templates/__custom/images/ay-subheader-5.png?t=1474032478") right -6px no-repeat; }
-
+.heatometer .heat-cool { background-color: rgba(0,170,172, 0.25); }
+.heatometer .heat-mild { background-image: url('../img/custom/ay-subheader-2.png'); background-color: rgba(105,194,45, 0.25); }
+.heatometer .heat-medium { background-image: url('../img/custom/ay-subheader-3.png'); background-color: rgba(244,204,0, 0.25); }
+.heatometer .heat-hot { background-image: url('../img/custom/ay-subheader-4.png'); background-color: rgba(248,123,0, 0.25); }
+.heatometer .heat-painful { background-image: url('../img/custom/ay-subheader-5.png'); background-color: rgba(204,15,28, 0.25); }
 
 .heatometer a {
 	display: block;
@@ -193,10 +195,10 @@ body:not(.scroll) .navPages-container {
 		font-size: 20px;
 	}
     @include breakpoint("medium") {
-		font-size: 22px;
+		font-size: 24px;
 	}
     @include breakpoint("large") {
-		font-size: 24px;
+		font-size: 28px;
 	}
 }
 
@@ -205,7 +207,7 @@ body:not(.scroll) .navPages-container {
 }
 
 .heatometer a:hover {
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(0,0,0,0.25);
 }
 
 .heatometer span {
