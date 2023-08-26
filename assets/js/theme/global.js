@@ -22,6 +22,7 @@ import headerBar from './custom/header-bar';
 import widgetHelper from './custom/widget-helper';
 import sidebarHelper from './custom/sidebar-helper';
 import scrollClick from './custom/scroll-click';
+import boxSearch from './custom/box-search';
 
 export default class Global extends PageManager {
     onReady() {
@@ -45,5 +46,6 @@ export default class Global extends PageManager {
 		widgetHelper();
 		sidebarHelper();
 		scrollClick();
+		boxSearch();
     }
 }
