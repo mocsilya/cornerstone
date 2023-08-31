@@ -246,6 +246,27 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 	font-weight: 700;
 }
 
+
+.productView-options-bulkmessage {
+	padding: .5rem 1rem;
+	border: 1px solid #cddcc8;
+	background-color: #cddcc8;
+	margin: .5rem 0 1.5rem 0;
+	border-radius: .25rem;
+}
+
+.productView-options-bulkmessage span {
+	line-height: 40px;
+	display: inline-block;
+}
+
+.productView-options-bulkmessage a.button {
+	margin: 0;
+	background-color: #fff;
+	border: 1px solid #008a06;
+	color: #008a06;
+}
+
 @media (max-width: 1260px) {
 	#tab-description {
 		display: flex;
@@ -304,7 +325,7 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 }
 
 .price-section .price.price--withoutTax {
-	color: #cc0000;
+	color: #999;
 }
 
 #tab-description .button.productView-reviewLink {
@@ -317,6 +338,35 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 
 .page-product .share-container {
 	display: none;
+}
+
+.productView-images-small {
+	@include breakpoint("xlarge") {
+		width: 40%;
+	}
+}
+
+.productView-details-small {
+	@include breakpoint("xlarge") {
+		width: 60%;
+	}
+}
+
+.productView .form-label {
+	color: #000;
+}
+
+.productView-rating .productView-info-value {
+	display: none;
+}
+
+.productView-price {
+	display: flex;
+	flex-direction: row;
+}
+
+.productView-price .price-section {
+	flex: 0 1 auto;
 }
 
 .panel-header,
@@ -361,15 +411,15 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 }
 
 .page-default .container-hero {
-	padding: 1.5rem 1.5rem 0 1.5rem;
+	padding: 0 1.5rem;
 	@include breakpoint("medium") {
-		padding: 3rem 3rem 0 3rem;
+		padding: 0 3rem;
 	}
 	@include breakpoint("large") {
-		padding: 3rem 6rem 0 6rem;
+		padding: 0 6rem;
+		max-width: calc(1440px + 12rem);
 	}
 }
-
 .heroCarousel-wrap {
 	display: flex;
 	flex-direction: column;
@@ -487,5 +537,17 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 	color: #f86e21;
 }
 
+div[data-content-region="header_bottom--global"] {
+	background: #9AD2F1;
+	text-align: center;
+	padding-left: .5rem;
+	padding-right: .5rem;
+}
 
-
+.time-container {
+	background: #fff;
+	border: none;
+	display: inline-block;
+	margin: .5rem auto;
+	border-radius: 2rem;
+}
