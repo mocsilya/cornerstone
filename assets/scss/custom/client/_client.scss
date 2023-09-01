@@ -45,6 +45,12 @@ body.with-bar .dropdown--quickSearch.is-open {
     height: calc(100vh - 102px);
 }
 
+.navUser ul li.navUser-item--iconsearch {
+	@include breakpoint("medium") {
+		padding-left: 2rem;
+	}
+}
+
 
 
 // =============================================================================
@@ -64,6 +70,7 @@ body.with-bar .dropdown--quickSearch.is-open {
 // Search dropdown
 // =============================================================================
 
+
 .dropdown--quickSearch .form-field-submit .button {
 	line-height: 24px;
 	padding: .75rem 1.5rem;
@@ -71,12 +78,6 @@ body.with-bar .dropdown--quickSearch.is-open {
 
 .dropdown--quickSearch .form-field-input .form-input {
 	line-height: 24px;
-}
-
-.header--boxsearch .form-search-box .form-input, .navUser .form-search-box .form-input {
-	@include breakpoint("large") {
-		min-width: 350px;
-	}
 }
 
 
@@ -89,13 +90,17 @@ body.with-bar .dropdown--quickSearch.is-open {
 .navUser-item--iconsearch .navUser-action {
     @include breakpoint("medium") {
         border-left: 1px solid #ccc;
-        padding-left: 2rem;
+        padding-left: 1.5rem;
+		padding-right: 1.5rem;
+		min-width: 140px;
+		max-width: 140px;
     }
 }
 
 .navUser-item--iconsearch .navUser-text {
 	@include breakpoint("medium") {
-		min-width: 110px;
+		min-width: 60px;
+		width: 60px;
 	}
 }
 
@@ -142,7 +147,7 @@ body.with-bar .dropdown--quickSearch.is-open {
 	display: none;
 	@include breakpoint("large") {
 		display: inline-block;
-		padding: 1rem 2rem;
+		padding: 1rem 2rem 1rem 0;
 		border-right: 1px solid #ccc;
 		font-weight: 700;
 		margin-right: 1.75rem;
@@ -152,6 +157,15 @@ body.with-bar .dropdown--quickSearch.is-open {
 	@include breakpoint("xlarge") {
 		font-size: 20px;
 		font-weight: 400;
+	}
+}
+
+.navUser-section.navUser-section--alt.navUser-section-left {
+	@include breakpoint("medium") {
+		min-width: 360px;
+	}
+	@include breakpoint("large") {
+		min-width: 680px;
 	}
 }
 
@@ -567,6 +581,14 @@ body.scroll .navPages > ul > li > .navPages-action.is-open:hover {
 .form-option-swatch {
 	border-radius: 50%;
 }
+
+.productView-info-name.upc-label,
+.productView-info-value.upc-value,
+.productView-info-name.customfield-label,
+.productView-info-value.customfield-value {
+	display: none !important;
+}
+
 
 
 // =============================================================================
