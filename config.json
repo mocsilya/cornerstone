@@ -66,6 +66,7 @@
     "custom-homepage-carousel-button-color-hover": "#ffffff",
     "custom-homepage-carousel-button-background": "#7fb24c",
     "custom-homepage-carousel-button-background-hover": "#333333",
+    "custom_homepage_product_default": "featured",
     "custom_homepage_show_tabs": false,
     "custom_homepage_featured_carousel": false,
     "custom_homepage_featured_title": "Featured Bikes",

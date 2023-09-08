@@ -57,7 +57,7 @@ customer:
 		{{/if}}
 	{{/if}}
 	{{#unless theme_settings.hide_category_page_heading }}
-	    <h1 class="page-heading">{{category.name}}</h1>
+		    <h1 class="page-heading">{{#contains head.title " | "}}{{{before (split head.title ' | ') 1}}}{{else}}{{category.name}}{{/contains}}</h1>
 	{{/unless}}
 	{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 	</div>
