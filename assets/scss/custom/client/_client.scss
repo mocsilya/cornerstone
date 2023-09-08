@@ -73,6 +73,10 @@ body:not(.currency-gbp) .navPages > ul > li.navPages-item-category {
 	left: auto !important;
 }
 
+.navUser-section.navUser-section--alt.navUser-section-left {
+	min-width: 270px;
+}
+
 
 // Page Header
 // =============================================================================
@@ -673,7 +677,11 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 .card-brand-Evil .card-brand,
 .card-brand-Yeti .card-brand,
 .card-brand-Mondraker .card-brand,
-.card-brand-NS .card-brand {
+.card-brand-NS .card-brand,
+.card-brand-Santa .card-brand,
+.card-brand-Whyte .card-brand,
+.card-brand-Transition .card-brand,
+.card-brand-Trek .card-brand{
 	font-size: 0 !important;
 	height: 1.5rem;
 	background-size: contain;
@@ -682,7 +690,7 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 	color: rgba(0, 0, 0, 0);
 }
 
-.card-brand-Cube .card-brand { background-image: url('https://cdn7.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-cube.jpg'); }
+.card-brand-Cube .card-brand { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/original/image-manager/cube-logo.png?t=1693587450'); }
 .card-brand-Orbea .card-brand { background-image: url('https://cdn7.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-orbea.jpg'); }
 .card-brand-Nukeproof .card-brand { background-image: url('https://cdn7.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-nukeproof.jpg'); }
 .card-brand-Orange .card-brand { background-image: url('https://cdn7.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-orange.jpg'); }
@@ -690,6 +698,10 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 .card-brand-Yeti .card-brand { background-image: url('https://cdn7.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-yeti.jpg'); }
 .card-brand-Mondraker .card-brand { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-mondraker3.jpg?t=1598630682'); }
 .card-brand-NS .card-brand { background-image: url('https://cdn7.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-nsbikes.jpg'); }
+.card-brand-Santa .card-brand { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/original/image-manager/2023-scb-stack-logo-black.png?t=1691172494'); }
+.card-brand-Whyte .card-brand { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-whyte.png?t=1559835075'); }
+.card-brand-Transition .card-brand { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-transition.png?t=1623175065'); }
+.card-brand-Trek .card-brand { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-trek.png?t=1559835097'); }
 
 
 
@@ -1126,7 +1138,11 @@ body.currency-usd .productView:not(.show-usd):not(.show-all) .productView-option
 
 .product-icons-container {
 	position: relative;
+	height: 30px;
 	margin-bottom: .5rem;
+	@include breakpoint("small") {
+	    height: auto;
+	}
 }
 
 .payment-product .product-icons-container {
@@ -1137,6 +1153,7 @@ body.currency-usd .productView:not(.show-usd):not(.show-all) .productView-option
 	display: flex;
 	justify-content: center;
 	position: absolute;
+	top: -3px;
 	right: 0px;
 	@include breakpoint("medium") {
 		position: static;
@@ -1179,6 +1196,7 @@ body.currency-usd .productView:not(.show-usd):not(.show-all) .productView-option
 
 // Product Page
 // =============================================================================
+
 
 .productView-description-underneath {
 	margin-top: 0;
@@ -1296,6 +1314,10 @@ body.currency-usd .productView:not(.show-usd):not(.show-all) .productView-option
 		min-height: 600px;
 	}
 	
+}
+
+.productView-images .productView-image + .productView-warranty {
+	margin-top: 1.5rem;
 }
 
 
