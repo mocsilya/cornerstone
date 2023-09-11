@@ -109,6 +109,10 @@
 	text-align: center;
 	padding-top: .9rem;
 	padding-bottom: 1.1rem;
+	@include breakpoint("large") {
+		padding-top: .7rem;
+		padding-bottom: .8rem;
+	}
 }
 
 .navUser-item--home .icon {
@@ -137,6 +141,14 @@
 .navUser ul li.navUser-item--questions {
 	@include breakpoint("large") {
 		padding-right: 0.78571rem;
+	}
+}
+
+.navUser ul li.navUser-item--stories .navUser-action,
+.navUser ul li.navUser-item--questions .navUser-action {
+	@include breakpoint("large") {
+		padding-top: 1rem;
+		padding-bottom: 1rem;
 	}
 }
 
@@ -471,6 +483,18 @@ div[data-content-region=home_below_carousel] div div[data-layout-name="Layout"]:
     border: 3px solid #df4661;
     background: #df4661;
 	color: #fff;
+}
+
+.page-fertilitysmart-fertility-pills-for-women .minidesc-content .YouSave,
+.page-fertilitysmart-fertility-pills-for-women .minidesc-content .YouSave:hover {
+    border: 3px solid #e36197;
+    background: #e36197;
+}
+
+.page-fertilitysmart-fertility-pills-for-men .minidesc-content .YouSave,
+.page-fertilitysmart-fertility-pills-for-men .minidesc-content .YouSave:hover {
+    border: 3px solid #2975ab;
+    background: #2975ab;
 }
 
 .minidesc-content .YouSave:hover {
@@ -823,6 +847,8 @@ dl.productView-info {
 .productView-description-underneath .description-content {
 	text-align: center;
 	margin-bottom: 0 !important;
+	float: none;
+	clear: both;
 	@include breakpoint("large") {
 		display: flex;
 		flex-wrap: wrap;
