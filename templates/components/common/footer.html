@@ -17,6 +17,27 @@
         </div>
     {{/if}}
 {{/if}}
+
+{{#if page_type '==' 'default'}}
+	{{{region name="home_below_bottom_banner"}}}
+{{else if page_type '==' 'category'}}
+	{{{region name="category_below_bottom_banner"}}}
+{{else if page_type '==' 'product'}}
+	{{{region name="product_below_bottom_banner"}}}
+{{else if page_type '==' 'page'}}
+	{{{region name="page_below_bottom_banner"}}}
+{{else if page_type '==' 'brands'}}
+	{{{region name="brands_below_bottom_banner"}}}
+{{else if page_type '==' 'brand'}}
+	{{{region name="brand_below_bottom_banner"}}}
+{{else if page_type '==' 'cart'}}
+	{{{region name="cart_below_bottom_banner"}}}
+{{else if page_type '==' 'search'}}
+	{{{region name="search_below_bottom_banner"}}}
+{{else}}
+	{{{region name="general_below_bottom_banner"}}}
+{{/if}}
+
 <div class="footer-globalregion"{{#unless theme_settings.custom_footer_global_region}} style="display:none;"{{/unless}}>
 	{{{region name="footer_top--global"}}}
 </div>
@@ -77,7 +98,7 @@
 		                <h3 class="footer-info-heading"><a href="{{url}}">{{name}}</a></h3>
 		                <ul class="footer-info-list">
 		                    {{#each children}}
-		                        <li>
+		                        <li class="link-{{dashcase (lowercase (sanitize name))}}">
 		                            <a href="{{url}}">{{name}}</a>
 		                        </li>
 		                    {{/each}}
@@ -92,7 +113,7 @@
                     {{#each pages}}
 						{{#unless (lowercase name) '==' 'header'}}	
 						{{#unless children}}
-                        <li>
+                        <li class="link-{{dashcase (lowercase (sanitize name))}}">
                             <a href="{{url}}">{{name}}</a>
                         </li>
 						{{/unless}}
@@ -100,27 +121,27 @@
                     {{/each}}
 					{{#if (getVar "b2b-products") '===' 'show'}}
 						{{#if theme_settings.custom_footer_show_sitemap}}
-                    	<li>
+                    	<li class="link-sitemap">
                         	<a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
                     	</li>
 						{{/if}}
 					{{/if}}
-                    <li>
+                    <li class="link-cart">
                         <a href="{{urls.cart}}">{{lang 'common.cart'}}</a>
                     </li>
 		            {{#if customer}}
-		                <li>
+		                <li class="link-account">
 							<a href="{{urls.account.index}}" aria-label="{{lang 'common.account'}}">My {{lang 'common.account'}}</a>
 						</li>
-						<li>
+						<li class="link-logout">
 			                <a href="{{urls.auth.logout}}" aria-label="{{lang 'common.logout'}}">{{lang 'common.logout'}}</a>
 						</li>
 		            {{else}}
-						<li>
+						<li class="link-login">
 		                	<a href="{{urls.auth.login}}" aria-label="{{lang 'common.login'}}">{{lang 'common.login'}}</a>
 						</li>
 		                {{#if settings.account_creation_enabled}}
-						<li>
+						<li class="link-create-account">
 		                    <a href="{{urls.auth.create_account}}" aria-label="{{lang 'common.sign_up'}}">{{lang 'common.sign_up'}}</a>
 						</li>
 		                {{/if}}
@@ -131,22 +152,22 @@
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
                 <h3 class="footer-info-heading">{{lang 'common.account'}}</h3>
                 <ul class="footer-info-list">
-                    <li>
+                    <li class="link-cart">
                         <a href="{{urls.cart}}">{{lang 'common.cart'}}</a>
                     </li>
 		            {{#if customer}}
-		                <li>
+		                <li class="link-account">
 							<a href="{{urls.account.index}}" aria-label="{{lang 'common.account'}}">My {{lang 'common.account'}}</a>
 						</li>
-						<li>
+						<li class="link-logout">
 			                <a href="{{urls.auth.logout}}" aria-label="{{lang 'common.logout'}}">{{lang 'common.logout'}}</a>
 						</li>
 		            {{else}}
-						<li>
+						<li class="link-login">
 		                	<a href="{{urls.auth.login}}" aria-label="{{lang 'common.login'}}">{{lang 'common.login'}}</a>
 						</li>
 		                {{#if settings.account_creation_enabled}}
-						<li>
+						<li class="link-create-account">
 		                    <a href="{{urls.auth.create_account}}" aria-label="{{lang 'common.sign_up'}}">{{lang 'common.sign_up'}}</a>
 						</li>
 		                {{/if}}
@@ -158,14 +179,14 @@
                 <ul class="footer-info-list">
                     {{#each pages}}
 					{{#unless (lowercase name) '==' 'header'}}
-                        <li>
+                        <li class="link-{{dashcase (lowercase (sanitize name))}}">
                             <a href="{{url}}">{{name}}</a>
                         </li>
 					{{/unless}}
                     {{/each}}
 					{{#if (getVar "b2b-products") '===' 'show'}}
 						{{#if theme_settings.custom_footer_show_sitemap}}
-                    	<li>
+                    	<li class="link-sitemap">
                         	<a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
                     	</li>
 						{{/if}}
@@ -182,7 +203,7 @@
 		                <h3 class="footer-info-heading"><a href="{{url}}">{{name}}</a></h3>
 		                <ul class="footer-info-list">
 		                    {{#each children}}
-		                        <li>
+		                        <li class="link-{{dashcase (lowercase (sanitize name))}}">
 		                            <a href="{{url}}">{{name}}</a>
 		                        </li>
 		                    {{/each}}
@@ -204,7 +225,7 @@
                 <ul class="footer-info-list">
                     {{#each categories}}
 						{{#unless children}}
-                        <li>
+                        <li class="link-{{dashcase (lowercase (sanitize name))}}">
                             <a href="{{url}}">{{name}}</a>
                         </li>
 						{{/unless}}
@@ -217,7 +238,7 @@
                 <h3 class="footer-info-heading">{{lang 'footer.categories'}}</h3>
                 <ul class="footer-info-list">
                     {{#each categories}}
-                        <li>
+                        <li class="link-{{dashcase (lowercase (sanitize name))}}">
                             <a href="{{url}}">{{name}}</a>
                         </li>
                     {{/each}}
@@ -230,11 +251,11 @@
                 <h3 class="footer-info-heading">{{lang 'footer.brands'}}</h3>
                 <ul class="footer-info-list">
                     {{#each shop_by_brand}}
-                        <li>
+                        <li class="link-{{dashcase (lowercase (sanitize name))}}">
                             <a href="{{url}}">{{name}}</a>
                         </li>
                     {{/each}}
-                    <li><a href="{{urls.brands}}">{{lang 'common.view_all'}}</a></li>
+                    <li class="link-brand-all"><a href="{{urls.brands}}">{{lang 'common.view_all'}}</a></li>
                 </ul>
             </article>
             {{/and}}
@@ -259,6 +280,7 @@
 					</p>
                 {{/if}}
 				{{> components/custom/client/client-footer-bottom}}
+				{{{region name="footer_info--global"}}}
             </article>
 
         </section>

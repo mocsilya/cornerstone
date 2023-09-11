@@ -1,6 +1,6 @@
 <a href="#main-content" class="skip-to-main-link">{{lang 'header.skip_to_main'}}</a>
 <header class="header" role="banner">
-    <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+    <a href="#" class="mobileMenu-toggle mobileMenu-{{theme_settings.custom_header_icon_style}}" data-mobile-menu-toggle="menu">
         <span class="mobileMenu-toggleIcon">Toggle menu</span>
     </a>
     {{> components/common/navigation}}
@@ -9,13 +9,6 @@
     </div>
 	{{> components/custom/client/client-header}}
 </header>
-{{#if (getVar "b2b-products") '===' 'show'}}
-	{{#if theme_settings.custom_header_search_type '===' 'box'}}
-	<div class="header--boxsearch">
-		{{> components/custom/navigation-search}}
-	</div>
-	{{/if}}
-{{/if}}
 {{#if theme_settings.custom_header_show_bar}}
 	{{> components/custom/header-bar}}
 {{/if}}

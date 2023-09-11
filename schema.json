@@ -306,19 +306,19 @@
         "options": [
           {
             "value": "none",
-            "label": "None"
+            "label": "Standard (Level 1 Only)"
           },
           {
             "value": "slim",
-            "label": "Slim"
+            "label": "Slim (All Categories)"
           },
           {
             "value": "medium",
-            "label": "Medium"
+            "label": "Medium (All Categories)"
           },
           {
             "value": "deep",
-            "label": "Deep"
+            "label": "Deep (All Categories)"
           }
         ]
       },
@@ -1025,6 +1025,10 @@
           {
             "value": "cart",
             "label": "Cart"
+          },
+          {
+            "value": "dolly",
+            "label": "Dolly"
           }
         ]
       },
@@ -1746,6 +1750,10 @@
           {
             "value": "right",
             "label": "Right"
+          },
+          {
+            "value": "split",
+            "label": "Split"
           }
         ]
       },

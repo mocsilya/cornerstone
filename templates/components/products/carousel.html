@@ -4,6 +4,10 @@
         "infinite": false,
         "mobileFirst": true,
         "swipe": true,
+		"draggable": true,
+		"touchMove": true,
+		"speed": 1000,
+		{{#if theme_settings.custom_homepage_carousel_transition "==" "fade"}}"fade": true,{{/if}}
         "slidesToShow": 1,
         "slidesToScroll": 1,
         "slide": "[data-product-slide]",
@@ -40,7 +44,7 @@
     }'
 >
     {{#each products}}
-    <div data-product-slide class="productCarousel-slide js-product-slide {{#filter custom_fields 'hidden' property='name' }}{{#if value '==' 'spotlight'}} spotlight{{else if value '==' 'payment'}} payment{{/if}}{{/filter}}">
+    <div data-product-slide class="productCarousel-slide js-product-slide {{#filter custom_fields 'hidden' property='name' }}{{#if value '==' 'spotlight'}} spotlight{{else if value '==' 'payment'}} payment{{/if}}{{/filter}}{{#each custom_fields}}{{#if name '==' '_class'}} {{value}}{{/if}}{{/each}}">
         {{> components/products/card show_rating=../settings.show_product_rating settings=../settings theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
     </div>
     {{/each}}

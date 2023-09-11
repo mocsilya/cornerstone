@@ -42,6 +42,11 @@
                                     {{> components/common/login-for-pricing}}
                                 {{/or}}
                             </span>
+							<span class="previewCartItem-remove">
+								<a class="cart-remove-alt icon" href="/cart.php?action=remove&item={{id}}" onclick="Cart.RemoveItem('{{id}}'); return false;"  title="Remove">
+									<svg><use href="#icon-close"></use></svg>
+								</a>
+							</span>
                         </div>
                     </li>
                 {{/each}}

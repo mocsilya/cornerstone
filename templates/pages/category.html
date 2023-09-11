@@ -21,6 +21,7 @@ customer:
 {{/partial}}
 
 {{#partial "hero"}}
+{{{region name="category_below_menu"}}}
 <div class="container container-hero">
 	{{#if breadcrumbs.[1].name '==' 'Brands'}}
 		<div class="page-header category-header">
@@ -56,7 +57,7 @@ customer:
 		{{/if}}
 	{{/if}}
 	{{#unless theme_settings.hide_category_page_heading }}
-	    <h1 class="page-heading">{{category.name}}</h1>
+		    <h1 class="page-heading">{{#contains head.title " | "}}{{{before (split head.title ' | ') 1}}}{{else}}{{category.name}}{{/contains}}</h1>
 	{{/unless}}
 	{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 	</div>
@@ -100,10 +101,10 @@ customer:
 {{/if}}
 {{#if (getVar "b2b-products") '===' 'show'}}
 {{#if category.subcategories}}
-    <div class="subcategories-above subcategories--{{theme_settings.custom_category_sidebar_display}}">
-		<ul class="subcategories-grid{{#unless breadcrumbs.[1].name '==' 'Brands'}}{{#unless theme_settings.custom_category_show_blocks}} subcategories-grid-blockless{{/unless}}{{/unless}}">
+    <div class="subcategories-above subcategories--{{theme_settings.custom_category_sidebar_display}}{{#unless category.products}} subcategories--noproducts{{/unless}}">
+		<ul class="subcategories-grid{{#if (getVar 'subimage') '===' 'active'}} subcategories-grid-image{{/if}}{{#unless breadcrumbs.[1].name '==' 'Brands'}}{{#unless theme_settings.custom_category_show_blocks}} subcategories-grid-blockless{{/unless}}{{/unless}}">
 			{{#each category.subcategories}}
-			<li class="subcategories-grid-item">
+			<li class="subcategories-grid-item subcategories-grid-item-{{dashcase (lowercase (sanitize name))}}">
 				<div class="subcategories-container">
 				{{#if ../theme_settings.custom_category_show_blocks}}
 					<a href="{{url}}">

@@ -788,7 +788,7 @@
     "default": "Page header text color"
   },
   "i18n.PageHeaderImageDepth": {
-    "default": "Page header image depth"
+    "default": "Page header image display"
   },
   "i18n.PageHeaderImageBlog": {
     "default": "Blog list header image"
