@@ -368,8 +368,8 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 
 .cart-actions .button--primary.button--finance {
 	display: inline-block;
-	background: #cc3333;
-	border: 1px solid #cc3333;
+	background: #003C65;
+	border: 1px solid #003C65;
 	color: #fff;
 	margin-bottom: 10px;
 }
@@ -490,8 +490,8 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 }
 
 #form-action-finance {
-	background: #cc3333;
-	border: 1px solid #cc3333;
+	background: #003C65;
+	border: 1px solid #003C65;
 	color: #fff;
 	font-weight: 700;
 	margin-bottom: 0px;
@@ -532,6 +532,20 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 	bottom: 0;
 }
 
+.klarna-promo {
+	padding: .25rem;
+	background-color: #FFB3C7;
+	border-radius: .25rem;
+}
+
+.klarna-heading {
+	padding: .75rem;
+	font-size: 1.125rem;
+	text-align: center;
+	color: #000;
+	line-height: 1.2;
+}
+
 
 // Video player
 // =============================================================================
@@ -568,7 +582,7 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 	border-top: none;
 	border-right: 12px solid transparent;
 	border-left: 12px solid transparent;
-	border-bottom: 12px solid #cc3333;
+	border-bottom: 12px solid #003C65;
 }
 
 #imega-widget-anchor div.imega-anchor-top {
@@ -586,7 +600,7 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 }
 
 #imega-widget-anchor div.imega-anchor-top #imega-see-info {
-    background: #cc3333 !important;
+    background: #003C65 !important;
     color: #fff !important;
     text-transform: uppercase !important;
     font-weight: bold !important;
@@ -649,7 +663,7 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 }
 
 #imega-modal .imega-modal-body h3 {
-    background: #cc3333 !important;
+    background: #003C65 !important;
 	color: #ffffff !important;
 	border-radius: 4px 4px 0 0 !important;
 }

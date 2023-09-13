@@ -1,14 +1,13 @@
 <div class="cart-actions cart-content-padding-right">
-	<a class="button button--primary button--finance" href="{{urls.checkout.single_address}}" title="Apply For Finance">
+	<a style="display: none;" class="button button--primary button--finance" href="{{urls.checkout.single_address}}" title="Apply For Finance">
 		<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-discount" /></svg></i> <strong>&nbsp;Apply For Finance</strong>
 	</a>
 	<a class="button button--primary button--cycle" href="/cycle-to-work-pre-order/" title="Cycle To Work">
 		<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-bicycle" /></svg></i> <strong>&nbsp;Pay via 'Cycle To Work'</strong>
 	</a>
-	<klarna-placement
-	  data-key="top-strip-promotion-badge"
-	  data-locale="en-GB"
-	></klarna-placement>
+	<span style="display: block; border: 2px solid #333; color: #7FB24C; padding: 1rem; text-align: center;">
+		<strong>0% finance options (such as Klarna) are available during checkout.</strong>
+	</span>
 	{{> components/common/payment-icons}}
 </div>
 <div class="cart-terms" style="display: none;">
