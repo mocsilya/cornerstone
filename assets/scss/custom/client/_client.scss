@@ -376,9 +376,9 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 
 .cart-actions .button--primary.button--cycle {
 	display: inline-block;
-	background: #189ac9;
-	border: 1px solid #189ac9;
-	color: #fff;
+	background: #fff;
+	border: 1px solid #333;
+	color: #189ac9;
 	margin-bottom: 10px;
 }
 
@@ -386,6 +386,12 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 	background: #333;
 	border: 1px solid #333;
 	color: #fff;
+}
+
+.cart-actions .button--primary.button--cycle:hover {
+	background: #fff;
+	border: 1px solid #333;
+	color: #333;
 }
 
 .cart-actions .footer-payment-icons {
@@ -482,9 +488,9 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 }
 
 #form-action-cycle {
-	background: #189ac9;
-	border: 1px solid #189ac9;
-	color: #fff;
+	background: #fff;
+	border: 1px solid #333;
+	color: #189ac9;
 	font-weight: 700;
 	margin-bottom: 10px;
 }
@@ -497,11 +503,16 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 	margin-bottom: 0px;
 }
 
-#form-action-finance:hover,
-#form-action-cycle:hover {
+#form-action-finance:hover {
 	background: #333;
 	border: 1px solid #333;
 	color: #fff;
+}
+
+#form-action-cycle:hover {
+	background: #fff;
+	border: 1px solid #333;
+	color: #333;
 }
 
 .add-to-cart-preorder #form-action-finance,
@@ -526,10 +537,13 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
     display: none !important;
 }
 
-
 .productView-img-badge {
 	top: auto;
 	bottom: 0;
+}
+
+#form-action-addToCart {
+	text-transform: uppercase;
 }
 
 .klarna-promo {
@@ -544,6 +558,10 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 	text-align: center;
 	color: #000;
 	line-height: 1.2;
+}
+
+.page-cycle-to-work-pre-order .klarna-promo {
+	display: none;
 }
 
 
@@ -1334,6 +1352,11 @@ body.currency-usd .productView:not(.show-usd):not(.show-all) .productView-option
 	margin-top: 1.5rem;
 }
 
+.form-action-buttons #form-action-finance,
+.page-product #imega-widget-anchor {
+	display: none;
+}
+
 
 // Custom Tabs
 // =============================================================================
@@ -1356,7 +1379,7 @@ body.currency-usd .productView:not(.show-usd):not(.show-all) .productView-option
 // =============================================================================
 
 .footer {
-	background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/stencil/1268dd20-d3bf-0137-47ce-0242ac110021/e/0a620990-63e9-0139-4d60-266e81368fc3/img/client/footer-bar.png');
+	background-image: url('../img/custom/footer-bar.png');
 	background-repeat: repeat-x;
 	background-position: center bottom;
 	padding-bottom: 80px;
