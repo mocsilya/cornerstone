@@ -402,6 +402,7 @@
                 {{/if}}
 				{{/if}}
             </form>
+			<div class="productView-under-add">
 			{{#if (getVar "b2b-prices") '===' 'show'}}
 			{{#or customer (unless settings.hide_price_from_guests)}}
             {{#all settings.show_wishlist theme_settings.custom_product_wishlist_show}}
@@ -409,6 +410,8 @@
             {{/all}}
 			{{/or}}
 			{{/if}}
+			{{> components/common/share url=product.url}}
+			</div>
 			{{> components/custom/client/client-product-bottom}}
 			<div class="productView-bottom-global">
 			{{{region name="product_bottom--global"}}}
@@ -424,7 +427,6 @@
 	  			</div>
 			{{/filter}}
         </div>
-        {{> components/common/share url=product.url}}
     </section>
 
     <article class="productView-description productView-description-{{theme_settings.custom_product_description_location}} productView-description-{{theme_settings.custom_product_gallery_size}}">
