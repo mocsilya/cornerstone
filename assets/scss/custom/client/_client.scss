@@ -1405,11 +1405,10 @@ dl.productView-info {
 
 .cart-content-actions .cart-actions,
 .cart-content-actions .button--primary {
+    width: 100%  !important;
+	max-width: none !important;
 	border-radius: 999px;
-	@include breakpoint("medium") {
-		width: 100%;
-		max-width: 100%;
-	}
+	font-size: 16px;
 }
 
 .page-cart .product-shipping {
@@ -1427,6 +1426,7 @@ dl.productView-info {
 
 .productGrid-bundle {
 	grid-template-columns: repeat(2, 1fr);
+	border: 0;
 	@include breakpoint("medium") {
 		grid-template-columns: repeat(3, 1fr);
 	}
@@ -1437,9 +1437,14 @@ dl.productView-info {
 
 .productGrid-bundle .product {
 	padding: 0 0 1.5rem 0;
+	border: 0;
 	@include breakpoint("large") {
 		padding: 0;
 	}
+}
+
+.productGrid-bundle .product:first-child {
+	border: 0;
 }
 
 .productGrid-bundle .card-figure {
