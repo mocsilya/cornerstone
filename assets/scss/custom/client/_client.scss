@@ -338,6 +338,24 @@ body.page-spray-booths .pp-pay-in-3 {
 	align-items: center;
 }
 
+.card-price,
+.listItem-price {
+	display: flex;
+	flex-direction: column;
+}
+
+.card-price .price-section--withoutTax,
+.listItem-price .price-section--withoutTax {
+	order: 1;
+	color: stencilColor('color-primaryLight') !important;
+}
+
+.card-price .price-section--withTax,
+.listItem-price .price-section--withTax {
+	order: 2;
+	color: stencilColor('color-textBase') !important;
+}
+
 
 
 // =============================================================================
@@ -348,7 +366,7 @@ body.page-spray-booths .pp-pay-in-3 {
 	width: 100% !important;
 }
 
-.page-product .share-container {
+.page-product  .share-container {
     display: none;
 }
 
@@ -356,7 +374,38 @@ body.page-spray-booths .pp-pay-in-3 {
     margin-top: 0;
 }
 
+.productView-details .price-section.price-section--withoutTax,
+.productView-details .price-section.price-section--withoutTax.non-sale-price--withoutTax,
+.productView-details .price-section.price-section--withoutTax.rrp-price--withoutTax {
+	order: 1;
+	color: stencilColor('color-primaryLight') !important;
+}
 
+.productView-details .price-section.price-section--withTax,
+.productView-details .price-section.price-section--withTax.non-sale-price--withTax,
+.productView-details .price-section.price-section--withTax.rrp-price--withTax {
+	order: 2;
+	color: stencilColor('color-textBase') !important;
+}
+
+.productView-details .price-section.price-section--saving {
+	order: 3;
+}
+
+
+.page-product .card-price .price-section--withoutTax {
+	order: 1;
+	padding-right: 0;
+	font-weight: 400;
+	flex: 1 1 auto;
+}
+
+.page-product .card-price .price-section--withTax {
+	order: 2;
+	padding-right: 0;
+	font-weight: 700;
+	flex: 1 1 auto;
+}
 
 
 // =============================================================================
