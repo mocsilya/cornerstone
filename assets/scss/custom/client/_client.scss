@@ -2,6 +2,11 @@
 // Custom > Client
 // =============================================================================
 
+.page-default .banners[data-banner-location="top"],
+.page-default .banners[data-banner-location="bottom"] {
+	display: none;
+}
+
 header.header {
 	/*
 	-webkit-box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.1);
