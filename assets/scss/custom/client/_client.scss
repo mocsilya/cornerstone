@@ -578,10 +578,6 @@ body.scroll .navPages > ul > li > .navPages-action.is-open:hover {
 	display: none;
 }
 
-.form-option-swatch {
-	border-radius: 50%;
-}
-
 .productView-info-name.upc-label,
 .productView-info-value.upc-value,
 .productView-info-name.customfield-label,
@@ -589,6 +585,10 @@ body.scroll .navPages > ul > li > .navPages-action.is-open:hover {
 	display: none !important;
 }
 
+
+.page-product .form-increment .form-input--incrementTotal {
+	padding: 12px 0;
+}
 
 
 // =============================================================================
