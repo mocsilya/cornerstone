@@ -83,7 +83,7 @@
                     {{/if}}
 
                 </td>
-                <td class="cart-item-block cart-item-info">
+                <td class="cart-item-block cart-item-info cart-item-price">
                     <span class="cart-item-label">{{lang 'cart.checkout.price'}}</span>
                     {{#or ../customer (unless ../settings.hide_price_from_guests) (if type '==' 'GiftCertificate')}}
                         <span class="cart-item-value {{#if price_discounted}}price--discounted{{/if}}">{{price.formatted}}</span>
@@ -106,7 +106,7 @@
                                     data-action="dec"
                             >
                                 <span class="is-srOnly">{{lang 'products.quantity_decrease' name=name}}</span>
-                                <i class="icon" aria-hidden="true"><svg><use href="#icon-keyboard-arrow-down" /></svg></i>
+                                <i class="icon" aria-hidden="true"><svg><use href="#icon-minus" /></svg></i>
                             </button>
                         {{/if}}
                         <input class="form-input form-input--incrementTotal cart-item-qty-input"
@@ -131,14 +131,14 @@
                                     data-action="inc"
                             >
                                 <span class="is-srOnly">{{lang 'products.quantity_increase' name=name}}</span>
-                                <i class="icon" aria-hidden="true"><svg><use href="#icon-keyboard-arrow-up" /></svg></i>
+                                <i class="icon" aria-hidden="true"><svg><use href="#icon-plus" /></svg></i>
                             </button>
                         {{/if}}
                     </div>
 
                 </td>
 
-                <td class="cart-item-block cart-item-info">
+                <td class="cart-item-block cart-item-info cart-item-total">
                     <span class="cart-item-label">{{lang 'cart.checkout.total'}}</span>
                     {{#or ../customer (unless ../settings.hide_price_from_guests) (if type '==' 'GiftCertificate')}}
                         <strong class="cart-item-value {{#if total_discounted}}price--discounted{{/if}}">{{total.formatted}}</strong>
@@ -155,11 +155,11 @@
                                 data-confirm-delete="{{lang 'cart.confirm_delete'}}"
                                 aria-label="{{lang 'cart.remove_item' name=name}}"
                         >
-                            <svg><use href="#icon-close"></use></svg>
+                            <svg><use href="#icon-delete"></use></svg>
                         </button>
 						{{else}}
 						<a class="cart-remove-alt icon" href="cart.php?action=remove&item={{id}}" onclick="Cart.RemoveItem('{{id}}'); return false;"  title="Remove">
-							<svg><use href="#icon-close"></use></svg>
+							<svg><use href="#icon-delete"></use></svg>
 						</a>
 						{{/if}}
                     {{/or}}
