@@ -190,7 +190,7 @@
     "custom_category_show_parents": true,
     "custom_category_max_columns": 5,
     "custom_category_show_blocks": true,
-    "custom_category_description_trim": true,
+    "custom_category_description_trim": false,
     "custom_brand_az_minimum": 50,
     "custom-page-header-text": "#312E29",
     "custom-page-header-background": "#f0f0f0",
