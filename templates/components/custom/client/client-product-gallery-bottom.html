@@ -4,6 +4,12 @@
 {{#contains product.sku "C4M"}}{{assignVar "sku-type" "cfm"}}{{/contains}}
 {{#contains product.sku "CFM"}}{{assignVar "sku-type" "cfm"}}{{/contains}}
 {{#unless (getVar "sku-type") '===' 'none'}}
+{{#if product.warranty}}
+<div class="minidesc-content">
+	{{{product.warranty}}}
+</div>
+{{/if}}
+<!--
 <div class="productView-image-ingredients">
     <ul>
         <li class="ingredient-cfw">
@@ -35,8 +41,10 @@
 		<a class="button button--secondary scroll-click" href="#ingredients">All Ingredients</a>
 	</div>
 </div>
+-->
 {{/unless}}
 </div>
+<!--
 <div class="productView-trust-wrap">
 	<div class="productView-trust-2">
 		<ul>
@@ -63,3 +71,4 @@
 		</ul>
 	</div>								
 </div>
+-->

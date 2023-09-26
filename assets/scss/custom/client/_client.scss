@@ -272,7 +272,7 @@
 	background-color: rgba(227,97,151,.15);
 }
 
-.page-fertilitysmart-fertility-pills-for-men .quick-add {
+.page-test-fertilitysmart-fertility-pills-for-men .quick-add {
 	background-color: rgba(41,117,171,.15);
 }
 
@@ -292,6 +292,7 @@ body.scroll .quick-add {
 .quick-add .button {
 	margin: 0 2px;
 	min-width: 150px;
+	border-radius: 999px;
 }
 
 .quick-add .button--addthree {
@@ -428,6 +429,10 @@ div[data-content-region=home_below_carousel] div div[data-layout-name="Layout"]:
 	margin: 0;
 }
 
+.productView-options > .form {
+	margin-bottom: 1rem;
+}
+
 .minidesc-content h3 {
     font-size: 16px;
     margin-top: 0;
@@ -447,31 +452,41 @@ div[data-content-region=home_below_carousel] div div[data-layout-name="Layout"]:
     line-height: 24px;
     margin: 0 0 8px 0;
     list-style: none;
-    background-image: url("../img/custom/tick.png");
+    /* background-image: url("../img/custom/tick.png"); */
     background-position: left top;
     background-repeat: no-repeat;
-	font-size: 13px;
+	font-size: 14px;
+	position: relative;
 }
 
-.page-fertilitysmart-fertility-pills-for-women .minidesc-content ul li {
-    background-image: url("../img/custom/tick-cfw.png");
+.minidesc-content ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 19px;
+    height: 19px;
+    background-image: url('../img/custom/tick.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 }
 
-.page-fertilitysmart-fertility-pills-for-men .minidesc-content ul li {
-    background-image: url("../img/custom/tick-cfm.png");
-}
-
-.minidesc-content .product-offer {
+.product-offer {
 	display: block;
-    border: 3px solid #eee;
     border-radius: 5px;
     text-align: center;
     padding: 1rem;
-    margin-bottom: .5rem;
+    margin: 1rem 0;
 	text-decoration: none;
 }
 
-.minidesc-content .offer-heading {
+.page-test-fertilitysmart-fertility-pills-for-men .product-offer:not(.YouSave) {
+	background-color: rgba(41, 117, 171, 0.1);
+}
+
+.product-offer .offer-heading {
 	display: block;
     font-size: 1.25em;
 	font-weight: 700;
@@ -479,35 +494,47 @@ div[data-content-region=home_below_carousel] div div[data-layout-name="Layout"]:
 	text-transform: uppercase;
 }
 
-.minidesc-content .offer-text {
+.page-test-fertilitysmart-fertility-pills-for-men .product-offer:not(.YouSave) .offer-heading {
+	color: #2975ab;
+}
+
+.product-offer .offer-text {
 	display: block;
 }
 
-.minidesc-content .YouSave,
-.minidesc-content .YouSave:hover {
+.product-offer.YouSave,
+.product-offer.YouSave:hover {
     border: 3px solid #df4661;
     background: #df4661;
 	color: #fff;
+	border-radius: 999px;
+	padding: 10px 1rem 9px 1rem;
 }
 
-.page-fertilitysmart-fertility-pills-for-women .minidesc-content .YouSave,
-.page-fertilitysmart-fertility-pills-for-women .minidesc-content .YouSave:hover {
+.page-fertilitysmart-fertility-pills-for-women .product-offer.YouSave,
+.page-fertilitysmart-fertility-pills-for-women .product-offer.YouSave:hover {
     border: 3px solid #e36197;
     background: #e36197;
 }
 
-.page-fertilitysmart-fertility-pills-for-men .minidesc-content .YouSave,
-.page-fertilitysmart-fertility-pills-for-men .minidesc-content .YouSave:hover {
+.page-test-fertilitysmart-fertility-pills-for-men .product-offer.YouSave,
+.page-test-fertilitysmart-fertility-pills-for-men .product-offer.YouSave:hover {
     border: 3px solid #2975ab;
     background: #2975ab;
 }
 
-.minidesc-content .YouSave:hover {
+.product-offer.YouSave:hover {
     opacity: 0.9;
 }
 
-.minidesc-content .YouSave .offer-text {
-	font-weight: 700;
+.product-offer.YouSave .offer-heading {
+	display: inline-block;
+	font-size: 16px;
+}
+
+.product-offer.YouSave .offer-text {
+	display: inline-block;
+	font-size: 16px;
 }
 
 dl.productView-info {
@@ -569,6 +596,7 @@ dl.productView-info {
 	width: 100%;
 }
 
+.productView-under-add,
 .product-options .share-container,
 .page-product .add-to-cart-wallet-buttons {
     display: none;
@@ -579,16 +607,19 @@ dl.productView-info {
 	border-top-left-radius: 999px;
 	border-bottom-left-radius: 999px;
 	border-right: 0;
+	background-color: #fff;
 }
 
 .form-increment button[data-action="inc"] {
 	border-top-right-radius: 999px;
 	border-bottom-right-radius: 999px;
 	border-left: 0;
+	background-color: #fff;
 }
 
 .form-increment .form-input--incrementTotal {
 	width: 3rem;
+	padding: 12px 0;
 }
 
 .productView-options .form-action .button--primary {
@@ -597,13 +628,16 @@ dl.productView-info {
 
 .product-shipping {
 	text-align: center;
-	margin-bottom: 1.5rem;
+	margin: 1rem 0;
+	background-color: rgba(100, 42, 117, 0.2);
+	border-radius: 5px;
+	padding: .75rem 1rem;
 }
 
 .product-shipping span,
 .product-shipping a,
 .product-shipping a:hover {
-	color: stencilColor("color-textBase");
+	color: #642a75;
 	text-decoration: none;
 	cursor: default;
 	opacity: 1;
@@ -611,7 +645,8 @@ dl.productView-info {
 
 .product-shipping .header-bar-icon,
 .product-shipping .header-bar-text {
-	font-size: 1.25rem;
+	font-size: 1rem;
+	font-weight: 400;
 }
 
 .product-shipping .header-bar-icon .icon {
@@ -619,33 +654,11 @@ dl.productView-info {
 	height: 1.5rem;
 }
 
-
-.page-fertilitysmart-fertility-pills-for-women .product-shipping span,
-.page-fertilitysmart-fertility-pills-for-women .product-shipping a,
-.page-fertilitysmart-fertility-pills-for-women .product-shipping a:hover {
-	color: #e36197;
-}
-
-.page-fertilitysmart-fertility-pills-for-men .product-shipping span,
-.page-fertilitysmart-fertility-pills-for-men .product-shipping a,
-.page-fertilitysmart-fertility-pills-for-men .product-shipping a:hover {
-	color: #2975ab;
-}
-
 .product-shipping .header-bar-icon .icon svg {
-	color: stencilColor("color-textBase");
-	fill: stencilColor("color-textBase");
+	color: #642a75;
+	fill: #642a75;
 }
 
-.page-fertilitysmart-fertility-pills-for-women .product-shipping .header-bar-icon .icon svg {
-	color: #e36197;
-	fill: #e36197;
-}
-
-.page-fertilitysmart-fertility-pills-for-men .product-shipping .header-bar-icon .icon svg {
-	color: #2975ab;
-	fill: #2975ab;
-}
 
 .product-shipping .header-bar-text-gbp,
 .product-shipping .header-bar-text-usd,
@@ -727,7 +740,7 @@ dl.productView-info {
 }
 
 .page-fertilitysmart-fertility-pills-for-women .productView-image-ingredients ul li.ingredient-cfw,
-.page-fertilitysmart-fertility-pills-for-men .productView-image-ingredients ul li.ingredient-cfm  {
+.page-test-fertilitysmart-fertility-pills-for-men .productView-image-ingredients ul li.ingredient-cfm  {
     display: block;
 	@include breakpoint("large") {
 		display: flex;
@@ -887,7 +900,7 @@ dl.productView-info {
 	}
 }
 
-.page-fertilitysmart-fertility-pills-for-men .productView-description-underneath .description-content {
+.page-test-fertilitysmart-fertility-pills-for-men .productView-description-underneath .description-content {
 	@include breakpoint("large") {
 		align-items: center;
 	}
@@ -897,7 +910,7 @@ dl.productView-info {
 	background-color: #fbe8f0;
 }
 
-.page-fertilitysmart-fertility-pills-for-men .description-content {
+.page-test-fertilitysmart-fertility-pills-for-men .description-content {
 	background-color: #dfebf2;
 }
 
@@ -929,7 +942,7 @@ dl.productView-info {
 	border-top: 2px solid #e36197;
 }
 
-.page-fertilitysmart-fertility-pills-for-men .description-content h2 {
+.page-test-fertilitysmart-fertility-pills-for-men .description-content h2 {
 	color: #2975ab;
 	border-top: 2px solid #2975ab;
 }
@@ -961,7 +974,7 @@ dl.productView-info {
 	stroke: #e36197;
 }
 
-.page-fertilitysmart-fertility-pills-for-men .icon--ratingFull svg {
+.page-test-fertilitysmart-fertility-pills-for-men .icon--ratingFull svg {
 	fill: #2975ab;
 	stroke: #2975ab;
 }
@@ -983,7 +996,7 @@ dl.productView-info {
 	border-bottom: 2px solid #e36197;
 }
 
-.page-fertilitysmart-fertility-pills-for-men .product-banner {
+.page-test-fertilitysmart-fertility-pills-for-men .product-banner {
 	border-bottom: 2px solid #2975ab;
 }
 
@@ -1018,8 +1031,8 @@ dl.productView-info {
 	color: #e36197;
 }
 
-.page-fertilitysmart-fertility-pills-for-men .product-banner-text,
-.page-fertilitysmart-fertility-pills-for-men h2 {
+.page-test-fertilitysmart-fertility-pills-for-men .product-banner-text,
+.page-test-fertilitysmart-fertility-pills-for-men h2 {
 	color: #2975ab;
 }
 
@@ -1107,18 +1120,18 @@ dl.productView-info {
 	border-top: 1px solid #e36197 !important;
 }
 
-.page-fertilitysmart-fertility-pills-for-men .table-ingredients {
+.page-test-fertilitysmart-fertility-pills-for-men .table-ingredients {
 	border-right: 1px solid #2975ab !important;
 	border-bottom: 1px solid #2975ab !important;
 }
 
-.page-fertilitysmart-fertility-pills-for-men .table-ingredients th {
+.page-test-fertilitysmart-fertility-pills-for-men .table-ingredients th {
 	border-left: 1px solid #2975ab !important;
 	border-top: 1px solid #2975ab !important;
 	background: #2975ab !important;
 }
 
-.page-fertilitysmart-fertility-pills-for-men .table-ingredients td {
+.page-test-fertilitysmart-fertility-pills-for-men .table-ingredients td {
 	border-left: 1px solid #2975ab !important;
 	border-top: 1px solid #2975ab !important;
 }
@@ -1634,3 +1647,173 @@ dl.productView-info {
 	border: 1px solid #e36197;
 	color: #fff;
 }
+
+
+
+
+
+.page-product .container-custom,
+.page-test-fertilitysmart-fertility-pills-for-men .container-hero + .container {
+	max-width: none;
+}
+
+
+.page-test-fertilitysmart-fertility-pills-for-men .productView.c4m {
+	background-color: #ecf4ff;
+	background-image: url('../img/custom/cfm_photo.png');
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: 1200px 600px;
+	@include breakpoint("medium") {
+		background-color: #ecf4ff;
+		background-image: url('../img/custom/cfm_photo.png');
+		background-position: top right -350px;
+		background-repeat: no-repeat;
+		background-size: 1200px 600px;
+	}
+	@include breakpoint("large") {
+		background-position: top center;
+		background-size: 1200px 600px;
+	}
+}
+
+.review-slider {
+  background-color: #EBF4FF;
+  padding: 1.5rem 3rem;
+	@include breakpoint("large") {
+		padding: 1.5rem 6rem;
+	}
+}
+
+.review-slider .slick-prev {
+	left: .75rem;
+	@include breakpoint("large") {
+		left: 1.75rem;
+	}
+}
+
+.review-slider .slick-next {
+	right: .75rem;
+	@include breakpoint("large") {
+		right: 1.75rem;
+	}
+}
+
+.review-slider .slick-track {
+	display: flex;
+	align-items: stretch;
+}
+
+.review-slider .review-slide {
+	padding: .75rem;
+	width: 100%;
+	float: none;
+	align-self: stretch;
+	height: auto;
+}
+
+.review-slider .review-slide .review-item {
+	display: flex;
+	flex-direction: column;
+	padding: 1.5rem 1rem;
+	border-radius: 20px 20px 20px 0;
+	background-color: rgba(117, 186, 235, 0.40);
+	height: 100%;
+}
+
+.review-slider .review-slide .reviews__stars {
+	display: flex;
+	list-style: none;
+	margin: 0 4px 12px 0;
+}
+
+.review-slider .review-slide .reviews__stars li {
+	padding-left: 2px;
+}
+
+.review-slider .review-slide .reviews__content {
+	color: #221D23;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	margin-bottom: 1rem;
+	font-size: 15px;
+	line-height: 1.3;
+}
+
+.review-slider .review-slide .reviews__badge {
+	max-width: 86px;
+	margin-bottom: 4px;
+	text-transform: uppercase;
+	background-color: #58bc82;
+	color: #fff;
+	padding: 2px 6px 2px 24px;
+	border-radius: 3px;
+	position: relative;
+	letter-spacing: 0.5px;
+	font-size: 12px;
+}
+
+.reviews__badge::before {
+    content: "";
+    display: block;
+    width: 9px;
+    height: 12px;
+    background-image: url('../img/custom/verified.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    left: 9px;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+}
+
+.review-slider .review-slide .reviews__date {
+	color: #868686;
+}
+
+.productView-details {
+	@include breakpoint("medium") {
+		float: left;
+		clear: left;
+	}
+	@include breakpoint("large") {
+		width: 30%;
+	}
+}
+
+.productView-images {
+	@include breakpoint("medium") {
+		float: right;
+		clear: right;
+	}
+	@include breakpoint("large") {
+		width: 30%;
+	}
+}
+
+.page-test-fertilitysmart-fertility-pills-for-men .productView-image,
+.page-test-fertilitysmart-fertility-pills-for-men .productView-thumbnails,
+.page-test-fertilitysmart-fertility-pills-for-men .productView-images .minidesc-content {
+	display: none;
+}
+
+.page-test-fertilitysmart-fertility-pills-for-men .productView-images .minidesc-content {
+	@include breakpoint("large") {
+		display: block;
+	}
+}
+
+.page-test-fertilitysmart-fertility-pills-for-men .productView-details .productView-minidesc {
+	@include breakpoint("large") {
+		display: none;
+	}
+}
+
+.page-test-fertilitysmart-fertility-pills-for-men .productView-image-wrap {
+	box-shadow: none;
+}
+
+
+
+
