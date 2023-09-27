@@ -1211,12 +1211,20 @@ dl.productView-info {
 
 #ingredients ul li div {
 	padding: 1rem;
-	background-color: #ebf4ff;
+	background-color: #eee;
     border-radius: 12px;
     background-size: 145px 143px;
     background-repeat: no-repeat;
     background-position: right bottom;
 	min-height: 200px;
+}
+
+.productView.c4w #ingredients ul li div {
+	background-color: #F5EBEF;
+}
+
+.productView.c4m #ingredients ul li div {
+	background-color: #ebf4ff;
 }
 
 #ingredients li img {
