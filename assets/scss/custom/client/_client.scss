@@ -3,6 +3,9 @@
 // =============================================================================
 //
 
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500 !important;
+}
 
 // =============================================================================
 // Header
@@ -1650,7 +1653,6 @@ dl.productView-info {
 
   .comparison__table {
       display: flex;
-      flex-wrap: wrap;
       border: 1px solid rgba(100, 42, 117, 0.4);
       border-radius: 12px;
       margin-bottom: 45px;
@@ -1685,13 +1687,14 @@ dl.productView-info {
       text-align: center;
     }
     .comparison__table-cell {
-      height: 50px;
+      height: 60px;
       display: flex;
       align-items: center;
       color: #221D23;
       padding-left: 10px;
       padding-right: 10px;
 	  overflow-y: hidden;
+	  min-width: 100px;
     }
 	
 	.comparison__table-cell:first-child  {
@@ -2276,9 +2279,15 @@ dl.productView-info {
 	}
 }
 
+@media (max-width: 800px) {
+    .custom-product-banner .custom-widget-heading {
+		font-size: 20px !important;
+    }
+}
+
 .custom-product-banner .custom-widget-content {
-	width: 60% !important;
-	margin-top: 50px;
+	width: 70% !important;
+	margin-top: 30px;
 	@include breakpoint("medium") {
 		width: 100% !important;
 		margin-top: 0px;
@@ -2289,7 +2298,7 @@ dl.productView-info {
 	background-color: #f6ebef;
 	@include breakpoint("medium") {
 		background-color: #f6ebef;
-		background-image: url('../img/custom/cfw_photo.png');
+		background-image: url('https://cdn11.bigcommerce.com/s-costxe5lpb/images/stencil/original/image-manager/cfw-photo.png?t=1695837915');
 		background-position: top right -250px;
 		background-repeat: no-repeat;
 		background-size: 1000px 500px;
@@ -2302,7 +2311,7 @@ dl.productView-info {
 .productView.c4m {
 	background-color: #ecf4ff;
 	@include breakpoint("medium") {
-		background-image: url('../img/custom/cfm_photo.png');
+		background-image: url('https://cdn11.bigcommerce.com/s-costxe5lpb/images/stencil/original/image-manager/cfm-photo.png?t=1695837919');
 		background-position: top right -250px;
 		background-repeat: no-repeat;
 		background-size: 1000px 500px;
@@ -2321,17 +2330,17 @@ dl.productView-info {
 }
 
 .productView.c4w #product_photo_mob {
-	background-image: url('../img/custom/cfw_photo.png');
+	background-image: url('https://cdn11.bigcommerce.com/s-costxe5lpb/images/stencil/original/image-manager/cfw-photo.png?t=1695837915');
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size: 1000px 500px;
+	background-size: cover;
 }
 
 .productView.c4m #product_photo_mob {
-	background-image: url('../img/custom/cfm_photo.png');
+	background-image: url('https://cdn11.bigcommerce.com/s-costxe5lpb/images/stencil/original/image-manager/cfm-photo.png?t=1695837919');
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size: 1000px 500px;
+	background-size: cover;
 }
 
 
