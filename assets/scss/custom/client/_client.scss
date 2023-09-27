@@ -268,10 +268,12 @@
 	}
 }
 
-.page-fertilitysmart-fertility-pills-for-women .quick-add {
+.page-fertilitysmart-fertility-pills-for-women .quick-add,
+.page-test-fertilitysmart-fertility-pills-for-women .quick-add {
 	background-color: rgba(227,97,151,.15);
 }
 
+.page-fertilitysmart-fertility-pills-for-men .quick-add,
 .page-test-fertilitysmart-fertility-pills-for-men .quick-add {
 	background-color: rgba(41,117,171,.15);
 }
@@ -326,7 +328,7 @@ body.scroll .quick-add {
 // =============================================================================
 
 h1, h2, h3, h4, h5, h6, .button {
-	letter-spacing: 1px;
+	
 }
 
 .button {
@@ -424,6 +426,10 @@ div[data-content-region=home_below_carousel] div div[data-layout-name="Layout"]:
 // =============================================================================
 
 
+.page-product .body {
+	margin-bottom: 0;
+}
+
 .productView {
 	padding-top: 3rem;
 	margin: 0;
@@ -482,19 +488,27 @@ div[data-content-region=home_below_carousel] div div[data-layout-name="Layout"]:
 	text-decoration: none;
 }
 
-.page-test-fertilitysmart-fertility-pills-for-men .product-offer:not(.YouSave) {
+.productView.c4w .product-offer:not(.YouSave) {
+	background-color: rgba(228, 97, 152, 0.1);
+}
+
+.productView.c4m .product-offer:not(.YouSave) {
 	background-color: rgba(41, 117, 171, 0.1);
 }
 
 .product-offer .offer-heading {
 	display: block;
-    font-size: 1.25em;
+    font-size: 16px;
 	font-weight: 700;
 	margin-bottom: .25rem;
 	text-transform: uppercase;
 }
 
-.page-test-fertilitysmart-fertility-pills-for-men .product-offer:not(.YouSave) .offer-heading {
+.productView.c4w .product-offer:not(.YouSave) .offer-heading {
+	color: #e36197;
+}
+
+.productView.c4m .product-offer:not(.YouSave) .offer-heading {
 	color: #2975ab;
 }
 
@@ -511,14 +525,14 @@ div[data-content-region=home_below_carousel] div div[data-layout-name="Layout"]:
 	padding: 10px 1rem 9px 1rem;
 }
 
-.page-fertilitysmart-fertility-pills-for-women .product-offer.YouSave,
-.page-fertilitysmart-fertility-pills-for-women .product-offer.YouSave:hover {
+.productView.c4w .product-offer.YouSave,
+.productView.c4w .product-offer.YouSave:hover {
     border: 3px solid #e36197;
     background: #e36197;
 }
 
-.page-test-fertilitysmart-fertility-pills-for-men .product-offer.YouSave,
-.page-test-fertilitysmart-fertility-pills-for-men .product-offer.YouSave:hover {
+.productView.c4m .product-offer.YouSave,
+.productView.c4m .product-offer.YouSave:hover {
     border: 3px solid #2975ab;
     background: #2975ab;
 }
@@ -739,8 +753,8 @@ dl.productView-info {
 	}
 }
 
-.page-fertilitysmart-fertility-pills-for-women .productView-image-ingredients ul li.ingredient-cfw,
-.page-test-fertilitysmart-fertility-pills-for-men .productView-image-ingredients ul li.ingredient-cfm  {
+.productView.c4w .productView-image-ingredients ul li.ingredient-cfw,
+.productView.c4m .productView-image-ingredients ul li.ingredient-cfm  {
     display: block;
 	@include breakpoint("large") {
 		display: flex;
@@ -786,55 +800,128 @@ dl.productView-info {
 
 .productView-trust-wrap {
 	margin-top: 1.5rem;
-	box-shadow: 0px 0px 0px 1px #dddddd;
+}
+
+.productView-trust-1 {
+	background-color: #642a75;
+	padding-top: 3rem;
 }
 
 .productView-trust-1 ul {
 	margin: 0;
-	padding: 10px;
+	padding: 0 1.5rem 1.5rem 1.5rem;
 	list-style: none;
 	display: flex;
 	flex-wrap: wrap;
+	align-items: flex-start;
+	@include breakpoint("medium") {
+		padding:  0 3rem 1.5rem 3rem;
+	}
 }
 
 .productView-trust-1 li {
-	margin: 10px;
-	padding: 0;
+	margin: 0;
+	padding: 1rem .5rem;
 	list-style: none;
-	flex: 1 1 calc(25% - 20px);
-	@include breakpoint("small") {
-		flex: 1 1 0;
+	flex: 1 1 0;
+	min-width: 50%;
+	@include breakpoint("xsmall") {
+		min-width: 25%;
+		padding: 1rem;
 	}
 	@include breakpoint("medium") {
-		flex: 1 1 calc(25% - 20px);
+		padding: 1rem 3rem;
 	}
 	@include breakpoint("large") {
-		flex: 1 1 0;
+		min-width: 12.5%;
+		padding: 1rem 1.5rem;
 	}
+	@include breakpoint("xlarge") {
+		padding: 1rem 3rem;
+	}
+}
+
+.productView-trust-1 p {
+	text-align: center;
+	margin-bottom: 0;
+	color: #76b9ed;
+}
+
+.productView.c4w .productView-trust-1 p {
+	color: #E46298;
+}
+
+.productView.c4m .productView-trust-1 p {
+	color: #76b9ed;
+}
+
+.productView-trust-1 h2 {
+	text-align: center;
+	margin-top: .5rem;
+	color: #fff !important;
+}
+
+.productView-trust-1 li img {
+	width: 100%;
+	display: none;
+}
+
+.productView.c4w .productView-trust-1 li img.cfw,
+.productView.c4m .productView-trust-1 li img.cfm {
+	display: block;
+}
+
+.productView-trust-1 li span {
+	display: block;
+	padding-top: .5rem;
+	color: #fff;
+	text-align: center;
+}
+
+.productView-trust-2 {
+	background-color: #fff;
+	padding-top: 3rem;
 }
 
 .productView-trust-2 ul {
 	margin: 0;
-	padding: 10px;
+	padding: 0 1.5rem 1.5rem 1.5rem;
 	list-style: none;
 	display: flex;
 	flex-wrap: wrap;
+	align-items: center;
+	@include breakpoint("medium") {
+		padding: 0 3rem 1.5rem 3rem;
+	}
 }
 
 .productView-trust-2 li {
-	margin: 10px;
-	padding: 0;
+	margin: 0;
+	padding: 1rem .5rem;
 	list-style: none;
-	flex: 1 1 calc(33.33333% - 20px);
+	flex: 1 1 0;
+	min-width: 33.333333%;
 	@include breakpoint("small") {
-		flex: 1 1 0;
+		padding: 1rem 1.5rem;
 	}
 	@include breakpoint("medium") {
-		flex: 1 1 calc(33.33333% - 20px);
+		min-width: 16.66666667%;
 	}
 	@include breakpoint("large") {
-		flex: 1 1 0;
+		padding: 1rem 3rem;
 	}
+}
+
+.productView-trust-2 p {
+	text-align: center;
+	margin-bottom: 0;
+	color: #642a75;
+}
+
+.productView-trust-2 h2 {
+	text-align: center;
+	margin-top: .5rem;
+	color: #000 !important;
 }
 
 .page-product #main-content > .container:not(.container-hero) {
@@ -859,6 +946,7 @@ dl.productView-info {
 	width: auto;
 	margin-left: -1.5rem;
 	margin-right: -1.5rem;
+	margin-top: 0;
 	@include breakpoint("medium") {
 		margin-left: -3rem;
 		margin-right: -3rem;
@@ -888,29 +976,24 @@ dl.productView-info {
 	margin-bottom: 0 !important;
 	float: none;
 	clear: both;
-	@include breakpoint("large") {
+	@include breakpoint("medium") {
 		display: flex;
 		flex-wrap: wrap;
 	}
 }
 
-.page-fertilitysmart-fertility-pills-for-women .productView-description-underneath .description-content {
-	@include breakpoint("large") {
-		align-items: flex-end;
-	}
-}
-
-.page-test-fertilitysmart-fertility-pills-for-men .productView-description-underneath .description-content {
-	@include breakpoint("large") {
+.productView.c4w .productView-description-underneath .description-content,
+.productView.c4m .productView-description-underneath .description-content {
+	@include breakpoint("medium") {
 		align-items: center;
 	}
 }
 
-.page-fertilitysmart-fertility-pills-for-women .description-content {
+.productView.c4w .description-content {
 	background-color: #fbe8f0;
 }
 
-.page-test-fertilitysmart-fertility-pills-for-men .description-content {
+.productView.c4m .description-content {
 	background-color: #dfebf2;
 }
 
@@ -937,12 +1020,12 @@ dl.productView-info {
 	}
 }
 
-.page-fertilitysmart-fertility-pills-for-women .description-content h2 {
+.productView.c4w .description-content h2 {
 	color: #e36197;
 	border-top: 2px solid #e36197;
 }
 
-.page-test-fertilitysmart-fertility-pills-for-men .description-content h2 {
+.productView.c4m .description-content h2 {
 	color: #2975ab;
 	border-top: 2px solid #2975ab;
 }
@@ -950,30 +1033,38 @@ dl.productView-info {
 .description-text {
 	padding-top: 1.5rem;
 	padding-bottom: 1.5rem;
-	@include breakpoint("large") {
+	@include breakpoint("medium") {
 		width: 50%;
 		text-align: left;
 		order: 2;
 	}
 }
 
+.description-text h3 {
+	margin-top: .5rem;
+}
+
 .description-images {
-	@include breakpoint("large") {
-		width: calc(50% + 6rem);
+	padding: 3rem;
+	@include breakpoint("medium") {
+		width: calc(50% + 3rem);
 		order: 1;
-		margin-left: -6rem;
+		margin-left: -3rem;
 	}
 }
 
 .description-images img {
 	width: 100%;
+	max-width: 600px;
 }
 
-.page-fertilitysmart-fertility-pills-for-women .icon--ratingFull svg {
+.page-fertilitysmart-fertility-pills-for-women .icon--ratingFull svg,
+.page-test-fertilitysmart-fertility-pills-for-women .icon--ratingFull svg {
 	fill: #e36197;
 	stroke: #e36197;
 }
 
+.page-fertilitysmart-fertility-pills-for-men .icon--ratingFull svg,
 .page-test-fertilitysmart-fertility-pills-for-men .icon--ratingFull svg {
 	fill: #2975ab;
 	stroke: #2975ab;
@@ -992,10 +1083,12 @@ dl.productView-info {
 	}
 }
 
-.page-fertilitysmart-fertility-pills-for-women .product-banner {
+.page-fertilitysmart-fertility-pills-for-women .product-banner,
+.page-test-fertilitysmart-fertility-pills-for-women .product-banner {
 	border-bottom: 2px solid #e36197;
 }
 
+.page-fertilitysmart-fertility-pills-for-men .product-banner,
 .page-test-fertilitysmart-fertility-pills-for-men .product-banner {
 	border-bottom: 2px solid #2975ab;
 }
@@ -1027,61 +1120,243 @@ dl.productView-info {
 }
 
 .page-fertilitysmart-fertility-pills-for-women .product-banner-text,
-.page-fertilitysmart-fertility-pills-for-women h2 {
+.page-fertilitysmart-fertility-pills-for-women h2,
+.page-test-fertilitysmart-fertility-pills-for-women .product-banner-text,
+.page-test-fertilitysmart-fertility-pills-for-women h2 {
 	color: #e36197;
 }
 
+.page-fertilitysmart-fertility-pills-for-men .product-banner-text,
+.page-fertilitysmart-fertility-pills-for-men h2,
 .page-test-fertilitysmart-fertility-pills-for-men .product-banner-text,
 .page-test-fertilitysmart-fertility-pills-for-men h2 {
 	color: #2975ab;
 }
 
+#ingredients {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}
+
+#ingredients > div > p {
+	text-align: center;
+	margin-bottom: 0;
+	color: #642a75;
+}
+
+#ingredients > div > h2 {
+	text-align: center;
+	margin-top: .5rem;
+	color: #000 !important;
+}
+
 #ingredients ul {
-	margin: 3rem 0 0 0;
-	padding: 0;
+	margin: 0;
+	padding: 0 .75rem;
 	list-style: none;
 	display: flex;
 	flex-wrap: wrap;
-	border-top: 1px solid #ddd;
-	border-left: 1px solid #ddd;
+	@include breakpoint("medium") {
+		padding: 0 2.25rem;
+	}
+	@include breakpoint("large") {
+		padding: 0 5.25rem;
+	}
 }
 
 #ingredients ul li {
-	border-bottom: 1px solid #ddd;
-	border-right: 1px solid #ddd;
 	margin: 0;
-	padding: 0;
-	flex: 1 1 50%;
-	text-align: center;
-	@include breakpoint("medium") {
-		flex: 1 1 33.33333%;
-		max-width: 33.3333%;
-	}
+	padding: .75rem;
+	flex: 1 1 0;
+	text-align: left;
+	min-width: 50%;
+	max-width: 50%;
 	@include breakpoint("large") {
-		flex: 1 1 20%;
-		max-width: 20%;
+		min-width: 25%;
+		max-width: 25%;
 	}
 }
 
-#ingredients div {
-	padding: 1.5rem;
+#ingredients div.category-description-trim.is-closed {
+	height: auto;
+	overflow-y: visible;
+	webkit-mask: none;
+	mask: none;
 }
 
-#ingredients img {
+
+#ingredients div.category-description-trim.is-closed ul li {
+	display: none;
+}
+
+.productView.c4w #ingredients div.category-description-trim.is-closed ul li.l-arginine,
+.productView.c4w #ingredients div.category-description-trim.is-closed ul li.chasteberry,
+.productView.c4w #ingredients div.category-description-trim.is-closed ul li.tea,
+.productView.c4w #ingredients div.category-description-trim.is-closed ul li.magnesium {
+	display: block;
+}
+
+.productView.c4m #ingredients div.category-description-trim.is-closed ul li.l-carnitine,
+.productView.c4m #ingredients div.category-description-trim.is-closed ul li.l-arginine,
+.productView.c4m #ingredients div.category-description-trim.is-closed ul li.l-aurine,
+.productView.c4m #ingredients div.category-description-trim.is-closed ul li.tea {
+	display: block;
+}
+
+.productView.c4w #ingredients div ul li.cfm-only,
+.productView.c4m #ingredients div ul li.cfw-only {
+	display: none !important;
+}
+
+
+#ingredients ul li div {
+	padding: 1rem;
+	background-color: #ebf4ff;
+    border-radius: 12px;
+    background-size: 145px 143px;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+	min-height: 200px;
+}
+
+#ingredients li img {
 	width: 100%;
 }
 
-#ingredients h3 {
+#ingredients h3,
+#ingredients h4 {
 	color: #642a75;
 	font-size: 18px;
-	margin: 0 .75rem;
+	margin: .75rem 0;
 }
 
-#ingredients p {
-	padding: .75rem;
+#ingredients li p {
+	padding-bottom: 130px;
 	margin: 0;
 }
 
+#ingredients div.category-description-trim.is-closed li p {
+	display: none;
+}
+
+#ingredients li p,
+#ingredients div.category-description-trim.is-closed li p {
+	@include breakpoint("medium") {
+		display: block !important;
+	}
+}
+
+.whats-inside__list-item.l-carnitine div {
+  background-image: url('../img/custom/l-carnitine.png');
+}
+
+.whats-inside__list-item.l-arginine div {
+  background-image: url('../img/custom/l-arginine.png');
+}
+
+.whats-inside__list-item.l-aurine div {
+  background-image: url('../img/custom/l-aurine.png');
+}
+
+.whats-inside__list-item.tea div {
+  background-image: url('../img/custom/tea.png');
+}
+
+.whats-inside__list-item.quai div {
+  background-image: url('../img/custom/quai.png');
+}
+
+.whats-inside__list-item.maca div {
+  background-image: url('../img/custom/maca.png');
+}
+
+.whats-inside__list-item.l-acetyl div {
+  background-image: url('../img/custom/l-acetyl.png');
+}
+
+.whats-inside__list-item.vitamin-c div {
+  background-image: url('../img/custom/vitamin-c.png');
+}
+
+.whats-inside__list-item.zinc div {
+  background-image: url('../img/custom/zinc.png');
+}
+
+.whats-inside__list-item.vitamin-b6 div {
+  background-image: url('../img/custom/b6.png');
+}
+
+.whats-inside__list-item.folic-acid div {
+  background-image: url('../img/custom/folic-acid.png');
+}
+
+.whats-inside__list-item.selenium div {
+  background-image: url('../img/custom/selenium.png');
+}
+
+.whats-inside__list-item.b12 div {
+  background-image: url('../img/custom/b12.png');
+}
+
+.whats-inside__list-item.vitamin-e div {
+  background-image: url('../img/custom/vitamin-e.png');
+}
+
+.whats-inside__list-item.chasteberry div {
+  background-image: url('../img/custom/chasteberry.png');
+}
+
+.whats-inside__list-item.magnesium div {
+  background-image: url('../img/custom/magnesium.png');
+}
+
+.whats-inside__list-item.b1 div {
+  background-image: url('../img/custom/b1.png');
+}
+
+.whats-inside__list-item.coq10 div {
+  background-image: url('../img/custom/coq10.png');
+}
+
+.whats-inside__list-item.iron div {
+  background-image: url('../img/custom/iron.png');
+}
+
+.whats-inside__list-item.b6-green div {
+  background-image: url('../img/custom/b6-green.png');
+}
+
+.whats-inside__list-item.d3 div {
+  background-image: url('../img/custom/d3.png');
+}
+
+.page-product .category-description-button  {
+	margin-top: 1.5rem;
+	padding: 0 1.5rem;
+}
+
+.page-product .category-description-button .button {
+	border: 1px solid #642a75;
+	color: #642a75;
+	padding: 1rem 2rem;
+	border-radius: 999px;
+	margin: .25rem;
+	min-width: 250px;
+	text-transform: none;
+	font-weight: 500;
+	letter-spacing: 0;
+	font-size: 16px;
+}
+
+.page-product .productView.c4w .category-description-button .button {
+	border: 1px solid #e36197;
+	color: #e36197;
+}
+
+.page-product .productView.c4m .category-description-button .button {
+	border: 1px solid #2975ab;
+	color: #2975ab;
+}
 
 .ingredientDetails {
 	margin-top: 3rem;
@@ -1103,19 +1378,19 @@ dl.productView-info {
 		flex: 1 1 60%;
 	}
 }
-
-.page-fertilitysmart-fertility-pills-for-women .table-ingredients {
+/*
+.page-test-fertilitysmart-fertility-pills-for-women .table-ingredients {
 	border-right: 1px solid #e36197 !important;
 	border-bottom: 1px solid #e36197 !important;
 }
 
-.page-fertilitysmart-fertility-pills-for-women .table-ingredients th {
+.page-test-fertilitysmart-fertility-pills-for-women .table-ingredients th {
 	border-left: 1px solid #e36197 !important;
 	border-top: 1px solid #e36197 !important;
 	background: #e36197 !important;
 }
 
-.page-fertilitysmart-fertility-pills-for-women .table-ingredients td {
+.page-test-fertilitysmart-fertility-pills-for-women .table-ingredients td {
 	border-left: 1px solid #e36197 !important;
 	border-top: 1px solid #e36197 !important;
 }
@@ -1135,7 +1410,321 @@ dl.productView-info {
 	border-left: 1px solid #2975ab !important;
 	border-top: 1px solid #2975ab !important;
 }
+*/
+.usage {
+    background-color: #76b1d4;
+	background-image: url('../img/custom/table_cfm_mobile.png');
+	background-position: center bottom;
+    padding: 3rem 1.5rem 400px 1.5rem;
+	background-size: auto 400px;
+	background-repeat: no-repeat;
+    overflow-x: hidden;
+	@include breakpoint("small") {
+		background-position: left bottom;
+		background-size: 100% auto;
+		padding: 3rem 1.5rem 250px 1.5rem;
+	}
+	@include breakpoint("medium") {
+		padding: 3rem 1.5rem 100px 1.5rem;
+		display: flex;
+	}
+	@include breakpoint("large") {
+		padding: 3rem 3rem 100px 3rem;
+		display: flex;
+	}
+}
 
+.page-fertilitysmart-fertility-pills-for-women .usage,
+.page-test-fertilitysmart-fertility-pills-for-women .usage {
+    background-color: #e88fbd;
+	background-image: url('../img/custom/table_cfw_mobile.png');
+	@include breakpoint("small") {
+		background-image: url('../img/custom/table_cfw_desktop.png');
+	}
+}
+
+.page-fertilitysmart-fertility-pills-for-men .usage,
+.page-test-fertilitysmart-fertility-pills-for-men .usage {
+    background-color: #76b1d4;
+	background-image: url('../img/custom/table_cfm_mobile.png');
+	@include breakpoint("small") {
+		background-image: url('../img/custom/table_cfm_desktop.png');
+	}
+}
+
+.content-ingredients {
+	@include breakpoint("medium") {
+		min-width: 50%;
+		max-width: 50%;
+		flex-direction: column;
+		padding: 1.5rem;
+	}
+	@include breakpoint("large") {
+		padding: 1.5rem 3rem;
+	}
+}
+
+  .usage__subheading {
+    color: #642a75;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .usage__heading {
+    color: #fff !important;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .usage__p {
+    color: #fff;
+  }
+  
+  .usage p:not(.usage__p) {
+    color: #642a75;
+	font-weight: 500;
+	margin-bottom: 0;
+	display: none;
+  }
+
+  .usage__img {
+    width: calc(100% + 32px);
+    max-width: calc(100% + 32px);
+    position: relative;
+    left: -16px;
+  }
+
+.table-ingredients {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid rgba(100, 42, 117, 0.4);
+    border-radius: 12px;
+    margin-bottom: 45px;
+	@include breakpoint("medium") {
+		margin-top: 1.5rem;
+		margin-left: 1.5rem;
+		margin-right: 1.5rem;
+	}
+	@include breakpoint("large") {
+		margin-left: 3rem;
+		margin-right: 3rem;
+	}
+  }
+  
+
+  .table-ingredients-column:first-of-type {
+    width: 43%;
+  }
+
+  .table-ingredients-column:not(:first-of-type) {
+    border-left: 1px solid rgba(100, 42, 117, 0.4);
+    flex: 1 1 0;
+  }
+
+  .table-ingredients-column--active .table-ingredients-cell {
+    background-color: rgba(100, 42, 117, 0.1);
+  }
+
+  .table-ingredients-cell:first-of-type {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .table-ingredients-cell {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    color: #221d23;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .table-ingredients-cell:not(:last-of-type) {
+    border-bottom: 1px solid rgba(100, 42, 117, 0.4);
+  }
+
+  .table-ingredients-cell--centered {
+    justify-content: center;
+  }
+
+  .table-ingredients-cell__heading.text-pink {
+    color: #e46198;
+  }
+
+  .table-ingredients-cell__heading.text-purple {
+    color: #642a75;
+  }
+
+  .table-ingredients-cell__icon {
+    width: 19px;
+    height: 19px;
+  }
+
+  .table-ingredients-cell-fluid {
+    width: 100%;
+  }
+
+  .table-ingredients-cell--bg-accent {
+    background-color: #642a75;
+    color: #fff;
+  }
+
+   .usage .table-ingredients-cell.table-ingredients-cell--big {
+    height: 48px;
+  }
+
+   .usage .table-ingredients {
+    overflow: hidden;
+  }
+
+   .usage .table-ingredients-column:nth-of-type(3) {
+    border-left: none;
+  }
+
+   .usage .table-ingredients-column .table-ingredients-cell:first-of-type {
+    height: 38px;
+    font-weight: 500;
+  }
+
+   .usage .table-ingredients-cell-fluid+.table-ingredients-column {
+    max-width: 168px;
+    width: 50%;
+    flex: unset;
+  }
+
+   .usage .table-ingredients-cell {
+    height: 32px;
+  }
+
+   .usage .table-ingredients-cell-fluid {
+    padding: 10px;
+  }
+
+   .usage .table-ingredients-cell-fluid a {
+    font-weight: 500;
+    color: #fff;
+    text-decoration: underline;
+  }
+
+   .usage .table-ingredients-cell,
+   .usage .table-ingredients span {
+    color: #fff;
+  }
+
+   .usage .table-ingredients span strong {
+    color: #fff;
+  }
+
+   .usage .table-ingredients .table-ingredients-cell-fluid:last-of-type {
+    border-top: 1px solid #642a75;
+  }
+
+   .usage .table-ingredients-column .table-ingredients-cell:not(.table-ingredients-cell--bg-accent):nth-of-type(2n + 1) {
+    background-color: rgba(100, 42, 117, 0.2);
+  }
+
+.comparison-tables {
+	display: none;
+	background-color: #f6ebef;
+	padding: 1.5rem;
+	@include breakpoint("medium") {
+		padding: 1.5rem 3rem;
+	}
+	@include breakpoint("large") {
+		padding: 1.5rem 6rem;
+	}
+}
+
+.productView.c4w .comparison-tables {
+	display: block;
+}
+
+  .comparison__table {
+      display: flex;
+      flex-wrap: wrap;
+      border: 1px solid rgba(100, 42, 117, 0.4);
+      border-radius: 12px;
+      margin-bottom: 45px;
+    }
+	
+	.comparison__table-desktop {
+		display: none;
+		@include breakpoint("large") {
+			display: flex;
+		}
+	}
+	
+	.comparison__table-mobile {
+		@include breakpoint("large") {
+			display: none;
+		}
+	}
+
+    .comparison__table-column:not(:first-of-type) {
+      border-left: 1px solid rgba(100, 42, 117, 0.4);
+      flex: 1 1 0;
+    }
+
+    .comparison__table-mobile .comparison__table-column--active .comparison__table-cell,
+	.comparison__table-desktop .comparison__table-column .comparison__table-cell:nth-child(2) {
+      background-color: rgba(100, 42, 117, 0.1);
+    }
+
+    .comparison__table-cell:first-of-type {
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+    .comparison__table-cell {
+      height: 50px;
+      display: flex;
+      align-items: center;
+      color: #221D23;
+      padding-left: 10px;
+      padding-right: 10px;
+	  overflow-y: hidden;
+    }
+	
+	.comparison__table-cell:first-child  {
+		height: 70px;
+	}
+
+    .comparison__table-cell:not(:last-of-type) {
+      border-bottom: 1px solid rgba(100, 42, 117, 0.4);
+    }
+
+    .comparison__table-cell--centered {
+      justify-content: center;
+    }
+
+    .comparison__table-cell__heading {
+      font: 500 12/16px "Jost", sans-serif;
+    }
+
+    .comparison__table-cell__heading.text-pink {
+      font: 500 12px/16px "Jost", sans-serif;
+      color: #E46198;
+    }
+
+    .comparison__table-cell__heading.text-purple {
+      font: 700 12px/16px "Jost", sans-serif;
+      color: #642A75;
+    }
+
+    .comparison__table-cell__icon {
+      width: 19px;
+      height: 19px;
+    }
+
+    .comparison__table-cell-fluid {
+      width: 100%;
+    }
+
+    .comparison__table-cell--bg-accent {
+      background-color: #642A75;
+      color: #fff;
+    }
 
 
 // =============================================================================
@@ -1652,37 +2241,123 @@ dl.productView-info {
 
 
 
+
+
 .page-product .container-custom,
+.page-fertilitysmart-fertility-pills-for-women .container-hero + .container,
+.page-fertilitysmart-fertility-pills-for-men .container-hero + .container,
+.page-test-fertilitysmart-fertility-pills-for-women .container-hero + .container,
 .page-test-fertilitysmart-fertility-pills-for-men .container-hero + .container {
 	max-width: none;
 }
 
+.page-product .custom-widget-container {
+	padding: 0;
+	max-width: none;
+}
 
-.page-test-fertilitysmart-fertility-pills-for-men .productView.c4m {
-	background-color: #ecf4ff;
-	background-image: url('../img/custom/cfm_photo.png');
-	background-position: top center;
-	background-repeat: no-repeat;
-	background-size: 1200px 600px;
+.custom-product-banner .custom-widget-buttons {
 	@include breakpoint("medium") {
-		background-color: #ecf4ff;
-		background-image: url('../img/custom/cfm_photo.png');
-		background-position: top right -350px;
+		display: none;
+	}
+}
+
+.custom-product-banner .custom-widget-heading {
+	@include breakpoint("medium") {
+		margin-bottom: .5rem !important;
+	}
+}
+
+.custom-product-banner .custom-widget-content {
+	width: 60% !important;
+	margin-top: 50px;
+	@include breakpoint("medium") {
+		width: 100% !important;
+		margin-top: 0px;
+	}
+}
+
+.productView.c4w {
+	background-color: #f6ebef;
+	@include breakpoint("medium") {
+		background-color: #f6ebef;
+		background-image: url('../img/custom/cfw_photo.png');
+		background-position: top right -250px;
 		background-repeat: no-repeat;
-		background-size: 1200px 600px;
+		background-size: 1000px 500px;
 	}
 	@include breakpoint("large") {
 		background-position: top center;
-		background-size: 1200px 600px;
+	}
+}
+
+.productView.c4m {
+	background-color: #ecf4ff;
+	@include breakpoint("medium") {
+		background-image: url('../img/custom/cfm_photo.png');
+		background-position: top right -250px;
+		background-repeat: no-repeat;
+		background-size: 1000px 500px;
+	}
+	@include breakpoint("large") {
+		background-position: top center;
+	}
+}
+
+#product_photo_mob {
+	width: 100%;
+	height: 500px;
+	@include breakpoint("medium") {
+		display: none;
+	}
+}
+
+.productView.c4w #product_photo_mob {
+	background-image: url('../img/custom/cfw_photo.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 1000px 500px;
+}
+
+.productView.c4m #product_photo_mob {
+	background-image: url('../img/custom/cfm_photo.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 1000px 500px;
+}
+
+
+div[data-content-region="product_view_top--global"],
+div[data-content-region="product_view_bottom--global"] {
+	float: left;
+	width: 100%;
+}
+
+div[data-content-region="product_view_bottom--global"] {
+	background-color: #fff;
+	width: calc(100% + 3rem);
+	margin: 0 -1.5rem;
+	@include breakpoint("medium") {
+		margin: 0 -3rem;
+		width: calc(100% + 6rem);
+	}
+	@include breakpoint("large") {
+		margin: 0 -6rem;
+		width: calc(100% + 12rem);
 	}
 }
 
 .review-slider {
   background-color: #EBF4FF;
   padding: 1.5rem 3rem;
+  display: none;
 	@include breakpoint("large") {
 		padding: 1.5rem 6rem;
 	}
+}
+
+.productView.c4m .review-slider {
+	display: block;
 }
 
 .review-slider .slick-prev {
@@ -1792,28 +2467,30 @@ dl.productView-info {
 	}
 }
 
-.page-test-fertilitysmart-fertility-pills-for-men .productView-image,
-.page-test-fertilitysmart-fertility-pills-for-men .productView-thumbnails,
-.page-test-fertilitysmart-fertility-pills-for-men .productView-images .minidesc-content {
+.productView.c4w .productView-image,
+.productView.c4w .productView-thumbnails,
+.productView.c4w .productView-images .minidesc-content,
+.productView.c4m .productView-image,
+.productView.c4m .productView-thumbnails,
+.productView.c4m .productView-images .minidesc-content {
 	display: none;
 }
 
-.page-test-fertilitysmart-fertility-pills-for-men .productView-images .minidesc-content {
+.productView.c4w .productView-images .minidesc-content,
+.productView.c4m .productView-images .minidesc-content {
 	@include breakpoint("large") {
 		display: block;
 	}
 }
 
-.page-test-fertilitysmart-fertility-pills-for-men .productView-details .productView-minidesc {
+.productView.c4w .productView-details .productView-minidesc,
+.productView.c4m .productView-details .productView-minidesc {
 	@include breakpoint("large") {
 		display: none;
 	}
 }
 
-.page-test-fertilitysmart-fertility-pills-for-men .productView-image-wrap {
+.productView.c4w .productView-image-wrap,
+.productView.c4m .productView-image-wrap {
 	box-shadow: none;
 }
-
-
-
-

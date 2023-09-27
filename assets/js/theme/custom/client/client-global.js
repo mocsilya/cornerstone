@@ -37,4 +37,15 @@ export default function loaded () {
 			}
 		]
 	});
+	
+	$('.page-product .category-description-button').show();
+	$('.page-product .category-description-button span.button').click(function(e) {
+		e.preventDefault();
+		$('.page-product .category-description-trim').toggleClass('is-closed');
+		if ($(this).parent().hasClass('is-open')) {
+			$(this).parent().removeClass('is-open');
+		} else {
+			$(this).parent().addClass('is-open');
+		}
+	});
 }
