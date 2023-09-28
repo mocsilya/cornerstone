@@ -1922,6 +1922,26 @@ dl.productView-info {
 	display: none;
 }
 
+.page-cart .cart-content-wrapper {
+    @include breakpoint("large") {
+		display: block;
+	}
+}
+
+.page-cart .cart-content-container {
+    @include breakpoint("large") {
+		width: 100%;
+		max-width: none;
+		flex-direction: row;
+	}
+}
+
+.page-cart .cart-content-totals {
+    @include breakpoint("large") {
+		max-width: none;
+	}
+}
+
 .cart-header-quantity, .cart-item-quantity {
 	text-align: left;
 }
