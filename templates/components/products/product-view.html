@@ -53,6 +53,7 @@
         {{/if}}
     {{/each}}
 	{{{region name="product_view_top--global"}}}
+	{{{region name="product_view_top"}}}
     <section class="productView-images productView-images-{{theme_settings.custom_product_gallery_size}}" data-image-gallery>
         {{!--
             Note that these image sizes are coupled to image sizes used in /assets/js/theme/common/product-details.js
@@ -429,6 +430,7 @@
         </div>
     </section>
 	{{#if theme_settings.custom_product_description_location '===' 'underneath'}}
+		{{{region name="product_view_bottom"}}}
 		{{{region name="product_view_bottom--global"}}}
 	{{/if}}
     <article class="productView-description productView-description-{{theme_settings.custom_product_description_location}} productView-description-{{theme_settings.custom_product_gallery_size}}">
@@ -439,6 +441,7 @@
         {{/if}}
     </article>
 	{{#unless theme_settings.custom_product_description_location '===' 'underneath'}}
+		{{{region name="product_view_bottom"}}}
 		{{{region name="product_view_bottom--global"}}}
 	{{/unless}}
 </div>

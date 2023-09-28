@@ -4706,6 +4706,14 @@ a:hover span.card-image:only-of-type img {
 // Product Page
 // =============================================================================
 
+div[data-content-region="product_view_top"],
+div[data-content-region="product_view_bottom"],
+div[data-content-region="product_view_top--global"],
+div[data-content-region="product_view_bottom--global"] {
+	float: left;
+	width: 100%;
+}
+
 .productView {
 	padding-top: 0;
 }
