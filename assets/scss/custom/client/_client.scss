@@ -129,12 +129,18 @@ body.with-bar .dropdown--quickSearch.is-open {
 	}
 }
 
+.navUser-item--custom a,
+.navUser-item--custom a:hover {
+    text-decoration: none;
+    color: #f89a1c;
+}
+
 .navUser-item--custom strong {
     font-size: 16px;
     line-height: 1;
 	color: #f89a1c;
 	@include breakpoint("medium") {
-		font-size: 24px;
+		font-size: 20px;
 	}
 }
 
