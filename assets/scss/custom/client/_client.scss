@@ -3,6 +3,16 @@
 // =============================================================================
 //
 
+// Glopal
+// =============================================================================
+
+
+html.glopal .price-section--withoutTax abbr,
+html.glopal .price-section--withoutTax abbr,
+html.glopal .price-section--withTax {
+    display: none;
+}
+
 
 // Nav User
 // =============================================================================
@@ -147,6 +157,8 @@
 .navPages > ul > li > .navPages-action {
 	@include breakpoint("medium") {
 		font-size: 14px;
+		padding-left: .5rem;
+		padding-right: .5rem;
 	}
 }
 
@@ -277,6 +289,71 @@ div[data-sub-layout-container="b4038d5d-5fd3-489b-9582-ca112832f6d9"] h4 {
     margin-top: 0 !important;
 }
 
+.page-product .price-section.price-section--withoutTax {
+    order: 3;
+}
+
+.page-product .price-section.rrp-price--withoutTax {
+    order: 1;
+}
+
+.page-product .price-section.non-sale-price--withoutTax {
+    order: 2;
+}
+
+.page-product .price-section.price-section--withTax {
+    order: 6;
+}
+
+.page-product .price-section.rrp-price--withTax {
+    order: 5;
+}
+
+.page-product .price-section.non-sale-price--withTax {
+    order: 4;
+}
+
+.page-product .price-section.price-section--withTax span,
+.page-product .price-section.rrp-price--withTax span,
+.page-product .price-section.non-sale-price--withTax span,
+.page-product .price-section.price-section--withTax abbr,
+.page-product .price-section.rrp-price--withTax abbr,
+.page-product .price-section.non-sale-price--withTax abbr {
+    color: #999;
+    font-weight: 400;
+}
+
+.page-product .price-section.price-section--withoutTax span,
+.page-product .price-section.rrp-price--withoutTax span,
+.page-product .price-section.non-sale-price--withoutTax span, 
+.page-product .price-section.price-section--withoutTax .price-section--minor {
+    color: #000;
+    font-weight: 700;
+}
+
+.page-product .price-section abbr {
+    font-size: 12px;
+}
+
+.page-product .price-section--withTax.rrp-price--withTax {
+    display: none;
+}
+
+
+.productView-details-small .productView-options .form-label:first-child,
+.productView-details-small .productView-info-name {
+    @include breakpoint("xlarge") {
+		width: 30%;
+	}
+    
+}
+
+.productView-details-small .productView-options .form-field {
+    @include breakpoint("xlarge") {
+		 padding-left: 30%;
+	}
+   
+}
 
 // GBICS CONNECT
 // =============================================================================
