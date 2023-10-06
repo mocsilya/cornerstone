@@ -1,6 +1,17 @@
+<!--
 <div id="ProductDetails" style="display: none;">
     <input type="hidden" name="product_id" value="{{product.id}}">
 </div>
 <div id="ProductReviews" data-type="reviews" data-product="{{product.id}}" data-name="{{product.title}}" data-image="{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size }}" data-url="{{product.url}}">
 	
+</div>
+-->
+<div class="skeepers_product__reviews"
+data-product-id="{{product.id}}"
+data-locale="en_US"
+data-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}"
+data-currency="GBP"
+data-name="{{product.url}}"
+data-url="{{product.url}}"
+data-image-url="{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size }}">
 </div>
