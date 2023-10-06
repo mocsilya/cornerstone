@@ -1,11 +1,21 @@
 <nav>
-{{#if theme_settings.custom_category_sidebar_display '==' 'vertical'}}
+{{assignVar "showparentnosubs" "false"}}
+{{#and (if theme_settings.custom_category_show_parents)(unless category.subcategories)}}
+{{assignVar "showparentnosubs" "true"}}
+{{/and}}
+{{#or (if theme_settings.custom_category_sidebar_display '==' 'vertical') (if (getVar "showparentnosubs") '===' 'true')}}
 {{#if theme_settings.custom_category_show_parents}}
 	{{#each categories}}
     {{#if ../breadcrumbs.[1].name '===' name}}
         {{#if children}}
         <div class="sidebarBlock sidebarCategories sidebarCategories-parents">
-            <h2 class="sidebarBlock-heading">{{name}}</h2>
+            <h2 class="sidebarBlock-heading">
+				{{#if ../theme_settings.custom_category_show_parents}}
+				<a href="{{url}}" title="name">{{name}}</a>
+				{{else}}
+				{{name}}
+				{{/if}}
+			</h2>
             <ul class="navList">
             {{#each children}}
                 {{#if children}}
@@ -70,7 +80,7 @@
         </div>
     {{/if}}
 {{/if}}
-{{/if}}
+{{/or}}
 
 {{#if category.faceted_search_enabled}}
 	{{> components/faceted-search/index category}}

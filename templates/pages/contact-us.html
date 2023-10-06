@@ -16,7 +16,7 @@ customer:
 		<div class="page-header contact-header">
 	{{/if}}
     {{#unless theme_settings.hide_contact_us_page_heading }}
-        <h1 class="page-heading">{{ page.title }}</h1>
+        <h1 class="page-heading">{{#contains head.title " | "}}{{{before (split head.title ' | ') 1}}}{{else}}{{page.title}}{{/contains}}</h1>
     {{/unless}}
 	{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 	</div>
@@ -53,8 +53,9 @@ customer:
             <p>{{{page.content}}}</p>
             {{> components/page/contact-us-form}}
         {{/if}}
+	{{{region name="page_builder_bottom"}}}
     </div>
-
+{{{region name="page_builder_content_editor_area_bottom"}}}
 </section>
 
 {{/partial}}
