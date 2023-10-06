@@ -14,6 +14,19 @@ html.glopal .price-section--withTax {
 }
 
 
+// Header
+// =============================================================================
+
+.navUser-section.navUser-section--alt.navUser-section-left {
+    @include breakpoint("medium") {
+		min-width: 420px;
+	}
+}
+
+
+
+
+
 // Nav User
 // =============================================================================
 
@@ -202,26 +215,19 @@ html.glopal .price-section--withTax {
 // Carousel
 // =============================================================================
 
-div[data-sub-layout-container="b4038d5d-5fd3-489b-9582-ca112832f6d9"],
 .page-default .container-hero {
 	margin-top: 1.5rem;
 	margin-left: auto;
 	margin-right: auto;
-	padding-left: $container-padding;
-	padding-right: $container-padding;
-	width: layout("fixed");
-	max-width: layout("max") + ($container-padding * 4);
+	padding: 0 1.5rem;
+	max-width: calc(1440px + 12rem);
+	@include breakpoint("medium") {
+		padding: 0 3rem;
+	}
 	@include breakpoint("large") {
-		padding-left: ($container-padding * 4);
-		padding-right: ($container-padding * 4);
+		padding: 0 6rem;
 	}
 }
-
-div[data-sub-layout-container="b4038d5d-5fd3-489b-9582-ca112832f6d9"],
-div[data-sub-layout-container="b4038d5d-5fd3-489b-9582-ca112832f6d9"] h4 {
-	margin-top: 0;
-}
-
 
 .heroCarousel:before, .heroCarousel:after {
 	z-index: -1;
@@ -252,6 +258,8 @@ div[data-sub-layout-container="b4038d5d-5fd3-489b-9582-ca112832f6d9"] h4 {
 	right: 10px;
 	left: auto;
 }
+
+
 
 
 // Product Pages
