@@ -43,7 +43,7 @@
         {{lang 'common.login_for_pricing'}}
     {{/or}}"
     data-product-variant="single-product-option"{{/if}}>
-
+	
     {{#each product.reviews.messages}}
         {{#if error}}
             {{> components/common/alert/alert-error error}}
@@ -52,7 +52,8 @@
             {{> components/common/alert/alert-success success}}
         {{/if}}
     {{/each}}
-
+	{{{region name="product_view_top--global"}}}
+	{{{region name="product_view_top"}}}
     <section class="productView-images productView-images-{{theme_settings.custom_product_gallery_size}}" data-image-gallery>
         {{!--
             Note that these image sizes are coupled to image sizes used in /assets/js/theme/common/product-details.js
@@ -402,6 +403,7 @@
                 {{/if}}
 				{{/if}}
             </form>
+			<div class="productView-under-add">
 			{{#if (getVar "b2b-prices") '===' 'show'}}
 			{{#or customer (unless settings.hide_price_from_guests)}}
             {{#all settings.show_wishlist theme_settings.custom_product_wishlist_show}}
@@ -409,6 +411,8 @@
             {{/all}}
 			{{/or}}
 			{{/if}}
+			{{> components/common/share url=product.url}}
+			</div>
 			{{> components/custom/client/client-product-bottom}}
 			<div class="productView-bottom-global">
 			{{{region name="product_bottom--global"}}}
@@ -424,9 +428,11 @@
 	  			</div>
 			{{/filter}}
         </div>
-        {{> components/common/share url=product.url}}
     </section>
-
+	{{#if theme_settings.custom_product_description_location '===' 'underneath'}}
+		{{{region name="product_view_bottom"}}}
+		{{{region name="product_view_bottom--global"}}}
+	{{/if}}
     <article class="productView-description productView-description-{{theme_settings.custom_product_description_location}} productView-description-{{theme_settings.custom_product_gallery_size}}">
         {{#if theme_settings.show_product_details_tabs}}
             {{> components/products/description-tabs}}
@@ -434,6 +440,10 @@
             {{> components/products/description}}
         {{/if}}
     </article>
+	{{#unless theme_settings.custom_product_description_location '===' 'underneath'}}
+		{{{region name="product_view_bottom"}}}
+		{{{region name="product_view_bottom--global"}}}
+	{{/unless}}
 </div>
 {{#if theme_settings.custom_product_addtocart_modal}}
 <div id="previewModal" class="modal modal--large" data-reveal>
