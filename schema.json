@@ -242,41 +242,6 @@
         ]
       },
       {
-        "type": "text",
-        "label": "i18n.PageHeaderImageBlog",
-        "id": "custom_page_header_image_blog"
-      },
-      {
-        "type": "text",
-        "label": "i18n.PageHeaderImageBrands",
-        "id": "custom_page_header_image_brands"
-      },
-      {
-        "type": "text",
-        "label": "i18n.PageHeaderImageCart",
-        "id": "custom_page_header_image_cart"
-      },
-      {
-        "type": "text",
-        "label": "i18n.PageHeaderImageInfo",
-        "id": "custom_page_header_image_info"
-      },
-      {
-        "type": "text",
-        "label": "i18n.PageHeaderImageContact",
-        "id": "custom_page_header_image_contact"
-      },
-      {
-        "type": "text",
-        "label": "i18n.PageHeaderImageSearch",
-        "id": "custom_page_header_image_search"
-      },
-      {
-        "type": "text",
-        "label": "i18n.PageHeaderImageSitemap",
-        "id": "custom_page_header_image_sitemap"
-      },
-      {
         "type": "heading",
         "content": "i18n.LoadingIndicators"
       },
@@ -587,43 +552,10 @@
         ]
       },
       {
-        "type": "select",
+        "type": "text",
         "label": "i18n.LogoFontSize",
-        "id": "logo_fontSize",
-        "options": [
-          {
-            "value": 14,
-            "label": "14px"
-          },
-          {
-            "value": 16,
-            "label": "16px"
-          },
-          {
-            "value": 20,
-            "label": "20px"
-          },
-          {
-            "value": 24,
-            "label": "24px"
-          },
-          {
-            "value": 32,
-            "label": "32px"
-          },
-          {
-            "value": 40,
-            "label": "40px"
-          },
-          {
-            "value": 52,
-            "label": "52px"
-          },
-          {
-            "value": 64,
-            "label": "64px"
-          }
-        ]
+		"force_reload": true,
+        "id": "logo_fontSize"
       },
       {
         "type": "color",
@@ -911,12 +843,6 @@
             "label": "None"
           }
         ]
-      },
-      {
-        "type": "checkbox",
-        "label": "i18n.HeaderIconText",
-        "force_reload": true,
-        "id": "custom_header_icon_text"
       },
       {
         "type": "select",

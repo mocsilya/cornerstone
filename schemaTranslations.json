@@ -829,27 +829,6 @@
   "i18n.PageHeaderImageDepth": {
     "default": "Page header image display"
   },
-  "i18n.PageHeaderImageBlog": {
-    "default": "Blog list header image"
-  },
-  "i18n.PageHeaderImageBrands": {
-    "default": "Brand list header image"
-  },
-  "i18n.PageHeaderImageCart": {
-    "default": "Cart header image"
-  },
-  "i18n.PageHeaderImageInfo": {
-    "default": "Info pages header image"
-  },
-  "i18n.PageHeaderImageContact": {
-    "default": "Contact header image"
-  },
-  "i18n.PageHeaderImageSearch": {
-    "default": "Search results header image"
-  },
-  "i18n.PageHeaderImageSitemap": {
-    "default": "Sitemap header image"
-  },
   "i18n.Products": {
     "default": "Products",
     "fr": "Produits",
@@ -1403,7 +1382,7 @@
     "pl": "Oryginał (jako przesłany)"
   },
   "i18n.LogoFontSize": {
-    "default": "Logo font size",
+    "default": "Logo font size (px)",
     "fr": "Taille de la police du logo",
     "it": "Dimensione carattere del logo",
     "uk": "Розмір шрифту логотипу",
@@ -1610,9 +1589,6 @@
   },
   "i18n.HeaderSearchType": {
     "default": "Search display type"
-  },
-  "i18n.HeaderIconText": {
-    "default": "Show icon text on large screens"
   },
   "i18n.HeaderCartType": {
     "default": "Cart icon type"
