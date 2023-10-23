@@ -1834,7 +1834,6 @@ dl.productView-info {
 
 .comparison-tables {
 	display: none;
-	background-color: #f6ebef;
 	padding: 1.5rem;
 	@include breakpoint("medium") {
 		padding: 1.5rem 3rem;
@@ -1844,7 +1843,16 @@ dl.productView-info {
 	}
 }
 
-.productView.c4w .comparison-tables {
+.comparison-tables-cfw {
+    background-color: #f6ebef;
+}
+
+.comparison-tables-cfm {
+    background-color: #ecf4ff;
+}
+
+.productView.c4w .comparison-tables-cfw,
+.productView.c4m .comparison-tables-cfm {
 	display: block;
 }
 
@@ -2230,23 +2238,14 @@ dl.productView-info {
 	width: auto;
 }
 
-.cart-total-heading {
-	@include breakpoint("medium") {
-		display: none;
-	}
-}
-
-.cart-total-subtotal,
-.cart-total-shipping {
-	display: none;
-}
-
 .cart-total.cart-total-coupons {
 	border-top: 0;
 }
 
-.cart-content-actions .button--multiple {
-	display: none;
+.cart-total-heading {
+	@include breakpoint("medium") {
+		display: none;
+	}
 }
 
 .cart-content-actions .cart-actions,
@@ -2254,7 +2253,11 @@ dl.productView-info {
     width: 100%  !important;
 	max-width: none !important;
 	border-radius: 999px;
-	font-size: 16px;
+	font-size: 15px;
+}
+
+.cart-content-actions .button--primary {
+    padding: 1rem 2rem;
 }
 
 .page-cart .product-shipping {
@@ -2263,10 +2266,14 @@ dl.productView-info {
 
 .cart-content-actions .footer-payment-icons {
 	margin-bottom: 1.5rem;
+	display: flex;
+	justify-content: center;
 }
 
-.page-cart .cart-additionalCheckoutButtons .PaypalCommerceCheckout,
-.page-cart div[data-content-region="cart_below_totals"] {
+.cart-total-subtotal,
+.cart-total-shipping,
+.cart-content-actions .button--multiple,
+.page-cart .cart-additionalCheckoutButtons .PaypalCommerceCheckout {
 	display: none;
 }
 
@@ -2531,7 +2538,7 @@ dl.productView-info {
 	background-color: #f6ebef;
 	@include breakpoint("medium") {
 		background-color: #f6ebef;
-		background-image: url('https://cdn11.bigcommerce.com/s-costxe5lpb/images/stencil/original/image-manager/cfw-photo.png?t=1695837915');
+		background-image: url('https://cdn11.bigcommerce.com/s-costxe5lpb/images/stencil/original/image-manager/cfw-photo-2000x1000.jpg?t=1698067075');
 		background-position: top right -250px;
 		background-repeat: no-repeat;
 		background-size: 1000px 500px;
@@ -2544,7 +2551,7 @@ dl.productView-info {
 .productView.c4m {
 	background-color: #ecf4ff;
 	@include breakpoint("medium") {
-		background-image: url('https://cdn11.bigcommerce.com/s-costxe5lpb/images/stencil/original/image-manager/cfm-photo.png?t=1695837919');
+		background-image: url('https://cdn11.bigcommerce.com/s-costxe5lpb/images/stencil/original/image-manager/cfm-photo-2000x1000.jpg?t=1698067074');
 		background-position: top right -250px;
 		background-repeat: no-repeat;
 		background-size: 1000px 500px;
@@ -2563,14 +2570,14 @@ dl.productView-info {
 }
 
 .productView.c4w #product_photo_mob {
-	background-image: url('https://cdn11.bigcommerce.com/s-costxe5lpb/images/stencil/original/image-manager/cfw-photo.png?t=1695837915');
+	background-image: url('https://cdn11.bigcommerce.com/s-costxe5lpb/images/stencil/original/image-manager/cfw-photo-2000x1000.jpg?t=1698067075');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 
 .productView.c4m #product_photo_mob {
-	background-image: url('https://cdn11.bigcommerce.com/s-costxe5lpb/images/stencil/original/image-manager/cfm-photo.png?t=1695837919');
+	background-image: url('https://cdn11.bigcommerce.com/s-costxe5lpb/images/stencil/original/image-manager/cfm-photo-2000x1000.jpg?t=1698067074');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
