@@ -4,15 +4,19 @@
 	font-weight: 500;
 	color: #642a75;
 }
+
+#progress-checkout .progress-labels > span.progress-label--name {
+	font-weight: 700;
+}
+
 #checkout-app fieldset[data-test="checkout-shipping-comments"] { 
 	display: none;
 }
+
 #checkout-app .optimizedCheckout-buttonPrimary {
 	font-weight: 500;
 }
-#progress-checkout .progress-labels > span {
-	font-weight: 700;
-}
+
 .checkout-custom-message {
 	text-align: center;
 	font-size: 1.25rem;
@@ -20,10 +24,23 @@
 	border-bottom: 1px solid #ddd;
 	color: #642a75;
 }
+
 @media (min-width: 968px) {
 	.checkout-custom-message {
 		margin-top: 30px;
 		border-top: 1px solid #ddd;
+	}
+	
+	.progress-line.step-1 + .progress-labels .progress-label--name {
+	    padding-right: calc(100% - 200px);
+	}
+	
+	.progress-line.step-2 + .progress-labels .progress-label--name {
+	    padding-right: calc(66.666667% - 32px);
+	}
+	
+	.progress-line.step-3 + .progress-labels .progress-label--name {
+	    padding-right: calc(33.333337% - 25px);
 	}
 }
 </style>
