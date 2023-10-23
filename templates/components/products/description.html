@@ -15,7 +15,7 @@
 	{{#if theme_settings.custom_product_description_title.length}}
 	<h4 class="productView-title">{{theme_settings.custom_product_description_title}}</h4>
 	{{/if}}
-    <div class="productView-description description-content" id="tab-description" {{#if settings.data_tag_enabled}} data-event-type="product" {{/if}}>
+    <div class="productView-description description-content" id="tab-description" data-event-type="product">
         {{{product.description}}}
 		{{> components/custom/client/client-product-description}}
     </div>

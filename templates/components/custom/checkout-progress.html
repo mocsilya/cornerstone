@@ -1,0 +1,160 @@
+<div id="progress-checkout">
+	<div class="progress-wrapper">
+		<div class="progress-line">
+			<div class="progress-line__circle"></div>
+			<div class="progress-line__circle"></div>
+			<div class="progress-line__circle"></div>
+			<div class="progress-line__circle"></div>
+		</div>
+		<div class="progress-labels">
+			<span class="progress-label--index"><b>Step 1</b>/4</span>
+			<span class="progress-label--name">Customer</span>
+		</div>
+	</div>
+</div>
+
+<script>
+
+(function(win) {
+    'use strict';
+	
+    var listeners = [], 
+    doc = win.document, 
+    MutationObserver = win.MutationObserver || win.WebKitMutationObserver,
+    observer;
+    
+    function ready(selector, fn) {
+        // Store the selector and callback to be monitored
+        listeners.push({
+            selector: selector,
+            fn: fn
+        });
+        if (!observer) {
+            // Watch for changes in the document
+            observer = new MutationObserver(check);
+            observer.observe(doc.documentElement, {
+                childList: true,
+                subtree: true
+            });
+        }
+        // Check if the element is currently in the DOM
+        check();
+    }
+        
+    function check() {
+        // Check the DOM for elements matching a stored selector
+        for (var i = 0, len = listeners.length, listener, elements; i < len; i++) {
+            listener = listeners[i];
+            // Query for elements matching the specified selector
+            elements = doc.querySelectorAll(listener.selector);
+            for (var j = 0, jLen = elements.length, element; j < jLen; j++) {
+                element = elements[j];
+                // Make sure the callback isn't invoked with the 
+                // same element more than once
+                if (!element.ready) {
+                    element.ready = true;
+                    // Invoke the callback with the element
+                    listener.fn.call(element, element);
+                }
+            }
+        }
+    }
+
+    // Expose `ready`
+    win.ready = ready;
+            
+})(this);
+
+function waitForElm(selector) {
+	return new Promise((resolve) => {
+		if (document.querySelector(selector)) {
+			return resolve(document.querySelector(selector));
+		}
+    	const observer = new MutationObserver((mutations) => {
+			if (document.querySelector(selector)) {
+				resolve(document.querySelector(selector));
+				observer.disconnect();
+			}
+		});
+		observer.observe(document.body, {
+			childList: true,
+			subtree: true,
+		});
+	});
+}
+
+const isDesktop = window.innerWidth >= 968;
+if (isDesktop) {
+	document.querySelector("#progress-checkout").classList.add("progress-checkout--desktop");
+	setTimeout(async () => {
+		const checkoutLayout = await waitForElm("#checkout-app .layout");
+	  	const checkoutCart = await waitForElm("#checkout-app .cart");
+
+	  	if (checkoutLayout) checkoutLayout.style.paddingTop = "40px";
+	  	if (checkoutCart) checkoutCart.style.marginTop = "0";
+	}, 500);
+}
+
+const sleep = (delay = 500) => new Promise((res) => setTimeout(res, delay));
+
+const stepToLabel = {
+	1: "{{lang 'optimized_checkout.customer.customer_heading'}}",
+	2: "{{lang 'optimized_checkout.shipping.shipping_heading'}}",
+	3: "{{lang 'optimized_checkout.billing.billing_heading'}}",
+	4: "{{lang 'optimized_checkout.payment.payment_heading'}}",
+};
+
+const setProgressLineStep = (step) => {
+	const progressLine = document.querySelector("#progress-checkout .progress-line");
+	progressLine.classList = `progress-line step-${step}`;
+	const progressLabelIndex = document.querySelector("#progress-checkout .progress-label--index b");
+	const progressLabelName = document.querySelector("#progress-checkout .progress-label--name");
+	const label = stepToLabel[step];
+	progressLabelIndex.innerText = `Step ${step}`;
+	progressLabelName.innerText = label;
+};
+
+ready('.checkout-step--customer .checkout-view-content', function(element) {
+    //console.log("customer step");
+    setProgressLineStep(1);
+});
+
+ready('.checkout-step--shipping .checkout-view-content', function(element) {
+    //console.log("shipping step");
+	setProgressLineStep(2);
+	const handleShippingStep = async () => {
+		const shippingBtnContinue = await waitForElm("#checkout-shipping-continue");
+	    const isSameAsBilling = document.querySelector("#sameAsBilling").value === "true";
+		if (!isSameAsBilling) {
+			shippingBtnContinue.innerText = "Go To {{lang 'optimized_checkout.billing.billing_heading'}}";
+	    } else {
+	    	shippingBtnContinue.innerText = "Go To {{lang 'optimized_checkout.payment.payment_heading'}}";
+	    }
+		document.querySelector("#sameAsBilling").onchange = (e) => {
+		  let checked = e.target.checked;
+		  if (checked) {
+		    shippingBtnContinue.innerText = "Go To {{lang 'optimized_checkout.payment.payment_heading'}}";
+		  } else {
+		    shippingBtnContinue.innerText = "Go To {{lang 'optimized_checkout.billing.billing_heading'}}";
+		  }
+		}
+	};
+	handleShippingStep();
+});
+
+ready('.checkout-step--billing .checkout-view-content', function(element) {
+    //console.log("billing step");
+	setProgressLineStep(3);
+	const handleBillingStep = async () => {
+		const billingBtnContinue = await waitForElm("#checkout-billing-continue");
+		billingBtnContinue.innerText = "Go To {{lang 'optimized_checkout.payment.payment_heading'}}";
+	};
+	handleBillingStep();
+});
+
+ready('.checkout-step--payment .checkout-view-content', function(element) {
+	//console.log("payment step");
+	setProgressLineStep(4);
+});
+
+</script>

@@ -389,6 +389,7 @@
         "payment_methods": {
             "heading": "Payment Methods",
             "payment_method": "Payment method",
+            "bank_account": "Bank account",
             "billing_address": "Billing address",
             "card_ending_in": "ending in {last_four}",
             "card_expiry": "{month}/{year}",
@@ -410,6 +411,7 @@
                 "unionpay": "Union Pay",
                 "visa": "Visa"
             },
+            "ach": "ACH",
             "paypal": "PayPal",
             "billing_address_labels": {
               "address_line_1": "Address Line 1",
@@ -1023,6 +1025,18 @@
         "disallow_category_tracking": "Disallow [CATEGORY_NAME] tracking"
     },
 	"optimized_checkout": {
+        "billing": {
+            "billing_heading": "Billing"
+        },
+        "customer": {
+            "customer_heading": "Customer"
+        },
+        "payment": {
+            "payment_heading": "Confirm Payment"
+        },
+        "shipping": {
+            "shipping_heading": "Shipping"
+        },
         "order_confirmation": {
 			"order_number_text": "Your order number is <strong>{orderNumber}</strong>",
 			"order_pending_review_text": "Your order was sent to us but is currently awaiting payment. Once we receive the payment for your order, it will be completed. If you've already provided payment details then we will process your order manually and send you an email when it's completed.",
