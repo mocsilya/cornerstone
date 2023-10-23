@@ -1029,7 +1029,7 @@
             "billing_heading": "Billing"
         },
         "customer": {
-            "customer_heading": "Customer"
+            "customer_heading": "Customer Details"
         },
         "payment": {
             "payment_heading": "Confirm Payment"
