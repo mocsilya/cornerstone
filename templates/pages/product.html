@@ -7,7 +7,7 @@ product:
     related_products:
         limit: {{theme_settings.productpage_related_products_count}}
     similar_by_views:
-        limit: {{theme_settings.productpage_similar_by_views_count}}
+        limit: {{theme_settings.productpage_related_products_count}}
 blog:
     recent_posts:
         limit: {{theme_settings.homepage_blog_posts_count}}
@@ -49,7 +49,7 @@ customer:
 		{{> components/common/alert/alert-info message}}
 	{{/each}}
 	{{/unless}}
-    <div {{#if (getVar 'payment') '===' 'active'}} class="payment-product"{{/if}}>
+    <div class="productView-wrap{{#each product.custom_fields}}{{#if name '==' '_class'}} {{value}}{{/if}}{{/each}}{{#if (getVar 'payment') '===' 'active'}} payment-product{{/if}}"{{#if product.sku}} data-item-sku="{{product.sku}}"{{/if}}>
 		{{#if (getVar "b2b-products") '===' 'show'}}
         	{{> components/products/product-view}}
 		{{/if}}

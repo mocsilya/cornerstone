@@ -36,9 +36,9 @@ customer:
 		{{> components/custom/client/client-cart-top}}
 		{{{region name="cart_above_table"}}}
         {{#if cart.items.length}}
-            <div class="loadingOverlay"></div>
-
-            <div data-cart-content class="cart-content-padding-right">
+        <div class="loadingOverlay"></div>
+		<div class="cart-content-wrapper">
+            <div data-cart-content class="cart-content-items cart-content-padding-right">
                 {{> components/cart/content}}
             </div>
 			<div class="cart-content-container">
@@ -46,14 +46,11 @@ customer:
 					<div data-cart-totals class="cart-content-padding-right">
                 		{{> components/cart/totals}}
             		</div>
-            		{{{region name="cart_below_totals"}}}
+					{{{region name="cart_below_totals"}}}
 				</div>
 				<div class="cart-content-actions">
 		        {{#or customer (unless settings.hide_price_from_guests)}}
-		            {{#if cart.additional_checkout_buttons}}
-		                <div data-cart-accelerated-checkout-buttons class="cart-acceleratedCheckoutButtons cart-content-padding-right"></div>
-		            {{/if}}
-					
+		            
 		            {{#if cart.show_primary_checkout_button}}
 		                <div class="cart-actions cart-content-padding-right">
 		                    <a class="button button--primary" href="{{urls.checkout.single_address}}" title="{{lang 'cart.checkout.title'}}" data-primary-checkout-now-action>
@@ -80,8 +77,10 @@ customer:
 	                </div>
 	            {{/or}}
 					{{> components/custom/client/client-cart-bottom}}
+					{{{region name="cart_below_buttons"}}}
 				</div>
 			</div>
+		</div>
         {{else}}
 			<h3 tabindex="0">{{lang 'cart.checkout.empty_cart'}}</h3>
         {{/if}}
