@@ -2173,21 +2173,6 @@ dl.productView-info {
 	}
 }
 
-.page-cart .cart-item-total {
-	position: static;
-}
-
-.page-cart .cart-remove,
-.page-cart .cart-remove-alt {
-	position: absolute;
-	top: 1.5rem;
-	right: 0;
-	@include breakpoint("medium") {
-		position: static;
-		margin-top: 0;
-	}
-}
-
 .cart-item-block.cart-item-price {
 	display: none;
 	@include breakpoint("medium") {
