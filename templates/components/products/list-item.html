@@ -8,9 +8,9 @@
 		{{assignVar "warranty" "active"}}
 	{{/if}}
 {{/filter}}
-{{#if settings.data_tag_enabled}}
-    <article class="listItem{{#if brand.name}} card-brand-{{first (split brand.name ' ')}}{{/if}}" data-event-type="{{event}}" data-entity-id="{{id}}" data-position="{{position}}" data-name="{{name}}" data-product-category="{{#each category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{brand.name}}" data-product-price="
-    {{#or customer (unless settings.hide_price_from_guests)}}
+
+<article class="listItem{{#if brand.name}} card-brand-{{first (split brand.name ' ')}}{{/if}}" data-event-type="{{event}}" data-entity-id="{{id}}" data-position="{{position}}" data-name="{{name}}" data-product-category="{{#each category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{brand.name}}" data-product-price="
+	{{#or customer (unless settings.hide_price_from_guests)}}
         {{#if price.with_tax}}
             {{price.with_tax.value}}
         {{else}}
@@ -18,86 +18,123 @@
         {{/if}}
     {{else}}
         {{lang 'common.login_for_pricing'}}
-    {{/or}}">
-{{else}}
-    <article class="listItem{{#if brand.name}} card-brand-{{first (split brand.name ' ')}}{{/if}}">
-{{/if}}
+    {{/or}}
+	">
     <figure class="listItem-figure">
+		<div class="listItem-figure-badges">
         {{#if stock_level '===' 0}}
-            {{#if show_cart_action}}
-                {{#if theme_settings.pdp_sold_out_label '===' ''}}
-                    {{> components/products/product-badge
-                        badge-type='sold-out'
-                        badge_view=theme_settings.product_sold_out_badges
-                        badge_label=(lang "page_builder.pdp_sold_out_label")
-                    }}
-                {{else}}
-                    {{> components/products/product-badge
-                        badge-type='sold-out'
-                        badge_view=theme_settings.product_sold_out_badges
-                        badge_label=theme_settings.pdp_sold_out_label
-                    }}
-                {{/if}}
+            {{#if theme_settings.pdp_sold_out_label '===' ''}}
+                {{> components/products/product-badge
+                    badge-type='sold-out'
+                    badge_view=theme_settings.product_sold_out_badges
+                    badge_label=(lang "page_builder.pdp_sold_out_label")
+                }}
+            {{else}}
+                {{> components/products/product-badge
+                    badge-type='sold-out'
+                    badge_view=theme_settings.product_sold_out_badges
+                    badge_label=theme_settings.pdp_sold_out_label
+                }}
             {{/if}}
-        {{else if has_options '===' false}}
-            {{#and (if stock_level '===' null) show_cart_action}}
-                {{#and (unless add_to_cart_url) (unless pre_order)}}
-                    {{#if theme_settings.pdp_sold_out_label '===' ''}}
-                        {{> components/products/product-badge
-                            badge-type='sold-out'
-                            badge_view=theme_settings.product_sold_out_badges
-                            badge_label=(lang "page_builder.pdp_sold_out_label")
-                        }}
-                    {{else}}
-                        {{> components/products/product-badge
-                            badge-type='sold-out'
-                            badge_view=theme_settings.product_sold_out_badges
-                            badge_label=theme_settings.pdp_sold_out_label
-                        }}
-                    {{/if}}
-                {{/and}}
-            {{/and}}
         {{else}}
-            {{#or price.sale_price_with_tax.value price.sale_price_without_tax.value}}
-                {{#if theme_settings.pdp_sale_badge_label '===' ''}}
-                    {{> components/products/product-badge
-                        badge-type='sale'
-                        badge_view=theme_settings.product_sale_badges
-                        badge_label=(lang "page_builder.pdp_sale_badge_label")
-                    }}
-                {{else}}
-                    {{> components/products/product-badge
-                        badge-type='sale'
-                        badge_view=theme_settings.product_sale_badges
-                        badge_label=theme_settings.pdp_sale_badge_label
-                    }}
-                {{/if}}
-            {{/or}}
+			{{#if pre_order}}
+				{{#if release_date}}
+		            {{> components/products/product-badge
+		                badge-type='sold-out'
+		                badge_view=theme_settings.product_sold_out_badges
+		                badge_label=release_date
+		            }}
+				{{else}}
+		            {{> components/products/product-badge
+		                badge-type='sold-out'
+		                badge_view=theme_settings.product_sold_out_badges
+		                badge_label='Pre-Order'
+		            }}
+				{{/if}}
+			{{else}}
+	            {{#or price.sale_price_with_tax.value price.sale_price_without_tax.value}}
+	                {{#if theme_settings.pdp_sale_badge_label '===' ''}}
+	                    {{> components/products/product-badge
+	                        badge-type='sale'
+	                        badge_view=theme_settings.product_sale_badges
+	                        badge_label=(lang "page_builder.pdp_sale_badge_label")
+	                    }}
+	                {{else}}
+	                    {{> components/products/product-badge
+	                        badge-type='sale'
+	                        badge_view=theme_settings.product_sale_badges
+	                        badge_label=theme_settings.pdp_sale_badge_label
+	                    }}
+	                {{/if}}
+	            {{/or}}
+			{{/if}}
         {{/if}}
 		{{#if (getVar "spotlight") '===' 'active'}}
-        	<div class="sale-flag-sash spotlight-sash">
-            	<span class="sale-text">{{theme_settings.custom_card_spotlight_name}}</span>
-        	</div>
+			{{#if theme_settings.product_sale_badges '===' 'sash'}}
+			    <div class="sale-flag-sash spotlight-sash">
+					<span class="sale-text">
+						{{theme_settings.custom_card_spotlight_name}}
+					</span>
+			    </div>
+			{{else if theme_settings.product_sold_out_badges '===' 'topleft'}}
+			    <div class="sale-flag-side spotlight-topleft">
+					<span class="sale-text">
+						{{theme_settings.custom_card_spotlight_name}}
+					</span>
+			    </div>
+			{{else if theme_settings.product_sold_out_badges '===' 'burst'}}
+			    <div class="starwrap spotlight-burst">
+			        <div class="sale-text-burst">
+			        	{{theme_settings.custom_card_spotlight_name}}
+			        </div>
+			        <div class="sale-flag-star"></div>
+			    </div>
+			{{/if}}
 		{{/if}}
+		
+		{{#filter custom_fields '_badge' property='name'}}
+			{{#if ../theme_settings.product_sold_out_badges '===' 'sash'}}
+			    <div class="sold-out-flag-sash custom-badge-sash custom-badge-{{dashcase (lowercase (sanitize value))}}">
+					<span class="sold-out-text">
+						{{value}}
+					</span>
+			    </div>
+			{{else if ../theme_settings.product_sold_out_badges '===' 'topleft'}}
+			    <div class="sold-out-flag-side custom-badge-topleft custom-badge-{{dashcase (lowercase (sanitize value))}}">
+					<span class="sold-out-text">
+						{{value}}
+					</span>
+			    </div>
+			{{else if ../theme_settings.product_sold_out_badges '===' 'burst'}}
+			    <div class="starwrap custom-badge-burst custom-badge-{{dashcase (lowercase (sanitize value))}}">
+			        <div class="sold-out-text-burst">
+			        	{{value}}
+			        </div>
+			        <div class="sold-out-flag-star"></div>
+			    </div>
+			{{/if}}
+		{{/filter}}
+		</div>
+		
 		{{#if show_cart_action}}
 			{{#if has_options}}
 				<a href="{{url}}" 
 					class="listItem-figure__link{{#if (getVar 'warranty') '===' 'active'}} figure__warranty{{/if}}{{#if theme_settings.custom_card_show_swatches}} figure__swatches{{/if}} listItem-figure__normal"
-					aria-label="{{> components/products/product-info}}"
-					{{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}
+					aria-label="{{> components/products/product-info}}" 
+					data-event-type="product-click"
 				>
 			{{else}}
 				<a href="{{url}}" 
 					class="listItem-figure__link{{#if (getVar 'warranty') '===' 'active'}} figure__warranty{{/if}} listItem-figure__normal"
-					aria-label="{{> components/products/product-info}}"
-					{{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}
+					aria-label="{{> components/products/product-info}}" 
+					data-event-type="product-click"
 				>
 			{{/if}}
 		{{else}}
 			<a href="{{url}}" 
 				class="listItem-figure__link{{#if (getVar 'warranty') '===' 'active'}} figure__warranty{{/if}}  listItem-figure__normal"
-				aria-label="{{> components/products/product-info}}"
-				{{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}
+				aria-label="{{> components/products/product-info}}" 
+				data-event-type="product-click"
 			>
 		{{/if}}
         <div class="card-img-container card-img-normal">
@@ -156,7 +193,6 @@
 	        {{/each}}
 			</ul>
 		{{/if}}
-		{{#if (getVar "b2b-prices") '===' 'show'}}
 		{{#if theme_settings.custom_card_show_wishlist}}
 		{{#if customer.wishlists}}
 		<span class="card-wishlist">
@@ -199,7 +235,6 @@
 		</span>
 		{{/if}}
 		{{/if}}
-		{{/if}}
     </figure>
     <div class="listItem-body card-body">
         <div class="listItem-content">
@@ -213,9 +248,7 @@
                 <h4 class="listItem-title">
                     <a href="{{url}}"
                     aria-label="{{> components/products/product-info}}"
-                    {{#if settings.data_tag_enabled}}
                     data-event-type="product-click"
-                    {{/if}}
                     >
                         {{name}}
                     </a>
@@ -226,10 +259,16 @@
             </div>
             <div class="listItem-actions">
                 {{#or customer (unless settings.hide_price_from_guests)}}
-					{{#if (getVar "b2b-prices") '===' 'show'}}
-                    {{#if price}}
-                        <div class="listItem-price">{{> components/products/price price=price}}</div>
-                    {{/if}}
+					{{#if theme_settings.custom_b2b}}
+						{{#if (getVar "b2b-prices") '===' 'show'}}
+                    		{{#if price}}
+                        		<div class="listItem-price">{{> components/products/price price=price}}</div>
+                   			{{/if}}
+						{{/if}}
+					{{else}}
+                		{{#if price}}
+                    		<div class="listItem-price">{{> components/products/price price=price}}</div>
+               			{{/if}}
 					{{/if}}
                 {{else}}
                     {{> components/common/login-for-pricing}}
@@ -251,21 +290,38 @@
 						</div>
 					</div>
 				{{/if}}
-				{{#if (getVar "b2b-prices") '===' 'show'}}
-                    {{#if show_cart_action}}
-                        {{#if has_options}}
-                            <a href="{{url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}} class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
-                        {{/if}}
-                        {{#if pre_order}}
-                            <a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}">{{lang 'products.pre_order'}}</a>
-                        {{/if}}
-                        {{#if add_to_cart_url }}
-                            <a href="{{add_to_cart_url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}} class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}">{{lang 'products.add_to_cart'}}</a>
-                        {{/if}}
-                        {{#if out_of_stock_message }}
-                            <a href="{{url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">{{out_of_stock_message}}</a>
-                        {{/if}}
-                    {{/if}}
+				{{#if theme_settings.custom_b2b}}
+					{{#if (getVar "b2b-prices") '===' 'show'}}
+                    	{{#if show_cart_action}}
+                        	{{#if has_options}}
+                            	<a href="{{url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                        	{{/if}}
+                        	{{#if pre_order}}
+                           		<a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}">{{lang 'products.pre_order'}}</a>
+                        	{{/if}}
+                        	{{#if add_to_cart_url }}
+                            	<a href="{{add_to_cart_url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}">{{lang 'products.add_to_cart'}}</a>
+                        	{{/if}}
+                        	{{#if out_of_stock_message }}
+                            	<a href="{{url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                        	{{/if}}
+                    	{{/if}}
+					{{/if}}
+				{{else}}
+                	{{#if show_cart_action}}
+                    	{{#if has_options}}
+                        	<a href="{{url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
+                    	{{/if}}
+                    	{{#if pre_order}}
+                       		<a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}">{{lang 'products.pre_order'}}</a>
+                    	{{/if}}
+                    	{{#if add_to_cart_url }}
+                        	<a href="{{add_to_cart_url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}">{{lang 'products.add_to_cart'}}</a>
+                    	{{/if}}
+                    	{{#if out_of_stock_message }}
+                        	<a href="{{url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                    	{{/if}}
+                	{{/if}}
 				{{/if}}
 				{{#if (getVar "spotlight") '===' 'inactive'}}
                 	{{#if show_compare}}
@@ -276,7 +332,7 @@
 				{{/if}}
 		        {{#unless hide_product_quick_view}}
 		            {{#if theme_settings.show_product_quick_view}}
-		                <button type="button" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}} class="button button quickview {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">{{lang 'products.quick_view'}}</button>
+		                <button type="button" data-event-type="product-click" class="button button quickview {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">{{lang 'products.quick_view'}}</button>
 		            {{/if}}
 		        {{/unless}}
             </div>
