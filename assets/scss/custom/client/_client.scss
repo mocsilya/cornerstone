@@ -428,7 +428,7 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 }
 
 .page-default .container-hero {
-	padding: 0 1.5rem;
+	padding: 0;
 	@include breakpoint("medium") {
 		padding: 0 3rem;
 	}
@@ -440,8 +440,19 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 .heroCarousel-wrap {
 	display: flex;
 	flex-direction: column;
+	border-radius: .5rem;
 	@include breakpoint("large") {
 		flex-direction: row;
+	}
+}
+
+.heroCarousel-image-wrapper img {
+	@include breakpoint("medium") {
+		border-top-left-radius: .5rem;
+		border-top-right-radius: .5rem;
+	}
+	@include breakpoint("large") {
+		border-top-left-radius: 0;
 	}
 }
 
@@ -463,10 +474,14 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 
 .why-buy {
 	margin: 0;
-	padding: 1.5rem;
+	padding: 0 1.5rem 1.5rem 1.5rem;
 	list-style: none;
 	display: flex;
 	flex-direction: column;
+	@include breakpoint("small") {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
 	@include breakpoint("small") {
 		flex-direction: row;
 		flex-wrap: wrap;
@@ -488,8 +503,12 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 
 .why-buy li:first-child {
 	text-align: center;
+	padding: 0 0 .5rem 0;
 	@include breakpoint("small") {
 		flex: 1 1 100%;
+	}
+	@include breakpoint("large") {
+		padding: 1rem 0 .5rem 0;
 	}
 }
 
@@ -561,12 +580,38 @@ div[data-content-region="header_bottom--global"] {
 	padding-right: .5rem;
 }
 
+
+// Countdown Timer
+// =============================================================================
+
+
 .time-container {
+    padding: .25rem 1rem;
 	background: #fff;
 	border: none;
 	display: inline-block;
 	margin: .5rem auto;
-	border-radius: 2rem;
+	border-radius: 999px;
+	@include breakpoint("medium") {
+		padding: .5rem 1.5rem;
+	}
+}
+
+.time-text {
+    padding: .25rem;
+	@include breakpoint("medium") {
+		padding: .5rem;
+	}
+}
+
+.time-data {
+    padding: .25rem 0;
+    width: 54px;
+    border-radius: .25rem;
+	@include breakpoint("medium") {
+		padding: .5rem 0;
+		width: 60px;
+	}
 }
 
 
@@ -579,6 +624,25 @@ div[data-content-region="header_bottom--global"] {
 .custom-widget-home .custom-widget-list {
 	flex-direction: row;
 	flex-wrap: wrap;
+}
+
+.custom-widget-home .custom-widget-3 .custom-widget-item {
+	min-width: 50%;
+	@include breakpoint("xsmall") {
+		min-width: 50%;
+	}
+	@include breakpoint("small") {
+		min-width: 50%;
+	}
+	@include breakpoint("medium") {
+		min-width: 33.333333%;
+	}
+	@include breakpoint("large") {
+		min-width: 33.333333%;
+	}
+	@include breakpoint("xlarge") {
+		min-width: 33.333333%;
+	}
 }
 
 .custom-widget-home .custom-widget-6 .custom-widget-item {
