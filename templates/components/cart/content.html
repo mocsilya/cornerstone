@@ -52,14 +52,15 @@
                                 </dd>
                             {{/each}}
                         </dl>
-
-                        <a class="cart-item-change" href="#"
-                           data-item-edit="{{id}}"
-                           data-product-id="{{product_id}}"
-                           aria-label="{{lang 'products.change_product_options' name=name}}"
-                        >
-                            {{lang 'common.change'}}
-                        </a>
+                        {{#if can_modify}}
+                            <a class="cart-item-change" href="#"
+                            data-item-edit="{{id}}"
+                            data-product-id="{{product_id}}"
+                            aria-label="{{lang 'products.change_product_options' name=name}}"
+                            >
+                                {{lang 'common.change'}}
+                            </a>
+                        {{/if}}
                     {{/if}}
 
                     {{#if type '==' 'GiftCertificate'}}
