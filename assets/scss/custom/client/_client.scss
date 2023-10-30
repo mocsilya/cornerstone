@@ -85,6 +85,10 @@ body.with-bar .header {
 	}
 }
 
+.form-search-box {
+	max-width: 300px;
+}
+
 .navPages-item-boxsearch .form-search-box .form-input, 
 .header--boxsearch .form-search-box .form-input,
 .navUser .form-search-box .form-input {
@@ -157,6 +161,20 @@ body.with-bar .header {
     margin-bottom: 0;
 }
 
+.navPages > ul > li .navPages-action.navPages-action-depth-max.is-open {
+    @include breakpoint("medium") {
+		color: #ffb41d;
+	}
+}
+
+.navPages > ul > li .navPages-action.navPages-action-depth-max.is-open svg {
+    @include breakpoint("medium") {
+		fill: #ffb41d;
+		stroke: #ffb41d;
+	}
+}
+
+.navPages > ul > li.navPages-item-products.navPages-item-category > .navPages-action,
 .navPages > ul > li.navPages-item-clearance.navPages-item-page > .navPages-action {
 	color: #ffb41d;
     @include breakpoint("medium") {
@@ -165,6 +183,18 @@ body.with-bar .header {
 	}
 }
 
+.navPages > ul > li.navPages-item-products.navPages-item-category > .navPages-action svg,
+.navPages > ul > li.navPages-item-clearance.navPages-item-page > .navPages-action svg {
+	fill: #ffb41d;
+	stroke: #ffb41d;
+    @include breakpoint("medium") {
+		fill: #312e29;
+		stroke: #312e29;
+	}
+}
+
+.navPages > ul > li.navPages-item-products.navPages-item-category > .navPages-action.navPages-action-depth-max.is-open,
+.navPages > ul > li.navPages-item-products.navPages-item-category > .navPages-action:hover,
 .navPages > ul > li.navPages-item-clearance.navPages-item-page > .navPages-action:hover {
 	color: #FFC756;
     @include breakpoint("medium") {
@@ -173,8 +203,19 @@ body.with-bar .header {
 	}
 }
 
+.navPages > ul > li.navPages-item-products.navPages-item-category > .navPages-action.navPages-action-depth-max.is-open svg,
+.navPages > ul > li.navPages-item-products.navPages-item-category > .navPages-action:hover svg,
+.navPages > ul > li.navPages-item-clearance.navPages-item-page > .navPages-action:hover svg {
+	fill: #FFC756;
+	stroke: #FFC756;
+    @include breakpoint("medium") {
+		fill: #312e29;
+		stroke: #312e29;
+	}
+}
+
 .navPages-item-refunds-returns {
-    display: none;
+    display: none !important;
 }
 
 
@@ -208,6 +249,89 @@ body.with-bar .header {
 .navPages .navPage-subMenu-action:not(.navPages-action-depth-max)+.navPage-childList {
     display: none;
 }
+
+.has-subMenu.is-root + .navPage-subMenu-horizontal,
+.navPage-subMenu-list .navPage-subMenu-horizontal.is-open {
+    @include breakpoint("medium") {
+		width: 260px;
+	}
+    @include breakpoint("large") {
+		width: 340px;
+	}
+}
+
+.navPage-subMenu-list .navPage-subMenu-horizontal.is-open {
+	@include breakpoint("medium") {
+		margin-left: 259px;
+	}
+	@include breakpoint("large") {
+		margin-left: 339px;
+	}
+}
+
+
+.navPages-list-depth-max .navPage-subMenu-list .navPages-action-moreIcon,
+.navPages-list-depth-max .navPage-subMenu-list .navPages-action-depth-max.has-subMenu.is-open .navPages-action-moreIcon {
+	@include breakpoint("medium") {
+		width: 16px;
+		height: 16px;
+		float: right;
+		background: #68737a;
+		margin: 0;
+		padding: 4px;
+		border-radius: 999px;
+	}
+}
+
+.navPages-list-depth-max .navPage-subMenu-list .navPages-action-depth-max.has-subMenu.is-open .navPages-action-moreIcon {
+	@include breakpoint("medium") {
+		background: #FFC756;
+	}
+}
+
+.navPages-list-depth-max .navPage-subMenu-list .navPages-action-depth-max.has-subMenu.is-open .navPages-action-moreIcon svg,
+.navPages-list-depth-max .navPage-subMenu-list .navPages-action-moreIcon svg {
+	@include breakpoint("medium") {
+		fill: #fff;
+		stroke: #fff;
+	}
+}
+
+.navUser-item--custom-desktop {
+	display: none;
+	@include breakpoint("medium") {
+		display: inline-block;
+	}
+}
+
+.navUser-item--custom-mobile {
+	display: inline-block;
+	@include breakpoint("medium") {
+		display: none;
+	}
+}
+
+.navUser-item--custom span {
+    font-size: 12px;
+    line-height: 1;
+	@include breakpoint("large") {
+		font-size: 14px;
+	}
+}
+
+.navUser-item--custom strong {
+    font-size: 14px;
+    line-height: 1;
+	@include breakpoint("large") {
+		font-size: 20px;
+	}
+}
+
+.navUser-item--custom .dropdown-menu-item {
+	padding: .75rem 1.5rem;
+	text-align: center;
+}
+
 
 
 
@@ -347,13 +471,25 @@ body.page-spray-booths .pp-pay-in-3 {
 .card-price .price-section--withoutTax,
 .listItem-price .price-section--withoutTax {
 	order: 1;
-	color: stencilColor('color-primaryLight') !important;
+	color: stencilColor('color-textBase') !important;
+}
+
+.card-price .price-section--withoutTax .price,
+.listItem-price .price-section--withoutTax .price {
+	color: stencilColor('color-textBase') !important;
 }
 
 .card-price .price-section--withTax,
 .listItem-price .price-section--withTax {
 	order: 2;
-	color: stencilColor('color-textBase') !important;
+	color: stencilColor('color-primaryLight') !important;
+	font-weight: 400;
+}
+
+.card-price .price-section--withTax .price,
+.listItem-price .price-section--withTax .price {
+	color: stencilColor('color-primaryLight') !important;
+	font-weight: 400;
 }
 
 
@@ -378,32 +514,43 @@ body.page-spray-booths .pp-pay-in-3 {
 .productView-details .price-section.price-section--withoutTax.non-sale-price--withoutTax,
 .productView-details .price-section.price-section--withoutTax.rrp-price--withoutTax {
 	order: 1;
-	color: stencilColor('color-primaryLight') !important;
+	color: stencilColor('color-textBase') !important;
+	font-weight: 700;
+}
+
+.productView-details .price-section.price-section--withoutTax .price {
+	color: stencilColor('color-textBase') !important;
+	font-weight: 700;
 }
 
 .productView-details .price-section.price-section--withTax,
 .productView-details .price-section.price-section--withTax.non-sale-price--withTax,
 .productView-details .price-section.price-section--withTax.rrp-price--withTax {
 	order: 2;
-	color: stencilColor('color-textBase') !important;
+	color: stencilColor('color-primaryLight') !important;
+	font-weight: 400;
+}
+
+.productView-details .price-section.price-section--withTax .price {
+	color: stencilColor('color-primaryLight') !important;
+	font-weight: 400;
 }
 
 .productView-details .price-section.price-section--saving {
 	order: 3;
 }
 
-
 .page-product .card-price .price-section--withoutTax {
 	order: 1;
 	padding-right: 0;
-	font-weight: 400;
+	font-weight: 700;
 	flex: 1 1 auto;
 }
 
 .page-product .card-price .price-section--withTax {
 	order: 2;
 	padding-right: 0;
-	font-weight: 700;
+	font-weight: 400;
 	flex: 1 1 auto;
 }
 

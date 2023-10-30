@@ -1,0 +1,30 @@
+<li class="navPages-item navPages-item-category navPages-item-products">
+    <a class="navPages-action navPages-action-depth-max has-subMenu is-root{{#if is_active}} activePage{{/if}}"
+       href="#"
+       data-collapsible="navPages-products"
+       aria-label="Products"
+    >
+        Products
+        <i class="icon navPages-action-moreIcon" aria-hidden="true">
+            <svg><use href="#icon-chevron-down" /></svg>
+        </i>
+    </a>
+	<div class="navPage-subMenu navPage-subMenu-horizontal" id="navPages-products" aria-hidden="true" tabindex="-1">
+	    <ul class="navPage-subMenu-list">
+	        {{#each categories}}
+				{{#unless name "===" "Clearance"}}
+	            <li class="navPage-subMenu-item-child">
+	                {{#if children}}
+	                    <a class="navPage-subMenu-action navPages-action navPages-action-depth-max has-subMenu{{#if is_active}} activePage{{/if}}" href="{{url}}" data-collapsible="navPages-{{id}}">
+	                        {{name}}<i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use href="#icon-chevron-down" /></svg></i>
+	                    </a>
+	                    {{> components/common/navigation-dropdown}}
+	                {{else}}
+	                    <a class="navPage-subMenu-action navPages-action{{#if is_active}} activePage{{/if}}" href="{{url}}">{{name}}</a>
+	                {{/if}}
+	            </li>
+				{{/unless}}
+	        {{/each}}
+	    </ul>
+	</div>
+</li>
