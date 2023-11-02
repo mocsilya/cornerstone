@@ -1397,7 +1397,7 @@ body:not(.currency-gbp) article[data-section-type="footer-categories"] li:last-c
 
 // Blog
 // =============================================================================
-
+/*
 .footer-blog > .container {
 	@include breakpoint("large") {
 		display: flex;
@@ -1488,9 +1488,11 @@ body:not(.currency-gbp) article[data-section-type="footer-categories"] li:last-c
 	margin-bottom: 1.5rem;
 }
 
+*/
+
 .videoWrapper {
 	position: relative;
-	padding-bottom: 56.25%; /* 16:9 */
+	padding-bottom: 56.25%;
 	height: 0;
 }
 
@@ -1501,6 +1503,8 @@ body:not(.currency-gbp) article[data-section-type="footer-categories"] li:last-c
 	width: 100%;
 	height: 100%;
 }
+
+/*
 
 .youtube-subscribe {
 	margin-top: 1.5rem;
@@ -1527,6 +1531,8 @@ body:not(.currency-gbp) article[data-section-type="footer-categories"] li:last-c
 	margin-bottom: 1.5rem;
 }
 
+*/
+
 .footer-blog-viewall {
 	text-align: center;
 	padding: 1.5rem 0;
@@ -1537,6 +1543,87 @@ body:not(.currency-gbp) article[data-section-type="footer-categories"] li:last-c
 
 .footer-blog-viewall .button {
 	margin: 0 auto;
+}
+
+
+.socialLinks--custom {
+	display: flex;
+}
+
+.socialLinks--item-custom {
+	flex: 1 1 0;
+	border-right: 1px solid #fff;
+}
+
+.socialLinks--custom div:last-child {
+	border-right: 0;
+}
+
+.socialLinks--item-custom a {
+	display: block;
+	padding: 3rem 1.5rem;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	background-color: #7fb24c;
+}
+
+.socialLinks--item-facebook a:hover  {
+	background-color: #0866FF;
+}
+
+.socialLinks--item-youtube a:hover  {
+	background-color: #FF0100;
+}
+
+.socialLinks--item-instagram a:hover {
+	background: #d6249f;
+	background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+}
+
+.socialLinks--item-custom img {
+	display: block;
+	width: 100%;
+	height: auto;
+	margin: auto;
+	@include breakpoint("xsmall") {
+		width: 90%;
+	}
+	@include breakpoint("small") {
+		width: 80%;
+	}
+	@include breakpoint("medium") {
+		width: 70%;
+	}
+	@include breakpoint("large") {
+		width: 60%;
+	}
+	@include breakpoint("xlarge") {
+		width: 50%;
+	}
+}
+
+.socialLinks--item-custom span {
+	display: none;
+	padding-top: 1.5rem;
+	color: #fff;
+	margin: auto;
+	font-weight: 700;
+	display: none;
+	@include breakpoint("small") {
+		display: block;
+		min-height: 64px;
+	}
+	@include breakpoint("medium") {
+		font-size: 18px;
+		min-height: auto;
+	}
+	@include breakpoint("large") {
+		font-size: 20px;
+	}
+	@include breakpoint("xlarge") {
+		font-size: 22px;
+	}
 }
 
 

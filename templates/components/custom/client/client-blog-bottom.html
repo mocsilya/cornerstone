@@ -1,6 +1,5 @@
-{{#and (if page_type '!==' 'blog' ) (if page_type '!==' 'blog_post')}}
-</div>
+{{#if page_type '!==' 'blog'}}
 <div class="footer-blog-viewall">
     <a href="/latest-posts" class="button button--primary">View all blog posts</a></div>
 </div>
-{{/and}}
+{{/if}}
