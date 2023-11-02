@@ -1,0 +1,48 @@
+<li class="navPages-item navPages-item-page navPages-item-information">
+	<a class="navPages-action has-subMenu navPages-action-mobile"
+		href="#" 
+		data-collapsible="navPages-information" 
+	>
+		Site Info
+		<i class="icon navPages-action-moreIcon" aria-hidden="true">
+			<svg><use xlink:href="#icon-chevron-down" /></svg>
+		</i>
+	</a>
+	<a class="navPages-action navPages-action-desktop"
+		href="#" 
+		aria-label="information" 
+	>
+		Site Info
+		<i class="icon navPages-action-moreIcon" aria-hidden="true">
+			<svg><use xlink:href="#icon-chevron-down" /></svg>
+		</i>
+	</a>
+	<div class="navPage-subMenu" id="navPages-information" aria-hidden="true" tabindex="-1">
+		<ul class="navPage-subMenu-list">
+		{{#each pages}}
+			{{#unless (lowercase name) '==' 'header'}}
+				{{#unless children}}
+				<li class="navPage-subMenu-item">
+	                <a class="navPage-subMenu-action navPages-action{{#if name '==' ../page.title}} activePage{{/if}}"
+	                   href="{{url}}"
+	                   aria-label="{{name}}"
+	                >
+	                    {{name}}
+	                </a>
+	            
+				</li>
+				{{/unless}}
+			{{/unless}}
+		{{/each}}
+		</ul>
+	</div>
+</li>
+{{#each pages}}
+	{{#unless (lowercase name) '==' 'header'}}
+		{{#if children}}
+		<li class="navPages-item navPages-item-page navPages-item-{{dashcase name}}">
+			{{> components/custom/navigation-list-page}}
+		</li>
+		{{/if}}
+	{{/unless}}
+{{/each}}

@@ -11,7 +11,7 @@
 	color: #f86e21;
 }
 
-main.body > .container > div:not(.page-header) {
+main.body > .container > div:not(.page-header):not(.category-description-button) {
 	background-color: stencilColor('body-bg');
 }
 
@@ -172,6 +172,32 @@ body:not(.page-category.page-brands) #main-content {
 		flex: 1 1 0;
 	}
 }
+
+.navPages > ul > li.navPages-item > .navPages-action {
+	@include breakpoint("medium") {
+		border-right: 1px solid #addbf2;
+		border-bottom: 1px solid #addbf2;
+		padding-bottom: 1rem;
+	}
+	@include breakpoint("large") {
+		border-bottom: 0;
+		padding-bottom: calc(1.14286rem - 1px);
+	}
+}
+
+.navPages > ul > li.navPages-item:first-child > .navPages-action {
+	@include breakpoint("medium") {
+		border-left: 1px solid #addbf2;
+	}
+}
+
+.navPages > ul > li.navPages-item > .navPages-action:hover {
+	@include breakpoint("medium") {
+		background-color: #509ac2;
+	}
+}
+
+
 
 .page-product #main-content > .container:not(.container-hero) > div:first-child,
 body:not(.page-category.page-brands) #main-content > .container:not(.container-hero) .page {
@@ -388,6 +414,37 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 
 .panel-header,
 .panel-body {
+	background-color: #fff;
+}
+
+.category-description {
+	margin: 0 -0.75rem;
+	padding: 0 2.25rem;
+	border-radius: 0.25rem;
+	@include breakpoint("large") {
+		padding: 0 3.75rem;
+	}
+}
+
+.category-description p {
+	padding-top: .75rem;
+	padding-bottom: .75rem;
+	margin: 0;
+}
+
+.category-description p:first-child {
+	padding-top: 1.5rem;
+}
+
+.category-description p:last-child {
+	padding-bottom: 1.5rem;
+}
+
+.category-description-button  {
+	margin-top: .75rem;
+}
+
+.category-description-button .button {
 	background-color: #fff;
 }
 
