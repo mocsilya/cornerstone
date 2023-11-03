@@ -35,9 +35,9 @@ body.with-bar .header {
 	display: none;
 }
 
-.navUser-section--norm.navUser-section-left {
-    @include breakpoint("large") {
-		min-width: calc(100% - 700px);
+.navUser-section--alt.navUser-section-left {
+    @include breakpoint("medium") {
+		min-width: 250px;
 	}
 }
 
