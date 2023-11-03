@@ -14,7 +14,9 @@
     "pt-BR": "global",
     "es-419": "Global",
     "da": "Global",
-    "no": "Global"
+    "no": "Global",
+    "ko": "글로벌",
+    "pl": "Global"
   },
   "i18n.BackgroundAndLines": {
     "default": "Background and lines",
@@ -31,7 +33,9 @@
     "pt-BR": "Plano de fundo e linhas",
     "es-419": "Fondo y líneas",
     "da": "Baggrund og linjer",
-    "no": "Bakgrunn og linjer"
+    "no": "Bakgrunn og linjer",
+    "ko": "배경과 선",
+    "pl": "Tło i linie"
   },
   "i18n.BannerBackground": {
     "default": "Banner background",
@@ -48,7 +52,9 @@
     "pt-BR": "Plano de fundo do banner",
     "es-419": "Fondo del banner",
     "da": "Bannerbaggrund",
-    "no": "Bakgrunn på banner"
+    "no": "Bakgrunn på banner",
+    "ko": "배너 배경",
+    "pl": "Tło bannera"
   },
   "i18n.PageBackground": {
     "default": "Page background",
@@ -65,7 +71,9 @@
     "pt-BR": "Plano de fundo da página",
     "es-419": "Fondo de la página",
     "da": "Sidebaggrund",
-    "no": "Bakgrunn på side"
+    "no": "Bakgrunn på side",
+    "ko": "페이지 배경",
+    "pl": "Tło strony"
   },
   "i18n.CommonDarkBackground": {
     "default": "Common dark background",
@@ -82,7 +90,9 @@
     "pt-BR": "Plano de fundo escuro comum",
     "es-419": "Fondo oscuro común",
     "da": "Fælles mørk baggrund",
-    "no": "Vanlig mørk bakgrunn"
+    "no": "Vanlig mørk bakgrunn",
+    "ko": "일반적인 어두운 배경",
+    "pl": "Wspólne ciemne tło"
   },
   "i18n.ModalOverlayBackground": {
     "default": "Modal overlay background",
@@ -99,7 +109,9 @@
     "pt-BR": "Plano de fundo da sobreposição do modal",
     "es-419": "Fondo de superposición modal",
     "da": "Modal overlejringsbaggrund",
-    "no": "Overliggende bakgrunn på modal"
+    "no": "Overliggende bakgrunn på modal",
+    "ko": "모달 오버레이 배경",
+    "pl": "Tło nakładki modalnej"
   },
   "i18n.AlertPopupBoxBackground": {
     "default": "Alert popup box background",
@@ -116,7 +128,9 @@
     "pt-BR": "Plano de fundo de caixa pop-up de alerta",
     "es-419": "Fondo del cuadro emergente de alerta",
     "da": "Baggrund til alarm-pop op-felt",
-    "no": "Bakgrunn for varsler som dukker opp"
+    "no": "Bakgrunn for varsler som dukker opp",
+    "ko": "알림 팝업 상자 배경",
+    "pl": "Tło okienka alarmowego"
   },
   "i18n.AlertPopupTextColor": {
     "default": "Alert popup text color",
@@ -133,7 +147,9 @@
     "pt-BR": "Cor do texto do pop-up de alerta",
     "es-419": "Color del texto emergente de la alerta",
     "da": "Tekstfarve for alarm-pop op",
-    "no": "Tekstfarge for varsler som dukker opp"
+    "no": "Tekstfarge for varsler som dukker opp",
+    "ko": "알림 팝업 텍스트 색상",
+    "pl": "Kolor tekstu alertu"
   },
   "i18n.HorizontalLine": {
     "default": "Horizontal line",
@@ -150,7 +166,9 @@
     "pt-BR": "Linha horizontal",
     "es-419": "Línea horizontal",
     "da": "Vandret linje",
-    "no": "Horisontal linje"
+    "no": "Horisontal linje",
+    "ko": "수평선",
+    "pl": "Linia pozioma"
   },
   "i18n.BodyTextAndLinks": {
     "default": "Body text and links",
@@ -167,7 +185,9 @@
     "pt-BR": "Texto do corpo e links",
     "es-419": "Texto del cuerpo y enlaces",
     "da": "Brødtekst og links",
-    "no": "Brødtekst og lenker"
+    "no": "Brødtekst og lenker",
+    "ko": "본문 텍스트 및 링크",
+    "pl": "Tekst główny i linki"
   },
   "i18n.BodyTextFontFamily": {
     "default": "Body text font family",
@@ -184,7 +204,9 @@
     "pt-BR": "Família de fontes do texto do corpo",
     "es-419": "Familia de fuentes del texto del cuerpo",
     "da": "Skrifttypefamilie for brødtekst",
-    "no": "Font på brødtekst"
+    "no": "Font på brødtekst",
+    "ko": "본문 텍스트 글꼴 모음",
+    "pl": "Rodzina czcionek tekstu głównego"
   },
   "i18n.BodyTextFontSize": {
     "default": "Body text font size",
@@ -201,7 +223,9 @@
     "pt-BR": "Tamanho da fonte do texto do corpo",
     "es-419": "Tamaño de fuente del texto del cuerpo",
     "da": "Skriftstørrelse på brødtekst",
-    "no": "Skriftstørrelse for brødtekst"
+    "no": "Skriftstørrelse for brødtekst",
+    "ko": "본문 텍스트 글꼴 크기",
+    "pl": "Rozmiar czcionki tekstu ciała"
   },
   "i18n.BodyTextColor": {
     "default": "Body text color",
@@ -218,7 +242,9 @@
     "pt-BR": "Cor do texto do corpo",
     "es-419": "Color del texto del cuerpo",
     "da": "Farve på brødtekst",
-    "no": "Brødtekstfarge"
+    "no": "Brødtekstfarge",
+    "ko": "본문 텍스트 색상",
+    "pl": "Kolor tekstu ciała"
   },
   "i18n.BodyTextHoverColor": {
     "default": "Body text hover color",
@@ -234,8 +260,10 @@
     "es-MX": "Color del texto del cuerpo al pasar el cursor",
     "pt-BR": "Cor do texto do corpo com o foco do mouse",
     "es-419": "Color del cursor del texto del cuerpo",
-    "da": "Farve når der peges på brødtekst",
-    "no": "Brødtekstfarge med peker over"
+    "da": "Farve, når der peges på brødtekst",
+    "no": "Brødtekstfarge (med peker over)",
+    "ko": "본문 텍스트 호버 색상",
+    "pl": "Kolor hover tekstu ciała"
   },
   "i18n.SecondaryTextColor": {
     "default": "Secondary text color",
@@ -252,7 +280,9 @@
     "pt-BR": "Cor do texto secundário",
     "es-419": "Color de texto secundario",
     "da": "Sekundær tekstfarve",
-    "no": "Sekundær tekstfarge"
+    "no": "Sekundær tekstfarge",
+    "ko": "보조 텍스트 색상",
+    "pl": "Kolor drugiego tekstu"
   },
   "i18n.SecondaryTextHoverColor": {
     "default": "Secondary text hover color",
@@ -268,8 +298,10 @@
     "es-MX": "Color del texto secundario al pasar el cursor",
     "pt-BR": "Cor do texto secundário com o foco do mouse",
     "es-419": "Color del cursor del texto secundario",
-    "da": "Farve når der peges på sekundær tekst",
-    "no": "Sekundær tekstfarge med peker over"
+    "da": "Farve, når der peges på sekundær tekst",
+    "no": "Sekundær tekstfarge (med peker over)",
+    "ko": "보조 텍스트 호버 색상",
+    "pl": "Kolor drugiego tekstu przy najechaniu"
   },
   "i18n.LinkColor": {
     "default": "Link color",
@@ -286,7 +318,9 @@
     "pt-BR": "Cor do link",
     "es-419": "Color del enlace",
     "da": "Linkfarve",
-    "no": "Lenkefarge"
+    "no": "Lenkefarge",
+    "ko": "링크 색상",
+    "pl": "Kolor łącza"
   },
   "i18n.LinkHoverColor": {
     "default": "Link hover color",
@@ -302,8 +336,10 @@
     "es-MX": "Color del enlace al pasar el cursor",
     "pt-BR": "Cor do link com o foco do mouse",
     "es-419": "Color del cursor del enlace",
-    "da": "Farve når der peges på link",
-    "no": "Lenkefarge med peker over"
+    "da": "Farve, når der peges på link",
+    "no": "Lenkefarge (med peker over)",
+    "ko": "링크 호버 색상",
+    "pl": "Kolor hovera linku"
   },
   "i18n.LinkActiveColor": {
     "default": "Link active color",
@@ -320,7 +356,9 @@
     "pt-BR": "Cor ativa do link",
     "es-419": "Color del enlace activo",
     "da": "Farve på aktivt link",
-    "no": "Farge på aktiv lenke"
+    "no": "Farge på aktiv lenke",
+    "ko": "링크 액티브 색상",
+    "pl": "Kolor aktywny łącza"
   },
   "i18n.Headings": {
     "default": "Headings",
@@ -337,7 +375,9 @@
     "pt-BR": "Títulos",
     "es-419": "Encabezados",
     "da": "Overskrifter",
-    "no": "Overskrifter"
+    "no": "Overskrifter",
+    "ko": "제목",
+    "pl": "Nagłówki"
   },
   "i18n.HeadingFontFamily": {
     "default": "Heading font family",
@@ -354,7 +394,9 @@
     "pt-BR": "Família de fontes do título",
     "es-419": "Familia de fuentes del encabezado",
     "da": "Skrifttypefamilie på overskrift",
-    "no": "Overskrift-font"
+    "no": "Overskrift-font",
+    "ko": "제목 글꼴 모음",
+    "pl": "Rodzina czcionek nagłówka"
   },
   "i18n.Heading1": {
     "default": "Heading 1",
@@ -371,7 +413,9 @@
     "pt-BR": "Título 1",
     "es-419": "Encabezado 1",
     "da": "Overskrift 1",
-    "no": "Overskrift 1"
+    "no": "Overskrift 1",
+    "ko": "제목 1",
+    "pl": "Nagłówek 1"
   },
   "i18n.Heading2": {
     "default": "Heading 2",
@@ -388,7 +432,9 @@
     "pt-BR": "Título 2",
     "es-419": "Encabezado 2",
     "da": "Overskrift 2",
-    "no": "Overskrift 2"
+    "no": "Overskrift 2",
+    "ko": "제목 2",
+    "pl": "Nagłówek 2"
   },
   "i18n.Heading3": {
     "default": "Heading 3",
@@ -405,58 +451,9 @@
     "pt-BR": "Título 3",
     "es-419": "Encabezado 3",
     "da": "Overskrift 3",
-    "no": "Overskrift 3"
-  },
-  "i18n.Heading4": {
-    "default": "Heading 4",
-    "fr": "En-tête 4",
-    "it": "Intestazione 4",
-    "uk": "Заголовок 4",
-    "zh": "Heading 4",
-    "de": "Überschrift 4",
-    "es": "Encabezado 4",
-    "nl": "Heading 4",
-    "pt": "Título 4",
-    "sv": "Rubrik 4",
-    "es-MX": "Encabezado 4",
-    "pt-BR": "Título 4",
-    "es-419": "Encabezado 4",
-    "da": "Overskrift 4",
-    "no": "Overskrift 4"
-  },
-  "i18n.Heading5": {
-    "default": "Heading 5",
-    "fr": "En-tête 5",
-    "it": "Intestazione 5",
-    "uk": "Заголовок 5",
-    "zh": "Heading 5",
-    "de": "Überschrift 5",
-    "es": "Encabezado 5",
-    "nl": "Heading 5",
-    "pt": "Título 5",
-    "sv": "Rubrik 5",
-    "es-MX": "Encabezado 5",
-    "pt-BR": "Título 5",
-    "es-419": "Encabezado 5",
-    "da": "Overskrift 5",
-    "no": "Overskrift 5"
-  },
-  "i18n.Heading6": {
-    "default": "Heading 6",
-    "fr": "En-tête 6",
-    "it": "Intestazione 6",
-    "uk": "Заголовок 6",
-    "zh": "Heading 6",
-    "de": "Überschrift 6",
-    "es": "Encabezado 6",
-    "nl": "Heading 6",
-    "pt": "Título 6",
-    "sv": "Rubrik 6",
-    "es-MX": "Encabezado 6",
-    "pt-BR": "Título 6",
-    "es-419": "Encabezado 6",
-    "da": "Overskrift 6",
-    "no": "Overskrift 6"
+    "no": "Overskrift 3",
+    "ko": "제목 3",
+    "pl": "Nagłówek 3"
   },
   "i18n.HeadingTextColor": {
     "default": "Heading text color",
@@ -473,7 +470,9 @@
     "pt-BR": "Cor do texto do título",
     "es-419": "Color del texto del encabezado",
     "da": "Tekstfarve på overskrift",
-    "no": "Overskrift-tekstfarge"
+    "no": "Overskrift-tekstfarge",
+    "ko": "제목 텍스트 색상",
+    "pl": "Kolor tekstu nagłówka"
   },
   "i18n.LoadingIndicators": {
     "default": "Loading indicators",
@@ -490,7 +489,9 @@
     "pt-BR": "Indicadores de carregamento",
     "es-419": "Cargando indicadores",
     "da": "Indlæsningsindikator",
-    "no": "Innlastingsindikatorer"
+    "no": "Innlastingsindikatorer",
+    "ko": "로딩 인디케이터",
+    "pl": "Wskaźniki załadunku"
   },
   "i18n.PageLoadingBar": {
     "default": "Page loading bar",
@@ -507,7 +508,9 @@
     "pt-BR": "Barra de carregamento de página",
     "es-419": "Barra de carga de la página",
     "da": "Sideindlæsningsbjælke",
-    "no": "Sideinnlastingslinje"
+    "no": "Sideinnlastingslinje",
+    "ko": "페이지 로딩 바",
+    "pl": "Pasek ładowania strony"
   },
   "i18n.SpinnerLightHalf": {
     "default": "Spinner light half",
@@ -524,7 +527,9 @@
     "pt-BR": "Controle giratório claro metade",
     "es-419": "Spinner light half",
     "da": "Skalaens lyse halvdel",
-    "no": "Spinner lys halvdel"
+    "no": "Spinner lys halvdel",
+    "ko": "스피너 라이트 하프",
+    "pl": "Połowa błyskotki"
   },
   "i18n.SpinnerDarkHalf": {
     "default": "Spinner dark half",
@@ -541,7 +546,9 @@
     "pt-BR": "Controle giratório escuro metade",
     "es-419": "Spinner dark half",
     "da": "Skalaens mørke halvdel",
-    "no": "Spinner mørk halvdel"
+    "no": "Spinner mørk halvdel",
+    "ko": "스피너 다크 하프",
+    "pl": "Ciemna połowa błystki"
   },
   "i18n.ModalLoadingBackground": {
     "default": "Modal loading background",
@@ -558,7 +565,9 @@
     "pt-BR": "Plano de fundo de carregamento do modal",
     "es-419": "Fondo de carga modal",
     "da": "Modal indlæsningsbaggrund",
-    "no": "Innlastingsbakgrunn for modal"
+    "no": "Innlastingsbakgrunn for modal",
+    "ko": "모달 로딩 배경",
+    "pl": "Tło ładowania modalnego"
   },
   "i18n.ProductThumbnailLoadingBackground": {
     "default": "Product thumbnail loading background",
@@ -575,7 +584,9 @@
     "pt-BR": "Plano de fundo de carregamento da miniatura do produto",
     "es-419": "Fondo de carga de la miniatura del producto",
     "da": "Baggrund til indlæsning af produktminiaturebillede",
-    "no": "Innlastingsbakgrunn for produktminiatyrbilde"
+    "no": "Innlastingsbakgrunn for produktminiatyrbilde",
+    "ko": "상품 썸네일 로딩 배경",
+    "pl": "Tło ładowania miniatur produktów"
   },
   "i18n.ImageLoading": {
     "default": "Image Loading",
@@ -592,7 +603,9 @@
     "pt-BR": "Carregamento de imagem",
     "es-419": "Carga de imagen",
     "da": "Indlæsning af billeder",
-    "no": "Bilde lastes inn"
+    "no": "Bilde lastes inn",
+    "ko": "이미지 로딩",
+    "pl": "Ładowanie obrazu"
   },
   "i18n.CornerstoneDoesntLoadMostImages": {
     "default": "Cornerstone doesn’t load most images until the user scrolls to them on the screen. Enable \"Lazyloading with LQIP\" below if you prefer to show a preview image and replace it with a better quality version as the user scrolls. Select \"Disabled\" below to fully turn off this feature.",
@@ -602,14 +615,16 @@
     "zh": "Cornerstone不会加载很多图片，除非用户在屏幕上滚动他们。如果您愿意在用户滚动的时候，在高质量下预览图片和替换，下方选择启用\"Lazyloading with LQIP\"。在下方选择\"禁用\" ，可以完全关掉这个功能。",
     "de": "Cornerstone lädt die meisten Bilder erst wenn der Benutzer auf dem Bildschirm zu ihnen scrollt. Aktivieren Sie unten „Lazyloading mit LQIP“ wenn Sie es vorziehen ein Vorschaubild zu zeigen und es durch eine Version mit besserer Qualität zu ersetzen wenn der Benutzer scrollt. Wählen Sie unten „Deaktiviert“ um diese Funktion vollständig auszuschalten.",
     "es": "Cornerstone no carga la mayoría de las imágenes hasta que el usuario se desplaza hasta ellas en la pantalla. Activa «Carga diferida con LQIP» a continuación si prefieres mostrar una imagen de vista previa y reemplazarla con una versión de mejor calidad a medida que el usuario se desplaza. Selecciona «Desactivado» para desactivar completamente esta función.",
-    "nl": "Cornerstone laadt de meeste afbeeldingen pas als de gebruiker er naartoe scrolt op het scherm. Schakel hieronder Lazyloading met LQIP in als u liever een voorbeeldafbeelding wilt weergeven en deze wilt vervangen door een versie van betere kwaliteit als de gebruiker scrolt. Selecteer hieronder Uitgeschakeld om deze functie volledig uit te schakelen.",
-    "pt": "A Cornerstone não carrega a maioria das imagens até que o usuário role até as imagens na tela. Ative Carregamento lento com LQIP imagem provisória em baixa qualidade se preferir exibir uma prévia da imagem e substituí-la por uma versão de melhor qualidade quando o usuário faz a rolagem. Selecione Desativado abaixo para desativar totalmente esse recurso.",
-    "sv": "Cornerstone laddar inte de flesta bilder förrän användaren bläddrar till dem på skärmen. Aktivera Lazyloading med LQIP nedan om du föredrar att visa en förhandsgranskningsbild och ersätta den med en version av bättre kvalitet när användaren bläddrar. Välj Inaktiverad nedan för att stänga av den här funktionen helt.",
-    "es-MX": "Cornerstone no carga la mayoría de las imágenes hasta que el usuario se desplaza hasta ellas en la pantalla. Active «Carga diferida con LQIP» a continuación si prefiere mostrar una imagen de vista previa y reemplazarla con una versión de mejor calidad a medida que el usuario se desplaza. Seleccione «Desactivado» para desactivar completamente esta función.",
-    "pt-BR": "A Cornerstone não carrega a maioria das imagens até que o usuário role até as imagens na tela. Ative Carregamento lento com LQIP imagem provisória em baixa qualidade se preferir exibir uma prévia da imagem e substituí-la por uma versão de melhor qualidade quando o usuário faz a rolagem. Selecione Desativado abaixo para desativar totalmente esse recurso.",
-    "es-419": "Cornerstone no carga la mayoría de las imágenes hasta que el usuario se desplaza hacia estas en la pantalla. Activa “Carga diferida con LQIP” a continuación si prefieres mostrar una imagen de vista previa y reemplazarla con una versión de mejor calidad a medida que el usuario se desplaza. Selecciona “Desactivado” a continuación para desactivar completamente esta función.",
-    "da": "Cornerstone indlæser ikke de fleste billeder før brugeren ruller hen til dem på skærmen. Aktivér Lazyloading with LQIP herunder hvis du foretrækker at vise et eksempelbillede og erstatte det med en version af bedre kvalitet mens brugeren ruller. Vælg Deaktiveret herunder for at slå denne funktion helt fra.",
-    "no": "Cornerstone laster ikke de fleste bilder før brukeren ruller til dem på skjermen. Aktiver «Lazyloading with LQIP» nedenfor hvis du foretrekker å vise et forhåndsvisningsbilde og deretter erstatte det med en versjon av bedre kvalitet mens brukeren ruller. Velg «Deaktivert» nedenfor for å slå av denne funksjonen helt."
+    "nl": "Cornerstone laadt de meeste afbeeldingen pas als de gebruiker er naartoe scrolt op het scherm. Schakel hieronder 'Lazyloading met LQIP' in als u liever een voorbeeldafbeelding wilt weergeven en deze wilt vervangen door een versie van betere kwaliteit als de gebruiker scrolt. Selecteer hieronder 'Uitgeschakeld' om deze functie volledig uit te schakelen.",
+    "pt": "A Cornerstone não carrega a maioria das imagens até que o usuário role até as imagens na tela. Ative o \"Carregamento lento com LQIP\" (imagem provisória em baixa qualidade) se preferir exibir uma prévia da imagem e substituí-la por uma versão de melhor qualidade quando o usuário faz a rolagem. Selecione \"Desativado\" abaixo para desativar totalmente esse recurso.",
+    "pt-BR": "A Cornerstone não carrega a maioria das imagens até que o usuário role até as imagens na tela. Ative o \"Carregamento lento com LQIP\" (imagem provisória em baixa qualidade) se preferir exibir uma prévia da imagem e substituí-la por uma versão de melhor qualidade quando o usuário faz a rolagem. Selecione \"Desativado\" abaixo para desativar totalmente esse recurso.",
+    "sv": "Cornerstone laddar inte de flesta bilder förrän användaren bläddrar till dem på skärmen. Aktivera ”Lazyloading med LQIP” nedan om du föredrar att visa en förhandsgranskningsbild och ersätta den med bättre kvalitet när användaren bläddrar. Välj ”Inaktiverad” nedan för att stänga av den här funktionen helt.",
+    "es-MX": "Cornerstone no carga la mayoría de las imágenes hasta que el usuario se desplaza hasta estas en la pantalla. Activa “Carga diferida con LQIP” a continuación si prefieres mostrar una imagen de vista previa y reemplazarla con una versión de mejor calidad a medida que el usuario se desplaza. Selecciona “Desactivado” a continuación para desactivar completamente esta función.",
+    "es-419": "Cornerstone no carga la mayoría de las imágenes hasta que el usuario se desplaza hasta estas en la pantalla. Activa “Carga diferida con LQIP” a continuación si prefieres mostrar una imagen de vista previa y reemplazarla con una versión de mejor calidad a medida que el usuario se desplaza. Selecciona “Desactivado” a continuación para desactivar completamente esta función.",
+    "da": "Cornerstone indlæser ikke de fleste billeder, før brugeren ruller hen til dem på skærmen. Aktivér \"Lazyloading with LQIP\" herunder, hvis du foretrækker at vise et eksempelbillede og erstatte det med en version af bedre kvalitet, mens brugeren ruller. Vælg \"Deaktiveret\" herunder for at slå denne funktion helt fra.",
+    "no": "Cornerstone laster ikke de fleste bilder før brukeren ruller til dem på skjermen. Aktiver «Lazyloading with LQIP» nedenfor hvis du foretrekker å vise et forhåndsvisningsbilde, og deretter erstatte det med en versjon av bedre kvalitet mens brukeren ruller. Velg «Deaktivert» nedenfor for å slå av denne funksjonen helt.",
+    "ko": "Cornerstone은 사용자가 화면을 이미지가 있는 곳까지 스크롤할 때까지 대부분의 이미지를 로드하지 않습니다. 미리보기 이미지를 표시하고 사용자가 스크롤할 때 더 나은 품질의 이미지로 교체하려면 아래에서 \"LQIP를 사용한 지연 로딩\"을 활성화하십시오. 이 기능을 완전히 해제하려면 아래에서 \"사용 안 함\"을 선택하십시오.",
+    "pl": "Cornerstone nie ładuje większości obrazów, dopóki użytkownik nie przewinie ich na ekranie. Włącz \"Lazyloading with LQIP\" poniżej, jeśli wolisz pokazywać obrazek podglądowy i zastępować go wersją o lepszej jakości w miarę przewijania. Wybierz poniżej opcję \"Wyłączone\", aby całkowicie wyłączyć tę funkcję."
   },
   "i18n.LazyloadingMode": {
     "default": "Lazyloading Mode",
@@ -626,7 +641,9 @@
     "pt-BR": "Modo de carregamento lento",
     "es-419": "Modo de carga diferida",
     "da": "Lazyloading-tilstand",
-    "no": "Lazyloading-modus"
+    "no": "Lazyloading-modus",
+    "ko": "지연 로딩 모드",
+    "pl": "Tryb Lazyloading"
   },
   "i18n.Lazyload": {
     "default": "Lazyload",
@@ -640,7 +657,11 @@
     "pt": "Carregar lentamente",
     "sv": "Lazyload",
     "es-MX": "Carga diferida",
-    "pt-BR": "Carregar lentamente"
+    "es-419": "Carga diferida",
+    "da": "Lazyloading",
+    "no": "Lazyload",
+    "ko": "지연 로딩 모드",
+    "pl": "Lazyload"
   },
   "i18n.LazyloadWithLQIP": {
     "default": "Lazyload with LQIP",
@@ -657,7 +678,9 @@
     "pt-BR": "Carregar lentamente com LQIP",
     "es-419": "Carga diferida con LQIP",
     "da": "Lazyloading med LQIP",
-    "no": "Lazyload med LQIP"
+    "no": "Lazyload med LQIP",
+    "ko": "LQIP를 사용한 지연 로딩",
+    "pl": "Lazyload z LQIP"
   },
   "i18n.Disabled": {
     "default": "Disabled",
@@ -671,7 +694,11 @@
     "pt": "Desativado",
     "sv": "Inaktiverad",
     "es-MX": "Desactivado",
-    "pt-BR": "Desativado"
+    "es-419": "Desactivado",
+    "da": "Deaktiveret",
+    "no": "Deaktivert",
+    "ko": "비활성화 버튼",
+    "pl": "Niepełnosprawni"
   },
   "i18n.Pages": {
     "default": "Pages",
@@ -688,7 +715,9 @@
     "pt-BR": "Páginas",
     "es-419": "Páginas",
     "da": "Sider",
-    "no": "Sider"
+    "no": "Sider",
+    "ko": "페이지",
+    "pl": "Strony"
   },
   "i18n.HideBreadcrumbs": {
     "default": "Hide breadcrumbs",
@@ -705,7 +734,9 @@
     "pt-BR": "Ocultar trilhas de navegação",
     "es-419": "Ocultar elementos de orientación",
     "da": "Skjul brødkrummer",
-    "no": "Skjul navigasjonsbane"
+    "no": "Skjul navigasjonsbane",
+    "ko": "탐색경로 숨기기",
+    "pl": "Ukryj bułkę tartą"
   },
   "i18n.HidePageHeading": {
     "default": "Hide page heading",
@@ -722,7 +753,9 @@
     "pt-BR": "Ocultar título da página",
     "es-419": "Ocultar encabezado de página",
     "da": "Skjul sideoverskrift",
-    "no": "Skjul sideoverskriften"
+    "no": "Skjul sideoverskriften",
+    "ko": "페이지 제목 숨기기",
+    "pl": "Ukryj nagłówek strony"
   },
   "i18n.HideCategoryPageHeading": {
     "default": "Hide category page heading",
@@ -739,7 +772,9 @@
     "pt-BR": "Ocultar título da página da categoria",
     "es-419": "Ocultar encabezado de página de categoría",
     "da": "Skjul sideoverskrift for kategori",
-    "no": "Skjul kategorisideoverskriften"
+    "no": "Skjul kategorisideoverskriften",
+    "ko": "카테고리 페이지 제목 숨기기",
+    "pl": "Ukryj nagłówek strony kategorii"
   },
   "i18n.HideBlogPageHeading": {
     "default": "Hide blog page heading",
@@ -756,7 +791,9 @@
     "pt-BR": "Ocultar título da página do blog",
     "es-419": "Ocultar encabezado de página de blog",
     "da": "Skjul blogsideoverskrift",
-    "no": "Skjul bloggsideoverskrift"
+    "no": "Skjul bloggsideoverskrift",
+    "ko": "블로그 페이지 제목 숨기기",
+    "pl": "Ukryj nagłówek strony bloga"
   },
   "i18n.HideContactUsPageHeading": {
     "default": "Hide contact us page heading",
@@ -773,42 +810,44 @@
     "pt-BR": "Ocultar título da página fale conosco",
     "es-419": "Ocultar encabezado de página de contacto",
     "da": "Skjul sideoverskrift for Kontakt os",
-    "no": "Skjul kontakt oss-sideoverskriften"
+    "no": "Skjul kontakt oss-sideoverskriften",
+    "ko": "문의하기 페이지 제목 숨기기",
+    "pl": "Ukryj nagłówek strony kontaktowej"
   },
   "i18n.PaginationColor": {
     "default": "Pagination text color"
   },
-  "i18n.PaginationBackground": {
+  "i18n.PaginationBg": {
     "default": "Pagination background color"
   },
-  "i18n.PageHeaderBackground": {
+  "i18n.PgHeaderBg": {
     "default": "Page header background"
   },
-  "i18n.PageHeaderText": {
+  "i18n.PgHeaderText": {
     "default": "Page header text color"
   },
-  "i18n.PageHeaderImageDepth": {
-    "default": "Page header image depth"
+  "i18n.PgHeaderImg": {
+    "default": "Page header image display"
   },
-  "i18n.PageHeaderImageBlog": {
+  "i18n.PgHeaderImgBlog": {
     "default": "Blog list header image"
   },
-  "i18n.PageHeaderImageBrands": {
+  "i18n.PgHeaderImgBrands": {
     "default": "Brand list header image"
   },
-  "i18n.PageHeaderImageCart": {
+  "i18n.PgHeaderImgCart": {
     "default": "Cart header image"
   },
-  "i18n.PageHeaderImageInfo": {
+  "i18n.PgHeaderImgInfo": {
     "default": "Info pages header image"
   },
-  "i18n.PageHeaderImageContact": {
+  "i18n.PgHeaderImgContact": {
     "default": "Contact header image"
   },
-  "i18n.PageHeaderImageSearch": {
+  "i18n.PgHeaderImgSearch": {
     "default": "Search results header image"
   },
-  "i18n.PageHeaderImageSitemap": {
+  "i18n.PgHeaderImgSitemap": {
     "default": "Sitemap header image"
   },
   "i18n.Products": {
@@ -826,7 +865,9 @@
     "pt-BR": "Produtos",
     "es-419": "Productos",
     "da": "produkter",
-    "no": "Produkter"
+    "no": "Produkter",
+    "ko": "상품",
+    "pl": "Produkty"
   },
   "i18n.DisplayStyle": {
     "default": "Display style",
@@ -843,7 +884,9 @@
     "pt-BR": "Estilo de exibição",
     "es-419": "Estilo de visualización",
     "da": "Visningsformat",
-    "no": "Visningsstil"
+    "no": "Visningsstil",
+    "ko": "디스플레이 스타일",
+    "pl": "Styl wyświetlania"
   },
   "i18n.ShowProductsInAGrid": {
     "default": "Show products in a grid",
@@ -860,7 +903,9 @@
     "pt-BR": "Exibir produtos em uma grade",
     "es-419": "Mostrar productos en una cuadrícula",
     "da": "Vis produkter i et gitter",
-    "no": "Vis produkter i et rutenett"
+    "no": "Vis produkter i et rutenett",
+    "ko": "그리드에 상품 표시",
+    "pl": "Pokaż produkty w siatce"
   },
   "i18n.ShowProductsInAList": {
     "default": "Show products in a list",
@@ -877,27 +922,29 @@
     "pt-BR": "Exibir produtos em uma lista",
     "es-419": "Mostrar productos en una lista",
     "da": "Vis produkter på en liste",
-    "no": "Vis produkter i en liste"
+    "no": "Vis produkter i en liste",
+    "ko": "리스트에 상품 표시",
+    "pl": "Pokaż produkty na liście"
   },
-  "i18n.CategoryMaxColumns": {
+  "i18n.CatMaxColumns": {
     "default": "Max number of products per row"
   },
-  "i18n.CategorySidebarDisplay": {
+  "i18n.CatSidebarDisplay": {
     "default": "Category/filter location"
   },
-  "i18n.CategorySidebarVertical": {
+  "i18n.CatSidebarVertical": {
     "default": "Left sidebar"
   },
-  "i18n.CategorySidebarHorizontal": {
+  "i18n.CatSidebarHorizontal": {
     "default": "Above products"
   },
-  "i18n.CategoryShowParents": {
+  "i18n.CatShowParents": {
     "default": "Show parent/siblings of current category"
   },
-  "i18n.CategoryShowBlocks": {
+  "i18n.CatShowBlocks": {
     "default": "Show sub categories as image blocks"
   },
-  "i18n.CategoryDescriptionTrim": {
+  "i18n.CatDescriptionTrim": {
     "default": "Expandable category descriptions"
   },
   "i18n.Blog": {
@@ -914,8 +961,10 @@
     "es-MX": "Blog",
     "pt-BR": "Blog",
     "es-419": "Blog",
-    "da": "Blog",
-    "no": "Blogg"
+    "da": "blog",
+    "no": "blogg",
+    "ko": "블로그",
+    "pl": "Blog"
   },
   "i18n.FooterBlogPosts": {
     "default": "At least one blog post must be published to use this feature."
@@ -950,7 +999,9 @@
     "pt-BR": "Tamanho das imagens",
     "es-419": "Tamaño de las imágenes",
     "da": "Størrelse på billeder",
-    "no": "Størrelse på bilder"
+    "no": "Størrelse på bilder",
+    "ko": "이미지 크기",
+    "pl": "Rozmiar obrazów"
   },
   "i18n.OptimizedForTheme": {
     "default": "Optimized for theme",
@@ -967,7 +1018,9 @@
     "pt-BR": "Otimizado para o tema",
     "es-419": "Optimizado para el tema",
     "da": "Optimeret til tema",
-    "no": "Optimalisert for tema"
+    "no": "Optimalisert for tema",
+    "ko": "테마에 최적화",
+    "pl": "Zoptymalizowany dla tematu"
   },
   "i18n.SpecifyDimensions": {
     "default": "Specify dimensions",
@@ -984,7 +1037,9 @@
     "pt-BR": "Especifique as dimensões",
     "es-419": "Especificar dimensiones",
     "da": "Angiv mål",
-    "no": "Angi dimensjoner"
+    "no": "Angi dimensjoner",
+    "ko": "치수 지정",
+    "pl": "Podaj wymiary"
   },
   "i18n.Pricing": {
     "default": "Pricing",
@@ -1001,7 +1056,9 @@
     "pt-BR": "Preços",
     "es-419": "Precios",
     "da": "Priser",
-    "no": "Prissetting"
+    "no": "Priser",
+    "ko": "가격설정",
+    "pl": "Cennik"
   },
   "i18n.ShowPriceRangesForProducts": {
     "default": "Show price ranges for products with variants. If disabled it will show the product price",
@@ -1014,31 +1071,15 @@
     "nl": "Toon prijsklassen voor producten met varianten. Indien uitgeschakeld wordt de productprijs weergegeven",
     "pt": "Mostrar faixas de preços dos produtos com variações. Se desativado exibirá o preço do produto",
     "sv": "Visa prisklasser för produkter med varianter. Om detta är inaktiverat visas produktpriset",
-    "es-MX": "Se muestran los rangos de precios para productos con variantes. Si se desactiva, se mostrará el precio del producto.",
-    "pt-BR": "Mostrar faixas de preços dos produtos com variações. Se desativado exibirá o preço do produto",
-    "es-419": "Muestra rangos de precios para productos con variantes. Si está desactivado mostrará el precio del producto.",
-    "da": "Vis prisklasser for produkter med varianter. Hvis det er deaktiveret vises produktprisen",
-    "no": "Vis prisklasser for produkter med varianter. Hvis deaktivert vises produktprisen"
+    "es-MX": "Muestra rangos de precios para productos con variantes. Si está desactivado, mostrará el precio del producto.",
+    "es-419": "Muestra rangos de precios para productos con variantes. Si está desactivado, mostrará el precio del producto.",
+    "da": "Vis prisklasser for produkter med varianter. Hvis det er deaktiveret, vises produktprisen",
+    "no": "Vis prisklasser for produkter med varianter. Hvis deaktivert vises produktprisen",
+    "ko": "상품 조합이 있는 상품의 가격 범위를 표시합니다. 비활성화하면 상품 가격이 표시됩니다",
+    "pl": "Pokaż przedziały cenowe dla produktów z wariantami. Jeśli jest wyłączona, będzie pokazywać cenę produktu"
   },
   "i18n.PriceFrom": {
     "default": "Show price from rather than min - max for price ranges."
-  },
-  "i18n.PurchaseOptions": {
-    "default": "Purchase options",
-    "fr": "Options dachat",
-    "it": "Opzioni di acquisto",
-    "uk": "Варіанти придбання",
-    "zh": "购买选项",
-    "de": "Kaufoptionen",
-    "es": "Opciones de compra",
-    "nl": "Aankoopopties",
-    "pt": "Opções de compra",
-    "sv": "Köpalternativ",
-    "es-MX": "Opciones de compra",
-    "pt-BR": "Opções de compra",
-    "es-419": "Opciones de compra",
-    "da": "Købsmuligheder",
-    "no": "Kjøpsalternativer"
   },
   "i18n.FormInputFields": {
     "default": "Form Input fields",
@@ -1055,7 +1096,9 @@
     "pt-BR": "Campos de entrada de formulário",
     "es-419": "Campos de captura del formulario",
     "da": "Formularinputfelter",
-    "no": "Skjemainndatafelt"
+    "no": "Skjemainndatafelt",
+    "ko": "양식 입력 필드",
+    "pl": "Pola wejściowe formularza"
   },
   "i18n.LabelTextColor": {
     "default": "Label text color",
@@ -1072,7 +1115,9 @@
     "pt-BR": "Cor do texto da legenda",
     "es-419": "Color del texto de la etiqueta",
     "da": "Farve på mærkattekst",
-    "no": "Farge på etikettekst"
+    "no": "Farge på etikettekst",
+    "ko": "라벨 텍스트 색상",
+    "pl": "Kolor tekstu etykiety"
   },
   "i18n.FieldTextColor": {
     "default": "Field text color",
@@ -1089,7 +1134,9 @@
     "pt-BR": "Cor do texto do campo",
     "es-419": "Color del texto del campo",
     "da": "Farve på felttekst",
-    "no": "Felttekstfarge"
+    "no": "Felttekstfarge",
+    "ko": "필드 텍스트 색상",
+    "pl": "Kolor tekstu pola"
   },
   "i18n.FieldBackground": {
     "default": "Field background",
@@ -1106,7 +1153,9 @@
     "pt-BR": "Plano de fundo do campo",
     "es-419": "Fondo del campo",
     "da": "Feltbaggrund",
-    "no": "Feltbakgrunn"
+    "no": "Feltbakgrunn",
+    "ko": "필드 배경",
+    "pl": "Podstawy terenowe"
   },
   "i18n.FieldBackgroundDisabled": {
     "default": "Field background disabled",
@@ -1123,7 +1172,9 @@
     "pt-BR": "Plano de fundo do campo desativado",
     "es-419": "Fondo del campo desactivado",
     "da": "Feltbaggrund deaktiveret",
-    "no": "Feltbakgrunn deaktivert"
+    "no": "Feltbakgrunn deaktivert",
+    "ko": "필드 배경 비활성화됨",
+    "pl": "Tło pola wyłączone"
   },
   "i18n.FieldBorder": {
     "default": "Field border",
@@ -1140,7 +1191,9 @@
     "pt-BR": "Borda de campo",
     "es-419": "Borde del campo",
     "da": "Feltkant",
-    "no": "Feltkant"
+    "no": "Feltkant",
+    "ko": "필드 테두리",
+    "pl": "Granica pola"
   },
   "i18n.FieldBorderActive": {
     "default": "Field border active",
@@ -1157,7 +1210,9 @@
     "pt-BR": "Borda de campo ativa",
     "es-419": "Borde del campo activo",
     "da": "Aktiv feltkant",
-    "no": "Feltkant aktiv"
+    "no": "Feltkant aktiv",
+    "ko": "필드 테두리 활성화",
+    "pl": "Granica pola aktywna"
   },
   "i18n.HeaderAndFooter": {
     "default": "Header & Footer",
@@ -1174,7 +1229,9 @@
     "pt-BR": "Cabeçalho e rodapé",
     "es-419": "Encabezado y pie de página",
     "da": "Sidehoved og sidefod",
-    "no": "Topptekst og bunntekst"
+    "no": "Topptekst og bunntekst",
+    "ko": "헤더 및 풋터",
+    "pl": "Nagłówek i stopka"
   },
   "i18n.Header": {
     "default": "Header",
@@ -1188,7 +1245,11 @@
     "pt": "Cabeçalho",
     "sv": "Rubrik",
     "es-MX": "Encabezado",
-    "pt-BR": "Cabeçalho"
+    "es-419": "Encabezado",
+    "da": "Overskrift",
+    "no": "Overskrift",
+    "ko": "헤더 텍스트",
+    "pl": "Nagłówek"
   },
   "i18n.HeaderBackground": {
     "default": "Header background",
@@ -1205,7 +1266,9 @@
     "pt-BR": "Plano de fundo do cabeçalho",
     "es-419": "Fondo del encabezado",
     "da": "Headerbaggrund",
-    "no": "Bakgrunn på topptekst"
+    "no": "Bakgrunn på topptekst",
+    "ko": "헤더 배경",
+    "pl": "Tło nagłówka"
   },
   "i18n.Logo": {
     "default": "Logo",
@@ -1222,7 +1285,9 @@
     "pt-BR": "Logotipo",
     "es-419": "LOGOTIPO",
     "da": "Logo",
-    "no": "Logo"
+    "no": "Logo",
+    "ko": "심벌 마크",
+    "pl": "Logo"
   },
   "i18n.LogoPosition": {
     "default": "Logo position",
@@ -1239,7 +1304,9 @@
     "pt-BR": "Posição do logotipo",
     "es-419": "Posición del logotipo",
     "da": "Logoposition",
-    "no": "Logoposisjon"
+    "no": "Logoposisjon",
+    "ko": "로고 위치",
+    "pl": "Pozycja logo"
   },
   "i18n.Right": {
     "default": "Right",
@@ -1256,7 +1323,9 @@
     "pt-BR": "direita",
     "es-419": "Derecha",
     "da": "højre",
-    "no": "Høyre"
+    "no": "Høyre",
+    "ko": "오른쪽",
+    "pl": "Prawa"
   },
   "i18n.Center": {
     "default": "Center",
@@ -1273,7 +1342,9 @@
     "pt-BR": "Centro",
     "es-419": "Centro",
     "da": "Centrum",
-    "no": "Sentrert"
+    "no": "Sentrert",
+    "ko": "가운데",
+    "pl": "Centrum"
   },
   "i18n.Left": {
     "default": "Left",
@@ -1290,7 +1361,9 @@
     "pt-BR": "esquerda",
     "es-419": "Izquierda",
     "da": "Venstre",
-    "no": "Venstre"
+    "no": "Venstre",
+    "ko": "왼쪽",
+    "pl": "Lewa strona"
   },
   "i18n.LogoImageSize": {
     "default": "Logo image size",
@@ -1307,24 +1380,27 @@
     "pt-BR": "Tamanho da imagem do logotipo",
     "es-419": "Tamaño de imagen del logotipo",
     "da": "Størrelse på logobillede",
-    "no": "Bildestørrelse for logo"
+    "no": "Bildestørrelse for logo",
+    "ko": "로고 이미지 크기",
+    "pl": "Rozmiar obrazu logo"
   },
   "i18n.OriginalAsUploaded": {
     "default": "Original (as uploaded)",
-    "fr": "Original tel quil a été téléchargé",
-    "it": "Originale come caricato",
-    "uk": "Оригінал (завантажено)",
-    "zh": "原始(上传）",
-    "de": "Original wie hochgeladen",
-    "es": "Original como se cargó",
-    "nl": "Origineel zoals geüpload",
-    "pt": "Original conforme carregado",
-    "sv": "Original som uppladdat",
-    "es-MX": "Original (como se cargó)",
-    "pt-BR": "Original conforme carregado",
-    "es-419": "Original tal y como se cargó",
-    "da": "Original som uploadet",
-    "no": "Original som lastet opp"
+    "fr": "Original (tel qu'il a été téléchargé)",
+    "it": "Originale (come caricato)",
+    "zh": "原件（如上传）",
+    "de": "Original (wie hochgeladen)",
+    "es": "Original (como se cargó)",
+    "nl": "Origineel (zoals geüpload)",
+    "pt": "Original (conforme carregado)",
+    "pt-BR": "Original (conforme carregado)",
+    "sv": "Original (som uppladdat)",
+    "es-MX": "Original (tal y como se cargó)",
+    "es-419": "Original (tal y como se cargó)",
+    "da": "Original (som uploadet)",
+    "no": "Original (som lastet opp)",
+    "ko": "원본(업로드된 대로)",
+    "pl": "Oryginał (jako przesłany)"
   },
   "i18n.LogoFontSize": {
     "default": "Logo font size",
@@ -1341,7 +1417,9 @@
     "pt-BR": "Tamanho da fonte do logotipo",
     "es-419": "Tamaño de fuente del logotipo",
     "da": "Logoskriftstørrelse",
-    "no": "Fontstørrelse for logo"
+    "no": "Fontstørrelse for logo",
+    "ko": "로고 글꼴 크기",
+    "pl": "Rozmiar czcionki logo"
   },
   "i18n.LogoTextColor": {
     "default": "Logo text color",
@@ -1358,7 +1436,9 @@
     "pt-BR": "Cor do texto do logotipo",
     "es-419": "Color del texto del logotipo",
     "da": "Logos tekstfarve",
-    "no": "Tekstfarge for logo"
+    "no": "Tekstfarge for logo",
+    "ko": "로고 텍스트 색상",
+    "pl": "Kolor tekstu logo"
   },
   "i18n.HeaderBar": {
     "default": "Header bar"
@@ -1426,7 +1506,9 @@
     "pt-BR": "Ferramentas de navegação",
     "es-419": "Navegación de utilidades",
     "da": "Værktøjsnavigation",
-    "no": "Verktøynavigasjon"
+    "no": "Verktøynavigasjon",
+    "ko": "유틸리티 탐색",
+    "pl": "Nawigacja użytkowa"
   },
   "i18n.TextColor": {
     "default": "Text color",
@@ -1443,7 +1525,9 @@
     "pt-BR": "Cor do texto",
     "es-419": "Color del texto",
     "da": "Tekstfarve",
-    "no": "Tekstfarge"
+    "no": "Tekstfarge",
+    "ko": "텍스트 색상",
+    "pl": "Kolor tekstu"
   },
   "i18n.TextHoverColor": {
     "default": "Text hover color",
@@ -1459,8 +1543,10 @@
     "es-MX": "Color del texto al pasar el cursor",
     "pt-BR": "Cor do texto com o foco do mouse",
     "es-419": "Color del cursor del texto",
-    "da": "Farve når der peges på tekst",
-    "no": "Tekst med peker over"
+    "da": "Farve, når der peges på tekst",
+    "no": "Tekst (med peker over)",
+    "ko": "텍스트 호버 색상",
+    "pl": "Kolor hover tekstu"
   },
   "i18n.CartDropdownBackground": {
     "default": "Cart dropdown background",
@@ -1477,7 +1563,9 @@
     "pt-BR": "Plano de fundo do menu suspenso do carrinho",
     "es-419": "Fondo del menú desplegable del carrito",
     "da": "Baggrund til kurvens rullemenu",
-    "no": "Bakgrunn på handlekurvs rullegardinmeny"
+    "no": "Bakgrunn på handlekurvs rullegardinmeny",
+    "ko": "장바구니 드롭다운 배경",
+    "pl": "Tło rozwijanego koszyka"
   },
   "i18n.CartDropdownBorder": {
     "default": "Cart dropdown border",
@@ -1494,7 +1582,9 @@
     "pt-BR": "Borda do menu suspenso do carrinho",
     "es-419": "Borde del menú desplegable del carrito",
     "da": "Kant for kurvens rullemenu",
-    "no": "Kant på handlekurvs rullegardinmeny"
+    "no": "Kant på handlekurvs rullegardinmeny",
+    "ko": "장바구니 드롭다운 테두리",
+    "pl": "Obramowanie rozwijanego koszyka"
   },
   "i18n.CartCounterBackground": {
     "default": "Cart counter background",
@@ -1511,7 +1601,9 @@
     "pt-BR": "Plano de fundo do contador do carrinho",
     "es-419": "Fondo del contador de carritos",
     "da": "Baggrund til tæller i indkøbskurv",
-    "no": "Bakgrunn på handlekurvteller"
+    "no": "Bakgrunn på handlekurvteller",
+    "ko": "장바구니 카운터 배경",
+    "pl": "Tło wózka sklepowego"
   },
   "i18n.HeaderSearchLabel": {
     "default": "Search placeholder text"
@@ -1543,7 +1635,9 @@
     "pt-BR": "Navegação principal",
     "es-419": "Navegación principal",
     "da": "Hovednavigation",
-    "no": "Hovednavigasjon"
+    "no": "Hovednavigasjon",
+    "ko": "기본 탐색",
+    "pl": "Główna nawigacja"
   },
   "i18n.HeaderScrollNavpages": {
     "default": "Show main nav when page is scrolled"
@@ -1563,7 +1657,9 @@
     "pt-BR": "Ocultar links para páginas da web",
     "es-419": "Ocultar enlaces a páginas web",
     "da": "Skjul links til websider",
-    "no": "Skjul lenker til nettsider"
+    "no": "Skjul lenker til nettsider",
+    "ko": "웹 페이지에 대한 링크 숨기기",
+    "pl": "Ukryj linki do stron internetowych"
   },
   "i18n.DropdownMenuBackground": {
     "default": "Dropdown menu background",
@@ -1580,7 +1676,9 @@
     "pt-BR": "Plano de fundo do menu suspenso",
     "es-419": "Fondo del menú desplegable",
     "da": "Baggrund til rullemenu",
-    "no": "Bakgrunn på rullegardinmeny"
+    "no": "Bakgrunn på rullegardinmeny",
+    "ko": "드롭다운 메뉴 배경",
+    "pl": "Tło menu rozwijanego"
   },
   "i18n.DropdownMenuBorder": {
     "default": "Dropdown menu border",
@@ -1597,7 +1695,9 @@
     "pt-BR": "Borda do menu suspenso",
     "es-419": "Borde del menú desplegable",
     "da": "Ramme til rullemenu",
-    "no": "Kant på rullegardinmeny"
+    "no": "Kant på rullegardinmeny",
+    "ko": "드롭다운 메뉴 테두리",
+    "pl": "Obramowanie menu rozwijanego"
   },
   "i18n.DropdownMenuDisplayMode": {
     "default": "Dropdown menu display mode",
@@ -1614,39 +1714,41 @@
     "pt-BR": "Modo de exibição do menu suspenso",
     "es-419": "Modo de visualización del menú desplegable",
     "da": "Visningstilstand for rullemenu",
-    "no": "Kant på rullegardinmeny"
+    "no": "Kant på rullegardinmeny",
+    "ko": "드롭다운 메뉴 표시 모드",
+    "pl": "Tryb wyświetlania menu rozwijanego"
   },
-  "i18n.HeaderMenu1Show": {
+  "i18n.HM1Show": {
     "default": "Show image 1 on dropdown menu"
   },
-  "i18n.HeaderMenu2Show": {
+  "i18n.HM2Show": {
     "default": "Show image 2 on dropdown menu"
   },
-  "i18n.HeaderMenu3Show": {
+  "i18n.HM3Show": {
     "default": "Show image 3 on dropdown menu"
   },
-  "i18n.HeaderMenu4Show": {
+  "i18n.HM4Show": {
     "default": "Show image 4 on dropdown menu"
   },
-  "i18n.HeaderMenu5Show": {
+  "i18n.HM5Show": {
     "default": "Show image 5 on dropdown menu"
   },
-  "i18n.HeaderMenu6Show": {
+  "i18n.HM6Show": {
     "default": "Show image 6 on dropdown menu"
   },
-  "i18n.HeaderMenuCategory": {
+  "i18n.HMCategory": {
     "default": "Top level category name (must be exact, e.g. My Category)"
   },
-  "i18n.HeaderMenuImage": {
+  "i18n.HMImage": {
     "default": "Image filename (must be uploaded via Image Manager, e.g. my-picture.jpg)"
   },
-  "i18n.HeaderMenuWidth": {
+  "i18n.HMWidth": {
     "default": "Width of images (you can use px or %)"
   },
-  "i18n.HeaderMenuUrl": {
+  "i18n.HMUrl": {
     "default": "URL when clicked (e.g. /my-category)"
   },
-  "i18n.HeaderMenuText": {
+  "i18n.HMText": {
     "default": "Text label"
   },
   "i18n.HeaderGlobalRegion": {
@@ -1670,7 +1772,9 @@
     "pt-BR": "Simples profundidade de exibição 3 do menu",
     "es-419": "Simple Profundidad de visualización del menú de 3",
     "da": "Enkel menuvisningsdybde på 3",
-    "no": "Enkel menyvisningsdybde på 3"
+    "no": "Enkel (menyvisningsdybde på 3)",
+    "ko": "단순(메뉴 표시 깊이 3)",
+    "pl": "Prosty (głębokość wyświetlania menu wynosi 3)"
   },
   "i18n.AlternateMaxMenuDisplayDepth": {
     "default": "Alternate (Max menu display depth)",
@@ -1687,7 +1791,9 @@
     "pt-BR": "Alternativo profundidade de exibição máxima do menu",
     "es-419": "Alternativa Profundidad máxima de visualización del menú",
     "da": "Alternativ maks. menuvisningsdybde",
-    "no": "Alternativ maks menyvisningsdybde"
+    "no": "Alternativ (maks menyvisningsdybde)",
+    "ko": "대체(최대 메뉴 표시 깊이)",
+    "pl": "Alternatywne (maksymalna głębokość wyświetlania menu)"
   },
   "i18n.QuickSearchBackground": {
     "default": "Quick search background",
@@ -1704,7 +1810,9 @@
     "pt-BR": "Plano de fundo de pesquisa rápida",
     "es-419": "Fondo de la búsqueda rápida",
     "da": "Hurtig søgebaggrund",
-    "no": "Hurtigsøkbakgrunn"
+    "no": "Hurtigsøkbakgrunn",
+    "ko": "빠른 검색 배경",
+    "pl": "Szybkie wyszukiwanie w tle"
   },
   "i18n.SocialMediaIcons": {
     "default": "Social media icons",
@@ -1721,7 +1829,9 @@
     "pt-BR": "Ícones de redes sociais",
     "es-419": "Íconos de redes sociales",
     "da": "Ikoner for sociale medier",
-    "no": "Ikoner for sosiale medier"
+    "no": "Ikoner for sosiale medier",
+    "ko": "소셜 미디어 아이콘",
+    "pl": "Ikony mediów społecznościowych"
   },
   "i18n.FooterNewsletter": {
     "default": "Newsletter"
@@ -1752,23 +1862,6 @@
   },
   "i18n.FooterButtonBackgroundHover": {
     "default": "Button background hover"
-  },
-  "i18n.SocialAccountsMustBeSet": {
-    "default": "Social accounts must be set up to use this feature.",
-    "fr": "Des comptes de médias sociaux doivent être configurés pour pouvoir utiliser cette fonctionnalité.",
-    "it": "Per utilizzare questa funzionalità è necessario configurare gli account social.",
-    "uk": "Для використання цієї функції потрібно створити соціальні акаунти.",
-    "zh": "必须设置社交账户才能使用该功能。",
-    "de": "Um diese Funktion nutzen zu können müssen Social-Media-Konten eingerichtet sein.",
-    "es": "Las cuentas de redes sociales deben estar configuradas para utilizar esta función.",
-    "nl": "Er moeten socialemedia-accounts worden geconfigureerd om deze functie te gebruiken.",
-    "pt": "As contas das redes sociais devem ser configuradas para usar esse recurso.",
-    "sv": "Sociala konton måste ställas in för att använda den här funktionen.",
-    "es-MX": "Las cuentas de redes sociales deben estar configuradas para utilizar esta función.",
-    "pt-BR": "As contas das redes sociais devem ser configuradas para usar esse recurso.",
-    "es-419": "Las cuentas de redes sociales deben estar configuradas para usar esta característica.",
-    "da": "Sociale konti skal konfigureres for at bruge denne funktion.",
-    "no": "Sosiale kontoer må konfigureres for å bruke denne funksjonen."
   },
   "i18n.ShowSocialMediaIconsTop": {
     "default": "Show header social media icons",
@@ -1834,7 +1927,9 @@
     "pt-BR": "Nenhuma",
     "es-419": "ninguna",
     "da": "Ingen",
-    "no": "Ingen"
+    "no": "Ingen",
+    "ko": "없음",
+    "pl": "Brak"
   },
   "i18n.Footer": {
     "default": "Footer",
@@ -1848,7 +1943,11 @@
     "pt": "Rodapé",
     "sv": "Sidfot",
     "es-MX": "Pie de página",
-    "pt-BR": "Rodapé"
+    "es-419": "Pie de página",
+    "da": "Sidefod",
+    "no": "Bunntekst",
+    "ko": "바닥글",
+    "pl": "Stopka"
   },
   "i18n.FooterBackground": {
     "default": "Footer background",
@@ -1865,7 +1964,9 @@
     "pt-BR": "Plano de fundo do rodapé",
     "es-419": "Fondo del pie de página",
     "da": "Baggrund for sidefod",
-    "no": "Bunntekstbakgrunn"
+    "no": "Bunntekstbakgrunn",
+    "ko": "풋터 배경",
+    "pl": "Tło stopki"
   },
   "i18n.FooterBorder": {
     "default": "Footer divider"
@@ -1897,24 +1998,9 @@
     "pt-BR": "Configurações de exibição",
     "es-419": "Configuración de la pantalla",
     "da": "Visningsindstillinger",
-    "no": "Visningsinnstillinger"
-  },
-  "i18n.ShowPoweredByBigCommerce": {
-    "default": "Show \"Powered by BigCommerce\"",
-    "fr": "Afficher « Optimisé par BigCommerce »",
-    "it": "Mostra Con tecnologia BigCommerce",
-    "uk": "Показати \"Працює на BigCommerce\"",
-    "zh": "显示\"Powered by BigCommerce\"",
-    "de": "„Powered by BigCommerce“ anzeigen",
-    "es": "Mostrar «Con la tecnología de BigCommerce»",
-    "nl": "Mogelijk gemaakt door BigCommerce weergeven",
-    "pt": "Exibir Com tecnologia BigCommerce",
-    "sv": "Visa ”Drivs av BigCommerce”",
-    "es-MX": "Mostrar «Con la tecnología de BigCommerce»",
-    "pt-BR": "Exibir Com tecnologia BigCommerce",
-    "es-419": "Mostrar Desarrollado por BigCommerce",
-    "da": "Vis Leveret af BigCommerce",
-    "no": "Vis «Powered by BigCommerce»"
+    "no": "Visningsinnstillinger",
+    "ko": "화면 설정",
+    "pl": "Ustawienia wyświetlacza"
   },
   "i18n.HeaderGroupSingle": {
     "default": "Group level 2 categories with no subs together "
@@ -1937,7 +2023,9 @@
     "pt-BR": "Exibir marcas no rodapé",
     "es-419": "Mostrar marcas en el pie de página",
     "da": "Vis mærker i sidefoden",
-    "no": "Vis merker i bunntekst"
+    "no": "Vis merker i bunntekst",
+    "ko": "풋터에 브랜드 표시",
+    "pl": "Pokaż marki w stopce"
   },
   "i18n.FooterShowNewsletter": {
     "default": "Show newsletter in footer"
@@ -1950,20 +2038,21 @@
   },
   "i18n.ShowCurrentYearAnd": {
     "default": "Show copyright, current year and store name",
-    "fr": "Afficher «  » lannée actuelle et le nom de la boutique",
-    "it": "Mostra  anno corrente e nome del negozio",
-    "uk": "Показати \"&copy;\", рік та назву магазину",
-    "zh": "显示\"&copy;\", 当前年份和店铺名称",
-    "de": "„“ aktuelles Jahr und Shopname anzeigen",
-    "es": "Mostrar «» año actual y nombre de la tienda",
-    "nl": " huidig jaar en winkelnaam weergeven",
-    "pt": "Exibir  ano atual e nome da loja",
-    "sv": "Visa ”” aktuellt år och butiksnamn",
-    "es-MX": "Mostrar «&copy;», año actual y nombre de la tienda",
-    "pt-BR": "Exibir  ano atual e nome da loja",
-    "es-419": "Mostrar  año actual y nombre de la tienda",
-    "da": "Vis   nuværende årstal og butiksnavn",
-    "no": "Vus «» gjeldende år og butikkens navn"
+    "fr": "Afficher « © », l'année actuelle et le nom de la boutique",
+    "it": "Mostra \"©\", anno corrente e nome del negozio",
+    "zh": "显示“©”、当前年份和商店名称",
+    "de": "„©“, aktuelles Jahr und Shopname anzeigen",
+    "es": "Mostrar «©», año actual y nombre de la tienda",
+    "nl": "'©', huidig jaar en naam store weergeven",
+    "pt": "Exibir \"©\", ano atual e nome da loja",
+    "pt-BR": "Exibir \"©\", ano atual e nome da loja",
+    "sv": "Visa ”©”, aktuellt år och butiksnamn",
+    "es-MX": "Mostrar \"©\", el año actual y el nombre de la tienda",
+    "es-419": "Mostrar \"©\", el año actual y el nombre de la tienda",
+    "da": "Vis \"©\", nuværende årstal og butiksnavn",
+    "no": "Vis «{0};», gjeldende år og butikkens navn",
+    "ko": "\"&copy;\", 현재 연도 및 스토어 이름 표시",
+    "pl": "Pokaż \"&copy;\", bieżący rok i nazwę sklepu"
   },
   "i18n.FooterShowSitemap": {
     "default": "Show sitemap in footer"
@@ -1980,16 +2069,16 @@
   "i18n.EmailAddress": {
     "default": "Sales/support email"
   },
-  "i18n.HeaderMenuDropdown": {
+  "i18n.HMDropdown": {
     "default": "Main menu dropdown type"
   },
-  "i18n.HeaderMenuBackground": {
+  "i18n.HMBackground": {
     "default": "Main menu background"
   },
-  "i18n.HeaderMenuLink": {
+  "i18n.HMLink": {
     "default": "Main menu text color"
   },
-  "i18n.HeaderMenuLinkHover": {
+  "i18n.HMLinkHover": {
     "default": "Main menu text hover color"
   },
   "i18n.PaymentIcons": {
@@ -2007,7 +2096,9 @@
     "pt-BR": "Ícones de pagamento",
     "es-419": "Íconos de pago",
     "da": "Betalingsikoner",
-    "no": "Betalingsikoner"
+    "no": "Betalingsikoner",
+    "ko": "결제 아이콘",
+    "pl": "Ikony płatności"
   },
   "i18n.ShowAmericanExpress": {
     "default": "Show American Express",
@@ -2024,7 +2115,9 @@
     "pt-BR": "Mostrar American Express",
     "es-419": "Mostrar American Express",
     "da": "Vis American Express",
-    "no": "Vis American Express"
+    "no": "Vis American Express",
+    "ko": "American Express 표시",
+    "pl": "Pokaż American Express"
   },
   "i18n.ShowDiscover": {
     "default": "Show Discover",
@@ -2041,7 +2134,9 @@
     "pt-BR": "Mostrar Discover",
     "es-419": "Mostrar Discover",
     "da": "Vis Discover",
-    "no": "Vis Discover"
+    "no": "Vis Discover",
+    "ko": "Discover 표시",
+    "pl": "Pokaż Odkryj"
   },
   "i18n.ShowMastercard": {
     "default": "Show Mastercard",
@@ -2058,7 +2153,9 @@
     "pt-BR": "Mostrar Mastercard",
     "es-419": "Mostrar Mastercard",
     "da": "Vis Mastercard",
-    "no": "Vis Mastercard"
+    "no": "Vis Mastercard",
+    "ko": "Mastercard 표시",
+    "pl": "Pokaż kartę Mastercard"
   },
   "i18n.ShowPayPal": {
     "default": "Show PayPal",
@@ -2075,7 +2172,9 @@
     "pt-BR": "Mostrar PayPal",
     "es-419": "Mostrar PayPal",
     "da": "Vis PayPal",
-    "no": "Vis PayPal"
+    "no": "Vis PayPal",
+    "ko": "PayPal 표시",
+    "pl": "Pokaż PayPal"
   },
   "i18n.ShowVisa": {
     "default": "Show Visa",
@@ -2092,7 +2191,9 @@
     "pt-BR": "Mostrar Visa",
     "es-419": "Mostrar Visa",
     "da": "Vis Visa",
-    "no": "Vis Visa"
+    "no": "Vis Visa",
+    "ko": "Visa 표시",
+    "pl": "Pokaż wizę"
   },
   "i18n.ShowAmazonPay": {
     "default": "Show Amazon Pay",
@@ -2109,7 +2210,9 @@
     "pt-BR": "Mostrar Amazon Pay",
     "es-419": "Mostrar Amazon Pay",
     "da": "Vis Amazon Pay",
-    "no": "Vis Amazon Pay"
+    "no": "Vis Amazon Pay",
+    "ko": "Amazon Pay 표시",
+    "pl": "Pokaż Amazon Pay"
   },
   "i18n.ShowGooglePay": {
     "default": "Show Google Pay",
@@ -2126,58 +2229,63 @@
     "pt-BR": "Mostrar Google Pay",
     "es-419": "Mostrar Google Pay",
     "da": "Vis Google Pay",
-    "no": "Vis Google Pay"
+    "no": "Vis Google Pay",
+    "ko": "Google Pay 표시",
+    "pl": "Pokaż Google Pay"
   },
   "i18n.BlackWhiteText": {
     "default": "Black (white text)",
-    "fr": "Noir text blanc",
-    "it": "Nero testo bianco",
-    "uk": "Чорний (білий текст)",
-    "zh": "黑（白色字体）",
-    "de": "Schwarz weißer Text",
-    "es": "Negro texto blanco",
-    "nl": "Zwart witte tekst",
-    "pt": "Preto texto branco",
-    "sv": "Svart vit text",
-    "es-MX": "Negro (texto blanco)",
-    "pt-BR": "Preto texto branco",
-    "es-419": "Negro texto en blanco",
-    "da": "Sort hvid tekst",
-    "no": "Svart hvit tekst"
+    "fr": "Noir (text blanc)",
+    "it": "Nero (testo bianco)",
+    "zh": "黑色（白色文本）",
+    "de": "Schwarz (weißer Text)",
+    "es": "Negro (texto blanco)",
+    "nl": "Zwart (witte tekst)",
+    "pt": "Preto (texto branco)",
+    "pt-BR": "Preto (texto branco)",
+    "sv": "Svart (vit text)",
+    "es-MX": "Negro (texto en blanco)",
+    "es-419": "Negro (texto en blanco)",
+    "da": "Sort (hvid tekst)",
+    "no": "Svart (hvit tekst)",
+    "ko": "검정(흰색 텍스트)",
+    "pl": "Czarny (biały tekst)"
   },
   "i18n.WhiteBlackText": {
     "default": "White (black text)",
-    "fr": "Blanc texte noir",
-    "it": "Bianco testo nero",
-    "uk": "Білий (чорний текст)",
-    "zh": "白（黑字体）",
-    "de": "Weiß schwarzer Text",
-    "es": "Blanco texto negro",
-    "nl": "Wit zwarte tekst",
-    "pt": "Branco texto preto",
-    "sv": "Vit svart text",
-    "es-MX": "Blanco (texto negro)",
-    "pt-BR": "Branco texto preto",
-    "es-419": "Blanco texto en negro",
-    "da": "Hvid sort tekst",
-    "no": "Hvit svart tekst"
+    "fr": "Blanc (texte noir)",
+    "it": "Bianco (testo nero)",
+    "zh": "白色（黑色文本）",
+    "de": "Weiß (schwarzer Text)",
+    "es": "Blanco (texto negro)",
+    "nl": "Wit (zwarte tekst)",
+    "pt": "Branco (texto preto)",
+    "pt-BR": "Branco (texto preto)",
+    "sv": "Vit (svart text)",
+    "es-MX": "Blanco (texto en negro)",
+    "es-419": "Blanco (texto en negro)",
+    "da": "Hvid (sort tekst)",
+    "no": "Hvit (svart tekst)",
+    "ko": "흰색(검정 텍스트)",
+    "pl": "Biały (czarny tekst)"
   },
   "i18n.WhiteBlackTextWithBorder": {
     "default": "White (black text with border)",
-    "fr": "Blanc texte noir avec bordures",
-    "it": "Bianco testo nero con bordo",
-    "uk": "Білий (чорний текст з облямівкою)",
-    "zh": "白（和字体带边框）",
-    "de": "Weiß schwarzer Text mit Rahmen",
-    "es": "Blanco texto negro con borde",
-    "nl": "Wit zwarte tekst met rand",
-    "pt": "Branco texto preto com borda",
-    "sv": "Vit svart text med kant",
-    "es-MX": "Blanco (texto negro con borde)",
-    "pt-BR": "Branco texto preto com borda",
-    "es-419": "Blanco texto en negro con borde",
-    "da": "Hvid sort tekst med kant",
-    "no": "Hvit svart tekst med kantlinje"
+    "fr": "Blanc (texte noir avec bordures)",
+    "it": "Bianco (testo nero con bordo)",
+    "zh": "白色（带边框的黑色文本）",
+    "de": "Weiß (schwarzer Text mit Rahmen)",
+    "es": "Blanco (texto negro con borde)",
+    "nl": "Wit (zwarte tekst met rand)",
+    "pt": "Branco (texto preto com borda)",
+    "pt-BR": "Branco (texto preto com borda)",
+    "sv": "Vit (svart text med kant)",
+    "es-MX": "Blanco (texto en negro con borde)",
+    "es-419": "Blanco (texto en negro con borde)",
+    "da": "Hvid (sort tekst med kant)",
+    "no": "Hvit (svart tekst med kantlinje)",
+    "ko": "흰색(테두리가 있는 검은색 텍스트)",
+    "pl": "Biały (czarny tekst z obramowaniem)"
   },
   "i18n.ShowKlarna": {
     "default": "Show Klarna",
@@ -2194,7 +2302,9 @@
     "pt-BR": "Mostrar Klarna",
     "es-419": "Mostrar Klarna",
     "da": "Vis Klarna",
-    "no": "Vis Klarna"
+    "no": "Vis Klarna",
+    "ko": "Klarna 푯ㅣ",
+    "pl": "Pokaż Klarnę"
   },
   "i18n.Medium": {
     "default": "Medium",
@@ -2211,7 +2321,9 @@
     "pt-BR": "Média",
     "es-419": "Mediano",
     "da": "Mellem",
-    "no": "Medium"
+    "no": "Medium",
+    "ko": "중",
+    "pl": "Średnia"
   },
   "i18n.Small": {
     "default": "Small",
@@ -2228,7 +2340,9 @@
     "pt-BR": "Pequeno",
     "es-419": "Pequeño",
     "da": "Lille",
-    "no": "Liten"
+    "no": "Liten",
+    "ko": "소",
+    "pl": "Mała"
   },
   "i18n.HomePage": {
     "default": "Home Page",
@@ -2245,7 +2359,9 @@
     "pt-BR": "Página inicial",
     "es-419": "Página de inicio",
     "da": "Startside",
-    "no": "Hjemmeside"
+    "no": "Hjemmeside",
+    "ko": "홈페이지",
+    "pl": "Strona główna"
   },
   "i18n.Carousel": {
     "default": "Carousel",
@@ -2262,7 +2378,9 @@
     "pt-BR": "Carrossel",
     "es-419": "Carrusel",
     "da": "Karrusel",
-    "no": "Karusell"
+    "no": "Karusell",
+    "ko": "캐러셀",
+    "pl": "Karuzela"
   },
   "i18n.ShowCarousel": {
     "default": "Show carousel",
@@ -2279,7 +2397,9 @@
     "pt-BR": "Mostrar carrossel",
     "es-419": "Mostrar el carrusel",
     "da": "Vis karrusel",
-    "no": "Vis karusell"
+    "no": "Vis karusell",
+    "ko": "캐러셀 표시",
+    "pl": "Pokaż karuzelę"
   },
   "i18n.ShowCarouselArrows": {
     "default": "Show carousel arrows",
@@ -2296,24 +2416,27 @@
     "pt-BR": "Mostrar setas de carrossel",
     "es-419": "Mostrar flechas del carrusel",
     "da": "Vis karruselpile",
-    "no": "Vis karusellpiler"
+    "no": "Vis karusellpiler",
+    "ko": "캐러셀 화살표 표시",
+    "pl": "Pokaż strzałki karuzeli"
   },
   "i18n.ShowCarouselPlayPauseButton": {
     "default": "Show carousel Play/Pause button",
-    "fr": "Afficher le bouton LecturePause du carrousel",
-    "it": "Mostra pulsante RiproduciPausa carosello",
-    "uk": "Show carousel Play/Pause button",
-    "zh": "Show carousel Play/Pause button",
-    "de": "„AbspielenPausieren“-Schaltflächen des Karussells anzeigen",
-    "es": "Mostrar el botón de reproducciónpausa del carrusel",
-    "nl": "Carrouselknop AfspelenPauzeren weergeven",
-    "pt": "Mostrar botão para reproduzirpausa carrossel",
-    "sv": "Visa knappen Spelapausa för karusell",
-    "es-MX": "Mostrar el botón de reproducción/pausa del carrusel",
-    "pt-BR": "Mostrar botão para reproduzirpausa carrossel",
-    "es-419": "Mostrar Botón de reproducciónpausa del carrusel",
-    "da": "Vis karrusellens afspil-pauseknap",
-    "no": "Vis karusell Spill av  Pause-knapp"
+    "fr": "Afficher le bouton Lecture/Pause du carrousel",
+    "it": "Mostra pulsante Riproduci/Pausa carosello",
+    "zh": "显示轮播播放/暂停按钮",
+    "de": "„Abspielen/Pausieren“-Schaltflächen des Karussells anzeigen",
+    "es": "Mostrar el botón de reproducción/pausa del carrusel",
+    "nl": "Carrouselknop Afspelen/Pauzeren weergeven",
+    "pt": "Mostrar botão para reproduzir/pausa carrossel",
+    "pt-BR": "Mostrar botão para reproduzir/pausa carrossel",
+    "sv": "Visa knappen Spela/pausa för karusell",
+    "es-MX": "Mostrar Botón de reproducción/pausa del carrusel",
+    "es-419": "Mostrar Botón de reproducción/pausa del carrusel",
+    "da": "Vis karrusellens afspil-/pauseknap",
+    "no": "Vis karusell Spill av / Pause-knapp",
+    "ko": "캐러셀 재생/일시정지 버튼 표시",
+    "pl": "Pokaż karuzelę Przycisk Odtwarzanie/Pauza"
   },
   "i18n.AllowImageToStretchOn": {
     "default": "Allow image to stretch on large screens",
@@ -2329,8 +2452,10 @@
     "es-MX": "Permitir que la imagen se estire en pantallas grandes",
     "pt-BR": "Permitir que a imagem seja ampliada em telas grandes",
     "es-419": "Permitir que la imagen se expanda en pantallas grandes",
-    "da": "Tillad at billedet strækkes på store skærme",
-    "no": "La bildet strekke seg på store skjermer"
+    "da": "Tillad, at billedet strækkes på store skærme",
+    "no": "La bildet strekke seg på store skjermer",
+    "ko": "이미지가 큰 화면에서 늘어나도록 허용",
+    "pl": "Umożliwiaj rozciąganie obrazu na dużych ekranach"
   },
   "i18n.HomepageCarouselAuto": {
     "default": "Auto play carousel slides"
@@ -2356,7 +2481,9 @@
     "pt-BR": "Plano de fundo do conteúdo",
     "es-419": "Fondo del contenido",
     "da": "Indholdsbaggrund",
-    "no": "Innholdsbakgrunn"
+    "no": "Innholdsbakgrunn",
+    "ko": "콘텐츠 배경",
+    "pl": "Kontekst treści"
   },
   "i18n.HeaderText": {
     "default": "Header text",
@@ -2373,7 +2500,9 @@
     "pt-BR": "Texto do cabeçalho",
     "es-419": "Texto del encabezado",
     "da": "Headertekst",
-    "no": "Topptekst"
+    "no": "Topptekst",
+    "ko": "헤더 텍스트",
+    "pl": "Tekst nagłówka"
   },
   "i18n.DescriptionText": {
     "default": "Description text",
@@ -2390,7 +2519,9 @@
     "pt-BR": "Texto da descrição",
     "es-419": "Texto de la descripción",
     "da": "Beskrivelsestekst",
-    "no": "Beskrivelsetekst"
+    "no": "Beskrivelsetekst",
+    "ko": "설명 텍스트",
+    "pl": "Tekst opisu"
   },
   "i18n.Indicator": {
     "default": "Indicator",
@@ -2407,7 +2538,9 @@
     "pt-BR": "Indicador",
     "es-419": "Indicador",
     "da": "Indikator",
-    "no": "Indikator"
+    "no": "Indikator",
+    "ko": "인디케이터",
+    "pl": "Wskaźnik"
   },
   "i18n.IndicatorActive": {
     "default": "Indicator active",
@@ -2424,7 +2557,9 @@
     "pt-BR": "Indicador ativo",
     "es-419": "Indicador activo",
     "da": "Indikator aktiv",
-    "no": "Indikator aktiv"
+    "no": "Indikator aktiv",
+    "ko": "인디케이터 활성화",
+    "pl": "Wskaźnik aktywny"
   },
   "i18n.IndicatorBackground": {
     "default": "Indicator background",
@@ -2441,7 +2576,9 @@
     "pt-BR": "Plano de fundo do indicador",
     "es-419": "Fondo del indicador",
     "da": "Indikatorbaggrund",
-    "no": "Bakgrunn på indikator"
+    "no": "Bakgrunn på indikator",
+    "ko": "인디케이터 배경",
+    "pl": "Tło wskaźnika"
   },
   "i18n.Arrow": {
     "default": "Arrow",
@@ -2458,7 +2595,9 @@
     "pt-BR": "Seta",
     "es-419": "Flecha",
     "da": "Pil",
-    "no": "Pil"
+    "no": "Pil",
+    "ko": "화살표",
+    "pl": "Strzałka"
   },
   "i18n.ArrowBackground": {
     "default": "Arrow background",
@@ -2475,7 +2614,9 @@
     "pt-BR": "Plano de fundo da seta",
     "es-419": "Fondo de la flecha",
     "da": "Baggrund til pil",
-    "no": "Pilbakgrunn"
+    "no": "Pilbakgrunn",
+    "ko": "화살표 배경",
+    "pl": "Strzałka w tle"
   },
   "i18n.ArrowBorder": {
     "default": "Arrow border",
@@ -2492,7 +2633,9 @@
     "pt-BR": "Borda da seta",
     "es-419": "Borde de la flecha",
     "da": "Kant på pil",
-    "no": "Pilkant"
+    "no": "Pilkant",
+    "ko": "화살표 테두리",
+    "pl": "Granica strzałki"
   },
   "i18n.PlayPauseButtonText": {
     "default": "Play/Pause button text",
@@ -2506,44 +2649,47 @@
     "pt": "Texto do botão para reproduzirpausar",
     "sv": "Text på knappen Spela upppausa",
     "es-MX": "Texto del botón de reproducción/pausa",
-    "pt-BR": "Texto do botão para reproduzirpausar",
-    "es-419": "Texto del botón de reproducciónpausa",
-    "da": "Tekst til afspil-pauseknap",
-    "no": "Spill av  Pause-knapptekst"
+    "es-419": "Texto del botón de reproducción/pausa",
+    "da": "Tekst til afspil-/pauseknap",
+    "no": "Spill av / Pause-knapptekst",
+    "ko": "재생/일시정지 버튼 텍스트",
+    "pl": "Tekst przycisku Play/Pause"
   },
   "i18n.PlayPauseButtonBackground": {
     "default": "Play/Pause button background",
-    "fr": "Arrière-plan du bouton LecturePause",
-    "it": "Sfondo pulsante RiproduciPausa",
-    "uk": "Play/Pause button background",
-    "zh": "Play/Pause button background",
-    "de": "Hintergrund der „AbspielenPausieren“-Schaltfläche",
-    "es": "Fondo del botón de reproducciónpausa",
-    "nl": "Achtergrond van de knop AfspelenPauzeren",
-    "pt": "Plano de fundo do botão para reproduzirpausar",
-    "sv": "Bakgrund på knappen Spela upppausa",
-    "es-MX": "Fondo del botón de reproducción/pausa",
-    "pt-BR": "Plano de fundo do botão para reproduzirpausar",
-    "es-419": "Fondo del botón reproducirpausar",
-    "da": "Baggrund på afspil-pauseknap",
-    "no": "Bakgrunn på Spill av  Pause-knapptekst"
+    "fr": "Arrière-plan du bouton Lecture/Pause",
+    "it": "Sfondo pulsante Riproduci/Pausa",
+    "zh": "播放/暂停按钮背景",
+    "de": "Hintergrund der „Abspielen/Pausieren“-Schaltfläche",
+    "es": "Fondo del botón de reproducción/pausa",
+    "nl": "Achtergrond van de knop Afspelen/Pauzeren",
+    "pt": "Plano de fundo do botão para reproduzir/pausar",
+    "pt-BR": "Plano de fundo do botão para reproduzir/pausar",
+    "sv": "Bakgrund på knappen Spela upp/pausa",
+    "es-MX": "Fondo del botón reproducir/pausar",
+    "es-419": "Fondo del botón reproducir/pausar",
+    "da": "Baggrund på afspil-/pauseknap",
+    "no": "Bakgrunn på Spill av / Pause-knapptekst",
+    "ko": "재생/일시정지 버튼 배경",
+    "pl": "Tło przycisku Play/Pause"
   },
   "i18n.PlayPauseButtonBorder": {
     "default": "Play/Pause button border",
-    "fr": "Bordure du bouton LecturePause",
-    "it": "Bordo pulsante RiproduciPausa",
-    "uk": "Play/Pause button border",
-    "zh": "Play/Pause button border",
-    "de": "Rahmen der „AbspielenPausieren“-Schaltfläche",
-    "es": "Borde del botón de reproducciónpausa",
-    "nl": "Rand knop AfspelenPauzeren",
-    "pt": "Borda do botão para reproduzirpausar",
-    "sv": "Kant på knappen Spela upppausa",
-    "es-MX": "Borde del botón de reproducción/pausa",
-    "pt-BR": "Borda do botão para reproduzirpausar",
-    "es-419": "Borde del botón reproducirpausar",
-    "da": "Kant på afspil-pauseknap",
-    "no": "Kant på Spill av  Pause-knapp"
+    "fr": "Bordure du bouton Lecture/Pause",
+    "it": "Bordo pulsante Riproduci/Pausa",
+    "zh": "播放/暂停按钮边框",
+    "de": "Rahmen der „Abspielen/Pausieren“-Schaltfläche",
+    "es": "Borde del botón de reproducción/pausa",
+    "nl": "Rand knop Afspelen/Pauzeren",
+    "pt": "Borda do botão para reproduzir/pausar",
+    "pt-BR": "Borda do botão para reproduzir/pausar",
+    "sv": "Kant på knappen Spela upp/pausa",
+    "es-MX": "Borde del botón reproducir/pausar",
+    "es-419": "Borde del botón reproducir/pausar",
+    "da": "Kant på afspil-/pauseknap",
+    "no": "Kant på Spill av / Pause-knapp",
+    "ko": "재생/일시정지 버튼 테두리",
+    "pl": "Granica przycisku Play/Pause"
   },
   "i18n.HomepageCarouselButtonColor": {
     "default": "Carousel button text"
@@ -2572,7 +2718,9 @@
     "pt-BR": "Número de produtos em destaque",
     "es-419": "Cantidad de productos destacados",
     "da": "Antal udvalgte produkter",
-    "no": "Antall fremhevede produkter"
+    "no": "Antall fremhevede produkter",
+    "ko": "추천 상품 수",
+    "pl": "Liczba wyróżnionych produktów"
   },
   "i18n.Disable": {
     "default": "Disable",
@@ -2586,7 +2734,11 @@
     "pt": "Desativar",
     "sv": "Inaktivera",
     "es-MX": "Desactivar",
-    "pt-BR": "Desativar"
+    "es-419": "Desactivar",
+    "da": "Deaktivér",
+    "no": "Deaktiver",
+    "ko": "비활성화 버튼",
+    "pl": "Wyłącz"
   },
   "i18n.NumberOfMostPopularProducts": {
     "default": "Number of most popular products",
@@ -2603,7 +2755,9 @@
     "pt-BR": "Número de produtos mais populares",
     "es-419": "Cantidad de productos más populares",
     "da": "Antal mest populære produkter",
-    "no": "Antall mest populære produkter"
+    "no": "Antall mest populære produkter",
+    "ko": "가장 인기있는 상품 수",
+    "pl": "Liczba najpopularniejszych produktów"
   },
   "i18n.NumberOfNewProducts": {
     "default": "Number of new products",
@@ -2620,7 +2774,9 @@
     "pt-BR": "Número de novos produtos",
     "es-419": "Cantidad de nuevos productos",
     "da": "Antal nye produkter",
-    "no": "Antall nye produkter"
+    "no": "Antall nye produkter",
+    "ko": "최신상품 수",
+    "pl": "Liczba nowych produktów"
   },
   "i18n.HomepageFeaturedCarousel": {
     "default": "Display featured products in a carousel"
@@ -2629,7 +2785,7 @@
     "default": "Featured products heading"
   },
   "i18n.FeaturedProductsColumnCount": {
-    "default": "Maximum featured products per row (non carousel)"
+    "default": "Featured products per row."
   },
   "i18n.HomepageTopCarousel": {
     "default": "Display top products in a carousel"
@@ -2638,7 +2794,7 @@
     "default": "Top products heading"
   },
   "i18n.TopProductsColumnCount": {
-    "default": "Maximum top products per row (non carousel)"
+    "default": "Top products per row."
   },
   "i18n.HomepageNewCarousel": {
     "default": "Display new products in a carousel"
@@ -2647,7 +2803,7 @@
     "default": "New products heading"
   },
   "i18n.NewProductsColumnCount": {
-    "default": "Maximum new products per row (non carousel)"
+    "default": "New products per row."
   },
   "i18n.HomepageShowTabs": {
     "default": "Show featured, top and new products in a tab menu"
@@ -2673,7 +2829,9 @@
     "pt-BR": "Símbolo de promoção de produtos",
     "es-419": "Insignias de venta de productos",
     "da": "Badges for produktsalg",
-    "no": "Produktsalgsmerker"
+    "no": "Produktsalgsmerker",
+    "ko": "상품 판매 중 배지",
+    "pl": "Odznaki sprzedaży produktów"
   },
   "i18n.ShowProductSaleBadges": {
     "default": "Show product sale badges",
@@ -2690,7 +2848,9 @@
     "pt-BR": "Exibir símbolos de promoção de produtos",
     "es-419": "Mostrar insignias de venta de productos",
     "da": "Vis badges for produktsalg",
-    "no": "Vis produktsalgsmerker"
+    "no": "Vis produktsalgsmerker",
+    "ko": "상품 판매 중 배지 표시",
+    "pl": "Pokaż plakietki sprzedaży produktów"
   },
   "i18n.ShowProductSoldOutBadges": {
     "default": "Show product sold-out badges",
@@ -2707,7 +2867,9 @@
     "pt-BR": "Exibir símbolos de produto esgotado",
     "es-419": "Mostrar insignias de producto agotados",
     "da": "Vis badges for udsolgte produkter",
-    "no": "Vis utsolgt produkt-merker"
+    "no": "Vis utsolgt produkt-merker",
+    "ko": "품절 상품 배지 표시",
+    "pl": "Pokaż produkt wyprzedane plakietki"
   },
   "i18n.TopLeft": {
     "default": "Top Left",
@@ -2724,7 +2886,9 @@
     "pt-BR": "Canto superior esquerdo",
     "es-419": "Parte superior izquierda",
     "da": "Øverst til venstre",
-    "no": "Øverst til venstre"
+    "no": "Øverst til venstre",
+    "ko": "왼쪽 상단",
+    "pl": "Na górze po lewej"
   },
   "i18n.Diagonal": {
     "default": "Diagonal",
@@ -2741,7 +2905,9 @@
     "pt-BR": "Diagonal",
     "es-419": "Diagonal",
     "da": "Diagonal",
-    "no": "Diagonal"
+    "no": "Diagonal",
+    "ko": "대각선",
+    "pl": "Przekątna"
   },
   "i18n.Burst": {
     "default": "Burst",
@@ -2758,7 +2924,9 @@
     "pt-BR": "Intermitente",
     "es-419": "Ráfaga",
     "da": "Burst",
-    "no": "Burst"
+    "no": "Burst",
+    "ko": "버스트",
+    "pl": "Burst"
   },
   "i18n.ProductSaleBadgeLabel": {
     "default": "Product sale badge label",
@@ -2775,7 +2943,9 @@
     "pt-BR": "Etiqueta do símbolo de promoção de produtos",
     "es-419": "Etiqueta de insignia de venta de productos",
     "da": "Badgemærket for produktsalg",
-    "no": "Etikett for produktsalgsmerke"
+    "no": "Etikett for produktsalgsmerke",
+    "ko": "상품 판매 중 배지 라벨",
+    "pl": "Etykieta sprzedaży produktu"
   },
   "i18n.ProductSoldOutBadgeLabel": {
     "default": "Product sold out badge label",
@@ -2792,41 +2962,45 @@
     "pt-BR": "Etiqueta do símbolo de produto esgotado",
     "es-419": "Etiqueta de insignias de producto agotados",
     "da": "Badgemærkater for udsolgte produkter",
-    "no": "Etikett for utsolgt produkt-merke"
+    "no": "Etikett for utsolgt produkt-merke",
+    "ko": "품절 상품 배지 라벨",
+    "pl": "Etykieta wyprzedanego produktu"
   },
   "i18n.ProductPriceLabelSale": {
     "default": "Product price label (sale)",
-    "fr": "Étiquette de prix du produit remisé",
-    "it": "Etichetta prezzo prodotto vendita",
-    "uk": "Етикетка цін на товар (продаж)",
-    "zh": "产品价格标签（降价）",
-    "de": "Produktpreis-Etikett Angebot",
-    "es": "Etiqueta de precio del producto oferta",
-    "nl": "Productprijslabel uitverkoop",
-    "pt": "Etiqueta de preço do produto promoção",
-    "sv": "Produktprisetikett rea",
-    "es-MX": "Etiqueta de precio del producto (oferta)",
-    "pt-BR": "Etiqueta de preço do produto promoção",
-    "es-419": "Etiqueta de precio del producto venta",
-    "da": "Produkts prismærke udsalg",
-    "no": "Produktprisetikett salg"
+    "fr": "Étiquette de prix du produit (remisé)",
+    "it": "Etichetta prezzo prodotto (vendita)",
+    "zh": "产品价格标签（销售）",
+    "de": "Produktpreis-Etikett (Angebot)",
+    "es": "Etiqueta de precio del producto (oferta)",
+    "nl": "Productprijslabel (uitverkoop)",
+    "pt": "Etiqueta de preço do produto (promoção)",
+    "pt-BR": "Etiqueta de preço do produto (promoção)",
+    "sv": "Produktprisetikett (rea)",
+    "es-MX": "Etiqueta de precio del producto (venta)",
+    "es-419": "Etiqueta de precio del producto (venta)",
+    "da": "Produkts prismærke (udsalg)",
+    "no": "Produktprisetikett (salg)",
+    "ko": "상품 가격 라벨(판매 중)",
+    "pl": "Etykieta ceny produktu (sprzedaż)"
   },
   "i18n.ProductPriceLabelBeforeSale": {
     "default": "Product price label (before sale)",
-    "fr": "Étiquette de prix du produit non remisé",
-    "it": "Etichetta prezzo prodotto prima della vendita",
-    "uk": "Етикетка цін на товар (перед продажем)",
-    "zh": "产品价格标签（降价前）",
-    "de": "Produktpreis-Etikett vor dem Angebot",
-    "es": "Etiqueta de precio del producto antes de la oferta",
-    "nl": "Productprijslabel voor uitverkoop",
-    "pt": "Etiqueta de preço do produto antes da venda",
-    "sv": "Produktprisetikett före rea",
-    "es-MX": "Etiqueta de precio del producto (antes de la oferta)",
-    "pt-BR": "Etiqueta de preço do produto antes da venda",
-    "es-419": "Etiqueta del precio del producto antes de la venta",
-    "da": "Produkts prismærke før udsalg",
-    "no": "Produktprisetikett før salg"
+    "fr": "Étiquette de prix du produit (non remisé)",
+    "it": "Etichetta prezzo prodotto (prima della vendita)",
+    "zh": "产品价格标签（售前）",
+    "de": "Produktpreis-Etikett (vor dem Angebot)",
+    "es": "Etiqueta de precio del producto (antes de la oferta)",
+    "nl": "Productprijslabel (voor uitverkoop)",
+    "pt": "Etiqueta de preço do produto (antes da venda)",
+    "pt-BR": "Etiqueta de preço do produto (antes da venda)",
+    "sv": "Produktprisetikett (före rea)",
+    "es-MX": "Etiqueta del precio del producto (antes de la venta)",
+    "es-419": "Etiqueta del precio del producto (antes de la venta)",
+    "da": "Produkts prismærke (før udsalg)",
+    "no": "Produktprisetikett (før salg)",
+    "ko": "상품 가격 라벨(판매 전)",
+    "pl": "Etykieta z ceną produktu (przed sprzedażą)"
   },
   "i18n.ProductPriceLabelRetail": {
     "default": "Product price label (retail)",
@@ -2834,16 +3008,18 @@
     "it": "Etichetta prezzo prodotto al dettaglio",
     "uk": "Етикетка цін на товар (роздріб)",
     "zh": "产品价格标签（零售）",
-    "de": "Produktpreis-Etikett Einzelhandel",
-    "es": "Etiqueta de precio del producto PVP",
-    "nl": "Productprijslabel retail",
-    "pt": "Etiqueta de preço do produto varejo",
-    "sv": "Produktprisetikett återförsäljning",
-    "es-MX": "Etiqueta de precio del producto (PVP)",
-    "pt-BR": "Etiqueta de preço do produto varejo",
-    "es-419": "Etiqueta de precio del producto minorista",
-    "da": "Produkts prismærke detail",
-    "no": "Produktprisetikett detaljhandel"
+    "de": "Produktpreis-Etikett (Einzelhandel)",
+    "es": "Etiqueta de precio del producto (PVP)",
+    "nl": "Productprijslabel (retail)",
+    "pt": "Etiqueta de preço do produto (varejo)",
+    "pt-BR": "Etiqueta de preço do produto (varejo)",
+    "sv": "Produktprisetikett (återförsäljning)",
+    "es-MX": "Etiqueta de precio del producto (minorista)",
+    "es-419": "Etiqueta de precio del producto (minorista)",
+    "da": "Produkts prismærke (detail)",
+    "no": "Produktprisetikett (detaljhandel)",
+    "ko": "상품 가격 라벨(소매)",
+    "pl": "Etykieta z ceną produktu (detaliczna)"
   },
   "i18n.ProductPriceLabel": {
     "default": "Product price label",
@@ -2857,24 +3033,29 @@
     "pt": "Etiqueta de preço do produto",
     "sv": "Produktprisetikett",
     "es-MX": "Etiqueta de precio del producto",
-    "pt-BR": "Etiqueta de preço do produto"
+    "es-419": "Etiqueta de precio del producto",
+    "da": "Produkts prismærke",
+    "no": "Produktprisetikett",
+    "ko": "상품 가격 라벨(판매 중)",
+    "pl": "Etykieta z ceną produktu"
   },
   "i18n.TheProductPriceLabel": {
     "default": "* the 'Product price label' is displayed when there is not a sale price.",
-    "fr": " Létiquette de prix du produit saffiche lorsque le produit nest pas remisé.",
-    "it": " lEtichetta del prezzo del prodotto viene visualizzata quando non cè il prezzo di vendita.",
-    "uk": "* \"Етикетка цін на товар\" відображається, коли немає продажної ціни.",
-    "zh": "*“产品价格标签”会在没有销售价格时显示。",
-    "de": " das Produktpreis-Etikett wird angezeigt wenn kein Verkaufspreis angegeben ist.",
-    "es": "La «Etiqueta de precio del producto» se muestra cuando no hay un precio de oferta.",
-    "nl": " het productprijslabel wordt weergegeven als er geen uitverkoopprijs is.",
-    "pt": " a etiqueta de preço do produto é exibida quando não há preço promocional.",
-    "sv": "Produktprisetiketten visas när det inte finns ett reapris.",
-    "es-MX": "*La «Etiqueta de precio del producto» se muestra cuando no hay un precio de oferta.",
-    "pt-BR": " a etiqueta de preço do produto é exibida quando não há preço promocional.",
-    "es-419": " la Etiqueta de precio del producto se muestra cuando no hay un precio de venta.",
-    "da": " Produktets prismærke vises når der ikke er en salgspris.",
-    "no": " «Produktprisetiketten» vises når det ikke er en salgspris."
+    "fr": "* L'étiquette de prix du produit s'affiche lorsque le prix n'est pas remisé.",
+    "it": "* Quando non c'è il prezzo di vendita, viene visualizzata l'etichetta del prezzo del prodotto.",
+    "zh": "* 没有销售价格时，显示“产品价格标签”。",
+    "de": "* das „Produktpreis-Etikett“ wird angezeigt, wenn kein Verkaufspreis angegeben ist.",
+    "es": "* La «Etiqueta de precio del producto» se muestra cuando no hay un precio de oferta.",
+    "nl": "* het productprijslabel wordt weergegeven als er geen uitverkoopprijs is.",
+    "pt": "*a \"etiqueta de preço do produto\" é exibida quando não há preço promocional.",
+    "pt-BR": "*a \"etiqueta de preço do produto\" é exibida quando não há preço promocional.",
+    "sv": "* ”Produktprisetiketten” visas när det inte finns ett reapris.",
+    "es-MX": "* la \"Etiqueta de precio del producto\" se muestra cuando no hay un precio de venta.",
+    "es-419": "* la \"Etiqueta de precio del producto\" se muestra cuando no hay un precio de venta.",
+    "da": "* 'Produktets prismærke' vises, når der ikke er en salgspris.",
+    "no": "* 'Produktprisetiketten' vises når det ikke er noen salgspris.",
+    "ko": "* 세일가가 없을 경우 '상품가격라벨'이 표시됩니다.",
+    "pl": "* etykieta \"Cena produktu\" jest wyświetlana, gdy nie ma ceny sprzedaży."
   },
   "i18n.BadgeTextColor": {
     "default": "Badge text color",
@@ -2891,7 +3072,9 @@
     "pt-BR": "Cor do texto do símbolo",
     "es-419": "Color del texto de la insignia",
     "da": "Farve på badgetekst",
-    "no": "Merkets tekstfarge"
+    "no": "Merkets tekstfarge",
+    "ko": "배지 텍스트 색상",
+    "pl": "Kolor tekstu odznaki"
   },
   "i18n.BadgeColor": {
     "default": "Badge color",
@@ -2908,7 +3091,9 @@
     "pt-BR": "Cor do símbolo",
     "es-419": "Color de la insignia",
     "da": "Badgefarve",
-    "no": "Merkets farge"
+    "no": "Merkets farge",
+    "ko": "배지 색상",
+    "pl": "Kolor odznaki"
   },
   "i18n.BadgeHoverColor": {
     "default": "Badge hover color",
@@ -2924,25 +3109,28 @@
     "es-MX": "Color de la insignia al pasar el cursor",
     "pt-BR": "Cor do texto do símbolo com o foco do mouse",
     "es-419": "Color del cursos de la insignia",
-    "da": "Farve når der peges på badge",
-    "no": "Merkets farge med peker over"
+    "da": "Farve, når der peges på badge",
+    "no": "Merkets farge (med peker over)",
+    "ko": "배지 호버 색상",
+    "pl": "Kolor zawieszki odznaki"
   },
   "i18n.ForTextureSwatchesMaxDimensions": {
     "default": "*For texture swatches, max dimensions are 150x150.",
-    "fr": " Les dimensions maximales des échantillons de texture sont de 150 x 150.",
-    "it": "Le dimensioni massime delle immagini delle opzioni del prodotto sono 150x150.",
-    "uk": "* Для текстурних зразків максимальні розміри - 150х150.",
-    "zh": "*文本切换形式，最大尺寸150x150。",
-    "de": "Bei Texturmustern sind die maximalen Abmessungen 150x150.",
-    "es": "Para las muestras de textura las dimensiones máximas son 150 × 150.",
-    "nl": "Voor textuurstalen zijn de maximale afmetingen 150x150.",
-    "pt": " Para amostras de textura as dimensões máximas são de 150 x 150.",
-    "sv": "Maxmåtten är 150 × 150 för texturprover.",
-    "es-MX": "*Para las muestras de textura, las dimensiones máximas son 150 × 150.",
-    "pt-BR": " Para amostras de textura as dimensões máximas são de 150 x 150.",
-    "es-419": " Para las muestras de textura las dimensiones máximas son 150 x 150.",
-    "da": "For teksturprøver er de maksimale dimensioner 150 x 150.",
-    "no": "For teksturvareprøver er maksimale dimensjoner 150 x 150."
+    "fr": "* Les dimensions maximales des échantillons de texture sont de 150 × 150.",
+    "it": "* Le dimensioni massime delle immagini delle opzioni del prodotto sono 150x150.",
+    "zh": "* 对于纹理样本，最大尺寸为 150x150。",
+    "de": "*Bei Texturmustern betragen die maximalen Abmessungen 150x150.",
+    "es": "* Para las muestras de textura, las dimensiones máximas son 150 × 150.",
+    "nl": "*Voor textuurstalen zijn de maximale afmetingen 150x150.",
+    "pt": "*Para amostras de textura, as dimensões máximas são de 150 x 150.",
+    "pt-BR": "*Para amostras de textura, as dimensões máximas são de 150 x 150.",
+    "sv": "*Maxmåtten är 150 × 150 för texturprover.",
+    "es-MX": "*Para las muestras de textura, las dimensiones máximas son 150 x 150.",
+    "es-419": "*Para las muestras de textura, las dimensiones máximas son 150 x 150.",
+    "da": "* For stofprøver er de maksimale mål 150 x 150.",
+    "no": "*For teksturfargekart er maksimale dimensjoner 150 x 150.",
+    "ko": "*텍스처 견본의 경우 최대 크기는 150x150입니다.",
+    "pl": "*W przypadku próbek tekstur maksymalne wymiary to 150x150."
   },
   "i18n.ShowQuickviewButtonOnProduct": {
     "default": "Show quickview button on product cards",
@@ -2959,7 +3147,9 @@
     "pt-BR": "Mostrar botão de exibição rápida nos cartões dos produtos",
     "es-419": "Mostrar botón de vista rápida en las tarjetas de productos",
     "da": "Vis hurtigvisningsknap på produktkort",
-    "no": "Vis hurtigvisningsknapp på produktkort"
+    "no": "Vis hurtigvisningsknapp på produktkort",
+    "ko": "상품 카드에 빠른 보기 버튼 표시",
+    "pl": "Pokaż przycisk szybkiego podglądu na kartach produktów"
   },
   "i18n.ShowSwatchesOnProduct": {
     "default": "Show swatches on product cards"
@@ -3000,7 +3190,9 @@
     "pt-BR": "Mostrar guias de descrição dos produtos",
     "es-419": "Mostrar pestañas de descripción del producto",
     "da": "Vis produktbeskrivelsesfaner",
-    "no": "Vis produktbeskrivelsesfaner"
+    "no": "Vis produktbeskrivelsesfaner",
+    "ko": "상품 설명 탭 표시",
+    "pl": "Pokaż karty opisu produktu"
   },
   "i18n.ProductCustomFieldsInTabs": {
     "default": "Product custom fields in tabs",
@@ -3017,7 +3209,9 @@
     "pt-BR": "Campos personalizados dos produtos nas guias",
     "es-419": "Campos personalizados de productos en pestañas",
     "da": "Produkttilpassede felter i faner",
-    "no": "Egendefinerte produktfelter i faner"
+    "no": "Egendefinerte produktfelter i faner",
+    "ko": "탭의 상품 커스텀 필드",
+    "pl": "Pola własne produktu w zakładkach"
   },
   "i18n.ProductCustomFieldsTabLabel": {
     "default": "Product custom fields tab label",
@@ -3034,7 +3228,9 @@
     "pt-BR": "Etiqueta da guia dos campos personalizados dos produtos",
     "es-419": "Etiqueta de los campos personalizados del producto",
     "da": "Fanemærkat for produkttilpassede felter",
-    "no": "Etikett for egendefinerte felter for produkt"
+    "no": "Etikett for egendefinerte felter for produkt",
+    "ko": "상품 커스텀 필드 탭 라벨",
+    "pl": "Etykieta zakładki pól własnych produktu"
   },
   "i18n.ShowProductWeight": {
     "default": "Show product weight",
@@ -3051,7 +3247,9 @@
     "pt-BR": "Mostrar peso do produto",
     "es-419": "Mostrar el peso del producto",
     "da": "Vis produktvægt",
-    "no": "Vis produktvekt"
+    "no": "Vis produktvekt",
+    "ko": "상품 무게 표시",
+    "pl": "Pokaż wagę produktu"
   },
   "i18n.ShowProductDimensions": {
     "default": "Show product dimensions",
@@ -3068,7 +3266,9 @@
     "pt-BR": "Mostrar dimensões do produto",
     "es-419": "Mostrar dimensiones del producto",
     "da": "Vis produktmål",
-    "no": "Vis produktdimensjoner"
+    "no": "Vis produktdimensjoner",
+    "ko": "상품 치수 표시",
+    "pl": "Pokaż wymiary produktu"
   },
   "i18n.ShowProductSwatchNames": {
     "default": "Show product swatch names",
@@ -3085,7 +3285,9 @@
     "pt-BR": "Mostrar nomes das amostras dos produtos",
     "es-419": "Mostrar nombres de muestras de productos",
     "da": "Vis produktprøvenavne",
-    "no": "Vis produktprøvenavn"
+    "no": "Vis produktprøvenavn",
+    "ko": "상품 스와치 이름 표시",
+    "pl": "Pokaż nazwy próbek produktów"
   },
   "i18n.ShowShopByPriceIn": {
     "default": "Show \"Shop by Price\" in filters",
@@ -3098,11 +3300,12 @@
     "nl": "Winkelen op prijs weergeven in filters",
     "pt": "Mostrar Comprar por preço nos filtros",
     "sv": "Visa ”Handla efter pris” i filter",
-    "es-MX": "Mostrar «Comprar por precio» en los filtros",
-    "pt-BR": "Mostrar Comprar por preço nos filtros",
-    "es-419": "Mostrar Comprar por precio en filtros",
-    "da": "Vis Køb efter pris i filtre",
-    "no": "Vis «Kjøp etter pris» i filtre"
+    "es-MX": "Mostrar \"Comprar por precio\" en filtros",
+    "es-419": "Mostrar \"Comprar por precio\" en filtros",
+    "da": "Vis \"Køb efter pris\" i filtre",
+    "no": "Vis «Kjøp etter pris» i filtre",
+    "ko": "필터에 \"가격별 쇼핑\" 표시",
+    "pl": "Pokaż \"Sklep według ceny\" w filtrach"
   },
   "i18n.ShowProductReviews": {
     "default": "Show product reviews",
@@ -3119,41 +3322,9 @@
     "pt-BR": "Mostrar avaliações dos produtos",
     "es-419": "Mostrar reseñas de productos",
     "da": "Vis produktanmeldelser",
-    "no": "Vis produktanmeldelser"
-  },
-  "i18n.NumberOfProductReviews": {
-    "default": "Number of product reviews",
-    "fr": "Nombre davis sur le produit",
-    "it": "Numero recensioni prodotto",
-    "uk": "Кількість відгуків про товар",
-    "zh": "产品评论数量",
-    "de": "Anzahl der Produktbewertungen",
-    "es": "Número de reseñas del producto",
-    "nl": "Aantal productrecensies",
-    "pt": "Número de avaliações dos produtos",
-    "sv": "Antal produktrecensioner",
-    "es-MX": "Número de reseñas del producto",
-    "pt-BR": "Número de avaliações dos produtos",
-    "es-419": "Cantidad de reseñas del producto",
-    "da": "Antal produktanmeldelser",
-    "no": "Antall produktanmeldelser"
-  },
-  "i18n.WishlistDropdownBackground": {
-    "default": "Wishlist dropdown background",
-    "fr": "Arrière-plan de la liste denvies déroulante",
-    "it": "Sfondo elenco a discesa lista desideri",
-    "uk": "Фон побажань списку бажань",
-    "zh": "心愿单下拉菜单背景",
-    "de": "Wunschlisten-Drop-down-Hintergrund",
-    "es": "Fondo del desplegable de la lista de deseos",
-    "nl": "Achtergrond vervolgkeuzemenu verlanglijst",
-    "pt": "Plano de fundo do menu suspenso da lista de desejos",
-    "sv": "Bakgrund för önskelistans rullgardinsmeny",
-    "es-MX": "Fondo del desplegable de la lista de deseos",
-    "pt-BR": "Plano de fundo do menu suspenso da lista de desejos",
-    "es-419": "Fondo del menú desplegable de la lista de deseos",
-    "da": "Baggrund på ønskerulleliste",
-    "no": "Bakgrunn for ønskelistes rullegardin"
+    "no": "Vis produktanmeldelser",
+    "ko": "상품 리뷰 표시",
+    "pl": "Pokaż opinie o produktach"
   },
   "i18n.ProductWishlistShow": {
     "default": "Show Wishlist on product pages"
@@ -3215,7 +3386,9 @@
     "pt-BR": "Número de produtos exibidos",
     "es-419": "Cantidad de productos mostrados",
     "da": "Antal viste produkter",
-    "no": "Antall produkter som vises"
+    "no": "Antall produkter som vises",
+    "ko": "표시된 상품 수",
+    "pl": "Liczba wyświetlanych produktów"
   },
   "i18n.CategoryPage": {
     "default": "Category page",
@@ -3232,7 +3405,9 @@
     "pt-BR": "Página da categoria",
     "es-419": "Página de la categoría",
     "da": "Kategoriside",
-    "no": "Kategoriside"
+    "no": "Kategoriside",
+    "ko": "카테고리 페이지",
+    "pl": "Strona kategorii"
   },
   "i18n.BrandPage": {
     "default": "Brand page",
@@ -3249,7 +3424,9 @@
     "pt-BR": "Página da marca",
     "es-419": "Página de la marca",
     "da": "Mærkeside",
-    "no": "Merkeside"
+    "no": "Merkeside",
+    "ko": "브랜드 페이지",
+    "pl": "Strona marki"
   },
   "i18n.SearchResultPage": {
     "default": "Search result page",
@@ -3266,10 +3443,12 @@
     "pt-BR": "Página de resultado da pesquisa",
     "es-419": "Página de resultados de la búsqueda",
     "da": "Side med søgeresultater",
-    "no": "Søkeresultatside"
+    "no": "Søkeresultatside",
+    "ko": "검색 결과 페이지",
+    "pl": "Strona wyników wyszukiwania"
   },
   "i18n.ProductPageRelatedProducts": {
-    "default": "Product page (related products)",
+    "default": "Product page (related / also viewed)",
     "fr": "Page du produit produits associés",
     "it": "Pagina prodotto prodotti simili",
     "uk": "Сторінка продукту (супутні товари)",
@@ -3280,27 +3459,11 @@
     "pt": "Página do produto produtos relacionados",
     "sv": "Produktsida relaterade produkter",
     "es-MX": "Página del producto (productos relacionados)",
-    "pt-BR": "Página do produto produtos relacionados",
-    "es-419": "Página del producto productos relacionados",
-    "da": "Produktside relaterede produkter",
-    "no": "Produktside relaterte produkter"
-  },
-  "i18n.ProductPageCustomersAlsoViewed": {
-    "default": "Product page (customers also viewed products)",
-    "fr": "Page du produit les clients ont également consulté",
-    "it": "Pagina prodotto altri prodotti visualizzati dai clienti",
-    "uk": "Сторінка продукту (клієнти також переглядали товари)",
-    "zh": "产品页面 (客户已浏览产品)",
-    "de": "Produktseite Produkte die Kunden auch angesehen haben",
-    "es": "Página del producto los clientes también vieron estos productos",
-    "nl": "Productpagina klanten bekeken ook-producten",
-    "pt": "Página do produto clientes que também visualizaram produtos",
-    "sv": "Produktsida andra produkter kunder har tittat på",
-    "es-MX": "Página del producto (los clientes también vieron estos productos)",
-    "pt-BR": "Página do produto clientes que também visualizaram produtos",
-    "es-419": "Página del producto productos que también vieron los clientes",
-    "da": "Produktside kunder så også produkter",
-    "no": "Produktside kunder så også på produkter"
+    "es-419": "Página del producto (productos relacionados)",
+    "da": "Produktside (relaterede produkter)",
+    "no": "Produktside (relaterte produkter)",
+    "ko": "상품 페이지(연관 상품)",
+    "pl": "Strona produktu (produkty powiązane)"
   },
   "i18n.ProductCards": {
     "default": "Product cards",
@@ -3317,7 +3480,9 @@
     "pt-BR": "Cartões de produto",
     "es-419": "Tarjetas del producto",
     "da": "Produktkort",
-    "no": "Produktkort"
+    "no": "Produktkort",
+    "ko": "상품 카드",
+    "pl": "Karty produktów"
   },
   "i18n.CardBorder": {
     "default": "Product card border color"
@@ -3337,7 +3502,9 @@
     "pt-BR": "Cor do texto do título do produto",
     "es-419": "Color del texto del encabezado del producto",
     "da": "Tekstfarve på produktoverskrift",
-    "no": "Tekstfarge på produktoverskrift"
+    "no": "Tekstfarge på produktoverskrift",
+    "ko": "상품 헤더 텍스트 색상",
+    "pl": "Kolor tekstu nagłówka produktu"
   },
   "i18n.ProductHeaderTextHoverColor": {
     "default": "Product header text hover color",
@@ -3353,8 +3520,10 @@
     "es-MX": "Color del texto del encabezado del producto al pasar el cursor",
     "pt-BR": "Cor do texto do título com o foco do mouse",
     "es-419": "Color del cursor del texto del encabezado del producto",
-    "da": "Farve når der peges på tekst på produktoverskrift",
-    "no": "Tekstfarge på produktoverskrift med peker over"
+    "da": "Farve, når der peges på tekst på produktoverskrift",
+    "no": "Tekstfarge på produktoverskrift (med peker over)",
+    "ko": "상품 헤더 텍스트 호버 색상",
+    "pl": "Kolor tekstu nagłówka produktu przy najechaniu"
   },
   "i18n.ButtonTextColor": {
     "default": "Button text color",
@@ -3371,7 +3540,9 @@
     "pt-BR": "Cor do texto do botão",
     "es-419": "Color del texto del botón",
     "da": "Farve på knaptekst",
-    "no": "Tekstfarge på knapp"
+    "no": "Tekstfarge på knapp",
+    "ko": "버튼 텍스트 색상",
+    "pl": "Kolor tekstu przycisku"
   },
   "i18n.ButtonBackground": {
     "default": "Button background",
@@ -3388,7 +3559,9 @@
     "pt-BR": "Plano de fundo do botão",
     "es-419": "Fondo del botón",
     "da": "Baggrund for knap",
-    "no": "Knappbakgrunn"
+    "no": "Knappbakgrunn",
+    "ko": "버튼 배경",
+    "pl": "Tło przycisków"
   },
   "i18n.CardWishlistIcon": {
     "default": "Wishlist icon color"
@@ -3404,21 +3577,22 @@
   },
   "i18n.ProductCardsQuickSearch": {
     "default": "Product cards (quick search)",
-    "fr": "Fiches produit recherche rapide",
-    "it": "Schede prodotto ricerca rapida",
-    "uk": "Картки товарів (швидкий пошук)",
-    "zh": "产品卡（快速搜索）",
-    "de": "Produktkarten Schnellsuche",
-    "es": "Fichas del producto búsqueda rápida",
-    "nl": "Productkaarten snel zoeken",
-    "pt": "Cartões de produtos pesquisa rápida",
-    "sv": "Produktkort snabb sökning",
-    "es-MX": "Fichas del producto (búsqueda rápida)",
-    "pt-BR": "Cartões de produtos pesquisa rápida",
-    "es-419": "Tarjetas de producto búsqueda rápida",
-    "da": "Produktkort hurtig søgning",
-    "no": "Produktkort hurtigsøk"
-  },
+    "fr": "Fiches produit (recherche rapide)",
+    "it": "Schede prodotto (ricerca rapida)",
+    "zh": "产品卡片（快速搜索）",
+    "de": "Produktkarten (Schnellsuche)",
+    "es": "Fichas del producto (búsqueda rápida)",
+    "nl": "Productkaarten (snel zoeken)",
+    "pt": "Cartões de produtos (pesquisa rápida)",
+    "pt-BR": "Cartões de produtos (pesquisa rápida)",
+    "sv": "Produktkort (snabb sökning)",
+    "es-MX": "Tarjetas de producto (búsqueda rápida)",
+    "es-419": "Tarjetas de producto (búsqueda rápida)",
+    "da": "Produktkort (hurtig søgning)",
+    "no": "Produktkort (hurtigsøk)",
+    "ko": "상품 카드(빠른 검색)",
+    "pl": "Karty produktów (szybkie wyszukiwanie)"
+  }, 
   "i18n.BackgroundColor": {
     "default": "Background color",
     "fr": "Couleur de larrière-plan",
@@ -3434,7 +3608,9 @@
     "pt-BR": "Cor de fundo",
     "es-419": "Color del fondo",
     "da": "Baggrundsfarve",
-    "no": "Bakgrunnsfarge"
+    "no": "Bakgrunnsfarge",
+    "ko": "배경색",
+    "pl": "Kolor tła"
   },
   "i18n.BorderColor": {
     "default": "Border color",
@@ -3451,7 +3627,9 @@
     "pt-BR": "Cor da borda",
     "es-419": "Color del borde",
     "da": "Kantfarve",
-    "no": "Kantfarge"
+    "no": "Kantfarge",
+    "ko": "테두리 색상",
+    "pl": "Kolor obramowania"
   },
   "i18n.ImageSizes": {
     "default": "Image sizes",
@@ -3468,7 +3646,9 @@
     "pt-BR": "Tamanho da imagem",
     "es-419": "Tamaños de imagen",
     "da": "Billedstørrelser",
-    "no": "Bildestørrelser"
+    "no": "Bildestørrelser",
+    "ko": "이미지 크기",
+    "pl": "Rozmiary obrazów"
   },
   "i18n.PleaseSpecifyAMaximumImage": {
     "default": "Please specify a maximum image size for desktop display. We'll automatically scale down the image for smaller devices.",
@@ -3485,7 +3665,9 @@
     "pt-BR": "Especifique um tamanho de imagem máximo para exibição na área de trabalho. Vamos reduzir automaticamente a imagem nos dispositivos menores.",
     "es-419": "Especifica el tamaño máximo de la imagen para su visualización en el escritorio. Reduciremos automáticamente la imagen para los dispositivos más pequeños.",
     "da": "Angiv en maksimal billedstørrelse for skrivebordsvisning. Vi skalerer automatisk billedet ned til mindre enheder.",
-    "no": "Spesifiser en maksimal bildestørrelse for skrivebordsvisning. Vi skalerer automatisk ned bildet for mindre enheter."
+    "no": "Spesifiser en maksimal bildestørrelse for skrivebordsvisning. Vi skalerer automatisk ned bildet for mindre enheter.",
+    "ko": "데스크탑 디스플레이의 최대 이미지 크기를 지정하십시오. 더 작은 장치의 이미지는 자동으로 축소됩니다.",
+    "pl": "Podaj maksymalny rozmiar obrazu dla komputerów stacjonarnych. Obrazek zostanie automatycznie zmniejszony dla mniejszych urządzeń."
   },
   "i18n.MainProductImages": {
     "default": "Main product images",
@@ -3502,7 +3684,9 @@
     "pt-BR": "Imagens do produto principal",
     "es-419": "Imágenes del producto principal",
     "da": "Hovedproduktbilleder",
-    "no": "Hovedproduktbilder"
+    "no": "Hovedproduktbilder",
+    "ko": "주요 상품 이미지",
+    "pl": "Główne zdjęcia produktów"
   },
   "i18n.ThumbnailImageInProductPage": {
     "default": "Thumbnail image in product page",
@@ -3519,7 +3703,9 @@
     "pt-BR": "Imagem em miniatura na página do produto",
     "es-419": "Imagen de la miniatura en la página del producto",
     "da": "Miniaturebillede på produktsiden",
-    "no": "Miniatyrbilde på produktsiden"
+    "no": "Miniatyrbilde på produktsiden",
+    "ko": "상품 페이지의 썸네일 이미지",
+    "pl": "Miniatury na stronie produktu"
   },
   "i18n.ThumbnailImageInCartAnd": {
     "default": "Thumbnail image in cart and other pages",
@@ -3536,7 +3722,9 @@
     "pt-BR": "Imagem em miniatura no carrinho e outras páginas",
     "es-419": "Imagen de la miniatura en el carrito y en otras páginas",
     "da": "Miniaturebillede i indkøbskurv og på andre sider",
-    "no": "Miniatyrbilde i handlekurven og på andre sider"
+    "no": "Miniatyrbilde i handlekurven og på andre sider",
+    "ko": "장바구니 및 기타 페이지의 썸네일 이미지",
+    "pl": "Miniatury w koszyku i na innych stronach"
   },
   "i18n.ZoomedImage": {
     "default": "Zoomed image",
@@ -3553,7 +3741,9 @@
     "pt-BR": "Imagem com zoom",
     "es-419": "Imagen ampliada",
     "da": "Zoomet billede",
-    "no": "Zoomet bilde"
+    "no": "Zoomet bilde",
+    "ko": "확대 이미지",
+    "pl": "Powiększony obraz"
   },
   "i18n.ImageInGalleryView": {
     "default": "Image in gallery view",
@@ -3570,7 +3760,9 @@
     "pt-BR": "Imagem na exibição da galeria",
     "es-419": "Imagen en vista de galería",
     "da": "Billede i gallerivisning",
-    "no": "Bilde i gallerivisning"
+    "no": "Bilde i gallerivisning",
+    "ko": "갤러리 뷰의 이미지",
+    "pl": "Obraz w widoku galerii"
   },
   "i18n.BrandImageInGalleryView": {
     "default": "Brand image in gallery view",
@@ -3587,7 +3779,9 @@
     "pt-BR": "Imagem da marca na exibição da galeria",
     "es-419": "Imagen de la marca en vista de galería",
     "da": "Mærkebillede i gallerivisning",
-    "no": "Merkebilde i gallerivisning"
+    "no": "Merkebilde i gallerivisning",
+    "ko": "갤러리 뷰의 브랜드 이미지",
+    "pl": "Obraz marki w widoku galerii"
   },
   "i18n.ProductSwatchImages": {
     "default": "Product swatch images",
@@ -3604,7 +3798,9 @@
     "pt-BR": "Imagens da amostra do produto",
     "es-419": "Imágenes de muestras de productos",
     "da": "Billeder af produktprøver",
-    "no": "Produktprøvebilder"
+    "no": "Produktprøvebilder",
+    "ko": "상품 스와치 이미지",
+    "pl": "Zdjęcia próbek produktów"
   },
   "i18n.Standard": {
     "default": "Standard",
@@ -3621,7 +3817,9 @@
     "pt-BR": "Standard",
     "es-419": "Standard",
     "da": "Standard",
-    "no": "Standard"
+    "no": "Standard",
+    "ko": "Standard",
+    "pl": "Standard"
   },
   "i18n.ButtonsAndIcons": {
     "default": "Buttons & Icons",
@@ -3638,7 +3836,9 @@
     "pt-BR": "Ícones e botões",
     "es-419": "Botones e íconos",
     "da": "Knapper og ikoner",
-    "no": "Knapper og ikoner"
+    "no": "Knapper og ikoner",
+    "ko": "버튼 및 아이콘",
+    "pl": "Przyciski i ikony"
   },
   "i18n.PrimaryActionButton": {
     "default": "Primary action button",
@@ -3655,7 +3855,9 @@
     "pt-BR": "Botão de ação principal",
     "es-419": "Botón de acción principal",
     "da": "Primær handlingsknap",
-    "no": "Primær handlingsknapp"
+    "no": "Primær handlingsknapp",
+    "ko": "기본 작업 버튼",
+    "pl": "Przycisk akcji podstawowej"
   },
   "i18n.ButtonTextHoverColor": {
     "default": "Button text hover color",
@@ -3671,8 +3873,10 @@
     "es-MX": "Color del texto del botón al pasar el cursor",
     "pt-BR": "Cor do texto do botão com o foco do mouse",
     "es-419": "Color del cursor del texto del botón",
-    "da": "Farve når der peges på knaptekst",
-    "no": "Farge på knapptekst med peker over"
+    "da": "Farve, når der peges på knaptekst",
+    "no": "Farge på knapptekst (med peker over)",
+    "ko": "버튼 텍스트 호버 색상",
+    "pl": "Kolor hover tekstu przycisku"
   },
   "i18n.ButtonTextActiveColor": {
     "default": "Button text active color",
@@ -3689,7 +3893,9 @@
     "pt-BR": "Cor do texto do botão ativo",
     "es-419": "Color activo del texto del botón",
     "da": "Farve på aktiv knaptekst",
-    "no": "Farge når knapptekst aktiv"
+    "no": "Farge når knapptekst aktiv",
+    "ko": "버튼 텍스트 활성 색상",
+    "pl": "Aktywny kolor tekstu przycisku"
   },
   "i18n.ButtonBackgroundHover": {
     "default": "Button background hover",
@@ -3705,8 +3911,10 @@
     "es-MX": "Fondo del botón al pasar el cursor",
     "pt-BR": "Plano de fundo do botão com o foco do mouse",
     "es-419": "Fondo del botón del cursor",
-    "da": "Baggrund når der peges på knap",
-    "no": "Bakgrunn på knapp med peker over"
+    "da": "Baggrund, når der peges på knap",
+    "no": "Bakgrunn på knapp (med peker over)",
+    "ko": "버튼 배경 호버",
+    "pl": "Przycisk z tłem po najechaniu"
   },
   "i18n.ButtonBackgroundActive": {
     "default": "Button background active",
@@ -3723,7 +3931,9 @@
     "pt-BR": "Plano de fundo do botão ativo",
     "es-419": "Fondo del botón activo",
     "da": "Baggrund på aktiv knap",
-    "no": "Bakgrunn for knapp aktiv"
+    "no": "Bakgrunn for knapp aktiv",
+    "ko": "버튼 배경 활성",
+    "pl": "Aktywne tło przycisków"
   },
   "i18n.SecondaryActionButton": {
     "default": "Secondary action button",
@@ -3740,7 +3950,9 @@
     "pt-BR": "Botão de ação secundário",
     "es-419": "Botón de acción secundario",
     "da": "Sekundær handlingsknap",
-    "no": "Sekundær handlingsknapp"
+    "no": "Sekundær handlingsknapp",
+    "ko": "2차 작업 버튼",
+    "pl": "Przycisk drugiego działania"
   },
   "i18n.ButtonBorder": {
     "default": "Button border",
@@ -3757,7 +3969,9 @@
     "pt-BR": "Borda do botão",
     "es-419": "Borde del botón",
     "da": "Knappens ramme",
-    "no": "Kant på knapp"
+    "no": "Kant på knapp",
+    "ko": "버튼 테두리",
+    "pl": "Granica przycisku"
   },
   "i18n.ButtonBorderHover": {
     "default": "Button border hover",
@@ -3773,8 +3987,10 @@
     "es-MX": "Borde del botón al pasar el cursor",
     "pt-BR": "Borda do botão com o foco do mouse",
     "es-419": "Cursor borde del botón",
-    "da": "Kant når der peges på knap",
-    "no": "Kant på knapp med peker over"
+    "da": "Kant, når der peges på knap",
+    "no": "Kant på knapp (med peker over)",
+    "ko": "버튼 테두리 호버",
+    "pl": "Obramowanie przycisków przy najechaniu"
   },
   "i18n.ButtonBorderActive": {
     "default": "Button border active",
@@ -3791,7 +4007,9 @@
     "pt-BR": "Borda do botão ativo",
     "es-419": "Borde del botón activo",
     "da": "Kant på aktiv knap",
-    "no": "Kant på knapp aktiv"
+    "no": "Kant på knapp aktiv",
+    "ko": "버튼 테두리 활성화",
+    "pl": "Aktywne obramowanie przycisków"
   },
   "i18n.TertiaryActionButton": {
     "default": "Tertiary action button",
@@ -3808,7 +4026,9 @@
     "pt-BR": "Botão de ação terciário",
     "es-419": "Botón de acción terciaria",
     "da": "Tertiær handlingsknap",
-    "no": "Tertiær handlingsknapp"
+    "no": "Tertiær handlingsknapp",
+    "ko": "3차 작업 버튼",
+    "pl": "Przycisk działania trzeciorzędnego"
   },
   "i18n.ButtonArrowIcon": {
     "default": "Button arrow icon",
@@ -3825,7 +4045,9 @@
     "pt-BR": "Ícone de seta do botão",
     "es-419": "Ícono de flecha de botón",
     "da": "Pilikon for knap",
-    "no": "Pilikon for knapp"
+    "no": "Pilikon for knapp",
+    "ko": "버튼 화살표 아이콘",
+    "pl": "Ikona strzałki na przycisku"
   },
   "i18n.DisabledButton": {
     "default": "Disabled button",
@@ -3842,7 +4064,9 @@
     "pt-BR": "Botão desativado",
     "es-419": "Botón de Desactivado",
     "da": "Deaktiveret knap",
-    "no": "Deaktivert knapp"
+    "no": "Deaktivert knapp",
+    "ko": "비활성화 버튼",
+    "pl": "Przycisk wyłączony"
   },
   "i18n.Icons": {
     "default": "Icons",
@@ -3855,8 +4079,12 @@
     "nl": "pictogrammen",
     "pt": "Ícones",
     "sv": "ikoner",
-    "es-MX": "Iconos",
-    "pt-BR": "Ícones"
+    "es-MX": "Íconos",
+    "es-419": "Íconos",
+    "da": "Ikoner",
+    "no": "Ikoner",
+    "ko": "아이콘",
+    "pl": "Ikony"
   },
   "i18n.SocialMediaIcon": {
     "default": "Social media icon",
@@ -3869,8 +4097,12 @@
     "nl": "Pictogram voor sociale media",
     "pt": "Ícone de rede social",
     "sv": "Sociala medie-ikon",
-    "es-MX": "Icono de las redes sociales",
-    "pt-BR": "Ícone de rede social"
+    "es-MX": "Ícono de redes sociales",
+    "es-419": "Ícono de redes sociales",
+    "da": "Ikon for sociale medier",
+    "no": "Ikon for sosiale medier",
+    "ko": "소셜 미디어 아이콘",
+    "pl": "Ikona mediów społecznościowych"
   },
   "i18n.SocialMediaIconHover": {
     "default": "Social media icon hover",
@@ -3887,7 +4119,9 @@
     "pt-BR": "Ícone de rede social com o foco do mouse",
     "es-419": "Cursor ícono de redes sociales",
     "da": "Når der peges på ikon for sociale medier",
-    "no": "Ikon for sosiale medier med peker over"
+    "no": "Ikon for sosiale medier (med peker over)",
+    "ko": "소셜 미디어 아이콘 호버",
+    "pl": "Ikona mediów społecznościowych po najechaniu na nią"
   },
   "i18n.StarReviewIconFull": {
     "default": "Star review icon (full)",
@@ -3895,16 +4129,18 @@
     "it": "Icona recensione con stella piena",
     "uk": "Піктограма огляду зірки (повна)",
     "zh": "星评图标（全）",
-    "de": "Sternbewertungssymbol voll",
-    "es": "Icono de reseña con estrellas lleno",
-    "nl": "Pictogram sterrecensie gevuld",
-    "pt": "Ícone de estrelas de avaliação completo",
-    "sv": "Ikon för stjärnrecension full",
-    "es-MX": "Icono de reseña con estrellas (lleno)",
-    "pt-BR": "Ícone de estrelas de avaliação completo",
-    "es-419": "Ícono de opinión con estrellas completo",
-    "da": "Ikon for stjerneanmeldelse fuld",
-    "no": "Ikon for stjerneanmeldelse full"
+    "de": "Sternbewertungssymbol (voll)",
+    "es": "Icono de reseña con estrellas (lleno)",
+    "nl": "Pictogram sterrecensie (gevuld)",
+    "pt": "Ícone de estrelas de avaliação (completo)",
+    "pt-BR": "Ícone de estrelas de avaliação (completo)",
+    "sv": "Ikon för stjärnrecension (full)",
+    "es-MX": "Ícono de opinión con estrellas (completo)",
+    "es-419": "Ícono de opinión con estrellas (completo)",
+    "da": "Ikon for stjerneanmeldelse (fuld)",
+    "no": "Ikon for stjerneanmeldelse (full)",
+    "ko": "별점 리뷰 아이콘(전체)",
+    "pl": "Ikona przeglądu gwiazdkowego (pełna)"
   },
   "i18n.StarReviewIconEmpty": {
     "default": "Star review icon (empty)",
@@ -3912,16 +4148,18 @@
     "it": "Icona recensione con stella vuota",
     "uk": "Піктограма огляду зірки (порожня)",
     "zh": "星评图标（空）",
-    "de": "Sternbewertungssymbol leer",
-    "es": "Icono de reseña con estrellas vacío",
-    "nl": "Pictogram sterrecensie leeg",
-    "pt": "Ícone de estrelas de avaliação vazio",
-    "sv": "Ikon för stjärnrecension tom",
-    "es-MX": "Icono de reseña con estrellas (vacío)",
-    "pt-BR": "Ícone de estrelas de avaliação vazio",
-    "es-419": "Ícono de opinión con estrellas vacío",
-    "da": "Ikon for stjerneanmeldelse tom",
-    "no": "Ikon for stjerneanmeldelse tom"
+    "de": "Sternbewertungssymbol (leer)",
+    "es": "Icono de reseña con estrellas (vacío)",
+    "nl": "Pictogram sterrecensie (leeg)",
+    "pt": "Ícone de estrelas de avaliação (vazio)",
+    "pt-BR": "Ícone de estrelas de avaliação (vazio)",
+    "sv": "Ikon för stjärnrecension (tom)",
+    "es-MX": "Ícono de opinión con estrellas (vacío)",
+    "es-419": "Ícono de opinión con estrellas (vacío)",
+    "da": "Ikon for stjerneanmeldelse (tom)",
+    "no": "Ikon for stjerneanmeldelse (tom)",
+    "ko": "별점 리뷰 아이콘(비어 있음)",
+    "pl": "Ikona przeglądu gwiazdkowego (pusta)"
   },
   "i18n.IncreasedecreaseButtonIcon": {
     "default": "Increase/decrease button icon",
@@ -3929,16 +4167,18 @@
     "it": "Icona pulsante AumentaRiduci",
     "uk": "Значок кнопки збільшення / зменшення",
     "zh": "增加/减少按钮图标",
-    "de": "Symbol der „ErhöhenVerringern“-Schaltfläche",
-    "es": "Icono del botón aumentardisminuir",
-    "nl": "Pictogram knop verhogenverlagen",
-    "pt": "Ícone do botão para aumentarreduzir",
-    "sv": "Ökaminska knappikonen",
-    "es-MX": "Icono del botón aumentar/disminuir",
-    "pt-BR": "Ícone do botão para aumentarreduzir",
-    "es-419": "Ícono del botón de aumentodisminución",
-    "da": "Forøgmindsk knap-ikon",
-    "no": "Økminsk knappikon"
+    "de": "Symbol der „Erhöhen/Verringern“-Schaltfläche",
+    "es": "Icono del botón aumentar/disminuir",
+    "nl": "Pictogram knop verhogen/verlagen",
+    "pt": "Ícone do botão para aumentar/reduzir",
+    "pt-BR": "Ícone do botão para aumentar/reduzir",
+    "sv": "Öka/minska knappikonen",
+    "es-MX": "Ícono del botón de aumento/disminución",
+    "es-419": "Ícono del botón de aumento/disminución",
+    "da": "Forøg/mindsk knap-ikon",
+    "no": "Øk/minsk knappikon",
+    "ko": "증가/감소 버튼 아이콘",
+    "pl": "Ikona przycisku zwiększania/zmniejszania"
   },
   "i18n.CheckboxesAndRadioButtons": {
     "default": "Checkboxes and radio buttons",
@@ -3955,7 +4195,9 @@
     "pt-BR": "Caixas de seleção e botões de opção",
     "es-419": "Casillas de verificación y botones de radio",
     "da": "Afkrydsningsfelter og alternativknapper",
-    "no": "Avmerkingsbokser og alternativknapper"
+    "no": "Avmerkingsbokser og alternativknapper",
+    "ko": "체크박스와 라디오 버튼",
+    "pl": "Pola wyboru i przyciski radiowe"
   },
   "i18n.CheckboxAndRadioIcon": {
     "default": "Checkbox and radio icon",
@@ -3972,7 +4214,9 @@
     "pt-BR": "Caixa de seleção e ícone de opção",
     "es-419": "Casilla de verificación e icono de radio",
     "da": "Afkrydsningsfelt og radioikon",
-    "no": "Ikon for avmerkingsboks og radio"
+    "no": "Ikon for avmerkingsboks og radio",
+    "ko": "체크박스 및 라디오 아이콘",
+    "pl": "Pole wyboru i ikona radia"
   },
   "i18n.TabHeading": {
     "default": "Tabs"
@@ -4010,7 +4254,9 @@
     "pt-BR": "Página de finalização de compra",
     "es-419": "Página de pago",
     "da": "Betalingsside",
-    "no": "Betalingsside"
+    "no": "Betalingsside",
+    "ko": "체크아웃 페이지",
+    "pl": "Strona kasy"
   },
   "i18n.UseBackgroundImage": {
     "default": "Use background image",
@@ -4027,7 +4273,9 @@
     "pt-BR": "Usar imagem de fundo",
     "es-419": "Usar imagen de fondo",
     "da": "Brug baggrundsbillede",
-    "no": "Bruk bakgrunnsbilde"
+    "no": "Bruk bakgrunnsbilde",
+    "ko": "배경 이미지 사용",
+    "pl": "Użyj obrazu tła"
   },
   "i18n.1000X400pxRecommended": {
     "default": "1000 x 400px recommended",
@@ -4044,7 +4292,9 @@
     "pt-BR": "Recomenda-se 1000 x 400 px",
     "es-419": "1000 x 400px recomendado",
     "da": "1000 x 400 px anbefales",
-    "no": "1000 x 400 px anbefales"
+    "no": "1000 x 400 px anbefales",
+    "ko": "1000 x 400픽셀 권장",
+    "pl": "Zalecane 1000 x 400px"
   },
   "i18n.HeaderImageSize": {
     "default": "Header image size",
@@ -4061,7 +4311,9 @@
     "pt-BR": "Tamanho da imagem do título",
     "es-419": "Tamaño de la imagen del encabezado",
     "da": "Størrelse på headerbillede",
-    "no": "Størrelse på topptekstbilde"
+    "no": "Størrelse på topptekstbilde",
+    "ko": "헤더 이미지 크기",
+    "pl": "Rozmiar obrazu nagłówka"
   },
   "i18n.HeaderTextColor": {
     "default": "Header text color",
@@ -4078,7 +4330,9 @@
     "pt-BR": "Cor do texto do título",
     "es-419": "Color del texto del encabezado",
     "da": "Farve på headertekst",
-    "no": "Topptekstfarge"
+    "no": "Topptekstfarge",
+    "ko": "헤더 텍스트 색상",
+    "pl": "Kolor tekstu nagłówka"
   },
   "i18n.HeaderBorder": {
     "default": "Header border",
@@ -4095,7 +4349,9 @@
     "pt-BR": "Borda do título",
     "es-419": "Borde del encabezado",
     "da": "Headerkant",
-    "no": "Topptekstkant"
+    "no": "Topptekstkant",
+    "ko": "헤더 테두리",
+    "pl": "Granica nagłówka"
   },
   "i18n.LogoType": {
     "default": "Logo type",
@@ -4112,7 +4368,9 @@
     "pt-BR": "Tipo de logotipo",
     "es-419": "Tipo de logotipo",
     "da": "Logotype",
-    "no": "Logotype"
+    "no": "Logotype",
+    "ko": "로고 타입",
+    "pl": "Typ logo"
   },
   "i18n.Text": {
     "default": "Text",
@@ -4126,10 +4384,14 @@
     "pt": "Texto",
     "sv": "Text",
     "es-MX": "Texto",
-    "pt-BR": "Texto"
+    "es-419": "Texto",
+    "da": "Tekst",
+    "no": "Tekst",
+    "ko": "텍스트",
+    "pl": "Tekst"
   },
   "i18n.Image": {
-    "default": "Text",
+    "default": "Image",
     "fr": "Texte",
     "it": "Testo",
     "uk": "Текст",
@@ -4140,7 +4402,11 @@
     "pt": "Texto",
     "sv": "Text",
     "es-MX": "Texto",
-    "pt-BR": "Texto"
+    "es-419": "Texto",
+    "da": "Tekst",
+    "no": "Tekst",
+    "ko": "텍스트",
+    "pl": "Tekst"
   },
   "i18n.250X100pxRecommended": {
     "default": "250 x 100px recommended",
@@ -4157,7 +4423,9 @@
     "pt-BR": "Recomenda-se 250 x 100 px",
     "es-419": "250 x 100px recomendado",
     "da": "250 x 100 px anbefales",
-    "no": "250 x 100 px anbefales"
+    "no": "250 x 100 px anbefales",
+    "ko": "250 x 100픽셀 권장",
+    "pl": "Zalecane 250 x 100px"
   },
   "i18n.DiscountBanner": {
     "default": "Discount banner",
@@ -4174,7 +4442,9 @@
     "pt-BR": "Banner de desconto",
     "es-419": "Banner de descuento",
     "da": "Rabatbanner",
-    "no": "Rabattbanner"
+    "no": "Rabattbanner",
+    "ko": "할인 배너",
+    "pl": "Baner rabatowy"
   },
   "i18n.BannerTextColor": {
     "default": "Banner text color",
@@ -4191,7 +4461,9 @@
     "pt-BR": "Cor do texto do banner",
     "es-419": "Color del texto del banner",
     "da": "Farve på bannertekst",
-    "no": "Farge på bannertekst"
+    "no": "Farge på bannertekst",
+    "ko": "배너 텍스트 색상",
+    "pl": "Kolor tekstu bannera"
   },
   "i18n.BannerIcon": {
     "default": "Banner icon",
@@ -4208,7 +4480,9 @@
     "pt-BR": "Ícone do banner",
     "es-419": "Ícono de banner",
     "da": "Bannerikon",
-    "no": "Bannerikon"
+    "no": "Bannerikon",
+    "ko": "배너 아이콘",
+    "pl": "Ikona bannera"
   },
   "i18n.OrderSummaryBox": {
     "default": "Order summary box",
@@ -4225,7 +4499,9 @@
     "pt-BR": "Caixa de resumo do pedido",
     "es-419": "Cuadro de resumen del pedido",
     "da": "Ordreoversigtsfelt",
-    "no": "Boks for bestillingssammendrag"
+    "no": "Boks for bestillingssammendrag",
+    "ko": "주문 요약 상자",
+    "pl": "Pole podsumowania zamówienia"
   },
   "i18n.BoxBackground": {
     "default": "Box background",
@@ -4242,7 +4518,9 @@
     "pt-BR": "Plano de fundo da caixa",
     "es-419": "Fondo del cuadro",
     "da": "Baggrund til felt",
-    "no": "Boks bakgrunn"
+    "no": "Boks bakgrunn",
+    "ko": "상자 배경",
+    "pl": "Tło pudełka"
   },
   "i18n.BoxBorder": {
     "default": "Box border",
@@ -4259,7 +4537,9 @@
     "pt-BR": "Borda da caixa",
     "es-419": "Borde del cuadro",
     "da": "Kant på felt",
-    "no": "Bokskant"
+    "no": "Bokskant",
+    "ko": "상자 테두리",
+    "pl": "Granica pudełka"
   },
   "i18n.CheckoutSteps": {
     "default": "Checkout steps",
@@ -4276,7 +4556,9 @@
     "pt-BR": "Etapas da finalização da compra",
     "es-419": "Pasos del proceso de pago",
     "da": "Betalingstrin",
-    "no": "Betalingstrinn"
+    "no": "Betalingstrinn",
+    "ko": "결제 단계",
+    "pl": "Kroki kasowe"
   },
   "i18n.IconBackground": {
     "default": "Icon background",
@@ -4293,7 +4575,9 @@
     "pt-BR": "Plano de fundo do ícone",
     "es-419": "Fondo del ícono",
     "da": "Baggrund til ikon",
-    "no": "Ikonbakgrunn"
+    "no": "Ikonbakgrunn",
+    "ko": "아이콘 배경",
+    "pl": "Tło ikony"
   },
   "i18n.IconBorder": {
     "default": "Icon border",
@@ -4310,7 +4594,9 @@
     "pt-BR": "Borda do ícone",
     "es-419": "Borde del ícono",
     "da": "Kant på ikon",
-    "no": "Ikonkant"
+    "no": "Ikonkant",
+    "ko": "아이콘 테두리",
+    "pl": "Granica ikony"
   },
   "i18n.IconTextColor": {
     "default": "Icon text color",
@@ -4327,7 +4613,9 @@
     "pt-BR": "Cor do texto do ícone",
     "es-419": "Color del texto del ícono",
     "da": "Farve på ikontekst",
-    "no": "Ikons tekstfarge"
+    "no": "Ikons tekstfarge",
+    "ko": "아이콘 텍스트 색상",
+    "pl": "Kolor tekstu ikony"
   },
   "i18n.Heading1FontFamily": {
     "default": "Heading 1 font family",
@@ -4344,7 +4632,9 @@
     "pt-BR": "Família da fonte do título 1",
     "es-419": "Familia de fuentes del Encabezado 1",
     "da": "Overskrift 1 skrifttypefamilie",
-    "no": "Overskrift 1-font"
+    "no": "Overskrift 1-font",
+    "ko": "제목 1 글꼴 모음",
+    "pl": "Rodzina czcionek nagłówka 1"
   },
   "i18n.Heading1TextColor": {
     "default": "Heading 1 text color",
@@ -4361,7 +4651,9 @@
     "pt-BR": "Cor do texto do título 1",
     "es-419": "Color del texto del título 1",
     "da": "Overskrift 1 tekstfarve",
-    "no": "Overskrift 1-tekstfarge"
+    "no": "Overskrift 1-tekstfarge",
+    "ko": "제목 1 텍스트 색상",
+    "pl": "Kolor tekstu nagłówka 1"
   },
   "i18n.Heading2FontFamily": {
     "default": "Heading 2 font family",
@@ -4378,7 +4670,9 @@
     "pt-BR": "Família da fonte do título 2",
     "es-419": "Familia de fuentes del Encabezado 2",
     "da": "Overskrift 2 skrifttypefamilie",
-    "no": "Overskrift 2-font"
+    "no": "Overskrift 2-font",
+    "ko": "제목 2 글꼴 모음",
+    "pl": "Rodzina czcionek nagłówka 2"
   },
   "i18n.Heading2TextColor": {
     "default": "Heading 2 text color",
@@ -4395,7 +4689,9 @@
     "pt-BR": "Cor do texto do título 2",
     "es-419": "Color del texto del título 2",
     "da": "Overskrift 2 tekstfarve",
-    "no": "Overskrift 2-tekstfarge"
+    "no": "Overskrift 2-tekstfarge",
+    "ko": "제목 2 텍스트 색상",
+    "pl": "Kolor tekstu nagłówka 2"
   },
   "i18n.Body": {
     "default": "Body",
@@ -4409,7 +4705,11 @@
     "pt": "Corpo",
     "sv": "Kropp",
     "es-MX": "Cuerpo",
-    "pt-BR": "Corpo"
+    "es-419": "Cuerpo",
+    "da": "Brødtekst",
+    "no": "Hovedtekst",
+    "ko": "본문",
+    "pl": "Ciało"
   },
   "i18n.FocusColor": {
     "default": "Focus color",
@@ -4426,7 +4726,9 @@
     "pt-BR": "Cor do foco",
     "es-419": "Color de enfoque",
     "da": "Fokusfarve",
-    "no": "Fokusfarge"
+    "no": "Fokusfarge",
+    "ko": "포커스 색상",
+    "pl": "Kolor skupienia"
   },
   "i18n.SecondaryTextFontFamily": {
     "default": "Secondary text font family",
@@ -4443,7 +4745,9 @@
     "pt-BR": "Família da fonte do texto secundário",
     "es-419": "Familia de fuentes de texto secundario",
     "da": "Skrifttypefamilie for sekundær tekst",
-    "no": "Sekundær tekstfontfamilie"
+    "no": "Sekundær tekstfontfamilie",
+    "ko": "보조 텍스트 글꼴 모음",
+    "pl": "Rodzina czcionek tekstu dodatkowego"
   },
   "i18n.LinkFontFamily": {
     "default": "Link font family",
@@ -4460,7 +4764,9 @@
     "pt-BR": "Família da fonte do link",
     "es-419": "Familia de fuentes del enlace",
     "da": "Skrifttypefamilie for link",
-    "no": "Font for lenke"
+    "no": "Font for lenke",
+    "ko": "링크 글꼴 모음",
+    "pl": "Rodzina czcionek Link"
   },
   "i18n.ButtonTextFontFamily": {
     "default": "Button text font family",
@@ -4477,7 +4783,9 @@
     "pt-BR": "Família da fonte do text do botão",
     "es-419": "Familia de fuentes de texto del botón",
     "da": "Skrifttypefamilie for knaptekst",
-    "no": "Font for knapptekst"
+    "no": "Font for knapptekst",
+    "ko": "버튼 텍스트 글꼴 모음",
+    "pl": "Rodzina czcionek tekstu przycisku"
   },
   "i18n.ButtonTextDisabledColor": {
     "default": "Button text disabled color",
@@ -4494,7 +4802,9 @@
     "pt-BR": "Cor desativada do texto do botão",
     "es-419": "Color del texto del botón desactivado",
     "da": "Tekstfarve for deaktiveret knap",
-    "no": "Farge på deaktivert knapptekst"
+    "no": "Farge på deaktivert knapptekst",
+    "ko": "비활성화 버튼 텍스트 색상",
+    "pl": "Kolor wyłączonego tekstu przycisku"
   },
   "i18n.ButtonBackgroundDisabled": {
     "default": "Button background disabled",
@@ -4511,7 +4821,9 @@
     "pt-BR": "Plano de fundo do botão desativado",
     "es-419": "Fondo del botón desactivado",
     "da": "Knapbaggrund deaktiveret",
-    "no": "Bakgrunn på knapp deaktivert"
+    "no": "Bakgrunn på knapp deaktivert",
+    "ko": "비활성화 버튼 배경",
+    "pl": "Wyłączone tło przycisków"
   },
   "i18n.ButtonBorderDisabled": {
     "default": "Button border disabled",
@@ -4528,7 +4840,9 @@
     "pt-BR": "Borda do botão desativada",
     "es-419": "Borde del botón desactivado",
     "da": "Knapkant deaktiveret",
-    "no": "Kant på knapp deaktivert"
+    "no": "Kant på knapp deaktivert",
+    "ko": "비활성화 버튼 테두리",
+    "pl": "Wyłączone obramowanie przycisków"
   },
   "i18n.FormInputFields1": {
     "default": "Form input fields",
@@ -4545,7 +4859,9 @@
     "pt-BR": "Campos de entrada de formulário",
     "es-419": "Campos de captura del formulario",
     "da": "Formularinputfelter",
-    "no": "Skjemainndatafelter"
+    "no": "Skjemainndatafelter",
+    "ko": "양식 입력 필드",
+    "pl": "Pola wejściowe formularza"
   },
   "i18n.FieldPlaceholderTextColor": {
     "default": "Field placeholder text color",
@@ -4562,7 +4878,9 @@
     "pt-BR": "Cor do texto do espaço reservado do campo",
     "es-419": "Color del texto del marcador de posición del campo",
     "da": "Tekstfarve på pladsholder for felt",
-    "no": "Farge på palssholdertekst i felt"
+    "no": "Farge på palssholdertekst i felt",
+    "ko": "필드 플레이스홀더 텍스트 색상",
+    "pl": "Kolor tekstu zastępczego pola"
   },
   "i18n.FieldErrorTextColor": {
     "default": "Field error text color",
@@ -4579,7 +4897,9 @@
     "pt-BR": "Cor do texto do erro de campo",
     "es-419": "Color de texto de error de campo",
     "da": "Tekstfarve ved fejl i felt",
-    "no": "Farge på feiltekst i felt"
+    "no": "Farge på feiltekst i felt",
+    "ko": "필드 오류 텍스트 색상",
+    "pl": "Kolor tekstu błędu pola"
   },
   "i18n.FieldInnerShadow": {
     "default": "Field inner shadow",
@@ -4596,7 +4916,9 @@
     "pt-BR": "Sombra interior do campo",
     "es-419": "Sombra interior del campo",
     "da": "Feltets indre skygge",
-    "no": "Inder skygge for felt"
+    "no": "Inder skygge for felt",
+    "ko": "필드 내부 그림자",
+    "pl": "Wewnętrzny cień pola"
   },
   "i18n.CheckboxButtonBackground": {
     "default": "Checkbox button background",
@@ -4613,7 +4935,9 @@
     "pt-BR": "Plano de fundo do botão de caixa de seleção",
     "es-419": "Fondo del botón de casilla de verificación",
     "da": "Baggrund for afkrydsningsfelts knap",
-    "no": "Bakgrunn for avkrysningsknapp"
+    "no": "Bakgrunn for avkrysningsknapp",
+    "ko": "체크박스 버튼 배경",
+    "pl": "Tło przycisku pola wyboru"
   },
   "i18n.FormChecklist": {
     "default": "Form checklist",
@@ -4630,7 +4954,9 @@
     "pt-BR": "Lista de verificação de formulário",
     "es-419": "Lista de verificación del formulario",
     "da": "Formularkontrolliste",
-    "no": "Skjema-sjekkliste"
+    "no": "Skjema-sjekkliste",
+    "ko": "체크리스트 양식",
+    "pl": "Lista kontrolna formularzy"
   },
   "i18n.FormBackground": {
     "default": "Form background",
@@ -4647,7 +4973,9 @@
     "pt-BR": "Plano de fundo do formulário",
     "es-419": "Fondo del formulario",
     "da": "Formularbaggrund",
-    "no": "Bakgrunn på skjema"
+    "no": "Bakgrunn på skjema",
+    "ko": "양식 배경",
+    "pl": "Tło formularza"
   },
   "i18n.FormHeaderTextColor": {
     "default": "Form header text color",
@@ -4664,7 +4992,9 @@
     "pt-BR": "Cor do texto do título do formulário",
     "es-419": "Color del texto del encabezado del formulario",
     "da": "Formularoverskrift tekstfarve",
-    "no": "Tekstfarge på skjemaoverskrift"
+    "no": "Tekstfarge på skjemaoverskrift",
+    "ko": "양식 헤더 텍스트 색상",
+    "pl": "Kolor tekstu nagłówka formularza"
   },
   "i18n.FormBorderColor": {
     "default": "Form border color",
@@ -4681,7 +5011,9 @@
     "pt-BR": "Cor da borda do formulário",
     "es-419": "Color del borde del formulario",
     "da": "Kantfarve for formular",
-    "no": "Kantfarge på skjema"
+    "no": "Kantfarge på skjema",
+    "ko": "양식 테두리 색상",
+    "pl": "Kolor obramowania formularza"
   },
   "i18n.LoadingToaster": {
     "default": "Loading toaster",
@@ -4698,7 +5030,9 @@
     "pt-BR": "Carregando notificação",
     "es-419": "Cargando tostadora",
     "da": "Indlæser toaster",
-    "no": "Laster inn toaster"
+    "no": "Laster inn toaster",
+    "ko": "로딩 토스터",
+    "pl": "Ładowanie tostera"
   },
   "i18n.ToasterBackground": {
     "default": "Toaster background",
@@ -4715,7 +5049,9 @@
     "pt-BR": "Plano de fundo da notificação",
     "es-419": "Fondo de tostadora",
     "da": "Baggrund til toaster",
-    "no": "Bakgrunn på toaster"
+    "no": "Bakgrunn på toaster",
+    "ko": "토스터 배경",
+    "pl": "Tło dla tostera"
   },
   "i18n.ToasterTextColor": {
     "default": "Toaster text color",
@@ -4732,7 +5068,9 @@
     "pt-BR": "Cor do texto da notificação",
     "es-419": "Color de texto de tostadora",
     "da": "Toaster-tekstfarve",
-    "no": "Tekstfarge på toaster"
+    "no": "Tekstfarge på toaster",
+    "ko": "토스터 텍스트 색상",
+    "pl": "Kolor tekstu tostów"
   },
   "i18n.PaymentButtons": {
     "default": "Payment Buttons",
@@ -4749,7 +5087,9 @@
     "pt-BR": "Botões de pagamento",
     "es-419": "Botones de pago",
     "da": "Betalingsknapper",
-    "no": "Betalingsknapper"
+    "no": "Betalingsknapper",
+    "ko": "결제 버튼",
+    "pl": "Przyciski płatności"
   },
   "i18n.ButtonContainer": {
     "default": "Button Container",
@@ -4764,7 +5104,9 @@
     "pt-BR": "Contêiner do botão",
     "es-419": "Contenedor de botones",
     "da": "Knapbeholder",
-    "no": "Knappbeholder"
+    "no": "Knappbeholder",
+    "ko": "버튼 컨테이너",
+    "pl": "Pojemnik na przyciski"
   },
   "i18n.ButtonColor": {
     "default": "Button color",
@@ -4781,7 +5123,63 @@
     "pt-BR": "Cor do botão",
     "es-419": "Color del botón",
     "da": "Knappens farve",
-    "no": "Knappfarge"
+    "no": "Knappfarge",
+    "ko": "버튼 색상",
+    "pl": "Kolor guzika"
+  },
+  "i18n.PayPalButtonColor": {
+    "default": "PayPal button color",
+    "fr": "Couleur du bouton PayPal",
+    "it": "Colore del pulsante PayPal",
+    "zh": "PayPal 按钮颜色",
+    "de": "Farbe der PayPal-Schaltfläche",
+    "es": "Color del botón de PayPal",
+    "nl": "Knopkleur PayPal",
+    "pt": "Cor do botão do PayPal",
+    "pt-BR": "Cor do botão do PayPal",
+    "sv": "Färg på PayPal-knapp",
+    "es-MX": "Color del botón de PayPal",
+    "es-419": "Color del botón de PayPal",
+    "da": "PayPal-knapfarve",
+    "no": "PayPal-knappfarge",
+    "ko": "PayPal 버튼 색상",
+    "pl": "Kolor przycisku PayPal"
+  },
+  "i18n.PayLaterButtonColor": {
+    "default": "PayPal Pay Later button color",
+    "fr": "Couleur du bouton « Payez plus tard avec PayPal »",
+    "it": "Colore del pulsante Pagamento posticipato di PayPal",
+    "zh": "PayPal 稍后付款按钮颜色",
+    "de": "Farbe der Schaltfläche „PayPal Pay Later“",
+    "es": "Color del botón Pagar más tarde de PayPal",
+    "nl": "Knopkleur PayPal later betalen",
+    "pt": "Cor do botão do \"PayPal Pay Later\"",
+    "pt-BR": "Cor do botão do \"PayPal Pay Later\"",
+    "sv": "Färg på PayPal Betala senare-knapp",
+    "es-MX": "Color del botón de PayPal Pay Later",
+    "es-419": "Color del botón de PayPal Pay Later",
+    "da": "PayPal Pay Later-knapfarve",
+    "no": "PayPal Betal senere-knappfarge",
+    "ko": "PayPal Pay Later 버튼 색상",
+    "pl": "Kolor przycisku Zapłać później z PayPal"
+  },
+  "i18n.VenmoButtonColor": {
+    "default": "Venmo button color",
+    "fr": "Couleur du bouton Venmo",
+    "it": "Colore del pulsante Venmo",
+    "zh": "Venmo 按钮颜色",
+    "de": "Farbe der Venmo-Schaltfläche",
+    "es": "Color del botón de Venmo",
+    "nl": "Knopkleur Venmo",
+    "pt": "Cor do botão do Venmo",
+    "pt-BR": "Cor do botão do Venmo",
+    "sv": "Färg på Venmo-knapp",
+    "es-MX": "Color del botón de Venmo",
+    "es-419": "Color del botón de Venmo",
+    "da": "Venmo-knapfarve",
+    "no": "Venmo-knappfarge",
+    "ko": "Venmo 버튼 색상",
+    "pl": "Kolor przycisku Venmo"
   },
   "i18n.Gold": {
     "default": "Gold",
@@ -4798,7 +5196,9 @@
     "pt-BR": "Ouro",
     "es-419": "Oro",
     "da": "Guld",
-    "no": "Gull"
+    "no": "Gull",
+    "ko": "골드",
+    "pl": "Złoto"
   },
   "i18n.Blue": {
     "default": "Blue",
@@ -4815,7 +5215,9 @@
     "pt-BR": "Azul",
     "es-419": "Azul",
     "da": "Blå",
-    "no": "Blå"
+    "no": "Blå",
+    "ko": "블루",
+    "pl": "Niebieski"
   },
   "i18n.Silver": {
     "default": "Silver",
@@ -4832,7 +5234,9 @@
     "pt-BR": "Prata",
     "es-419": "Plateado",
     "da": "Sølv",
-    "no": "Sølv"
+    "no": "Sølv",
+    "ko": "실버",
+    "pl": "Srebrny"
   },
   "i18n.White": {
     "default": "White",
@@ -4844,7 +5248,11 @@
     "pt": "Branco",
     "sv": "Vit",
     "es-MX": "Blanco",
-    "pt-BR": "Branco"
+    "es-419": "Blanco",
+    "da": "Hvid",
+    "no": "Hvit",
+    "ko": "흰색",
+    "pl": "Biała"
   },
   "i18n.Black": {
     "default": "Black",
@@ -4858,7 +5266,11 @@
     "pt": "Preto",
     "sv": "Svart",
     "es-MX": "Negro",
-    "pt-BR": "Preto"
+    "es-419": "Negro",
+    "da": "Sort",
+    "no": "Svart",
+    "ko": "검정색",
+    "pl": "Czarna"
   },
   "i18n.ButtonShape": {
     "default": "Button shape",
@@ -4875,7 +5287,9 @@
     "pt-BR": "Forma do botão",
     "es-419": "Forma del botón",
     "da": "Knappens form",
-    "no": "Knappform"
+    "no": "Knappform",
+    "ko": "버튼 모양",
+    "pl": "Kształt guzika"
   },
   "i18n.Pill": {
     "default": "Pill",
@@ -4892,7 +5306,9 @@
     "pt-BR": "Pílula",
     "es-419": "Píldora",
     "da": "Pille",
-    "no": "Pille"
+    "no": "Pille",
+    "ko": "알약모양",
+    "pl": "Tabletki"
   },
   "i18n.Rectangle": {
     "default": "Rectangle",
@@ -4909,7 +5325,9 @@
     "pt-BR": "Retângulo",
     "es-419": "Rectángulo",
     "da": "Rektangel",
-    "no": "Rektangel"
+    "no": "Rektangel",
+    "ko": "직사각형 모양",
+    "pl": "Prostokąt"
   },
   "i18n.ButtonSize": {
     "default": "Button size",
@@ -4925,8 +5343,9 @@
     "es-MX": "Tamaño del botón",
     "pt-BR": "Tamanho do botão",
     "es-419": "Tamaño del botón",
-    "da": "Knapstørrelse",
-    "no": "Knappstørrelse"
+    "no": "Knappstørrelse",
+    "ko": "버튼 크기",
+    "pl": "Rozmiar guzika"
   },
   "i18n.Large": {
     "default": "Large",
@@ -4943,7 +5362,9 @@
     "pt-BR": "Grande",
     "es-419": "Grande",
     "da": "Stor",
-    "no": "Stor"
+    "no": "Stor",
+    "ko": "대",
+    "pl": "Duża"
   },
   "i18n.ButtonContent": {
     "default": "Button content",
@@ -4960,76 +5381,27 @@
     "pt-BR": "Conteúdo do botão",
     "es-419": "Contenido del botón",
     "da": "Knapindhold",
-    "no": "Knappinnhold"
-  },
-  "i18n.PaypalAcceleratedCheckoutButton": {
-    "default": "Paypal Accelerated Checkout button"
-  },
-  "i18n.ContentColor": {
-    "default": "Content color",
-    "fr": "Couleur du contenu",
-    "it": "Colore del contenuto",
-    "uk": "Колір вмісту",
-    "zh": "内容颜色"
-  },
-  "i18n.Buy": {
-    "default": "Buy",
-    "fr": "Acheter",
-    "it": "Acquistare",
-    "uk": "Купити",
-    "zh": "买"
-  },
-  "i18n.Checkout": {
-    "default": "Checkout",
-    "fr": "Checkout",
-    "it": "Checkout",
-    "uk": "Оформлення замовлення",
-    "zh": "查看"
-  },
-  "i18n.Pay": {
-    "default": "Pay",
-    "fr": "Payer",
-    "it": "Paga",
-    "uk": "Платити",
-    "zh": "支付"
-  },
-  "i18n.PayNow": {
-    "default": "Pay Now",
-    "fr": "Payez maintenant",
-    "it": "Paga ora",
-    "uk": "Платити зараз",
-    "zh": "现在付款"
-  },
-  "i18n.CheckoutNow": {
-    "default": "Checkout Now",
-    "fr": "Passer à la caisse",
-    "it": "Controlla ora",
-    "uk": "Оформити замовлення зараз",
-    "zh": "立即结帐"
-  },
-  "i18n.ProceedToCheckout": {
-    "default": "Proceed to checkout",
-    "fr": "Procedere al checkout",
-    "it": "Controlla ora",
-    "uk": "Перейти до оформлення замовлення",
-    "zh": "进行结算"
+    "no": "Knappinnhold",
+    "ko": "버튼 내용",
+    "pl": "Zawartość przycisku"
   },
   "i18n.SmartPaypalButton": {
-      "default": "PayPal Button",
-      "fr": "Bouton PayPal",
-      "it": "Pulsante PayPal",
-      "zh": "PayPal 按钮",
-      "de": "PayPal-Schaltfläche",
-      "es": "Botón de PayPal",
-      "nl": "PayPal-knop",
-      "pt": "Botão PayPal",
-      "pt-BR": "Botão PayPal",
-      "sv": "PayPal-knapp",
-      "es-MX": "Botón de PayPal",
-      "es-419": "Botón de PayPal",
-      "da": "PayPal-knappen",
-      "no": "PayPal-knapp",
-      "ko": "스마트 PayPal 버튼"
+    "default": "PayPal Button",
+    "fr": "Bouton PayPal",
+    "it": "Pulsante PayPal",
+    "zh": "PayPal 按钮",
+    "de": "PayPal-Schaltfläche",
+    "es": "Botón de PayPal",
+    "nl": "PayPal-knop",
+    "pt": "Botão PayPal",
+    "pt-BR": "Botão PayPal",
+    "sv": "PayPal-knapp",
+    "es-MX": "Botón de PayPal",
+    "es-419": "Botón de PayPal",
+    "da": "PayPal-knappen",
+    "no": "PayPal-knapp",
+    "ko": "스마트 PayPal 버튼",
+    "pl": "Przycisk PayPal"
   },
   "i18n.PayPalCheckout": {
     "default": "PayPal Checkout",
@@ -5046,7 +5418,9 @@
     "pt-BR": "PayPal Checkout",
     "es-419": "Pago de PayPal",
     "da": "PayPal Checkout",
-    "no": "PayPal-betaling"
+    "no": "PayPal-betaling",
+    "ko": "PayPal 체크아웃",
+    "pl": "PayPal Checkout"
   },
   "i18n.PayWithPayPal": {
     "default": "Pay with PayPal",
@@ -5063,7 +5437,9 @@
     "pt-BR": "Pagar com PayPal",
     "es-419": "Pagar con PayPal",
     "da": "Betal med PayPal",
-    "no": "Betal med PayPal"
+    "no": "Betal med PayPal",
+    "ko": "PayPal로 결제",
+    "pl": "Zapłać przez PayPal"
   },
   "i18n.BuyNow": {
     "default": "Buy Now",
@@ -5080,7 +5456,9 @@
     "pt-BR": "COMPRAR AGORA",
     "es-419": "Comprar ahora",
     "da": "Køb nu",
-    "no": "KJØP NÅ"
+    "no": "KJØP NÅ",
+    "ko": "지금 구매",
+    "pl": "Kup teraz"
   },
   "i18n.PayPal": {
     "default": "PayPal",
@@ -5094,24 +5472,47 @@
     "pt": "PayPal",
     "sv": "PayPal",
     "es-MX": "PayPal",
-    "pt-BR": "PayPal"
+    "es-419": "PayPal",
+    "da": "PayPal",
+    "no": "PayPal",
+    "ko": "PayPal 표시",
+    "pl": "PayPal"
   },
   "i18n.CheckoutPayPalButton": {
-      "default": "PayPal Button on checkout page",
-      "fr": "Bouton PayPal sur la page de paiement",
-      "it": "Pulsante PayPal sulla pagina di checkout",
-      "zh": "结账页面上的 PayPal 按钮",
-      "de": "PayPal-Schaltfläche auf der Bezahlvorgang-Seite",
-      "es": "Botón de PayPal en la página de pago",
-      "nl": "PayPal-knop op afrekenpagina",
-      "pt": "Botão PayPal na página de finalização da compra",
-      "pt-BR": "Botão PayPal na página de finalização da compra",
-      "sv": "PayPal-knapp på betalningssida",
-      "es-MX": "Botón de PayPal en la página de pago",
-      "es-419": "Botón de PayPal en la página de pago",
-      "da": "PayPal-knap på betalingsside",
-      "no": "PayPal-knapp på betalingssiden",
-      "ko": "PayPal 체크아웃"
+    "default": "PayPal Button on checkout page",
+    "fr": "Bouton PayPal sur la page de paiement",
+    "it": "Pulsante PayPal sulla pagina di checkout",
+    "zh": "结账页面上的 PayPal 按钮",
+    "de": "PayPal-Schaltfläche auf der Bezahlvorgang-Seite",
+    "es": "Botón de PayPal en la página de pago",
+    "nl": "PayPal-knop op afrekenpagina",
+    "pt": "Botão PayPal na página de finalização da compra",
+    "pt-BR": "Botão PayPal na página de finalização da compra",
+    "sv": "PayPal-knapp på betalningssida",
+    "es-MX": "Botón de PayPal en la página de pago",
+    "es-419": "Botón de PayPal en la página de pago",
+    "da": "PayPal-knap på betalingsside",
+    "no": "PayPal-knapp på betalingssiden",
+    "ko": "PayPal 체크아웃",
+    "pl": "Przycisk PayPal na stronie kasy"
+  },
+  "i18n.SmartBoltButton": {
+    "default": "Bolt button",
+    "fr": "Bolt button",
+    "it": "Pulsante Bolt",
+    "zh": "Bolt 按钮",
+    "de": "Bolt-Schaltfläche",
+    "es": "Botón de Bolt",
+    "nl": "Bolt-knop",
+    "pt": "Botão Bolt",
+    "pt-BR": "Botão Bolt",
+    "sv": "Bolt-knapp",
+    "es-MX": "Botón de Bolt",
+    "es-419": "Botón de Bolt",
+    "da": "Bolt-knap",
+    "no": "Bolt-knapp",
+    "ko": "Bolt 버튼",
+    "pl": "Przycisk Bolt"
   },
   "i18n.ProductPageBanner": {
     "default": "Product page banner",
@@ -5126,7 +5527,9 @@
     "pt-BR": "Banner da página do produto",
     "es-419": "Banner de la página del producto",
     "da": "Produktsidebanner",
-    "no": "Produktsidebanner"
+    "no": "Produktsidebanner",
+    "ko": "상품 페이지 배너",
+    "pl": "Baner na stronie produktu"
   },
   "i18n.BannerStyleColor": {
     "default": "Banner style color",
@@ -5141,7 +5544,9 @@
     "pt-BR": "Cor do estilo do banner",
     "es-419": "Color de estilo de banner",
     "da": "Bannerfarve",
-    "no": "Farge på bannerstil"
+    "no": "Farge på bannerstil",
+    "ko": "배너 스타일 색상",
+    "pl": "Kolor stylu bannera"
   },
   "i18n.White-no-border": {
     "default": "White no border",
@@ -5156,7 +5561,9 @@
     "pt-BR": "Branco sem borda",
     "es-419": "Blanco sin borde",
     "da": "Hvid uden kant",
-    "no": "Hvit uten kant"
+    "no": "Hvit uten kant",
+    "ko": "흰색 테두리 없음",
+    "pl": "Biały bez obramowania"
   },
   "i18n.gray": {
     "default": "Gray",
@@ -5171,7 +5578,9 @@
     "pt-BR": "Cinza",
     "es-419": "Gris",
     "da": "Grå",
-    "no": "Grå"
+    "no": "Grå",
+    "ko": "그레이",
+    "pl": "Szary"
   },
   "i18n.monochrome": {
     "default": "Monochrome",
@@ -5186,7 +5595,9 @@
     "pt-BR": "Monocromático",
     "es-419": "Monocromático",
     "da": "Monokrom",
-    "no": "Monokrom"
+    "no": "Monokrom",
+    "ko": "모노크롬",
+    "pl": "Monochromatyczny"
   },
   "i18n.grayscale": {
     "default": "Grayscale",
@@ -5201,7 +5612,9 @@
     "pt-BR": "Tons de cinza",
     "es-419": "Escala de grises",
     "da": "Gråtoneskala",
-    "no": "Gråtoner"
+    "no": "Gråtoner",
+    "ko": "그레이스케일",
+    "pl": "Skala szarości"
   },
   "i18n.BannerStyleRatio": {
     "default": "Banner style ratio",
@@ -5216,7 +5629,9 @@
     "pt-BR": "Proporção do estilo do banner",
     "es-419": "Proporción de estilo del banner",
     "da": "Bannerforhold",
-    "no": "Forhold på bannerstil"
+    "no": "Forhold på bannerstil",
+    "ko": "배너 스타일 비율",
+    "pl": "Współczynnik stylu bannera"
   },
   "i18n.8x1": {
     "default": "8x1",
@@ -5231,7 +5646,9 @@
     "pt-BR": "8 x 1",
     "es-419": "8x1",
     "da": "8x1",
-    "no": "8x1"
+    "no": "8x1",
+    "ko": "8x1",
+    "pl": "8x1"
   },
   "i18n.20x1": {
     "default": "20x1",
@@ -5246,7 +5663,9 @@
     "pt-BR": "20 x 1",
     "es-419": "20x1",
     "da": "20x1",
-    "no": "20x1"
+    "no": "20x1",
+    "ko": "20x1",
+    "pl": "20x1"
   },
   "i18n.HomePageBanner": {
     "default": "Home page banner",
@@ -5261,7 +5680,9 @@
     "pt-BR": "Banner da página inicial",
     "es-419": "Banner de la página de inicio",
     "da": "Startsidebanner",
-    "no": "Hjemmesidebanner"
+    "no": "Hjemmesidebanner",
+    "ko": "홈페이지 배너",
+    "pl": "Baner na stronie głównej"
   },
   "i18n.BannerTextStyleColor": {
     "default": "Banner text style color",
@@ -5276,7 +5697,9 @@
     "pt-BR": "Cor do estilo do texto do banner",
     "es-419": "Color del estilo de texto del banner",
     "da": "Farve på bannertekst",
-    "no": "Farge på bannertekst"
+    "no": "Farge på bannertekst",
+    "ko": "배너 텍스트 스타일 색상",
+    "pl": "Kolor stylu tekstu bannera"
   },
   "i18n.BannerStyleLogoPosition": {
     "default": "Banner style logo position",
@@ -5291,7 +5714,9 @@
     "pt-BR": "Posição do logotipo do estilo do banner",
     "es-419": "Posición del logotipo del estilo del banner",
     "da": "Logoposition for banner",
-    "no": "Plassering av logo i bannerstil"
+    "no": "Plassering av logo i bannerstil",
+    "ko": "배너 스타일 로고 위치",
+    "pl": "Pozycja logo w stylu banerowym"
   },
   "i18n.left": {
     "default": "Left",
@@ -5306,7 +5731,9 @@
     "pt-BR": "esquerda",
     "es-419": "Izquierda",
     "da": "Venstre",
-    "no": "Venstre"
+    "no": "Venstre",
+    "ko": "왼쪽",
+    "pl": "Lewa strona"
   },
   "i18n.right": {
     "default": "Right",
@@ -5321,7 +5748,9 @@
     "pt-BR": "direita",
     "es-419": "Derecha",
     "da": "højre",
-    "no": "Høyre"
+    "no": "Høyre",
+    "ko": "오른쪽",
+    "pl": "Prawa"
   },
   "i18n.top": {
     "default": "Top",
@@ -5332,8 +5761,12 @@
     "nl": "Top",
     "pt": "superior",
     "sv": "topp",
-    "es-MX": "Superior",
-    "pt-BR": "superior"
+    "es-MX": "Parte superior",
+    "es-419": "Parte superior",
+    "da": "Mest",
+    "no": "Topp",
+    "ko": "상단",
+    "pl": "Top"
   },
   "i18n.BannerStyleLogoType": {
     "default": "Banner style logo type",
@@ -5348,7 +5781,9 @@
     "pt-BR": "Tipo de logotipo do estilo do banner",
     "es-419": "Tipo del logotipo del estilo del banner",
     "da": "Logotype for banner",
-    "no": "Logotype i bannerstil"
+    "no": "Logotype i bannerstil",
+    "ko": "배너 스타일 로고 타입",
+    "pl": "Typ logo w stylu banerowym"
   },
   "i18n.inline": {
     "default": "Inline",
@@ -5363,7 +5798,9 @@
     "pt-BR": "Integrado",
     "es-419": "En fila",
     "da": "Indbygget",
-    "no": "På linje"
+    "no": "På linje",
+    "ko": "인라인",
+    "pl": "Inline"
   },
   "i18n.alternative": {
     "default": "Alternative",
@@ -5378,7 +5815,9 @@
     "pt-BR": "Alternativo",
     "es-419": "Alternativa",
     "da": "Alternativ",
-    "no": "Alternativ"
+    "no": "Alternativ",
+    "ko": "대체",
+    "pl": "Alternatywna strona"
   },
   "i18n.none": {
     "default": "None",
@@ -5393,7 +5832,9 @@
     "pt-BR": "Nenhuma",
     "es-419": "ninguna",
     "da": "Ingen",
-    "no": "Ingen"
+    "no": "Ingen",
+    "ko": "없음",
+    "pl": "Brak"
   },
   "i18n.PaymentBanners": {
     "default": "Payment Banners",
@@ -5408,7 +5849,9 @@
     "pt-BR": "Banners de pagamento",
     "es-419": "Banners de pago",
     "da": "Betalingsbannere",
-    "no": "Betalingsbannere"
+    "no": "Betalingsbannere",
+    "ko": "결제 배너",
+    "pl": "Banery płatnicze"
   },
   "i18n.CartPageBanner": {
     "default": "Cart page banner",
@@ -5423,7 +5866,9 @@
     "pt-BR": "Banner da página do carrinho",
     "es-419": "Banner de la página del carrito",
     "da": "Banner på siden med indkøbskurv",
-    "no": "Handlekurvbanner"
+    "no": "Handlekurvbanner",
+    "ko": "장바구니 페이지 배너",
+    "pl": "Baner na stronie koszyka"
   },
   "i18n.primary": {
     "default": "Primary",
@@ -5435,22 +5880,101 @@
     "pt": "Principal",
     "sv": "Primär",
     "es-MX": "Principal",
-    "pt-BR": "Principal"
+    "es-419": "Principal",
+    "da": "Primær",
+    "no": "Primær",
+    "ko": "기본",
+    "pl": "Strona główna"
   },
   "i18n.BannersMessaging": {
     "default": "Please note that in order for the changes to apply, you need navigate to the PayPal Settings in BC Control Panel, disable an appropriate messaging banner(s), click \"Save\" button, enable the banner again and click \"Save\" button again",
-    "de": "Bitte beachten Sie: Damit die Änderungen wirksam werden müssen Sie im Bedienpanel von BigCommerce zu den PayPal-Einstellungen wechseln und dort das entsprechende Nachrichtenbanner deaktivieren sowie auf „Speichern“ klicken. Anschließend müssen Sie das Banner wieder aktivieren und können es nun mit den Änderungen speichern.",
-    "es": "Tenga en cuenta que para que los cambios se apliquen debe ir a Configuración de PayPal en el panel de control de BC desactivar los banners de mensajería correspondientes hacer clic en el botón «Guardar» volver a activar el banner y hacer clic en el botón «Guardar»",
-    "fr": "Pour que les modifications soient prises en compte veuillez noter que vous devez accéder aux paramètres de PayPal dans le panneau de configuration de BigCommerce désactiver une ou plusieurs bannières affichant un message approprié cliquer sur « Enregistrer » réactiver la bannière puis cliquer à nouveau sur « Enregistrer ».",
-    "it": "Tieni presente che per applicare le modifiche devi andare alle Impostazioni PayPal nel Pannello di controllo BC disattivare il banner di messaggistica desiderato fare clic sul pulsante Salva riattivare il banner e fare di nuovo clic sul pulsante Salva",
-    "nl": "Let op: om de wijzigingen toe te passen moet u naar de PayPal-instellingen in het BC-configuratiescherm gaan de betreffende reclamebanners uitschakelen op Opslaan klikken de banner weer inschakelen en opnieuw op Opslaan klikken.",
-    "pt": "Lembre-se que para que as alterações sejam aplicadas você precisa acessar as Configurações do PayPal no painel de controle BC desativar um ou mais banner de mensagens apropriado clicar no botão Salvar ativar o banner novamente e clicar novamente no botão Salvar",
-    "sv": "Observera att för att ändringarna ska kunna tillämpas måste du navigera till PayPal-inställningarna i BC-kontrollpanelen inaktivera en viss meddelandebanderoll klicka på ”Spara”-knappen aktivera banderollen igen och klicka på Spara-knappen igen",
-    "es-MX": "Tenga en cuenta que para que los cambios se apliquen, debe ir a Configuración de PayPal en el panel de control de BC, desactivar los banners de mensajería correspondientes, hacer clic en el botón «Guardar», volver a activar el banner y hacer clic en el botón «Guardar»",
-    "pt-BR": "Lembre-se que para que as alterações sejam aplicadas você precisa acessar as Configurações do PayPal no painel de controle BC desativar um ou mais banner de mensagens apropriado clicar no botão Salvar ativar o banner novamente e clicar novamente no botão Salvar",
-    "es-419": "Ten en cuenta que para que los cambios se apliquen debes ir a la configuración de PayPal en el panel de control de BC desactivar un banner de mensajes que corresponda hacer clic en el botón Guardar volver a activar el banner y volver a hacer clic en el botón Guardar.",
-    "da": "Bemærk at for at ændringerne kan anvendes skal du navigere til PayPal-indstillingerne i BC-kontrolpanelet deaktivere et eller flere passende meddelelsesbannere klikke på knappen Gem aktivere banneret igen og klikke på knappen Gem igen",
-    "no": "Vær oppmerksom på at for at endringene skal gjelde må du navigere til PayPal-innstillingene i BC-kontrollpanelen deaktivere passende meldingsbannere klikke på «Lagre»-knappen aktivere banneret igjen og klikke på «Lagre»-knappen igjen"
+    "fr": "Pour que les modifications soient prises en compte, veuillez noter que vous devez accéder aux paramètres de PayPal dans le panneau de configuration de BigCommerce, désactiver une ou plusieurs bannières affichant un message approprié, cliquer sur « Enregistrer », réactiver la bannière, puis cliquer à nouveau sur « Enregistrer ».",
+    "it": "Tieni presente che, per applicare le modifiche, devi andare alle Impostazioni PayPal nel Pannello di controllo BC, disattivare il banner di messaggistica desiderato, fare clic sul pulsante \"Salva\", riattivare il banner e fare di nuovo clic sul pulsante \"Salva\"",
+    "zh": "请注意，为了应用更改，您需要导航到 BC 控制面板中的 PayPal 设置，禁用适当的消息横幅，单击“保存”按钮，再次启用横幅，然后再次单击“保存”按钮",
+    "de": "Bitte beachten Sie: Damit die Änderungen wirksam werden, müssen Sie im Bedienpanel von BigCommerce zu den PayPal-Einstellungen wechseln und dort das entsprechende Nachrichtenbanner deaktivieren sowie auf „Speichern“ klicken. Anschließend müssen Sie das Banner wieder aktivieren und können es nun mit den Änderungen speichern.",
+    "es": "Tenga en cuenta que para que los cambios se apliquen, debe ir a Configuración de PayPal en el panel de control de BC, desactivar los banners de mensajería correspondientes, hacer clic en el botón «Guardar», volver a activar el banner y hacer clic en el botón «Guardar»",
+    "nl": "Let op: om de wijzigingen toe te passen, moet u naar de PayPal-instellingen in het BC-configuratiescherm gaan, de betreffende reclamebanner(s) uitschakelen, op \"Opslaan\" klikken, de banner weer inschakelen en opnieuw op \"Opslaan\" klikken.",
+    "pt": "Lembre-se que para que as alterações sejam aplicadas, você precisa acessar as Configurações do PayPal no painel de controle BC, desativar um (ou mais) banner de mensagens apropriado, clicar no botão \"Salvar\", ativar o banner novamente e clicar novamente no botão \"Salvar\"",
+    "pt-BR": "Lembre-se que para que as alterações sejam aplicadas, você precisa acessar as Configurações do PayPal no painel de controle BC, desativar um (ou mais) banner de mensagens apropriado, clicar no botão \"Salvar\", ativar o banner novamente e clicar novamente no botão \"Salvar\"",
+    "sv": "Observera att för att ändringarna ska kunna tillämpas måste du navigera till PayPal-inställningarna i BC-kontrollpanelen, inaktivera en viss meddelandebanderoll, klicka på ”Spara”-knappen, aktivera banderollen igen och klicka på \"Spara\"-knappen igen",
+    "es-MX": "Ten en cuenta que, para que los cambios se apliquen, debes ir a la configuración de PayPal en el panel de control de BC, desactivar un banner de mensajes que corresponda, hacer clic en el botón \"Guardar\", volver a activar el banner y volver a hacer clic en el botón \"Guardar\".",
+    "es-419": "Ten en cuenta que, para que los cambios se apliquen, debes ir a la configuración de PayPal en el panel de control de BC, desactivar un banner de mensajes que corresponda, hacer clic en el botón \"Guardar\", volver a activar el banner y volver a hacer clic en el botón \"Guardar\".",
+    "da": "Bemærk, at for at ændringerne kan anvendes, skal du navigere til PayPal-indstillingerne i BC-kontrolpanelet, deaktivere et eller flere passende meddelelsesbannere, klikke på knappen \"Gem\", aktivere banneret igen og klikke på knappen \"Gem\" igen",
+    "no": "Vær oppmerksom på at for at endringene skal gjelde, må du navigere til PayPal-innstillingene i BC-kontrollpanelen, deaktivere passende meldingsbannere, klikke på «Lagre»-knappen, aktivere banneret igjen, og klikke på «Lagre»-knappen igjen",
+    "ko": "변경 사항을 적용하려면 BC 제어판의 PayPal 설정으로 이동하여 적절한 메시징 배너를 비활성화하고 \"저장\" 버튼을 클릭하고 배너를 다시 활성화한 후 \"저장\" 버튼을 다시 클릭해야 합니다",
+    "pl": "Pamiętaj, że aby zmiany zostały zastosowane, musisz przejść do Ustawień systemu PayPal w Panelu sterowania BC, wyłączyć odpowiedni baner lub banery informacyjne, kliknąć przycisk \"Zapisz\", ponownie włączyć baner i ponownie kliknąć przycisk \"Zapisz\"."
+  },
+  "i18n.ProductDetailsPage": {
+    "default": "Product Details Page",
+    "fr": "Page d'informations du produit",
+    "it": "Pagina dei dettagli del prodotto",
+    "zh": "产品详情页面",
+    "de": "Produktdetailseite",
+    "es": "Página de detalles del producto",
+    "nl": "Pagina Productdetails",
+    "pt": "Página de detalhes do produto",
+    "pt-BR": "Página de detalhes do produto",
+    "sv": "Produktinformationssida",
+    "es-MX": "Página de detalles del producto",
+    "es-419": "Página de detalles del producto",
+    "da": "Produktdetaljeside",
+    "no": "Produktdetaljside",
+    "ko": "제품 세부 정보 페이지",
+    "pl": "Strona szczegółów produktu"
+  },
+  "i18n.CheckoutOnTop": {
+    "default": "Top of checkout",
+    "fr": "Haut de la page de paiement",
+    "it": "Parte superiore del checkout",
+    "zh": "结账台顶部",
+    "de": "Oben beim Bezahlvorgang",
+    "es": "Parte superior del proceso de pago",
+    "nl": "Bovenzijde afrekenen",
+    "pt": "Parte superior da finalização de compra",
+    "pt-BR": "Parte superior da finalização de compra",
+    "sv": "Högst upp i kassan",
+    "es-MX": "Parte superior del área de pago",
+    "es-419": "Parte superior del área de pago",
+    "da": "Øverst på betalingssiden",
+    "no": "Øverst i kassen",
+    "ko": "결제 상단",
+    "pl": "Górna część strony kasy"
+  },
+  "i18n.CheckoutPayment": {
+    "default": "Checkout Payment Step (Complete order button)",
+    "fr": "Étape de paiement (bouton « Terminer la commande »)",
+    "it": "Fase di pagamento al checkout (pulsante Completa ordine)",
+    "zh": "结账台付款步骤（完成订单按钮）",
+    "de": "Zahlungsschritt des Bezahlvorgangs (Schaltfläche „Bestellung abschließen“)",
+    "es": "Paso del proceso de pago (botón Completar pedido)",
+    "nl": "Betaalstap afrekenen (knop Bestelling afronden)",
+    "pt": "Etapa de pagamento de finalização de compra (botão \"Concluir pedido\")",
+    "pt-BR": "Etapa de pagamento de finalização de compra (botão \"Concluir pedido\")",
+    "sv": "Steg för betalning i kassa (knappen Slutför beställning)",
+    "es-MX": "Paso del pago en el área de pago (botón de Completar pedido)",
+    "es-419": "Paso del pago en el área de pago (botón de Completar pedido)",
+    "da": "Betalingstrin (knappen Gennemfør ordre)",
+    "no": "Betalingstrinn i kassen (Fullfør bestilling-knapp)",
+    "ko": "결제 진행 단계(주문 완료 버튼)",
+    "pl": "Krok płatności przy kasie (przycisk Zrealizuj zamówienie)"
+  },
+  "i18n.CartPageAddToCart": {
+    "default": "Cart page & Added to Cart modal window",
+    "fr": "Page du panier et fenêtre modale « Ajouté au panier »",
+    "it": "Finestra modale Pagina del carrello e Aggiunto al carrello",
+    "zh": "购物车页面和已添加到购物车模式窗口",
+    "de": "Warenkorbseite und Modal-Fenster „Zum Warenkorb hinzugefügt“",
+    "es": "Página del carrito y ventana modal Añadido al carrito",
+    "nl": "Modaalvenster Winkelwagenpagina & Toegevoegd aan winkelwagen",
+    "pt": "Página do carrinho e janela modal de \"Adicionado ao carrinho\"",
+    "pt-BR": "Página do carrinho e janela modal de \"Adicionado ao carrinho\"",
+    "sv": "Kundvagnssida och modalfönster för Tillagd i kundvagnen",
+    "es-MX": "Ventana modal de la página de carrito y de Agregado al carrito",
+    "es-419": "Ventana modal de la página de carrito y de Agregado al carrito",
+    "da": "Indkøbskurv og Tilføjet til indkøbskurv-modalvinduet",
+    "no": "Handlevogn-side og modalt Lagt til i handlekurv-vindu",
+    "ko": "장바구니 페이지 및 장바구니에 추가됨 모달 창",
+    "pl": "Strona koszyka i okno dialogowe dodawania do koszyka"
   },
   "i18n.PaymentButtonsContainer": {
     "default": "Buttons Container Size",
@@ -5465,7 +5989,9 @@
     "pt-BR": "Tamanho do contêiner dos botões",
     "es-419": "Tamaño del contenedor de botones",
     "da": "Størrelse på knapbeholder",
-    "no": "Størrelse på knappbeholder"
+    "no": "Størrelse på knappbeholder",
+    "ko": "버튼 컨테이너 크기",
+    "pl": "Przyciski Rozmiar pojemnika"
   },
   "i18n.AfterPaySettings": {
     "default": "After Pay Button",
@@ -5482,7 +6008,8 @@
     "es-419": "Botón de After Pay",
     "da": "After Pay-knap",
     "no": "Afterpay-knappen",
-    "ko": "스마트 PayPal 버튼"
+    "ko": "스마트 PayPal 버튼",
+    "pl": "Przycisk Po Zapłacie"
   },
   "i18n.ApplePaySettings": {
     "default": "Apple Pay Button",
@@ -5499,7 +6026,8 @@
     "es-419": "Botón de Apple Pay",
     "da": "Apple Pay-knap",
     "no": "Apple Pay-knapp",
-    "ko": "Apple Pay 색상"
+    "ko": "Apple Pay 색상",
+    "pl": "Przycisk Apple Pay"
   },
   "i18n.BlackOnMintText": {
     "default": "Black on Mint",
@@ -5516,7 +6044,8 @@
     "es-419": "Negro sobre menta",
     "da": "Sort på mintgrøn",
     "no": "Svart på mint",
-    "ko": "민트색 바탕에 검정색"
+    "ko": "민트색 바탕에 검정색",
+    "pl": "Czarny na mięcie"
   },
   "i18n.MintOnBlackText": {
     "default": "Mint on Black",
@@ -5533,7 +6062,8 @@
     "es-419": "Menta sobre negro",
     "da": "Mintgrøn på sort",
     "no": "Mint på svart",
-    "ko": "검정색 바탕에 민트색"
+    "ko": "검정색 바탕에 민트색",
+    "pl": "Mięta na czarnym tle"
   },
   "i18n.AmazonSettings": {
     "default": "Amazon Button",
@@ -5550,7 +6080,8 @@
     "es-419": "Botón de Amazon",
     "da": "Amazon-knap",
     "no": "Amazon-knapp",
-    "ko": "결제 버튼"
+    "ko": "결제 버튼",
+    "pl": "Amazon Button"
   },
   "i18n.LightGray": {
     "default": "Light Gray",
@@ -5567,7 +6098,8 @@
     "es-419": "Gris claro",
     "da": "Lysegrå",
     "no": "Lysegrå",
-    "ko": "연회색"
+    "ko": "연회색",
+    "pl": "Jasnoszary"
   },
   "i18n.DarkGray": {
     "default": "Dark Gray",
@@ -5584,7 +6116,8 @@
     "es-419": "Gris oscuro",
     "da": "Mørkegrå",
     "no": "Mørkegrå",
-    "ko": "그레이"
+    "ko": "그레이",
+    "pl": "Ciemnoszary"
   },
   "i18n.GooglePaySettings": {
     "default": "Google Pay Button",
@@ -5601,7 +6134,8 @@
     "es-419": "Botón de Google Pay",
     "da": "Google Pay-knap",
     "no": "Google Pay-knapp",
-    "ko": "Google Pay 표시"
+    "ko": "Google Pay 표시",
+    "pl": "Przycisk Google Pay"
   },
   "i18n.MasterpassSettings": {
     "default": "Masterpass Button",
@@ -5618,7 +6152,8 @@
     "es-419": "Botón de Masterpass",
     "da": "Masterpass-knap",
     "no": "Masterpass-knapp",
-    "ko": "스마트 PayPal 버튼"
+    "ko": "스마트 PayPal 버튼",
+    "pl": "Przycisk Masterpass"
   },
   "i18n.ShowQuickPaymentButtons": {
     "default": "Show quick payment buttons",
@@ -5635,7 +6170,8 @@
     "es-419": "Mostrar los botones de pago rápido",
     "da": "Vis knapper til hurtig betaling",
     "no": "Vis hurtigbetalingsknapper",
-    "ko": "결제 버튼"
+    "ko": "결제 버튼",
+    "pl": "Pokaż przyciski szybkich płatności"
   },
   "i18n.QuickPaymentButtons": {
     "default": "Quick payment buttons on product page",
@@ -5652,7 +6188,8 @@
     "es-419": "Botones de pago rápido en la página del producto",
     "da": "Knapper til hurtig betaling på produktside",
     "no": "Raske betalingsknapper på produktsiden",
-    "ko": "상품 카드에 빠른 보기 버튼 표시"
+    "ko": "상품 카드에 빠른 보기 버튼 표시",
+    "pl": "Przyciski szybkich płatności na stronie produktu"
   },
   "i18n.NumberOfButtonsAlwaysVisible": {
     "default": "Number of buttons always visible",
@@ -5669,7 +6206,8 @@
     "es-419": "Cantidad de botones siempre visibles",
     "da": "Antal knapper, der altid er synlige",
     "no": "Antall knapper som alltid er synlige",
-    "ko": "표시된 상품 수"
+    "ko": "표시된 상품 수",
+    "pl": "Liczba zawsze widocznych przycisków"
   },
   "i18n.ProviderSortingOrderLabel": {
     "default": "Sort Order",
@@ -5686,7 +6224,8 @@
     "es-419": "Orden de clasificación",
     "da": "Sortér rækkefølge",
     "no": "Sorteringsrekkefølge",
-    "ko": "상자 테두리"
+    "ko": "상자 테두리",
+    "pl": "Kolejność sortowania"
   },
   "i18n.PayPalProviderSortingLabel": {
     "default": "PayPal",
@@ -5703,7 +6242,8 @@
     "es-419": "PayPal",
     "da": "PayPal",
     "no": "PayPal",
-    "ko": "PayPal 표시"
+    "ko": "PayPal 표시",
+    "pl": "PayPal"
   },
   "i18n.PayPalCreditProviderSortingLabel": {
     "default": "Pay Later",
@@ -5720,7 +6260,8 @@
     "es-419": "Pagar después",
     "da": "Betal senere",
     "no": "Betal senere",
-    "ko": "나중에 결제"
+    "ko": "나중에 결제",
+    "pl": "Zapłać później"
   },
   "i18n.PayPalVenmoProviderSortingLabel": {
     "default": "Venmo",
@@ -5737,7 +6278,8 @@
     "es-419": "Venmo",
     "da": "Venmo",
     "no": "Venmo",
-    "ko": "Venmo"
+    "ko": "Venmo",
+    "pl": "Venmo"
   },
   "i18n.PayPalSepaProviderSortingLabel": {
     "default": "SEPA",
@@ -5754,7 +6296,8 @@
     "es-419": "SEPA",
     "da": "SEPA",
     "no": "SEPA",
-    "ko": "SEPA"
+    "ko": "SEPA",
+    "pl": "SEPA"
   },
   "i18n.GooglepayProviderSortingLabel": {
     "default": "Google Pay",
@@ -5771,7 +6314,8 @@
     "es-419": "Google Pay",
     "da": "Google Pay",
     "no": "Google Pay",
-    "ko": "Google Pay 표시"
+    "ko": "Google Pay 표시",
+    "pl": "Google Pay"
   },
   "i18n.ApplepayProviderSortingLabel": {
     "default": "Apple Pay",
@@ -5788,7 +6332,8 @@
     "es-419": "Apple Pay",
     "da": "Apple Pay",
     "no": "Apple Pay",
-    "ko": "Apple Pay 색상"
+    "ko": "Apple Pay 색상",
+    "pl": "Apple Pay"
   },
   "i18n.AfterpayProviderSortingLabel": {
     "default": "After Pay",
@@ -5805,7 +6350,8 @@
     "es-419": "Afterpay",
     "da": "Afterpay",
     "no": "Afterpay",
-    "ko": "After Pay"
+    "ko": "After Pay",
+    "pl": "Po wypłacie"
   },
   "i18n.AmazonProviderSortingLabel": {
     "default": "Amazon Pay",
@@ -5822,7 +6368,8 @@
     "es-419": "Amazon Pay",
     "da": "Amazon Pay",
     "no": "Amazon Pay",
-    "ko": "Amazon Pay 표시"
+    "ko": "Amazon Pay 표시",
+    "pl": "Amazon Pay"
   },
   "i18n.MasterpassProviderSortingLabel": {
     "default": "Masterpass",
@@ -5839,6 +6386,25 @@
     "es-419": "Masterpass",
     "da": "Masterpass",
     "no": "Masterpass",
-    "ko": "Masterpass"
+    "ko": "Masterpass",
+    "pl": "Masterpass"
+  },
+  "i18n.BoltProviderSortingLabel": {
+    "default": "Bolt",
+    "fr": "Bolt",
+    "it": "Bolt",
+    "zh": "Bolt",
+    "de": "Bolt",
+    "es": "Bolt",
+    "nl": "Bolt",
+    "pt": "Bolt",
+    "pt-BR": "Bolt",
+    "sv": "Bolt",
+    "es-MX": "Bolt",
+    "es-419": "Bolt",
+    "da": "Bolt",
+    "no": "Bolt",
+    "ko": "Bolt",
+    "pl": "Bolt"
   }
 }

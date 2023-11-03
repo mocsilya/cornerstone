@@ -8,6 +8,7 @@ customer:
 ---
 
 {{#partial "hero"}}
+{{{region name="page_below_menu"}}}
 <div class="container container-hero">
 	{{#if theme_settings.custom_page_header_image_info}}
 		<div class="page-header info-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
@@ -16,7 +17,7 @@ customer:
 		<div class="page-header info-header">
 	{{/if}}
     {{#unless theme_settings.hide_page_heading }}
-        <h1 class="page-heading">{{ page.title }}</h1>
+	    <h1 class="page-heading">{{#contains head.title " | "}}{{{before (split head.title ' | ') 1}}}{{else}}{{page.title}}{{/contains}}</h1>
     {{/unless}}
 	{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 	</div>
@@ -26,7 +27,7 @@ customer:
 {{#partial "page"}}
 
 <section class="page">
-
+{{{region name="page_builder_content_editor_area_top"}}}
 {{#if page.sub_pages}}
     <aside class="page-sidebar page-sidebar-vertical">
     <nav>
@@ -51,8 +52,9 @@ customer:
         {{#replace '%%Syndicate%%' page.content}}
             {{> components/page/rss_feed}}
         {{else}}
-            <p>{{{page.content}}}</p>
+            {{{page.content}}}
         {{/replace}}
+	{{{region name="page_builder_bottom"}}}
     </div>
 
     {{#if page.feed}}
@@ -65,6 +67,7 @@ customer:
             {{/each}}
         </ul>
     {{/if}}
+{{{region name="page_builder_content_editor_area_bottom"}}}
 </section>
 
 {{/partial}}

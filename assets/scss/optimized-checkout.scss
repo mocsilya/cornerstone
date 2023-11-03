@@ -379,3 +379,143 @@ $optimizedCheckout-input--error-boxShadow: 0 0 3px transparentize(stencilColor("
     background-color: stencilColor("optimizedCheckout-loadingToaster-backgroundColor");
     color: stencilColor("optimizedCheckout-loadingToaster-textColor");
 }
+
+//
+// CUSTOM
+// General
+// -----------------------------------------------------------------------------
+
+.stepHeader-title {
+	white-space: nowrap;
+}
+
+//
+// CUSTOM
+// Progress Bar
+// -----------------------------------------------------------------------------
+
+#progress-checkout { 
+	width: 100%;
+	top: 0;
+	z-index: 10;
+	background-color: stencilColor('optimizedCheckout-body-backgroundColor');
+	box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.12);
+	position: sticky;
+	margin: 0 auto;
+	max-width: 92.3076923077rem;
+	padding: 1.5rem;
+}
+
+#progress-checkout.progress-checkout--desktop { 
+	box-shadow: none;
+	position: static;
+	padding: 40px 2.6538461538rem 0 2.6538461538rem;
+}
+
+#progress-checkout .progress-wrapper { 
+	max-width: 298px;
+	margin: 0 auto;
+}
+
+#progress-checkout.progress-checkout--desktop .progress-wrapper {
+	max-width: 100%;
+}
+
+#progress-checkout .progress-line {
+	display: flex;
+	justify-content: space-between;
+	background-color: stencilColor('optimizedCheckout-step-borderColor');
+	width: 100%;
+	height: 16px;
+	border-radius: 10px;
+	padding: 2px;
+	margin-bottom: 4px;
+	position: relative;
+}
+
+#progress-checkout .progress-line::before {
+	content: "";
+	width: 25px;
+	height: 100%;
+	background-color: stencilColor('optimizedCheckout-step-backgroundColor');
+	border-radius: 10px;
+	position: absolute;
+	top: 0;
+}
+
+#progress-checkout .progress-line.step-1::before {
+	width: 25px;
+}
+
+#progress-checkout .progress-line.step-2::before {
+	width: calc(33.3% + 8px);
+}
+
+#progress-checkout .progress-line.step-3::before {
+	width: calc(66.6% + 8px);
+}
+
+#progress-checkout .progress-line.step-4::before {
+	width: 100%;
+}
+
+#progress-checkout .progress-line::after {
+	content: "";
+	top: 50%;
+	transform: translateY(-50%);
+	height: 20px;
+	width: 20px;
+	border-radius:
+	50%;
+	position: absolute;
+	border: 3px solid stencilColor('optimizedCheckout-body-backgroundColor');
+	filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.6));
+}
+
+#progress-checkout .progress-line.step-1::after {
+	left: 8px;
+}
+
+#progress-checkout .progress-line.step-2::after {
+	left: calc(33.3% - 7px);
+}
+
+#progress-checkout .progress-line.step-3::after {
+	left: calc(66.6% - 7px);
+}
+
+#progress-checkout .progress-line.step-4::after {
+	left: calc(100% - 15px);
+}
+
+#progress-checkout .progress-line__circle {
+	display: block;
+	width: 12px;
+	height: 12px;
+	background-color: stencilColor('optimizedCheckout-step-backgroundColor');
+	border-radius: 50%;
+	opacity: 0.5;
+}
+
+#progress-checkout .progress-line.step-2 .progress-line__circle:first-child,
+#progress-checkout .progress-line.step-3 .progress-line__circle:first-child,
+#progress-checkout .progress-line.step-3 .progress-line__circle:nth-child(2),
+#progress-checkout .progress-line.step-4 .progress-line__circle:first-child,
+#progress-checkout .progress-line.step-4 .progress-line__circle:nth-child(2),
+#progress-checkout .progress-line.step-4 .progress-line__circle:nth-child(3) {
+	background-color: stencilColor('optimizedCheckout-body-backgroundColor');
+}
+
+#progress-checkout .progress-labels {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+#progress-checkout .progress-labels > span {
+	color: stencilColor('optimizedCheckout-contentPrimary-color');
+}
+
+#progress-checkout .progress-labels > span b {
+	font-weight: 700;
+}

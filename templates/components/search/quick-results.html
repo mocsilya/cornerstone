@@ -1,6 +1,6 @@
 {{#if product_results.products}}
     {{> components/common/modal/modal-close-btn additional_attr='data-drop-down-close'}}
-    <ul class="productGrid productGrid-{{theme_settings.custom_category_max_columns}}" {{#if settings.data_tag_enabled}} data-list-name="Quick Search Results" {{/if}}>
+    <ul class="productGrid productGrid-{{theme_settings.custom_category_max_columns}}" data-list-name="Quick Search Results">
         {{#each product_results.products}}
         <li class="product{{#filter custom_fields 'hidden' property='name' }}{{#if value '==' 'payment'}} payment{{else if value '==' 'search'}} search{{/if}}{{/filter}}">
                 {{> components/products/card

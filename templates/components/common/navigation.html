@@ -27,14 +27,26 @@
                aria-controls="quickSearch"
                aria-label="{{lang 'common.search'}}"
             >
-				<span class="navUser-icon navUser-icon-search"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-search{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
-				<span class="navUser-icon navUser-icon-close"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-close" /></svg></i></span>
+				<span class="navUser-icon navUser-icon-search"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-search{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}" /></svg></i></span>
+				<span class="navUser-icon navUser-icon-close"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-close{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}" /></svg></i></span>
                 <span class="navUser-text navUser-text-search">{{theme_settings.custom_header_search_label}}</span>
 				<span class="navUser-text navUser-text-close">Close</span>
             </button>
 		{{/if}}
 		{{#if theme_settings.custom_header_search_type '===' 'box'}}
-		    {{> components/custom/navigation-search}}
+			<!--
+			<a class="navUser-action navUser-action--quickSearch has-dropdown" href="#" data-dropdown="searchDropdown" aria-controls="searchDropdown" aria-expanded="false" aria-label="quickSearch">
+				<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-search{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}" /></svg></i></span>
+				<span class="navUser-text">{{theme_settings.custom_header_search_label}}</span>
+			</a>
+			-->
+            <button class="navUser-action navUser-action--quickSearch navUser-action--boxSearch" type="button" aria-controls="quickSearch" aria-expanded="false">
+				<span class="navUser-icon navUser-icon-search"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-search{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}" /></svg></i></span>
+				<span class="navUser-icon navUser-icon-close"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-close{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}" /></svg></i></span>
+            </button>
+			<div class="container-search-box">
+		    	{{> components/custom/navigation-search}}
+			</div>
 		{{/if}}
 		{{/if}}
         </li>
@@ -161,7 +173,7 @@
 			{{/if}}
 			</li>
 		{{/if}}
-        <li class="navUser-item navUser-item--account">
+        <li class="navUser-item navUser-item--account {{#if customer}}navUser-item--customer{{else}}navUser-item--guest{{/if}}">
             <a class="navUser-action navUser-action--account has-dropdown"
 			   href="#"
                data-dropdown="accountDropdown"
@@ -214,7 +226,7 @@
                     <a href="{{urls.auth.create_account}}"
                        aria-label="{{lang 'common.sign_up'}}"
                     >
-                        {{lang 'common.sign_up'}}
+                        {{lang 'login.new_customer.create_account'}}
                     </a>
 				</li>
                 {{/if}}

@@ -31,39 +31,40 @@ customer:
 	{{> components/common/alert/alert-info message}}
 {{/each}}
 <div class="main full">
+{{{region name="home_below_top_banner"}}}
 {{#if theme_settings.custom_homepage_show_tabs}}
 	{{#if (getVar "b2b-products") '===' 'show'}}
 	{{#or (if products.featured) (if products.top_sellers) (if products.new)}}
 		<ul class="tabs" data-tab role="tablist">
 		    {{#if products.featured}}
-		        <li class="tab is-active" role="presentation">
+		        <li class="tab tab-featured{{#if theme_settings.custom_homepage_product_default '==' 'featured'}} is-active{{/if}}" role="presentation">
 		            <a class="tab-title" href="#tab-featured" role="tab" tabindex="0" aria-selected="true" controls="tab-featured">{{theme_settings.custom_homepage_featured_title}}</a>
 		        </li>
 		    {{/if}}
 		    {{#if products.top_sellers}}
-		        <li class="tab" role="presentation">
+		        <li class="tab tab-top{{#if theme_settings.custom_homepage_product_default '==' 'top'}} is-active{{/if}}" role="presentation">
 		            <a class="tab-title" href="#tab-top" role="tab" tabindex="0" aria-selected="false" controls="tab-top">{{theme_settings.custom_homepage_top_title}}</a>
 		        </li>
 		    {{/if}}
 		    {{#if products.new}}
-		        <li class="tab" role="presentation">
+		        <li class="tab tab-new{{#if theme_settings.custom_homepage_product_default '==' 'new'}} is-active{{/if}}" role="presentation">
 		            <a class="tab-title" href="#tab-new" role="tab" tabindex="0" aria-selected="false" controls="tab-new">{{theme_settings.custom_homepage_new_title}}</a>
 		        </li>
 		    {{/if}}
 		</ul>
 		<div class="tabs-contents">
 			{{#if products.featured}}
-				<div role="tabpanel" aria-hidden="false" class="tab-content has-jsContent is-active" id="tab-featured">
+				<div role="tabpanel" aria-hidden="false" class="tab-content tab-content-featured has-jsContent{{#if theme_settings.custom_homepage_product_default '==' 'featured'}} is-active{{/if}}" id="tab-featured">
 					{{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
 				</div>
 			{{/if}}
 			{{#if products.top_sellers}}
-				<div role="tabpanel" aria-hidden="false" class="tab-content has-jsContent" id="tab-top">
+				<div role="tabpanel" aria-hidden="false" class="tab-content tab-content-top has-jsContent{{#if theme_settings.custom_homepage_product_default '==' 'top'}} is-active{{/if}}" id="tab-top">
 					{{> components/products/top products=products.top_sellers columns=theme_settings.homepage_top_products_column_count}}
 				</div>
 			{{/if}}
 			{{#if products.new}}
-				<div role="tabpanel" aria-hidden="false" class="tab-content has-jsContent" id="tab-new">
+				<div role="tabpanel" aria-hidden="false" class="tab-content tab-content-new has-jsContent{{#if theme_settings.custom_homepage_product_default '==' 'new'}} is-active{{/if}}" id="tab-new">
 					{{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
 				</div>
 			{{/if}}

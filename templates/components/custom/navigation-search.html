@@ -1,3 +1,4 @@
+<!--
 <form class="form form-search-box" role="search" action="{{urls.search}}?search_query=&amp;section=product" method="get">
 	<div class="form-field form-field-input">
 		<label class="is-srOnly">{{lang "search.quick_search.input_label"}}</label>
@@ -9,7 +10,11 @@
 			type="search"
 		>
 		<button class="button button--primary" type="submit">
-			<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-search"></use></svg></i>
+			<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-search{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}"></use></svg></i>
 		</button>
 	</div>
 </form>
+-->
+<div class="form-search-box">
+	{{> components/common/quick-search name='nav-quick-search'}}
+</div>

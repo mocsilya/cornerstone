@@ -1,4 +1,7 @@
 <ul class="cart-totals">
+    <li class="cart-total cart-total-heading">
+        <h3>Order Summary</h3>
+    </li>
     <li class="cart-total cart-total-subtotal">
         <div class="cart-total-label">
             <strong>{{lang 'cart.checkout.subtotal'}}:</strong>
@@ -20,6 +23,18 @@
                 <span>{{cart.gift_wrapping_cost.formatted}}</span>
             </div>
         </li>
+    {{/if}}
+    {{#if cart.fees}}
+        {{#each cart.fees}}
+            <li class="cart-total">
+                <div class="cart-total-label">
+                    <strong>{{display_name}}:</strong>
+                </div>
+                <div class="cart-total-value">
+                    <span>{{cost.formatted}}</span>
+                </div>
+            </li>
+        {{/each}}
     {{/if}}
     {{#if cart.shipping_handling.show_estimator}}
         <li class="cart-total cart-total-shipping">
