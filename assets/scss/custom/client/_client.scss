@@ -475,6 +475,12 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 	border: 1px solid #ccc;
 }
 
+
+.cart-item-block.cart-item-figure {
+	position: relative;
+	top: 0;
+}
+
 // Form Actions
 // =============================================================================
 /*
