@@ -6139,7 +6139,8 @@ div[data-content-region="page_builder_content_editor_area_bottom"] {
 	padding: 0;
 	margin: 0;
 	@include breakpoint("medium") {
-		position: static;
+		position: relative;
+		top: 0;
 	}
 }
 
