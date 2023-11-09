@@ -1,0 +1,9 @@
+{{assignVar "cartUpsell" "show"}}
+{{#each cart.items}}
+	{{#contains name 'Special - 1 Month'}}
+		{{assignVar "cartUpsell" "hide"}}
+	{{/contains}}
+{{/each}}
+{{#if (getVar "cartUpsell") '===' 'show'}}
+	<div class="cart-upsell" data-upsell-id="121"></div>
+{{/if}}

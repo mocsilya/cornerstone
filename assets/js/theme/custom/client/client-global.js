@@ -2,6 +2,7 @@
  * Custom global client js
 */
 import 'slick-carousel';
+import utils from '@bigcommerce/stencil-utils';
 
 export default function loaded () {
 	$('.review-slider').slick({
@@ -48,4 +49,22 @@ export default function loaded () {
 			$(this).parent().addClass('is-open');
 		}
 	});
+
+	/**
+	* Cart Upsell
+	*/
+	if ($('body.page-cart .cart-upsell').length) {
+		var productId = $('.cart-upsell').data('upsell-id');
+	} else {
+		var productId = 0;
+	}
+	if (productId !== 0) { 
+		utils.api.product.getById(productId, { template: 'custom/product-upsell' }, (err, response) => {
+			if (!$.trim(response)){   
+				console.log("Upsell Item: Data Not Loaded");
+			} else {   
+				$('.cart-upsell').append(response);
+			}		
+		})
+	}
 }
