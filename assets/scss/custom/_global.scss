@@ -6256,6 +6256,7 @@ div[data-content-region="page_builder_content_editor_area_bottom"] {
 		padding-right: 1.5rem;
 	}
 	@include breakpoint("large") {
+		flex: 0 1 auto;
 		padding-right: 0;
 		padding-left: 1.5rem;
 		max-width: 271px;
