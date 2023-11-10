@@ -1,8 +1,7 @@
-<!-- product page only -->
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-		<script src="https://cdn11.bigcommerce.com/s-h4smy34w/content/imegawidget-custom.js"></script>
-		<!-- <script src="{{cdn 'webdav:imegawidget-custom.js'}}"></script> -->
-		<script>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+<!-- <script src="https://cdn11.bigcommerce.com/s-h4smy34w/content/imegawidget-custom.js"></script> -->
+<!-- <script src="{{cdn 'webdav:imegawidget-custom.js'}}"></script> -->
+<!-- <script>
 		$(document).ready(function(){
 		    imegaCalculator.init({
 		        apiKey: 'a8346514700102e3a47df85b9ff606ad',
@@ -46,22 +45,25 @@
 		    return filter;
 		}
 		jQuery.noConflict(true);
-		</script>
-		<script type="text/javascript">
+</script>  -->
+<!-- <script type="text/javascript">
 			jQuery("#imega-widget").appendTo('#imega-widget-anchor')    
-		</script>
+		</script> -->
 
 <script>
 var timePrice = 0;
-$(".productView-options .form-select").on('change', function () {
-	clearTimeout(timePrice);
-    timePrice = setTimeout(function() {
-		var newPriceCurrency = $('.productView-price span[data-product-price-with-tax]').html();
-		var newPriceNumber = Number(newPriceCurrency.replace(/[^0-9\.-]+/g,""));
-		var newPriceKlarna = newPriceNumber * 100;
-		document.querySelector('klarna-placement').dataset.purchaseAmount = newPriceKlarna;
-		window.Klarna.OnsiteMessaging.refresh();
-    }, 1000);
-});
+var formSelect = document.querySelectorAll(".productView-options .form-select");
+for (let i = 0; i < formSelect.length; i++) {
+	formSelect[i].addEventListener("change", function() {
+		clearTimeout(timePrice);
+	    timePrice = setTimeout(function() {
+			var newPriceCurrency = document.querySelector(".productView-price span[data-product-price-with-tax]").textContent;
+			var newPriceNumber = Number(newPriceCurrency.replace(/[^0-9\.-]+/g,""));		
+			var newPriceKlarna = newPriceNumber * 100;
+			document.querySelector('klarna-placement').dataset.purchaseAmount = newPriceKlarna;
+			window.Klarna.OnsiteMessaging.refresh();
+	    }, 1000);
+	});
+}
 </script>
 		
