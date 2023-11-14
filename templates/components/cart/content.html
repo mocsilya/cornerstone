@@ -82,6 +82,28 @@
                             </dd>
                         </dl>
                     {{/if}}
+					
+                    {{#if availability}}
+						<dl class="cart-item-availability">
+							<dt class="cart-item-availability-title">
+					            {{lang 'products.availability'}}
+							</dt>
+							<dd class="cart-item-availability-description">
+								{{availability}}
+							</dd>
+					    </dl>
+					{{else}}
+						{{#if ../theme_settings.custom_product_availability}}
+							<dl class="cart-item-availability">
+								<dt class="cart-item-availability-title">
+						            {{lang 'products.availability'}}
+								</dt>
+								<dd class="cart-item-availability-description">
+									{{../theme_settings.custom_product_availability}}
+								</dd>
+						    </dl>
+						{{/if}}
+                    {{/if}}
 
                 </td>
                 <td class="cart-item-block cart-item-info cart-item-price">
