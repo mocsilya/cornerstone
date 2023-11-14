@@ -82,29 +82,20 @@
                             </dd>
                         </dl>
                     {{/if}}
-					
-                    {{#if availability}}
+					{{#if ../theme_settings.custom_product_availability}}
 						<dl class="cart-item-availability">
 							<dt class="cart-item-availability-title">
 					            {{lang 'products.availability'}}
 							</dt>
 							<dd class="cart-item-availability-description">
-								{{availability}}
-							</dd>
-					    </dl>
-					{{else}}
-						{{#if ../theme_settings.custom_product_availability}}
-							<dl class="cart-item-availability">
-								<dt class="cart-item-availability-title">
-						            {{lang 'products.availability'}}
-								</dt>
-								<dd class="cart-item-availability-description">
+								{{#if availability}}
+									{{availability}}
+								{{else}}
 									{{../theme_settings.custom_product_availability}}
-								</dd>
-						    </dl>
-						{{/if}}
-                    {{/if}}
-
+								{{/if}}
+							</dd>
+				    	</dl>
+					{{/if}}
                 </td>
                 <td class="cart-item-block cart-item-info cart-item-price">
                     <span class="cart-item-label">{{lang 'cart.checkout.price'}}</span>
