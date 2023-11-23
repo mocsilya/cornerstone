@@ -1245,6 +1245,10 @@ body.hasAdminBar.scroll .dropdown--quickSearch.is-open {
 	color: stencilColor("custom-header-menu-link");
 }
 
+.quickSearchResults .card-warranty {
+	display: none;
+}
+
 .dropdown--quickSearch .productGrid {
 	padding: 0;
 	background: stencilColor("body-bg");
