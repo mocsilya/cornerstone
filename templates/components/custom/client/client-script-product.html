@@ -57,13 +57,57 @@ for (let i = 0; i < formSelect.length; i++) {
 	formSelect[i].addEventListener("change", function() {
 		clearTimeout(timePrice);
 	    timePrice = setTimeout(function() {
+			// Klarna
 			var newPriceCurrency = document.querySelector(".productView-price span[data-product-price-with-tax]").textContent;
 			var newPriceNumber = Number(newPriceCurrency.replace(/[^0-9\.-]+/g,""));		
 			var newPriceKlarna = newPriceNumber * 100;
 			document.querySelector('klarna-placement').dataset.purchaseAmount = newPriceKlarna;
 			window.Klarna.OnsiteMessaging.refresh();
+			// Pre Order
+			var alertBox = document.querySelector(".add-to-cart-wrapper .alertBox.productAttributes-message");
+			if (alertBox.style.display != 'none') {
+				var alertBoxText = document.querySelector(".add-to-cart-wrapper .alertBox-message").textContent;
+				var alertBoxTrigger = "Due:";
+				if (alertBoxText.indexOf(alertBoxTrigger) !== -1) {
+					var alertBoxLink = document.querySelector('.button-alertBox');
+					if (!(alertBoxLink)) {
+						alertBox.innerHTML += '<a class="button button--primary button-alertBox" href="/pre-order-now-to-avoid-disappointment/">PRE ORDER HERE</a>';
+					}
+				} else {
+					var alertBoxLink = document.querySelector('.button-alertBox');
+					if (alertBoxLink) {
+						alertBoxLink.remove();
+					}
+				}
+			} else {
+				var alertBoxLink = document.querySelector('.button-alertBox');
+				if (alertBoxLink) {
+					alertBoxLink.remove();
+				}
+			}
 	    }, 1000);
 	});
 }
+/*
+window.addEventListener("pageshow", function (event) {
+	var historyTraversal = event.persisted,
+		perf = window.performance,
+		perfEntries = 
+		perf && perf.getEntriesByType && perf.getEntriesByType("navigation"),
+		perfEntryType = perfEntries && perfEntries[0] && perfEntries[0].type,
+		navigationType = perf && perf.navigation && perf.navigation.type;
+	if (historyTraversal || perfEntryType === "back_forward" || navigationType === 2) {
+		console.log("page load fired");
+		setTimeout(function() {
+	  		var alertBox = document.querySelector(".add-to-cart-wrapper .alertBox.productAttributes-message");
+	  		var alertBoxText = document.querySelector(".add-to-cart-wrapper .alertBox-message").textContent;
+	  		var alertBoxTrigger = "Due:";
+	  		if (alertBoxText.indexOf(alertBoxTrigger) !== -1) {
+	  			alertBox.innerHTML += '<a class="button button--primary button-alertBox" href="/pre-order-now-to-avoid-disappointment/">PRE ORDER HERE</a>';
+	  		}
+		}, 1000);
+	}
+});
+*/
 </script>
 		

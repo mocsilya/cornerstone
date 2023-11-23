@@ -4,6 +4,15 @@
 //
 
 
+// General
+// =============================================================================
+
+.tab.is-active .tab-title {
+	font-weight: 400;
+}
+
+
+
 // Header
 // =============================================================================
 
@@ -99,6 +108,14 @@ body:not(.currency-gbp) .navPages > ul > li.navPages-item-category {
 .page-header:not(.page-header-image) {
     padding-top: .25rem;
     padding-bottom: .25rem;
+}
+
+.page-product .page-header:not(.page-header-image) {
+	padding: 0;
+}
+
+.quickSearchResults .card-warranty {
+	display: none;
 }
 
 
@@ -406,9 +423,20 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 .cart-actions .button--primary.button--cycle {
 	display: inline-block;
 	background: #fff;
-	border: 1px solid #333;
+	border: 1px solid #eae7e4;
 	color: #189ac9;
 	margin-bottom: 10px;
+	padding: .75rem;
+}
+
+.cart-actions .button--primary.button--cycle .icon {
+	height: 16px;
+	width: 24px;
+}
+
+.cart-actions .button--primary.button--cycle .icon svg {
+	color: #189ac9;
+	fill: #189ac9;
 }
 
 .cart-actions .button--primary:hover {
@@ -426,24 +454,6 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 .cart-actions .footer-payment-icons {
 	display: flex;
 	justify-content: center;
-	flex-wrap: wrap;
-	height: 5.71428rem;
-	@include breakpoint("small") {
-		height: 2.85714rem;
-	}
-	@include breakpoint("medium") {
-		height: 5.71428rem;
-	}
-}
-
-.cart-actions .footer-payment-icons .footer-payment-icon {
-	height: 50%;
-	@include breakpoint("small") {
-		height: 100%;
-	}
-	@include breakpoint("medium") {
-		height: 50%;
-	}
 }
 
 .cart-content-actions {
@@ -521,17 +531,32 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 	width: 100%;
 }
 */
-.payment-product .form-action-buttons,
-.payment-product #imega-widget-anchor {
-	display: none !important;
-}
 
 #form-action-cycle {
 	background: #fff;
 	border: 1px solid #333;
 	color: #189ac9;
-	font-weight: 700;
-	margin-bottom: 10px;
+	margin-top: 10px;
+	display: block;
+	text-align: center;
+	border-radius: .25rem;
+	text-decoration: none;
+	padding: .25rem .75rem;
+}
+
+#form-action-cycle:hover {
+	background: #fff;
+	border: 1px solid #189ac9;
+}
+
+#form-action-cycle span,
+#form-action-cycle:hover span {
+	color: #333;
+}
+
+#form-action-cycle strong,
+#form-action-cycle:hover strong {
+	color: #189ac9;
 }
 
 #form-action-finance {
@@ -548,10 +573,9 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 	color: #fff;
 }
 
-#form-action-cycle:hover {
-	background: #fff;
-	border: 1px solid #333;
-	color: #333;
+.payment-product .form-action-buttons,
+.payment-product #imega-widget-anchor {
+	display: none !important;
 }
 
 .add-to-cart-preorder #form-action-finance,
@@ -593,7 +617,7 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 
 .klarna-heading {
 	padding: .75rem;
-	font-size: 1.125rem;
+	font-size: 1rem;
 	text-align: center;
 	color: #fff;
 	line-height: 1.2;
@@ -601,6 +625,14 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 
 .page-cycle-to-work-pre-order .klarna-promo {
 	display: none;
+}
+
+.alertBox .button.button-alertBox {
+	margin: .25rem 0 0 0;
+	font-weight: 700;
+	@include breakpoint("small") {
+		margin: .25rem 0 0 3rem;
+	}
 }
 
 
@@ -824,12 +856,15 @@ body:not(.currency-gbp) .productView #form-action-finance  {
 
 // -----------------------------------------------------------------------------
 //
-// HIDE PRICES AND CART FOR GBP
+// GBP WHYTE BIKES
 //
 // -----------------------------------------------------------------------------
 
-
-
+/*
+.message-gbp.message-whyte-bikes {
+	display: block;
+}
+*/
 
 // -----------------------------------------------------------------------------
 //
@@ -1223,31 +1258,23 @@ body.currency-usd .productView:not(.show-usd):not(.show-all) .productView-option
 .product-icons {
 	display: flex;
 	justify-content: center;
-	position: absolute;
-	top: -3px;
-	right: 0px;
-	@include breakpoint("medium") {
-		position: static;
-	}
 }
 
 .product-icon {
 	margin: 0 2px 2px 2px;
-	flex: 0 1 0px;
+	flex: 1 1 auto;
 	font-size: .75rem;
 	font-weight: 700;
 	text-align: center;
-	padding: .25rem .5rem;
-	border: 1px solid #333;
-	border-radius: 4px;
 	white-space: nowrap;
-	background: #fff;
-	@include breakpoint("medium") {
-		flex: 1 1 0px;
-	}
 }
 
-.product-icon:first-child a {
+.product-icon-text {
+	display: block;
+	padding: .25rem .5rem;
+	background: #fff;
+	border: 1px solid #333;
+	border-radius: 4px;
 	text-decoration: none;
 }
 
@@ -1263,6 +1290,19 @@ body.currency-usd .productView:not(.show-usd):not(.show-all) .productView-option
 	color: stencilColor("button--primary-backgroundColor");
 	fill: stencilColor("button--primary-backgroundColor");
 }
+
+.product-icon-alt .product-icon-text {
+	background-color: stencilColor("button--primary-backgroundColorHover");
+	border: 1px solid stencilColor("button--primary-backgroundColorHover");
+	color: stencilColor("button--primary-colorHover");
+}
+
+.product-icon-alt .product-icon-text:hover {
+	background-color: stencilColor("button--primary-backgroundColor");
+	border: 1px solid stencilColor("button--primary-backgroundColor");
+	color: stencilColor("button--primary-color");
+}
+
 
 
 // Product Page
@@ -1355,6 +1395,10 @@ body.currency-usd .productView:not(.show-usd):not(.show-all) .productView-option
 	margin-bottom: 0;
 }
 
+.productView-options .form-increment .form-input--incrementTotal {
+	padding: 13px 0;
+}
+
 #tab-description table,
 #tab-description iframe,
 #tab-custom1 table,
@@ -1396,6 +1440,7 @@ body.currency-usd .productView:not(.show-usd):not(.show-all) .productView-option
 .page-product #imega-widget-anchor {
 	display: none;
 }
+
 
 
 // Custom Tabs

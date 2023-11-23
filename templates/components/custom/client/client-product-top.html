@@ -1,21 +1,37 @@
 <div class="product-icons-container">
 	<div class="product-icons">
 		<div class="product-icon" style="display: none;">
-			<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-delivery" /></svg></i>
-            <a class="product-icon-text" href="/shipping-tax-and-delivery-information/">Free UK Delivery</a>
+            <a class="product-icon-text" href="/shipping-tax-and-delivery-information/">
+				<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-delivery" /></svg></i>
+				<span>Free UK Delivery</span>
+			</a>
 		</div>
 		<div class="product-icon">
-			<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-tools" /></svg></i>
-            <a class="product-icon-text" href="/how-your-bike-is-packaged/">Fully Built by a Cytech Mechanic</a>
+			
+            <a class="product-icon-text" href="/how-your-bike-is-packaged/">
+				<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-tools" /></svg></i>
+				<span>Fully Built by a Cytech Mechanic</span>
+			</a>
 		</div>
 		<div class="product-icon">
-			<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-measure" /></svg></i>
-			<a class="product-icon-text" href="/bike-size-guide/">Size Guide</a>
-			<!--<a class="tab-click product-icon-text" href="#tab-{{dashcase (lowercase (sanitize theme_settings.pdp-custom-fields-tab-label))}}">Size Guide</a>-->
+			<a class="product-icon-text" href="/bike-size-guide/">
+				<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-measure" /></svg></i>
+				<span>Size Guide</span>
+			</a>
 		</div>
 	</div>
 </div>
 <div class="product-message-container">
+	<div class="product-message message-gbp message-{{dashcase (lowercase (sanitize product.brand.name))}}">
+		<div class="alertBox alertBox--error">
+		    <div class="alertBox-column alertBox-icon">
+		        <icon glyph="ic-success" class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></icon>
+		    </div>
+		    <p class="alertBox-column alertBox-message">
+		        <span class="alertBox-message-text">Whyte bikes: delivery limited to certain areas. Check <a href="/whyte-bikes-restricted-delivery-areas/">HERE</a> before ordering.</span>
+		    </p>
+		</div>
+	</div>
 	<div class="product-message message-aud">
 		<div class="alertBox alertBox--error">
 		    <div class="alertBox-column alertBox-icon">
