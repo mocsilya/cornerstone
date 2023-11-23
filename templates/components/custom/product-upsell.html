@@ -1,0 +1,122 @@
+{{#if product.title}}
+<div class="upsell-item">
+	<div class="upsell-item-image">
+		<a  title="{{product.title}}" href="{{product.url}}"><img src="{{#replace '{:size}' product.main_image.data}}200x200{{/replace}}" width="200" height="200" alt="{{product.title}}" title="{{product.title}}"></a>
+	</div>
+	<div class="upsell-item-details">
+		<ul>
+			<li class="upsell-item-title"><a title="{{product.title}}" href="{{product.url}}">{{product.title}}</a></li>
+			<li class="upsell-item-brand"><a title="{{product.brand.name}}" href="{{product.brand.url}}">{{product.brand.name}}</a></li>
+			<li class="upsell-item-price">
+			{{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+				{{#if product.price.price_range}}
+					{{#if theme_settings.custom_price_from}}
+						{{#or product.price.price_range.min.with_tax product.price.price_range.min.without_tax}}
+							{{#if product.price.price_range.min.with_tax}}
+							<span class="upsell-item-price-data upsell-item-price-from upsell-item-price-with-tax">
+								From: {{product.price.price_range.min.with_tax.formatted}}
+								{{#if product.price.price_range.min.without_tax}}
+									<abbr title="{{lang 'products.including_tax'}}">Inc. {{product.price.price_range.min.tax_label}}</abbr>
+								{{/if}}
+							</span>
+							{{/if}}
+							{{#if product.price.price_range.min.without_tax}}
+							<span class="upsell-item-price-data upsell-item-price-from upsell-item-price-without-tax">
+								From: {{product.price.price_range.min.without_tax.formatted}}
+								{{#if product.price.price_range.min.with_tax}}
+									<abbr title="{{lang 'products.excluding_tax'}}">Ex. {{product.price.price_range.min.tax_label}}</abbr>
+								{{/if}}
+							</span>
+							{{/if}}
+						{{/or}}
+					{{else}}
+						{{#or product.price.price_range.min.with_tax product.price.price_range.max.with_tax}}
+						<span class="upsell-item-price-data upsell-item-price-range upsell-item-price-with-tax">
+							{{#if product.price.price_range.min.with_tax}}
+								{{product.price.price_range.min.with_tax.formatted}}
+							{{/if}}
+							{{#and product.price.price_range.min.with_tax product.price.price_range.max.with_tax}} - {{/and}}
+							{{#if product.price.price_range.max.with_tax}}
+								{{product.price.price_range.max.with_tax.formatted}}
+							{{/if}}
+					        {{#and product.price.price_range.min.without_tax product.price.price_range.max.without_tax}}
+					            <abbr title="{{lang 'products.including_tax'}}">Inc. {{product.price.tax_label}}</abbr>
+					        {{/and}}
+						</span>
+						{{/or}}
+						{{#or product.price.price_range.min.without_tax product.price.price_range.max.without_tax}}
+						<span class="upsell-item-price-data upsell-item-price-range upsell-item-price-without-tax">
+							{{#if product.price.price_range.min.without_tax}}
+								{{product.price.price_range.min.without_tax.formatted}}
+							{{/if}}
+							{{#and product.price.price_range.min.without_tax product.price.price_range.max.without_tax}} - {{/and}}
+							{{#if product.price.price_range.max.without_tax}}
+								{{product.price.price_range.max.without_tax.formatted}}
+							{{/if}}
+					        {{#and product.price.price_range.min.with_tax product.price.price_range.max.with_tax}}
+					            <abbr title="{{lang 'products.excluding_tax'}}">Ex. {{product.price.tax_label}}</abbr>
+					        {{/and}}
+						</span>
+						{{/or}}
+					{{/if}}
+				{{else}}
+					{{#if product.price.with_tax}}
+					{{#gt product.price.non_sale_price_with_tax.value product.price.with_tax.value}}
+						<span class="upsell-item-price-data upsell-item-price-fixed upsell-item-nonsale-with-tax">
+							{{product.price.rrp_with_tax.formatted}}{{product.price.non_sale_price_with_tax.formatted}}
+					        {{#if product.price.without_tax}}
+					            <abbr title="{{lang 'products.including_tax'}}">Inc. {{product.price.tax_label}}</abbr>
+					        {{/if}}
+						</span>
+					{{/gt}}
+					<span class="upsell-item-price-data upsell-item-price-fixed upsell-item-price-with-tax">
+						{{product.price.with_tax.formatted}}
+				        {{#if product.price.without_tax}}
+				            <abbr title="{{lang 'products.including_tax'}}">Inc. {{product.price.tax_label}}</abbr>
+				        {{/if}}
+					</span>
+					{{/if}}
+					{{#if product.price.without_tax}}
+					{{#gt product.price.non_sale_price_without_tax.value product.price.without_tax.value}}
+						<span class="upsell-item-price-data upsell-item-price-fixed upsell-item-nonsale-without-tax">
+							{{product.price.rrp_without_tax.formatted}}{{product.price.non_sale_price_without_tax.formatted}}
+					        {{#if product.price.with_tax}}
+					            <abbr title="{{lang 'products.excluding_tax'}}">Ex. {{product.price.tax_label}}</abbr>
+					        {{/if}}
+						</span>
+					{{/gt}}
+					<span class="upsell-item-price-data upsell-item-price-fixed upsell-item-price-without-tax">
+						{{product.price.without_tax.formatted}}
+				        {{#if product.price.with_tax}}
+				            <abbr title="{{lang 'products.excluding_tax'}}">Ex. {{product.price.tax_label}}</abbr>
+				        {{/if}}
+					</span>
+					{{/if}}
+					{{#if product.price.saved}}
+					<span class="upsell-item-price-data upsell-item-price-saved">
+						<strong>Save {{product.price.saved.formatted}}</strong>
+					</span>
+					{{/if}}
+	            {{/if}}
+			{{else}}
+				<span class="upsell-item-price-data upsell-item-price-login">
+					{{lang 'common.login_for_pricing'}}
+				</span>
+			{{/or}}
+			</li>
+		</ul>
+		<div class="upsell-item-actions"{{#unless product.can_purchase}} style="display: none;"{{/unless}}>
+            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                    {{#if product.options}}
+                        <a href="{{product.url}}" class="button button--small button--primary">{{lang 'products.choose_options'}}</a>
+                    {{/if}}
+					{{#unless product.options}}
+                        <a {{#if theme_settings.custom_product_addtocart_pinterest}}onclick="pintrk('track', 'addtocart');"{{/if}} href="/cart.php?action=add&product_id={{product.id}}&qty=1" class="button button--small button--primary">
+							{{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{#if theme_settings.custom_product_addtocart_show}}{{theme_settings.custom_product_addtocart_text}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}{{/if}}
+						</a>
+                    {{/unless}}
+            {{/or}}
+		</div>
+	</div>
+</div>
+{{/if}}

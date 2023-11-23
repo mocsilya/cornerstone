@@ -78,7 +78,7 @@ export default class Cart extends PageManager {
         let invalidEntry;
 
         // Does not quality for min/max quantity
-        if (!newQty) {
+        if (!Number.isInteger(newQty)) {
             invalidEntry = $el.val();
             $el.val(oldQty);
             return showAlertModal(this.context.invalidEntryMessage.replace('[ENTRY]', invalidEntry));
@@ -214,10 +214,15 @@ export default class Cart extends PageManager {
             this.$cartAdditionalCheckoutBtns.html(response.additionalCheckoutButtons);
 
             $cartPageTitle.replaceWith(response.pageTitle);
-            this.bindEvents();
-            this.$overlay.hide();
 
             const quantity = $('[data-cart-quantity]', this.$cartContent).data('cartQuantity') || 0;
+
+            if (!quantity) {
+                return window.location.reload();
+            }
+
+            this.bindEvents();
+            this.$overlay.hide();
 
             $('body').trigger('cart-quantity-update', quantity);
 

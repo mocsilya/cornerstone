@@ -5,7 +5,7 @@
 			{{#if theme_settings.custom_header_show_bar_message1}}
 			<li class="header-bar-message header-bar-message-1">
 				{{#unless theme_settings.custom_header_bar_message1_icon '==' 'none'}}
-				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-{{theme_settings.custom_header_bar_message1_icon}}" /></svg></i></span>
+				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-{{theme_settings.custom_header_bar_message1_icon}}{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
 				{{/unless}}
 				{{> components/custom/client/client-header-bar1}}
 				<span class="header-bar-text">
@@ -20,7 +20,7 @@
 			{{#if theme_settings.custom_header_show_bar_message2}}
 			<li class="header-bar-message header-bar-message-2">
 				{{#unless theme_settings.custom_header_bar_message2_icon '==' 'none'}}
-				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-{{theme_settings.custom_header_bar_message2_icon}}" /></svg></i></span>
+				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-{{theme_settings.custom_header_bar_message2_icon}}{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
 				{{/unless}}
 				{{> components/custom/client/client-header-bar2}}
 				<span class="header-bar-text">
@@ -35,7 +35,7 @@
 			{{#if theme_settings.custom_header_show_bar_message3}}
 			<li class="header-bar-message header-bar-message-3">
 				{{#unless theme_settings.custom_header_bar_message3_icon '==' 'none'}}
-				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-{{theme_settings.custom_header_bar_message3_icon}}" /></svg></i></span>
+				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-{{theme_settings.custom_header_bar_message3_icon}}{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
 				{{/unless}}
 				{{> components/custom/client/client-header-bar3}}
 				<span class="header-bar-text">
@@ -50,12 +50,12 @@
 			{{#or theme_settings.custom_email_show theme_settings.custom_phone_show}}
 			<li class="header-bar-contact">
 			{{#all settings.phone_number theme_settings.custom_phone_show}}
-				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-phone" /></svg></i></span>
+				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-phone{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
 				{{> components/custom/client/client-header-phone}}
 				<span class="header-bar-text">{{lang 'footer.call_us' phone_number=settings.phone_number}}</span>
 			{{/all}}
 			{{#if theme_settings.custom_email_show}}
-				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-envelope" /></svg></i></span>
+				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-envelope{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
 				{{> components/custom/client/client-header-email}}
 				<span class="header-bar-text"><a href="mailto:{{theme_settings.custom_email_address}}">{{lang 'footer.email_us'}}</a></span>
 			{{/if}}

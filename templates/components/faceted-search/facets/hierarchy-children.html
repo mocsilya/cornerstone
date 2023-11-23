@@ -1,6 +1,6 @@
 <ul class="navList navList--inner">
     {{#each this}}
-        <li class="navList-item">
+        <li class="navList-item navList-item-{{dashcase (lowercase (sanitize title))}}">
             <a
             href="{{url}}"
             class="navList-action navList-action--checkbox{{#if selected}} is-selected{{/if}}{{#if has_sub_categories}} has-children{{/if}}"

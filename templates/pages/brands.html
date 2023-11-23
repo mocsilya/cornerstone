@@ -10,6 +10,7 @@ customer:
 ---
 
 {{#partial "hero"}}
+{{{region name="brands_below_menu"}}}
 <div class="container container-hero">
 	{{#if theme_settings.custom_page_header_image_brands}}
 		<div class="page-header brands-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
@@ -27,6 +28,7 @@ customer:
 
 <section class="page">
     {{{region name="brands_below_header"}}}
+	{{assignVar "brand09" "inactive"}}
 	{{assignVar "brandA" "inactive"}}
 	{{assignVar "brandB" "inactive"}}
 	{{assignVar "brandC" "inactive"}}
@@ -54,7 +56,18 @@ customer:
 	{{assignVar "brandY" "inactive"}}
 	{{assignVar "brandZ" "inactive"}}
 	{{assignVar "brandCount" 0}}
+	{{assignVar "brandTotal" 0}}
 	{{#each brands}}
+		{{#startsWith "0" name}}{{assignVar "brand09" "active"}}{{/startsWith}}
+		{{#startsWith "1" name}}{{assignVar "brand09" "active"}}{{/startsWith}}
+		{{#startsWith "2" name}}{{assignVar "brand09" "active"}}{{/startsWith}}
+		{{#startsWith "3" name}}{{assignVar "brand09" "active"}}{{/startsWith}}
+		{{#startsWith "4" name}}{{assignVar "brand09" "active"}}{{/startsWith}}
+		{{#startsWith "5" name}}{{assignVar "brand09" "active"}}{{/startsWith}}
+		{{#startsWith "6" name}}{{assignVar "brand09" "active"}}{{/startsWith}}
+		{{#startsWith "7" name}}{{assignVar "brand09" "active"}}{{/startsWith}}
+		{{#startsWith "8" name}}{{assignVar "brand09" "active"}}{{/startsWith}}
+		{{#startsWith "9" name}}{{assignVar "brand09" "active"}}{{/startsWith}}
 		{{#startsWith "A" name}}{{assignVar "brandA" "active"}}{{/startsWith}}
 		{{#startsWith "B" name}}{{assignVar "brandB" "active"}}{{/startsWith}}
 		{{#startsWith "C" name}}{{assignVar "brandC" "active"}}{{/startsWith}}
@@ -83,6 +96,7 @@ customer:
 		{{#startsWith "Z" name}}{{assignVar "brandZ" "active"}}{{/startsWith}}		
 	{{/each}}
 	<!--
+	{{#if (getVar "brand09") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
 	{{#if (getVar "brandA") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
 	{{#if (getVar "brandB") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
 	{{#if (getVar "brandC") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
@@ -109,9 +123,15 @@ customer:
 	{{#if (getVar "brandX") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
 	{{#if (getVar "brandY") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
 	{{#if (getVar "brandZ") '===' 'active'}}{{incrementVar "brandCount"}}{{/if}}
+	
+	{{#each brands}}
+		{{incrementVar "brandTotal"}}
+	{{/each}}
 	-->
+{{#gte (getVar 'brandTotal') theme_settings.custom_brand_az_minimum}}
 	<div class="brand-jump">
 		<ul class="brand-jump-list{{#if (getVar 'brandCount') '>' '13'}} brand-jump-list-large{{else}} brand-jump-list-small{{/if}} brand-jump-list-{{getVar 'brandCount'}}">
+			{{#if (getVar "brand09") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_09"><span>0-9</span></a></li>{{/if}}
 			{{#if (getVar "brandA") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_A"><span>A</span></a></li>{{/if}}
 			{{#if (getVar "brandB") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_B"><span>B</span></a></li>{{/if}}
 			{{#if (getVar "brandC") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_C"><span>C</span></a></li>{{/if}}
@@ -140,18 +160,18 @@ customer:
 			{{#if (getVar "brandZ") '===' 'active'}}<li class="brand-jump-item"><a href="#brand_Z"><span>Z</span></a></li>{{/if}}			
 		</ul>
 	</div>
-	{{#if (getVar "brandA") '===' 'active'}}
+	{{#if (getVar "brand09") '===' 'active'}}
 	<div class="brand-group">
-		<span class="brand-anchor" id="brand_A"></span>
-		<h2>A</h2>
+		<span class="brand-anchor" id="brand_09"></span>
+		<h2>0-9</h2>
 		<ul class="brandGrid">
 		{{#each brands}}
-			{{#startsWith "A" name}}
+			{{#startsWith "0" name}}
 				<li class="brand">
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -166,7 +186,287 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+			{{#startsWith "1" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+			{{#startsWith "2" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+			{{#startsWith "3" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+			{{#startsWith "4" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+			{{#startsWith "5" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+			{{#startsWith "6" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+			{{#startsWith "7" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+			{{#startsWith "8" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+			{{#startsWith "9" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+			{{/startsWith}}
+		{{/each}}
+		</ul>
+	</div>
+	{{/if}}
+	{{#if (getVar "brandA") '===' 'active'}}
+	<div class="brand-group">
+		<span class="brand-anchor" id="brand_A"></span>
+		<h2>A</h2>
+		<ul class="brandGrid">
+		{{#each brands}}
+			{{#startsWith "A" name}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -188,7 +488,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -203,7 +503,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -225,7 +525,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -240,7 +540,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -262,7 +562,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -277,7 +577,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -299,7 +599,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -314,7 +614,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -336,7 +636,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -351,7 +651,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -373,7 +673,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -388,7 +688,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -410,7 +710,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -425,7 +725,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -447,7 +747,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -462,7 +762,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -484,7 +784,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -499,7 +799,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -521,7 +821,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -536,7 +836,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -558,7 +858,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -573,7 +873,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -595,7 +895,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -610,7 +910,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -632,7 +932,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -647,7 +947,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -669,7 +969,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -684,7 +984,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -706,7 +1006,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -721,7 +1021,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -743,7 +1043,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -758,7 +1058,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -780,7 +1080,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -795,7 +1095,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -817,7 +1117,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -832,7 +1132,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -854,7 +1154,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -869,7 +1169,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -891,7 +1191,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -906,7 +1206,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -928,7 +1228,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -943,7 +1243,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -965,7 +1265,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -980,7 +1280,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -1002,7 +1302,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -1017,7 +1317,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -1039,7 +1339,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -1054,7 +1354,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -1076,7 +1376,7 @@ customer:
 					<article class="card {{#if alternate}}card--alternate{{/if}}">
 						{{#if image}}
 		                    <figure class="card-figure">
-		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
 		                            <div class="card-img-container">
 		                                {{> components/common/responsive-img
 		                                    image=image
@@ -1091,7 +1391,7 @@ customer:
 						{{else}}
 						<div class="card-body">
 							<h3 class="card-title">
-								<a href="{{url}}">{{name}}</a>
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
 							</h3>
 						</div>
 						{{/if}}
@@ -1101,9 +1401,43 @@ customer:
 		{{/each}}
 		</ul>
 	</div>
-	{{/if}}  
-    {{> components/common/paginator pagination.brands}}
-    {{{region name="brands_below_content"}}}
+	{{/if}}
+{{else}}
+	<div class="brand-group">
+		<ul class="brandGrid">
+		{{#each brands}}
+				<li class="brand">
+					<article class="card {{#if alternate}}card--alternate{{/if}}">
+						{{#if image}}
+		                    <figure class="card-figure">
+		                        <a class="card-figure__link" aria-label="{{name}}" href="{{url}}" title="{{name}}">
+		                            <div class="card-img-container">
+		                                {{> components/common/responsive-img
+		                                    image=image
+		                                    class="card-image"
+		                                    fallback_size=../theme_settings.brand_size
+		                                    lazyload=../theme_settings.lazyload_mode
+		                                    default_image=../theme_settings.default_image_brand
+		                                }}
+		                            </div>
+		                        </a>
+		                    </figure>
+						{{else}}
+						<div class="card-body">
+							<h3 class="card-title">
+								<a href="{{url}}" title="{{name}}">{{name}}</a>
+							</h3>
+						</div>
+						{{/if}}
+					</article>
+				</li>
+		{{/each}}
+		</ul>
+	</div>
+{{/gte}}
+
+{{> components/common/paginator pagination.brands}}
+{{{region name="brands_below_content"}}}
 </section>
 {{/partial}}
 {{> layout/base}}

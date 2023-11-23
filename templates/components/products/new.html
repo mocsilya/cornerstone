@@ -1,14 +1,10 @@
 <h2 class="page-heading page-heading-top">{{theme_settings.custom_homepage_new_title}}</h2>
 {{#if theme_settings.custom_homepage_new_carousel}}
-	{{#if settings.data_tag_enabled}}
-		{{> components/products/carousel products=products columns=theme_settings.homepage_new_products_column_count customArrowClass='js-new-product-arrow' list="New Products"}}
-	{{else}}
-		{{> components/products/carousel products=products columns=theme_settings.homepage_new_products_column_count customArrowClass='js-new-product-arrow'}}
-	{{/if}}
+	{{> components/products/carousel products=products columns=theme_settings.homepage_new_products_column_count customArrowClass='js-new-product-arrow' list="New Products"}}
 {{else}}
 	<ul class="productGrid productGrid--maxCol{{ columns }} productGrid-{{ columns }}" data-product-type="new"  {{#if settings.data_tag_enabled}} data-list-name="New Products" {{/if}}>
 	{{#each products}}
-		<li class="product{{#filter custom_fields 'hidden' property='name' }}{{#if value '==' 'spotlight'}} spotlight{{else if value '==' 'payment'}} payment{{/if}}{{/filter}}">
+		<li class="product{{#filter custom_fields 'hidden' property='name' }}{{#if value '==' 'spotlight'}} spotlight{{else if value '==' 'payment'}} payment{{/if}}{{/filter}}{{#each custom_fields}}{{#if name '==' '_class'}} {{value}}{{/if}}{{/each}}">
 	    	{{>components/products/card show_rating=../settings.show_product_rating settings=../settings theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
 		</li>
 	{{/each}}

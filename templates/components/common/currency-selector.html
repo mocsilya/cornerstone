@@ -6,12 +6,12 @@
            aria-controls="currencySelection"
            aria-expanded="false"
         >
-			<span class="navUser-icon{{#if theme_settings.custom_header_icon_style '===' 'outline'}} navUser-icon-outline{{/if}}">{{lang 'common.currency' code=currency_selector.active_currency_code}}</span>
+			<span class="navUser-icon{{#if theme_settings.custom_header_icon_style '===' 'outline'}} navUser-icon-outline{{/if}}">{{#each currency_selector.currencies}}{{#if is_active}}{{{flag}}}{{/if}}{{/each}} {{lang 'common.currency' code=currency_selector.active_currency_code}}</span>
 			{{#if theme_settings.custom_header_icon_text}}
 			<span class="navUser-text">
             	<i class="icon" aria-hidden="true">
                 	<svg>
-                    	<use xlink:href="#icon-chevron-down" />
+                    	<use href="#icon-chevron-down" />
                 	</svg>
             	</i>
 			</span>
@@ -20,18 +20,9 @@
         <ul class="dropdown-menu" id="currencySelection" data-dropdown-content aria-hidden="true" tabindex="-1">
             {{#each currency_selector.currencies}}
             <li class="dropdown-menu-item">
-                <a href="{{{switch_url}}}"
-                   data-currency-code="{{{code}}}"
-                   {{#if cart_currency_switch_url.length '>' 0 }}
-                   data-cart-currency-switch-url="{{{cart_currency_switch_url}}}"
-                   {{/if}}
-                   data-warning="{{lang 'common.currency_switch_promotion'}}"
-                >
-                {{#if is_active}}
-                    <strong>{{name}}</strong>
-                {{else}}
-                    {{name}}
-                {{/if}}
+                <a href="{{{switch_url}}}" data-currency-code="{{{code}}}">
+					<span class="currency-flag">{{{flag}}}</span>
+					<span class="currency-text">{{#if is_active}}<strong>{{name}}</strong>{{else}}{{name}}{{/if}}</span>
                 </a>
             </li>
             {{/each}}

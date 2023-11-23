@@ -1,10 +1,13 @@
 <ul class="cart-totals">
-    <li class="cart-total">
+    <li class="cart-total cart-total-heading">
+        <h3>Order Summary</h3>
+    </li>
+    <li class="cart-total cart-total-subtotal">
         <div class="cart-total-label">
             <strong>{{lang 'cart.checkout.subtotal'}}:</strong>
         </div>
         <div class="cart-total-value">
-            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+            {{#or customer (unless settings.hide_price_from_guests)}}
                 <span>{{cart.sub_total.formatted}}</span>
             {{else}}
                 {{> components/common/login-for-pricing}}
@@ -12,7 +15,7 @@
         </div>
     </li>
     {{#if cart.gift_wrapping_cost.value}}
-        <li class="cart-total">
+        <li class="cart-total cart-total-giftwrapping">
             <div class="cart-total-label">
                 <strong>{{lang 'cart.checkout.gift_wrapping'}}:</strong>
             </div>
@@ -21,8 +24,20 @@
             </div>
         </li>
     {{/if}}
+    {{#if cart.fees}}
+        {{#each cart.fees}}
+            <li class="cart-total">
+                <div class="cart-total-label">
+                    <strong>{{display_name}}:</strong>
+                </div>
+                <div class="cart-total-value">
+                    <span>{{cost.formatted}}</span>
+                </div>
+            </li>
+        {{/each}}
+    {{/if}}
     {{#if cart.shipping_handling.show_estimator}}
-        <li class="cart-total">
+        <li class="cart-total cart-total-shipping">
             <div class="cart-total-label">
                 <strong>{{lang 'cart.checkout.shipping'}}:</strong>
             </div>
@@ -31,7 +46,7 @@
     {{/if}}
     {{#each cart.taxes}}
         {{#unless included}}
-            <li class="cart-total">
+            <li class="cart-total cart-total-taxes">
                 <div class="cart-total-label">
                     <strong>{{name}}:</strong>
                 </div>
@@ -42,7 +57,7 @@
         {{/unless}}
     {{/each}}
     {{#if cart.discount }}
-        <li class="cart-total">
+        <li class="cart-total cart-total-discounts">
             <div class="cart-total-label">
                 <strong>{{lang 'cart.discount'}}:</strong>
             </div>
@@ -53,7 +68,7 @@
     {{/if}}
     {{#if cart.coupons}}
         {{#each cart.coupons}}
-            <li class="cart-total">
+            <li class="cart-total cart-total-couponadded">
                 <div class="cart-total-label">
                     <strong>{{lang 'cart.coupons.code_label' code=code}}</strong>
                     <div>
@@ -66,7 +81,7 @@
             </li>
         {{/each}}
     {{else}}
-        <li class="cart-total">
+        <li class="cart-total cart-total-coupons">
             <div class="cart-total-label">
                 <strong>{{lang 'cart.coupon_code'}}:</strong>
             </div>
@@ -75,7 +90,7 @@
     {{/if}}
     {{#if settings.gift_certificates_enabled}}
         {{#each cart.gift_certificates}}
-            <li class="cart-total">
+            <li class="cart-total cart-total-certificateadded">
                 <div class="cart-total-label">
                     <strong>{{lang 'cart.gift_certificates.code_label' code=code}}</strong>
                     <span>
@@ -87,19 +102,19 @@
                 </div>
             </li>
         {{/each}}
-        <li class="cart-total">
+        <li class="cart-total cart-total-certificates">
             <div class="cart-total-label">
                 <strong>{{lang 'cart.gift_certificates.gift_certificate'}}:</strong>
             </div>
             {{> components/cart/gift-certificate-input}}
         </li>
     {{/if}}
-    <li class="cart-total">
+    <li class="cart-total cart-total-finaltotal">
         <div class="cart-total-label">
             <strong>{{lang 'cart.checkout.grand_total'}}:</strong>
         </div>
         <div class="cart-total-value cart-total-grandTotal">
-            {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+            {{#or customer (unless settings.hide_price_from_guests)}}
                 <span>{{cart.grand_total.formatted}}</span>
             {{else}}
                 {{> components/common/login-for-pricing}}
@@ -108,7 +123,7 @@
     </li>
     {{#each cart.taxes}}
         {{#if included}}
-            <li class="cart-total">
+            <li class="cart-total cart-total-finaltaxes">
                 <div class="cart-total-label">
                     <strong>{{concat name (lang 'cart.included_in_total')}}:</strong>
                 </div>

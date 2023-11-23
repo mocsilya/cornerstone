@@ -8,7 +8,15 @@
 	{{/if}}
 {{/filter}}
 <div id="add-to-cart-wrapper" class="add-to-cart-wrapper{{#if product.pre_order}} add-to-cart-preorder{{/if}}" {{#unless product.can_purchase}}style="display: none"{{/unless}}>
-    {{#or theme_settings.show_product_quantity_box (if (getVar 'quantity') '===' 'show')}}
+    
+    <div class="alertBox productAttributes-message" style="display:none">
+        <div class="alertBox-column alertBox-icon">
+            <icon glyph="ic-success" class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></icon>
+        </div>
+        <p class="alertBox-column alertBox-message"></p>
+    </div>
+	
+	{{#or product.show_quantity_input (if (getVar 'quantity') '===' 'show')}}
 		{{#unless (getVar 'quantity') '===' 'hide'}}
 		{{inject 'productQuantityErrorMessage'  (lang 'products.quantity_error_message')}}
         <div class="form-field form-field--increments">
@@ -19,7 +27,7 @@
                         <span class="is-srOnly">{{lang 'products.quantity_decrease' name=product.title}}</span>
                         <i class="icon" aria-hidden="true">
                             <svg>
-                                <use xlink:href="#icon-keyboard-arrow-down"/>
+                                <use href="#icon-minus"/>
                             </svg>
                         </i>
                     </button>
@@ -37,7 +45,7 @@
                         <span class="is-srOnly">{{lang 'products.quantity_increase' name=product.title}}</span>
                         <i class="icon" aria-hidden="true">
                             <svg>
-                                <use xlink:href="#icon-keyboard-arrow-up"/>
+                                <use href="#icon-plus"/>
                             </svg>
                         </i>
                     </button>
@@ -46,13 +54,8 @@
 		{{/unless}}
     {{/or}}
 
-    <div class="alertBox productAttributes-message" style="display:none">
-        <div class="alertBox-column alertBox-icon">
-            <icon glyph="ic-success" class="icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg></icon>
-        </div>
-        <p class="alertBox-column alertBox-message"></p>
-    </div>
-    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+    {{#or customer (unless settings.hide_price_from_guests)}}
+
         <div class="form-action{{#all settings.show_wishlist theme_settings.custom_product_wishlist_show}}{{else}} form-action-maxwidth{{/all}}">
             <input {{#if theme_settings.custom_product_addtocart_pinterest}}onclick="pintrk('track', 'addtocart');"{{/if}}
                     id="form-action-addToCart"
@@ -62,6 +65,12 @@
                     value="{{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{#if theme_settings.custom_product_addtocart_show}}{{theme_settings.custom_product_addtocart_text}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}{{/if}}"
             >
             <span class="product-status-message aria-description--hidden">{{lang 'products.adding_to_cart'}} {{lang 'category.add_cart_announcement'}}</span>
-        </div>
+            {{#if this.with_wallet_buttons}}
+                <div class="add-to-cart-wallet-buttons" data-add-to-cart-wallet-buttons>
+                    {{> components/common/wallet-buttons}}
+                </div>
+            {{/if}}
+		</div>
+
     {{/or}}
 </div>

@@ -1,0 +1,18 @@
+{{#if customer.id}}
+	{{#if customer_group_name '==' theme_settings.custom_b2b_pending_group}}
+		<div class="b2b-message b2b-message-pending">
+			<div class="b2b-message-text">{{theme_settings.custom_b2b_pending_message}}</div>
+			{{> components/custom/client/client-b2b-pending}}
+		</div>
+	{{/if}}
+{{else}}
+	<div class="b2b-message b2b-message-guest">
+		<div class="b2b-message-text">
+			{{theme_settings.custom_b2b_guest_message}}
+		</div>
+		<div class="b2b-message-action">
+			<a class="button button--primary" href="{{urls.auth.login}}">B2B Login</a> &nbsp; <a class="button button--secondary" href="{{urls.auth.create_account}}">Request</a>
+		</div>
+		{{> components/custom/client/client-b2b-guest}}
+	</div>
+{{/if}}
