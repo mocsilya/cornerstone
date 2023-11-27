@@ -7,6 +7,11 @@
 	</div>
 	{{/if}}
 {{/filter}}
+<span class="form-action-buttons form-action-buttons-2">
+	<a id="form-action-cycle" href="/cycle-to-work-pre-order/?make={{hyphenate product.brand.name}}&model={{hyphenate product.title}}&price=£{{product.price.with_tax.value}}">
+		<span><strong>Cycle To Work</strong> Reservation</span>
+	</a>
+</span>
 <div class="klarna-promo">
 <div class="klarna-heading"><strong>Klarna will appear as a payment option during checkout.</strong></div>
 <klarna-placement
@@ -15,12 +20,4 @@
   data-purchase-amount="{{#if product.price.without_tax.value}}{{multiply product.price.without_tax.value 100}}{{else}}{{multiply product.price.with_tax.value 100}}{{/if}}"
 ></klarna-placement>
 </div>
-<span class="form-action-buttons form-action-buttons-2">
-	<a id="form-action-cycle" href="/cycle-to-work-pre-order/?make={{hyphenate product.brand.name}}&model={{hyphenate product.title}}&price=£{{product.price.with_tax.value}}">
-		<span>Buy this bike via Cyclescheme </span>
-		<strong>Here</strong>
-	</a>
-	<!-- <input id="form-action-finance" data-wait-message="{{lang 'products.adding_to_cart'}}" class="button button--secondary" type="submit" value="V12 Finance">-->
-</span>
 {{> components/common/payment-icons}}
-
