@@ -1,0 +1,21 @@
+        <li class="navUser-item navUser-item--custom navUser-item--custom-mobile">
+            <a class="navUser-action navUser-action--custom has-dropdown"
+			   href="#"
+               data-dropdown="customDropdown"
+			   aria-controls="customDropdown"
+			   aria-expanded="false"
+               aria-label="Phone"
+            >
+				<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-phone{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}" /></svg></i></span>
+            </a>
+			<ul class="dropdown-menu" id="customDropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+	            <li class="dropdown-menu-item">
+					<span>Talk to our experts!</span>
+					<div><strong>{{settings.phone_number}}</strong></div>
+				</li>
+	        </ul>
+        </li>
+		<li class="navUser-item navUser-item--custom navUser-item--custom-desktop">
+			<span>Talk to our experts!</span>
+			<div><strong>{{settings.phone_number}}</strong></div>
+		</li>

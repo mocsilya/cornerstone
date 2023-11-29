@@ -52,7 +52,11 @@
 
 <script>
 var timePrice = 0;
-var formSelect = document.querySelectorAll(".productView-options .form-select");
+var formSelect = document.querySelectorAll(".productView-options .form-select, .productView-options .form-radio");
+var alertBox = document.querySelector(".add-to-cart-wrapper .alertBox.productAttributes-message");
+var alertBoxTrigger = "Due:";
+var alertBoxButton = '<div class="alertBox-buttons"><a class="button button--primary" href="/pre-order-now-to-avoid-disappointment/">PRE ORDER</a><a class="button button--secondary" href="/cycle-to-work-pre-order/">Cycle To Work</a></div>';
+
 for (let i = 0; i < formSelect.length; i++) {
 	formSelect[i].addEventListener("change", function() {
 		clearTimeout(timePrice);
@@ -63,24 +67,20 @@ for (let i = 0; i < formSelect.length; i++) {
 			var newPriceKlarna = newPriceNumber * 100;
 			document.querySelector('klarna-placement').dataset.purchaseAmount = newPriceKlarna;
 			window.Klarna.OnsiteMessaging.refresh();
-			// Pre Order
-			var alertBox = document.querySelector(".add-to-cart-wrapper .alertBox.productAttributes-message");
+			// Pre Order (on change)
 			if (alertBox.style.display != 'none') {
 				var alertBoxText = document.querySelector(".add-to-cart-wrapper .alertBox-message").textContent;
-				var alertBoxTrigger = "Due:";
+				var alertBoxLink = document.querySelector('.alertBox-buttons');
 				if (alertBoxText.indexOf(alertBoxTrigger) !== -1) {
-					var alertBoxLink = document.querySelector('.button-alertBox');
 					if (!(alertBoxLink)) {
-						alertBox.innerHTML += '<a class="button button--primary button-alertBox" href="/pre-order-now-to-avoid-disappointment/">PRE ORDER HERE</a>';
+						alertBox.innerHTML += alertBoxButton;
 					}
 				} else {
-					var alertBoxLink = document.querySelector('.button-alertBox');
 					if (alertBoxLink) {
 						alertBoxLink.remove();
 					}
 				}
 			} else {
-				var alertBoxLink = document.querySelector('.button-alertBox');
 				if (alertBoxLink) {
 					alertBoxLink.remove();
 				}
@@ -88,7 +88,7 @@ for (let i = 0; i < formSelect.length; i++) {
 	    }, 1000);
 	});
 }
-/*
+
 window.addEventListener("pageshow", function (event) {
 	var historyTraversal = event.persisted,
 		perf = window.performance,
@@ -97,17 +97,18 @@ window.addEventListener("pageshow", function (event) {
 		perfEntryType = perfEntries && perfEntries[0] && perfEntries[0].type,
 		navigationType = perf && perf.navigation && perf.navigation.type;
 	if (historyTraversal || perfEntryType === "back_forward" || navigationType === 2) {
-		console.log("page load fired");
-		setTimeout(function() {
-	  		var alertBox = document.querySelector(".add-to-cart-wrapper .alertBox.productAttributes-message");
-	  		var alertBoxText = document.querySelector(".add-to-cart-wrapper .alertBox-message").textContent;
-	  		var alertBoxTrigger = "Due:";
-	  		if (alertBoxText.indexOf(alertBoxTrigger) !== -1) {
-	  			alertBox.innerHTML += '<a class="button button--primary button-alertBox" href="/pre-order-now-to-avoid-disappointment/">PRE ORDER HERE</a>';
-	  		}
+		// Pre Order (on forward/back)
+		clearTimeout(timePrice);
+		timePrice = setTimeout(function() {
+	  		var alertBoxText2 = document.querySelector(".add-to-cart-wrapper .alertBox-message").textContent;
+			var alertBoxLink2 = document.querySelector('.alertBox-buttons');
+			if (alertBoxText2.indexOf(alertBoxTrigger) !== -1) {
+				if (!(alertBoxLink2)) {
+					alertBox.innerHTML += alertBoxButton;
+				}
+			}
 		}, 1000);
 	}
 });
-*/
 </script>
 		

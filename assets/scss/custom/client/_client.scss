@@ -22,6 +22,11 @@
 }
 
 @media (max-width: 800px) {
+	
+	.header-bar {
+		display: none;
+	}
+	
 	.header-logo-image {
 		height: 40px;
 		max-height: 40px;
@@ -30,6 +35,41 @@
 	}
 }
 
+body.scroll .header {
+	@include breakpoint("medium") {
+		position: relative;
+	}
+}
+
+.header-bar {
+	@include breakpoint("medium") {
+		position: absolute;
+	}
+}
+
+body.scroll .header-bar {
+	@include breakpoint("medium") {
+		display: block;
+	}
+}
+
+body.scroll.with-bar {
+	@include breakpoint("medium") {
+		padding-top: 2rem;
+	}
+}
+
+body.scroll .header-logo-image {
+	@include breakpoint("medium") {
+		max-height: 80px;
+	}
+}
+
+body.scroll .header-logo-image-container {
+	@include breakpoint("medium") {
+		min-height: 80px;
+	}
+}
 
 
 // Zotabox
@@ -46,12 +86,19 @@ body.with-bar[zb-bar="show"] .header {
 // =============================================================================
 
 .navPages > ul > li > .navPages-action {
+
+}
+
+
+.navPages > ul > li > .navPages-action {
 	font-family: "Kanit", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	@include breakpoint("medium") {
 		font-size: 1.125rem;
 		padding-left: 0.5rem;
 		padding-right: 0.5rem;
+		padding-top: .375rem;
+		padding-bottom: .375rem;
 	}
 	@include breakpoint("xlarge") {
 		font-size: 1.25rem;
@@ -97,17 +144,64 @@ body:not(.currency-gbp) .navPages > ul > li.navPages-item-category {
 	}
 }
 
+.navUser-item--custom-desktop {
+	display: none;
+	@include breakpoint("large") {
+		display: inline-block;
+	}
+}
+
+.navUser-item--custom-mobile {
+	display: inline-block;
+	@include breakpoint("large") {
+		display: none;
+	}
+}
+
+.navUser-item--custom span {
+    font-size: 14px;
+    line-height: 1;
+	font-weight: 700;
+}
+
+.navUser-item--custom strong {
+    font-size: 21px;
+    line-height: 1;
+	color: stencilColor('button--primary-backgroundColor');
+}
+
+.navUser-item--custom .dropdown-menu-item {
+	padding: .75rem 1.5rem;
+	text-align: center;
+}
+
 
 // Page Header
 // =============================================================================
 
-.page-header-image .breadcrumbs, .page-header-image .page-heading, .page-header-image .page-heading+nav .breadcrumbs {
-    background-color: rgba(0,0,0, 0.7);
-}
-
 .page-header:not(.page-header-image) {
     padding-top: .25rem;
     padding-bottom: .25rem;
+	margin-bottom: 0;
+}
+
+.page-header:not(.page-header-image) {
+	max-width: calc(1440px + 12rem);
+	margin: auto;
+	@include breakpoint("medium") {
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
+	@include breakpoint("large") {
+		padding-left: 6rem;
+		padding-right: 6rem;
+	}
+}
+
+.page-header:not(.page-header-image) .page-heading {
+	@include breakpoint("medium") {
+		text-align: left;
+	}
 }
 
 .page-product .page-header:not(.page-header-image) {
@@ -363,6 +457,12 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 }
 
 
+// Category
+// =============================================================================
+
+.category-description p:first-child {
+	padding-top: 0;
+}
 
 
 // Card
@@ -515,22 +615,43 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 	top: 0;
 }
 
-// Form Actions
-// =============================================================================
-/*
-.productView-options .form-action {
-	float: none;
-	width: 100%;
-	padding: 0;
-}
 
-.productView-options .form-action-buttons .button {
-	margin-left: 0;
-	margin-right: 0;
-	vertical-align: top;
-	width: 100%;
+
+// Product page
+// =============================================================================
+
+/*
+.productView-description-underneath.productView-description-large {
+	@include breakpoint("large") {
+		max-width: 60%;
+	}
+	@include breakpoint("xlarge") {
+		max-width: 70%;
+	}
 }
 */
+
+.productView-wrap {
+	padding-top: 1.5rem;
+}
+
+.productView-options .form-field {
+    padding-left: 40%;
+    margin-bottom: 0.25rem;
+    position: relative;
+    min-height: 38px;
+	text-align: left;
+}
+
+.productView-options .form-label:first-child {
+    width: 40%;
+    height: 38px;
+    overflow-y: hidden;
+    padding-right: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 
 #form-action-cycle {
 	background: #fff;
@@ -628,12 +749,26 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 	display: none;
 }
 
-.alertBox .button.button-alertBox {
+.alertBox .alertBox-buttons {
 	margin: .25rem 0 0 0;
+	display: flex;
 	font-weight: 700;
-	@include breakpoint("small") {
-		margin: .25rem 0 0 3rem;
-	}
+}
+
+.alertBox .alertBox-buttons .button {
+	font-weight: 700;
+	display: block;
+	flex: 1 1 0;
+	padding-left: .5rem;
+	padding-right: .5rem;
+}
+
+.alertBox .alertBox-buttons .button--primary {
+	margin: 0 .25rem 0 0;
+}
+
+.alertBox .alertBox-buttons .button--secondary {
+	margin: 0 0 0 .25rem;
 }
 
 
@@ -787,11 +922,13 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 .card-brand-Transition .card-brand,
 .card-brand-Trek .card-brand{
 	font-size: 0 !important;
-	height: 1.5rem;
 	background-size: contain;
 	background-position: left;
 	background-repeat: no-repeat;
 	color: rgba(0, 0, 0, 0);
+	width: auto;
+	max-width: 50%;
+	height: 1.5rem;
 }
 
 .card-brand-Cube .card-brand { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/original/image-manager/cube-logo.png?t=1693587450'); }
@@ -1396,9 +1533,6 @@ body.currency-usd .productView:not(.show-usd):not(.show-all) .productView-option
 	margin-bottom: 0;
 }
 
-.productView-options .form-increment .form-input--incrementTotal {
-	padding: 13px 0;
-}
 
 #tab-description table,
 #tab-description iframe,
@@ -1486,6 +1620,10 @@ body:not(.currency-gbp) article[data-section-type="footer-categories"] li.link-i
 
 .footer-social-col {
 	display: none;
+}
+
+.footer-text p.copyright {
+	font-size: 0.875rem;
 }
 
 
