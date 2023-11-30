@@ -355,8 +355,8 @@
 			{{/if}}
 		{{/if}}
 		{{#if (getVar "warranty") '===' 'active'}}
-			<div class="card-warranty" style="display: none;">
-				<a class="button button--small button--secondary has-dropdown" href="" data-dropdown="warranty{{id}}" aria-expanded="false">
+			<div class="card-warranty">
+				<a class="button button--small button--secondary has-dropdown" href="#" data-warranty-url="{{url}}" data-dropdown="warranty{{id}}" aria-expanded="false">
 					{{theme_settings.custom_product_warranty_title}}
 				</a>
 				<div class="dropdown-menu" id="warranty{{id}}" data-dropdown-content="" aria-hidden="true">
