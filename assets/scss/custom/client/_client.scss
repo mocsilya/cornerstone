@@ -2574,7 +2574,7 @@ dl.productView-info {
 .footer-phone-left {
 	display: inline-block;
 	line-height: 16px;
-	min-width: 90px;
+	min-width: 100px;
 	text-align: left;
 }
 
@@ -2583,6 +2583,12 @@ dl.productView-info {
 	line-height: 16px;
 	min-width: 110px;
 	text-align: right;
+	@include breakpoint("medium") {
+		text-align: left;
+	}
+	@include breakpoint("xlarge") {
+		text-align: right;
+	}
 }
 
 .footer-phone-container strong {
@@ -2904,4 +2910,13 @@ div[data-content-region="product_view_bottom--global"] {
 .productView.c4w .productView-image-wrap,
 .productView.c4m .productView-image-wrap {
 	box-shadow: none;
+}
+
+
+.container.c4w .accordion-chevron {
+	color: #e36197;
+}
+
+.container.c4m .accordion-chevron {
+	color: #2975ab;
 }
