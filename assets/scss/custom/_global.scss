@@ -7151,18 +7151,18 @@ div[data-content-region="cart_below_table"] {
 // Accordion
 // =============================================================================
 
-.accordion {
+.accord {
     padding-bottom: .25rem;
     border: 0;
     border-radius: 0;
     margin: 0
 }
 
-.accordion:first-child {
+.accord:first-child {
     padding-top: .25rem
 }
 
-.accordion-heading {
+.accord-heading {
     padding: 1rem 1.5rem;
     border: 1px solid stencilColor('container-border-global-color-base');
     background: stencilColor('body-bg');
@@ -7171,35 +7171,35 @@ div[data-content-region="cart_below_table"] {
     position: relative
 }
 
-.accordion-active > .accordion-heading {
+.accord-active > .accord-heading {
     background: stencilColor('container-border-global-color-base');
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0
 }
 
-.accordion-active.accordion-viewall > .accordion-heading {
+.accord-active.accord-viewall > .accord-heading {
     background: stencilColor('container-border-global-color-base');
     border-radius: .25rem
 }
 
-.accordion-title {
+.accord-title {
     margin: 0 2rem 0 0;
 }
 
-.accordion-icon {
+.accord-icon {
     position: absolute;
     top: 1rem;
     right: 1.5rem;
 	padding: .25rem;
 }
 
-.accordion-chevron {
+.accord-chevron {
 	display: block;
 	width: 1rem;
 	height: 1rem;
 }
 
-.accordion-chevron::before {
+.accord-chevron::before {
 	border-style: solid;
 	border-width: 0.25em 0.25em 0 0;
 	content: '';
@@ -7213,16 +7213,16 @@ div[data-content-region="cart_below_table"] {
 	width: 0.75em;
 }
 
-.accordion-active .accordion-chevron:before {
+.accord-active .accord-chevron:before {
 	top: 0.15em;
 	transform: rotate(-45deg);
 }
 
-.accordion-viewall > .accordion-heading .accordion-title {
+.accord-viewall > .accord-heading .accord-title {
     text-align: center;
 }
 
-.accordion-body {
+.accord-body {
     display: none;
     border-left: 1px solid stencilColor('container-border-global-color-base');
     border-right: 1px solid stencilColor('container-border-global-color-base');
@@ -7232,12 +7232,12 @@ div[data-content-region="cart_below_table"] {
     border-bottom-right-radius: .25rem
 }
 
-.accordion-viewall > .accordion-body {
+.accord-viewall > .accord-body {
     padding: 0;
-    border: 0
+    border: 0;
 }
 
-.accordian-content ul {
+.accord-content ul {
     margin-left: 1rem;
     margin-bottom: 1.5rem
 }
