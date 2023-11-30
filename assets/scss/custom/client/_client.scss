@@ -2912,11 +2912,26 @@ div[data-content-region="product_view_bottom--global"] {
 	box-shadow: none;
 }
 
+.accord-title {
+    font-size: 16px !important;
+    @include breakpoint("large") {
+		font-size: 18px !important;
+	}
+}
 
-.container.c4w .accordion-chevron {
+.c4w .accord-active > .accord-heading {
+    background-color: #f6ebef;
+}
+
+.c4w .accord-chevron::before {
 	color: #e36197;
 }
 
-.container.c4m .accordion-chevron {
+.c4m .accord-active > .accord-heading {
+    background-color: #ecf4ff;
+}
+
+.c4m .accord-chevron::before {
 	color: #2975ab;
 }
+
