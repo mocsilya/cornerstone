@@ -5,7 +5,7 @@
     },
     "footer": {
         "title": "Footer Start",
-        "brands": "Brands",
+        "brands": "Our Brands",
         "navigate": "Navigate",
         "info": "Information",
         "categories": "Products",
@@ -236,7 +236,7 @@
         }
     },
     "brand": {
-        "label": "Brands",
+        "label": "Our Brands",
         "view_brands": "View all brands"
     },
     "gift_certificate": {
@@ -761,7 +761,7 @@
         "adding_to_cart": "Adding to cart…",
         "options": "Options",
         "none": "None",
-        "sku": "SKU:",
+        "sku": "Product Code:",
         "upc": "UPC:",
         "condition": "Condition:",
         "availability": "Availability:",
