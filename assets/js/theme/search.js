@@ -9,6 +9,7 @@ import collapsibleFactory from './common/collapsible';
 import 'jstree';
 import nod from './common/nod';
 import cardSwatches from './custom/card-swatches';
+import cardWarranty from './custom/card-warranty';
 import cardCarousel from './custom/card-carousel';
 
 const leftArrowKey = 37;
@@ -216,6 +217,7 @@ export default class Search extends CatalogPage {
 
         setTimeout(() => $searchResultsMessage.focus(), 100);
         cardSwatches();
+        cardWarranty();
 		cardCarousel();
     }
 

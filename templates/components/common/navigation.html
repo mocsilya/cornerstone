@@ -19,8 +19,8 @@
 		<li class="navUser-item navUser-item--search navUser-item--widesearch navUser-item--{{theme_settings.custom_header_search_type}}search">
 		{{/if}}
 		{{#if (getVar "b2b-products") '===' 'show'}}
-		{{#if theme_settings.custom_header_search_type '===' 'icon'}}
-            <button class="navUser-action navUser-action--quickSearch"
+			{{#if theme_settings.custom_header_search_type '===' 'icon'}}
+            <button name="{{lang 'common.search'}}" class="navUser-action navUser-action--quickSearch"
                type="button"
                id="quick-search-expand"
                data-search="quickSearch"
@@ -32,24 +32,25 @@
                 <span class="navUser-text navUser-text-search">{{theme_settings.custom_header_search_label}}</span>
 				<span class="navUser-text navUser-text-close">Close</span>
             </button>
-		{{/if}}
-		{{#if theme_settings.custom_header_search_type '===' 'box'}}
+			{{/if}}
+			{{#if theme_settings.custom_header_search_type '===' 'box'}}
 			<!--
 			<a class="navUser-action navUser-action--quickSearch has-dropdown" href="#" data-dropdown="searchDropdown" aria-controls="searchDropdown" aria-expanded="false" aria-label="quickSearch">
 				<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-search{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}" /></svg></i></span>
 				<span class="navUser-text">{{theme_settings.custom_header_search_label}}</span>
 			</a>
 			-->
-            <button class="navUser-action navUser-action--quickSearch navUser-action--boxSearch" type="button" aria-controls="quickSearch" aria-expanded="false">
+            <button name="{{lang 'common.search'}}" class="navUser-action navUser-action--quickSearch navUser-action--boxSearch" type="button" aria-controls="quickSearch" aria-expanded="false">
 				<span class="navUser-icon navUser-icon-search"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-search{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}" /></svg></i></span>
 				<span class="navUser-icon navUser-icon-close"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-close{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}" /></svg></i></span>
             </button>
 			<div class="container-search-box">
 		    	{{> components/custom/navigation-search}}
 			</div>
-		{{/if}}
+			{{/if}}
 		{{/if}}
         </li>
+		{{> components/custom/client/client-header-search}}
 	</ul>
     {{#if page_type '===' 'default'}}
         <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
