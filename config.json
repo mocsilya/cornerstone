@@ -47,6 +47,7 @@
 	"custom_phone_show": true,
     "custom_email_show": true,
     "custom_email_address": "info@aylis.com",
+	"custom_homepage_carousel_size": "1280x320",
 	"custom_homepage_carousel_transition": "slide",
 	"custom_homepage_carousel_mob-images": false,
 	"custom_homepage_carousel_mob-1": "",
