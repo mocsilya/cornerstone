@@ -111,6 +111,12 @@ body.scroll .navPages > ul > li > .navPages-action {
 	}
 }
 
+.header-logo-image {
+    @include breakpoint("medium") {
+		min-width: 250px;
+	}
+}
+
 .header-logo__link {
     @include breakpoint("small") {
 		padding-left: 90px;
