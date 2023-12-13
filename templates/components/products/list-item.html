@@ -260,6 +260,12 @@
                 {{#if summary}}
                     <p class="listItem-summary">{{{summary}}}</p>
                 {{/if}}
+				{{#if theme_settings.custom_card_show_message}}
+					<div class="listItem-message">
+						{{theme_settings.custom_card_message_text}}
+						{{> components/custom/client/client-listitem}}
+					</div>
+				{{/if}}
             </div>
             <div class="listItem-actions">
                 {{#or customer (unless settings.hide_price_from_guests)}}
@@ -341,11 +347,5 @@
 		        {{/unless}}
             </div>
         </div>
-		{{#if theme_settings.custom_card_show_message}}
-			<div class="card-message">
-				{{theme_settings.custom_card_message_text}}
-				{{> components/custom/client/client-card}}
-			</div>
-		{{/if}}
     </div>
 </article>
