@@ -1,0 +1,28 @@
+{{assignVar "fields" "inactive"}}
+
+{{#each custom_fields}}
+	{{#unless name '==' 'hidden'}}
+		{{#startsWith '_' name}}
+		{{else}}
+			{{assignVar "fields" "active"}}
+		{{/startsWith}}
+	{{/unless}}
+{{/each}}
+
+{{#if (getVar "fields") '===' 'active'}}
+<div class="customfields-content">
+	<dl class="productView-info">
+		{{#each custom_fields}}
+			{{#unless name '==' 'hidden'}}
+				{{#startsWith '_' name}}
+				{{else}}
+					{{#lt @index 5}}
+		           	<dt class="productView-info-name customfield-label customfield-{{dashcase name}}">{{name}}:</dt>
+		           	<dd class="productView-info-value customfield-value customfield-{{dashcase name}}">{{{value}}}</dd>
+					{{/lt}}
+				{{/startsWith}}
+			{{/unless}}
+		{{/each}}
+	</dl>
+</div>
+{{/if}}
