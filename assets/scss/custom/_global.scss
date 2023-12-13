@@ -585,7 +585,7 @@ body.scroll .header {
 
 .header-logo--left {
 	@include breakpoint("medium") {
-		flex: 0 1 0px;
+		flex: 1 1 0;
 		order: 1;
 		padding: .5rem .78571rem .5rem 0;
 	}
@@ -593,7 +593,7 @@ body.scroll .header {
 
 .header-logo--right {
 	@include breakpoint("medium") {
-		flex: 0 1 0px;
+		flex: 0 1 0;
 		order: 3;
 		padding: .5rem 0 .5rem .78571rem;
 	}
@@ -651,7 +651,8 @@ $logo_height: str-slice($value_of_logo_size, $position_of_x + 1);
 	width: auto;
 	max-width: 100%;
 	@include breakpoint("medium") {
-		width: 100%;
+		width: auto;
+		height: 100%;
 		max-height: 60px;
 		display: inline-block;
 		max-width: 250px;
@@ -3961,6 +3962,7 @@ a:hover span.card-image:only-of-type img {
 	font-weight: 700;
 }
 
+.listItem-message,
 .card-message {
 	padding: .5rem 0;
 	font-size: .875rem;
@@ -4667,6 +4669,7 @@ a:hover span.card-image:only-of-type img {
 	margin: 1rem 0;
 }
 
+.productGrid .product.spotlight .listItem-message,
 .productGrid .product.spotlight .card-message {
 	display: block;
 	margin-top: 0;
