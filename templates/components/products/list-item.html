@@ -143,6 +143,7 @@
                     {{#unless this.data '===' ../../image.data}}
                         <span class="card-image card-image-{{@index}}">
                             {{> components/common/responsive-img
+								theme_settings=../theme_settings
                                 image=this
                                 class="card-image"
                                 fallback_size=theme_settings.productgallery_size
@@ -153,6 +154,7 @@
                     {{/unless}}
                 {{/each}}
                     {{> components/common/responsive-img
+						theme_settings=theme_settings
                         image=default
                         class="card-image card-image-default"
                         fallback_size=theme_settings.productgallery_size
@@ -161,6 +163,7 @@
                     }}
 			{{else}}
 				{{> components/common/responsive-img
+					theme_settings=theme_settings
                     image=image
                     class="card-image"
                     fallback_size=theme_settings.productgallery_size
@@ -179,6 +182,7 @@
 						<div class="card-img-container card-img-slider">
 						<a href="{{../url}}">
 	                    {{> components/common/responsive-img
+							theme_settings=../theme_settings
 	                        image=this
 	                        class="card-image card-image-slide"
 	                        fallback_size=theme_settings.productgallery_size
@@ -196,15 +200,15 @@
 		{{#if theme_settings.custom_card_show_wishlist}}
 		{{#if customer.wishlists}}
 		<span class="card-wishlist">
-		    <a aria-controls="wishlist-dropdown-{{id}}"
+		    <a aria-controls="wishlist-dropdown-{{id}}{{#if card_group}}-{{card_group}}{{/if}}"
 		       aria-expanded="false"
 		       class="dropdown-menu-button"
-		       data-dropdown="wishlist-dropdown-{{id}}"
+		       data-dropdown="wishlist-dropdown-{{id}}{{#if card_group}}-{{card_group}}{{/if}}"
 		       href="#"
 		    >
 				<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-heart{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i>
 		    </a>
-			<ul aria-hidden="true" class="dropdown-menu" data-dropdown-content id="wishlist-dropdown-{{id}}">
+			<ul aria-hidden="true" class="dropdown-menu" data-dropdown-content id="wishlist-dropdown-{{id}}{{#if card_group}}-{{card_group}}{{/if}}">
 	            {{#each customer.wishlists}}
 				<li>
 					<form action="{{this.add_url}}&product_id={{../id}}" class="form" method="post">
@@ -219,15 +223,15 @@
 		</span>
 		{{else}}
 		<span class="card-wishlist">
-		    <a aria-controls="wishlist-dropdown-{{id}}"
+		    <a aria-controls="wishlist-dropdown-{{id}}{{#if card_group}}-{{card_group}}{{/if}}"
 		       aria-expanded="false"
 		       class="dropdown-menu-button"
-		       data-dropdown="wishlist-dropdown-{{id}}"
+		       data-dropdown="wishlist-dropdown-{{id}}{{#if card_group}}-{{card_group}}{{/if}}"
 		       href="#"
 		    >
 				<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-heart{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i>
 		    </a>
-			<ul aria-hidden="true" class="dropdown-menu" data-dropdown-content id="wishlist-dropdown-{{id}}">
+			<ul aria-hidden="true" class="dropdown-menu" data-dropdown-content id="wishlist-dropdown-{{id}}{{#if card_group}}-{{card_group}}{{/if}}">
 	        	<li>
 	            	<a data-wishlist class="button button--primary button--small" href="/wishlist.php?action=addwishlist&product_id={{id}}">{{lang 'account.wishlists.create_new'}}</a>
 	        	</li>
@@ -256,6 +260,12 @@
                 {{#if summary}}
                     <p class="listItem-summary">{{{summary}}}</p>
                 {{/if}}
+				{{#if theme_settings.custom_card_show_message}}
+					<div class="listItem-message">
+						{{theme_settings.custom_card_message_text}}
+						{{> components/custom/client/client-listitem}}
+					</div>
+				{{/if}}
             </div>
             <div class="listItem-actions">
                 {{#or customer (unless settings.hide_price_from_guests)}}
@@ -337,11 +347,5 @@
 		        {{/unless}}
             </div>
         </div>
-		{{#if theme_settings.custom_card_show_message}}
-			<div class="card-message">
-				{{theme_settings.custom_card_message_text}}
-				{{> components/custom/client/client-card}}
-			</div>
-		{{/if}}
     </div>
 </article>
