@@ -3,9 +3,6 @@
 // =============================================================================
 //
 
-
-
-
 .page-header .page-heading {	
 	@include breakpoint("large") {
 		font-size: 2.4rem;
@@ -22,14 +19,13 @@
 	}
 }
 
+.page-header.brand-header {
+	display: none;
+}
+
 // =============================================================================
 // Header
 // =============================================================================
-
-.header-logo-image {
-	height: 100%;
-	width: auto;
-}
 
 .header-logo--left {
 	@include breakpoint("medium") {
@@ -389,11 +385,21 @@ body.scroll .navUser-item--custom strong {
 	}
 }
 */
+
+.productList .listItem-details {
+	@include breakpoint("large") {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+	}
+}
+
 .productList .listItem-title {
 	background-color: #ffdd00;
 	margin-top: .5rem;
 	padding: .5rem;
 	border-radius: 2px;
+	min-width: 100%;
 	@include breakpoint("medium") {
 		font-size: 16px;
 	}
@@ -402,6 +408,28 @@ body.scroll .navUser-item--custom strong {
 .productList .listItem-title a {
 	color: #222;
 }
+
+.productList .listItem-summary {
+	@include breakpoint("large") {
+		flex: 1 1 0;
+	}
+}
+
+.productList .listItem-message {
+	display: block;
+	margin: 0;
+	@include breakpoint("large") {
+		flex: 1 1 0;
+	}
+}
+
+.productList .listItem-message .button {
+	margin: .5rem 0 0 0;
+	@include breakpoint("large") {
+		margin: .5rem 0 0 1rem;
+	}
+}
+
 /*
 .productList .listItem-actions {
 	display: flex;
@@ -491,42 +519,24 @@ body.scroll .navUser-item--custom strong {
 // Custom Fields
 // =============================================================================
 
-.card-body .card-message .customfields-content {
-	display: none;
-}
-
-.listItem-body .card-message .customfields-content {
-	display: block;
-}
-
-.card-message .customfields-content dl.productView-info {
+.listItem-message .customfields-content table.listItem-info {
+	width: 100%;
 	margin: 0;
 	padding: 0;
 	border-top: 1px solid stencilColor("custom-card-border");
 	border-left: 1px solid stencilColor("custom-card-border");
+	@include breakpoint("large") {
+		width: calc(100% - 1rem);
+		margin-left: 1rem;
+	}
+}
+
+.listItem-message .customfields-content td.listItem-info-name,
+.listItem-message .customfields-content td.listItem-info-value {
+	padding: .125rem .5rem;
 	border-right: 1px solid stencilColor("custom-card-border");
-	@include breakpoint("xlarge") {
-		width:290px;
-	}
-}
-
-.card-message .customfields-content dt.productView-info-name {
-	padding: .125rem .5rem;
 	border-bottom: 1px solid stencilColor("custom-card-border");
 	font-size: 12px;
-	@include breakpoint("xlarge") {
-		width: 120px;
-	}
-}
-
-.card-message .customfields-content dd.productView-info-value {
-	padding: .125rem .5rem;
-	border-left: 1px solid stencilColor("custom-card-border");
-	border-bottom: 1px solid stencilColor("custom-card-border");
-	font-size: 12px;
-	@include breakpoint("xlarge") {
-		width: 168px;
-	}
 }
 
 .productView-description.customfields-content dl.productView-info {
@@ -569,6 +579,15 @@ body.scroll .navUser-item--custom strong {
 	padding: 1.5rem;
 	border: 2px solid #333;
 	border-radius: .25rem;
+}
+
+
+// =============================================================================
+// BRANDS
+// =============================================================================
+
+.page-brand .page-sidebar {
+	margin-top: 26px;
 }
 
 

@@ -11,18 +11,21 @@
 
 {{#if (getVar "fields") '===' 'active'}}
 <div class="customfields-content">
-	<dl class="productView-info">
+	<table class="listItem-info">
 		{{#each custom_fields}}
 			{{#unless name '==' 'hidden'}}
 				{{#startsWith '_' name}}
 				{{else}}
 					{{#lt @index 5}}
-		           	<dt class="productView-info-name customfield-label customfield-{{dashcase name}}">{{name}}:</dt>
-		           	<dd class="productView-info-value customfield-value customfield-{{dashcase name}}">{{{value}}}</dd>
+					<tr>
+		           		<td class="listItem-info-name customfield-label customfield-{{dashcase name}}">{{name}}:</td>
+		           		<td class="listItem-info-value customfield-value customfield-{{dashcase name}}">{{{value}}}</td>
+					</tr>
 					{{/lt}}
 				{{/startsWith}}
 			{{/unless}}
 		{{/each}}
-	</dl>
+	</table>
 </div>
 {{/if}}
+<a class="button button--secondary button--small" title="More product details" href="{{url}}">More Details</a>
