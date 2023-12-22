@@ -88,6 +88,17 @@ If you are making a change here or in price-range.html, you probably want to mak
     {{#if page_type '===' 'product'}}
          <div class="price-section price-section--saving price" {{#unless price.saved}}style="display: none;"{{/unless}}>
                 <span class="price">{{lang 'products.you_save_opening_text'}}</span>
+                <span data-product-price-percent class="price price--percent">
+					<strong>
+					{{#if price.with_tax}}
+						{{round (multiply (divide price.saved.value price.rrp_with_tax.value) "100")}}%
+						<!-- {{round (multiply (divide (subtract price.rrp_with_tax.value price.with_tax.value) price.rrp_with_tax.value) "100")}}% -->
+					{{else}}
+						{{round (multiply (divide price.saved.value price.rrp_without_tax.value) "100")}}%
+						<!-- {{round (multiply (divide (subtract price.rrp_without_tax.value price.without_tax.value) price.rrp_without_tax.value) "100")}}% -->
+					{{/if}}
+					</strong>
+				</span>
                 <span data-product-price-saved class="price price--saving">
                     {{price.saved.formatted}}
                 </span>
