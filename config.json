@@ -226,6 +226,7 @@
     "custom_product_addtocart_pinterest": true,
     "custom_product_addtocart_modal": true,
     "custom_product_availability": "4-6 weeks",
+	"custom_product_variant_data": false,
     "custom-tab-color": "#333333",
     "custom-tab-background": "#e6e6e6",
     "custom-tab-hover-color": "#ffffff",

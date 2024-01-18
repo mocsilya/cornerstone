@@ -14,6 +14,59 @@ blog:
 customer:
     wishlists:
         limit: 10
+gql: "query productById($productId: Int!) {
+    site {
+        product(entityId: $productId) {
+            variants {
+                edges {
+                    node {
+                        sku
+                        prices {
+                            price {
+                                value
+                                formatted
+                            }
+                        }
+						isPurchasable
+						inventory {
+						    aggregated {
+						        availableToSell
+						    }
+						    isInStock
+						}
+                        productOptions {
+                            edges {
+                                node {
+                                    displayName
+                                    ... on MultipleChoiceOption {
+                                        displayName
+                                        values {
+                                            edges {
+                                                node {
+                                                    label
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            productOptions {
+                edges {
+                    node {
+                        displayName
+                        ... on MultipleChoiceOption {
+                            displayName
+                        }
+                    }
+                }
+            }
+        }
+    }
+}"
 ---
 {{inject 'productId' product.id}}
 
@@ -61,13 +114,30 @@ customer:
 {{#partial "base"}}
 {{#unless (getVar 'payment') '===' 'active'}}
 	{{#if (getVar "b2b-products") '===' 'show'}}
-	{{#or product.related_products product.similar_by_views}}
-		<div class="related-similar">
-			<div class="container">
-				{{> components/products/tabs}}
+		{{#if theme_settings.custom_product_variant_data}}
+			{{assignVar "productHasVariants" "no"}}
+			{{#if gql.data.site.product}}
+	    		{{#each gql.data.site.product.variants.edges}}
+	        		{{#with node}}
+						{{#if @last}}
+							{{#unless @index 0}}
+								{{assignVar "productHasVariants" "yes"}}
+							{{/unless}}
+						{{/if}}
+					{{/with}}
+				{{/each}}
+				{{#if (getVar "productHasVariants") '===' 'yes'}}
+						{{> components/custom/product-variants}}
+				{{/if}}
+			{{/if}}
+		{{/if}}
+		{{#or product.related_products product.similar_by_views}}
+			<div class="related-similar">
+				<div class="container">
+					{{> components/products/tabs}}
+				</div>
 			</div>
-		</div>
-	{{/or}}
+		{{/or}}
 	{{/if}}
 {{/unless}}
 {{/partial}}
