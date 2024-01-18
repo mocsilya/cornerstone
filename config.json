@@ -226,6 +226,7 @@
 	"custom_product_addtocart_pinterest": true,
 	"custom_product_addtocart_modal": true,
 	"custom_product_availability": "",
+	"custom_product_variant_data": false,
 	"custom-tab-color": "#000000",
 	"custom-tab-background": "#eeeeee",
 	"custom-tab-hover-color": "#ffffff",
