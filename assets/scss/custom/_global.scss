@@ -652,8 +652,8 @@ $logo_height: str-slice($value_of_logo_size, $position_of_x + 1);
 	max-width: 100%;
 	@include breakpoint("medium") {
 		width: 100%;
-		height: auto;
 		max-width: 250px;
+		height: auto;
 		max-height: 60px;
 		display: inline-block;
 	}
@@ -665,9 +665,15 @@ $logo_height: str-slice($value_of_logo_size, $position_of_x + 1);
 
 body.scroll .header-logo-image {
 	@include breakpoint("medium") {
+		width: auto;
+		max-width: 250px;
+		height: 41px;
 		max-height: 41px;
 	}
 	@include breakpoint("large") {
+		width: auto;
+		max-width: 250px;
+		height: 41px;
 		max-height: 41px;
 	}
 }
