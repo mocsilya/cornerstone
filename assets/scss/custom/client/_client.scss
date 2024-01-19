@@ -23,6 +23,8 @@
 	display: none;
 }
 
+
+
 // =============================================================================
 // Header
 // =============================================================================
@@ -45,6 +47,7 @@ header.header {
 		justify-content: flex-end;
 	}
 }
+
 
 
 // =============================================================================
@@ -174,6 +177,7 @@ body.scroll .navUser-item--custom strong {
 }
 
 
+
 // =============================================================================
 // Nav Pages
 // =============================================================================
@@ -278,10 +282,10 @@ body.scroll .navUser-item--custom strong {
 }
 
 
+
 // =============================================================================
 // Sub cats
 // =============================================================================
-
 
 .subcategories-above .subcategories-grid {
 	@include breakpoint("medium") {
@@ -545,6 +549,7 @@ body.scroll .navUser-item--custom strong {
 }
 
 
+
 // =============================================================================
 // Custom Fields
 // =============================================================================
@@ -593,6 +598,7 @@ body.scroll .navUser-item--custom strong {
 }
 
 
+
 // =============================================================================
 // PDP
 // =============================================================================
@@ -615,12 +621,44 @@ body.scroll .navUser-item--custom strong {
 	border-radius: .25rem;
 }
 
-.page-product .price-section--withoutTax {
-	order: 1;
+.page-product .productView-price {
+	margin-bottom: 0
 }
 
-.page-product .price-section--withTax {
+.productView-product .productView-info {
+	margin-top: 0;
+}
+
+.productView .price-section--withoutTax {
+	display: flex;
+	order: 1;
+	flex: 1 0 50%;
+	text-align: center;
+	background-color: #eee;
+	padding: .5rem;
+	flex-wrap: wrap;
+}
+
+.productView .price-section--withTax {
+	display: flex;
 	order: 2;
+	flex: 1 0 50%;
+	text-align: center;
+	background-color: #ddd;
+	padding: .5rem;
+	flex-wrap: wrap;
+}
+
+.productView .price-section--withoutTax abbr,
+.productView .price-section--withTax abbr {
+	order: 1;
+	width: 100%;
+}
+
+.productView .price-section--withoutTax span,
+.productView .price-section--withTax span {
+	order: 2;
+	width: 100%;
 }
 
 .page-product .price-section--withoutTax .price,
@@ -630,7 +668,60 @@ body.scroll .navUser-item--custom strong {
 
 .page-product .price-section--withTax .price,
 .page-product .price-section--withTax abbr {
-	color: #999;
+	color: #666;
+}
+
+.page-product .productView-rating {
+	display: none;
+}
+
+.productView-info-name.sku-label,
+.productView-info-value.sku-value {
+	width: 50%;
+	background: #ffdd00;
+	color: #000;
+	vertical-align: top;
+	font-weight: 700;
+	font-size: 1rem;
+	margin-bottom: 1rem;
+	@include breakpoint("large") {
+		font-size: 1.125rem;
+	}
+}
+
+.productView-info-name.sku-label {
+	padding: .5rem .25rem .5rem .75rem;
+	text-align: center;
+}
+
+.productView-info-value.sku-value {
+	padding: .5rem .75rem .5rem .25rem;
+	text-align: center;
+}
+
+.variant-data table thead th {
+	background: #e6e6e6;
+	color: #000;
+	padding-left: .75rem;
+	padding-right: .75rem;
+}
+
+.variant-data .th-stock,
+.variant-data .td-stock {
+	display: none;
+}
+
+#tab-specification .productView-info {
+	border-top: 1px solid #333;
+	border-left: 1px solid #333;
+	border-right: 1px solid #333;
+}
+
+#tab-specification .productView-info .productView-info-name,
+#tab-specification .productView-info .productView-info-value {
+	border-bottom: 1px solid #333;
+	padding: .25rem .5rem;
+	vertical-align: top;
 }
 
 
