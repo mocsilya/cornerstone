@@ -724,6 +724,163 @@ body.scroll .navUser-item--custom strong {
 	vertical-align: top;
 }
 
+.handleit-table table {
+	margin: 0;
+	padding: 0;
+	border-right: 1px solid stencilColor("color-textBase");
+	border-bottom: 1px solid stencilColor("color-textBase");
+}
+
+.handleit-table table td,
+.handleit-table table th {
+	padding: .25rem .75rem;
+	border-left: 1px solid stencilColor("color-textBase");
+	border-top: 1px solid stencilColor("color-textBase");
+}
+
+
+
+// =============================================================================
+// PRINT
+// =============================================================================
+
+#productMaintenanceChecklist {
+	margin-bottom: 1.5rem;
+	border-bottom: 2px solid #222;
+}
+
+.scroll_container {
+	max-height: 400px;
+	overflow-y: auto;
+}
+
+#letterhead {
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.letterhead-contact {
+	flex: 1 1 0;
+	max-width: 50%;
+	align-items: center;
+	justify-content: flex-end;
+	text-align: right;
+	padding-right: 3rem;
+	border-right: 2px solid #000;
+}
+
+.letterhead-contact p {
+	margin: 0;
+}
+
+.letterhead-logo {
+	flex: 1 1 0;
+	max-width: 50%;
+	align-items: center;
+	justify-content: flex-start;
+	text-align: left;
+	padding-left: 3rem;
+}
+
+.letterhead-logo img {
+	width: $logo_width +"px";
+	height: $logo_height +"px";
+	max-width: $logo_width +"px";
+	max-height: $logo_height +"px";
+	min-width: $logo_width +"px";
+	min-height: $logo_height +"px";
+}
+
+.letterhead-title {
+	flex: 1 0 0;
+	min-width: 100%;
+	border-top: 2px solid #000;
+	padding: 1.5rem 0;
+	margin-top: 1.5rem;
+	justify-content: center;
+	text-align: center;
+	font-weight: 700;
+	font-size: 1.125rem;
+}
+
+.letterhead-title p {
+	margin-bottom: .5rem;
+}
+
+.letterhead-title h2 {
+	margin: 0;
+}
+
+.checklist-table table {
+	width: 100%;
+	margin-bottom: 1.5rem;
+}
+
+.print-action {
+	margin-bottom: 3rem;
+}
+
+.productView-description .print-action {
+	margin-bottom: 0;
+}
+
+.print_only {
+	display: none;
+}
+
+.product-data-container {
+	display: flex;
+	border-top: 2px solid #000;
+	margin-top: 1.5rem;
+	padding-top: 1.5rem;
+}
+
+.product-data-left {
+	flex: 1 1 auto;
+	max-width: 40%;
+}
+
+.product-data-right {
+	flex: 1 1 auto;
+	max-width: 60%;
+}
+
+.product-data-title h2 {
+	margin-top: 0;
+}
+
+.product-data-image {
+	border: 1px solid #aaa;
+	margin: 0 1.5rem 1.5rem 0;
+}
+
+.product-data-image img {
+	width: 100%;
+}
+
+.product-data-bottom table {
+	width: 100%;
+}
+
+@media print {
+	#productMaintenanceChecklist {
+		margin-bottom: 0;
+		border-bottom: 0;
+	}
+	.print_only {
+		display: block;
+	}
+	#letterhead.print_only {
+		display: flex;
+	}
+	.scroll_container {
+		max-height: none;
+	}
+}
+
+
+
 
 // =============================================================================
 // BRANDS

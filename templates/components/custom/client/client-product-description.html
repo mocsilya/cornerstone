@@ -1,0 +1,120 @@
+<div class="print-action">
+	<input type="button" class="button button--primary button--large" onclick="printDiv('productDataSheet')" value="Print PDF: Product Datasheet">
+</div>
+
+<div id="productDataSheet" class="print_only">
+	<div id="letterhead" class="print_only">
+		<div class="letterhead-contact">
+			<p>+44 (01803) 424 135</p>
+			<p>Unit 19, Bulleigh Barton Commercial Units,<br>
+				Ipplepen, Newton Abbot, Devon, TQ12 5UA<br>
+				sales@handle-it.com<br>
+				www.handle-it.com
+			</p>
+		</div>
+		<div class="letterhead-logo">
+	        <img class="header-logo-image-unknown-size"
+	             src="{{getImage settings.store_logo.image 'logo_size'}}"
+	             alt="{{settings.store_logo.title}}"
+	             title="{{settings.store_logo.title}}"
+				 width="{{before (split theme_settings.logo_size 'x') 1}}"
+				 height="{{after (split theme_settings.logo_size 'x') 1}}"
+				 >
+		</div>
+	</div>
+	<div class="product-data-container">
+		<div class="product-data-left">
+			{{#each product.images}}
+				{{#if @index '<' 3}}
+				<div class="product-data-image">
+					<img src="{{getImage this 'productview_product_size' (cdn ../theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+				</div>
+				{{/if}}
+			{{/each}}
+		</div>
+		<div class="product-data-right">
+			<div class="product-data-title">
+				<h2>{{product.title}}</h2>
+				{{#if product.availability}}
+					<p>{{lang 'products.availability'}}: {{product.availability}}</p>
+				{{else}}
+					{{#if theme_settings.custom_product_availability}}
+						<p>{{lang 'products.availability'}}: {{theme_settings.custom_product_availability}}</p>
+					{{/if}}
+                {{/if}}
+			</div>
+			<h4 class="productView-title">Specification</h4>
+			<div class="product-data-info variant-data">
+				<table class="table">
+				{{#each product.custom_fields}}
+					{{#unless name '==' 'hidden'}}
+						{{#startsWith '_' name}}
+						{{else}}
+							<tr>
+				           		<td>{{name}}</td>
+				           		<td>{{{value}}}</td>
+							<tr>
+						{{/startsWith}}
+					{{/unless}}
+				{{/each}}
+				</table>
+			</div>
+			{{#if product.description}}
+			<h4 class="productView-title">Product Details</h4>
+			<div class="product-data-description">
+				{{{product.description}}}
+			</div>
+			{{/if}}
+		</div>
+	</div>
+	<div class="product-data-container">
+		<div class="product-data-bottom variant-data">
+			<h4 class="productView-title">Product Options</h4>
+			<p>Please note: specification and price subject to change. Please check with your sales representative for up-to-date information.</p>
+			<table class="table">
+				<thead>
+					<tr>
+					    <th class="th-sku">{{chop (lang 'products.sku')}}</th>
+					    {{#each gql.data.site.product.productOptions.edges}}
+					        {{#with node}}
+								{{#if isVariantOption}}
+					            	<th class="th-option th-{{dashcase (lowercase (sanitize displayName))}}">{{displayName}}</th>
+								{{/if}}
+					        {{/with}}
+					    {{/each}}
+						<th class="th-stock">Stock</th>
+					    <th class="th-price">Price{{#if product.price.without_tax}} (Ex. {{settings.tax_label}}){{/if}}</th>
+					</tr>
+				</thead>
+				<tbody>
+				{{#each gql.data.site.product.variants.edges}}
+					<tr>
+					    {{#with node}}
+					        <td class="td-sku">{{sku}}</td>
+					        {{#each productOptions.edges}}
+					            {{#with node}}
+					                {{#each values.edges}}
+					                    {{#with node}}
+					                        <td class="td-option td-{{dashcase (lowercase (sanitize ../../displayName))}}">{{label}}</td>
+					                    {{/with}}
+					                {{/each}}
+					            {{/with}}
+					        {{/each}}
+							<td class="td-stock">
+								{{#if isPurchasable}}
+									<span class="td-stock-value{{#if inventory.aggregated.availableToSell '==' 0}} td-stock-out" style="display: none;"{{else}} td-stock-in"{{/if}}>{{inventory.aggregated.availableToSell}}</span>
+									<span class="td-stock-text">{{#if inventory.isInStock}}In Stock{{else}}{{lang 'products.out_of_stock_default_message'}}{{/if}}</span>
+								{{else}}
+									<span class="td-stock-text">Currently Unavailable</span>
+								{{/if}}
+							</td>
+					        <td class="td-price">{{prices.price.formatted}}</td>
+					    {{/with}}
+					</tr>
+				{{/each}}
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div style="text-align:center; margin-bottom:21px;">Date of Download: {{moment "now" "MM/DD/YYYY"}}</div>
+</div>
