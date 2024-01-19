@@ -7,7 +7,9 @@
 					    <th class="th-sku">{{chop (lang 'products.sku')}}</th>
 					    {{#each gql.data.site.product.productOptions.edges}}
 					        {{#with node}}
-					            <th class="th-option th-{{dashcase (lowercase (sanitize displayName))}}">{{displayName}}</th>
+								{{#if isVariantOption}}
+					            	<th class="th-option th-{{dashcase (lowercase (sanitize displayName))}}">{{displayName}}</th>
+								{{/if}}
 					        {{/with}}
 					    {{/each}}
 						<th class="th-stock">Stock</th>

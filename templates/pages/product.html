@@ -57,6 +57,7 @@ gql: "query productById($productId: Int!) {
             productOptions {
                 edges {
                     node {
+						isVariantOption
                         displayName
                         ... on MultipleChoiceOption {
                             displayName
