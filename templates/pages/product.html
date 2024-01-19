@@ -132,6 +132,7 @@ gql: "query productById($productId: Int!) {
 				{{/if}}
 			{{/if}}
 		{{/if}}
+		{{> components/custom/client/client-product-variants}}
 		{{#or product.related_products product.similar_by_views}}
 			<div class="related-similar">
 				<div class="container">
@@ -139,6 +140,7 @@ gql: "query productById($productId: Int!) {
 				</div>
 			</div>
 		{{/or}}
+		{{> components/custom/client/client-product-related}}
 	{{/if}}
 {{/unless}}
 {{/partial}}
