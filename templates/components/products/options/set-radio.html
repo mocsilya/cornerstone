@@ -13,6 +13,7 @@
             name="attribute[{{id}}]"
             value=""
             checked="{{#if defaultValue '==' ''}}checked{{/if}}"
+            aria-label="{{lang 'products.none'}}"
         >
         <label class="form-label form-label-none" for="attribute_radio_{{id}}_none">{{lang 'products.none'}}</label>
     {{/unless}}
@@ -28,7 +29,9 @@
                 checked
                 data-default
             {{/if}}
-            {{#if ../required}}required{{/if}}>
+            {{#if ../required}}required{{/if}}
+            aria-label="{{this.label}}"
+		>
         <label data-product-attribute-value="{{id}}" class="form-label form-label-{{dashcase this.label}}" for="attribute_radio_{{../id}}_{{id}}">{{this.label}}</label>
     {{/each}}
 </div>

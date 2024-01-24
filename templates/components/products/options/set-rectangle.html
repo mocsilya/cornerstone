@@ -14,6 +14,7 @@
             name="attribute[{{id}}]"
             value=""
             checked="{{#if defaultValue '==' ''}}checked{{/if}}"
+			aria-label="{{lang 'products.none'}}"
         >
         <label class="form-option" for="attribute_rectangle__{{id}}_none">
             <span class="form-option-variant">{{lang 'products.none'}}</span>
@@ -33,6 +34,7 @@
                 data-default
             {{/if}}
             {{#if ../required}}required{{/if}}
+			aria-label="{{this.label}}"
         >
         <label class="form-option form-option-{{id}} form-option-{{dashcase this.label}}" for="attribute_rectangle__{{../id}}_{{id}}" data-product-attribute-value="{{id}}">
             <span class="form-option-variant">{{this.label}}</span>
