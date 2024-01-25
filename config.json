@@ -99,7 +99,7 @@
     "custom_header_show_bar_message1": true,
     "custom_header_show_bar_message2": true,
     "custom_header_show_bar_message3": true,
-    "custom_header_bar_message1_text": "Mountain Bike & E-MTB Shop",
+    "custom_header_bar_message1_text": "Mountain Bike & EMTB Shop",
     "custom_header_bar_message2_text": "Read Reviews",
     "custom_header_bar_message3_text": "Worlds Best Bike Brands",
     "custom_header_bar_message1_link": "",
@@ -190,7 +190,7 @@
     "custom_category_show_parents": true,
     "custom_category_max_columns": 4,
     "custom_category_show_blocks": true,
-    "custom_category_description_trim": false,
+    "custom_category_description_trim": true,
     "custom_brand_az_minimum": 50,
     "custom-page-header-text": "#000000",
     "custom-page-header-background": "#ffffff",
@@ -578,7 +578,9 @@
     "masterpass-button-color": "black",
     "paymentbuttons-provider-sorting": [
       "paypal",
-      "applepay"
+      "paypal-credit",
+      "applepay",
+      "amazonpay"
     ]
   },
   "read_only_files": [
