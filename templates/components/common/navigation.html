@@ -20,7 +20,7 @@
 		{{/if}}
 		{{#if (getVar "b2b-products") '===' 'show'}}
 			{{#if theme_settings.custom_header_search_type '===' 'icon'}}
-            <button class="navUser-action navUser-action--quickSearch"
+            <button name="{{lang 'common.search'}}" class="navUser-action navUser-action--quickSearch"
                type="button"
                id="quick-search-expand"
                data-search="quickSearch"
@@ -40,7 +40,7 @@
 				<span class="navUser-text">{{theme_settings.custom_header_search_label}}</span>
 			</a>
 			-->
-            <button class="navUser-action navUser-action--quickSearch navUser-action--boxSearch" type="button" aria-controls="quickSearch" aria-expanded="false">
+            <button name="{{lang 'common.search'}}" class="navUser-action navUser-action--quickSearch navUser-action--boxSearch" type="button" aria-controls="quickSearch" aria-label="{{lang 'common.search'}}" aria-expanded="false">
 				<span class="navUser-icon navUser-icon-search"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-search{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}" /></svg></i></span>
 				<span class="navUser-icon navUser-icon-close"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-close{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}" /></svg></i></span>
             </button>
@@ -118,17 +118,21 @@
                 </div>
             </li>
         {{/if}}
-        <li class="navUser-item navUser-item--comparison">
-            <a class="navUser-action navUser-item--compare"
-               href="{{urls.compare}}"
-               data-compare-nav
-               aria-label="{{lang 'common.compare'}}"
-            >
-				<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-compare{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
-                {{#if theme_settings.custom_header_icon_text}}<span class="navUser-text">{{lang 'common.compare'}}</span>{{/if}}
-				<span class="countPill countPill--positive countPill--alt"></span>
-            </a>
-        </li>
+		{{#or (if page_type '===' 'category') (if page_type '===' 'brand') (if page_type '===' 'search')}}
+			{{#or (if category.show_compare) (if brand.show_compare) (if product_results.show_compare)}}
+		        <li class="navUser-item navUser-item--comparison">
+		            <a class="navUser-action navUser-item--compare"
+		               href="{{urls.compare}}"
+		               data-compare-nav
+		               aria-label="{{lang 'common.compare'}}"
+		            >
+						<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-compare{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
+		                {{#if theme_settings.custom_header_icon_text}}<span class="navUser-text">{{lang 'common.compare'}}</span>{{/if}}
+						<span class="countPill countPill--positive countPill--alt"></span>
+		            </a>
+		        </li>
+			{{/or}}
+		{{/or}}
 		{{#if settings.show_wishlist}}
 			<li class="navUser-item navUser-item--wishlist">
 			{{#if customer.wishlists}}

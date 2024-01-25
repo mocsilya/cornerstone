@@ -131,7 +131,11 @@
 		{{/and}}
 		{{#if (getVar "thumbs") '===' 'show'}}
             {{#each product.images}}
-                <li class="productView-thumbnail productView-thumbnail-image">
+				{{#contains alt "imageset:"}}
+					<li class="productView-thumbnail productView-thumbnail-image" data-image-set="{{{after (split alt 'imageset:') 1}}}">
+				{{else}}
+					<li class="productView-thumbnail productView-thumbnail-image">
+				{{/contains}}
                     <a
                         class="productView-thumbnail-link"
                         href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
@@ -458,3 +462,42 @@
     <div class="loadingOverlay"></div>
 </div>
 {{/if}}
+{{#filter product.custom_fields '_imageset' property='name'}}
+<script>
+let timeDelay = 0;
+const formOptions = document.querySelectorAll(".productView-options .form-field-{{dashcase value}} .form-select, .productView-options .form-field-{{dashcase value}} .form-radio");
+for (let i = 0; i < formOptions.length; i++) {
+	formOptions[i].addEventListener("change", function() {
+		clearTimeout(timeDelay);
+	    timeDelay = setTimeout(function() {
+			// Hide Images not in Set
+			let imageSet;
+			if (formOptions[i].classList.contains('form-select')) {
+				imageSet = formOptions[i].options[formOptions[i].selectedIndex].getAttribute('aria-label');
+			} else {
+				imageSet = formOptions[i].getAttribute('aria-label');
+			}
+			const imageList = document.querySelectorAll('.productView-thumbnail');
+			imageList.forEach((imageItem) => {
+				const imageData = imageItem.getAttribute('data-image-set');
+				if (imageSet === 'None') {
+					imageItem.style.display = 'block';
+				} else {
+					if (imageData === imageSet) {
+						imageItem.style.display = 'block';
+					} else {
+						imageItem.style.display = 'none';
+					}
+				}
+			});
+			const findSlick = document.querySelectorAll('.productView-thumbnails.slick-initialized .slick-track');
+			const isSlick = findSlick[0];
+			if (findSlick.length > 0) {
+				isSlick.style.transform = 'translate3d(0px, 0px, 0px)';
+			}
+	    }, 750);
+	});
+}
+</script>
+{{/filter}}
+		
