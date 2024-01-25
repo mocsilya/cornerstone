@@ -220,7 +220,7 @@ body:not(.currency-gbp) .main div[data-content-region="home_below_top_banner"] +
 body:not(.currency-gbp) .main ul[data-product-type="featured"],
 body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-hero .carousel-brands,
 body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-hero .heroCarousel,
-body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-hero .carousel-links {
+body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-links {
 	display: none;
 }
 
@@ -372,11 +372,7 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 }
 
 .carousel-links {
-	order: 4;
 	padding: 0 .75rem;
-	@include breakpoint("medium") {
-		display: none;
-	}
 }
 
 .carousel-links ul {
@@ -473,6 +469,10 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .container-
 	background: #f5f5f5;
 	text-align: center;
 	padding: .25rem;
+}
+
+.card-warranty {
+    display: none;
 }
 
 
@@ -1882,6 +1882,71 @@ body:not(.currency-gbp) article[data-section-type="footer-categories"] li.link-i
     min-width: 33.333333%;
 }
 
+
+
+
+// WIDGET (for customer quotes)
+// =============================================================================
+
+.custom-widget-quotes .container {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    @include breakpoint("medium") {
+	    padding-top: 3rem;
+        padding-bottom: 3rem;
+	}
+}
+
+.custom-widget-quotes .custom-widget-item {
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.custom-widget-quotes .custom-widget-link {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background: #333;
+    flex-direction: column;
+    border-radius: .5rem;
+}
+
+.custom-widget-quotes .custom-widget-image,.custom-widget-quotes .custom-widget-placeholder {
+    height: auto;
+}
+
+.custom-widget-quotes .custom-widget-placeholder {
+    display: none;
+}
+
+.custom-widget-quotes .custom-widget-content {
+    position: static;
+    transform: none;
+    height: calc(100% - 1.5rem);
+    margin: .75rem;
+    padding: .75rem;
+    background: #333;
+}
+
+.custom-widget-quotes .custom-widget-heading {
+    font-weight: 700;
+}
+
+.custom-widget-quotes .custom-widget-subtext {
+    color: #fff !important;
+    font-weight: 700;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.custom-widget-quotes .custom-widget-button {
+    margin-top: 0;
+    padding: 0;
+    background-color: none !important;
+    border-radius: 0;
+    font-weight: 400;
+}
 
 
 // JOBS
