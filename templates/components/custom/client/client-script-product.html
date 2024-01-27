@@ -1,54 +1,47 @@
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
-<!-- <script src="https://cdn11.bigcommerce.com/s-h4smy34w/content/imegawidget-custom.js"></script> -->
-<!-- <script src="{{cdn 'webdav:imegawidget-custom.js'}}"></script> -->
-<!-- <script>
-		$(document).ready(function(){
-		    imegaCalculator.init({
-		        apiKey: 'a8346514700102e3a47df85b9ff606ad',
-		        description: '{{ product.title }}',
-		        insertion: 'after',
-		        element: '.productView-options',
-		        margin:'1rem 0',
-		        priceElement: '.price--actual',
-		        amount: '{{ product.price.with_tax.value }}', //use if priceElement not set
-		        financeFilter:getFinanceFilter('{{ product.title }}')
-		    });
-		});
-		function getFinanceFilter(productDesc) 
-		{
-		 
-            const tiers = {
-                'Tier 1' : ['Sale'],
-                'Tier 2' : ['| Evil', '| Yeti'],
-                'Tier 3' : ['| Cube', '| Gocycle', '| Mondraker', '| Whyte', '| Transition', '| Moustache', '| Marin'],
-                'Tier 4' : ['| Trek', '| Nukeproof', '| Ragley', '| NS Bikes', '| Orbea'],
-                'Tier 5' : ['Evil', 'Yeti'],
-                'Tier 6' : ['Cube', 'Gocycle', 'Mondraker', 'Whyte', 'Transition', 'Moustache', 'Marin'],
-                'Tier 7' : ['Trek', 'Nukeproof', 'Ragley', 'NS Bikes', 'Orbea'],
-            };
-            var filter;
-        
-            for (var key in tiers) {
-                const filterFinder = tiers[key].some(element => {
-                    if (productDesc.includes(element)) {
-                        return true;
-                    }
-                });
-                if (filterFinder) {
-                    filter = key;
-                    break;
-                }
-            }
-            if (!filter) {
-                filter = 'ALL';
-            }
-		    return filter;
-		}
-		jQuery.noConflict(true);
-</script>  -->
-<!-- <script type="text/javascript">
-			jQuery("#imega-widget").appendTo('#imega-widget-anchor')    
-		</script> -->
+<script>
+	const priceDiv = document.querySelectorAll(".productView-price .price-section--withTax .price--withTax")[0];
+	priceDiv.style.opacity = "0";
+	let arr = [];
+	{{#each gql.data.site.product.variants.edges}}
+		    {{#with node}}
+		        {{#each productOptions.edges}}
+		            {{#with node}}
+		                {{#each values.edges}}
+		                    {{#with node}}
+		                        {{#contains label "In Stock"}}
+									const findOption{{dashcase (lowercase (sanitize ../../../../sku))}} = document.querySelectorAll(".productView-options .form-field-{{dashcase (lowercase (sanitize ../../displayName))}} .form-select .form-select-option-{{dashcase (lowercase (sanitize label))}}");
+									if (findOption{{dashcase (lowercase (sanitize ../../../../sku))}}.length > 0) {
+										arr.push('{{../../../../inclTax.price.value}}');
+									}
+		                    	{{/contains}}
+							{{/with}}
+		                {{/each}}
+		            {{/with}}
+		        {{/each}}
+		    {{/with}}
+	{{/each}}
+	//console.log(arr);
+	const priceMinMath = Math.min.apply(Math, arr);
+	const priceMin = (Math.round(priceMinMath * 100) / 100).toFixed(2);
+	function numberWithCommas(x) {
+		return x.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ",");
+	}
+	const priceFormatted = "{{#if currency_selector.active_currency_code '==' 'GBP'}}£{{else if currency_selector.active_currency_code '==' 'CAD'}}${{else if currency_selector.active_currency_code '==' 'AUD'}}${{else if currency_selector.active_currency_code '==' 'USD'}}${{else}}€{{/if}}" + numberWithCommas(priceMin);
+	
+	const priceRange = priceDiv.innerText;
+	const priceTrim = priceRange.substring(priceRange.indexOf(" - ") + 1);
+	const priceMax = priceRange.substring(priceRange.indexOf('-') + 2);
+	let priceUpdate;
+	if (priceFormatted == priceMax) {
+		priceUpdate = priceFormatted;
+	} else {
+		priceUpdate = priceFormatted + " " + priceTrim;
+	}
+	setTimeout(function() {
+		priceDiv.innerHTML = priceUpdate;
+		priceDiv.style.opacity = "1";
+	}, 1500);
+</script>
 
 <script>
 var timePrice = 0;
@@ -111,4 +104,54 @@ window.addEventListener("pageshow", function (event) {
 	}
 });
 </script>
-		
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+<!-- <script src="https://cdn11.bigcommerce.com/s-h4smy34w/content/imegawidget-custom.js"></script> -->
+<!-- <script src="{{cdn 'webdav:imegawidget-custom.js'}}"></script> -->
+<!-- <script>
+		$(document).ready(function(){
+		    imegaCalculator.init({
+		        apiKey: 'a8346514700102e3a47df85b9ff606ad',
+		        description: '{{ product.title }}',
+		        insertion: 'after',
+		        element: '.productView-options',
+		        margin:'1rem 0',
+		        priceElement: '.price--actual',
+		        amount: '{{ product.price.with_tax.value }}', //use if priceElement not set
+		        financeFilter:getFinanceFilter('{{ product.title }}')
+		    });
+		});
+		function getFinanceFilter(productDesc) 
+		{
+		 
+            const tiers = {
+                'Tier 1' : ['Sale'],
+                'Tier 2' : ['| Evil', '| Yeti'],
+                'Tier 3' : ['| Cube', '| Gocycle', '| Mondraker', '| Whyte', '| Transition', '| Moustache', '| Marin'],
+                'Tier 4' : ['| Trek', '| Nukeproof', '| Ragley', '| NS Bikes', '| Orbea'],
+                'Tier 5' : ['Evil', 'Yeti'],
+                'Tier 6' : ['Cube', 'Gocycle', 'Mondraker', 'Whyte', 'Transition', 'Moustache', 'Marin'],
+                'Tier 7' : ['Trek', 'Nukeproof', 'Ragley', 'NS Bikes', 'Orbea'],
+            };
+            var filter;
+        
+            for (var key in tiers) {
+                const filterFinder = tiers[key].some(element => {
+                    if (productDesc.includes(element)) {
+                        return true;
+                    }
+                });
+                if (filterFinder) {
+                    filter = key;
+                    break;
+                }
+            }
+            if (!filter) {
+                filter = 'ALL';
+            }
+		    return filter;
+		}
+		jQuery.noConflict(true);
+</script>  -->
+<!-- <script type="text/javascript">
+	jQuery("#imega-widget").appendTo('#imega-widget-anchor')    
+</script> -->
