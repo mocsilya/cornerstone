@@ -13,7 +13,7 @@
 					        {{/with}}
 					    {{/each}}
 						<th class="th-stock">Stock</th>
-					    <th class="th-price">Price{{#if product.price.without_tax}} (Ex. {{settings.tax_label}}){{/if}}</th>
+					    <th class="th-price">Price{{#if product.price.without_tax}} (Ex.{{else}} (Inc.{{/if}} {{settings.tax_label}})</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -38,7 +38,13 @@
 									<span class="td-stock-text">Currently Unavailable</span>
 								{{/if}}
 							</td>
-					        <td class="td-price">{{prices.price.formatted}}</td>
+					        <td class="td-price">
+								{{#if ../product.price.without_tax}}
+									{{exclTax.price.formatted}}
+								{{else}}
+									{{inclTax.price.formatted}}
+								{{/if}}
+							</td>
 					    {{/with}}
 					</tr>
 				{{/each}}
