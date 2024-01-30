@@ -8,8 +8,11 @@
 	{{/if}}
 {{/filter}}
 <span class="form-action-buttons form-action-buttons-2">
-	<a id="form-action-cycle" href="/cycle-to-work-pre-order/?make={{hyphenate product.brand.name}}&model={{hyphenate product.title}}&price=£{{product.price.with_tax.value}}">
+	<a id="form-action-cycle" href="/cycle-to-work-pre-order/?make={{hyphenate product.brand.name}}&model={{hyphenate product.title}}">
 		<span><strong>Cycle To Work</strong> Reservation</span>
+	</a>
+	<a id="form-action-preorder" href="/pre-order-now-to-avoid-disappointment/?make={{hyphenate product.brand.name}}&model={{hyphenate product.title}}">
+		<span><strong>Pre Order</strong> Reserve with £200</span>
 	</a>
 </span>
 <div class="klarna-promo">

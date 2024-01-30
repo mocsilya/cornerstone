@@ -1,48 +1,97 @@
+{{#and product.price.price_range (if theme_settings.price_ranges '==' true)}}
 <script>
-	const priceDiv = document.querySelectorAll(".productView-price .price-section--withTax .price--withTax")[0];
-	priceDiv.style.opacity = "0";
-	let arr = [];
+let arr = [];
+{{#or (if product.brand.name '===' 'Orbea') (if product.brand.name '===' 'Santa Cruz')}}
 	{{#each gql.data.site.product.variants.edges}}
-		    {{#with node}}
-		        {{#each productOptions.edges}}
-		            {{#with node}}
-		                {{#each values.edges}}
-		                    {{#with node}}
-		                        {{#contains label "In Stock"}}
-									const findOption{{dashcase (lowercase (sanitize ../../../../sku))}} = document.querySelectorAll(".productView-options .form-field-{{dashcase (lowercase (sanitize ../../displayName))}} .form-select .form-select-option-{{dashcase (lowercase (sanitize label))}}");
-									if (findOption{{dashcase (lowercase (sanitize ../../../../sku))}}.length > 0) {
-										arr.push('{{../../../../inclTax.price.value}}');
-									}
-		                    	{{/contains}}
-							{{/with}}
-		                {{/each}}
-		            {{/with}}
-		        {{/each}}
-		    {{/with}}
+	    {{#with node}}
+	        {{#each productOptions.edges}}
+	            {{#with node}}
+	                {{#each values.edges}}
+	                    {{#with node}}
+		                    {{#contains label "Ready To Dispatch"}}
+							    // {{dashcase (lowercase (sanitize ../../../../sku))}}
+							    if (document.querySelectorAll(".productView-options .form-field-{{dashcase (lowercase (sanitize ../../displayName))}} .form-select .form-select-option-{{dashcase (lowercase (sanitize label))}}").length > 0) {
+								    arr.push('{{../../../../inclTax.price.value}}');
+								    }
+		                    {{/contains}}
+						{{/with}}
+	                {{/each}}
+	            {{/with}}
+	        {{/each}}
+	    {{/with}}
 	{{/each}}
-	//console.log(arr);
+	{{else}}
+	{{#each gql.data.site.product.variants.edges}}
+	    {{#with node}}
+	        {{#each productOptions.edges}}
+	            {{#with node}}
+	                {{#each values.edges}}
+	                    {{#with node}}
+		                    {{#contains label "In Stock"}}
+							    // {{dashcase (lowercase (sanitize ../../../../sku))}}
+							    if (document.querySelectorAll(".productView-options .form-field-{{dashcase (lowercase (sanitize ../../displayName))}} .form-select .form-select-option-{{dashcase (lowercase (sanitize label))}}").length > 0) {
+								    arr.push('{{../../../../inclTax.price.value}}');
+								    }
+		                    {{/contains}}
+						{{/with}}
+	                {{/each}}
+	            {{/with}}
+	        {{/each}}
+	    {{/with}}
+	{{/each}}
+{{/or}}
+console.log(arr);
+	
+if (arr.length) {
+	const priceDiv = document.querySelectorAll(".productView-price .price-section--withTax .price--withTax")[0];
+	if (priceDiv.innerText.includes(' - ')) {
+		priceDiv.style.opacity = "0";
+	}
 	const priceMinMath = Math.min.apply(Math, arr);
 	const priceMin = (Math.round(priceMinMath * 100) / 100).toFixed(2);
 	function numberWithCommas(x) {
 		return x.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ",");
 	}
 	const priceFormatted = "{{#if currency_selector.active_currency_code '==' 'GBP'}}£{{else if currency_selector.active_currency_code '==' 'CAD'}}${{else if currency_selector.active_currency_code '==' 'AUD'}}${{else if currency_selector.active_currency_code '==' 'USD'}}${{else}}€{{/if}}" + numberWithCommas(priceMin);
-	
 	const priceRange = priceDiv.innerText;
-	const priceTrim = priceRange.substring(priceRange.indexOf(" - ") + 1);
+	const priceTrim = priceRange.substring(priceRange.indexOf(' - ') + 1);
 	const priceMax = priceRange.substring(priceRange.indexOf('-') + 2);
+	console.log(priceMin);
+	console.log(priceTrim);
+	console.log(priceMax);
 	let priceUpdate;
 	if (priceFormatted == priceMax) {
 		priceUpdate = priceFormatted;
 	} else {
 		priceUpdate = priceFormatted + " " + priceTrim;
 	}
+	const priceSaved = document.querySelectorAll(".productView-price .price-section--saving .price--saving")[0];
+	const priceSavedCheck = priceSaved.innerText;
+	const priceRRP = document.querySelectorAll(".productView-price .price-section--withTax .price--rrp")[0];
+	const priceRRPCheck = priceRRP.innerText;
+	
+	let priceSavedFormatted;
+	if (!priceSavedCheck.trim().length && !priceRRPCheck.trim().length) {
+		console.log('No RRP / Saving');
+		priceSavedFormatted = false;
+	} else {
+		console.log('RRP found');
+		const priceRRPValue = priceRRP.innerText.replace(/[^0-9.]/g, '');
+		const priceSavedMath = priceRRPValue - priceMin;
+		const priceSavedValue = (Math.round(priceSavedMath * 100) / 100).toFixed(2);
+		priceSavedFormatted = "{{#if currency_selector.active_currency_code '==' 'GBP'}}£{{else if currency_selector.active_currency_code '==' 'CAD'}}${{else if currency_selector.active_currency_code '==' 'AUD'}}${{else if currency_selector.active_currency_code '==' 'USD'}}${{else}}€{{/if}}" + numberWithCommas(priceSavedValue);
+	}
+	console.log(priceSavedFormatted);
 	setTimeout(function() {
-		priceDiv.innerHTML = priceUpdate;
 		priceDiv.style.opacity = "1";
+		priceDiv.innerHTML = priceUpdate;
+		if (priceSavedFormatted) {
+			priceSaved.innerHTML = priceSavedFormatted;
+		}
 	}, 1500);
+}
 </script>
-
+{{/and}}
 <script>
 var timePrice = 0;
 var formSelect = document.querySelectorAll(".productView-options .form-select, .productView-options .form-radio");
@@ -76,6 +125,17 @@ for (let i = 0; i < formSelect.length; i++) {
 			} else {
 				if (alertBoxLink) {
 					alertBoxLink.remove();
+				}
+			}
+			//Pre Order In Stock
+			if (formSelect[i].classList.contains('form-select-size')) {
+				const selectValue = formSelect[i].options[formSelect[i].selectedIndex].getAttribute('aria-label');
+				const selectPhrase = "In Stock";
+				const instockButton = document.getElementById("form-action-preorder");
+				if (selectValue.includes(selectPhrase)) {
+					instockButton.style.display = 'flex';
+				} else {
+					instockButton.style.display = 'none';
 				}
 			}
 	    }, 1000);
