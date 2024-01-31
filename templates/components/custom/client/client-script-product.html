@@ -40,8 +40,7 @@ let arr = [];
 	    {{/with}}
 	{{/each}}
 {{/or}}
-console.log(arr);
-	
+
 if (arr.length) {
 	const priceDiv = document.querySelectorAll(".productView-price .price-section--withTax .price--withTax")[0];
 	if (priceDiv.innerText.includes(' - ')) {
@@ -56,9 +55,6 @@ if (arr.length) {
 	const priceRange = priceDiv.innerText;
 	const priceTrim = priceRange.substring(priceRange.indexOf(' - ') + 1);
 	const priceMax = priceRange.substring(priceRange.indexOf('-') + 2);
-	console.log(priceMin);
-	console.log(priceTrim);
-	console.log(priceMax);
 	let priceUpdate;
 	if (priceFormatted == priceMax) {
 		priceUpdate = priceFormatted;
@@ -72,16 +68,13 @@ if (arr.length) {
 	
 	let priceSavedFormatted;
 	if (!priceSavedCheck.trim().length && !priceRRPCheck.trim().length) {
-		console.log('No RRP / Saving');
 		priceSavedFormatted = false;
 	} else {
-		console.log('RRP found');
 		const priceRRPValue = priceRRP.innerText.replace(/[^0-9.]/g, '');
 		const priceSavedMath = priceRRPValue - priceMin;
 		const priceSavedValue = (Math.round(priceSavedMath * 100) / 100).toFixed(2);
 		priceSavedFormatted = "{{#if currency_selector.active_currency_code '==' 'GBP'}}£{{else if currency_selector.active_currency_code '==' 'CAD'}}${{else if currency_selector.active_currency_code '==' 'AUD'}}${{else if currency_selector.active_currency_code '==' 'USD'}}${{else}}€{{/if}}" + numberWithCommas(priceSavedValue);
 	}
-	console.log(priceSavedFormatted);
 	setTimeout(function() {
 		priceDiv.style.opacity = "1";
 		priceDiv.innerHTML = priceUpdate;
