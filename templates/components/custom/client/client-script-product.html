@@ -1,26 +1,6 @@
 {{#and product.price.price_range (if theme_settings.price_ranges '==' true)}}
 <script>
 let arr = [];
-{{#or (if product.brand.name '===' 'Orbea') (if product.brand.name '===' 'Santa Cruz')}}
-	{{#each gql.data.site.product.variants.edges}}
-	    {{#with node}}
-	        {{#each productOptions.edges}}
-	            {{#with node}}
-	                {{#each values.edges}}
-	                    {{#with node}}
-		                    {{#contains label "Ready To Dispatch"}}
-							    // {{dashcase (lowercase (sanitize ../../../../sku))}}
-							    if (document.querySelectorAll(".productView-options .form-field-{{dashcase (lowercase (sanitize ../../displayName))}} .form-select .form-select-option-{{dashcase (lowercase (sanitize label))}}").length > 0) {
-								    arr.push('{{../../../../inclTax.price.value}}');
-								    }
-		                    {{/contains}}
-						{{/with}}
-	                {{/each}}
-	            {{/with}}
-	        {{/each}}
-	    {{/with}}
-	{{/each}}
-	{{else}}
 	{{#each gql.data.site.product.variants.edges}}
 	    {{#with node}}
 	        {{#each productOptions.edges}}
@@ -39,7 +19,6 @@ let arr = [];
 	        {{/each}}
 	    {{/with}}
 	{{/each}}
-{{/or}}
 
 if (arr.length) {
 	const priceDiv = document.querySelectorAll(".productView-price .price-section--withTax .price--withTax")[0];

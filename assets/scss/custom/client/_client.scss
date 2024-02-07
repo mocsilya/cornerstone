@@ -224,30 +224,49 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	display: none;
 }
 
+.page-default .custom-widget-blocks.custom-widget-brand-logo .custom-widget-list {
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-left: 0;
+	margin-right: 0;
+	margin-bottom: .5rem;
+}
+
+
+.page-default .custom-widget-blocks.custom-widget-brand-logo .custom-widget-item {
+	padding: 1px;
+	min-width: 50%;
+	@include breakpoint("small") {
+		min-width: 25%;
+	}
+	@include breakpoint("medium") {
+		min-width: 12.5%;
+	}
+}
+
+.page-default .custom-widget-blocks.custom-widget-brand-logo .custom-widget-link {
+	padding: 0 0 60% 0;
+}
+
+.page-default .custom-widget-blocks.custom-widget-brand-logo .custom-widget-image {
+	width: calc(100% - 2rem);
+}
+
+.page-default .custom-widget-blocks.custom-widget-brand-logo .widget-brand-mondraker .custom-widget-image {
+	width: 40%;
+}
+
 
 
 // Hero Carousel
 // =============================================================================
 
-
+/*
 .heroCarousel {
 	margin-bottom: 1.5rem;
 }
 
-.heroCarousel-title {
-	@include breakpoint("medium") {
-		padding: 0.5rem 1rem;
-		font-size: 1.5rem;
-	}
-}
 
-.heroCarousel-description,
-.heroCarousel-action {
-	@include breakpoint("medium") {
-		padding: 0.5rem 1rem;
-		font-size: 1rem;
-	}
-}
 
 .page-default .container-hero {
 	display: flex;
@@ -371,6 +390,8 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	}
 }
 
+*/
+
 .carousel-links {
 	padding: 0 .75rem;
 }
@@ -439,6 +460,7 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	}
 }
 
+
 .carousel-international-mob {
 	@include breakpoint("medium") {
 		display: none;
@@ -450,6 +472,178 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	@include breakpoint("medium") {
 		display: block;
 	}
+}
+
+
+.page-default .container-hero {
+	padding: 1.5rem;
+	max-width: calc(1440px + 3rem);
+	@include breakpoint("medium") {
+		padding-bottom: 0;
+	}
+}
+
+.heroOuter {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -.75rem;
+}
+
+@media (min-width: 768px) {
+	.heroOuter {
+		margin: 0 -.5rem;
+		flex-wrap: nowrap;
+	}
+}
+
+.heroLeft,
+.heroCarousel,
+.heroRight {
+	box-sizing: content-box;
+	position: relative;
+	height: 0;
+}
+
+.heroLeft {
+	width: 50%;
+	order: 2;
+	padding-bottom: calc(50% - 1.5rem);
+}
+
+@media (min-width: 768px) {
+	.heroLeft {
+		width: 25%;
+		order: 1;
+		padding-bottom: calc(25% - 1rem);
+	}
+}
+
+.heroCarousel {
+	width: 100%;
+	order: 1;
+	padding-bottom: calc(50% - .75rem);
+	margin-bottom: 1.5rem;
+	z-index: 0;
+	min-width: 0;
+}
+
+@media (min-width: 768px) {
+	.heroCarousel {
+		width: 50%;
+		order: 2;
+		padding-bottom: calc(25% - 1rem);
+		margin-bottom: 0;
+	}
+}
+
+.heroRight {
+	width: 50%;
+	order: 3;
+	padding-bottom: calc(50% - 1.5rem);
+}
+
+@media (min-width: 768px) {
+	.heroRight {
+		width: 25%;
+		padding-bottom: calc(25% - 1rem);
+	}
+}
+
+.heroCarousel .slick-arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 3rem;
+	width: 3rem;
+	padding: 1rem;
+	text-align: center;
+	background: #fff;
+	z-index: 1;
+	border-radius: 1.5rem;
+	font-weight: 600;
+}
+
+.heroCarousel .slick-prev {
+	left: -.75rem;
+	@include breakpoint("medium") {
+		left: -.5rem;
+	}
+}
+
+.heroCarousel .slick-next {
+	right: -.75rem;
+	@include breakpoint("medium") {
+		right: -.5rem;
+	}
+}
+
+.hero-inner, .slick-list {
+	display: flex;
+	background-color: rgba(0,0,0,0.25);
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: .75rem;
+	left: .75rem;
+}
+
+.hero-inner {
+	flex-direction: column;
+}
+
+.hero-inner > div {
+	flex: 1 1 0px;
+}
+
+
+@media (min-width: 768px) {
+	.heroLeft .hero-inner,
+	.heroRight .hero-inner {
+		right: .5rem;
+		left: .5rem;
+	}
+	
+	.heroCarousel .slick-list {
+		right: 1rem;
+		left: 1rem;
+	}
+}
+
+.heroCarousel-content.heroCarousel-content--empty,
+.heroCarousel-content {
+	position: absolute;
+	top: auto;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transform: none;
+	background: none;
+	padding: .5rem;
+}
+
+.heroCarousel-title {
+	@include breakpoint("medium") {
+		padding: 0.5rem 1rem;
+		font-size: 1.5rem;
+	}
+}
+
+.heroCarousel-description,
+.heroCarousel-action,
+.heroCarousel-action:hover {
+	padding: 0.25rem .75rem;
+	@include breakpoint("medium") {
+		padding: 0.5rem 1rem;
+		font-size: 1rem;
+	}
+}
+
+.heroCarousel-button {
+	padding: .5rem;
+}
+
+.heroCarousel-action {
+	border-radius: 2rem;
 }
 
 
