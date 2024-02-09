@@ -1,0 +1,32 @@
+<li class="navUser-item navUser-item--flag">
+            <a class="navUser-action navUser-action--flag has-dropdown" href="#" data-dropdown="flagDropdown" aria-controls="flagDropdown" aria-expanded="true" aria-label="Flag">
+				<span class="navUser-icon navUser-icon-{{currency_selector.active_currency_code}}">
+					<i class="icon" aria-hidden="true">
+						{{#if currency_selector.active_currency_code '==' 'EUR'}}
+							<img src="{{cdn '/assets/img/custom/flag-es.svg'}}" height="28" width="28" alt="Spanish Flag"/>
+						{{else}}
+							<img src="{{cdn '/assets/img/custom/flag-gb.svg'}}" height="28" width="28" alt="UK Flag"/>
+						{{/if}}
+					</i></span>
+				<span class="navUser-text">
+						Location
+	            	<i class="icon" aria-hidden="true">
+	                	<svg>
+	                    	<use xlink:href="#icon-chevron-down"></use>
+	                	</svg>
+	            	</i>
+				</span>
+            </a>
+			<ul class="dropdown-menu f-open-dropdown" id="flagDropdown" data-dropdown-content="" aria-hidden="false" tabindex="-1">
+				<li class="dropdown-menu-item">
+	                <a href="https://handle-it.es{{settings.request.absolute_path}}" aria-label="Spain">
+	                    Spain
+	                </a>
+				</li>
+				<li class="dropdown-menu-item">
+                    <a href="https://handle-it.com{{settings.request.absolute_path}}" aria-label="United Kingdom">
+                        United Kingdom
+                    </a>
+				</li>
+	        </ul>
+</li>

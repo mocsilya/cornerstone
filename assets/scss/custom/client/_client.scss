@@ -48,6 +48,15 @@ header.header {
 	}
 }
 
+.header-logo-image {
+	@include breakpoint("medium") {
+		max-width: 240px;
+	}
+	@include breakpoint("large") {
+		max-width: 320px;
+	}
+}
+
 
 
 // =============================================================================
@@ -176,7 +185,30 @@ body.scroll .navUser-item--custom strong {
 	fill: #fff;
 }
 
+.navUser-item--flag {
+	display: inline-block;
+}
 
+.navUser-item--flag .navUser-icon .icon {
+	border: 1px solid stencilColor("navUser-color");
+	overflow: hidden;
+	border-radius: 1.5rem;
+	@include breakpoint("large") {
+		border: 2px solid stencilColor("navUser-color");
+		border-radius: 2rem;
+	}
+}
+
+.navUser-item--flag .navUser-icon img {
+	height: calc(1.5rem - 2px);
+	width: calc(1.5rem - 2px);
+	display: block;
+	margin: 0;
+	@include breakpoint("large") {
+		height: calc(2rem - 4px);
+		width: calc(2rem - 4px);
+	}
+}
 
 // =============================================================================
 // Nav Pages
@@ -603,6 +635,16 @@ body.scroll .navUser-item--custom strong {
 // PDP
 // =============================================================================
 
+
+.product-brand-logo {
+	margin-bottom: 1rem;
+}
+
+.product-brand-logo img {
+	height: 55px;
+	width: auto;
+}
+
 .productView-image .easyzoom-flyout {
 	display: none !important;
 }
@@ -664,8 +706,8 @@ body.scroll .navUser-item--custom strong {
 .page-product .price-section--withoutTax .price,
 .page-product .price-section--withoutTax abbr {
 	color: #222;
-}
 
+}
 .page-product .price-section--withTax .price,
 .page-product .price-section--withTax abbr {
 	color: #666;
