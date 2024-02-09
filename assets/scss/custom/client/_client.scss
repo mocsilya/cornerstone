@@ -210,6 +210,26 @@ body.scroll .navUser-item--custom strong {
 	}
 }
 
+.navUser .navUser-item--flag ul {
+	padding:  0.5rem 0;
+}
+
+.navUser .navUser-item--flag ul li.dropdown-menu-item {
+	padding:  0.28571rem 1.14286rem;
+}
+
+.navUser-item--flag .dropdown-menu-item a,
+.navUser-item--flag .dropdown-menu-item a:first-child,
+.navUser-item--flag .dropdown-menu-item strong {
+	display: block;
+	padding: 0;
+}
+
+.navUser-item--flag .dropdown-menu-item strong {
+	cursor: default;
+}
+
+
 // =============================================================================
 // Nav Pages
 // =============================================================================
