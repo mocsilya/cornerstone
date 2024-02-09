@@ -17,16 +17,22 @@ customer:
 gql: "query productById($productId: Int!) {
     site {
         product(entityId: $productId) {
-            variants {
+            variants(first: 99) {
                 edges {
                     node {
                         sku
-                        prices {
+                        inclTax: prices(includeTax: true) {
                             price {
                                 value
                                 formatted
                             }
-                        }
+						}
+						exclTax: prices(includeTax: false) {
+                        	price {
+                            	value
+                            	formatted
+                        	}
+						}
 						isPurchasable
 						inventory {
 						    aggregated {

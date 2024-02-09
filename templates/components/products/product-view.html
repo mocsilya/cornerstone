@@ -464,23 +464,37 @@
 {{/if}}
 {{#filter product.custom_fields '_imageset' property='name'}}
 <script>
-const timeDelay = 0;
+let timeDelay = 0;
 const formOptions = document.querySelectorAll(".productView-options .form-field-{{dashcase value}} .form-select, .productView-options .form-field-{{dashcase value}} .form-radio");
 for (let i = 0; i < formOptions.length; i++) {
 	formOptions[i].addEventListener("change", function() {
 		clearTimeout(timeDelay);
 	    timeDelay = setTimeout(function() {
 			// Hide Images not in Set
-			const imageSet = formOptions[i].getAttribute('aria-label');
+			let imageSet;
+			if (formOptions[i].classList.contains('form-select')) {
+				imageSet = formOptions[i].options[formOptions[i].selectedIndex].getAttribute('aria-label');
+			} else {
+				imageSet = formOptions[i].getAttribute('aria-label');
+			}
 			const imageList = document.querySelectorAll('.productView-thumbnail');
 			imageList.forEach((imageItem) => {
 				const imageData = imageItem.getAttribute('data-image-set');
-				if (imageData === imageSet) {
+				if (imageSet === 'None') {
 					imageItem.style.display = 'block';
 				} else {
-					imageItem.style.display = 'none';
+					if (imageData === imageSet) {
+						imageItem.style.display = 'block';
+					} else {
+						imageItem.style.display = 'none';
+					}
 				}
 			});
+			const findSlick = document.querySelectorAll('.productView-thumbnails.slick-initialized .slick-track');
+			const isSlick = findSlick[0];
+			if (findSlick.length > 0) {
+				isSlick.style.transform = 'translate3d(0px, 0px, 0px)';
+			}
 	    }, 750);
 	});
 }
