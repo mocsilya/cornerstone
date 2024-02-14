@@ -577,7 +577,7 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	}
 }
 
-.hero-inner, .slick-list {
+.hero-inner, .heroCarousel .slick-list {
 	display: flex;
 	background-color: rgba(0,0,0,0.25);
 	position: absolute;
@@ -1660,6 +1660,11 @@ body.currency-usd .productView:not(.show-usd):not(.show-all) .productView-option
 // Product Page
 // =============================================================================
 
+.productView-details {
+    @include breakpoint("large") {
+		clear: none;
+	}
+}
 
 .productView-description-underneath {
 	margin-top: 0;
@@ -1667,6 +1672,14 @@ body.currency-usd .productView:not(.show-usd):not(.show-all) .productView-option
 
 .productView-details.product-data {
 	padding-bottom: 0;
+}
+
+div[data-content-region="product_view_bottom"],
+div[data-content-region="product_view_bottom--global"] {
+    @include breakpoint("large") {
+		width: 60%;
+		clear: none;
+	}
 }
 
 /*
@@ -1788,6 +1801,37 @@ body.currency-usd .productView:not(.show-usd):not(.show-all) .productView-option
 .form-action-buttons #form-action-finance,
 .page-product #imega-widget-anchor {
 	display: none;
+}
+
+.productView-wrap:not(.payment-product) .productView-description.productView-description-underneath.productView-description-large {
+    @include breakpoint("large") {
+		width: 60%;
+	}
+}
+
+.productView-wrap:not(.payment-product) .tabs-contents #tab-description,
+.productView-wrap:not(.payment-product) .tabs-contents #tab-description div,
+.productView-wrap:not(.payment-product) .tabs-contents #tab-description h1,
+.productView-wrap:not(.payment-product) .tabs-contents #tab-description h2,
+.productView-wrap:not(.payment-product) .tabs-contents #tab-description h3,
+.productView-wrap:not(.payment-product) .tabs-contents #tab-description h4,
+.productView-wrap:not(.payment-product) .tabs-contents #tab-description p,
+.productView-wrap:not(.payment-product) .tabs-contents #tab-description ul,
+.productView-wrap:not(.payment-product) .tabs-contents #tab-description ol,
+.productView-wrap:not(.payment-product) .tabs-contents #tab-description li {
+    text-align: left !important;
+}
+
+.productView-wrap:not(.payment-product) .product-data.productView-details-fixed {
+	position: fixed;
+	top: 1.5rem;
+	left: 50%;
+}
+
+.productView-wrap:not(.payment-product) .product-options.productView-details-fixed  {
+	position: fixed;
+	top: 200px;
+	left: 50%;
 }
 
 
