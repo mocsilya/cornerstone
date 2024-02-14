@@ -7,6 +7,14 @@ export default function () {
 		$(".cart-terms").hide();
 	});
 	
+	/*
+	$(window).on('resize', function(){
+	    var win = $(this); //this = window
+	    if (win.width() > 1260) {
+	    	
+	    }
+	});
+	*/
 	if ($(window).width() > 1260) {	
 		
 		var totalWidth = $('.productView').outerWidth();
