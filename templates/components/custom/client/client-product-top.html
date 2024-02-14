@@ -31,13 +31,14 @@
 	<img width="110" height="55" src="https://cdn11.bigcommerce.com/s-xxojeye67l/images/stencil/2560w/l/camp-king-logo_1699453895__56058.original.png" alt="Camp King" title="Camp King">
 </div>
 {{/if}}
-<ul class="why-buy">
-	<li>Made in the UK.</li>
-	<li>Free Delivery to UK Mainland.</li>
+<ul class="why-buy">	
 	{{#each product.custom_fields}}
 	{{#if name '==' '_whybuy'}}
 	<li>{{value}}</li>
 	{{/if}}
 	{{/each}}
+	{{#contains settings.request.host ".com"}}
+		<li>Free Delivery on Orders Over £100 to the UK Mainland.</li>
+	{{/contains}}
 	<li>For Multi-Buy Discount or Custom Modifications, Call the Team Today!</li>
 </ul>
