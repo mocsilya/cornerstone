@@ -1822,16 +1822,12 @@ div[data-content-region="product_view_bottom--global"] {
     text-align: left !important;
 }
 
-.productView-wrap:not(.payment-product) .product-data.productView-details-fixed {
+.productView-wrap:not(.payment-product) .product-data.productView-details-fixed,
+.productView-wrap:not(.payment-product) .product-options.productView-details-fixed {
 	position: fixed;
 	top: 1.5rem;
 	left: 50%;
-}
-
-.productView-wrap:not(.payment-product) .product-options.productView-details-fixed  {
-	position: fixed;
-	top: 200px;
-	left: 50%;
+	background-color: #fff;
 }
 
 
