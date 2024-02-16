@@ -11,12 +11,20 @@
             </a>
 			<ul class="dropdown-menu" id="customDropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
 	            <li class="dropdown-menu-item">
+				{{#contains settings.request.host ".es"}}
+					<span>¿Necesitas ayuda? Llámanos al:</span>
+				{{else}}
 					<span>Need help? Call us on:</span>
+				{{/contains}}
 					<div><strong>{{settings.phone_number}}</strong></div>
 				</li>
 	        </ul>
         </li>
 		<li class="navUser-item navUser-item--custom navUser-item--custom-desktop">
+		{{#contains settings.request.host ".es"}}
+			<span>¿Necesitas ayuda? Llámanos al:</span>
+		{{else}}
 			<span>Need help? Call us on:</span>
+		{{/contains}}
 			<div><strong>{{settings.phone_number}}</strong></div>
 		</li>
