@@ -701,6 +701,24 @@ body.scroll .navUser-item--custom strong {
 	flex-wrap: wrap;
 }
 
+.productView .price-section.non-sale-price--withoutTax {
+	display: flex;
+	order: 3;
+	flex-direction: row;
+	flex: 1 0 50%;
+	justify-content: center;
+	padding-top: 0;
+}
+
+.productView .price-section.rrp-price--withoutTax {
+	display: flex;
+	order: 5;
+	flex-direction: row;
+	flex: 1 0 50%;
+	justify-content: center;
+	padding-top: 0;
+}
+
 .productView .price-section--withTax {
 	display: flex;
 	order: 2;
@@ -709,6 +727,33 @@ body.scroll .navUser-item--custom strong {
 	background-color: #ddd;
 	padding: .5rem;
 	flex-wrap: wrap;
+}
+
+.productView .price-section.non-sale-price--withTax {
+	display: flex;
+	order: 4;
+	flex-direction: row;
+	flex: 1 0 50%;
+	justify-content: center;
+	padding-top: 0;
+}
+
+.productView .price-section.rrp-price--withTax {
+	display: flex;
+	order: 6;
+	flex-direction: row;
+	flex: 1 0 50%;
+	justify-content: center;
+	padding-top: 0;
+}
+
+.productView .price-section.price-section--saving {
+	display: flex;
+	order: 7;
+	flex-direction: row;
+	flex: 1 0 100%;
+	justify-content: center;
+	padding-top: 0;
 }
 
 .productView .price-section--withoutTax abbr,
@@ -723,18 +768,36 @@ body.scroll .navUser-item--custom strong {
 	width: 100%;
 }
 
-.page-product .price-section--withoutTax .price,
-.page-product .price-section--withoutTax abbr {
-	color: #222;
-
+.productView .price-section.rrp-price--withoutTax span,
+.productView .price-section.rrp-price--withTax span,
+.productView .price-section.non-sale-price--withoutTax span,
+.productView .price-section.non-sale-price--withTax span {
+	width: auto;
 }
+
+.productView .price-section.rrp-price--withoutTax span.price--rrp,
+.productView .price-section.rrp-price--withTax span.price--rrp,
+.productView .price-section.non-sale-price--withoutTax span.price--non-sale,
+.productView .price-section.non-sale-price--withTax span.price--non-sale {
+	padding-left: 4px;
+}
+
+.page-product .price-section--withoutTax .price,
+.page-product .price-section--withoutTax abbr,
+.page-product .price-section--withoutTax span {
+	color: #222;
+}
+
 .page-product .price-section--withTax .price,
-.page-product .price-section--withTax abbr {
+.page-product .price-section--withTax abbr,
+.page-product .price-section--withTax span {
 	color: #666;
 }
 
+.page-product .price-now-label,
+.page-product .productView-brand,
 .page-product .productView-rating {
-	display: none;
+	display: none !important;
 }
 
 .productView-info-name.sku-label,

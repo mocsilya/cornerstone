@@ -37,8 +37,10 @@
 	<li>{{value}}</li>
 	{{/if}}
 	{{/each}}
-	{{#contains settings.request.host ".com"}}
+	{{#contains settings.request.host ".es"}}
+		<li>¿Necesitas ayuda? Llámanos al: {{settings.phone_number}}</li>
+	{{else}}
 		<li>Free Delivery on Orders Over £100 to the UK Mainland.</li>
+		<li>For Multi-Buy Discount or Custom Modifications, Call the Team Today!</li>
 	{{/contains}}
-	<li>For Multi-Buy Discount or Custom Modifications, Call the Team Today!</li>
 </ul>
