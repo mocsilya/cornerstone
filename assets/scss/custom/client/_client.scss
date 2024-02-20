@@ -27,12 +27,6 @@
 		display: none;
 	}
 	
-	.header-logo-image {
-		height: 40px;
-		max-height: 40px;
-		width: auto;
-		max-width: none;
-	}
 }
 
 body.scroll .header {
@@ -86,11 +80,6 @@ body.with-bar[zb-bar="show"] .header {
 // =============================================================================
 
 .navPages > ul > li > .navPages-action {
-
-}
-
-
-.navPages > ul > li > .navPages-action {
 	font-family: "Kanit", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	@include breakpoint("medium") {
@@ -130,6 +119,14 @@ body:not(.currency-gbp) .navPages > ul > li.navPages-item-category {
 
 // Nav User
 // =============================================================================
+
+@media (max-width: 550px) {	
+	.navUser-section--alt .navUser-action,
+	.navUser-section--norm .navUser-action {
+		padding-left: .25rem;
+		padding-right: .25rem;
+	}
+}
 
 
 .navUser-item--currency .dropdown-menu.is-open {
@@ -650,8 +647,228 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 // Category
 // =============================================================================
 
-.category-description p:first-child {
+.page-category.page-marin-rift-zone #main-content {
+	position: relative;
+}
+
+.page-category.page-marin-rift-zone .container-hero + .container {
+	position: static;
+}
+
+.category-description p:first-child,
+.category-description h1:first-child,
+.category-description h2:first-child,
+.category-description h3:first-child {
 	padding-top: 0;
+	margin-top: 0;
+}
+
+.page-category.page-marin-rift-zone .category-description,
+.page-category.page-marin-rift-zone .category-description p,
+.page-category.page-marin-rift-zone .category-description h1,
+.page-category.page-marin-rift-zone .category-description h2,
+.page-category.page-marin-rift-zone .category-description h3 {
+	color: #fff;
+}
+
+.page-category.page-marin-rift-zone .category-description h1,
+.page-category.page-marin-rift-zone .category-description h2,
+.page-category.page-marin-rift-zone .category-description h3 {
+	display: none;
+	margin-bottom: .5rem;
+	@include breakpoint("large") {
+		display: block;
+	}
+}
+
+.page-category.page-marin-rift-zone .category-description p {
+	display: none;
+	margin-bottom: .5rem;
+	line-height: 1.2;
+	@include breakpoint("xlarge") {
+		display: block;
+	}
+}
+
+.page-category.page-marin-rift-zone .category-description {
+	width: calc(100% - 3rem);
+	position: absolute;
+	text-align: center;
+	top: calc(25vw + 3.25rem);
+	z-index: 2;
+	@include breakpoint("medium") {
+		position: absolute;
+		width: 35%;
+		text-align: left;
+		top: 4rem;
+	}
+	@include breakpoint("large") {
+		top: 4.5rem;
+		left: 6rem;
+	}
+	@include breakpoint("xlarge") {
+		top: 5.5rem;
+		left: 6rem;
+	}
+}
+
+.page-category.page-marin-rift-zone .category-description-button {
+	display: none;
+}
+
+.page-category.page-marin-rift-zone .category-description-trim.is-closed {
+	height: auto;
+	mask: none;
+}
+
+.page-category.page-marin-rift-zone .category-action a.scroll-click,
+.page-category.page-marin-rift-zone .category-action a.scroll-click:hover {
+	background-color: #7fb24c;
+	border-radius: 3rem;
+	font-weight: 700;
+	padding: .75rem 1.5rem;
+}
+
+.page-category.page-marin-rift-zone #catinfo {
+	padding: 1rem 0;
+	text-align: center;
+	margin: 0;
+	@include breakpoint("large") {
+		display: flex;
+		text-align: left;
+	}
+}
+
+
+.page-category.page-marin-rift-zone div[data-content-region="category_below_all"] div[data-layout-name="Layout"] div[data-sub-layout] {
+	flex-basis: 100% !important;
+	max-width: 100% !important;
+	@include breakpoint("medium") {
+		flex-basis: 50% !important;
+		max-width: 50% !important;
+	}
+	@include breakpoint("large") {
+		flex-basis: 33.333333% !important;
+		max-width: 33.333333% !important;
+	}
+}
+
+.page-category.page-marin-rift-zone div[data-content-region="category_below_all"] div[data-layout-name="Layout"] div[data-sub-layout]:first-of-type {
+	@include breakpoint("medium") {
+		flex-basis: 100% !important;
+		max-width: 100% !important;
+	}
+	@include breakpoint("large") {
+		flex-basis: 33.333333% !important;
+		max-width: 33.333333% !important;
+		flex-direction: row;
+	}
+}
+
+.page-category.page-marin-rift-zone div[data-content-region="category_below_all"] div[data-layout-name="Layout"] div[data-sub-layout]:first-of-type div {
+	border-top: 2px solid #7fb24c;
+	border-bottom: 2px solid #7fb24c;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	@include breakpoint("large") {
+		display: flex;
+		align-items: center;
+	}
+}
+
+
+
+// =============================================================================
+// Page Header
+// =============================================================================
+
+
+.page-category.page-marin-rift-zone .page-header.page-header-image {
+	padding-top: 0 !important;
+	padding-bottom: 3.5rem !important;
+	background-color: #333;
+	@include breakpoint("medium") {
+	    padding-bottom: 0 !important;
+	}
+}
+
+.page-category.page-marin-rift-zone .page-header.page-header-image:before {
+	@include breakpoint("medium") {
+	    content: '';
+	    position: absolute;
+	    top: 0;
+	    left: 39%;
+	    height: 100%;
+	    z-index: 3;
+		width: 60%;
+		background-color: #7fb24c;
+		-webkit-clip-path: polygon(15% 0, 17% 0, 2% 100%, 0% 100%);
+		clip-path: polygon(15% 0, 17% 0, 2% 100%, 0% 100%);
+	}
+}
+
+.page-category.page-marin-rift-zone .page-header.page-header-image img {
+	transform: none;
+	position: static;
+	@include breakpoint("medium") {
+		display: inline-block;
+		float: right;
+		width: 60%;
+		height: auto;
+		-webkit-clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+		clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+	}
+}
+
+.page-category.page-marin-rift-zone .page-header.page-header-image .page-heading {
+	text-transform: uppercase;
+	margin-left: 0;
+	margin-right: 0;
+	padding-top: .75rem;
+	color: #fff;
+	background-color: #333;
+	padding-bottom: .75rem;
+	border-top: 8px solid #7fb24c;
+	@include breakpoint("medium") {
+		padding-top: 1rem;
+		padding-left: 3rem;
+		border-top: 10px solid #7fb24c;
+		margin-right: calc(50.8% + 10px);
+		text-align: left;
+		background: url('../img/custom/cat-icon.png') 3rem 10px no-repeat;
+		background-size: 60px, 60px;
+	}
+	@include breakpoint("large") {
+		padding-top: 1.25rem;
+		padding-left: 6rem;
+		font-size: 30px;
+		border-top: 12px solid #7fb24c;
+	}
+	@include breakpoint("xlarge") {
+		padding-top: 1.5rem;
+		border-top: 14px solid #7fb24c;
+		font-size: 40px;
+	}
+}
+
+.page-category.page-marin-rift-zone .page-header.page-header-image nav {
+	@include breakpoint("medium") {
+		margin: 0 60% 0 0;
+	}
+}
+
+.page-category.page-marin-rift-zone .page-header.page-header-image .page-heading + nav .breadcrumbs {
+	background: none;
+	@include breakpoint("medium") {
+		text-align: left;
+		margin: 0;
+		padding-left: 3rem;
+	}
+	@include breakpoint("large") {
+		text-align: left;
+		margin: 0;
+		padding-left: 6rem;
+	}
 }
 
 
