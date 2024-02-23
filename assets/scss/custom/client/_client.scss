@@ -122,13 +122,22 @@ body.scroll .navPages > ul > li > .navPages-action {
 		border-top: 2px solid #333;
 	}
 }
-/*
+
 .header-logo-image {
     @include breakpoint("medium") {
-		min-width: 250px;
+		max-width: 214px;
+		max-height: 33px;
+		min-width: 214px;
+		min-height: 33px;
+	}
+    @include breakpoint("large") {
+		max-width: 325px;
+		max-height: 50px;
+		min-width: 325px;
+		min-height: 50px;
 	}
 }
-*/
+
 .header-logo__link {
     @include breakpoint("small") {
 		padding-left: 90px;
@@ -574,13 +583,14 @@ div[data-content-region="blog_banner"] div > div > div {
 	text-align: center;
 }
 
+/*
 .footer-info {
 	background-image: url('../img/custom/logo-leaf.png');
 	background-position: right bottom -14px;
 	background-repeat: no-repeat;
 	background-size: 50px;
 }
-
+*/
 
 
 // =============================================================================
