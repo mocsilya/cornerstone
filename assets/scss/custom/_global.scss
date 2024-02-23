@@ -874,6 +874,12 @@ body.scroll .header-logo-text {
 
 .navUser-action {
 	text-transform: none;
+	padding-left: .5rem;
+	padding-right: .5rem;
+	@include breakpoint("small") {
+		padding-left: 0.78571rem;
+		padding-right: 0.78571rem;
+	}
 	@include breakpoint("large") {
 		padding-top: .75rem;
 		padding-bottom: .75rem;
@@ -3338,6 +3344,11 @@ div[data-content-region="category_below_all"] {
 	font-size: 0;
 }
 
+.subcategories-grid-blockless {
+	display: flex;
+	flex-wrap: wrap;
+}
+
 .subcategories-grid-item {
 	vertical-align: top;
 	display: inline-block;
@@ -3359,11 +3370,30 @@ div[data-content-region="category_below_all"] {
 	}
 }
 
+.subcategories-grid-blockless .subcategories-grid-item {
+	display: flex;
+}
+
+.subcategories-grid-blockless .subcategories-container {
+	display: flex;
+	width: 100%;
+}
+
 .subcategories-grid-item a {
 	transition: .5s;
 	display: block;
 	text-decoration: none;
 	opacity: 1;
+}
+
+.subcategories-grid-blockless .subcategories-grid-item a {
+	display: flex;
+	flex: 1 0 0;
+	align-items: center;
+	justify-content: center;
+    border: $facetedSearch-toggle-border;
+    border-radius: $facetedSearch-toggle-borderRadius;
+    border-width: $facetedSearch-toggle-borderWidth;
 }
 
 .subcategories-grid-item a:hover {
@@ -3398,12 +3428,6 @@ div[data-content-region="category_below_all"] {
 	padding: .75rem;
 	font-weight: 700;
 	font-size: 1rem;
-}
-
-.subcategories-grid-blockless .subcategories-name {
-    border: $facetedSearch-toggle-border;
-    border-radius: $facetedSearch-toggle-borderRadius;
-    border-width: $facetedSearch-toggle-borderWidth;
 }
 
 .subcategories-above.subcategories--vertical {
@@ -3461,6 +3485,11 @@ div[data-content-region="category_below_all"] {
     border: $facetedSearch-toggle-border;
     border-radius: $facetedSearch-toggle-borderRadius;
     border-width: $facetedSearch-toggle-borderWidth;
+}
+
+.subcategories-above .subcategories-grid-blockless .subcategories-name {
+	border: 0;
+	text-align: center;
 }
 
 .subcategories-above .subcategories-grid-image .subcategories-name {
