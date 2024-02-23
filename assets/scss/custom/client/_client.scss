@@ -647,11 +647,11 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 // Category
 // =============================================================================
 
-.page-category.page-marin-rift-zone #main-content {
+.page-category #main-content {
 	position: relative;
 }
 
-.page-category.page-marin-rift-zone .container-hero + .container {
+.page-category .container-hero + .container {
 	position: static;
 }
 
@@ -663,17 +663,21 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	margin-top: 0;
 }
 
-.page-category.page-marin-rift-zone .category-description,
-.page-category.page-marin-rift-zone .category-description p,
-.page-category.page-marin-rift-zone .category-description h1,
-.page-category.page-marin-rift-zone .category-description h2,
-.page-category.page-marin-rift-zone .category-description h3 {
+.page-category .category-description,
+.page-category .category-description p,
+.page-category .category-description h1,
+.page-category .category-description h2,
+.page-category .category-description h3 {
 	color: #fff;
+	text-align: center !important;
+	@include breakpoint("medium") {
+		text-align: left !important;
+	}
 }
 
-.page-category.page-marin-rift-zone .category-description h1,
-.page-category.page-marin-rift-zone .category-description h2,
-.page-category.page-marin-rift-zone .category-description h3 {
+.page-category .category-description h1,
+.page-category .category-description h2,
+.page-category .category-description h3 {
 	display: none;
 	margin-bottom: .5rem;
 	@include breakpoint("large") {
@@ -681,20 +685,39 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	}
 }
 
-.page-category.page-marin-rift-zone .category-description p {
+.page-category .category-description p {
 	display: none;
 	margin-bottom: .5rem;
 	line-height: 1.2;
+}
+
+.page-category .category-description p:first-child {
+	@include breakpoint("medium") {
+		display: block;
+	}
+}
+
+.page-category .category-description p:nth-child(2) {
 	@include breakpoint("xlarge") {
 		display: block;
 	}
 }
 
-.page-category.page-marin-rift-zone .category-description {
+.page-category .category-description p a {
+	color: #7fb24c;
+	text-decoration: none;
+}
+
+.page-category .category-description p a:hover {
+	color: #7fb24c;
+	text-decoration: underline;
+}
+
+.page-category .category-description {
 	width: calc(100% - 3rem);
 	position: absolute;
 	text-align: center;
-	top: calc(25vw + 3.25rem);
+	top: 2.7rem;
 	z-index: 2;
 	@include breakpoint("medium") {
 		position: absolute;
@@ -712,24 +735,15 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	}
 }
 
-.page-category.page-marin-rift-zone .category-description-button {
-	display: none;
-}
-
-.page-category.page-marin-rift-zone .category-description-trim.is-closed {
-	height: auto;
-	mask: none;
-}
-
-.page-category.page-marin-rift-zone .category-action a.scroll-click,
-.page-category.page-marin-rift-zone .category-action a.scroll-click:hover {
+.page-category .category-action a.scroll-click,
+.page-category .category-action a.scroll-click:hover {
 	background-color: #7fb24c;
 	border-radius: 3rem;
 	font-weight: 700;
-	padding: .75rem 1.5rem;
+	padding: .5rem 1.5rem;
 }
 
-.page-category.page-marin-rift-zone #catinfo {
+.page-category #catinfo {
 	padding: 1rem 0;
 	text-align: center;
 	margin: 0;
@@ -740,7 +754,7 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 }
 
 
-.page-category.page-marin-rift-zone div[data-content-region="category_below_all"] div[data-layout-name="Layout"] div[data-sub-layout] {
+.page-category div[data-content-region="category_below_all"] div[data-layout-name="Layout"] div[data-sub-layout] {
 	flex-basis: 100% !important;
 	max-width: 100% !important;
 	@include breakpoint("medium") {
@@ -753,7 +767,7 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	}
 }
 
-.page-category.page-marin-rift-zone div[data-content-region="category_below_all"] div[data-layout-name="Layout"] div[data-sub-layout]:first-of-type {
+.page-category div[data-content-region="category_below_all"] div[data-layout-name="Layout"] div[data-sub-layout]:first-of-type {
 	@include breakpoint("medium") {
 		flex-basis: 100% !important;
 		max-width: 100% !important;
@@ -765,7 +779,7 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	}
 }
 
-.page-category.page-marin-rift-zone div[data-content-region="category_below_all"] div[data-layout-name="Layout"] div[data-sub-layout]:first-of-type div {
+.page-category div[data-content-region="category_below_all"] div[data-layout-name="Layout"] div[data-sub-layout]:first-of-type div {
 	border-top: 2px solid #7fb24c;
 	border-bottom: 2px solid #7fb24c;
 	margin-top: 1rem;
@@ -783,16 +797,16 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 // =============================================================================
 
 
-.page-category.page-marin-rift-zone .page-header.page-header-image {
+.page-category .page-header.page-header-image {
 	padding-top: 0 !important;
-	padding-bottom: 3.5rem !important;
+	padding-bottom: 2.75rem !important;
 	background-color: #333;
 	@include breakpoint("medium") {
 	    padding-bottom: 0 !important;
 	}
 }
 
-.page-category.page-marin-rift-zone .page-header.page-header-image:before {
+.page-category .page-header.page-header-image:before {
 	@include breakpoint("medium") {
 	    content: '';
 	    position: absolute;
@@ -807,9 +821,12 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	}
 }
 
-.page-category.page-marin-rift-zone .page-header.page-header-image img {
+.page-category .page-header.page-header-image img {
+	display: none;
 	transform: none;
-	position: static;
+	position: relative;
+	z-index: 2;
+	top: 0;
 	@include breakpoint("medium") {
 		display: inline-block;
 		float: right;
@@ -820,44 +837,47 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	}
 }
 
-.page-category.page-marin-rift-zone .page-header.page-header-image .page-heading {
+.page-category .page-header.page-header-image .page-heading {
+	position: relative;
+	z-index: 1;
 	text-transform: uppercase;
 	margin-left: 0;
 	margin-right: 0;
-	padding-top: .75rem;
+	padding-top: .5rem;
 	color: #fff;
 	background-color: #333;
-	padding-bottom: .75rem;
+	padding-bottom: .5rem;
 	border-top: 8px solid #7fb24c;
+	white-space: nowrap;
 	@include breakpoint("medium") {
 		padding-top: 1rem;
+		padding-bottom: .75rem;
 		padding-left: 3rem;
 		border-top: 10px solid #7fb24c;
 		margin-right: calc(50.8% + 10px);
 		text-align: left;
-		background: url('../img/custom/cat-icon.png') 3rem 10px no-repeat;
-		background-size: 60px, 60px;
+		font-size: 1.25rem;
 	}
 	@include breakpoint("large") {
 		padding-top: 1.25rem;
 		padding-left: 6rem;
-		font-size: 30px;
+		font-size: 1.75rem;
 		border-top: 12px solid #7fb24c;
 	}
 	@include breakpoint("xlarge") {
 		padding-top: 1.5rem;
 		border-top: 14px solid #7fb24c;
-		font-size: 40px;
+		font-size: 2.25rem;
 	}
 }
 
-.page-category.page-marin-rift-zone .page-header.page-header-image nav {
+.page-category .page-header.page-header-image nav {
 	@include breakpoint("medium") {
 		margin: 0 60% 0 0;
 	}
 }
 
-.page-category.page-marin-rift-zone .page-header.page-header-image .page-heading + nav .breadcrumbs {
+.page-category .page-header.page-header-image .page-heading + nav .breadcrumbs {
 	background: none;
 	@include breakpoint("medium") {
 		text-align: left;
