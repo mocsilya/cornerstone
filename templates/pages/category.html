@@ -66,7 +66,7 @@ customer:
 
 {{#partial "page"}}
 {{{region name="category_below_header"}}}
-<div class="category-description{{#if category.description}}{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}{{/if}}">
+<div class="category-description{{#if category.image}} category-description-image{{/if}}{{#if category.description}}{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}{{/if}}">
 	{{{category.description}}}
 </div>
 {{#if category.description}}

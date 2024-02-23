@@ -32,7 +32,7 @@ customer:
     <div class="subcategories-above subcategories--vertical">
 		<ul class="subcategories-grid subcategories-grid-blockless">
 			{{#each page.sub_pages}}
-			<li class="subcategories-grid-item subcategories-grid-item-{{dashcase (lowercase (sanitize name))}}">
+			<li class="subcategories-grid-item subcategories-grid-item-{{dashcase (lowercase (sanitize title))}}">
 				<div class="subcategories-container">
 					<a href="{{url}}">
 						<span class="subcategories-name">{{title}}</span>
