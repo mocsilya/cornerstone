@@ -260,6 +260,12 @@
                 {{#if summary}}
                     <p class="listItem-summary">{{{summary}}}</p>
                 {{/if}}
+				{{#if theme_settings.custom_card_show_message}}
+					<div class="listItem-message">
+						{{theme_settings.custom_card_message_text}}
+						{{> components/custom/client/client-listitem}}
+					</div>
+				{{/if}}
             </div>
             <div class="listItem-actions">
                 {{#or customer (unless settings.hide_price_from_guests)}}
@@ -302,10 +308,16 @@
                         	{{/if}}
                         	{{#if pre_order}}
                            		<a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}">{{lang 'products.pre_order'}}</a>
-                        	{{/if}}
+					        	{{#unless theme_settings.show_product_quick_view}}
+									<a href="{{url}}" data-event-type="product-click" class="button button--secondary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">View Product</a>
+                    			{{/unless}}
+							{{/if}}
                         	{{#if add_to_cart_url }}
                             	<a href="{{add_to_cart_url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}">{{lang 'products.add_to_cart'}}</a>
-                        	{{/if}}
+					        	{{#unless theme_settings.show_product_quick_view}}
+									<a href="{{url}}" data-event-type="product-click" class="button button--secondary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">View Product</a>
+                    			{{/unless}}
+							{{/if}}
                         	{{#if out_of_stock_message }}
                             	<a href="{{url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">{{out_of_stock_message}}</a>
                         	{{/if}}
@@ -318,10 +330,16 @@
                     	{{/if}}
                     	{{#if pre_order}}
                        		<a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}">{{lang 'products.pre_order'}}</a>
-                    	{{/if}}
-                    	{{#if add_to_cart_url }}
+					        {{#unless theme_settings.show_product_quick_view}}
+								<a href="{{url}}" data-event-type="product-click" class="button button--secondary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">View Product</a>
+                    		{{/unless}}
+						{{/if}}
+                    	{{#if add_to_cart_url}}
                         	<a href="{{add_to_cart_url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}">{{lang 'products.add_to_cart'}}</a>
-                    	{{/if}}
+					        {{#unless theme_settings.show_product_quick_view}}
+								<a href="{{url}}" data-event-type="product-click" class="button button--secondary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">View Product</a>
+                    		{{/unless}}
+						{{/if}}
                     	{{#if out_of_stock_message }}
                         	<a href="{{url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">{{out_of_stock_message}}</a>
                     	{{/if}}
@@ -341,11 +359,5 @@
 		        {{/unless}}
             </div>
         </div>
-		{{#if theme_settings.custom_card_show_message}}
-			<div class="card-message">
-				{{theme_settings.custom_card_message_text}}
-				{{> components/custom/client/client-card}}
-			</div>
-		{{/if}}
     </div>
 </article>
