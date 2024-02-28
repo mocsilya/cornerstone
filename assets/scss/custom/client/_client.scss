@@ -17,7 +17,6 @@
 // =============================================================================
 
 
-
 .header-logo-image {
 	@include breakpoint("large") {
 		max-width: 325px;
@@ -29,6 +28,47 @@
 .header-bar-icon-custom .icon svg {
 	color: #ffa800;
 	fill: #ffa800;
+}
+
+.navUser-section--norm .navUser-item {
+	vertical-align: top;
+}
+
+.navUser-section--norm .navUser-item--custom {
+	display: inline-block;
+	@include breakpoint("medium") {
+		display: none;
+	}
+}
+
+.navUser-section--norm .navUser-item--custom .navUser-icon {
+	height: 12px;
+	padding: 2px 0 0 0;
+	display: block;
+}
+
+.navUser-section--norm .navUser-item--custom .header-bar-icon-custom {
+	text-align: center;
+	top: 0;
+	padding: 0;
+	font-size: 0;
+}
+
+.navUser-section--norm .navUser-item--custom .header-bar-icon-custom .icon {
+	height: 9px;
+	width: 9px;
+}
+
+.navUser-section--norm .navUser-item--custom .navUser-text {
+	font-size: 10px;
+	line-height: 10px;
+	font-weight: 700;
+	color: #fff;
+	height: 12px;
+	display: block;
+	overflow: hidden;
+	padding-top: 2px;
+	text-align: center;
 }
 
 @media (max-width: 800px) {
@@ -167,10 +207,11 @@ body:not(.currency-gbp) .navPages > ul > li.navPages-item-category {
 	}
 }
 
-.navUser-item--custom span {
+.navUser-item--custom > span {
     font-size: 14px;
     line-height: 1;
 	font-weight: 700;
+	color: stencilColor('button--primary-color');
 }
 
 .navUser-item--custom strong {
@@ -182,6 +223,19 @@ body:not(.currency-gbp) .navPages > ul > li.navPages-item-category {
 .navUser-item--custom .dropdown-menu-item {
 	padding: .75rem 1.5rem;
 	text-align: center;
+}
+
+.form-search-box .form-input {
+	border: 1px solid #666;
+}
+
+.form-search-box .form-input::placeholder {
+	color: #fff;
+}
+
+.navUser .form-search-box .button, .navUser .form-search-box .button:hover {
+	border: 1px solid #666;
+	border-left: 0;
 }
 
 
