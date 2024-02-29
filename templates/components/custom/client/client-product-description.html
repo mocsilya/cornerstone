@@ -1,15 +1,15 @@
 <div class="print-action">
-	<input type="button" class="button button--primary button--large" onclick="printDiv('productDataSheet')" value="Print PDF: Product Datasheet">
+	<input type="button" class="button button--primary button--large" onclick="printDiv('productDataSheet')" value="{{#contains settings.request.host '.es'}}Imprimir PDF: Hoja de Datos del Producto{{else}}Print PDF: Product Datasheet{{/contains}}">
 </div>
 
 <div id="productDataSheet" class="print_only">
 	<div id="letterhead" class="print_only">
 		<div class="letterhead-contact">
-			<p>+44 (01803) 424 135</p>
-			<p>Unit 19, Bulleigh Barton Commercial Units,<br>
-				Ipplepen, Newton Abbot, Devon, TQ12 5UA<br>
-				sales@handle-it.com<br>
-				www.handle-it.com
+			<p>{{settings.phone_number}}</p>
+			<address>{{nl2br settings.address}}</address>
+			<p>
+				{{theme_settings.custom_email_address}}<br>
+				{{settings.request.host}}
 			</p>
 		</div>
 		<div class="letterhead-logo">
@@ -17,8 +17,8 @@
 	             src="{{getImage settings.store_logo.image 'logo_size'}}"
 	             alt="{{settings.store_logo.title}}"
 	             title="{{settings.store_logo.title}}"
-				 width="{{before (split theme_settings.logo_size 'x') 1}}"
-				 height="{{after (split theme_settings.logo_size 'x') 1}}"
+				 width="{{divide (before (split theme_settings.logo_size 'x') 1) 2}}"
+				 height="{{divide (after (split theme_settings.logo_size 'x') 1) 2}}"
 				 >
 		</div>
 	</div>
@@ -43,7 +43,13 @@
 					{{/if}}
                 {{/if}}
 			</div>
-			<h4 class="productView-title">Specification</h4>
+			<h4 class="productView-title">
+				{{#contains settings.request.host ".es"}}
+					Especificación
+				{{else}}
+					Specification
+				{{/contains}}
+			</h4>
 			<div class="product-data-info variant-data">
 				<table class="table">
 				{{#each product.custom_fields}}
@@ -60,7 +66,13 @@
 				</table>
 			</div>
 			{{#if product.description}}
-			<h4 class="productView-title">Product Details</h4>
+			<h4 class="productView-title">
+				{{#contains settings.request.host ".es"}}
+					Información del Producto 
+				{{else}}
+					Product Details
+				{{/contains}}
+			</h4>
 			<div class="product-data-description">
 				{{{product.description}}}
 			</div>
@@ -69,8 +81,20 @@
 	</div>
 	<div class="product-data-container">
 		<div class="product-data-bottom variant-data">
-			<h4 class="productView-title">Product Options</h4>
-			<p>Please note: specification and price subject to change. Please check with your sales representative for up-to-date information.</p>
+			<h4 class="productView-title">
+				{{#contains settings.request.host ".es"}}
+					Opciones de Producto
+				{{else}}
+					Product Options
+				{{/contains}}
+			</h4>
+			<p>
+				{{#contains settings.request.host ".es"}}
+					Tenga en cuenta: las especificaciones y el precio están sujetos a cambios. Consulte con su representante de ventas para obtener información actualizada.
+				{{else}}
+					Please note: specification and price subject to change. Please check with your sales representative for up-to-date information.
+				{{/contains}}
+			</p>
 			<table class="table">
 				<thead>
 					<tr>
@@ -116,5 +140,12 @@
 			</table>
 		</div>
 	</div>
-	<div style="text-align:center; margin-bottom:21px;">Date of Download: {{moment "now" "MM/DD/YYYY"}}</div>
+	<div style="text-align:center; margin-bottom:21px;">
+		{{#contains settings.request.host ".es"}}
+			Fecha de Descarga:
+		{{else}}
+			Date of Download: 
+		{{/contains}}
+		{{moment "now" "MM/DD/YYYY"}}
+	</div>
 </div>

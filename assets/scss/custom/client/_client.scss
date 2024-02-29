@@ -909,12 +909,12 @@ body.scroll .navUser-item--custom strong {
 }
 
 .letterhead-logo img {
-	width: $logo_width +"px";
-	height: $logo_height +"px";
-	max-width: $logo_width +"px";
-	max-height: $logo_height +"px";
-	min-width: $logo_width +"px";
-	min-height: $logo_height +"px";
+	width: calc(#{$logo_width +"px"} / 2);
+	height: calc(#{$logo_height +"px"} / 2);
+	max-width: calc(#{$logo_width +"px"} / 2);
+	max-height: calc(#{$logo_height +"px"} / 2);
+	min-width: calc(#{$logo_width +"px"} / 2);
+	min-height: calc(#{$logo_height +"px"} / 2);
 }
 
 .letterhead-title {

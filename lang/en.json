@@ -101,7 +101,7 @@
             "add_info": "Add Info",
             "cancel": "Cancel",
             "select_a_country": "Country",
-            "select_a_state": "State/province",
+            "select_a_state": "County",
             "estimate_shipping": "Estimate Shipping",
             "suburb_city": "Suburb/city",
             "zip_postal_code": "Zip/postcode",
@@ -109,7 +109,7 @@
             "hide_ups_rates": "Hide UPS Rates",
             "show_ups_rates": "Show UPS Rates",
             "empty_country_error": "The 'Country' field cannot be blank.",
-            "empty_province_error": "The 'State/Province' field cannot be blank."
+            "empty_province_error": "The 'County' field cannot be blank."
         },
         "gift_wrapping": {
             "title": "Gift Wrapping",
@@ -417,8 +417,8 @@
               "address_line_1": "Address Line 1",
               "address_line_2": "Address Line 2",
               "suburb_city": "Suburb/City",
-              "state_province": "State/Province",
-              "choose_state": "Choose a State",
+              "state_province": "County",
+              "choose_state": "Choose a County",
               "country": "Country",
               "choose_country": "Choose a Country",
               "zip_postcode": "Zip/Postcode"
@@ -586,7 +586,7 @@
             "address2": "Address Line 2",
             "city": "Suburb/City",
             "country": "Country",
-            "state": "State/Province",
+            "state": "County",
             "postal_code": "Zip/Postcode",
             "choose_country": "Choose a Country",
             "default_instrument": "Default Payment Method"
@@ -850,7 +850,7 @@
     },
     "errors": {
         "shipping_quote_failure": "There was a problem retrieving your shipping quote",
-        "state_error": "There was a problem retrieving states/provinces"
+        "state_error": "There was a problem retrieving counties"
     },
     "search": {
         "errorMessage": "There was a problem retrieving your results. Please try again in a few seconds.",
