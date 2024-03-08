@@ -50,10 +50,10 @@ header.header {
 
 .header-logo-image {
 	@include breakpoint("medium") {
-		max-width: 240px;
+		max-width: 295px;
 	}
 	@include breakpoint("large") {
-		max-width: 320px;
+		max-width: 394px;
 	}
 }
 
@@ -75,6 +75,8 @@ header.header {
 	@include breakpoint("medium") {
 		width: auto;
 		order: 2;
+		display: flex;
+		align-items: center;
 	}
 }
 
@@ -135,7 +137,10 @@ header.header {
 		display: block;
 	}
 	@include breakpoint("large") {
-		font-size: 1.2rem;
+		font-size: 1.4rem;
+	}
+	@include breakpoint("xlarge") {
+		font-size: 1.8rem;
 	}
 }
 
@@ -155,9 +160,15 @@ body.scroll .navUser-item--custom span {
 	font-size: 1.5rem;
 	letter-spacing: -1px;
 	line-height: 1;
+	@include breakpoint("medium") {
+		font-size: 1.4rem;
+	}
 	@include breakpoint("large") {
 		font-size: 2.4rem;
 		letter-spacing: -2px;
+	}
+	@include breakpoint("xlarge") {
+		font-size: 3rem;
 	}
 }
 
@@ -233,6 +244,13 @@ body.scroll .navUser-item--custom strong {
 // =============================================================================
 // Nav Pages
 // =============================================================================
+
+.navPages-list-depth-max .navPages-action.is-root {
+	@include breakpoint("medium") {
+		padding-top: .575rem;
+		padding-bottom: .575rem;
+	}
+}
 
 .navPages-list-depth-max .navPages-action.is-root.is-open {
 	color: stencilColor("navPages-color");
@@ -343,6 +361,9 @@ body.scroll .navUser-item--custom strong {
 	@include breakpoint("medium") {
 		margin: 0 -1.5rem;
 	}
+	@include breakpoint("xlarge") {
+		margin: 0 -3rem;
+	}
 }
 
 .subcategories-above .subcategories-grid-image .subcategories-grid-item {
@@ -361,6 +382,12 @@ body.scroll .navUser-item--custom strong {
 	}
 	@include breakpoint("large") {
 		width: 33.3333333%;
+	}
+	@include breakpoint("xlarge") {
+		border-top: 1.5rem solid #fff;
+		border-right: 3rem solid #fff;
+		border-bottom: 1.5rem solid #fff;
+		border-left: 3rem solid #fff;
 	}
 }
 
@@ -1145,6 +1172,9 @@ div[data-content-region="home_below_top_banner"] .custom-widget-blocks .custom-w
 	@include breakpoint("medium") {
 		margin: 0 -1.5rem;
 	}
+	@include breakpoint("xlarge") {
+		margin: 0 -3rem;
+	}
 }
 
 div[data-content-region="home_below_top_banner"] .custom-widget-blocks .custom-widget-item {
@@ -1156,6 +1186,12 @@ div[data-content-region="home_below_top_banner"] .custom-widget-blocks .custom-w
 	background-color: #000;
 	@include breakpoint("medium") {
 		border: 1.5rem solid #fff;
+	}
+	@include breakpoint("xlarge") {
+		border-top: 1.5rem solid #fff;
+		border-right: 3rem solid #fff;
+		border-bottom: 1.5rem solid #fff;
+		border-left: 3rem solid #fff;
 	}
 }
 
