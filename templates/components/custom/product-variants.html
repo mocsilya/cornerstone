@@ -18,7 +18,7 @@
 				</thead>
 				<tbody>
 				{{#each gql.data.site.product.variants.edges}}
-					<tr>
+					<tr{{#with node}}{{#unless isPurchasable}} class="tr-variant-unavailable"{{/unless}}{{/with}}>
 					    {{#with node}}
 					        <td class="td-sku">{{sku}}</td>
 					        {{#each productOptions.edges}}
