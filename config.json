@@ -218,8 +218,8 @@
     "custom_product_tab2_title": "Free Safety Downloads",
     "custom_product_tab2_content": "/free-safety-downloads/",
     "custom_product_tab3_show": true,
-    "custom_product_tab3_title": "Bespoke Design",
-    "custom_product_tab3_content": "/bespoke-trolleys/",
+    "custom_product_tab3_title": "Enquiry Form",
+    "custom_product_tab3_content": "/enquiry-form/",
     "custom_product_wishlist_show": true,
     "custom_product_addtocart_show": false,
     "custom_product_addtocart_text": "",
@@ -250,9 +250,9 @@
     "hide_category_page_heading": false,
     "hide_blog_page_heading": false,
     "hide_contact_us_page_heading": false,
-    "homepage_new_products_count": 5,
-    "homepage_featured_products_count": 5,
-    "homepage_top_products_count": 5,
+    "homepage_new_products_count": 10,
+    "homepage_featured_products_count": 10,
+    "homepage_top_products_count": 10,
     "homepage_show_carousel": false,
     "homepage_show_carousel_arrows": true,
     "homepage_show_carousel_play_pause_button": false,
@@ -619,36 +619,7 @@
         ]
       },
       "images": {},
-      "settings": {
-        "custom_homepage_featured_title": "Presentada",
-        "custom_homepage_new_title": "Nueva",
-        "custom_header_show_bar": false,
-        "custom_header_show_bar_message2": false,
-        "custom_header_show_bar_message3": false,
-        "custom_header_bar_message1_text": "",
-        "custom_header_bar_message2_text": "",
-        "custom_header_bar_message3_text": "",
-        "custom_header_bar_message1_link": "",
-        "custom_header_bar_message1_icon": "none",
-        "custom_header_bar_message2_icon": "none",
-        "custom_header_bar_message3_icon": "none",
-        "custom_product_description_title": "Descripción",
-        "custom_product_warranty_title": "Garantía",
-        "custom_product_tab1_show": false,
-        "custom_product_tab1_title": "",
-        "custom_product_tab2_show": false,
-        "custom_product_tab2_title": "",
-        "custom_product_tab2_content": "",
-        "custom_product_tab3_show": false,
-        "custom_product_tab3_title": "",
-        "custom_product_tab3_content": "",
-        "homepage_top_products_count": 0,
-        "pdp-custom-fields-tab-label": "especificación",
-        "paymentbuttons-provider-sorting": [
-          "paypal",
-          "googlepay"
-        ]
-      }
+      "settings": {}
     }
   ]
 }
