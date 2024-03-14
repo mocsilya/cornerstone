@@ -990,6 +990,14 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	}
 }
 
+.page-sidebar .facetLabel,
+.page-sidebar .navList-action {
+	@include breakpoint("medium") {
+		font-size: 14px;
+	}
+}
+
+
 
 // Card
 // =============================================================================
