@@ -3341,13 +3341,29 @@ div[data-content-region="category_below_all"] {
 	font-size: 1rem;
 }
 
-.page-sidebar .navList-action-count {
+.page-sidebar .accordion--navList .navList-action-count {
 	display: inline-block;
 	border-radius: .25rem;
 	background-color: stencilColor("container-border-global-color-base");
 	margin-left: .25rem;
 	padding: .125rem .5rem;
 	font-size: .875rem;
+}
+
+.page-sidebar .accordion--navList .navList-action-close {
+	@include breakpoint("medium") {
+		display: none;
+	}
+}
+
+.page-sidebar .facetLabel {
+	font-weight: 700;
+	background-color: stencilColor("button--primary-backgroundColor");
+	color: stencilColor("button--primary-color");
+}
+
+.page-sidebar .facetLabel .icon {
+	fill: stencilColor("button--primary-color");
 }
 
 .page-sidebar .accordion--navList a.toggleLink {
@@ -3359,6 +3375,10 @@ div[data-content-region="category_below_all"] {
 	color: stencilColor("color-textBase");
 }
 
+.page-sidebar .accordion--navList .toggleLink-text {
+	font-weight: 700;
+}
+
 .page-sidebar .accordion--navList .accordion-indicator {
 	fill: stencilColor("color-textBase");
 }
@@ -3366,12 +3386,38 @@ div[data-content-region="category_below_all"] {
 .page-sidebar .accordion--navList .accordion-navigation {
 	border: 0;
 	@include breakpoint("medium") {
-		margin-bottom: 0 !important;
+		margin-bottom: .25rem !important;
+	}
+}
+
+.page-sidebar .facetedSearch-clearLink,
+.page-sidebar .facetLabel-clearLink {
+	display: inline-block;
+	background-color: stencilColor("container-border-global-color-base");
+	padding: .125rem .5rem;
+	border-radius: .25rem;
+	color: stencilColor("color-textBase");
+	text-decoration: none;
+	font-weight: 700;
+}
+
+.page-sidebar .facetedSearch-clearLink {
+	@include breakpoint("medium") {
+		top: 0;
 	}
 }
 
 .page-sidebar .navList-action--checkbox {
 	margin-bottom: 0;
+}
+
+.page-sidebar .navList-action--checkbox.is-selected {
+	font-weight: 700;
+}
+
+.page-sidebar .navList-action--checkbox.is-selected .navList-action-count {
+	background-color: stencilColor("button--primary-backgroundColor");
+	color: stencilColor("button--primary-color");
 }
 
 .page-sidebar .sidebarCategories .navList-action.activePage {
