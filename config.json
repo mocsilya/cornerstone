@@ -580,6 +580,7 @@
     "masterpass-button-color": "black",
     "paymentbuttons-provider-sorting": [
       "paypal",
+      "applepay",
       "amazonpay"
     ]
   },
