@@ -990,6 +990,12 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	}
 }
 
+.page-sidebar .sidebarCategories .sidebarBlock-heading,
+.page-sidebar .facetedSearch-refineFilters .sidebarBlock-heading,
+.page-sidebar .accordion--navList .accordion-title {
+    color: #64aa35;
+}
+
 .page-sidebar .facetLabel,
 .page-sidebar .navList-action,
 .page-sidebar .facetedSearch-clearLink,
