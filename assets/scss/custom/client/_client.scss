@@ -827,7 +827,11 @@ body.scroll .navUser-item--custom strong {
 	flex-direction: row;
 	flex: 1 0 100%;
 	justify-content: center;
-	padding-top: 0;
+	padding: .5rem;
+	background-color: #333;
+	color: #fff;
+	font-weight: 700;
+	font-size: 1.25rem;
 }
 
 .productView .price-section--withoutTax abbr,
@@ -1093,6 +1097,13 @@ body.scroll .navUser-item--custom strong {
 .cart-item-availability.availability-default {
     display: none;
 }
+
+
+
+// =============================================================================
+// CHECKOUT
+// =============================================================================
+
 
 
 
