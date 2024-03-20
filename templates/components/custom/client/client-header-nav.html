@@ -9,7 +9,11 @@
 						{{/contains}}
 					</i></span>
 				<span class="navUser-text">
+					{{#contains settings.request.host ".es"}}
+						Ubicación
+					{{else}}
 						Location
+					{{/contains}}
 	            	<i class="icon" aria-hidden="true">
 	                	<svg>
 	                    	<use xlink:href="#icon-chevron-down"></use>
@@ -20,7 +24,7 @@
 			<ul class="dropdown-menu f-open-dropdown" id="flagDropdown" data-dropdown-content="" aria-hidden="false" tabindex="-1">
 				<li class="dropdown-menu-item">
 					{{#contains settings.request.host ".es"}}
-		                <strong>Spain</strong>
+		                <strong>España</strong>
 					{{else}}
 		                <a href="https://handle-it.es{{settings.request.absolute_path}}" aria-label="Spain">
 		                    Spain
@@ -31,8 +35,8 @@
 					{{#contains settings.request.host ".com"}}
 						<strong>United Kingdom</strong>
 					{{else}}
-                    <a href="https://handle-it.com{{settings.request.absolute_path}}" aria-label="United Kingdom">
-                        United Kingdom
+                    <a href="https://handle-it.com{{settings.request.absolute_path}}" aria-label="Reino Unido">
+                        Reino Unido
                     </a>
 					{{/contains}}
 				</li>

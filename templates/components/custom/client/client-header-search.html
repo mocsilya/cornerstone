@@ -22,9 +22,18 @@
         </li>
 		<li class="navUser-item navUser-item--custom navUser-item--custom-desktop">
 		{{#contains settings.request.host ".es"}}
-			<span>¿Necesitas ayuda? Llámanos al:</span>
+			<span>¿Necesitas ayuda?</span>
+			<div><a href="" title="Consulta" class="button button--primary">Consulta</a></div>
 		{{else}}
-			<span>Need help? Call us on:</span>
+			<span>Need help?</span>
+			<div><a href="" title="Enquiry" class="button button--primary">Enquiry</a></div>
+		{{/contains}}
+		</li>
+		<li class="navUser-item navUser-item--custom navUser-item--custom-desktop">
+		{{#contains settings.request.host ".es"}}
+			<span>Llámanos al:</span>
+		{{else}}
+			<span>Call us on:</span>
 		{{/contains}}
 			<div><strong>{{settings.phone_number}}</strong></div>
 		</li>

@@ -27,4 +27,10 @@
 		{{/each}}
 	</table>
 </div>
+{{else}}
+<style>
+    article[data-entity-id="{{id}}"] .listItem-message {
+        display: none;
+    } 
+</style>
 {{/if}}

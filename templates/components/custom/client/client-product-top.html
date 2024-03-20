@@ -1,37 +1,51 @@
 {{#if product.brand.name '==' 'Magliner'}}
 <div class="product-brand-logo">
-	<img width="281" height="51" src="https://cdn11.bigcommerce.com/s-xxojeye67l/images/stencil/2560w/h/maglinerlogo_600_1702912262__49199.original.png" alt="Magliner" title="Magliner">
+	<a href="{{product.brand.url}}" title="{{product.brand.name}}">
+		<img width="281" height="51" src="https://cdn11.bigcommerce.com/s-xxojeye67l/images/stencil/2560w/h/maglinerlogo_600_1702912262__49199.original.png" alt="Magliner" title="Magliner">
+	</a>
 </div>
 {{else if product.brand.name '==' 'Truck-iT'}}
 <div class="product-brand-logo">
-	<img width="218" height="83" src="https://cdn11.bigcommerce.com/s-xxojeye67l/images/stencil/2560w/s/truck-it_logo_1699453783__02252.original.png" alt="Truck-iT" title="Truck-iT">
+	<a href="{{product.brand.url}}" title="{{product.brand.name}}">
+		<img width="218" height="83" src="https://cdn11.bigcommerce.com/s-xxojeye67l/images/stencil/2560w/s/truck-it_logo_1699453783__02252.original.png" alt="Truck-iT" title="Truck-iT">
+	</a>
 </div>
 {{else if product.brand.name '==' 'HI-POW'}}
 <div class="product-brand-logo">
-	<img width="218" height="76" src="https://cdn11.bigcommerce.com/s-xxojeye67l/images/stencil/2560w/r/hi-pow-logo_1699454051__91847.original.png" alt="HI-POW" title="HI-POW">
+	<a href="{{product.brand.url}}" title="{{product.brand.name}}">
+		<img width="218" height="76" src="https://cdn11.bigcommerce.com/s-xxojeye67l/images/stencil/2560w/r/hi-pow-logo_1699454051__91847.original.png" alt="HI-POW" title="HI-POW">
+	</a>
 </div>
 {{else if product.brand.name '==' 'EDUK8'}}
 <div class="product-brand-logo">
-	<img width="110" height="55" src="https://cdn11.bigcommerce.com/s-xxojeye67l/images/stencil/2560w/i/eduk8-logo_transparent_1699453705__67440.original.png" alt="EDUK8" title="EDUK8">
+	<a href="{{product.brand.url}}" title="{{product.brand.name}}">
+		<img width="110" height="55" src="https://cdn11.bigcommerce.com/s-xxojeye67l/images/stencil/2560w/i/eduk8-logo_transparent_1699453705__67440.original.png" alt="EDUK8" title="EDUK8">
+	</a>
 </div>
 {{else if product.brand.name '==' 'GTA Range'}}
 <div class="product-brand-logo">
-	<h2>GTA RANGE</h2>
+	<h2><a href="{{product.brand.url}}" title="{{product.brand.name}}">GTA RANGE</a></h2>
 </div>
 {{else if product.brand.name '==' 'Premium Plus'}}
 <div class="product-brand-logo">
-	<img width="218" height="49" src="https://cdn11.bigcommerce.com/s-xxojeye67l/images/stencil/2560w/d/premium-plus-logo_v2_1699453761__95756.original.jpg" alt="Premium Plus" title="Premium Plus">
+	<a href="{{product.brand.url}}" title="{{product.brand.name}}">
+		<img width="218" height="49" src="https://cdn11.bigcommerce.com/s-xxojeye67l/images/stencil/2560w/d/premium-plus-logo_v2_1699453761__95756.original.jpg" alt="Premium Plus" title="Premium Plus">
+	</a>
 </div>
 {{else if product.brand.name '==' 'MEDIK8'}}
 <div class="product-brand-logo">
-	<img width="110" height="55" src="https://cdn11.bigcommerce.com/s-xxojeye67l/images/stencil/2560w/z/medik8-logo_transparent_1699453685__66754.original.png" alt="MEDIK8" title="MEDIK8">
+	<a href="{{product.brand.url}}" title="{{product.brand.name}}">
+		<img width="110" height="55" src="https://cdn11.bigcommerce.com/s-xxojeye67l/images/stencil/2560w/z/medik8-logo_transparent_1699453685__66754.original.png" alt="MEDIK8" title="MEDIK8">
+	</a>
 </div>
 {{else if product.brand.name '==' 'Camp King'}}
 <div class="product-brand-logo">
-	<img width="110" height="55" src="https://cdn11.bigcommerce.com/s-xxojeye67l/images/stencil/2560w/l/camp-king-logo_1699453895__56058.original.png" alt="Camp King" title="Camp King">
+	<a href="{{product.brand.url}}" title="{{product.brand.name}}">
+		<img width="110" height="55" src="https://cdn11.bigcommerce.com/s-xxojeye67l/images/stencil/2560w/l/camp-king-logo_1699453895__56058.original.png" alt="Camp King" title="Camp King">
+	</a>
 </div>
 {{/if}}
-<ul class="why-buy">	
+<ul class="why-buy">
 	{{#each product.custom_fields}}
 	{{#if name '==' '_whybuy'}}
 	<li>{{value}}</li>
