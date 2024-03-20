@@ -29,8 +29,8 @@
             >
 				<span class="navUser-icon navUser-icon-search"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-search{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}" /></svg></i></span>
 				<span class="navUser-icon navUser-icon-close"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-close{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}" /></svg></i></span>
-                <span class="navUser-text navUser-text-search">{{theme_settings.custom_header_search_label}}</span>
-				<span class="navUser-text navUser-text-close">Close</span>
+                <span class="navUser-text navUser-text-search">{{#if theme_settings.custom_header_search_label}}{{theme_settings.custom_header_search_label}}{{else}}{{lang 'search.quick_search.input_placeholder'}}{{/if}}</span>
+				<span class="navUser-text navUser-text-close">{{lang 'common.close'}}</span>
             </button>
 			{{/if}}
 			{{#if theme_settings.custom_header_search_type '===' 'box'}}

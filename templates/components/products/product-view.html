@@ -281,12 +281,12 @@
                     <dd class="productView-info-value condition-value">{{product.condition}}</dd>
                 {{/if}}
                 {{#if product.availability}}
-                    <dt class="productView-info-name availability-label">{{lang 'products.availability'}}</dt>
-                    <dd class="productView-info-value availability-value">{{product.availability}}</dd>
+                    <dt class="productView-info-name availability-label availability-custom">{{lang 'products.availability'}}</dt>
+                    <dd class="productView-info-value availability-value availability-custom">{{product.availability}}</dd>
 				{{else}}
 					{{#if theme_settings.custom_product_availability}}
-						<dt class="productView-info-name availability-label">{{lang 'products.availability'}}</dt>
-						<dd class="productView-info-value availability-value">{{theme_settings.custom_product_availability}}</dd>
+						<dt class="productView-info-name availability-label availability-default">{{lang 'products.availability'}}</dt>
+						<dd class="productView-info-value availability-value availability-default">{{theme_settings.custom_product_availability}}</dd>
 					{{/if}}
                 {{/if}}
                 {{#all product.weight theme_settings.show_product_weight}}
