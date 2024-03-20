@@ -309,13 +309,13 @@
                         	{{#if pre_order}}
                            		<a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}">{{lang 'products.pre_order'}}</a>
 					        	{{#unless theme_settings.show_product_quick_view}}
-									<a href="{{url}}" data-event-type="product-click" class="button button--secondary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">View Product</a>
+									<a href="{{url}}" data-event-type="product-click" class="button button--secondary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">{{lang 'text_truncate.view_more'}}</a>
                     			{{/unless}}
 							{{/if}}
                         	{{#if add_to_cart_url }}
                             	<a href="{{add_to_cart_url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}">{{lang 'products.add_to_cart'}}</a>
 					        	{{#unless theme_settings.show_product_quick_view}}
-									<a href="{{url}}" data-event-type="product-click" class="button button--secondary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">View Product</a>
+									<a href="{{url}}" data-event-type="product-click" class="button button--secondary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">{{lang 'text_truncate.view_more'}}</a>
                     			{{/unless}}
 							{{/if}}
                         	{{#if out_of_stock_message }}
@@ -331,13 +331,13 @@
                     	{{#if pre_order}}
                        		<a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}">{{lang 'products.pre_order'}}</a>
 					        {{#unless theme_settings.show_product_quick_view}}
-								<a href="{{url}}" data-event-type="product-click" class="button button--secondary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">View Product</a>
+								<a href="{{url}}" data-event-type="product-click" class="button button--secondary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">{{lang 'text_truncate.view_more'}}</a>
                     		{{/unless}}
 						{{/if}}
                     	{{#if add_to_cart_url}}
                         	<a href="{{add_to_cart_url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}">{{lang 'products.add_to_cart'}}</a>
 					        {{#unless theme_settings.show_product_quick_view}}
-								<a href="{{url}}" data-event-type="product-click" class="button button--secondary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">View Product</a>
+								<a href="{{url}}" data-event-type="product-click" class="button button--secondary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">{{lang 'text_truncate.view_more'}}</a>
                     		{{/unless}}
 						{{/if}}
                     	{{#if out_of_stock_message }}
