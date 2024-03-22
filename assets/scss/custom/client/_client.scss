@@ -10,9 +10,52 @@
     background: #44b463 !important;
 }
 
+// testing CLS 
+
+.page-default .productCarousel:not(.slick-initialized) div:first-child {
+    display: inline-block !important;
+    width: 100%;
+    @include breakpoint("small") {
+        width: 50%;
+    }
+    @include breakpoint("medium") {
+        width: 33.33333333%;
+    }
+    @include breakpoint("large") {
+        width: 25%;
+    }
+}
+
+.page-default .productCarousel .productCarousel-slide {
+    display: none;
+}
+
+.page-default .productCarousel.slick-initialized .productCarousel-slide.slick-slide {
+    display: inline-block;
+}
+
+div[data-content-region="home_below_top_banner"] .custom-widget-content {
+    height: 90px !important;
+}
+
+.heroCarousel {
+    margin-bottom: 3rem;
+    @include breakpoint("medium") {
+         margin-bottom: 4rem;
+    }
+}
+
+
+
 // =============================================================================
 // Header
 // =============================================================================
+
+@media (max-width: 800px) {
+    .header-bar {
+	    height: 42px;
+    }
+}
 
 .header-bar-message .header-bar-text {
 	font-weight: 400;
