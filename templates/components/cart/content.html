@@ -83,7 +83,7 @@
                         </dl>
                     {{/if}}
 					{{#if ../theme_settings.custom_product_availability}}
-						<dl class="cart-item-availability">
+						<dl class="cart-item-availability{{#if availability}} availability-custom{{else}} availability-default{{/if}}">
 							<dt class="cart-item-availability-title">
 					            {{lang 'products.availability'}}
 							</dt>
