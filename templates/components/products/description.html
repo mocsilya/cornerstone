@@ -12,9 +12,9 @@
 	{{assignVar "downloads" "active"}}
 {{/filter}}
 {{#if product.description}}
-	{{#if theme_settings.custom_product_description_title.length}}
-	<h4 class="productView-title">{{theme_settings.custom_product_description_title}}</h4>
-	{{/if}}
+	<h4 class="productView-title">
+		{{#if theme_settings.custom_product_description_title.length}}{{theme_settings.custom_product_description_title}}{{else}}{{lang 'products.description'}}{{/if}}
+	</h4>
     <div class="productView-description description-content" id="tab-description" data-event-type="product">
         {{{product.description}}}
 		{{> components/custom/client/client-product-description}}
@@ -23,7 +23,7 @@
 {{/if}}
 
 {{#if (getVar "downloads") '===' 'active'}}
-	<h4 class="productView-title">Downloads</h4>
+	<h4 class="productView-title">{{lang 'orders.details.download_items'}}</h4>
 	<div class="productView-description downloads-content" id="tab-downloads">
 		<ul class="productView-download">
 		{{#each product.custom_fields}}
@@ -69,9 +69,9 @@
 
 {{#if theme_settings.custom_product_warranty_location '==' 'normal'}}
 {{#if product.warranty}}
-	{{#if theme_settings.custom_product_warranty_title.length}}
-	<h4 class="productView-title">{{theme_settings.custom_product_warranty_title}}</h4>
-	{{/if}}
+	<h4 class="productView-title">
+		{{#if theme_settings.custom_product_warranty_title.length}}{{theme_settings.custom_product_warranty_title}}{{else}}{{lang 'products.warranty'}}{{/if}}
+	</h4>
     <div class="productView-description warranty-content" id="tab-warranty">
         {{{product.warranty}}}
 		{{> components/custom/client/client-product-warranty}}

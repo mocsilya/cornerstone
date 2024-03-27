@@ -8,7 +8,7 @@ export default function () {
 		e.preventDefault();
 		if ($('.tab1-page').html()) {
 			const url1 = $('.tab1-page').html();
-			$('#tab-custom1').append('Loading...');
+			$('#tab-custom1').append('<span class="tab-loader"></span>');
 			$.ajax({ 
 				url: url1, 
 				processData : false,
@@ -27,7 +27,7 @@ export default function () {
 		e.preventDefault();
 		if ($('.tab2-page').html()) {
 			const url2 = $('.tab2-page').html();
-			$('#tab-custom2').append('Loading...');
+			$('#tab-custom2').append('<span class="tab-loader"></span>');
 			$.ajax({ 
 				url: url2, 
 				processData : false,
@@ -46,7 +46,7 @@ export default function () {
 		e.preventDefault();
 		if ($('.tab3-page').html()) {
 			const url3 = $('.tab3-page').html();
-			$('#tab-custom3').append('Loading...');
+			$('#tab-custom3').append('<span class="tab-loader"></span>');
 			$.ajax({ 
 				url: url3, 
 				processData : false,

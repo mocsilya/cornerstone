@@ -29,6 +29,19 @@ customer:
 <section class="page">
 {{{region name="page_builder_content_editor_area_top"}}}
 {{#if page.sub_pages}}
+    <div class="subcategories-above subcategories--vertical">
+		<ul class="subcategories-grid subcategories-grid-blockless">
+			{{#each page.sub_pages}}
+			<li class="subcategories-grid-item subcategories-grid-item-{{dashcase (lowercase (sanitize title))}}">
+				<div class="subcategories-container">
+					<a href="{{url}}">
+						<span class="subcategories-name">{{title}}</span>
+					</a>
+				</div>
+			</li>
+			{{/each}}
+		</ul>
+    </div>
     <aside class="page-sidebar page-sidebar-vertical">
     <nav>
 		<div class="sidebarBlock sidebarCategories">
