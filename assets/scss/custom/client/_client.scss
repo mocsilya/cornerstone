@@ -82,6 +82,14 @@
 	}
 }
 
+@media only screen and (max-width: 800px) {
+
+	.header-bar {
+		background: linear-gradient(to right,  #ffffff 0%,#e4e4e6 50%,#ffffff 100%);
+	}
+	
+}
+
 
 // Page Heading
 // =============================================================================
@@ -134,6 +142,17 @@
 .navPages-list:not(.navPages-list-depth-max) .navPage-subMenu-action {
     @include breakpoint("medium") {
 		text-align: center;
+	}
+}
+
+.navPages-list:not(.navPages-list-depth-max) > .navPages-item .navPages-action:not(.navPage-subMenu-action) {
+    @include breakpoint("medium") {
+		padding-left: .5rem;
+		padding-right: .5rem;
+	}
+    @include breakpoint("xlarge") {
+		padding-left: 1rem;
+		padding-right: 1rem;
 	}
 }
 
