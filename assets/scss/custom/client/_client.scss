@@ -688,3 +688,85 @@ div[data-sub-layout-container="d29ca040-0a8e-4d8c-b2e5-fa191f8794b2"] {
     border-radius: 0;
     font-weight: 400;
 }
+
+
+
+// WIDGET (for gallery)
+// =============================================================================
+
+.custom-widget-gallery .custom-widget-list {
+	position: relative;
+	border: 1px solid #e4e4e6;
+}
+
+.custom-widget-gallery .custom-widget-list .custom-widget-item {
+	order: 2;
+	display: flex;
+	border: 1px solid #e4e4e6;
+}
+
+.custom-widget-gallery .custom-widget-list .custom-widget-expand {
+	order: 1;
+	min-width: 100% !important;
+	background: #e4e4e6;
+}
+
+.custom-widget-gallery .custom-widget-list .custom-widget-link {
+	padding: .5rem;
+}
+
+.custom-widget-gallery .custom-widget-list .custom-widget-expand .custom-widget-link {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	position: static;
+	text-decoration: none;
+    @include breakpoint("large") {
+	    flex-direction: row;
+	}
+}
+
+.custom-widget-gallery .custom-widget-list .custom-widget-expand .custom-widget-image {
+    @include breakpoint("large") {
+	    width: 50%;
+	}
+}
+
+.custom-widget-gallery .custom-widget-list .custom-widget-heading,
+.custom-widget-gallery .custom-widget-list .custom-widget-subtext,
+.custom-widget-gallery .custom-widget-list .custom-widget-button {
+    display: none;
+}
+
+.custom-widget-gallery .custom-widget-list .custom-widget-expand .custom-widget-heading,
+.custom-widget-gallery .custom-widget-list .custom-widget-expand .custom-widget-subtext, 
+.custom-widget-gallery .custom-widget-list .custom-widget-link:hover .custom-widget-button {
+    display: flex;
+}
+
+.custom-widget-gallery .custom-widget-list .custom-widget-expand .custom-widget-button,
+.custom-widget-gallery .custom-widget-list .custom-widget-expand .custom-widget-link:hover .custom-widget-button {
+    display: none;
+}
+
+.custom-widget-gallery .custom-widget-list .custom-widget-expand .custom-widget-content {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	position: static;
+	transform: none;
+    @include breakpoint("large") {
+	    width: 50%;
+	}
+}
+
+.custom-widget-gallery .custom-widget-list .custom-widget-expand .custom-widget-heading {
+	margin-top: 1.5rem;
+}
+
+
+
+
+
+
+

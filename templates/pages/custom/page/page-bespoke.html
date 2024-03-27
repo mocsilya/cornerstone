@@ -91,7 +91,6 @@ customer:
 			{{{region name="page_builder_tab_nine"}}}
 		</div>
 	</div>
-	{{{region name="page_builder_tabcontent"}}}
         {{#replace '%%Syndicate%%' page.content}}
             {{> components/page/rss_feed}}
         {{else}}
@@ -112,7 +111,24 @@ customer:
     {{/if}}
 {{{region name="page_builder_content_editor_area_bottom"}}}
 </section>
-
+<script>
+	const elements = document.querySelectorAll('.custom-widget-gallery .custom-widget-link');
+	elements.forEach((element) => {
+	    // First option
+	    element.addEventListener('click', function() {
+			event.preventDefault();
+			if (this.parentNode.classList.contains('custom-widget-expand')) {
+				this.parentNode.classList.remove('custom-widget-expand');
+			} else {
+				let listItems = document.querySelectorAll('.custom-widget-gallery .custom-widget-item');
+				listItems.forEach(function (element2) {
+					element2.classList.remove('custom-widget-expand');
+				});
+				this.parentNode.classList.add('custom-widget-expand');
+			}
+	    });
+	});
+</script>
 {{/partial}}
 
 {{> layout/base}}
