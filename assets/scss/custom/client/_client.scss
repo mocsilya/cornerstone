@@ -1077,6 +1077,7 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	background: #fff;
 	border: 1px solid #eae7e4;
 	color: #189ac9;
+	margin-top: 10px;
 	margin-bottom: 10px;
 	padding: .75rem;
 }
@@ -1267,7 +1268,8 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 }
 
 .payment-product .form-action-buttons,
-.payment-product #imega-widget-anchor {
+.payment-product #imega-widget-anchor,
+.payment-product .imm-widget-anchor {
 	display: none !important;
 }
 
@@ -1314,10 +1316,19 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	border-top-left-radius: .25rem;
 }
 
+.cart-content-actions .klarna-promo {
+	padding: 0;
+	border-left: .25rem solid #000 !important;
+	border-right: .25rem solid #000 !important;
+	border-bottom: 1px solid #000 !important;
+	background-color: #fff;
+}
+
 .klarna-heading {
 	padding: .75rem;
 	text-align: center;
 	line-height: 1.2;
+	background-color: #000;
 }
 
 .klarna-heading h4 {
@@ -1331,7 +1342,8 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	color: #fff;
 }
 
-.productView-options .imm-widget-anchor {
+.productView-options .imm-widget-anchor,
+.cart-content-actions .imm-widget-anchor {
 	margin: 0px !important;
 	padding: .75rem;
 	border-left: .25rem solid #000 !important;
@@ -1341,13 +1353,27 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	width: calc(100% - 2rem) !important;
 }
 
-.productView-options .imm-widget-anchor + .imm-widget-anchor {
+.cart-content-actions .imm-widget-anchor {
+	min-height: 50px;
+	height: 50px !important;
+	@include breakpoint("xsmall") {
+		min-height: 30px;
+		height: 30px !important;
+	}
+	@include breakpoint("medium") {
+		min-height: 50px;
+	}
+}
+
+.productView-options .imm-widget-anchor + .imm-widget-anchor,
+.cart-content-actions .imm-widget-anchor + .imm-widget-anchor {
 	border-bottom: .25rem solid #000 !important;
 	border-bottom-right-radius: .25rem !important;
 	border-bottom-left-radius: .25rem !important;
 }
 
-.page-cycle-to-work-pre-order .klarna-promo {
+.page-cycle-to-work-pre-order .klarna-promo,
+.page-cycle-to-work-pre-order .imm-widget-anchor {
 	display: none;
 }
 
