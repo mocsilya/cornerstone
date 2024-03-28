@@ -46,8 +46,12 @@
 	{{/if}}
 	{{#if theme_settings.social_icon_placement_bottom}}
 		<article class="footer-social-col" data-section-type="footer-social">
-			<h3 class="newsletter-heading">{{theme_settings.custom_footer_social_heading}}</h3>
-			<p class="newsletter-subtext">{{theme_settings.custom_footer_social_message}}</p>
+			<h3 class="newsletter-heading">
+				{{#if theme_settings.custom_footer_social_heading}}{{theme_settings.custom_footer_social_heading}}{{else}}{{lang 'social.connect'}}{{/if}}
+			</h3>
+			<p class="newsletter-subtext">
+				{{#if theme_settings.custom_footer_social_message}}{{theme_settings.custom_footer_social_message}}{{else}}{{lang 'social.connect_intro'}}{{/if}}
+			</p>
 			{{> components/common/social-links}}
 		</article>
 	{{/if}}
