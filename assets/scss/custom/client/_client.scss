@@ -1308,17 +1308,43 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 }
 
 .klarna-promo {
-	padding: .25rem;
+	padding: 0 .25rem 1px .25rem;
 	background-color: #000;
-	border-radius: .25rem;
+	border-top-right-radius: .25rem;
+	border-top-left-radius: .25rem;
 }
 
 .klarna-heading {
 	padding: .75rem;
-	font-size: 1rem;
 	text-align: center;
-	color: #fff;
 	line-height: 1.2;
+}
+
+.klarna-heading h4 {
+	font-size: 1rem;
+	margin: 0;
+	color: #fff;
+}
+
+.klarna-heading span {
+	font-size: 13px;
+	color: #fff;
+}
+
+.productView-options .imm-widget-anchor {
+	margin: 0px !important;
+	padding: .75rem;
+	border-left: .25rem solid #000 !important;
+	border-right: .25rem solid #000 !important;
+	border-bottom: 1px solid #000 !important;
+	box-sizing: content-box;
+	width: calc(100% - 2rem) !important;
+}
+
+.productView-options .imm-widget-anchor + .imm-widget-anchor {
+	border-bottom: .25rem solid #000 !important;
+	border-bottom-right-radius: .25rem !important;
+	border-bottom-left-radius: .25rem !important;
 }
 
 .page-cycle-to-work-pre-order .klarna-promo {
