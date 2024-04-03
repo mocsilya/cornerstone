@@ -94,7 +94,7 @@
     "custom_header_icon_style": "outline",
     "custom_header_icon_text": true,
     "custom_header_cart_type": "dolly",
-    "custom_header_search_label": "Search...",
+    "custom_header_search_label": "",
     "custom_header_search_type": "icon",
     "custom_header_show_bar": false,
     "custom_header_show_bar_message1": false,
