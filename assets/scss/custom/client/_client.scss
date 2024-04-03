@@ -871,9 +871,30 @@ body.scroll .navUser-item--custom strong {
 }
 
 .page-product .price-now-label,
-.page-product .productView-brand,
-.page-product .productView-rating {
+.page-product .productView-brand {
 	display: none !important;
+}
+
+.page-product .productView-rating .productView-info {
+    display: flex;
+    background-color: #333;
+}
+
+.page-product .productView-rating .productView-info-name,
+.page-product .productView-rating .productView-info-value {
+    flex: 1 1 0;
+    padding: .25rem;
+    text-align: center;
+    color: #fff;
+}
+
+.page-product .productView-rating span.rating--small {
+    margin-top: 3px;
+}
+
+.page-product .productView-rating span,
+.page-product .productView-rating a {
+    color: #fff;
 }
 
 .productView-info-name.availability-default,
