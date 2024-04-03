@@ -71,7 +71,7 @@ header.header {
 	display: none;
 	order: 1;
 	padding-right: .5rem;
-	@include breakpoint("small") {
+	@include breakpoint("medium") {
 		display: block;
 	}
 }
@@ -109,7 +109,7 @@ header.header {
 
 .header-logo-action span {
 	display: none;
-	@include breakpoint("medium") {
+	@include breakpoint("xlarge") {
 		display: inline;
 	}
 }
@@ -236,14 +236,14 @@ body.scroll .navUser-item--custom span {
 	line-height: 32px;
 	white-space: nowrap;
 	@include breakpoint("medium") {
-		font-size: 1.5rem;
+		font-size: 1.25rem;
 	}
 	@include breakpoint("large") {
-		font-size: 2.5rem;
+		font-size: 2.25rem;
 		letter-spacing: -2px;
 	}
 	@include breakpoint("xlarge") {
-		font-size: 3rem;
+		font-size: 2.75rem;
 	}
 }
 
