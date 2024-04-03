@@ -219,7 +219,7 @@
         "header": "Comparing {products, plural, one {# Product} other {# Products}}",
         "remove": "Remove",
         "no_remove": "At least 2 products are needed to make a valid comparison.",
-        "add_to_cart": "Add to cart",
+        "add_to_cart": "Buy iT",
         "no_compare": "You must select at least two products to compare"
     },
     "category": {
@@ -757,7 +757,7 @@
             "hide": "Hide Videos",
             "show": "Watch Videos"
         },
-        "add_to_cart": "Add to Cart",
+        "add_to_cart": "Buy iT",
         "adding_to_cart": "Adding to cart…",
         "options": "Options",
         "none": "None",
@@ -915,8 +915,8 @@
         "show_all_link": "Show All"
     },
     "text_truncate": {
-        "view_more": "View more details",
-        "view_less": "Hide details"
+        "view_more": "View iT",
+        "view_less": "Hide iT"
     },
     "maintenance": {
         "down": "Down for Maintenance"

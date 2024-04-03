@@ -10,9 +10,9 @@
 					</i></span>
 				<span class="navUser-text">
 					{{#contains settings.request.host ".es"}}
-						Ubicación
+						Idioma
 					{{else}}
-						Location
+						Language
 					{{/contains}}
 	            	<i class="icon" aria-hidden="true">
 	                	<svg>
@@ -24,19 +24,19 @@
 			<ul class="dropdown-menu f-open-dropdown" id="flagDropdown" data-dropdown-content="" aria-hidden="false" tabindex="-1">
 				<li class="dropdown-menu-item">
 					{{#contains settings.request.host ".es"}}
-		                <strong>España</strong>
+		                <strong>Español</strong>
 					{{else}}
 		                <a href="https://handle-it.es{{settings.request.absolute_path}}" aria-label="Spain">
-		                    Spain
+		                    Español
 		                </a>
 					{{/contains}}
 				</li>
 				<li class="dropdown-menu-item">
 					{{#contains settings.request.host ".com"}}
-						<strong>United Kingdom</strong>
+						<strong>English</strong>
 					{{else}}
                     <a href="https://handle-it.com{{settings.request.absolute_path}}" aria-label="Reino Unido">
-                        Reino Unido
+                        English
                     </a>
 					{{/contains}}
 				</li>

@@ -35,11 +35,17 @@ header.header {
 }
 
 .header-logo--left {
+	display: flex;
+	align-items: center;
 	@include breakpoint("medium") {
 		flex: 1 0 0;
 		padding-right: 1.5rem;
 		min-width: 40%;
 	}
+}
+
+.header-logo__link {
+	order: 2;
 }
 
 .header-logo--left .header-logo-image-container {
@@ -61,6 +67,52 @@ header.header {
 	}
 }
 
+.header-logo-action {
+	display: none;
+	order: 1;
+	padding-right: .5rem;
+	@include breakpoint("small") {
+		display: block;
+	}
+}
+
+.header-logo-action .button {
+	margin: 0;
+	padding-top: .5rem;
+	padding-bottom: .5rem;
+	padding-right: .5rem;
+	padding-left: .5rem;
+	border: 2px solid #000;
+	white-space: nowrap;
+	@include breakpoint("medium") {
+		padding-top: .75rem;
+		padding-bottom: .75rem;
+		padding-right: .75rem;
+		padding-left: .75rem;
+		border: 2px solid #000;
+		font-size: 1.125rem;
+	}
+	@include breakpoint("large") {
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+		padding-right: 1.75rem;
+		padding-left: 1.75rem;
+		font-size: 1.25rem;
+	}
+	@include breakpoint("xlarge") {
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+		padding-right: 2.5rem;
+		padding-left: 2.5rem;
+	}
+}
+
+.header-logo-action span {
+	display: none;
+	@include breakpoint("medium") {
+		display: inline;
+	}
+}
 
 
 // =============================================================================
@@ -122,13 +174,15 @@ header.header {
 		align-items: flex-start;
 		text-align: left;
 		justify-content: center;
-		border-left: 2px solid #000;
 		padding-left: 1rem;
+		padding-right: 1rem;
 	}
 	@include breakpoint("large") {
 		padding-left: 1.5rem;
+		padding-right: 1.5rem;
 	}
 	@include breakpoint("xlarge") {
+		padding-left: 2rem;
 		padding-left: 2rem;
 	}
 }
@@ -140,30 +194,6 @@ header.header {
 	}
 }
 
-.navUser ul li.navUser-item--custom-desktop .button {
-	@include breakpoint("medium") {
-		margin: 0;
-		padding-top: .5rem;
-		padding-bottom: .5rem;
-		padding-right: .75rem;
-		padding-left: .75rem;
-		padding: .5rem .75rem;
-		border: 2px solid #000;
-	}
-	@include breakpoint("large") {
-		padding-top: .65rem;
-		padding-bottom: .65rem;
-		padding-right: 1.75rem;
-		padding-left: 1.75rem;
-	}
-	@include breakpoint("xlarge") {
-		padding-top: .875rem;
-		padding-bottom: .875rem;
-		padding-right: 2.5rem;
-		padding-left: 2.5rem;
-	}
-}
-
 .navUser ul li.navUser-item--custom-mobile {
 	display: inline-block;
 	@include breakpoint("medium") {
@@ -172,7 +202,7 @@ header.header {
 }
 
 .navUser-item--custom span {
-	font-size: .875rem;
+	font-size: 1rem;
 	line-height: 1;
 	white-space: nowrap;
 	@include breakpoint("medium") {
@@ -206,14 +236,14 @@ body.scroll .navUser-item--custom span {
 	line-height: 32px;
 	white-space: nowrap;
 	@include breakpoint("medium") {
-		font-size: 1rem;
+		font-size: 1.5rem;
 	}
 	@include breakpoint("large") {
-		font-size: 1.5rem;
+		font-size: 2.5rem;
 		letter-spacing: -2px;
 	}
 	@include breakpoint("xlarge") {
-		font-size: 2rem;
+		font-size: 3rem;
 	}
 }
 
@@ -630,8 +660,17 @@ body.scroll .navUser-item--custom strong {
 .productList .listItem-actions .button {
 	margin-top: 0;
 	margin-bottom: 0;
+	font-size: 1.125rem;
 	@include breakpoint("large") {
 		margin-top: .5rem;
+		margin-bottom: 0;
+	}
+}
+
+.productList .listItem-actions .button + .button {
+	@include breakpoint("large") {
+		margin-top: .5rem;
+		margin-bottom: 0;
 	}
 }
 
@@ -647,7 +686,6 @@ body.scroll .navUser-item--custom strong {
 	background-color: #333;
 	border-color: #333;
 	color: stencilColor('button--primary-backgroundColor');
-	text-transform: uppercase;
 }
 
 .productList .listItem-actions .button--primary:hover {
@@ -660,7 +698,6 @@ body.scroll .navUser-item--custom strong {
 	background-color: #e6e6e6;
 	border-color: #e6e6e6;
 	color: #333;
-	text-transform: uppercase;
 }
 
 .productList .listItem-actions .button:not(.button--primary):hover {
@@ -668,7 +705,8 @@ body.scroll .navUser-item--custom strong {
 	border-color: #ccc;
 }
 
-.productList .listItem-rating {
+.productList .listItem-rating,
+.productList .listItem-brand {
 	display: none;
 }
 

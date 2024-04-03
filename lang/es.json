@@ -218,7 +218,7 @@
         "header": "Comparando {products, plural, one {# producto} other {# productos}}",
         "remove": "Eliminar",
         "no_remove": "Debe elegir al menos 2 productos para hacer una comparación válida.",
-        "add_to_cart": "Añadir al carrito",
+        "add_to_cart": "Añadir iT",
         "no_compare": "Debe seleccionar al menos dos productos para comparar"
     },
     "category": {
@@ -755,7 +755,7 @@
             "hide": "Ocultar vídeos",
             "show": "Mostrar vídeos"
         },
-        "add_to_cart": "Añadir al carrito",
+        "add_to_cart": "Añadir iT",
         "adding_to_cart": "Añadiendo al carrito…",
         "options": "Opciones",
         "none": "Ninguno",
@@ -913,8 +913,8 @@
         "show_all_link": "Mostrar todo"
     },
     "text_truncate": {
-        "view_more": "Ver más detalles",
-        "view_less": "Ocultar detalles"
+        "view_more": "Vista iT",
+        "view_less": "Ocultar iT"
     },
     "maintenance": {
         "down": "Fuera de servicio por mantenimiento"
