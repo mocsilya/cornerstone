@@ -12,8 +12,8 @@
 								{{/if}}
 					        {{/with}}
 					    {{/each}}
-						<th class="th-stock">Stock</th>
-					    <th class="th-price">Price{{#if product.price.without_tax}} (Ex.{{else}} (Inc.{{/if}} {{settings.tax_label}})</th>
+						<th class="th-stock">{{lang 'products.current_stock'}}</th>
+					    <th class="th-price">{{lang 'cart.checkout.price'}}{{#if product.price.without_tax}} {{{before (split (lang 'products.price_without_tax') ' ') 1}}}{{else}}  {{{before (split (lang 'products.price_with_tax') ' ') 1}}}{{/if}} {{settings.tax_label}})</th>
 					</tr>
 				</thead>
 				<tbody>
