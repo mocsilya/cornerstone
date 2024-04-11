@@ -11,6 +11,9 @@
 	font-weight: 400;
 }
 
+.accord-icon {
+    color: stencilColor('button--primary-backgroundColor');
+}
 
 
 // Header
@@ -2095,11 +2098,16 @@ body.currency-usd .productView:not(.show-usd):not(.show-all) .productView-option
 }
 
 div[data-content-region="product_view_bottom"],
-div[data-content-region="product_view_bottom--global"] {
+div[data-content-region="product_view_bottom--global"],
+div[data-content-region="product_below_content"] {
     @include breakpoint("large") {
 		width: 60%;
 		clear: none;
 	}
+}
+
+div[data-content-region="product_below_content"] {
+    margin-bottom: 3rem;
 }
 
 /*
