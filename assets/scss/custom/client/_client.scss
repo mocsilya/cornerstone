@@ -1285,6 +1285,7 @@ ul.why-buy li::before {
 // =============================================================================
 
 #flyoutBanner {
+	margin: 0 !important;
 	position: fixed;
 	bottom: 0;
 	left: 50%;
@@ -1292,10 +1293,10 @@ ul.why-buy li::before {
 	width: 100%;
 	z-index: 99;
 	@include breakpoint("medium") {
-		max-width: 190px;
+		max-width: 200px;
 		bottom: auto;
 		left:auto;
-		top: 140px;
+		top: 134px;
 		transform: translateX(0);
 		right: 0;
 	}
@@ -1304,11 +1305,12 @@ ul.why-buy li::before {
 .flyout-content {
 	display: none;
 	background-color: #ffdd00;
-	padding: 1px 1rem;
+	padding: 1px 1rem 5rem 1rem;
 	text-align: center;
 	border-top-left-radius: .5rem;
 	border-top-right-radius: .5rem;
 	@include breakpoint("medium") {
+		padding-bottom: 1px;
 		border-bottom-left-radius: .5rem;
 		border-top-right-radius: 0;
 	}
@@ -1359,6 +1361,13 @@ ul.why-buy li::before {
 	}
 }
 
+#flyoutBanner:not(.is-open) .flyout-button {
+	text-align: left;
+	@include breakpoint("medium") {
+		text-align: right;
+	}
+}
+
 .flyout-show {
 	display: inline-block;
 }
@@ -1377,7 +1386,6 @@ ul.why-buy li::before {
 
 .flyout-hide {
 	display: none;
-	font-stretch: expanded;
 }
 
 #flyoutBanner.is-open .flyout-hide {
