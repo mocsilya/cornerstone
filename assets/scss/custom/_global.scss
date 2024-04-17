@@ -7367,6 +7367,45 @@ div[data-content-region="cart_below_table"] {
 
 
 
+// Comparison Page
+// =============================================================================
+
+.field-block {
+	margin-bottom: 1rem;
+	font-size: 14px;
+}
+.field-block ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+}
+
+.field-block ul:nth-child(odd) li {
+	background-color:  stencilColor("color-greyLightest");
+	
+}
+
+.field-block ul:last-child {
+	border-bottom: 1px solid #ccc;
+}
+
+.field-block li {
+	display: flex;
+	flex: 1 1 0;
+	padding: .5rem .75rem;
+	border-right: 1px solid #ccc;
+	flex-direction: column;
+}
+
+.field-block li:first-child {
+	min-width: 200px;
+}
+
+
+
 // Countdown Timer
 // =============================================================================
 

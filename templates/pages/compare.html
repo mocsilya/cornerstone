@@ -130,6 +130,7 @@ customer:
                 </td>
                 {{/each}}
             </tr>
+			<!--
             <tr class="compareTable-row">
                 <th class="compareTable-heading">
                     <span class="compareTable-headingText">{{lang 'common.other_details'}}</span>
@@ -148,6 +149,7 @@ customer:
                     </td>
                 {{/each}}
             </tr>
+			-->
         </table>
 		
 		<div id="table" class="field-block">
@@ -159,10 +161,15 @@ customer:
 			{{#each comparisons}}
 				{{#if custom_fields}}
 					{{#each (sortBy custom_fields "name")}}
-						var cfName = "{{uppercase name}}";
-						if (!(custom.some(e => e.name === cfName))) {
-							custom.push({ name: "{{uppercase name}}" });
-						}
+						{{#unless name "==" "hidden"}}
+							{{#startsWith "_" name}}
+							{{else}}
+								var cfName = "{{uppercase name}}";
+								if (!(custom.some(e => e.name === cfName))) {
+									custom.push({ name: "{{uppercase name}}" });
+								}
+							{{/startsWith}}
+						{{/unless}}
 					{{/each}}
 				{{/if}}
 			{{/each}}
@@ -170,14 +177,19 @@ customer:
 			{{#each comparisons}}
 				{{#if custom_fields}}
 					{{#each (sortBy custom_fields "name")}}
-						var cfName{{../id}} = "{{uppercase name}}";
-						if (custom.some(e => e.name === cfName{{../id}})) {
-							for (let i = 0; i < custom.length; i++) {
-								if (custom[i]["name"] === cfName{{../id}}) {
-									custom[i]['prod{{../id}}']='{{{value}}}';
+						{{#unless name "==" "hidden"}}
+							{{#startsWith "_" name}}
+								{{else}}
+								var cfName{{../id}} = "{{uppercase name}}";
+								if (custom.some(e => e.name === cfName{{../id}})) {
+									for (let i = 0; i < custom.length; i++) {
+										if (custom[i]["name"] === cfName{{../id}}) {
+											custom[i]['prod{{../id}}']='{{{value}}}';
+										}
+									}
 								}
-							}
-						}
+							{{/startsWith}}
+						{{/unless}}
 					{{/each}}
 				{{/if}}
 			{{/each}}
@@ -249,36 +261,6 @@ customer:
 					</div>
 				{{/each}}
 			-->
-		<style>
-			.field-block {
-				margin-bottom: 1rem;
-			}
-			.field-block ul {
-				list-style: none;
-				margin: 0;
-				padding: 0;
-				display: flex;
-				border-top: 1px solid #ccc;
-				border-left: 1px solid #ccc;
-			}
-	
-			.field-block ul:last-child {
-				border-bottom: 1px solid #ccc;
-			}
-	
-			.field-block li {
-				display: flex;
-				flex: 1 1 0;
-				padding: .5rem .75rem;
-				border-right: 1px solid #ccc;
-				flex-direction: column;
-			}
-			.field-block li:first-child {
-				min-width: 200px;
-			}
-		</style>
-		
-		
     </div>
 </div>
 
