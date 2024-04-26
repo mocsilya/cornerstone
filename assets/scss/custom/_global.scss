@@ -6234,6 +6234,12 @@ div[data-content-region="page_builder_content_editor_area_bottom"] {
 	clear: both;
 }
 
+.page-iframe .adminBar,
+.page-iframe #consent-manager-update-banner,
+.page-iframe #consent-manager {
+	display: none !important;
+}
+
 .page-iframe,
 .page-iframe #main-content,
 .page-iframe #main-content .container,

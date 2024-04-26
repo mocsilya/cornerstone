@@ -61,9 +61,27 @@ customer:
     </div>
 {{{region name="page_builder_content_editor_area_bottom"}}}
 </section>
-{{#if (lowercase page.title) '==' 'iframe'}}
-	{{#if theme_settings.custom_product_question}}
-		{{#if forms.contact.rma}}
+
+
+{{#if forms.contact.rma}}
+	{{#unless (lowercase page.title) '==' 'iframe'}}
+		<script>
+			const queryString = window.location.search;
+			const urlParams = new URLSearchParams(queryString);
+			const getParam = urlParams.get('rma');
+			if (getParam) {
+				const hideRMA = "hide";
+				const oldLabel = document.getElementById('label_rma');
+				const oldVal = document.getElementById('contact_rma');
+				if (getParam == hideRMA) {
+					oldLabel.parentNode.style.display = "none";
+				} else {
+					const newLabel = oldLabel.innerHTML = "{{lang 'cart.checkout.item'}} / {{lang 'products.sku'}}";
+					const newVal = oldVal.value = getParam;
+				}
+			}
+		</script>
+	{{else}}
 		<script>
 			const queryString = window.location.search;
 			const urlParams = new URLSearchParams(queryString);
@@ -73,6 +91,10 @@ customer:
 				const newVal = oldVal.value = getParam;
 			}
 		</script>
+	{{/unless}}
+{{/if}}
+{{#if (lowercase page.title) '==' 'iframe'}}
+	{{#if theme_settings.custom_product_question}}
 		<script>
 			function sendHeight(){
 			  var actual_height = document.querySelector('.body').scrollHeight;
@@ -85,7 +107,6 @@ customer:
 			  sendHeight();
 			}
 		</script>
-		{{/if}}
 	{{/if}}
 {{/if}}
 
