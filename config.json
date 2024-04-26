@@ -71,10 +71,10 @@
     "custom_homepage_show_tabs": false,
     "custom_homepage_featured_carousel": true,
     "custom_homepage_featured_title": "Featured",
-    "custom_homepage_new_carousel": true,
-    "custom_homepage_new_title": "New",
-    "custom_homepage_top_carousel": true,
-    "custom_homepage_top_title": "Popular",
+    "custom_homepage_new_carousel": false,
+    "custom_homepage_new_title": "New Products",
+    "custom_homepage_top_carousel": false,
+    "custom_homepage_top_title": "Popular Products",
     "custom_homepage_show_modal": false,
     "custom_card_show_swatches": false,
     "custom_card_show_wishlist": false,
@@ -227,7 +227,7 @@
     "custom_product_addtocart_modal": true,
     "custom_product_availability": "4-6 weeks",
     "custom_product_variant_data": true,
-	"custom_product_question": "Ask a question about this product.",
+    "custom_product_question": "Ask a question about this product.",
     "custom-tab-color": "#333333",
     "custom-tab-background": "#e6e6e6",
     "custom-tab-hover-color": "#ffffff",
@@ -251,16 +251,16 @@
     "hide_category_page_heading": false,
     "hide_blog_page_heading": false,
     "hide_contact_us_page_heading": false,
-    "homepage_new_products_count": 10,
-    "homepage_featured_products_count": 10,
-    "homepage_top_products_count": 10,
+    "homepage_new_products_count": 4,
+    "homepage_featured_products_count": 0,
+    "homepage_top_products_count": 4,
     "homepage_show_carousel": false,
     "homepage_show_carousel_arrows": true,
     "homepage_show_carousel_play_pause_button": false,
     "homepage_stretch_carousel_images": false,
-    "homepage_new_products_column_count": 5,
-    "homepage_featured_products_column_count": 5,
-    "homepage_top_products_column_count": 5,
+    "homepage_new_products_column_count": 4,
+    "homepage_featured_products_column_count": 4,
+    "homepage_top_products_column_count": 4,
     "homepage_blog_posts_count": 3,
     "productpage_videos_count": 8,
     "productpage_reviews_count": 9,
@@ -620,7 +620,8 @@
         ]
       },
       "images": {},
-      "settings": {}
+      "settings": {
+      }
     }
   ]
 }
