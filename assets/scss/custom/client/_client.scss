@@ -67,12 +67,31 @@ header.header {
 	}
 }
 
+body.scroll .header-logo-image {
+	@include breakpoint("medium") {
+		width: auto !important;
+		max-width: none !important;
+		height: 50px;
+		max-height: 50px;
+	}
+	@include breakpoint("large") {
+		height: 80px;
+		max-height: 80px;
+	}
+}
+
 .header-logo-action {
 	display: none;
 	order: 1;
-	padding-right: .5rem;
 	@include breakpoint("medium") {
 		display: block;
+		padding-right: .5rem;
+	}
+	@include breakpoint("large") {
+		padding-right: 1.5rem;
+	}
+	@include breakpoint("xlarge") {
+		padding-right: 3rem;
 	}
 }
 
@@ -215,13 +234,13 @@ header.header {
 		font-size: 1.8rem;
 	}
 }
-
+/*
 body.scroll .navUser-item--custom span {
 	@include breakpoint("medium") {
 		font-size: .875rem;
 	}
 }
-
+*/
 .navUser-item--custom div {
 	@include breakpoint("medium") {
 		display: block;
@@ -246,13 +265,14 @@ body.scroll .navUser-item--custom span {
 		font-size: 2.75rem;
 	}
 }
-
+/*
 body.scroll .navUser-item--custom strong {
 	@include breakpoint("medium") {
 		font-size: 1.5rem;
 		letter-spacing: -1px;
 	}
 }
+*/
 
 .navUser-item--custom .dropdown-menu-item {
 	padding: .75rem 1.5rem;
@@ -1009,6 +1029,19 @@ body.scroll .navUser-item--custom strong {
 	border: 2px solid #333;
 }
 
+.variant-data {
+	display: none;
+}
+
+.productView-images .variant-data {
+	display: block;
+}
+
+.productView-images .variant-data .container {
+	padding: 0;
+	font-size: 14px;
+}
+
 
 
 // =============================================================================
@@ -1386,6 +1419,7 @@ ul.why-buy li::before {
 
 .flyout-hide {
 	display: none;
+	font-stretch: expanded;
 }
 
 #flyoutBanner.is-open .flyout-hide {
@@ -1434,6 +1468,23 @@ ul.why-buy li::before {
 		padding-right: 1.5rem;
 	}
 }
+
+
+// =============================================================================
+// QUESTION
+// =============================================================================
+
+.page-iframe .adminBar,
+.page-iframe #consent-manager,
+.page-iframe #consent-manager-update-banner,
+.page-iframe #flyoutBanner,
+.page-iframe #chatra {
+	display: none !important;
+}
+
+
+
+
 
 // =============================================================================
 // Home Widgets
