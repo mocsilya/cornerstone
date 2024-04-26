@@ -442,6 +442,7 @@
 	{{#if theme_settings.custom_product_description_location '===' 'underneath'}}
 		{{{region name="product_view_bottom"}}}
 		{{{region name="product_view_bottom--global"}}}
+		{{> components/custom/client/client-product-view}}
 	{{/if}}
     <article class="productView-description productView-description-{{theme_settings.custom_product_description_location}} productView-description-{{theme_settings.custom_product_gallery_size}}">
         {{#if theme_settings.show_product_details_tabs}}
@@ -453,6 +454,7 @@
 	{{#unless theme_settings.custom_product_description_location '===' 'underneath'}}
 		{{{region name="product_view_bottom"}}}
 		{{{region name="product_view_bottom--global"}}}
+		{{> components/custom/client/client-product-view}}
 	{{/unless}}
 </div>
 {{#if theme_settings.custom_product_addtocart_modal}}
