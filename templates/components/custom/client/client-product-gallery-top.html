@@ -1,18 +1,21 @@
-{{#unless product.brand.name '==' "GoCycle"}}
-{{#unless product.brand.name '==' "Endura"}}
-{{#if product.warranty}}
+{{assignVar "fieldFrame" "inactive"}}
+{{#each product.custom_fields}}
+	{{#if (lowercase name '==' 'frame')}}
+	    {{assignVar "fieldFrame" "active"}}
+	{{/if}}
+{{/each}}
+
+{{#if (getVar "fieldFrame") '===' 'active'}}
 	<div class="product-gallery-message">
 		<div class="product-gallery-message-left">
 			<a target="_blank" href="/deals-discount-codes-and-vouchers/">
-	            <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-discount" /></svg></i> <span>Free Front Mudguard</span>
+	            <span>Free Front Mudguard</span>
 			</a>
 		</div>
 		<div class="product-gallery-message-right">
 			<a target="_blank" href="/deals-discount-codes-and-vouchers/">
-				<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-security" /></svg></i> <span>Free 14 Day Insurance</span>
+				<span>Free 14 Day Insurance</span>
 			</a>
 		</div>
 	</div>
 {{/if}}
-{{/unless}}
-{{/unless}}

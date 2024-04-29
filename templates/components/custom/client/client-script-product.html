@@ -136,6 +136,44 @@ window.addEventListener("pageshow", function (event) {
 	}
 });
 </script>
+
+{{#filter product.custom_fields 'faq' property='value' }}
+<script>
+	window.onload = function() {    
+	    let elements = document.querySelectorAll(".productView-options .form-label");
+	    for (let i = 0; i < elements.length; i++) {
+			elements[i].classList.add("faq-label");
+	        elements[i].onclick = function () {
+				const get_text = elements[i].textContent;
+				const trim_text = get_text.substring(0, get_text.indexOf(":")).trim();
+				const dash_text = trim_text.replace(/\s+/g, '-').toLowerCase();
+				const accord_text = "accord_" + dash_text;
+	            console.log(accord_text);
+				const faqId = document.getElementById(accord_text);
+				if (faqId) {
+					faqId.classList.add("accord-active");
+					faqId.querySelector(".accord-body").style.display = 'block';
+					const y = faqId.getBoundingClientRect().top + window.scrollY;
+					if (window.innerWidth < 801) {
+						window.scroll({
+						  top: y - 50,
+						  behavior: 'smooth'
+						});
+					} else {
+						window.scroll({
+						  top: y,
+						  behavior: 'smooth'
+						});
+					}
+					
+				}
+	        }
+	    }
+	};
+</script>
+{{/filter}}
+
+
 <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 <!-- <script src="https://cdn11.bigcommerce.com/s-h4smy34w/content/imegawidget-custom.js"></script> -->
 <!-- <script src="{{cdn 'webdav:imegawidget-custom.js'}}"></script> -->

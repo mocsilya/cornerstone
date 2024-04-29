@@ -2,7 +2,7 @@
 // Custom > Client
 // =============================================================================
 //
-
+ 
 
 // General
 // =============================================================================
@@ -11,8 +11,96 @@
 	font-weight: 400;
 }
 
+.faq-heading {
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+ul.faq-sections {
+    margin: 1.5rem 0;
+    list-style: none;
+    display: flex;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+ul.faq-sections li {
+    margin: 0;
+    list-style: none;
+    flex: 1 1 0;
+    padding: 1px;
+}
+
+ul.faq-sections .button {
+    display: block;
+    white-space: nowrap;
+    margin: 0;
+    padding-left: .25rem;
+    padding-right: .25rem;
+    color: #000;
+    font-weight: 700;
+}
+
+ul.faq-sections .button:hover {
+    color: stencilColor('button--primary-backgroundColor');
+}
+
+.section-heading {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #000;
+}
+
+.accord-heading {
+    background-color: #eff6ea;
+    border: 1px solid #e0eed7;
+}
+.accord-active > .accord-heading {
+    color: #fff;
+    background-color: #64aa35;
+    border: 1px solid #64aa35;
+}
+
 .accord-icon {
     color: stencilColor('button--primary-backgroundColor');
+}
+.accord-active .accord-icon {
+    color: #fff;
+}
+
+.accord-title {
+    font-size: 16px;
+    color: #000;
+    font-weight: 400;
+}
+
+.accord-active .accord-title {
+    color: #fff;
+}
+
+.page-product div[data-content-region="product_below_content"] .accord-content table,
+ .accord-content table {
+    margin: 1.5rem 0 !important;
+}
+
+.accord-content a {
+    color: #0060df;
+    text-decoration: underline;
+}
+
+.accord-content a:hover {
+    color: #0090ff;
+    text-decoration: none;
+}
+
+
+.productView-options .faq-label,
+.productView-options .faq-label:first-child {
+	padding-right: 40px !important;
+	background-image: url('../img/custom/info.png');
+	background-position: right 8px center;
+	background-repeat: no-repeat;
+	background-size: 23px 24px;
 }
 
 
@@ -2127,7 +2215,7 @@ div[data-content-region="product_below_content"] {
 	position: absolute;
 	left: 0;
 	top: 0;
-	background: rgba(0,0,0, 0.6);
+	background: #000;
 	width: auto;
 	z-index: 1;
 }
@@ -2136,7 +2224,7 @@ div[data-content-region="product_below_content"] {
 	position: absolute;
 	right: 0;
 	top: 0;
-	background: rgba(0,0,0, 0.6);
+	background: #000;
 	width: auto;
 	z-index: 1;
 }
@@ -2149,17 +2237,16 @@ div[data-content-region="product_below_content"] {
 	text-transform: uppercase;
 	text-decoration: none;
 	font-size: 11px;
+	padding: .375rem .5rem;
 	@include breakpoint("small") {
 		font-size: 14px;
-		padding: .5rem 1rem;
 	}
 	@include breakpoint("medium") {
 		font-size: 12px;
-		padding: .5rem;
+		
 	}
 	@include breakpoint("large") {
 		font-size: 16px;
-		padding: .5rem 1rem;
 	}
 }
 
