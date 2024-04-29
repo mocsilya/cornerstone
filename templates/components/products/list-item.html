@@ -241,6 +241,16 @@
 		{{/if}}
     </figure>
     <div class="listItem-body card-body">
+		<div class="listItem-heading">
+            <h4 class="listItem-title">
+                <a href="{{url}}"
+                aria-label="{{> components/products/product-info}}"
+                data-event-type="product-click"
+                >
+                    {{name}}
+                </a>
+            </h4>
+		</div>
         <div class="listItem-content">
             <div class="listItem-details">
                 {{#if show_rating}}
@@ -249,14 +259,6 @@
                 {{#if brand.name}}
                 <p class="listItem-brand">{{brand.name}}</p>
                 {{/if}}
-                <h4 class="listItem-title">
-                    <a href="{{url}}"
-                    aria-label="{{> components/products/product-info}}"
-                    data-event-type="product-click"
-                    >
-                        {{name}}
-                    </a>
-                </h4>
                 {{#if summary}}
                     <p class="listItem-summary">{{{summary}}}</p>
                 {{/if}}
@@ -357,6 +359,7 @@
 		                <button type="button" data-event-type="product-click" class="button button quickview {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">{{lang 'products.quick_view'}}</button>
 		            {{/if}}
 		        {{/unless}}
+				{{> components/custom/client/client-listitem-actions}}
             </div>
         </div>
     </div>
