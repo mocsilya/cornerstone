@@ -17,7 +17,11 @@
 			<p>Handle-iT offers a design and manufacture facility in our own factories here in the southwest, where we can manage the whole process.</p>
 			<p><strong><a href="/bespoke-trolley-manufacturing/">Click HERE for more information</a></strong></p>
 			<h3>Need help finding your perfect trolley?</h3>
-			<p><strong><a class="button" href="/enquiry-form/">Enquire Online Here</a></strong></p>
+			{{#if page_type "==" "product"}}
+				<p><strong><a class="button" href="/enquiry-form/?rma={{plusify (sanitize product.title)}}{{#if product.sku}}+({{plusify (sanitize product.sku)}}){{/if}}">Enquire Online Here</a></strong></p>
+			{{else}}
+				<p><strong><a class="button" href="/enquiry-form/?rma=General+Enquiry">Enquire Online Here</a></strong></p>
+			{{/if}}
 			<hr>
 			<p><strong><a href="mailto:{{theme_settings.custom_email_address}}">Email the Sales Team at sales@handle-it.com</a></strong></p>
 			<hr>
