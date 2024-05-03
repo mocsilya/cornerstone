@@ -5274,6 +5274,13 @@ div[data-content-region="product_view_bottom--global"] {
 .productView-info {
 	font-size: 0;
 	margin-top: .75rem;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.productView-rating .productView-info {
+	display: block;
+	border: none;
 }
 
 .productView-info > :first-child {
@@ -5283,28 +5290,55 @@ div[data-content-region="product_view_bottom--global"] {
 }
 
 .productView-info-name {
+	display: flex;
 	font-size: 13px;
-	width: 40%;
-	display: inline-block;
+	flex: 1 1 40%;
 	margin: 0;
-	padding: 0 1rem 0 0;
+	padding: .5rem;
 	clear: none;
+	align-items: center;
+	border-top: 1px solid stencilColor("color-greyLight");
+	border-left: 1px solid stencilColor("color-greyLight");
+	border-right: 1px solid stencilColor("color-greyLight");
+}
+
+.productView-info dt:nth-of-type(even),
+.productView-info dd:nth-of-type(even) {
+	background-color: stencilColor("color-greyLightest");
+}
+
+.productView-info dt:last-of-type  {
+	border-bottom: 1px solid stencilColor("color-greyLight");
+}
+
+.productView-rating .productView-info-name,
+.productView-rating .productView-info-name:last-child {
+	border: none;
+	padding: 0 1rem 0 0;
+	display: inline-block;
+	width: 40%;
 }
 
 .productView-info-value {
 	font-size: 13px;
+	flex: 1 1 60%;
+	margin: 0;
+	padding: .5rem;
+	align-items: center;
+	border-top: 1px solid stencilColor("color-greyLight");
+	border-right: 1px solid stencilColor("color-greyLight");
+}
+
+.productView-info dd:last-of-type  {
+	border-bottom: 1px solid stencilColor("color-greyLight");
+}
+
+.productView-rating .productView-info-value,
+.productView-rating .productView-info-value:last-child  {
+	border: none;
+	padding: 0;
 	display: inline-block;
 	width: 60%;
-	margin: 0;
-	padding: 0;
-}
-
-.tab-content .productView-info-name {
-	width: 200px;
-}
-
-.tab-content .productView-info-value {
-	width: calc(100% - 200px);
 }
 
 .productView-info-bulkPricing {
