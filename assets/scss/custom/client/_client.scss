@@ -93,6 +93,24 @@ ul.faq-sections .button:hover {
     text-decoration: none;
 }
 
+.accord-menu {
+	font-size: 14px;
+}
+
+.accord-active > .accord-link {
+	background-color: #eff6ea;
+}
+
+.accord-menu .accord-icon,
+.accord-menu .accord-active .accord-icon {
+	color: stencilColor('button--primary-backgroundColor');
+}
+
+body.page-page .sidebarCategories > .sidebarBlock-heading,
+body.page-page_contact_form .sidebarCategories > .sidebarBlock-heading {
+	display: none;
+}
+
 
 .productView-options .form-field-size .faq-label,
 .productView-options .form-field-size .faq-label:first-child,
@@ -2359,9 +2377,13 @@ div[data-content-region="product_below_content"] {
 	.productView-wrap:not(.payment-product) .product-data.productView-details-fixed,
 	.productView-wrap:not(.payment-product) .product-options.productView-details-fixed {
 		position: fixed;
-		top: 1.5rem;
+		top: 0;
 		left: 50%;
 		background-color: #fff;
+	}
+	
+	.productView-wrap:not(.payment-product) .product-options.productView-details-fixed {
+		overflow-y: auto;
 	}
     
 }
