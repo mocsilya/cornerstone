@@ -94,14 +94,19 @@ ul.faq-sections .button:hover {
 }
 
 
-.productView-options .faq-label,
-.productView-options .faq-label:first-child {
+.productView-options .form-field-size .faq-label,
+.productView-options .form-field-size .faq-label:first-child,
+.productView-options .form-field-invisiframe .faq-label,
+.productView-options .form-field-invisiframe .faq-label:first-child,
+.productView-options .form-field-tubeless-set-up .faq-label,
+.productView-options .form-field-tubeless-set-up .faq-label:first-child {
 	padding-right: 40px !important;
 	background-image: url('../img/custom/info.png');
 	background-position: right 8px center;
 	background-repeat: no-repeat;
 	background-size: 23px 24px;
 }
+
 
 
 // Header
@@ -1491,6 +1496,8 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 }
 
 
+
+
 // Video player
 // =============================================================================
 .videoGallery-custom .video-click {
@@ -2356,8 +2363,10 @@ div[data-content-region="product_below_content"] {
 		left: 50%;
 		background-color: #fff;
 	}
-	
+    
 }
+
+
 	
 
 
