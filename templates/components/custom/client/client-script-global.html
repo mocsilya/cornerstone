@@ -1,3 +1,5 @@
+{{#contains settings.request.host ".es"}}
+{{else}}
 <div id="flyoutBanner" class="is-open">
 	<div class="flyout-container">
 		<div class="flyout-button">
@@ -29,3 +31,4 @@
 		</div>
 	</div>
 </div>
+{{/contains}}

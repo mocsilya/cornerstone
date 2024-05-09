@@ -920,12 +920,14 @@ body.scroll .navUser-item--custom strong {
 .page-product .price-section--withoutTax abbr,
 .page-product .price-section--withoutTax span {
 	color: #222;
+	text-transform: capitalize;
 }
 
 .page-product .price-section--withTax .price,
 .page-product .price-section--withTax abbr,
 .page-product .price-section--withTax span {
 	color: #666;
+	text-transform: capitalize;
 }
 
 .page-product .price-now-label,
@@ -962,13 +964,15 @@ body.scroll .navUser-item--custom strong {
 
 .productView-info-name.sku-label,
 .productView-info-value.sku-value {
-	width: 50%;
+	flex: 1 1 50%;
+	justify-content: center;
 	background: #ffdd00;
 	color: #000;
 	vertical-align: top;
 	font-weight: 700;
 	font-size: 1rem;
 	margin-bottom: 1rem;
+	border: 0;
 	@include breakpoint("large") {
 		font-size: 1.125rem;
 	}
@@ -977,6 +981,7 @@ body.scroll .navUser-item--custom strong {
 .productView-info-name.sku-label {
 	padding: .5rem .25rem .5rem .75rem;
 	text-align: center;
+	
 }
 
 .productView-info-value.sku-value {
