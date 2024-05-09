@@ -920,13 +920,20 @@ body.scroll .navUser-item--custom strong {
 .page-product .price-section--withoutTax abbr,
 .page-product .price-section--withoutTax span {
 	color: #222;
-	text-transform: capitalize;
 }
 
 .page-product .price-section--withTax .price,
 .page-product .price-section--withTax abbr,
 .page-product .price-section--withTax span {
 	color: #666;
+}
+
+.price-section--withoutTax .price,
+.price-section--withoutTax abbr,
+.price-section--withoutTax span,
+.price-section--withTax .price,
+.price-section--withTax abbr,
+.price-section--withTax span {
 	text-transform: capitalize;
 }
 
