@@ -1029,12 +1029,14 @@ body.scroll .navUser-item--custom strong {
 	border: 2px solid #333;
 }
 
-.variant-data {
+#main-content > .variant-data {
 	display: none;
 }
 
 .productView .variant-data {
 	display: block;
+	width: 100%;
+	clear: both;
 }
 
 .productView .variant-data .container {
@@ -1478,7 +1480,51 @@ ul.why-buy li::before {
 	display: none !important;
 }
 
+.question-cta {
+    text-align: center;
+}
 
+.question-cta .button {
+    padding: 18px 24px;
+    margin: 0 auto;
+    width: 100%;
+    background-color: stencilColor("button--primary-color");
+    border: none;
+    color: stencilColor("button--primary-backgroundColor");
+    font-size: 18px;
+}
+
+.question-cta .button:hover {
+    color: #fff;
+    opacity: 0.9;
+}
+
+
+
+
+// =============================================================================
+// BLOG
+// =============================================================================
+
+.page-blog_post .blog-thumbnail {
+    @include breakpoint("large") {
+		overflow-x: hidden;
+		text-align: center
+	}
+}
+
+.page-blog_post .blog-thumbnail a {
+    @include breakpoint("medium") {
+		display: block;
+		text-align: center;
+	}
+}
+
+.page-blog_post .blog-thumbnail img {
+    @include breakpoint("medium") {
+		max-width: 600px;
+	}
+}
 
 
 
