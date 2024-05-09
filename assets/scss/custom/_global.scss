@@ -7514,7 +7514,7 @@ div[data-content-region="cart_below_table"] {
 
 
 
-// Accordion
+// Accordion (General)
 // =============================================================================
 
 .accord {
@@ -7550,6 +7550,7 @@ div[data-content-region="cart_below_table"] {
 
 .accord-title {
     margin: 0 2rem 0 0;
+	font-size: 1.25rem;
 }
 
 .accord-icon {
@@ -7579,7 +7580,7 @@ div[data-content-region="cart_below_table"] {
 	width: 0.75em;
 }
 
-.accord-active .accord-chevron:before {
+.accord-active > .accord-heading .accord-chevron:before {
 	top: 0.15em;
 	transform: rotate(-45deg);
 }
@@ -7607,6 +7608,92 @@ div[data-content-region="cart_below_table"] {
     margin-left: 1rem;
     margin-bottom: 1.5rem
 }
+
+
+// Accordion (Page Side Menu)
+// =============================================================================
+
+
+.subcategories-above .accord-wrapper {
+	padding: 0 0.75rem;
+}
+
+
+.accord-menu {
+	border-bottom: 1px solid stencilColor('container-border-global-color-base');
+}
+
+.subcategories-above .accord,
+.subcategories-above .accord:first-child,
+.accord-menu .accord,
+.accord-menu .accord:first-child {
+	padding: 0;
+}
+
+.accord-link {
+    padding: 0 2.7rem 0 0;
+    border-top: 1px solid stencilColor('container-border-global-color-base');
+	border-right: 1px solid stencilColor('container-border-global-color-base');
+	border-left: 1px solid stencilColor('container-border-global-color-base');
+	border-bottom: 0;
+    background: stencilColor('body-bg');
+    cursor: pointer;
+    position: relative;
+	display: block;
+	margin: 0;
+	overflow-y: hidden;
+}
+
+.subcategories-above .accord-link {
+	font-size: 1.25rem;
+}
+
+.accord-active > .accord-link {
+    background: stencilColor('container-border-global-color-base');
+	-webkit-box-shadow: inset 0px -1px 0px 0px rgba(0,0,0,0.25); 
+	box-shadow: inset 0px -1px 0px 0px rgba(0,0,0,0.25);
+}
+
+.accord-link a {
+	line-height: 1.2;
+	display: block;
+	padding-top: .75rem;
+	padding-right: .75rem;
+	padding-bottom: .75rem;
+	padding-left: .75rem;
+	text-decoration: none;
+}
+
+.accord .accord .accord-link a {
+	padding-left: 1.5rem;
+}
+
+.accord-link .accord-icon {
+	-webkit-box-shadow: -1px 0px 0px 0px rgba(0,0,0,0.25); 
+	box-shadow: -1px 0px 0px 0px rgba(0,0,0,0.25);
+	top: 0;
+	right: 0;
+	padding: .85rem .85rem 4rem .85rem;
+}
+
+.accord-active > .accord-link .accord-chevron:before {
+	top: 0.15em;
+	transform: rotate(-45deg);
+}
+
+.accord-menu .accord-body {
+	padding: 0;
+	border: 0;
+}
+
+.subcategories-above .accord-body {
+	padding: 0;
+    border-top:  0;
+	border-right:  0;
+	border-left: 0;
+	border-bottom: 1px solid stencilColor('container-border-global-color-base');
+}
+
 
 
 

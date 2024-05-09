@@ -29,32 +29,99 @@ customer:
 <section class="page">
 {{{region name="page_builder_content_editor_area_top"}}}
 {{#if page.sub_pages}}
-    <div class="subcategories-above subcategories--vertical">
-		<ul class="subcategories-grid subcategories-grid-blockless">
-			{{#each page.sub_pages}}
-			<li class="subcategories-grid-item subcategories-grid-item-{{dashcase (lowercase (sanitize title))}}">
-				<div class="subcategories-container">
-					<a href="{{url}}">
-						<span class="subcategories-name">{{title}}</span>
-					</a>
+	<div class="subcategories-above subcategories--vertical">
+		<div class="accord-wrapper">	
+	    	<div class="accord accord-{{dashcase (lowercase (sanitize page.title))}} accord-active">
+				<div class="accord-heading">
+					<h4 class="accord-title">
+						{{page.title}}
+						<div class="accord-icon"><span class="accord-chevron">&nbsp;</span></div>
+					</h4>
 				</div>
-			</li>
-			{{/each}}
-		</ul>
-    </div>
-    <aside class="page-sidebar page-sidebar-vertical">
-    <nav>
-		<div class="sidebarBlock sidebarCategories">
-			<h2 class="sidebarBlock-heading">{{ page.title }}</h2>
-        	<ul class="navList">
-        	{{#each page.sub_pages}}
-            	<li class="navList-item"><a class="navList-action" href="{{url}}">{{title}}</a></li>
-        	{{/each}}
-        	</ul>
+				<div class="accord-body" style="display: block;">
+	            {{#each page.sub_pages}}
+			    	<div class="accord accord-{{dashcase (lowercase (sanitize title))}}">
+						<div class="accord-link">
+							<a href="{{url}}" title="{{title}}">{{title}}</a>
+						</div>
+					</div>
+				{{/each}}
+				</div>
+			</div>
 		</div>
-    </nav>
-	</aside>
+    </div>
 {{/if}}
+
+    <aside class="page-sidebar page-sidebar-vertical">
+    	<nav>
+			<div class="sidebarBlock sidebarCategories">
+				<h2 class="sidebarBlock-heading">{{ page.title }}</h2>
+	            <div class="accord-wrapper accord-menu">	
+	            {{#each pages}}
+	                {{#if children}}
+	                <div class="accord accord-{{dashcase (lowercase (sanitize name))}}{{#if ../breadcrumbs.[1].name '===' name}} accord-active{{/if}}">
+						<div class="accord-link">
+	                    	<a href="{{url}}" title="{{name}}">{{name}}</a>
+							<div class="accord-icon"><span class="accord-chevron">&nbsp;</span></div>
+						</div>
+	                    <div class="accord-body"{{#if ../breadcrumbs.[1].name '===' name}} style="display:block;"{{/if}}>
+	                    {{#each children}}
+							{{#if children}}
+	                        <div class="accord accord-{{dashcase (lowercase (sanitize name))}}{{#if ../../breadcrumbs.[2].name '===' name}} accord-active{{/if}}">
+								<div class="accord-link">
+			                    	<a href="{{url}}" title="{{name}}">{{name}}</a>
+									<div class="accord-icon"><span class="accord-chevron">&nbsp;</span></div>
+								</div>
+			                    <div class="accord-body"{{#if ../../breadcrumbs.[2].name '===' name}} style="display:block;"{{/if}}>
+								{{#each children}}
+									{{#if children}}
+			                        <div class="accord accord-{{dashcase (lowercase (sanitize name))}}{{#if ../../../breadcrumbs.[3].name '===' name}} accord-active{{/if}}">
+										<div class="accord-link">
+					                    	<a href="{{url}}" title="{{name}}">{{name}}</a>
+											<div class="accord-icon"><span class="accord-chevron">&nbsp;</span></div>
+										</div>
+					                    <div class="accord-body"{{#if ../../../breadcrumbs.[3].name '===' name}} style="display:block;"{{/if}}>
+										{{#each children}}
+							                <div class="accord accord-{{dashcase (lowercase (sanitize name))}}{{#if ../../../../breadcrumbs.[4].name '===' name}} accord-active{{/if}}">
+												<div class="accord-link">
+							                    	<a href="{{url}}" title="{{name}}">{{name}}</a>
+												</div>
+											</div>
+										{{/each}}
+										</div>
+									</div>
+									{{else}}
+					                <div class="accord accord-{{dashcase (lowercase (sanitize name))}}{{#if ../../../breadcrumbs.[3].name '===' name}} accord-active{{/if}}">
+										<div class="accord-link">
+					                    	<a href="{{url}}" title="{{name}}">{{name}}</a>
+										</div>
+									</div>
+									{{/if}}
+								{{/each}}
+								</div>
+							</div>
+							{{else}}
+			                <div class="accord accord-{{dashcase (lowercase (sanitize name))}}{{#if ../../breadcrumbs.[2].name '===' name}} accord-active{{/if}}">
+								<div class="accord-link">
+			                    	<a href="{{url}}" title="{{name}}">{{name}}</a>
+								</div>
+							</div>
+							{{/if}}
+	                    {{/each}}
+	                    </div>
+	                </div>
+	                {{else}}
+	                <div class="accord accord-{{dashcase (lowercase (sanitize name))}}{{#if ../breadcrumbs.[1].name '===' name}} accord-active{{/if}}">
+						<div class="accord-link">
+	                    	<a href="{{url}}" title="{{name}}">{{name}}</a>
+						</div>
+					</div>
+	                {{/if}}
+	            {{/each}}
+				</div>
+			</div>
+    	</nav>
+	</aside>
 
 	{{#if page.sub_pages}}
 	<div class="page-content">
