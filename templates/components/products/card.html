@@ -262,6 +262,7 @@
                 		{{/if}}
             		{{/if}}
 				{{/if}}
+				{{> components/custom/client/client-card-actions}}
             </div>
         </figcaption>
 		{{#if theme_settings.custom_card_show_wishlist}}
@@ -403,6 +404,7 @@
                     	{{/if}}
                 	{{/if}}
 				{{/if}}
+				{{> components/custom/client/client-card-actions}}
                 {{#unless hide_product_quick_view}}
                     {{#if theme_settings.show_product_quick_view}}
                     	<button class="button button--large button--secondary quickview" data-event-type="product-click" data-product-id="{{id}}">{{lang 'products.quick_view'}}</button>

@@ -57,7 +57,7 @@ customer:
 		{{/if}}
 	{{/if}}
 	{{#unless theme_settings.hide_category_page_heading }}
-		    <h1 class="page-heading">{{#contains head.title " | "}}{{{before (split head.title ' | ') 1}}}{{else}}{{category.name}}{{/contains}}</h1>
+		    <h1 class="page-heading">{{#contains head.title " | "}}{{{first (before (split head.title ' | ') 1)}}}{{else}}{{category.name}}{{/contains}}</h1>
 	{{/unless}}
 	{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 	</div>
@@ -73,8 +73,8 @@ customer:
 	{{#if theme_settings.custom_category_description_trim}}
 		<div class="category-description-button" style="display: none;">
 			<a class="button button--secondary">
-				<span class="category-description-more">Read More</span>
-				<span class="category-description-less">Read Less</span>
+				<span class="category-description-more">{{lang 'search.faceted.show-more'}}</span>
+				<span class="category-description-less">{{lang 'search.faceted.show-less'}}</span>
 			</a>
 		</div>
 	{{/if}}
