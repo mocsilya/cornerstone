@@ -97,13 +97,13 @@ ul.faq-sections .button:hover {
 	font-size: 14px;
 }
 
-.accord-active > .accord-link {
-	background-color: #eff6ea;
-}
-
 .accord-menu .accord-icon,
 .accord-menu .accord-active .accord-icon {
 	color: stencilColor('button--primary-backgroundColor');
+}
+
+.accord-menu .accord-active > .accord-link .accord-icon {
+	color: stencilColor('button--primary-color');
 }
 
 body.page-page .sidebarCategories > .sidebarBlock-heading,
@@ -2240,7 +2240,6 @@ div[data-content-region="product_below_content"] {
 	position: absolute;
 	left: 0;
 	top: 0;
-	background: #000;
 	width: auto;
 	z-index: 1;
 }
@@ -2249,20 +2248,20 @@ div[data-content-region="product_below_content"] {
 	position: absolute;
 	right: 0;
 	top: 0;
-	background: #000;
 	width: auto;
 	z-index: 1;
 }
 
-.product-gallery-message a {
+.product-gallery-message-link,
+.product-gallery-message-link:hover {
 	color: #fff;
+	background-color: #000;
 	display: inline-block;
-	padding: .5rem;
 	font-family: "Kanit", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
 	font-size: 11px;
-	padding: .375rem .5rem;
+	padding: .375rem .75rem;
 	@include breakpoint("small") {
 		font-size: 14px;
 	}
@@ -2275,14 +2274,21 @@ div[data-content-region="product_below_content"] {
 	}
 }
 
-.product-gallery-message span {
+.product-gallery-message-sale,
+.product-gallery-message-sale:hover {
+	background: #cc0000;
+}
+
+.product-gallery-message-finance,
+.product-gallery-message-finance:hover {
+	color: #fae23e;
+}
+
+.product-gallery-message-text {
 	height: 16px;
 	line-height: 16px;
 	display: inline-block;
-	padding-left: 2px;
-	@include breakpoint("small") {
-		padding-left: 4px;
-	}
+	font-weight: 700;
 }
 
 .product-gallery-message .icon svg {
