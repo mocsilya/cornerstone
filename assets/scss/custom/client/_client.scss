@@ -1664,7 +1664,8 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 .card-brand-Santa .card-brand,
 .card-brand-Whyte .card-brand,
 .card-brand-Transition .card-brand,
-.card-brand-Trek .card-brand{
+.card-brand-Trek .card-brand,
+.card-brand-Marin .card-brand {
 	font-size: 0 !important;
 	background-size: contain;
 	background-position: left;
@@ -1687,7 +1688,7 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 .card-brand-Whyte .card-brand { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-whyte.png?t=1559835075'); }
 .card-brand-Transition .card-brand { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-transition.png?t=1623175065'); }
 .card-brand-Trek .card-brand { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-trek.png?t=1559835097'); }
-
+.card-brand-Marin .card-brand { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/original/image-manager/marin-bikes-uk.png?t=1708942793'); }
 
 
 // -----------------------------------------------------------------------------
@@ -2274,14 +2275,19 @@ div[data-content-region="product_below_content"] {
 	}
 }
 
+.product-gallery-message-link:hover {
+	background-color: #333;
+}
+
 .product-gallery-message-sale,
 .product-gallery-message-sale:hover {
-	background: #cc0000;
+	background-color: #cc0000;
 }
 
 .product-gallery-message-finance,
 .product-gallery-message-finance:hover {
 	color: #fae23e;
+	background-color: #000;
 }
 
 .product-gallery-message-text {
