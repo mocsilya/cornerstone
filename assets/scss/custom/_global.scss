@@ -3201,7 +3201,7 @@ div[data-content-region="category_below_all"] {
 
 
 
-// Category Side Bar
+// Category / Page Side Bar
 // =============================================================================
 
 .page-sidebar {
@@ -3213,6 +3213,13 @@ div[data-content-region="category_below_all"] {
 	}
 	@include breakpoint("xlarge") {
 		width: 20%;
+	}
+}
+
+.page-page .page-sidebar,
+.page-page_contact_form .page-sidebar {
+	@include breakpoint("medium") {
+		float: right;
 	}
 }
 
@@ -7649,7 +7656,7 @@ div[data-content-region="cart_below_table"] {
 }
 
 .accord-active > .accord-link {
-    background: stencilColor('container-border-global-color-base');
+    background: stencilColor('button--primary-backgroundColor');
 	-webkit-box-shadow: inset 0px -1px 0px 0px rgba(0,0,0,0.25); 
 	box-shadow: inset 0px -1px 0px 0px rgba(0,0,0,0.25);
 }
@@ -7664,6 +7671,11 @@ div[data-content-region="cart_below_table"] {
 	text-decoration: none;
 }
 
+.accord-active > .accord-link a {
+    color: stencilColor('button--primary-color');
+	font-weight: 700;
+}
+
 .accord .accord .accord-link a {
 	padding-left: 1.5rem;
 }
@@ -7674,6 +7686,12 @@ div[data-content-region="cart_below_table"] {
 	top: 0;
 	right: 0;
 	padding: .85rem .85rem 4rem .85rem;
+}
+
+.accord-active > .accord-link .accord-icon {
+	-webkit-box-shadow: -1px 0px 0px 0px stencilColor('button--primary-color');
+	box-shadow: -1px 0px 0px 0px stencilColor('button--primary-color');
+    color: stencilColor('button--primary-color');
 }
 
 .accord-active > .accord-link .accord-chevron:before {
