@@ -48,14 +48,22 @@
 	left: auto;
 }
 
+.navUser-item--b2blogin .navUser-action {
+	padding-left: .25rem;
+	padding-right: .25rem;
+}
+
 .navUser-item--b2blogin .navUser-icon {
 	background-color: stencilColor("navUser-color");
 	color: stencilColor("header-backgroundColor");
-	padding-left: .25rem;
-	padding-right: .25rem;
+	padding-left: .5rem;
+	padding-right: .5rem;
 	border-radius: .25rem;
 	font-size: .75rem;
-	line-height: 1.5rem;
+	line-height: 1;
+	@include breakpoint("large") {
+		line-height: 1.6;
+	}
 }
 
 .navUser-item--b2blogin .navUser-action:hover .navUser-icon,
@@ -68,7 +76,6 @@
 	background: none;
 	border: 2px solid stencilColor("navUser-color");
 	color: stencilColor("navUser-color");
-	line-height: 1;
 	padding-top: .25rem;
 }
 
