@@ -14,6 +14,66 @@ blog:
 customer:
     wishlists:
         limit: 10
+gql: "query productById($productId: Int!) {
+    site {
+        product(entityId: $productId) {
+            variants(first: 99) {
+                edges {
+                    node {
+                        sku
+                        inclTax: prices(includeTax: true) {
+                            price {
+                                value
+                                formatted
+                            }
+						}
+						exclTax: prices(includeTax: false) {
+                        	price {
+                            	value
+                            	formatted
+                        	}
+						}
+						isPurchasable
+						inventory {
+						    aggregated {
+						        availableToSell
+						    }
+						    isInStock
+						}
+                        productOptions {
+                            edges {
+                                node {
+                                    displayName
+                                    ... on MultipleChoiceOption {
+                                        displayName
+                                        values {
+                                            edges {
+                                                node {
+                                                    label
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            productOptions {
+                edges {
+                    node {
+						isVariantOption
+                        displayName
+                        ... on MultipleChoiceOption {
+                            displayName
+                        }
+                    }
+                }
+            }
+        }
+    }
+}"
 ---
 {{inject 'productId' product.id}}
 
@@ -61,13 +121,77 @@ customer:
 {{#partial "base"}}
 {{#unless (getVar 'payment') '===' 'active'}}
 	{{#if (getVar "b2b-products") '===' 'show'}}
-	{{#or product.related_products product.similar_by_views}}
-		<div class="related-similar">
+		{{#if theme_settings.custom_product_variant_data}}
+			{{assignVar "productHasVariants" "no"}}
+			{{#if gql.data.site.product}}
+	    		{{#each gql.data.site.product.variants.edges}}
+	        		{{#with node}}
+						{{#if @last}}
+							{{#unless @index 0}}
+								{{assignVar "productHasVariants" "yes"}}
+							{{/unless}}
+						{{/if}}
+					{{/with}}
+				{{/each}}
+				{{#if (getVar "productHasVariants") '===' 'yes'}}
+						{{> components/custom/product-variants}}
+				{{/if}}
+			{{/if}}
+		{{/if}}
+		{{> components/custom/client/client-product-variants}}
+		{{#if theme_settings.custom_product_question}}
+		<div id="product_question">
 			<div class="container">
-				{{> components/products/tabs}}
+				<div class="product-question-title">
+					<h4 class="productView-title">{{theme_settings.custom_product_question}}</h4>
+				</div>
+				<div id="iframe_product" style="height:0;margin:auto;overflow:hidden;padding-bottom:200px;position:relative;">
+				    <script>
+						var iFrameWrap = document.getElementById('iframe_product');
+						function dataview(){
+						  function thedata(){
+							  iFrameWrap.innerHTML = '<iframe src="/iframe/?rma={{plusify (sanitize product.title)}}{{#if product.sku}}+({{plusify (sanitize product.sku)}}){{/if}}" allowfullscreen frameborder="0" scrolling="no" style="height:100%;left:0;overflow:hidden;position:absolute;top:0;width:100%;" id="iframe_product--iframe"></iframe>';
+							  // LISTENER FOR IFRAME HEIGHT
+							  var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+							  var eventer = window[eventMethod];
+							  var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+							  // LISTEN TO MESSAGE FROM CHILD WINDOW
+							  eventer(messageEvent,function(e){
+							    var pass_data = JSON.parse(e.data);
+							    if (pass_data.contentheight) {
+							      resizeIFrameToFitContent(pass_data.contentheight);
+							    }
+							  },false);
+
+							  // RESIZE IFRAME
+							  function resizeIFrameToFitContent(height) {
+							    iFrameWrap.style.paddingBottom = (height + 44) + 'px';
+							  }
+						  }
+						  window.addEventListener("DOMContentLoaded", function(){
+						      thedata();
+						  });
+  
+						  window.addEventListener("resize", function(){
+						      thedata();
+						  });
+						}
+						dataview();
+		
+				    </script>
+				</div>
 			</div>
 		</div>
-	{{/or}}
+		{{/if}}
+		{{#or product.related_products product.similar_by_views}}
+			<div class="related-similar">
+				<div class="container">
+					{{> components/products/tabs}}
+				</div>
+			</div>
+		{{/or}}
+		{{> components/custom/client/client-product-related}}
 	{{/if}}
 {{/unless}}
 {{/partial}}

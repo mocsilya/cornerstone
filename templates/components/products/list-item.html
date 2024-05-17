@@ -143,6 +143,7 @@
                     {{#unless this.data '===' ../../image.data}}
                         <span class="card-image card-image-{{@index}}">
                             {{> components/common/responsive-img
+								theme_settings=../theme_settings
                                 image=this
                                 class="card-image"
                                 fallback_size=theme_settings.productgallery_size
@@ -153,6 +154,7 @@
                     {{/unless}}
                 {{/each}}
                     {{> components/common/responsive-img
+						theme_settings=theme_settings
                         image=default
                         class="card-image card-image-default"
                         fallback_size=theme_settings.productgallery_size
@@ -161,6 +163,7 @@
                     }}
 			{{else}}
 				{{> components/common/responsive-img
+					theme_settings=theme_settings
                     image=image
                     class="card-image"
                     fallback_size=theme_settings.productgallery_size
@@ -179,6 +182,7 @@
 						<div class="card-img-container card-img-slider">
 						<a href="{{../url}}">
 	                    {{> components/common/responsive-img
+							theme_settings=../theme_settings
 	                        image=this
 	                        class="card-image card-image-slide"
 	                        fallback_size=theme_settings.productgallery_size
@@ -196,15 +200,15 @@
 		{{#if theme_settings.custom_card_show_wishlist}}
 		{{#if customer.wishlists}}
 		<span class="card-wishlist">
-		    <a aria-controls="wishlist-dropdown-{{id}}"
+		    <a aria-controls="wishlist-dropdown-{{id}}{{#if card_group}}-{{card_group}}{{/if}}"
 		       aria-expanded="false"
 		       class="dropdown-menu-button"
-		       data-dropdown="wishlist-dropdown-{{id}}"
+		       data-dropdown="wishlist-dropdown-{{id}}{{#if card_group}}-{{card_group}}{{/if}}"
 		       href="#"
 		    >
 				<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-heart{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i>
 		    </a>
-			<ul aria-hidden="true" class="dropdown-menu" data-dropdown-content id="wishlist-dropdown-{{id}}">
+			<ul aria-hidden="true" class="dropdown-menu" data-dropdown-content id="wishlist-dropdown-{{id}}{{#if card_group}}-{{card_group}}{{/if}}">
 	            {{#each customer.wishlists}}
 				<li>
 					<form action="{{this.add_url}}&product_id={{../id}}" class="form" method="post">
@@ -219,15 +223,15 @@
 		</span>
 		{{else}}
 		<span class="card-wishlist">
-		    <a aria-controls="wishlist-dropdown-{{id}}"
+		    <a aria-controls="wishlist-dropdown-{{id}}{{#if card_group}}-{{card_group}}{{/if}}"
 		       aria-expanded="false"
 		       class="dropdown-menu-button"
-		       data-dropdown="wishlist-dropdown-{{id}}"
+		       data-dropdown="wishlist-dropdown-{{id}}{{#if card_group}}-{{card_group}}{{/if}}"
 		       href="#"
 		    >
 				<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-heart{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i>
 		    </a>
-			<ul aria-hidden="true" class="dropdown-menu" data-dropdown-content id="wishlist-dropdown-{{id}}">
+			<ul aria-hidden="true" class="dropdown-menu" data-dropdown-content id="wishlist-dropdown-{{id}}{{#if card_group}}-{{card_group}}{{/if}}">
 	        	<li>
 	            	<a data-wishlist class="button button--primary button--small" href="/wishlist.php?action=addwishlist&product_id={{id}}">{{lang 'account.wishlists.create_new'}}</a>
 	        	</li>
@@ -237,6 +241,16 @@
 		{{/if}}
     </figure>
     <div class="listItem-body card-body">
+		<div class="listItem-heading">
+            <h4 class="listItem-title">
+                <a href="{{url}}"
+                aria-label="{{> components/products/product-info}}"
+                data-event-type="product-click"
+                >
+                    {{name}}
+                </a>
+            </h4>
+		</div>
         <div class="listItem-content">
             <div class="listItem-details">
                 {{#if show_rating}}
@@ -245,17 +259,15 @@
                 {{#if brand.name}}
                 <p class="listItem-brand">{{brand.name}}</p>
                 {{/if}}
-                <h4 class="listItem-title">
-                    <a href="{{url}}"
-                    aria-label="{{> components/products/product-info}}"
-                    data-event-type="product-click"
-                    >
-                        {{name}}
-                    </a>
-                </h4>
                 {{#if summary}}
                     <p class="listItem-summary">{{{summary}}}</p>
                 {{/if}}
+				{{#if theme_settings.custom_card_show_message}}
+					<div class="listItem-message">
+						{{theme_settings.custom_card_message_text}}
+						{{> components/custom/client/client-listitem}}
+					</div>
+				{{/if}}
             </div>
             <div class="listItem-actions">
                 {{#or customer (unless settings.hide_price_from_guests)}}
@@ -281,8 +293,8 @@
 					{{/if}}
 				{{/if}}
 				{{#if (getVar "warranty") '===' 'active'}}
-					<div class="card-warranty" style="display: none;">
-						<a class="button button--small button--secondary has-dropdown" href="" data-dropdown="warranty{{id}}" aria-expanded="false">
+					<div class="card-warranty">
+						<a class="button button--small button--secondary has-dropdown" href="#" data-warranty-url="{{url}}" data-dropdown="warranty{{id}}" aria-expanded="false">
 							{{theme_settings.custom_product_warranty_title}}
 						</a>
 						<div class="dropdown-menu" id="warranty{{id}}" data-dropdown-content="" aria-hidden="true">
@@ -298,10 +310,16 @@
                         	{{/if}}
                         	{{#if pre_order}}
                            		<a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}">{{lang 'products.pre_order'}}</a>
-                        	{{/if}}
+					        	{{#unless theme_settings.show_product_quick_view}}
+									<a href="{{url}}" data-event-type="product-click" class="button button--secondary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">{{lang 'text_truncate.view_more'}}</a>
+                    			{{/unless}}
+							{{/if}}
                         	{{#if add_to_cart_url }}
                             	<a href="{{add_to_cart_url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}">{{lang 'products.add_to_cart'}}</a>
-                        	{{/if}}
+					        	{{#unless theme_settings.show_product_quick_view}}
+									<a href="{{url}}" data-event-type="product-click" class="button button--secondary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">{{lang 'text_truncate.view_more'}}</a>
+                    			{{/unless}}
+							{{/if}}
                         	{{#if out_of_stock_message }}
                             	<a href="{{url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">{{out_of_stock_message}}</a>
                         	{{/if}}
@@ -314,10 +332,16 @@
                     	{{/if}}
                     	{{#if pre_order}}
                        		<a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}">{{lang 'products.pre_order'}}</a>
-                    	{{/if}}
-                    	{{#if add_to_cart_url }}
+					        {{#unless theme_settings.show_product_quick_view}}
+								<a href="{{url}}" data-event-type="product-click" class="button button--secondary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">{{lang 'text_truncate.view_more'}}</a>
+                    		{{/unless}}
+						{{/if}}
+                    	{{#if add_to_cart_url}}
                         	<a href="{{add_to_cart_url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}">{{lang 'products.add_to_cart'}}</a>
-                    	{{/if}}
+					        {{#unless theme_settings.show_product_quick_view}}
+								<a href="{{url}}" data-event-type="product-click" class="button button--secondary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">{{lang 'text_truncate.view_more'}}</a>
+                    		{{/unless}}
+						{{/if}}
                     	{{#if out_of_stock_message }}
                         	<a href="{{url}}" data-event-type="product-click" class="button button--primary {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">{{out_of_stock_message}}</a>
                     	{{/if}}
@@ -335,13 +359,8 @@
 		                <button type="button" data-event-type="product-click" class="button button quickview {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" data-product-id="{{id}}">{{lang 'products.quick_view'}}</button>
 		            {{/if}}
 		        {{/unless}}
+				{{> components/custom/client/client-listitem-actions}}
             </div>
         </div>
-		{{#if theme_settings.custom_card_show_message}}
-			<div class="card-message">
-				{{theme_settings.custom_card_message_text}}
-				{{> components/custom/client/client-card}}
-			</div>
-		{{/if}}
     </div>
 </article>

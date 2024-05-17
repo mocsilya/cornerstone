@@ -28,6 +28,7 @@
             {{/if}}
             {{#if @first}}
                 {{> components/common/responsive-img
+					theme_settings=../theme_settings
                     image=stencil_image
                     class="heroCarousel-image heroCarousel-image-desktop"
                     fallback_size='1280w'
@@ -35,6 +36,7 @@
                 }}
             {{else}}
                 {{> components/common/responsive-img
+					theme_settings=../theme_settings
                     image=stencil_image
                     class="heroCarousel-image heroCarousel-image-desktop"
                     fallback_size='1280w'

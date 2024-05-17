@@ -4,6 +4,7 @@ import compareProducts from './global/compare-products';
 import FacetedSearch from './common/faceted-search';
 import { createTranslationDictionary } from '../theme/common/utils/translations-utils';
 import cardSwatches from './custom/card-swatches';
+import cardWarranty from './custom/card-warranty';
 import cardCarousel from './custom/card-carousel';
 import menuHelper from './custom/menu-helper';
 
@@ -24,6 +25,7 @@ export default class Brand extends CatalogPage {
         }
 		
         cardSwatches();
+        cardWarranty();
 		cardCarousel();
 		menuHelper();
     }

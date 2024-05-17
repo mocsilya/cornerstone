@@ -1,5 +1,7 @@
-<h3 class="newsletter-heading">{{theme_settings.custom_footer_newsletter_heading}}</h3>
-<p class="newsletter-subtext">{{theme_settings.custom_footer_newsletter_message}}</p>
+<h3 class="newsletter-heading">
+	{{#if theme_settings.custom_footer_newsletter_heading}}{{theme_settings.custom_footer_newsletter_heading}}{{else}}{{lang 'newsletter.subscribe'}}{{/if}}
+</h3>
+<p class="newsletter-subtext">{{#if theme_settings.custom_footer_newsletter_message}}{{theme_settings.custom_footer_newsletter_message}}{{else}}{{lang 'newsletter.subscribe_intro'}}{{/if}}</p>
 
 <form class="form" action="{{urls.subscribe.action}}" method="post">
     <fieldset class="form-fieldset">

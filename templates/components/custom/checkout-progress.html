@@ -83,7 +83,7 @@ const setProgressLineStep = (step) => {
 	const progressLabelIndex = document.querySelector("#progress-checkout .progress-label--index b");
 	const progressLabelName = document.querySelector("#progress-checkout .progress-label--name");
 	const label = stepToLabel[step];
-	progressLabelIndex.innerText = `Step ${step}`;
+	progressLabelIndex.innerText = `${step}`;
 	progressLabelName.innerText = label;
 };
 
@@ -99,16 +99,16 @@ ready('.checkout-step--shipping #checkout-shipping-continue', function(element) 
 		const isSameAsBilling = document.querySelector("#sameAsBilling").value === "true";
 		const shippingBtnContinue = document.querySelector("#checkout-shipping-continue");			
 		if (!isSameAsBilling) {
-			shippingBtnContinue.innerText = "Go To {{lang 'optimized_checkout.billing.billing_heading'}}";
+			shippingBtnContinue.innerText = "{{lang 'optimized_checkout.billing.billing_heading'}}";
 	    } else {
-	    	shippingBtnContinue.innerText = "Go To {{lang 'optimized_checkout.payment.payment_heading'}}";
+	    	shippingBtnContinue.innerText = "{{lang 'optimized_checkout.payment.payment_heading'}}";
 	    }
 		document.querySelector("#sameAsBilling").onchange = (e) => {
 		  let checked = e.target.checked;
 		  if (checked) {
-		    shippingBtnContinue.innerText = "Go To {{lang 'optimized_checkout.payment.payment_heading'}}";
+		    shippingBtnContinue.innerText = "{{lang 'optimized_checkout.payment.payment_heading'}}";
 		  } else {
-		    shippingBtnContinue.innerText = "Go To {{lang 'optimized_checkout.billing.billing_heading'}}";
+		    shippingBtnContinue.innerText = "{{lang 'optimized_checkout.billing.billing_heading'}}";
 		  }
 		}
 	};
@@ -120,7 +120,7 @@ ready('.checkout-step--billing #checkout-billing-continue', function(element) {
 	setProgressLineStep(3);
 	const handleBillingStep = async () => {
 		const billingBtnContinue = document.querySelector("#checkout-billing-continue");
-		billingBtnContinue.innerText = "Go To {{lang 'optimized_checkout.payment.payment_heading'}}";
+		billingBtnContinue.innerText = "{{lang 'optimized_checkout.payment.payment_heading'}}";
 	};
 	handleBillingStep();
 });
