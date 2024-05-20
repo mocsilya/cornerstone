@@ -79,6 +79,15 @@ body.with-bar.scroll .header-bar {
 	}
 }
 
+.header-logo-image {
+	@include breakpoint("medium") {
+		max-width: 144px;
+	}
+	@include breakpoint("large") {
+		max-width: 192px;
+	}
+}
+
 
 body:not(.page-category.page-brands) #main-content {
 	@include breakpoint("medium") {
