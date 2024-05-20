@@ -160,6 +160,7 @@
 	                    {{#unless this.data '===' ../../image.data}}
 	                        <span class="card-image card-image-{{@index}}">
 	                            {{> components/common/responsive-img
+									theme_settings=../theme_settings
 	                                image=this
 	                                class="card-image"
 	                                fallback_size=theme_settings.productgallery_size
@@ -170,6 +171,7 @@
 	                    {{/unless}}
 	                {{/each}}
                         {{> components/common/responsive-img
+							theme_settings=theme_settings
                             image=default
                             class="card-image card-image-default"
                             fallback_size=theme_settings.productgallery_size
@@ -178,6 +180,7 @@
                         }}
 				{{else}}
 					{{> components/common/responsive-img
+						theme_settings=theme_settings
 	                    image=image
 	                    class="card-image"
 	                    fallback_size=theme_settings.productgallery_size
@@ -196,6 +199,7 @@
 							<div class="card-img-container card-img-slider">
 							<a href="{{../url}}">
 		                    {{> components/common/responsive-img
+								theme_settings=../theme_settings
 		                        image=this
 		                        class="card-image card-image-slide"
 		                        fallback_size=theme_settings.productgallery_size
@@ -258,20 +262,21 @@
                 		{{/if}}
             		{{/if}}
 				{{/if}}
+				{{> components/custom/client/client-card-actions}}
             </div>
         </figcaption>
 		{{#if theme_settings.custom_card_show_wishlist}}
 		{{#if customer.wishlists}}
 		<span class="card-wishlist">
-		    <a aria-controls="wishlist-dropdown-{{id}}"
+		    <a aria-controls="wishlist-dropdown-{{id}}{{#if card_group}}-{{card_group}}{{/if}}"
 		       aria-expanded="false"
 		       class="dropdown-menu-button"
-		       data-dropdown="wishlist-dropdown-{{id}}"
+		       data-dropdown="wishlist-dropdown-{{id}}{{#if card_group}}-{{card_group}}{{/if}}"
 		       href="#"
 		    >
 				<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-heart{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i>
 		    </a>
-			<ul aria-hidden="true" class="dropdown-menu" data-dropdown-content id="wishlist-dropdown-{{id}}">
+			<ul aria-hidden="true" class="dropdown-menu" data-dropdown-content id="wishlist-dropdown-{{id}}{{#if card_group}}-{{card_group}}{{/if}}">
 	            {{#each customer.wishlists}}
 				<li>
 					<form action="{{this.add_url}}&product_id={{../id}}" class="form" method="post">
@@ -286,15 +291,15 @@
 		</span>
 		{{else}}
 		<span class="card-wishlist">
-		    <a aria-controls="wishlist-dropdown-{{id}}"
+		    <a aria-controls="wishlist-dropdown-{{id}}{{#if card_group}}-{{card_group}}{{/if}}"
 		       aria-expanded="false"
 		       class="dropdown-menu-button"
-		       data-dropdown="wishlist-dropdown-{{id}}"
+		       data-dropdown="wishlist-dropdown-{{id}}{{#if card_group}}-{{card_group}}{{/if}}"
 		       href="#"
 		    >
 				<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-heart{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i>
 		    </a>
-			<ul aria-hidden="true" class="dropdown-menu" data-dropdown-content id="wishlist-dropdown-{{id}}">
+			<ul aria-hidden="true" class="dropdown-menu" data-dropdown-content id="wishlist-dropdown-{{id}}{{#if card_group}}-{{card_group}}{{/if}}">
 	        	<li>
 	            	<a data-wishlist class="button button--primary button--small" href="/wishlist.php?action=addwishlist&product_id={{id}}">{{lang 'account.wishlists.create_new'}}</a>
 	        	</li>
@@ -306,9 +311,7 @@
     <div class="card-body">
         {{#and rating show_rating}}
             <p class="card-text card-rating" data-test-info-type="productRating">
-                <span class="rating--small">
-                    {{> components/products/ratings rating_target=name rating=rating}}
-                </span>
+            	{{> components/products/ratings rating_target=name rating=rating}}
             </p>
         {{/and}}
         {{#if brand.name}}
@@ -355,8 +358,8 @@
 			{{/if}}
 		{{/if}}
 		{{#if (getVar "warranty") '===' 'active'}}
-			<div class="card-warranty" style="display: none;">
-				<a class="button button--small button--secondary has-dropdown" href="" data-dropdown="warranty{{id}}" aria-expanded="false">
+			<div class="card-warranty">
+				<a class="button button--small button--secondary has-dropdown" href="#" data-warranty-url="{{url}}" data-dropdown="warranty{{id}}" aria-expanded="false">
 					{{theme_settings.custom_product_warranty_title}}
 				</a>
 				<div class="dropdown-menu" id="warranty{{id}}" data-dropdown-content="" aria-hidden="true">
@@ -401,6 +404,7 @@
                     	{{/if}}
                 	{{/if}}
 				{{/if}}
+				{{> components/custom/client/client-card-actions}}
                 {{#unless hide_product_quick_view}}
                     {{#if theme_settings.show_product_quick_view}}
                     	<button class="button button--large button--secondary quickview" data-event-type="product-click" data-product-id="{{id}}">{{lang 'products.quick_view'}}</button>

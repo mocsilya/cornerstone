@@ -73,10 +73,21 @@
 		{{/if}}
 		{{> components/custom/client/client-body}}
         <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
-
-        {{> components/common/header }}
+		{{#if page_type '==' 'page_contact_form'}}
+			{{#unless (lowercase page.title) '==' 'iframe'}}
+				{{> components/common/header }}
+			{{/unless}}
+		{{else}}
+			{{> components/common/header }}
+		{{/if}}
         {{> components/common/body }}
-        {{> components/common/footer }}
+		{{#if page_type '==' 'page_contact_form'}}
+			{{#unless (lowercase page.title) '==' 'iframe'}}
+				{{> components/common/footer }}
+			{{/unless}}
+		{{else}}
+			{{> components/common/footer }}
+		{{/if}}
 		
 		{{#unless settings.shopper_consent_tracking_enabled}}
 			{{#if settings.is_eu_ip_address}}

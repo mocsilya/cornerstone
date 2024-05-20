@@ -8,20 +8,20 @@
     <div class="form-row form-row--half">
         {{#if forms.contact.name}}
             <div class="form-field">
-                <label class="form-label" for="contact_fullname">{{lang 'forms.contact_us.full_name'}}</label>
+                <label class="form-label" id="label_fullname" for="contact_fullname">{{lang 'forms.contact_us.full_name'}}</label>
                 <input class="form-input" type="text" id="contact_fullname" name="contact_fullname" value="{{customer.name}}">
             </div>
         {{/if}}
 
         {{#if forms.contact.phone}}
             <div class="form-field">
-                <label class="form-label" for="contact_phone">{{lang 'forms.contact_us.phone'}}</label>
+                <label class="form-label" id="label_phone" for="contact_phone">{{lang 'forms.contact_us.phone'}}</label>
                 <input class="form-input" type="text" id="contact_phone" name="contact_phone" value="{{customer.phone}}">
             </div>
         {{/if}}
 
         <div class="form-field">
-            <label class="form-label" for="contact_email">{{lang 'forms.contact_us.email'}}
+            <label class="form-label" id="label_email" for="contact_email">{{lang 'forms.contact_us.email'}}
                 <small>{{lang 'common.required' }}</small>
             </label>
             <input class="form-input" type="text" id="contact_email" name="contact_email" value="{{customer.email}}">
@@ -29,28 +29,38 @@
 
         {{#if forms.contact.order}}
             <div class="form-field">
-                <label class="form-label" for="contact_orderno">{{lang 'forms.contact_us.order'}}</label>
+                <label class="form-label"  id="label_orderno" for="contact_orderno">{{lang 'forms.contact_us.order'}}</label>
                 <input class="form-input" type="text" id="contact_orderno" name="contact_orderno">
             </div>
         {{/if}}
 
         {{#if forms.contact.company}}
             <div class="form-field">
-                <label class="form-label" for="contact_companyname">{{lang 'forms.contact_us.company'}}</label>
+                <label class="form-label" id="label_companyname" for="contact_companyname">{{lang 'forms.contact_us.company'}}</label>
                 <input class="form-input" type="text" id="contact_companyname" name="contact_companyname">
             </div>
         {{/if}}
-
+		
         {{#if forms.contact.rma}}
             <div class="form-field">
-                <label class="form-label" for="contact_rma">{{lang 'forms.contact_us.rma'}}</label>
+                <label class="form-label" id="label_rma" for="contact_rma">
+				{{#if (lowercase page.title) '==' 'iframe'}}
+					{{#if theme_settings.custom_product_question}}
+						{{lang 'cart.checkout.item'}} / {{lang 'products.sku'}}
+					{{else}}
+						{{lang 'forms.contact_us.rma'}}
+					{{/if}}
+				{{else}}
+					{{lang 'forms.contact_us.rma'}}
+				{{/if}}
+				</label>
                 <input class="form-input" type="text" id="contact_rma" name="contact_rma">
             </div>
         {{/if}}
     </div>
 
     <div class="form-field">
-        <label class="form-label" for="contact_question">{{lang 'forms.contact_us.question'}}
+        <label class="form-label" id="label_question" for="contact_question">{{lang 'forms.contact_us.question'}}
             <small>{{lang 'common.required' }}</small>
         </label>
         <textarea name="contact_question" id="contact_question" rows="5" cols="50" class="form-input"></textarea>
@@ -69,6 +79,6 @@
     {{/if}}
     {{{forms.contact.recaptcha.markup}}}
     <div class="form-actions">
-        <input class="button button--primary" type="submit" value="{{lang 'forms.contact_us.submit' }}">
+        <input class="button button--primary" type="submit" value="{{#if (lowercase page.title) '==' 'iframe'}}{{#if theme_settings.custom_product_question}}{{lang 'common.form_submit'}} {{lang 'forms.contact_us.question'}}{{else}}{{lang 'forms.contact_us.submit' }}{{/if}}{{else}}{{lang 'forms.contact_us.submit' }}{{/if}}">
     </div>
 </form>
