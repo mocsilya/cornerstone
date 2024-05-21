@@ -22,8 +22,19 @@ header.header {
 .header-logo-image {
 	max-height: 45px;
 	@include breakpoint("medium") {
-		max-width: 200px;
+		max-width: 178px;
+		min-width: 178px;
 		max-height: 60px;
+		min-height: 60px;
+	}
+}
+
+body.scroll .header-logo-image {
+	@include breakpoint("medium") {
+		max-width: 121px;
+		min-width: 121px;
+		max-height: 41px;
+		min-height: 41px;
 	}
 }
 
