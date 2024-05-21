@@ -160,7 +160,7 @@
     "custom_footer_show_blog": true,
     "custom_footer_show_blog_home": false,
     "custom_footer_show_newsletter": true,
-    "custom_footer_show_categories": true,
+    "custom_footer_show_categories": false,
     "custom_footer_newsletter_heading": "Newsletter",
     "custom_footer_newsletter_message": "Get the latest news and special offers.",
     "custom-footer-newsletter-background": "#1f8cc5",
