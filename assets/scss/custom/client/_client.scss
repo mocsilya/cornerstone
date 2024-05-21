@@ -302,6 +302,28 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 	color: #008a06;
 }
 
+
+.productView-info dd:nth-of-type(2n), .productView-info dt:nth-of-type(2n) {
+    background-color: #DBF0F9;
+}
+
+.productView-info-name {
+    border-top: 1px solid #c1e6fa;
+    border-right: 1px solid #c1e6fa;
+    border-left: 1px solid #c1e6fa;
+}
+
+.productView-info-value {
+    border-top: 1px solid #c1e6fa;
+    border-right: 1px solid #c1e6fa;
+}
+
+.productView-info dd:last-of-type,
+.productView-info dt:last-of-type {
+    border-bottom: 1px solid #c1e6fa;
+}
+
+
 @media (max-width: 1260px) {
 	#tab-description {
 		display: flex;
