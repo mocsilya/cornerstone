@@ -58,10 +58,11 @@ customer:
 				<h2 class="sidebarBlock-heading">{{ page.title }}</h2>
 	            <div class="accord-wrapper accord-menu">	
 	            {{#each pages}}
+					{{#unless name '==' 'header'}}
 	                {{#if children}}
 	                <div class="accord accord-{{dashcase (lowercase (sanitize name))}}{{#if ../breadcrumbs.[1].name '===' name}} accord-active{{/if}}">
 						<div class="accord-link">
-	                    	<a href="{{url}}" title="{{name}}">{{name}}</a>
+							<a href="{{url}}" title="{{name}}">{{name}}</a>
 							<div class="accord-icon"><span class="accord-chevron">&nbsp;</span></div>
 						</div>
 	                    <div class="accord-body"{{#if ../breadcrumbs.[1].name '===' name}} style="display:block;"{{/if}}>
@@ -117,6 +118,7 @@ customer:
 						</div>
 					</div>
 	                {{/if}}
+					{{/unless}}
 	            {{/each}}
 				</div>
 			</div>
