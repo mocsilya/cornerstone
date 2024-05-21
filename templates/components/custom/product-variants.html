@@ -1,0 +1,55 @@
+<div class="variant-data">
+	<div class="container">
+		<div class="table-wrap">
+			<table class="table">
+				<thead>
+					<tr>
+					    <th class="th-sku">{{chop (lang 'products.sku')}}</th>
+					    {{#each gql.data.site.product.productOptions.edges}}
+					        {{#with node}}
+								{{#if isVariantOption}}
+					            	<th class="th-option th-{{dashcase (lowercase (sanitize displayName))}}">{{displayName}}</th>
+								{{/if}}
+					        {{/with}}
+					    {{/each}}
+						<th class="th-stock">{{lang 'products.current_stock'}}</th>
+					    <th class="th-price">{{lang 'cart.checkout.price'}}{{#if product.price.without_tax}} {{{before (split (lang 'products.price_without_tax') ' ') 1}}}{{else}}  {{{before (split (lang 'products.price_with_tax') ' ') 1}}}{{/if}} {{settings.tax_label}})</th>
+					</tr>
+				</thead>
+				<tbody>
+				{{#each gql.data.site.product.variants.edges}}
+					<tr{{#with node}}{{#unless isPurchasable}} class="tr-variant-unavailable"{{/unless}}{{/with}}>
+					    {{#with node}}
+					        <td class="td-sku">{{sku}}</td>
+					        {{#each productOptions.edges}}
+					            {{#with node}}
+					                {{#each values.edges}}
+					                    {{#with node}}
+					                        <td class="td-option td-{{dashcase (lowercase (sanitize ../../displayName))}}">{{label}}</td>
+					                    {{/with}}
+					                {{/each}}
+					            {{/with}}
+					        {{/each}}
+							<td class="td-stock">
+								{{#if isPurchasable}}
+									<span class="td-stock-value{{#if inventory.aggregated.availableToSell '==' 0}} td-stock-out" style="display: none;"{{else}} td-stock-in"{{/if}}>{{inventory.aggregated.availableToSell}}</span>
+									<span class="td-stock-text">{{#if inventory.isInStock}}In Stock{{else}}{{lang 'products.out_of_stock_default_message'}}{{/if}}</span>
+								{{else}}
+									<span class="td-stock-text">Currently Unavailable</span>
+								{{/if}}
+							</td>
+					        <td class="td-price">
+								{{#if ../../product.price.without_tax}}
+									{{exclTax.price.formatted}}
+								{{else}}
+									{{inclTax.price.formatted}}
+								{{/if}}
+							</td>
+					    {{/with}}
+					</tr>
+				{{/each}}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

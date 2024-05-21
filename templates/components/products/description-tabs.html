@@ -14,7 +14,7 @@
 <ul class="tabs" data-tab>
     {{#if product.description}}
         <li class="tab tab-description is-active">
-            <a class="tab-title" href="#tab-description">{{theme_settings.custom_product_description_title}}</a>
+            <a class="tab-title" href="#tab-description">{{#if theme_settings.custom_product_description_title.length}}{{theme_settings.custom_product_description_title}}{{else}}{{lang 'products.description'}}{{/if}}</a>
         </li>
     {{/if}}
     {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
@@ -31,7 +31,7 @@
 	{{#if theme_settings.custom_product_warranty_location '==' 'normal'}}
     {{#if product.warranty}}
         <li class="tab tab-warranty">
-            <a class="tab-title" href="#tab-warranty">{{theme_settings.custom_product_warranty_title}}</a>
+            <a class="tab-title" href="#tab-warranty">{{#if theme_settings.custom_product_warranty_title.length}}{{theme_settings.custom_product_warranty_title}}{{else}}{{lang 'products.warranty'}}{{/if}}</a>
         </li>
     {{/if}}
 	{{/if}}

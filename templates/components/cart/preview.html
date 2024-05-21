@@ -17,9 +17,6 @@
             </a>
 			
             {{#if cart.show_primary_checkout_button}}
-                {{#if cart.additional_checkout_buttons}}
-                    <div data-cart-accelerated-checkout-buttons class="previewCartCheckout-acceleratedCheckoutButtons"></div>
-                {{/if}}
 				<a href="{{urls.checkout.single_address}}" class="button button--primary button--checkout" data-primary-checkout-now-action>
                     <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-lock" /></svg></i> <strong>&nbsp;{{lang 'cart.added_to_cart.proceed_to_checkout'}}</strong>
                 </a>

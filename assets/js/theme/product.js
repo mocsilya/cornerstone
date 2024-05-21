@@ -9,6 +9,7 @@ import videoGallery from './product/video-gallery';
 import { classifyForm } from './common/utils/form-utils';
 import modalFactory from './global/modal';
 import cardSwatches from './custom/card-swatches';
+import cardWarranty from './custom/card-warranty';
 import tabPages from './custom/tab-pages';
 import videoClick from './custom/video-click';
 import productUpsell from './custom/product-upsell';
@@ -24,6 +25,7 @@ export default class Product extends PageManager {
 
     onReady() {
         cardSwatches();
+        cardWarranty();
         tabPages();
         videoClick();
 		productUpsell();
