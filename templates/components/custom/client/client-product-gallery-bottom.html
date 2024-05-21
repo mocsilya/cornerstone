@@ -1,0 +1,21 @@
+{{#unless (getVar 'payment') '===' 'active'}}
+	{{#if (getVar "b2b-products") '===' 'show'}}
+		{{#if theme_settings.custom_product_variant_data}}
+			{{assignVar "productHasVariants" "no"}}
+			{{#if gql.data.site.product}}
+	    		{{#each gql.data.site.product.variants.edges}}
+	        		{{#with node}}
+						{{#if @last}}
+							{{#unless @index 0}}
+								{{assignVar "productHasVariants" "yes"}}
+							{{/unless}}
+						{{/if}}
+					{{/with}}
+				{{/each}}
+				{{#if (getVar "productHasVariants") '===' 'yes'}}
+						{{> components/custom/product-variants}}
+				{{/if}}
+			{{/if}}
+		{{/if}}
+	{{/if}}
+{{/unless}}
