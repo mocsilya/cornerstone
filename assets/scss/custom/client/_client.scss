@@ -2255,8 +2255,8 @@ div[data-content-region="product_below_content"] {
 
 .product-gallery-message-link,
 .product-gallery-message-link:hover {
-	color: #fff;
-	background-color: #000;
+	color: #64aa35;
+	background-color: #fff;
 	display: inline-block;
 	font-family: "Kanit", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
@@ -2276,18 +2276,17 @@ div[data-content-region="product_below_content"] {
 }
 
 .product-gallery-message-link:hover {
-	background-color: #333;
+	color: #000;
 }
 
 .product-gallery-message-sale,
 .product-gallery-message-sale:hover {
-	background-color: #cc0000;
+	color: #cc0000;
 }
 
 .product-gallery-message-finance,
 .product-gallery-message-finance:hover {
-	color: #fae23e;
-	background-color: #000;
+	color: #64aa35;
 }
 
 .product-gallery-message-text {

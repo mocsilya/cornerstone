@@ -227,7 +227,7 @@
     "custom_product_addtocart_modal": true,
     "custom_product_availability": "",
     "custom_product_variant_data": false,
-	"custom_product_question": "",
+    "custom_product_question": "",
     "custom-tab-color": "#ffffff",
     "custom-tab-background": "#64aa35",
     "custom-tab-hover-color": "#ffffff",
@@ -581,8 +581,7 @@
     "masterpass-button-color": "black",
     "paymentbuttons-provider-sorting": [
       "paypal",
-      "applepay",
-      "amazonpay"
+      "applepay"
     ]
   },
   "read_only_files": [
