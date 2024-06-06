@@ -1,0 +1,11 @@
+{{#if brand.name}}
+	<div style="height: 30px;" class="card-brand-logo card-brand-logo-{{first (split brand.name ' ')}}"></div>
+{{/if}}
+        <h3 class="card-title-top">
+            <a aria-label="{{> components/products/product-info}}"
+               href="{{url}}"
+               data-event-type="product-click"
+            >
+                {{name}}
+            </a>
+        </h3>
