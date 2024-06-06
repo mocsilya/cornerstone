@@ -1009,6 +1009,7 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 // =============================================================================
 
 
+.page-404 .page-header.page-header-image,
 .page-category .page-header.page-header-image {
 	padding-top: 0 !important;
 	padding-bottom: 2.75rem !important;
@@ -1018,6 +1019,7 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	}
 }
 
+.page-404 .page-header.page-header-image:before,
 .page-category .page-header.page-header-image:before {
 	@include breakpoint("medium") {
 	    content: '';
@@ -1033,6 +1035,7 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	}
 }
 
+.page-404 .page-header.page-header-image img,
 .page-category .page-header.page-header-image img {
 	display: none;
 	transform: none;
@@ -1049,6 +1052,7 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	}
 }
 
+.page-404 .page-header.page-header-image .page-heading,
 .page-category .page-header.page-header-image .page-heading {
 	position: relative;
 	z-index: 1;
@@ -1084,12 +1088,28 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	}
 }
 
+.page-404 .page-header.page-header-image .page-heading {
+	padding-top: 2rem;
+	padding-bottom: 0;
+	@include breakpoint("medium") {
+		padding-top: 3rem;
+	}
+	@include breakpoint("large") {
+		padding-top: 4.5rem;
+	}
+	@include breakpoint("xlarge") {
+		padding-top: 4.5rem;
+	}
+}
+
+.page-404 .page-header.page-header-image nav,
 .page-category .page-header.page-header-image nav {
 	@include breakpoint("medium") {
 		margin: 0 60% 0 0;
 	}
 }
 
+.page-404 .page-header.page-header-image .page-heading + nav .breadcrumbs,
 .page-category .page-header.page-header-image .page-heading + nav .breadcrumbs {
 	background: none;
 	@include breakpoint("medium") {
@@ -2713,6 +2733,52 @@ body:not(.currency-gbp) article[data-section-type="footer-categories"] li.link-i
 		font-size: 22px;
 	}
 }
+
+
+
+// 404
+// =============================================================================
+
+.page-404 .subcategories-image,
+.page-404 .subcategories-blank {
+	display: none;
+}
+
+.page-404 .subcategories-container a {
+	border: 2px solid #000;
+	color: #fff;
+	background-color: #000;
+	border-radius: .25rem;
+}
+
+.page-404 .subcategories-container a:hover {
+	border: 2px solid #64aa35;
+	border-radius: .25rem;
+	color: #fff;
+	background-color: #64aa35;
+	opacity: 1;
+}
+
+.page-404 .sitemap-list > li.sitemap-list-item:nth-child(2) ul ul ul {
+	display: none;
+}
+
+.sitemap-list {
+	margin-top: 1.5rem;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+}
+
+.sitemap-list-item {
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	padding: 1.5rem;
+}
+
+.sitemap-list a {
+	text-decoration: none;
+}
+
 
 
 // WIDGET

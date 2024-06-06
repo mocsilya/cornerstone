@@ -201,7 +201,7 @@
     "custom_page_header_image_cart": "",
     "custom_page_header_image_info": "",
     "custom_page_header_image_search": "",
-    "custom_page_header_image_sitemap": "",
+    "custom_page_header_image_sitemap": "404-banner.jpg",
     "custom_page_header_image_contact": "",
     "custom_404_show_sitemap": true,
     "custom_404_show_categories": true,
