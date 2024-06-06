@@ -1130,16 +1130,23 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 // Card
 // =============================================================================
 
-.card-message {
-	border: 1px solid #ccc;
-	background: #f5f5f5;
-	text-align: center;
-	padding: .25rem;
-}
-
 .card-warranty {
     display: none;
 }
+
+.card-body {
+	position: static;
+}
+
+.card-brand-logo {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 30px;
+	width: 100%;
+	background-color: #ff0000;
+}
+
 
 
 // Preview Cart
