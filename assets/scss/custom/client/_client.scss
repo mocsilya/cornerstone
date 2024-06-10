@@ -1685,6 +1685,12 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	text-decoration: none;
 }
 
+.card-message {
+	padding: 0;
+	margin: 0;
+	font-weight: 400;
+}
+
 
 
 // Card Brands
@@ -2914,3 +2920,8 @@ body:not(.currency-gbp) article[data-section-type="footer-categories"] li.link-i
     margin-bottom: 1.5rem;
 }
 
+//Imegamedia
+
+.card-body .imm-widget-anchor:last-of-type {
+    display: none !important;
+}

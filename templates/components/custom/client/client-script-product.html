@@ -22,7 +22,8 @@ let arr = [];
 
 if (arr.length) {
 	const priceDiv = document.querySelectorAll(".productView-price .price-section--withTax .price--withTax")[0];
-	if (priceDiv.innerText.includes(' - ')) {
+	if (priceDiv.innerText.includes('From ')) {
+	//if (priceDiv.innerText.includes(' - ')) {
 		priceDiv.style.opacity = "0";
 	}
 	const priceMinMath = Math.min.apply(Math, arr);
@@ -32,14 +33,18 @@ if (arr.length) {
 	}
 	const priceFormatted = "{{#if currency_selector.active_currency_code '==' 'GBP'}}£{{else if currency_selector.active_currency_code '==' 'CAD'}}${{else if currency_selector.active_currency_code '==' 'AUD'}}${{else if currency_selector.active_currency_code '==' 'USD'}}${{else}}€{{/if}}" + numberWithCommas(priceMin);
 	const priceRange = priceDiv.innerText;
-	const priceTrim = priceRange.substring(priceRange.indexOf(' - ') + 1);
-	const priceMax = priceRange.substring(priceRange.indexOf('-') + 2);
+	//const priceTrim = priceRange.substring(priceRange.indexOf(' - ') + 1);
+	//const priceMax = priceRange.substring(priceRange.indexOf('-') + 2);
+	const priceFrom = priceRange.substring(priceRange.indexOf('From ') + 5);
 	let priceUpdate;
-	if (priceFormatted == priceMax) {
+	//if (priceFormatted == priceMax) {
+	if (priceFormatted == priceFrom) {
 		priceUpdate = priceFormatted;
 	} else {
-		priceUpdate = priceFormatted + " " + priceTrim;
+		//priceUpdate = priceFormatted + " " + priceTrim;
+		priceUpdate = priceFrom;
 	}
+	console.log("price updte:" + priceUpdate);
 	const priceSaved = document.querySelectorAll(".productView-price .price-section--saving .price--saving")[0];
 	const priceSavedCheck = priceSaved.innerText;
 	const priceRRP = document.querySelectorAll(".productView-price .price-section--withTax .price--rrp")[0];
@@ -56,11 +61,19 @@ if (arr.length) {
 	}
 	setTimeout(function() {
 		priceDiv.style.opacity = "1";
-		priceDiv.innerHTML = priceUpdate;
+		// priceDiv.innerHTML = priceUpdate;
+		priceDiv.innerHTML = "From " + priceUpdate;
 		if (priceSavedFormatted) {
 			priceSaved.innerHTML = priceSavedFormatted;
 		}
-	}, 1500);
+	}, 2500);
+} else {
+ 	setTimeout(function() {
+		const priceDiv2 = document.querySelectorAll(".productView-price .price-section--withTax .price--withTax")[0];
+		priceDiv2.innerHTML = "From {{product.price.rrp_with_tax.formatted}}";
+		console.log("default price: {{product.price.rrp_with_tax.formatted}}");
+ 	}, 2500);
+	
 }
 </script>
 {{/and}}
