@@ -9,11 +9,17 @@ customer:
 
 {{#partial "hero"}}
 <div class="container container-hero">
-	<div class="page-header compare-header">
-    	<h1 class="page-heading">{{lang 'compare.header' products=comparisons.length}}</h1>
+	{{#if theme_settings.custom_page_header_image_sitemap}}
+		<div class="page-header compare-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
+	    <img class="page-header-image" src="/product_images/uploaded_images/{{theme_settings.custom_page_header_image_sitemap}}" />
+	{{else}}
+		<div class="page-header compare-header">
+	{{/if}}
+        <h1 class="page-heading">{{lang 'compare.header' products=comparisons.length}}</h1>
 		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 	</div>
 </div>
+
 {{/partial}}
 
 {{#partial "page"}}
