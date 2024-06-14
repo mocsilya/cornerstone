@@ -1540,8 +1540,29 @@ body.hasAdminBar.scroll .dropdown--quickSearch.is-open {
 	
 }
 
+.navUser-item--comparison .navUser-item--compare.show {
+	position: fixed;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	color: stencilColor('button--primary-color');
+	background-color: stencilColor('button--primary-backgroundColor');
+	padding-left: 2rem;
+	padding-right: 2rem;
+	border-top-left-radius: .5rem;
+	border-top-right-radius: .5rem;
+}
+
+.navUser-item--comparison .navUser-item--compare.show svg {
+	color: stencilColor('button--primary-color');
+	fill: stencilColor('button--primary-color');
+}
+
 .navUser-item--compare.show .countPill {
+	margin-top: .25rem;
 	animation: blink 2s linear infinite;
+	background-color: stencilColor('button--primary-color');
+	color: stencilColor('button--primary-backgroundColor');
 }
 
 @keyframes blink {
@@ -6772,6 +6793,109 @@ div[data-content-region="cart_below_table"] {
 	width: 100%;
 	clear: both;
 }
+
+
+
+// Compare
+// =============================================================================
+
+.compare-wrapper {
+	margin: auto;
+	overflow-x: auto;
+}
+
+.compare-wrapper #table {
+	position: relative;
+	border-collapse: collapse;
+	border-spacing: 0;
+	table-layout: auto;
+	width: 100%;
+	border: none;
+}
+
+.compare-wrapper #table th.compareTable-heading {
+	padding: 0.5rem 1rem;
+	vertical-align: middle;
+	min-width: 150px !important;
+	max-width: 150px !important;
+	-webkit-box-shadow: inset -2px 0px 0px 0px rgba(0,0,0,0.3); 
+	box-shadow: inset -2px 0px 0px 0px rgba(0,0,0,0.3);
+    @include breakpoint("medium") {
+		min-width: 200px !important;
+		max-width: 200px !important;
+    }
+}
+
+.compare-wrapper #table span.compareTable-headingText {
+	position: static !important;
+}
+
+.compare-wrapper #table tr.compareTable-row th.compareTable-heading {
+	background-color: #fff;
+}
+
+.compare-wrapper #table tr.compareTable-data:nth-child(odd) th.compareTable-heading,
+.compare-wrapper #table tr.compareTable-data:nth-child(odd) td.compareTable-item {
+    background-color: #fff;
+}
+
+.compare-wrapper #table tr.compareTable-data:nth-child(even) th.compareTable-heading,
+.compare-wrapper #table tr.compareTable-data:nth-child(even) td.compareTable-item {
+    background-color: #eee;
+}
+		
+.compare-wrapper #table td.compareTable-item, 
+.compare-wrapper #table td.compareTable-action {
+    padding: 0.5rem 1rem;
+	vertical-align: middle;
+	min-width: 200px !important;
+	max-width: 200px !important;
+	position: relative;
+	z-index: 1;
+    @include breakpoint("medium") {
+		min-width: 300px !important;
+		max-width: 300px !important;
+    }
+}
+.compare-wrapper #table tr.compareTable-name th.compareTable-heading,
+.compare-wrapper #table tr.compareTable-name td.compareTable-item {
+	padding-top: 2.5rem;
+}
+
+.compare-wrapper #table tr.compareTable-button th.compareTable-heading,
+.compare-wrapper #table tr.compareTable-card th.compareTable-heading {
+	border-top: none !important;
+}
+
+.compare-wrapper #table tr > th:first-child,
+.compare-wrapper #table tr > td:first-child {
+	position: sticky;
+	left: 0;
+	z-index: 2;
+}
+
+.compare-wrapper #table .compareTable-removeProduct {
+	top: 0;
+	right: 0;
+}
+
+.compare-wrapper #table .compareTable-removeProduct .icon {
+	margin-left: 0.5rem;
+}	
+		
+.compare-wrapper #table .compareTable-row .card-image {
+	margin-top: 0;
+}
+
+.compare-wrapper #table .price-section {
+	font-size: 1.25rem;
+}
+
+.compare-wrapper #table .card-brand a {
+	font-weight: 700;
+	text-decoration: none;
+}
+
 
 
 // Sitemap
