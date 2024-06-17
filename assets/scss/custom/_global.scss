@@ -6818,8 +6818,10 @@ div[data-content-region="cart_below_table"] {
 	vertical-align: middle;
 	min-width: 100px !important;
 	max-width: 100px !important;
+	overflow-x: hidden;
 	-webkit-box-shadow: inset -2px 0px 0px 0px rgba(0,0,0,0.3); 
 	box-shadow: inset -2px 0px 0px 0px rgba(0,0,0,0.3);
+	font-size: 12px;
     @include breakpoint("small") {
 		min-width: 150px !important;
 		max-width: 150px !important;
@@ -6827,11 +6829,13 @@ div[data-content-region="cart_below_table"] {
     @include breakpoint("medium") {
 		min-width: 200px !important;
 		max-width: 200px !important;
+		font-size: 14px;
     }
 }
 
 .compare-wrapper #table span.compareTable-headingText {
 	position: static !important;
+	white-space: normal;
 }
 
 .compare-wrapper #table tr.compareTable-row th.compareTable-heading {
@@ -6856,9 +6860,11 @@ div[data-content-region="cart_below_table"] {
 	max-width: 200px !important;
 	position: relative;
 	z-index: 1;
+	font-size: 12px;
     @include breakpoint("medium") {
 		min-width: 300px !important;
 		max-width: 300px !important;
+		font-size: 14px;
     }
 }
 .compare-wrapper #table tr.compareTable-name th.compareTable-heading,
