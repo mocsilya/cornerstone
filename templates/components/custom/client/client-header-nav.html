@@ -1,0 +1,33 @@
+<li class="navUser-item navUser-item--custom">
+        <a class="navUser-action" href="/contact-us/">
+			<span class="navUser-icon">
+            	<i class="icon" aria-hidden="true">
+                	<svg>
+                    	<use href="#icon-envelope{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}"></use>
+                	</svg>
+            	</i>
+			</span>
+			<span class="navUser-text">
+            	Contact
+			</span>
+        </a>
+</li>
+{{#unless customer}}
+        <li class="navUser-item navUser-item--account navUser-item--account2">
+            <a class="navUser-action navUser-action--account"
+			   href="{{urls.auth.login}}"
+               aria-label="{{lang 'common.account'}}"
+            >
+				<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-user{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
+				{{#if theme_settings.custom_header_icon_text}}
+				<span class="navUser-text">
+					{{#if customer}}
+						{{first (split customer.name " ") }}
+					{{else}}
+						{{lang 'common.account'}}
+					{{/if}}
+				</span>
+				{{/if}}
+            </a>
+        </li>
+{{/unless}}
