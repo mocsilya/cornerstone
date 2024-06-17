@@ -3,7 +3,6 @@
 // =============================================================================
 //
 
-700
 
 .blue {
 	color: #1d428a;
@@ -13,9 +12,7 @@
 	color: #ce0F69;
 }
 
-main.body > .container > div:not(.page-header):not(.category-description-button) {
-	background-color: stencilColor('body-bg');
-}
+
 
 .login,
 .account--fixed {
@@ -49,19 +46,13 @@ main.body > .container > div:not(.page-header):not(.category-description-button)
 }
 
 .header {
-	background: #ffffff; /* Old browsers */
-	background: -moz-linear-gradient(left, stencilColor('header-backgroundColor') 0%, #ffffff 50%, stencilColor('header-backgroundColor') 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(left, stencilColor('header-backgroundColor') 0%,#ffffff 50%, stencilColor('header-backgroundColor') 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to right, stencilColor('header-backgroundColor') 0%,#ffffff 50%, stencilColor('header-backgroundColor') 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='stencilColor("header-backgroundColor")', endColorstr='stencilColor("header-backgroundColor")',GradientType=1 ); /* IE6-9 */
 	@include breakpoint("medium") {
-		background: #ffffff; /* Old browsers */
-		background: -moz-linear-gradient(left,  #ffffff 0%, stencilColor('header-backgroundColor') 50%, stencilColor('header-backgroundColor') 100%); /* FF3.6-15 */
-		background: -webkit-linear-gradient(left,  #ffffff 0%,stencilColor('header-backgroundColor') 50%,stencilColor('header-backgroundColor') 100%); /* Chrome10-25,Safari5.1-6 */
-		background: linear-gradient(to right,  #ffffff 0%,stencilColor('header-backgroundColor') 50%,stencilColor('header-backgroundColor') 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='stencilColor('header-backgroundColor')',GradientType=1 ); /* IE6-9 */
+		background: #fff;
+		background: linear-gradient(to bottom, stencilColor('header-backgroundColor') 0%,#ffffff 100%);
 	}
 }
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#1e5799+0,ffffff+100 */
+
 
 body.with-bar.scroll .header {
 	@include breakpoint("medium") {
@@ -83,40 +74,16 @@ body.with-bar.scroll .header-bar {
 
 .header-logo-image {
 	@include breakpoint("medium") {
-		max-width: 144px;
+		max-width: 300px;
 	}
 	@include breakpoint("large") {
-		max-width: 192px;
+		max-width: 300px;
 	}
 }
 
-.page-header {
-	margin-bottom: 0;
-	@include breakpoint("medium") {
-		background: none;
-	}
-}
-/*
-.page-header ol.breadcrumbs {
-	text-align: left;
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: 1.5rem;
-	padding-right: 1.5rem;
-	max-width: calc(1440px + 12rem);
-	@include breakpoint("medium") {
-		padding-left: 3rem;
-		padding-right: 3rem;
-	}
-	@include breakpoint("large") {
-		padding-left: 6rem;
-		padding-right: 6rem;
-	}
-}
-*/
 .header--boxsearch .form-search-box .form-input,
 .navUser .form-search-box .form-input {
-	background: #fff;
+	background: stencilColor('custom-header-bar-background');
 	border: 1px solid stencilColor('header-backgroundColor');
 	border-right: 0;
 }
@@ -129,7 +96,7 @@ body.with-bar.scroll .header-bar {
 .header--boxsearch .form-search-box .button:hover,
 .navUser .form-search-box .button,
 .navUser .form-search-box .button:hover {
-	background: #fff;
+	background: stencilColor('custom-header-bar-background');
 	border: 1px solid stencilColor('header-backgroundColor');
 	border-left: 0;
 }
@@ -137,7 +104,7 @@ body.with-bar.scroll .header-bar {
 .dropdown--quickSearch .form-field-submit .button,
 .dropdown--quickSearch .form-field-submit .button:hover {
 	@include breakpoint("medium") {
-	    background: stencilColor('button--primary-backgroundColor');
+	    background: stencilColor('header-backgroundColor');
 	    border: 1px solid stencilColor('button--primary-backgroundColor');
 		border-left: 0;
 		color: #fff;
@@ -177,8 +144,8 @@ body.with-bar.scroll .header-bar {
 
 .navPages > ul > li.navPages-item > .navPages-action {
 	@include breakpoint("medium") {
-		border-right: 1px solid #d9d9d6;
-		border-bottom: 1px solid #d9d9d6;
+		border-right: 1px solid #e9e9e6;
+		border-bottom: 1px solid #e9e9e6;
 		padding-bottom: 1rem;
 	}
 	@include breakpoint("large") {
@@ -189,34 +156,16 @@ body.with-bar.scroll .header-bar {
 
 .navPages > ul > li.navPages-item:first-child > .navPages-action {
 	@include breakpoint("medium") {
-		border-left: 1px solid #d9d9d6;
+		border-left: 1px solid #e9e9e6;
 	}
 }
 
 .navPages > ul > li.navPages-item > .navPages-action:hover {
 	@include breakpoint("medium") {
-		background-color: #509ac2;
+		background-color: #1d428a;
 	}
 }
 
-
-
-.page-product #main-content > .container:not(.container-hero) > div:first-child,
-body:not(.page-category.page-brands) #main-content > .container:not(.container-hero) .page {
-	background: #fff;
-	@include breakpoint("medium") {
-		padding-top: 1.5rem;
-		padding-left: 1.5rem;
-		padding-right: 1.5rem;
-		border-top-left-radius: .25rem;
-		border-top-right-radius: .25rem;
-	}
-	@include breakpoint("large") {
-		padding-top: 3rem;
-		padding-left: 3rem;
-		padding-right: 3rem;
-	}
-}
 
 .subcategories-grid {
 	background: #fff;
@@ -231,8 +180,9 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 }
 
 
-.sidebarBlock-heading {
-	color: stencilColor('button--primary-backgroundColorHover');
+.sidebarBlock-heading,
+.sidebarBlock-heading a {
+	color: stencilColor('button--primary-backgroundColor');
 	font-size: 1.5rem;
 }
 
@@ -241,13 +191,21 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 }
 
 .page-sidebar-vertical .sidebarCategories .navList-action {
-	font-weight: 700;
+	font-weight: 600;
 }
 
 .page-sidebar-vertical .sidebarCategories .navList-action-sub {
 	font-weight: 400;
 	text-indent: .5rem;
 }
+
+
+
+
+// =============================================================================
+// Product page
+// =============================================================================
+
 
 .productView {
 	padding-top: 1.5rem;
@@ -271,7 +229,7 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 }
 
 .productView-info-bulkPricing a {
-	font-weight: 700;
+	font-weight: 600;
 }
 
 
@@ -297,24 +255,10 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 
 
 .productView-info dd:nth-of-type(2n), .productView-info dt:nth-of-type(2n) {
-    background-color: #DBF0F9;
+    background-color: #e9e9e6;
 }
 
-.productView-info-name {
-    border-top: 1px solid #c1e6fa;
-    border-right: 1px solid #c1e6fa;
-    border-left: 1px solid #c1e6fa;
-}
 
-.productView-info-value {
-    border-top: 1px solid #c1e6fa;
-    border-right: 1px solid #c1e6fa;
-}
-
-.productView-info dd:last-of-type,
-.productView-info dt:last-of-type {
-    border-bottom: 1px solid #c1e6fa;
-}
 
 .productView-info-name.upc-label,
 .productView-info-value.upc-value,
@@ -359,26 +303,26 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 
 .productView table,
 .page-product div[data-content-region="product_below_content"] table {
-	border-right: 1px solid #c1e6fa;
-	border-bottom: 1px solid #c1e6fa;
+	border-right: 1px solid #e9e9e6;
+	border-bottom: 1px solid #e9e9e6;
 }
 
 .productView table th,
 .page-product div[data-content-region="product_below_content"] table th {
-	background: #c1e6fa;
-	color: #305e78;
+	background: #e9e9e6;
+	color: #1d428a;
 }
 
 .productView table td,
 .productView table th,
 .page-product div[data-content-region="product_below_content"] table td,
 .page-product div[data-content-region="product_below_content"] table th {
-	border-left: 1px solid #c1e6fa;
-	border-top: 1px solid #c1e6fa;
+	border-left: 1px solid #e9e9e6;
+	border-top: 1px solid #e9e9e6;
 }
 
 .price-section .price.price--withTax {
-	color: stencilColor('button--primary-backgroundColorHover');
+	color: stencilColor('button--primary-backgroundColor');
 }
 
 .price-section .price.price--withoutTax {
@@ -443,10 +387,21 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 	flex: 0 1 auto;
 }
 
+.productView-description .tab-content {
+	font-size: 16px;
+}
+
 .panel-header,
 .panel-body {
 	background-color: #fff;
 }
+
+
+
+
+// =============================================================================
+// Category page
+// =============================================================================
 
 .category-description {
 	margin: 0 -0.75rem;
@@ -479,6 +434,17 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 	background-color: #fff;
 }
 
+.pagination-item.pagination-item--current .pagination-link {
+	background: #ce0F69;
+	border: 1px solid #ce0F69;
+}
+
+
+// =============================================================================
+// Footer
+// =============================================================================
+
+
 .footer-newsletter {
 	background: #ffffff; /* Old browsers */
 	background: -moz-linear-gradient(left, stencilColor('custom-footer-newsletter-background') 0%, #ffffff 50%, stencilColor('custom-footer-newsletter-background') 100%); /* FF3.6-15 */
@@ -488,7 +454,7 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 }
 
 .footer-blog {
-	background: #d9d9d6; /* Old browsers */
+	background: #e9e9e6; /* Old browsers */
 	background: -moz-linear-gradient(top,  stencilColor('custom-footer-blog-background') 0%, #ffffff 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(top,  stencilColor('custom-footer-blog-background') 0%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom,  stencilColor('custom-footer-blog-background') 0%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -500,7 +466,7 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 }
 
 .subcategories-above .subcategories-name {
-	border: 1px solid #68b1d9;
+	border: 1px solid #53565a;
 	background-color: #fff;
 }
 
