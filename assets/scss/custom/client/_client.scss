@@ -66,12 +66,6 @@ body.with-bar.scroll .header-bar {
 	}
 }
 
-@media (max-width: 800px) {
-	.header-logo-image {
-		max-height: 49px;
-	}
-}
-
 .header-logo-image {
 	@include breakpoint("medium") {
 		max-width: 300px;
