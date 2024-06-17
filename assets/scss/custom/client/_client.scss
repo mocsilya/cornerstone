@@ -323,6 +323,13 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
     border-bottom: 1px solid #c1e6fa;
 }
 
+.productView-info-name.upc-label,
+.productView-info-value.upc-value,
+.productView-info-name.sku-label,
+.productView-info-value.upc-value {
+    display: none;
+}
+
 
 @media (max-width: 1260px) {
 	#tab-description {
