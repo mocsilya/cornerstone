@@ -3,12 +3,14 @@
 // =============================================================================
 //
 
-.green {
-	color: #30a825;
+700
+
+.blue {
+	color: #1d428a;
 }
 
-.orange {
-	color: #f86e21;
+.pink {
+	color: #ce0F69;
 }
 
 main.body > .container > div:not(.page-header):not(.category-description-button) {
@@ -135,8 +137,8 @@ body.with-bar.scroll .header-bar {
 .dropdown--quickSearch .form-field-submit .button,
 .dropdown--quickSearch .form-field-submit .button:hover {
 	@include breakpoint("medium") {
-	    background: #f86e21;
-	    border: 1px solid #f86e21;
+	    background: stencilColor('button--primary-backgroundColor');
+	    border: 1px solid stencilColor('button--primary-backgroundColor');
 		border-left: 0;
 		color: #fff;
 	}
@@ -175,8 +177,8 @@ body.with-bar.scroll .header-bar {
 
 .navPages > ul > li.navPages-item > .navPages-action {
 	@include breakpoint("medium") {
-		border-right: 1px solid #addbf2;
-		border-bottom: 1px solid #addbf2;
+		border-right: 1px solid #d9d9d6;
+		border-bottom: 1px solid #d9d9d6;
 		padding-bottom: 1rem;
 	}
 	@include breakpoint("large") {
@@ -187,7 +189,7 @@ body.with-bar.scroll .header-bar {
 
 .navPages > ul > li.navPages-item:first-child > .navPages-action {
 	@include breakpoint("medium") {
-		border-left: 1px solid #addbf2;
+		border-left: 1px solid #d9d9d6;
 	}
 }
 
@@ -230,7 +232,7 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 
 
 .sidebarBlock-heading {
-	color: #30a825;
+	color: stencilColor('button--primary-backgroundColorHover');
 	font-size: 1.5rem;
 }
 
@@ -376,7 +378,7 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 }
 
 .price-section .price.price--withTax {
-	color: #30a825;
+	color: stencilColor('button--primary-backgroundColorHover');
 }
 
 .price-section .price.price--withoutTax {
@@ -486,7 +488,7 @@ body:not(.page-category.page-brands) #main-content > .container:not(.container-h
 }
 
 .footer-blog {
-	background: #addbf2; /* Old browsers */
+	background: #d9d9d6; /* Old browsers */
 	background: -moz-linear-gradient(top,  stencilColor('custom-footer-blog-background') 0%, #ffffff 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(top,  stencilColor('custom-footer-blog-background') 0%,#ffffff 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom,  stencilColor('custom-footer-blog-background') 0%,#ffffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
