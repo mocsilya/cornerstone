@@ -9,7 +9,7 @@
 	{{/if}}
 {{/filter}}
 
-<article class="listItem{{#if brand.name}} card-brand-{{first (split brand.name ' ')}}{{/if}}" data-event-type="{{event}}" data-entity-id="{{id}}" data-position="{{position}}" data-name="{{name}}" data-product-category="{{#each category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{brand.name}}" data-product-price="
+<article class="listItem{{#if brand.name}} card-brand-{{first (split brand.name ' ')}}{{/if}}" data-test="card-{{id}}" data-event-type="{{event}}" data-entity-id="{{id}}" data-position="{{position}}" data-name="{{name}}" data-product-category="{{#each category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{brand.name}}" data-product-price="
 	{{#or customer (unless settings.hide_price_from_guests)}}
         {{#if price.with_tax}}
             {{price.with_tax.value}}
@@ -20,6 +20,7 @@
         {{lang 'common.login_for_pricing'}}
     {{/or}}
 	">
+	{{> components/custom/client/client-listitem-top}}
     <figure class="listItem-figure">
 		<div class="listItem-figure-badges">
         {{#if stock_level '===' 0}}
@@ -266,6 +267,11 @@
 					<div class="listItem-message">
 						{{theme_settings.custom_card_message_text}}
 						{{> components/custom/client/client-listitem}}
+					</div>
+				{{/if}}
+				{{#if theme_settings.custom_card_variant_data}}
+					<div class="custom-product-data" data-product-id="{{id}}">
+						
 					</div>
 				{{/if}}
             </div>

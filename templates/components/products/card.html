@@ -37,6 +37,7 @@
         {{lang 'common.login_for_pricing'}}
     {{/or}}"
 >
+	{{> components/custom/client/client-card-top}}
     <figure class="card-figure">
 		<div class="card-figure-badges">
         {{#if stock_level '===' 0}}
@@ -416,6 +417,11 @@
 			<div class="card-message">
 				{{theme_settings.custom_card_message_text}}
 				{{> components/custom/client/client-card}}
+			</div>
+		{{/if}}
+		{{#if theme_settings.custom_card_variant_data}}
+			<div class="custom-product-data" data-product-id="{{id}}">
+				
 			</div>
 		{{/if}}
     </div>
