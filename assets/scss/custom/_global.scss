@@ -6816,10 +6816,14 @@ div[data-content-region="cart_below_table"] {
 .compare-wrapper #table th.compareTable-heading {
 	padding: 0.5rem 1rem;
 	vertical-align: middle;
-	min-width: 150px !important;
-	max-width: 150px !important;
+	min-width: 100px !important;
+	max-width: 100px !important;
 	-webkit-box-shadow: inset -2px 0px 0px 0px rgba(0,0,0,0.3); 
 	box-shadow: inset -2px 0px 0px 0px rgba(0,0,0,0.3);
+    @include breakpoint("small") {
+		min-width: 150px !important;
+		max-width: 150px !important;
+    }
     @include breakpoint("medium") {
 		min-width: 200px !important;
 		max-width: 200px !important;
