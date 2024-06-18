@@ -7,19 +7,22 @@ let arr = [];
 	            {{#with node}}
 	                {{#each values.edges}}
 	                    {{#with node}}
-		                    {{#contains label "In Stock"}}
-							    // {{dashcase (lowercase (sanitize ../../../../sku))}}
-							    if (document.querySelectorAll(".productView-options .form-field-{{dashcase (lowercase (sanitize ../../displayName))}} .form-select .form-select-option-{{dashcase (lowercase (sanitize label))}}").length > 0) {
-								    arr.push('{{../../../../inclTax.price.value}}');
-								    }
-		                    {{/contains}}
+						console.log("displayname: {{dashcase (lowercase (sanitize label))}}");
+							    let q{{../../../../sku}} = document.querySelector(".productView-options .form-field-{{dashcase (lowercase (sanitize ../../displayName))}} .form-select .form-select-option-{{dashcase (lowercase (sanitize label))}}");
+							    //console.log(query{{../../../../sku}});
+								if (q{{../../../../sku}}) {
+									console.log("2: match: {{../../../../inclTax.price.value}}");
+									arr.push('{{../../../../inclTax.price.value}}');
+								} else {
+									console.log("2: Not Found");
+								}
 						{{/with}}
 	                {{/each}}
 	            {{/with}}
 	        {{/each}}
 	    {{/with}}
 	{{/each}}
-
+	console.log("array:" + arr);
 if (arr.length) {
 	const priceDiv = document.querySelectorAll(".productView-price .price-section--withTax .price--withTax")[0];
 	if (priceDiv.innerText.includes('From ')) {
@@ -31,20 +34,23 @@ if (arr.length) {
 	function numberWithCommas(x) {
 		return x.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ",");
 	}
+	console.log("priceMin" + priceMin);
 	const priceFormatted = "{{#if currency_selector.active_currency_code '==' 'GBP'}}£{{else if currency_selector.active_currency_code '==' 'CAD'}}${{else if currency_selector.active_currency_code '==' 'AUD'}}${{else if currency_selector.active_currency_code '==' 'USD'}}${{else}}€{{/if}}" + numberWithCommas(priceMin);
+	console.log("priceFormatted" + priceFormatted);
 	const priceRange = priceDiv.innerText;
 	//const priceTrim = priceRange.substring(priceRange.indexOf(' - ') + 1);
 	//const priceMax = priceRange.substring(priceRange.indexOf('-') + 2);
 	const priceFrom = priceRange.substring(priceRange.indexOf('From ') + 5);
+	console.log("priceFrom" + priceFrom);
 	let priceUpdate;
 	//if (priceFormatted == priceMax) {
 	if (priceFormatted == priceFrom) {
-		priceUpdate = priceFormatted;
+		priceUpdate = priceFrom;
 	} else {
 		//priceUpdate = priceFormatted + " " + priceTrim;
-		priceUpdate = priceFrom;
+		priceUpdate = priceFormatted;
 	}
-	console.log("price updte:" + priceUpdate);
+	console.log("price update:" + priceUpdate);
 	const priceSaved = document.querySelectorAll(".productView-price .price-section--saving .price--saving")[0];
 	const priceSavedCheck = priceSaved.innerText;
 	const priceRRP = document.querySelectorAll(".productView-price .price-section--withTax .price--rrp")[0];
@@ -66,13 +72,13 @@ if (arr.length) {
 		if (priceSavedFormatted) {
 			priceSaved.innerHTML = priceSavedFormatted;
 		}
-	}, 2500);
+	}, 2000);
 } else {
  	setTimeout(function() {
 		const priceDiv2 = document.querySelectorAll(".productView-price .price-section--withTax .price--withTax")[0];
 		priceDiv2.innerHTML = "From {{product.price.rrp_with_tax.formatted}}";
 		console.log("default price: {{product.price.rrp_with_tax.formatted}}");
- 	}, 2500);
+ 	}, 2000);
 	
 }
 </script>
