@@ -1146,8 +1146,13 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 }
 
 
+// Compare
+// =============================================================================
 
-
+.compareTable-description,
+.compareTable-availabilty {
+    display: none;
+}
 
 
 
