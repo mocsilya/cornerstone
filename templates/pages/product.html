@@ -34,6 +34,10 @@ gql: "query productById($productId: Int!) {
                         	}
 						}
 						isPurchasable
+						weight {
+						    unit
+						    value
+						}
 						inventory {
 						    aggregated {
 						        availableToSell
