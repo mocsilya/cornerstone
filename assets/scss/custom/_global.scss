@@ -46,6 +46,11 @@ h1, h2, h3, h4, h5, h6 {
 	letter-spacing: 0;
 }
 
+.table-scroll {
+	width: 100%;
+	overflow-x: auto;
+}
+
 .table-wrap {
 	width: 100%;
 	overflow-x: hidden;
@@ -726,6 +731,8 @@ body.scroll .header-logo-text {
 // =============================================================================
 
 .navUser {
+	transform: none;
+	top: 0;
 	@include breakpoint("medium") {
 		padding: 0;
 		text-align: center;
@@ -790,6 +797,7 @@ body.scroll .header-logo-text {
 }
 
 .navUser-item--account,
+.navUser-item--comparison,
 .navUser-item--search,
 .navUser-item--cart {
 	display: inline-block;
@@ -3962,6 +3970,14 @@ body.hasAdminBar.has-bar .brand-anchor {
 	margin-bottom: 0;
 }
 
+.card-wishlist-active,
+.card-compare-active {
+	margin-top: 32px;
+	@include breakpoint("large") {
+		margin-top: 0;
+	}
+}
+
 .product.spotlight .card {
 	display: block;
 	height: auto;
@@ -4205,17 +4221,23 @@ a:hover span.card-image:only-of-type img {
 }
 
 .card-wishlist {
-	display: none;
+	display: block;
 	position: absolute;
-	top: 0;
+	top: -32px;
 	right: 0;
 	overflow: visible;
 	float: right;
+	@include breakpoint("large") {
+		display: none;
+		top: 0;
+	}
 }
 
 .listItem-figure:hover .card-wishlist,
 .card-figure:hover .card-wishlist {
-	display: block;
+	@include breakpoint("large") {
+		display: block;
+	}
 }
 
 .card-wishlist .dropdown-menu-button {
@@ -4247,6 +4269,7 @@ a:hover span.card-image:only-of-type img {
 	right: 0 !important;
 	max-width: none;
 	min-width: 100%;
+	z-index: 99;
 }
 
 .card-wishlist .dropdown-menu li {
@@ -4271,20 +4294,56 @@ a:hover span.card-image:only-of-type img {
 	margin: 0;
 }
 
+.card-figcaption {
+	display: flex;
+	align-items: flex-start;
+	@include breakpoint("large") {
+		align-items: flex-end;
+	}
+}
+
 .card-figcaption-body {
 	display: flex;
 	flex-direction: column;
-	bottom: 0;
-	top: auto;
 	transform: none;
-	position: absolute;
 	width: 100%;
 	z-index: 11;
+	position: static;
 }
 .card-figcaption-button,
 .card-figcaption-button + .card-figcaption-button {
 	margin: 1px 0 0 0;
 }
+
+@media (max-width: 1023px) {
+	
+	.card-figure {
+		overflow: visible;
+	}
+	
+	.card-figure .card-figcaption {
+		opacity: 1;
+	}
+	
+	.card-figcaption-button {
+		display: none;
+	}
+	
+	.card-figcaption-button.compare {
+		display: block;
+		width: auto;
+		position: absolute;
+		right: 0;
+		top: -32px;
+		padding-left: 0;
+		padding-right: 0;
+	}
+	
+	.card-wishlist-active .card-figcaption-button.compare {
+		right: 32px;
+	}
+}
+
 
 
 
@@ -6816,18 +6875,27 @@ div[data-content-region="cart_below_table"] {
 .compare-wrapper #table th.compareTable-heading {
 	padding: 0.5rem 1rem;
 	vertical-align: middle;
-	min-width: 150px !important;
-	max-width: 150px !important;
+	min-width: 100px !important;
+	max-width: 100px !important;
+	overflow-x: hidden;
 	-webkit-box-shadow: inset -2px 0px 0px 0px rgba(0,0,0,0.3); 
 	box-shadow: inset -2px 0px 0px 0px rgba(0,0,0,0.3);
+	font-size: 12px;
+	font-weight: 700;
+    @include breakpoint("small") {
+		min-width: 150px !important;
+		max-width: 150px !important;
+    }
     @include breakpoint("medium") {
 		min-width: 200px !important;
 		max-width: 200px !important;
+		font-size: 14px;
     }
 }
 
 .compare-wrapper #table span.compareTable-headingText {
 	position: static !important;
+	white-space: normal;
 }
 
 .compare-wrapper #table tr.compareTable-row th.compareTable-heading {
@@ -6852,9 +6920,11 @@ div[data-content-region="cart_below_table"] {
 	max-width: 200px !important;
 	position: relative;
 	z-index: 1;
+	font-size: 12px;
     @include breakpoint("medium") {
 		min-width: 300px !important;
 		max-width: 300px !important;
+		font-size: 14px;
     }
 }
 .compare-wrapper #table tr.compareTable-name th.compareTable-heading,
