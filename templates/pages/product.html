@@ -80,7 +80,7 @@ gql: "query productById($productId: Int!) {
 }"
 ---
 {{inject 'productId' product.id}}
-
+{{inject "productPriceFrom" theme_settings.custom_price_from}}
 {{#partial "hero"}}
 {{assignVar "payment" "inactive"}}
 {{assignVar "breadcrumb" "inactive"}}

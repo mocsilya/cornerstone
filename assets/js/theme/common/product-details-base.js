@@ -289,13 +289,22 @@ export default class ProductDetailsBase {
      * Update the view of price, messages, SKU and stock options when a product option changes
      * @param  {Object} data Product attribute data
      */
+	
     updatePriceView(viewModel, price) {
         this.clearPricingNotFound(viewModel);
-
+		const priceFrom = this.context.productPriceFrom;
+		
         if (price.with_tax) {
-            const updatedPrice = price.price_range ?
-                `${price.price_range.min.with_tax.formatted} - ${price.price_range.max.with_tax.formatted}`
-                : price.with_tax.formatted;
+			let updatedPrice;
+			if (priceFrom == true) {
+            	updatedPrice = price.price_range ?
+                	`From ${price.price_range.min.with_tax.formatted}`
+                	: price.with_tax.formatted;
+			} else {
+        		updatedPrice = price.price_range ?
+            	`${price.price_range.min.with_tax.formatted} - ${price.price_range.max.with_tax.formatted}`
+            	: price.with_tax.formatted;
+			}
             viewModel.priceLabel.$span.show();
             viewModel.$priceWithTax.html(updatedPrice);
         }
