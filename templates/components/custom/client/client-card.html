@@ -1,3 +1,11 @@
-{{#if price.rrp_with_tax.formatted}}
-	{{theme_settings.pdp-retail-price-label}} {{price.rrp_with_tax.formatted}}
+{{#if price.price_range}}
+	{{#and price.retail_price_range.min.with_tax price.retail_price_range.max.with_tax}}
+		{{#if price.retail_price_range.min.with_tax.value '>' price.price_range.min.with_tax.value}}
+			{{theme_settings.pdp-retail-price-label}} <s>{{price.retail_price_range.min.with_tax.formatted}}</s>
+		{{/if}}
+	{{else}}
+		{{#if price.rrp_with_tax.value '>' price.price_range.min.with_tax.value}}
+			{{theme_settings.pdp-retail-price-label}} <s>{{price.rrp_with_tax.formatted}}</s>
+		{{/if}}
+	{{/and}}
 {{/if}}
