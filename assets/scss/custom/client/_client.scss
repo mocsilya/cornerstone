@@ -553,6 +553,107 @@ div[data-content-region="category_below_menu"] div[data-placement-status="ACTIVE
 
 
 // =============================================================================
+// Custom Category
+// =============================================================================
+
+
+.subcategories--custom .subcategories-grid {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -1rem;
+}
+
+.subcategories--custom .subcategories-grid-item {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+	@include breakpoint("large") {
+		width: 25%;
+	}
+}
+
+.subcategories--custom .subcategories-container {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+}
+
+.subcategories--custom .subcategories-blank {
+	box-sizing: content-box;
+	height: 0;
+	padding: 0 0 33.3333333% 0;
+}
+
+.subcategories--custom .subcategories-image {
+	min-height: 0;
+}
+
+.subcategories-above.subcategories--horizontal.subcategories--custom a .subcategories-name {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 50px;
+	padding: 0 1rem;
+	background-color: #666;
+	border: none;
+	border-radius: 0;
+	line-height: 1.2;
+}
+
+.subcategories-above.subcategories--horizontal.subcategories--custom a:hover .subcategories-name {
+	background-color: #333;
+	border: none;
+	border-radius: 0;
+}
+
+.subcategories-children {
+	flex-grow: 1;
+	border-top: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+
+.subcategory-child {
+	padding: 0;
+	border-top: 1px solid #ddd;
+	
+}
+
+.subcategories-above.subcategories--horizontal .subcategory-child a {
+	color: #333;
+	font-size: 14px;
+	display: flex;
+	padding: .75rem 1rem;
+}
+
+.subcategories-above.subcategories--horizontal .subcategory-child a:hover {
+	color: #000;
+	background-color: #eee;
+	
+}
+
+.subcategory-child a .subcategory-child-text {
+	flex: 1 1 0;
+}
+
+.subcategory-child a .subcategory-child-count {
+	flex: 0 1 0;
+	display: inline-block;
+	border-radius: 99px;
+	line-height: 20px;
+	min-width: 20px;
+	max-height: 20px;
+	text-align: center;
+	color: stencilColor("button--primary-color");
+	background-color: stencilColor("button--primary-backgroundColor");
+	font-weight: 700;
+	font-size: 12px;
+}
+
+
+
+// =============================================================================
 // Blog overview
 // =============================================================================
 

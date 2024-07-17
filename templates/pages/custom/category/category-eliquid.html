@@ -1,0 +1,125 @@
+---
+category:
+    shop_by_price: {{theme_settings.shop_by_price_visibility}}
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+customer:
+    wishlists:
+        limit: 10
+---
+{{inject 'apiToken' settings.storefront_api.token}}
+{{inject "cardVariantData" theme_settings.custom_card_variant_data}}
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "hero"}}
+{{{region name="category_below_menu"}}}
+<div class="container container-hero">
+
+			{{#if category.image}}
+				<div class="page-header category-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
+			    {{> components/common/responsive-img
+			        image=category.image
+			        fallback_size=theme_settings.zoom_size
+			        lazyload=theme_settings.lazyload_mode
+			        class="page-header-image"
+			    }}
+			{{else}}
+				<div class="page-header category-header">
+			{{/if}}
+
+
+	{{#unless theme_settings.hide_category_page_heading }}
+		    <h1 class="page-heading">{{#contains head.title " | "}}{{{first (before (split head.title ' | ') 1)}}}{{else}}{{category.name}}{{/contains}}</h1>
+	{{/unless}}
+	{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	</div>
+</div>
+{{/partial}}
+
+{{#partial "page"}}
+{{{region name="category_below_header"}}}
+<div class="category-description{{#if category.image}} category-description-image{{/if}}{{#if category.description}}{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}{{/if}}">
+	{{{category.description}}}
+</div>
+{{#if category.description}}
+	{{#if theme_settings.custom_category_description_trim}}
+		<div class="category-description-button" style="display: none;">
+			<a class="button button--secondary">
+				<span class="category-description-more">{{lang 'search.faceted.show-more'}}</span>
+				<span class="category-description-less">{{lang 'search.faceted.show-less'}}</span>
+			</a>
+		</div>
+	{{/if}}
+{{/if}}
+
+
+
+    <div class="subcategories-above subcategories--horizontal subcategories--noproducts subcategories--custom">
+		<ul class="subcategories-grid subcategories-grid-image">
+		{{#each categories}}
+			{{#if name '===' 'E-Liquids'}}
+				{{#each children}}
+					{{#or (if name '===' 'E-Liquid Flavours') (if name '===' 'E-Liquid Brands')}}
+						{{#each children}}
+						<li class="subcategories-grid-item subcategories-grid-item-{{dashcase (lowercase (sanitize name))}}">
+							<div class="subcategories-container">
+
+								<a href="{{url}}">
+								{{#if image}}
+									<span class="subcategories-image"><img src="{{getImage image 'category_card_size'}}" alt="{{name}}"></span>
+								{{else}}
+									<span class="subcategories-blank"></span>
+								{{/if}}
+									<span class="subcategories-name">{{name}}</span>
+								</a>
+							
+							{{#if children}}
+								<div class="subcategories-children">
+									{{#each children}}
+									<div class="subcategory-child">
+										<a href="{{url}}"><span class="subcategory-child-text">{{name}}</span> <span class="subcategory-child-count">{{count}}</span></a>
+									</div>
+									{{/each}}
+								</div>
+							{{else}}
+								<div class="subcategories-children">
+									<div class="subcategory-child">
+										<a href="{{url}}"><span class="subcategory-child-text">{{name}}</span> <span class="subcategory-child-count">{{count}}</span></a>
+									</div>
+								</div>
+							{{/if}}
+							</div>
+						</li>
+						{{/each}}
+					{{/or}}
+				{{/each}}
+			{{/if}}
+		{{/each}}
+		</ul>
+    </div>
+
+
+<div class="page">
+
+    <div class="page-content" id="product-listing-container">
+		{{{region name="category_above_content"}}}
+
+        {{{region name="category_below_content"}}}
+    </div>
+
+{{{region name="category_below_all"}}}
+</div>
+
+{{/partial}}
+{{> layout/base}}
