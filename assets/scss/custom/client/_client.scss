@@ -10,6 +10,10 @@
     background: #44b463 !important;
 }
 
+body.page-iframe > div {
+    display: none;
+}
+
 // testing CLS 
 
 .page-default .productCarousel:not(.slick-initialized) div:first-child {
@@ -439,6 +443,10 @@ div[data-content-region="product_below_price--global"] div > div > div {
 	}
 }
 
+.productView-details.product-data .productView-info {
+    margin-bottom: 0;
+}
+
 .productView-details.product-data dl.productView-info .customfield-label,
 .productView-details.product-data dl.productView-info .customfield-value,
 .productView-details.product-data dl.productView-info .upc-label,
@@ -451,6 +459,7 @@ div[data-content-region="product_below_price--global"] div > div > div {
 	position: static;
 	font-weight: 700;
 	height: auto;
+	margin-top: 1.5rem;
 }
 
 .productView-options .form-field {
