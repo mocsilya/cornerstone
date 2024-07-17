@@ -34,6 +34,10 @@ gql: "query productById($productId: Int!) {
                         	}
 						}
 						isPurchasable
+						weight {
+						    unit
+						    value
+						}
 						inventory {
 						    aggregated {
 						        availableToSell
@@ -76,7 +80,7 @@ gql: "query productById($productId: Int!) {
 }"
 ---
 {{inject 'productId' product.id}}
-
+{{inject "productPriceFrom" theme_settings.custom_price_from}}
 {{#partial "hero"}}
 {{assignVar "payment" "inactive"}}
 {{assignVar "breadcrumb" "inactive"}}
@@ -140,7 +144,7 @@ gql: "query productById($productId: Int!) {
 		{{/if}}
 		{{> components/custom/client/client-product-variants}}
 		{{#if theme_settings.custom_product_question}}
-		<div class="product-question">
+		<div id="product_question">
 			<div class="container">
 				<div class="product-question-title">
 					<h4 class="productView-title">{{theme_settings.custom_product_question}}</h4>

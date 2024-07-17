@@ -86,6 +86,7 @@
     "custom-card-spotlight-background": "#3c3936",
     "custom-card-border": "#dddddd",
     "custom-card-wishlist-icon": "#3c3936",
+    "custom_card_variant_data": false,
     "custom_header_group_single": false,
     "custom_header_group_title": "More ",
     "custom_header_show_brands": false,

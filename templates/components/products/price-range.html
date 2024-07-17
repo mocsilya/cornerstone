@@ -8,7 +8,7 @@
         </span>
         <span data-product-rrp-price-with-tax class="price price--rrp">
 		{{#if theme_settings.custom_price_from}}
-			From {{price.retail_price_range.min.with_tax.formatted}}
+			{{lang 'common.from'}} {{price.retail_price_range.min.with_tax.formatted}}
 		{{else}}
 			{{price.retail_price_range.min.with_tax.formatted}} - {{price.retail_price_range.max.with_tax.formatted}}
 		{{/if}}
@@ -52,7 +52,7 @@
         </span>
         <span data-product-price-with-tax class="price price--withTax">
 		{{#if theme_settings.custom_price_from}}
-			From {{price.price_range.min.with_tax.formatted}}
+			{{lang 'common.from'}} {{price.price_range.min.with_tax.formatted}}
 		{{else}}
 			{{price.price_range.min.with_tax.formatted}} - {{price.price_range.max.with_tax.formatted}}
 		{{/if}}
@@ -72,7 +72,7 @@
         </span>
         <span data-product-rrp-price-without-tax class="price price--rrp">
 		{{#if theme_settings.custom_price_from}}
-			From {{price.retail_price_range.min.without_tax.formatted}}
+			{{lang 'common.from'}} {{price.retail_price_range.min.without_tax.formatted}}
 		{{else}}
 			{{price.retail_price_range.min.without_tax.formatted}} - {{price.retail_price_range.max.without_tax.formatted}}
 		{{/if}}
@@ -116,7 +116,7 @@
         </span>
         <span data-product-price-without-tax class="price price--withoutTax">
 		{{#if theme_settings.custom_price_from}}
-			From {{price.price_range.min.without_tax.formatted}}
+			{{lang 'common.from'}} {{price.price_range.min.without_tax.formatted}}
 		{{else}}
 			{{price.price_range.min.without_tax.formatted}} - {{price.price_range.max.without_tax.formatted}}
 		{{/if}}

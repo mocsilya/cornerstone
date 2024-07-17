@@ -10,6 +10,8 @@
 {{/filter}}
 <article
     class="card
+	{{#if show_compare}} card-compare-active{{/if}}
+	{{#if theme_settings.custom_card_show_wishlist}} card-wishlist-active{{/if}}
 	{{#if brand.name}} card-brand-{{first (split brand.name ' ')}}{{/if}}
     {{#if alternate}} card--alternate{{/if}}"
     data-test="card-{{id}}"
@@ -37,6 +39,7 @@
         {{lang 'common.login_for_pricing'}}
     {{/or}}"
 >
+	{{> components/custom/client/client-card-top}}
     <figure class="card-figure">
 		<div class="card-figure-badges">
         {{#if stock_level '===' 0}}
@@ -223,7 +226,7 @@
                     {{/if}}
                 {{/unless}}
                 {{#if show_compare}}
-                    <label class="button button--small card-figcaption-button" for="compare-{{id}}">
+                    <label class="button button--small card-figcaption-button compare" for="compare-{{id}}">
                         {{lang 'products.compare'}} <input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}">
                     </label>
                 {{/if}}
@@ -416,6 +419,11 @@
 			<div class="card-message">
 				{{theme_settings.custom_card_message_text}}
 				{{> components/custom/client/client-card}}
+			</div>
+		{{/if}}
+		{{#if theme_settings.custom_card_variant_data}}
+			<div class="custom-product-data" data-product-id="{{id}}">
+				
 			</div>
 		{{/if}}
     </div>

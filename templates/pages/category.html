@@ -10,6 +10,8 @@ customer:
     wishlists:
         limit: 10
 ---
+{{inject 'apiToken' settings.storefront_api.token}}
+{{inject "cardVariantData" theme_settings.custom_card_variant_data}}
 {{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
 {{#partial "head"}}
     {{#if pagination.category.previous}}
