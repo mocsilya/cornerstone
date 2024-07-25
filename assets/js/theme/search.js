@@ -9,7 +9,9 @@ import collapsibleFactory from './common/collapsible';
 import 'jstree';
 import nod from './common/nod';
 import cardSwatches from './custom/card-swatches';
+import cardWarranty from './custom/card-warranty';
 import cardCarousel from './custom/card-carousel';
+import cardData from './custom/card-data';
 
 const leftArrowKey = 37;
 const rightArrowKey = 39;
@@ -38,6 +40,16 @@ export default class Search extends CatalogPage {
 
         return nodeData;
     }
+	
+	dataProductCollection() {
+	    const cards = document.querySelectorAll('.product .card, .product .listItem');
+	    const dataIdArr= [];
+	    cards.forEach(card => {
+	        const id = card.dataset.test.replace('card-', '');
+	        dataIdArr.push(Number(id));
+	    });
+	    return dataIdArr;
+	}
 
     showProducts(navigate = true) {
         this.$productListingContainer.removeClass('u-hidden');
@@ -216,7 +228,12 @@ export default class Search extends CatalogPage {
 
         setTimeout(() => $searchResultsMessage.focus(), 100);
         cardSwatches();
+        cardWarranty();
 		cardCarousel();
+		const dataOnReady = this.context.cardVariantData;
+		if (dataOnReady) {
+			cardData(this.context.apiToken, this.dataProductCollection());
+		}
     }
 
     loadTreeNodes(node, cb) {
@@ -308,6 +325,11 @@ export default class Search extends CatalogPage {
                 $searchCount.html(content.productCount);
                 this.showProducts(false);
             }
+			
+			const dataFacetedSearch = this.context.cardVariantData;
+			if (dataFacetedSearch) {
+				cardData(this.context.apiToken, this.dataProductCollection());
+			}
 
             $('body').triggerHandler('compareReset');
 

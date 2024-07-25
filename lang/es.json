@@ -388,6 +388,7 @@
         "payment_methods": {
             "heading": "Métodos de pago",
             "payment_method": "Método de pago",
+            "bank_account": "Cuenta bancaria",
             "billing_address": "Dirección de facturación",
             "card_ending_in": "que termina en {last_four}",
             "card_expiry": "{month}/{year}",
@@ -409,6 +410,7 @@
                 "unionpay": "Union Pay",
                 "visa": "Visa"
             },
+            "ach": "ACH",
             "paypal": "PayPal",
             "billing_address_labels": {
                 "address_line_1": "Línea de dirección 1",
@@ -762,7 +764,7 @@
         "condition": "Condición:",
         "availability": "Disponibilidad:",
         "swatch_option_announcement": "El {swatch_name} seleccionado es",
-        "shipping": "Envío:",
+        "shipping": "Costes de Envío:",
         "shipping_fixed": "{amount} (coste fijo de envío)",
         "shipping_free": "Envío gratis",
         "shipping_calculated": "Se calcula durante el proceso de pago",
@@ -841,7 +843,8 @@
         "unsubscribed_message": "Dejarás de recibir correos electrónicos de marketing de <b>{store_name}</b>"
     },
     "social": {
-        "connect": "Conecte con nosotros"
+        "connect": "Conecte con nosotros",
+        "connect_intro": "Conéctate con nosotros en las redes sociales."
     },
     "errors": {
         "shipping_quote_failure": "Ha habido un problema al intentar recuperar el precio de su envío",
@@ -1018,5 +1021,33 @@
         "privacy_policy": "Política de privacidad",
         "allow_category_tracking": "Permitir el seguimiento de [CATEGORY_NAME]",
         "disallow_category_tracking": "No permitir el seguimiento de [CATEGORY_NAME]"
+    },
+	"optimized_checkout": {
+        "billing": {
+            "billing_heading": "Facturación"
+        },
+        "customer": {
+            "customer_heading": "Cliente"
+        },
+        "payment": {
+            "payment_heading": "Confirmar Pago"
+        },
+        "shipping": {
+            "shipping_heading": "Envío"
+        },
+        "order_confirmation": {
+			"order_number_text": "Tu numero de orden es <strong>{orderNumber}</strong>",
+			"order_pending_review_text": "Your order was sent to us but is currently awaiting payment. Once we receive the payment for your order, it will be completed. If you've already provided payment details then we will process your order manually and send you an email when it's completed.",
+			"order_pending_status_text": "We've received your order and are processing your payment. Once the payment is verified, your order will be completed. We will send you an email when it's completed. Please note, this process may take a few minutes depending on the processing times of your chosen method. If you have any questions about your purchase, email us at <a href=\"mailto:{supportEmail}?Subject=Order {orderNumber}\" target=\"_top\">{supportEmail}</a>.",
+			"order_incomplete_status_text": "We've received your order and payment. Your order is now being processed by our system. Please note, processing may take a few minutes. If you have any questions about your purchase, email us at <a href=\"mailto:{supportEmail}?Subject=Order {orderNumber}\" target=\"_top\">{supportEmail}</a>.",
+			"order_with_downloadable_digital_items_text": "You can download your digital purchases by clicking the links on this page, or by logging into your account at any time. There is also a download link in your confirmation email, which should be arriving shortly.",
+			"order_with_support_number_text": "An email will be sent containing information about your purchase. If you have any questions about your purchase, email us at <a href=\"mailto:{supportEmail}?Subject=Order {orderNumber}\" target=\"_top\">{supportEmail}</a> or call us at <a href=\"tel://{supportPhoneNumber}\">{supportPhoneNumber}</a>.",
+			"order_without_downloadable_digital_items_text": "Once we receive your payment, we'll send a confirmation email with a link to download your digital purchases.",
+			"order_without_support_number_text": "An email will be sent containing information about your purchase. If you have any questions about your purchase, email us at <a href=\"mailto:{supportEmail}?Subject=Order {orderNumber}\" target=\"_top\">{supportEmail}</a>.",
+			"thank_you_customer_heading": "Gracias {name}!",
+			"thank_you_heading": "Gracias!",
+			"continue_shopping": "Seguir Comprando »",
+			"order_status_update_facebook_messenger_heading": "Get instant updates of your order to Messenger"
+        }
     }
 }

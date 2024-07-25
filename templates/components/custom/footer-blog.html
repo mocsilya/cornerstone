@@ -24,7 +24,7 @@
 			{{/startsWith}}
 		{{/each}}
 		{{#if (getVar "blogVideo1") '===' 'hide'}}
-		{{#if thumbnail}}<a class="footer-blog-img" href="{{url}}" title="{{title}}"><img src="{{getImage thumbnail 'blog_size'}}" alt="{{thumbnail.alt}}" width="{{{before (split ../theme_settings.blog_size 'x') 1}}}" height="{{{after (split ../theme_settings.blog_size 'x') 1}}}"></a>{{/if}}
+		{{#if thumbnail}}<a class="footer-blog-img" href="{{url}}" title="{{title}}"><img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" data-src="{{getImage thumbnail 'blog_size'}}" alt="{{thumbnail.alt}}" width="{{{before (split ../theme_settings.blog_size 'x') 1}}}" height="{{{after (split ../theme_settings.blog_size 'x') 1}}}"></a>{{/if}}
 		{{/if}}
 		<p class="footer-blog-publish"><strong class="footer-blog-author">{{author}}</strong><span class="footer-blog-date">{{date_published}}</span></p>
 		<h4 class="footer-blog-title">{{title}}</h4>
@@ -55,7 +55,7 @@
 			{{/startsWith}}
 		{{/each}}
 		{{#if (getVar "blogVideo2") '===' 'hide'}}
-		{{#if thumbnail}}<a class="footer-blog-img" href="{{url}}" title="{{title}}"><img src="{{getImage thumbnail 'blog_size'}}" alt="{{thumbnail.alt}}" width="{{{before (split ../theme_settings.blog_size 'x') 1}}}" height="{{{after (split ../theme_settings.blog_size 'x') 1}}}"></a>{{/if}}
+		{{#if thumbnail}}<a class="footer-blog-img" href="{{url}}" title="{{title}}"><img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" data-src="{{getImage thumbnail 'blog_size'}}" alt="{{thumbnail.alt}}" width="{{{before (split ../theme_settings.blog_size 'x') 1}}}" height="{{{after (split ../theme_settings.blog_size 'x') 1}}}"></a>{{/if}}
 		{{/if}}
 		<p class="footer-blog-publish"><strong class="footer-blog-author">{{author}}</strong><span class="footer-blog-date">{{date_published}}</span></p>
 		<h4 class="footer-blog-title">{{title}}</h4>
@@ -86,7 +86,7 @@
 			{{/startsWith}}
 		{{/each}}
 		{{#if (getVar "blogVideo3") '===' 'hide'}}
-		{{#if thumbnail}}<a class="footer-blog-img" href="{{url}}" title="{{title}}"><img src="{{getImage thumbnail 'blog_size'}}" alt="{{thumbnail.alt}}" width="{{{before (split ../theme_settings.blog_size 'x') 1}}}" height="{{{after (split ../theme_settings.blog_size 'x') 1}}}"></a>{{/if}}
+		{{#if thumbnail}}<a class="footer-blog-img" href="{{url}}" title="{{title}}"><img class="lazyload" src="{{cdn 'assets/img/loading.svg'}}" data-src="{{getImage thumbnail 'blog_size'}}" alt="{{thumbnail.alt}}" width="{{{before (split ../theme_settings.blog_size 'x') 1}}}" height="{{{after (split ../theme_settings.blog_size 'x') 1}}}"></a>{{/if}}
 		{{/if}}
 		<p class="footer-blog-publish"><strong class="footer-blog-author">{{author}}</strong><span class="footer-blog-date">{{date_published}}</span></p>
 		<h4 class="footer-blog-title">{{title}}</h4>

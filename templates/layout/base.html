@@ -73,10 +73,21 @@
 		{{/if}}
 		{{> components/custom/client/client-body}}
         <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
-
-        {{> components/common/header }}
+		{{#if page_type '==' 'page_contact_form'}}
+			{{#unless (lowercase page.title) '==' 'iframe'}}
+				{{> components/common/header }}
+			{{/unless}}
+		{{else}}
+			{{> components/common/header }}
+		{{/if}}
         {{> components/common/body }}
-        {{> components/common/footer }}
+		{{#if page_type '==' 'page_contact_form'}}
+			{{#unless (lowercase page.title) '==' 'iframe'}}
+				{{> components/common/footer }}
+			{{/unless}}
+		{{else}}
+			{{> components/common/footer }}
+		{{/if}}
 		
 		{{#unless settings.shopper_consent_tracking_enabled}}
 			{{#if settings.is_eu_ip_address}}
@@ -89,6 +100,23 @@
             {{!-- Exported in app.js --}}
             function onThemeBundleMain() {
                 window.stencilBootstrap("{{page_type}}", {{jsContext}}).load();
+
+                function browserSupportsFormData() {
+                    return typeof FormData !== 'undefined' 
+                        && !!FormData.prototype.keys;
+                }
+                function loadFormDataPolyfillScript(src) {
+                    var formDataPolyfillScript = document.createElement('script');
+                    formDataPolyfillScript.src = src;
+                    formDataPolyfillScript.onerror = function () {
+                        console.error('Failed to load formData polyfill script ' + src);
+                    };
+                    document.body.appendChild(formDataPolyfillScript);
+                }
+
+                if (!browserSupportsFormData()) {
+                    loadFormDataPolyfillScript('{{cdn 'assets/dist/theme-bundle.polyfill_form_data.js'}}');
+                }
             }
         </script>
         <script async defer src="{{cdn 'assets/dist/theme-bundle.main.js' resourceHint='preload' as='script'}}" onload="onThemeBundleMain()"></script>

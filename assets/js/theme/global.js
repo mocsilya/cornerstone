@@ -23,6 +23,7 @@ import widgetHelper from './custom/widget-helper';
 import sidebarHelper from './custom/sidebar-helper';
 import scrollClick from './custom/scroll-click';
 import boxSearch from './custom/box-search';
+import accordionHelper from './custom/accordion-helper';
 
 export default class Global extends PageManager {
     onReady() {
@@ -47,5 +48,6 @@ export default class Global extends PageManager {
 		sidebarHelper();
 		scrollClick();
 		boxSearch();
+		accordionHelper();
     }
 }
