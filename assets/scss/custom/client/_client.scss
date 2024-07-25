@@ -19,7 +19,42 @@ html.glopal .price-section--withTax {
 
 .navUser-section.navUser-section--alt.navUser-section-left {
     @include breakpoint("medium") {
-		min-width: 420px;
+		min-width: 440px;
+	}
+}
+
+.header-logo--left {
+    @include breakpoint("medium") {
+		min-width: calc(129px + .78571rem);
+	}
+    @include breakpoint("large") {
+		min-width: calc(172px + .78571rem);
+	}
+}
+
+.header-logo-image {
+    @include breakpoint("medium") {
+		width: 129px;
+		max-width: 129px;
+		min-width: 129px;
+	}
+    @include breakpoint("large") {
+		width: 172px;
+		max-width: 172px;
+		min-width: 172px;
+	}
+}
+
+body.scroll .header-logo-image {
+    @include breakpoint("medium") {
+		width: 88px;
+		max-width: 88px;
+		min-width: 88px;
+	}
+    @include breakpoint("large") {
+		width: 88px;
+		max-width: 88px;
+		min-width: 88px;
 	}
 }
 
@@ -139,10 +174,10 @@ html.glopal .price-section--withTax {
 
 .navUser ul li.navUser-item--widesearch {
 	@include breakpoint("medium") {
-		padding-left: 1.5rem;
+		padding-left: 0;
 	}
 	@include breakpoint("large") {
-		padding-left: 3rem;
+		padding-left: 1.5rem;
 	}
 }
 
