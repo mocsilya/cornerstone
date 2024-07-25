@@ -149,41 +149,8 @@ gql: "query productById($productId: Int!) {
 				<div class="product-question-title">
 					<h4 class="productView-title">{{theme_settings.custom_product_question}}</h4>
 				</div>
-				<div id="iframe_product" style="height:0;margin:auto;overflow:hidden;padding-bottom:200px;position:relative;">
-				    <script>
-						var iFrameWrap = document.getElementById('iframe_product');
-						function dataview(){
-						  function thedata(){
-							  iFrameWrap.innerHTML = '<iframe src="/iframe/?rma={{plusify (sanitize product.title)}}{{#if product.sku}}+({{plusify (sanitize product.sku)}}){{/if}}" allowfullscreen frameborder="0" scrolling="no" style="height:100%;left:0;overflow:hidden;position:absolute;top:0;width:100%;" id="iframe_product--iframe"></iframe>';
-							  // LISTENER FOR IFRAME HEIGHT
-							  var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
-							  var eventer = window[eventMethod];
-							  var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
-
-							  // LISTEN TO MESSAGE FROM CHILD WINDOW
-							  eventer(messageEvent,function(e){
-							    var pass_data = JSON.parse(e.data);
-							    if (pass_data.contentheight) {
-							      resizeIFrameToFitContent(pass_data.contentheight);
-							    }
-							  },false);
-
-							  // RESIZE IFRAME
-							  function resizeIFrameToFitContent(height) {
-							    iFrameWrap.style.paddingBottom = (height + 44) + 'px';
-							  }
-						  }
-						  window.addEventListener("DOMContentLoaded", function(){
-						      thedata();
-						  });
-  
-						  window.addEventListener("resize", function(){
-						      thedata();
-						  });
-						}
-						dataview();
-		
-				    </script>
+				<div id="iframe_product">
+				    <iframe src="/iframe/?rma={{plusify (sanitize product.title)}}{{#if product.sku}}+({{plusify (sanitize product.sku)}}){{/if}}" allowfullscreen frameborder="0" scrolling="no" style="border: 0;" id="iframe_product--iframe"></iframe>
 				</div>
 			</div>
 		</div>
