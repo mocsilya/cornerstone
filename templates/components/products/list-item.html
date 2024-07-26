@@ -9,7 +9,7 @@
 	{{/if}}
 {{/filter}}
 
-<article class="listItem{{#if brand.name}} card-brand-{{first (split brand.name ' ')}}{{/if}}" data-test="card-{{id}}" data-event-type="{{event}}" data-entity-id="{{id}}" data-position="{{position}}" data-name="{{name}}" data-product-category="{{#each category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{brand.name}}" data-product-price="
+<article class="listItem{{#if brand.name}} card-brand-{{first (split brand.name ' ')}}{{/if}}{{#if show_compare}} listItem-compare-active{{/if}}{{#if theme_settings.custom_card_show_wishlist}} listItem-wishlist-active{{/if}}" data-test="card-{{id}}" data-event-type="{{event}}" data-entity-id="{{id}}" data-position="{{position}}" data-name="{{name}}" data-product-category="{{#each category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{brand.name}}" data-product-price="
 	{{#or customer (unless settings.hide_price_from_guests)}}
         {{#if price.with_tax}}
             {{price.with_tax.value}}
@@ -355,7 +355,7 @@
 				{{/if}}
 				{{#if (getVar "spotlight") '===' 'inactive'}}
                 	{{#if show_compare}}
-                    <label class="button {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}}" for="compare-{{id}}">
+                    <label class="button {{#if (getVar 'spotlight') '===' 'active'}}button--large{{else}}button--small{{/if}} compare" for="compare-{{id}}">
                         {{lang "products.compare"}} <input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}">
                     </label>
                 	{{/if}}
