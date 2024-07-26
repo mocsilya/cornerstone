@@ -1,0 +1,71 @@
+---
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+customer:
+    wishlists:
+        limit: 10
+---
+
+{{#partial "hero"}}
+{{{region name="page_below_menu"}}}
+<div class="container container-hero">
+	<div class="page-header info-header page-header-{{theme_settings.custom_page_header_image_depth}}">
+	    {{#unless theme_settings.hide_page_heading }}
+		    <h1 class="page-heading">{{#contains head.title " | "}}{{{first (before (split head.title ' | ') 1)}}}{{else}}{{page.title}}{{/contains}}</h1>
+	    {{/unless}}
+		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	</div>
+</div>
+{{/partial}}
+
+{{#partial "page"}}
+
+<section class="page page-custom-parent">
+{{{region name="page_builder_content_editor_area_top"}}}
+{{#if page.sub_pages}}
+    <div class="subcategories-above subcategories--horizontal">
+		<ul class="subcategories-grid subcategories-grid-blockless">
+			{{#each page.sub_pages}}
+			<li class="subcategories-grid-item subcategories-grid-item-{{dashcase (lowercase (sanitize title))}}">
+				<div class="subcategories-container">
+					<a href="{{url}}">
+						<span class="subcategories-image">
+							<img src="{{concat (getImageManagerImage (dashcase title)) '-thumb.jpg'}}" width="400" height="400" alt="{{title}}" >
+						</span>
+						<span class="subcategories-name">{{title}}</span>
+					</a>
+				</div>
+			</li>
+			{{/each}}
+		</ul>
+    </div>
+{{/if}}
+
+	<div class="page-content page-content--centered">
+
+	{{{region name="page_builder_content"}}}
+        {{#replace '%%Syndicate%%' page.content}}
+            {{> components/page/rss_feed}}
+        {{else}}
+            {{{page.content}}}
+        {{/replace}}
+	{{{region name="page_builder_bottom"}}}
+    </div>
+
+    {{#if page.feed}}
+        <ul>
+            {{#each page.feed}}
+                <li>
+                    <h6><a href="{{url}}" target="_blank">{{title}}</a></h6>
+                    <p>{{content}}</p>
+                </li>
+            {{/each}}
+        </ul>
+    {{/if}}
+{{{region name="page_builder_content_editor_area_bottom"}}}
+</section>
+
+{{/partial}}
+
+{{> layout/base}}

@@ -36,8 +36,8 @@ export default function () {
 							$('.productView-details-large.product-options').css({'margin-top': '0px', 'height': 'auto'});
 					    }
 					}
-					var top_of_element = $(".related-similar").offset().top;
-					var bottom_of_element = $(".related-similar").offset().top + $(".related-similar").outerHeight();
+					var top_of_element = $("#product_question").offset().top;
+					var bottom_of_element = $("#product_question").offset().top + $("#product_question").outerHeight();
 					var bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();
 					var top_of_screen = $(window).scrollTop();
 			
