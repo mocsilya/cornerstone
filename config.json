@@ -44,7 +44,7 @@
     "Firefox ESR"
   ],
   "settings": {
-    "custom_phone_show": false,
+    "custom_phone_show": true,
     "custom_email_show": false,
     "custom_email_address": "contact.mtbmonster@mtbmonster.com",
     "custom_homepage_carousel_size": "1280x320",
