@@ -5960,17 +5960,6 @@ div[data-content-region="product_view_bottom--global"] {
 }
 
 
-.product-question-title {
-	border-top: 2px solid stencilColor("color-textHeading");
-	text-align: center;
-	margin: 1.5rem 0;
-	padding: 3rem 0 1.5rem;
-}
-
-.product-question-title .productView-title {
-	margin: 0;
-}
-
 
 // Payment Product Page
 // =============================================================================
@@ -6366,15 +6355,97 @@ div[data-content-region="page_builder_content_editor_area_bottom"] {
 	padding: 0;
 }
 
+/* General */
 .page-iframe #contact-us-page .form {
 	padding: 0;
 	max-width: none;
+	height: 700px;
+	@include breakpoint("small") {
+		height:500px;
+	}
+}
+
+/* General */
+#iframe_product iframe {
+	width: 100%;
+	height: 700px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	@include breakpoint("small") {
+		height: 500px;
+	}
+}
+
+/* Company */
+.page-iframe #contact-us-page .form.with-company,
+#iframe_product iframe.with-company {
+	height: 800px;
+	@include breakpoint("small") {
+		height:630px;
+	}
+}
+
+/* Recaptcha */
+.page-iframe #contact-us-page .form.with-recaptcha,
+#iframe_product iframe.with-recaptcha {
+	height: 800px;
+	@include breakpoint("small") {
+		height:650px;
+	}
+}
+
+/* Manual Captcha */
+.page-iframe #contact-us-page .form.with-manualcaptcha,
+#iframe_product iframe.with-manualcaptcha {
+	height: 800px;
+	@include breakpoint("small") {
+		height: 600px;
+	}
+}
+
+/* Company + Recaptcha */
+.page-iframe #contact-us-page .form.with-company.with-recaptcha,
+#iframe_product iframe.with-company.with-recaptcha, {
+	height: 900px;
+	@include breakpoint("small") {
+		height:730px;
+	}
+}
+
+/* Company + Manual Captcha */
+.page-iframe #contact-us-page .form.with-company.with-manualcaptcha,
+#iframe_product iframe.with-company.with-manualcaptcha {
+	height: 900px;
+	@include breakpoint("small") {
+		height:730px;
+	}
+}
+
+/* Company + Manual Captcha + Recaptcha */
+.page-iframe #contact-us-page .form.with-company.with-manualcaptcha.with-recaptcha,
+#iframe_product iframe.with-company.with-manualcaptcha.with-recaptcha {
+	height: 1000px;
+	@include breakpoint("small") {
+		height:820px;
+	}
 }
 
 .page-iframe #contact-us-page .form-actions .button--primary {
 	padding: 1.5rem 3rem;
 	font-size: 16px;
 	font-weight: 700;
+}
+
+.product-question-title {
+	border-top: 2px solid stencilColor("color-textHeading");
+	text-align: center;
+	margin: 1.5rem 0;
+	padding: 3rem 0 1.5rem;
+}
+
+.product-question-title .productView-title {
+	margin: 0;
 }
 
 
