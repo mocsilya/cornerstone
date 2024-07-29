@@ -150,7 +150,7 @@ gql: "query productById($productId: Int!) {
 					<h4 class="productView-title">{{theme_settings.custom_product_question}}</h4>
 				</div>
 				<div id="iframe_product">
-				    <iframe id="iframe_product--iframe" src="/iframe/?rma={{plusify (sanitize product.title)}}{{#if product.sku}}+({{plusify (sanitize product.sku)}}){{/if}}" allowfullscreen frameborder="0" scrolling="no" style="border: 0;"></iframe>
+				    <iframe id="iframe_product--iframe" src="{{settings.base_url}}/iframe/?rma={{encodeURI (sanitize product.title)}}{{#if product.sku}}%20({{encodeURI (sanitize product.sku)}}){{/if}}" allowfullscreen frameborder="0" scrolling="no" style="border: 0;"></iframe>
 				</div>
 				<script>
 				var iframe = document.getElementById('iframe_product--iframe');
