@@ -146,7 +146,8 @@
 		{{/if}}
         {{#unless theme_settings.hide_content_navigation}}
             {{#each pages}}
-			{{#unless (lowercase name) '==' 'header'}}	
+			{{#or (if (lowercase name) '===' 'header') (if (lowercase name) '===' 'iframe')}}
+			{{else}}
                 <li class="navPages-item navPages-item-page navPages-item-{{dashcase name}}">
 	            {{#if ../theme_settings.navigation_design '===' 'simple'}}
 					{{assignVar "allsinglepage" "true"}}
@@ -169,7 +170,7 @@
 					{{> components/custom/navigation-list-alternate-page}}
 	            {{/if}}
                 </li>
-			{{/unless}}
+			{{/or}}
             {{/each}}
         {{/unless}}
 		{{> components/custom/client/client-header-menu-end}}

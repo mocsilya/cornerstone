@@ -58,7 +58,8 @@ customer:
 				<h2 class="sidebarBlock-heading">{{ page.title }}</h2>
 	            <div class="accord-wrapper accord-menu">	
 	            {{#each pages}}
-					{{#unless name '==' 'header'}}
+					{{#or (if (lowercase name) '===' 'header') (if (lowercase name) '===' 'iframe')}}
+					{{else}}
 	                {{#if children}}
 	                <div class="accord accord-{{dashcase (lowercase (sanitize name))}}{{#if ../breadcrumbs.[1].name '===' name}} accord-active{{/if}}">
 						<div class="accord-link">
@@ -118,7 +119,7 @@ customer:
 						</div>
 					</div>
 	                {{/if}}
-					{{/unless}}
+					{{/or}}
 	            {{/each}}
 				</div>
 			</div>
