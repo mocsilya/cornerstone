@@ -88,7 +88,7 @@ var timePrice = 0;
 var formSelect = document.querySelectorAll(".productView-options .form-select, .productView-options .form-radio");
 var alertBox = document.querySelector(".add-to-cart-wrapper .alertBox.productAttributes-message");
 var alertBoxTrigger = "Due:";
-var alertBoxButton = '<div class="alertBox-buttons"><a class="button button--primary" href="/pre-order-now-to-avoid-disappointment/">PRE ORDER</a><a class="button button--secondary" href="/cycle-to-work-pre-order/">Cycle To Work</a></div>';
+var alertBoxHref = '/pre-order/?make={{{encodeURI product.brand.name}}}&model={{{encodeURI product.title}}}'
 
 for (let i = 0; i < formSelect.length; i++) {
 	formSelect[i].addEventListener("change", function() {
@@ -100,8 +100,19 @@ for (let i = 0; i < formSelect.length; i++) {
 			var newPriceKlarna = newPriceNumber * 100;
 			document.querySelector('klarna-placement').dataset.purchaseAmount = newPriceKlarna;
 			window.Klarna.OnsiteMessaging.refresh();
+			
 			// Pre Order (on change)
 			if (alertBox.style.display != 'none') {
+				if (formSelect[i].classList.contains('form-select-size')) {
+					var sizeText = formSelect[i].options[formSelect[i].selectedIndex].text.toString();
+					alertBoxHref = alertBoxHref+'&size='+sizeText;
+					console.log(alertBoxHref);
+				} else if (formSelect[i].classList.contains('form-select-colour')) {
+					var colourText = formSelect[i].options[formSelect[i].selectedIndex].text.toString();
+					alertBoxHref = alertBoxHref+'&colour='+colourText;
+					console.log(alertBoxHref);
+				}
+				var alertBoxButton = '<div class="alertBox-buttons"><a class="button button--primary" href="'+alertBoxHref+'">PRE ORDER</a><a class="button button--secondary" href="/cycle-to-work-pre-order/">Cycle To Work</a></div>';
 				var alertBoxText = document.querySelector(".add-to-cart-wrapper .alertBox-message").textContent;
 				var alertBoxLink = document.querySelector('.alertBox-buttons');
 				if (alertBoxText.indexOf(alertBoxTrigger) !== -1) {
@@ -192,6 +203,37 @@ window.addEventListener("pageshow", function (event) {
 </script>
 {{/filter}}
 
+{{#if product.title '==' 'Pre Order'}}
+<script>
+document.addEventListener("DOMContentLoaded", () => { 
+
+		const queryString = window.location.search;
+		const urlParams = new URLSearchParams(queryString);
+	
+		const getMake = urlParams.get('make');
+		const getModel = urlParams.get('model');
+		const getSize = urlParams.get('size');
+		const getColour = urlParams.get('colour');
+
+		if (getMake) {
+			document.querySelector("input.form-input-bike-brand").value = getMake;
+		}
+	
+		if (getModel) {
+			document.querySelector("input.form-input-model").value = getModel;
+		}
+	
+		if (getSize) {
+			document.querySelector("input.form-input-size").value = getSize;
+		}
+	
+		if (getColour) {
+			document.querySelector("input.form-input-colour").value = getColour;
+		}
+
+});
+</script>
+{{/if}}
 
 <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 <!-- <script src="https://cdn11.bigcommerce.com/s-h4smy34w/content/imegawidget-custom.js"></script> -->
