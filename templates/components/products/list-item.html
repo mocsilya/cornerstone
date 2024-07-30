@@ -93,28 +93,49 @@
 			{{/if}}
 		{{/if}}
 		
-		{{#filter custom_fields '_badge' property='name'}}
-			{{#if ../theme_settings.product_sold_out_badges '===' 'sash'}}
-			    <div class="sold-out-flag-sash custom-badge-sash custom-badge-{{dashcase (lowercase (sanitize value))}}">
-					<span class="sold-out-text">
-						{{value}}
-					</span>
-			    </div>
-			{{else if ../theme_settings.product_sold_out_badges '===' 'topleft'}}
-			    <div class="sold-out-flag-side custom-badge-topleft custom-badge-{{dashcase (lowercase (sanitize value))}}">
-					<span class="sold-out-text">
-						{{value}}
-					</span>
-			    </div>
-			{{else if ../theme_settings.product_sold_out_badges '===' 'burst'}}
-			    <div class="starwrap custom-badge-burst custom-badge-{{dashcase (lowercase (sanitize value))}}">
-			        <div class="sold-out-text-burst">
-			        	{{value}}
-			        </div>
-			        <div class="sold-out-flag-star"></div>
-			    </div>
-			{{/if}}
-		{{/filter}}
+		{{#each custom_fields}}
+			{{#contains name '_badge'}}
+				{{#contains name '#'}}
+					<div class="{{#if ../theme_settings.product_sold_out_badges '===' 'sash'}}sold-out-flag-sash custom-badge-sash{{else if ../theme_settings.product_sold_out_badges '===' 'topleft'}}sold-out-flag-side custom-badge-topleft{{else if ../theme_settings.product_sold_out_badges '===' 'burst'}}starwrap custom-badge-burst{{/if}} custom-badge-{{dashcase (lowercase (sanitize value))}}" style="background: #{{{after (split name '#') 1}}};">
+					{{#if ../theme_settings.product_sold_out_badges '===' 'burst'}}
+						{{#contains value '#'}}
+				        	<div class="sold-out-text-burst" style="color: #{{{after (split value '#') 1}}};">
+				        		{{{before (split value '#') 1}}}
+				        	</div>
+						{{else}}
+					        <div class="sold-out-text-burst">
+								{{value}}
+					        </div>
+						{{/contains}}
+				        <div class="sold-out-flag-star"></div>
+					{{else}}
+						{{#contains value '#'}}
+							<span class="sold-out-text" style="color: #{{{after (split value '#') 1}}};">
+								{{{before (split value '#') 1}}}
+							</span>
+						{{else}}
+							<span class="sold-out-text">
+								{{value}}
+							</span>
+						{{/contains}}
+					{{/if}}
+					</div>
+				{{else}}
+					<div class="{{#if ../theme_settings.product_sold_out_badges '===' 'sash'}}sold-out-flag-sash custom-badge-sash{{else if ../theme_settings.product_sold_out_badges '===' 'topleft'}}sold-out-flag-side custom-badge-topleft{{else if ../theme_settings.product_sold_out_badges '===' 'burst'}}starwrap custom-badge-burst{{/if}} custom-badge-{{dashcase (lowercase (sanitize value))}}">
+					{{#if ../theme_settings.product_sold_out_badges '===' 'burst'}}
+				        <div class="sold-out-text-burst">
+				        	{{value}}
+				        </div>
+				        <div class="sold-out-flag-star"></div>
+					{{else}}
+						<span class="sold-out-text">
+							{{value}}
+						</span>
+					{{/if}}
+					</div>
+				{{/contains}}
+			{{/contains}}
+		{{/each}}
 		</div>
 		
 		{{#if show_cart_action}}
