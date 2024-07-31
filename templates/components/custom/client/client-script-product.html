@@ -206,31 +206,24 @@ window.addEventListener("pageshow", function (event) {
 {{#if product.title '==' 'Pre Order'}}
 <script>
 document.addEventListener("DOMContentLoaded", () => { 
-
-		const queryString = window.location.search;
-		const urlParams = new URLSearchParams(queryString);
-	
-		const getMake = urlParams.get('make');
-		const getModel = urlParams.get('model');
-		const getSize = urlParams.get('size');
-		const getColour = urlParams.get('colour');
-
-		if (getMake) {
-			document.querySelector("input.form-input-bike-brand").value = getMake;
-		}
-	
-		if (getModel) {
-			document.querySelector("input.form-input-model").value = getModel;
-		}
-	
-		if (getSize) {
-			document.querySelector("input.form-input-size").value = getSize;
-		}
-	
-		if (getColour) {
-			document.querySelector("input.form-input-colour").value = getColour;
-		}
-
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	const getMake = urlParams.get('make');
+	const getModel = urlParams.get('model');
+	const getSize = urlParams.get('size');
+	const getColour = urlParams.get('colour');
+	if (getMake) {
+		document.querySelector("input.form-input-bike-brand").value = getMake;
+	}
+	if (getModel) {
+		document.querySelector("input.form-input-model").value = getModel;
+	}
+	if (getSize) {
+		document.querySelector("input.form-input-size").value = getSize;
+	}
+	if (getColour) {
+		document.querySelector("input.form-input-colour").value = getColour;
+	}
 });
 </script>
 {{/if}}
