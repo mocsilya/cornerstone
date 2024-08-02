@@ -14,6 +14,7 @@ body.page-iframe > div {
     display: none;
 }
 
+
 // testing CLS 
 
 .page-default .productCarousel:not(.slick-initialized) div:first-child {
@@ -37,11 +38,11 @@ body.page-iframe > div {
 .page-default .productCarousel.slick-initialized .productCarousel-slide.slick-slide {
     display: inline-block;
 }
-
+/*
 div[data-content-region="home_below_top_banner"] .custom-widget-content {
-    height: 90px !important;
+    
 }
-
+*/
 .heroCarousel {
     margin-bottom: 3rem;
     @include breakpoint("medium") {
@@ -523,23 +524,20 @@ div[data-content-region="category_below_menu"] div[data-placement-status="ACTIVE
 	display: none;
 }
 
-.subcategories-above.subcategories--horizontal .subcategories-name {
+.subcategories-above:not(.subcategories--vertical, .subcategories--custom) ul:not(.subcategories-grid-image) .subcategories-name {
 	border: 1px solid stencilColor("button--primary-backgroundColor");
-	background-color: stencilColor("button--primary-backgroundColor");
-	padding-top: 1rem;
-	padding-bottom: 1rem;
+	background-color: #fff;
+	color: #666;
+	padding-top: .375rem;
+	padding-bottom: .375rem;
 	font-size: 1.125rem;
+	border-radius: 99px;
 }
 
-.subcategories-above.subcategories--horizontal a:hover .subcategories-name {
+.subcategories-above:not(.subcategories--vertical, .subcategories--custom) ul:not(.subcategories-grid-image) a:hover .subcategories-name {
 	border: 1px solid stencilColor("button--primary-backgroundColorHover");
-	background-color: stencilColor("button--primary-backgroundColorHover");
-	opacity: 1;
-}
-
-.subcategories-above.subcategories--horizontal a,
-.subcategories-above.subcategories--horizontal a:hover {
-	color: stencilColor("button--primary-color");
+	background-color: #fff;
+	color: stencilColor("button--primary-backgroundColor");
 	opacity: 1;
 }
 
@@ -555,7 +553,6 @@ div[data-content-region="category_below_menu"] div[data-placement-status="ACTIVE
 // =============================================================================
 // Custom Category
 // =============================================================================
-
 
 .subcategories--custom .subcategories-grid {
 	display: flex;
@@ -588,6 +585,12 @@ div[data-content-region="category_below_menu"] div[data-placement-status="ACTIVE
 	min-height: 0;
 }
 
+.subcategories-above.subcategories--horizontal.subcategories--custom a,
+.subcategories-above.subcategories--horizontal.subcategories--custom a:hover {
+	color: #fff;
+	opacity: 1;
+}
+
 .subcategories-above.subcategories--horizontal.subcategories--custom a .subcategories-name {
 	display: flex;
 	align-items: center;
@@ -595,6 +598,7 @@ div[data-content-region="category_below_menu"] div[data-placement-status="ACTIVE
 	height: 50px;
 	padding: 0 1rem;
 	background-color: #666;
+	color: #fff;
 	border: none;
 	border-radius: 0;
 	line-height: 1.2;
@@ -602,6 +606,7 @@ div[data-content-region="category_below_menu"] div[data-placement-status="ACTIVE
 
 .subcategories-above.subcategories--horizontal.subcategories--custom a:hover .subcategories-name {
 	background-color: #333;
+	color: #fff;
 	border: none;
 	border-radius: 0;
 }

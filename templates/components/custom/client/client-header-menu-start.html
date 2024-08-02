@@ -143,10 +143,10 @@
 				            </li>
 				            <li class="navPage-subMenu-item">
 				                    <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
-				                       href="/e-liquids/"
+				                       href="/e-liquids/flavours/"
 				                       aria-label="Flavour Type"
 				                    >
-				                        Flavour Type
+				                        E-Liquid Flavours
 				                        <span class="collapsible-icon-wrapper"
 				                            data-collapsible="navPages-flavour-type"
 				                            data-collapsible-disabled-breakpoint="medium"
@@ -159,46 +159,22 @@
 				                        </span>
 				                    </a>
 				                    <ul class="navPage-childList" id="navPages-flavour-type">
-				                        <li class="navPage-childList-item">
-				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
-				                               href="/e-liquids/?_bc_fsnf=1&Flavour+Type=Tobacco"
-				                               aria-label="Tobacco"
-				                            >
-				                                Tobacco
-				                            </a>
-				                        </li>
-				                        <li class="navPage-childList-item">
-				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
-				                               href="/e-liquids/?_bc_fsnf=1&Flavour+Type=Menthol"
-				                               aria-label="Menthol"
-				                            >
-				                                Menthol
-				                            </a>
-				                        </li>
-				                        <li class="navPage-childList-item">
-				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
-				                               href="/e-liquids/?_bc_fsnf=1&Flavour+Type=Sweet"
-				                               aria-label="Sweet"
-				                            >
-				                                Sweet
-				                            </a>
-				                        </li>
-				                        <li class="navPage-childList-item">
-				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
-				                               href="/e-liquids/?_bc_fsnf=1&Flavour+Type=Fruity"
-				                               aria-label="Fruity"
-				                            >
-				                                Fruity
-				                            </a>
-				                        </li>
-				                        <li class="navPage-childList-item">
-				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
-				                               href="/e-liquids/?_bc_fsnf=1&Flavour+Type=Desserts"
-				                               aria-label="Desserts"
-				                            >
-				                                Desserts
-				                            </a>
-				                        </li>
+				                    {{#if children}}
+				                        {{#each children}}
+				                            {{#if name '===' 'E-Liquid Flavours'}}
+				                            {{#each children}}
+				                                <li class="navPage-childList-item">
+				                                    <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+				                                        href="{{url}}"
+				                                        aria-label="{{name}}"
+				                                    >
+				                                        {{name}}
+				                                    </a>
+				                                </li>
+				                            {{/each}}
+				                            {{/if}}
+				                        {{/each}}
+				                    {{/if}}
 				                    </ul>
 				            </li>
 				            <li class="navPage-subMenu-item">

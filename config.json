@@ -102,7 +102,7 @@
     "custom_header_show_bar_message2": true,
     "custom_header_show_bar_message3": true,
     "custom_header_bar_message1_text": "Order by 4pm for Same Day Dispatch",
-    "custom_header_bar_message2_text": "Free 24hr Tracked Delivery on Orders over £29.99",
+    "custom_header_bar_message2_text": "Free 48hr Tracked Delivery on Orders over £39.99",
     "custom_header_bar_message3_text": "Special Next Day Delivery by 1pm Available",
     "custom_header_bar_message1_link": "/shipping-returns/",
     "custom_header_bar_message2_link": "/shipping-returns/",
@@ -583,8 +583,7 @@
     "amazon-button-color": "Gold",
     "masterpass-button-color": "black",
     "paymentbuttons-provider-sorting": [
-      "paypal",
-      "paypal-credit"
+      "paypal"
     ]
   },
   "read_only_files": [
