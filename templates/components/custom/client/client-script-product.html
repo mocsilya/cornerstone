@@ -88,7 +88,7 @@ var timePrice = 0;
 var formSelect = document.querySelectorAll(".productView-options .form-select, .productView-options .form-radio");
 var alertBox = document.querySelector(".add-to-cart-wrapper .alertBox.productAttributes-message");
 var alertBoxTrigger = "Due:";
-var alertBoxHref = '/pre-order/?make={{{encodeURI product.brand.name}}}&model={{{encodeURI product.title}}}'
+var alertBoxHref = '?make={{{encodeURI product.brand.name}}}&model={{{encodeURI product.title}}}'
 
 for (let i = 0; i < formSelect.length; i++) {
 	formSelect[i].addEventListener("change", function() {
@@ -112,7 +112,7 @@ for (let i = 0; i < formSelect.length; i++) {
 					alertBoxHref = alertBoxHref+'&colour='+colourText;
 					console.log(alertBoxHref);
 				}
-				var alertBoxButton = '<div class="alertBox-buttons"><a class="button button--primary" href="'+alertBoxHref+'">PRE ORDER</a><a class="button button--secondary" href="/cycle-to-work-pre-order/">Cycle To Work</a></div>';
+				var alertBoxButton = '<div class="alertBox-buttons"><a class="button button--primary" href="/pre-order/'+alertBoxHref+'">PRE ORDER</a><a class="button button--secondary" href="/cycle-to-work-pre-order/'+alertBoxHref+'">Cycle To Work</a></div>';
 				var alertBoxText = document.querySelector(".add-to-cart-wrapper .alertBox-message").textContent;
 				var alertBoxLink = document.querySelector('.alertBox-buttons');
 				if (alertBoxText.indexOf(alertBoxTrigger) !== -1) {
@@ -203,7 +203,7 @@ window.addEventListener("pageshow", function (event) {
 </script>
 {{/filter}}
 
-{{#if product.title '==' 'Pre Order'}}
+{{#contains product.title 'Pre Order'}}
 <script>
 document.addEventListener("DOMContentLoaded", () => { 
 	const queryString = window.location.search;
@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 });
 </script>
-{{/if}}
+{{/contains}}
 
 <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 <!-- <script src="https://cdn11.bigcommerce.com/s-h4smy34w/content/imegawidget-custom.js"></script> -->
