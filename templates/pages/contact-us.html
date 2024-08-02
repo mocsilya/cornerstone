@@ -93,22 +93,6 @@ customer:
 		</script>
 	{{/unless}}
 {{/if}}
-{{#if (lowercase page.title) '==' 'iframe'}}
-	{{#if theme_settings.custom_product_question}}
-		<script>
-			function sendHeight(){
-			  var actual_height = document.querySelector('.body').scrollHeight;
-			  var pass_data = {
-			    'contentheight':actual_height
-			  }
-			  parent.postMessage(JSON.stringify(pass_data),"*");
-			}
-			window.onload = function(){
-			  sendHeight();
-			}
-		</script>
-	{{/if}}
-{{/if}}
 
 {{/partial}}
 
