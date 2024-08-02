@@ -101,7 +101,34 @@ for (let i = 0; i < formSelect.length; i++) {
 			document.querySelector('klarna-placement').dataset.purchaseAmount = newPriceKlarna;
 			window.Klarna.OnsiteMessaging.refresh();
 			
-			// Pre Order (on change)
+			// Pre Order / C2W Form Box (on change)
+			if (formSelect[i].classList.contains('form-select-size')) {
+				const sizeText = formSelect[i].options[formSelect[i].selectedIndex].text.toString();
+				//c2w update size
+				const formCycle = document.getElementById('form-action-cycle');
+				const formCycleHref = new URL(formCycle.href);
+				formCycleHref.searchParams.append('size', sizeText);
+				formCycle.href = formCycleHref;
+				//preorder update size
+				const formPreorder = document.getElementById('form-action-preorder');
+				const formPreorderHref = new URL(formPreorder.href);
+				formPreorderHref.searchParams.append('size', sizeText);
+				formPreorder.href = formPreorderHref;
+			} else if (formSelect[i].classList.contains('form-select-colour')) {
+				var colourText = formSelect[i].options[formSelect[i].selectedIndex].text.toString();
+				//c2w update colour
+				const formCycle = document.getElementById('form-action-cycle');
+				const formCycleHref = new URL(formCycle.href);
+				formCycleHref.searchParams.append('colour', colourText);
+				formCycle.href = formCycleHref;
+				//preorder update colour
+				const formPreorder = document.getElementById('form-action-preorder');
+				const formPreorderHref = new URL(formPreorder.href);
+				formPreorderHref.searchParams.append('colour', colourText);
+				formPreorder.href = formPreorderHref;
+			}
+			
+			// Pre Order / C2W Alert Box (on change)
 			if (alertBox.style.display != 'none') {
 				if (formSelect[i].classList.contains('form-select-size')) {
 					var sizeText = formSelect[i].options[formSelect[i].selectedIndex].text.toString();
@@ -212,6 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const getModel = urlParams.get('model');
 	const getSize = urlParams.get('size');
 	const getColour = urlParams.get('colour');
+	
 	if (getMake) {
 		document.querySelector("input.form-input-bike-brand").value = getMake;
 	}
@@ -219,10 +247,14 @@ document.addEventListener("DOMContentLoaded", () => {
 		document.querySelector("input.form-input-model").value = getModel;
 	}
 	if (getSize) {
-		document.querySelector("input.form-input-size").value = getSize;
+		const getSizeAll = urlParams.getAll('size');
+		const getSizeLast = getSizeAll[getSizeAll.length - 1];
+		document.querySelector("input.form-input-size").value = getSizeLast;
 	}
 	if (getColour) {
-		document.querySelector("input.form-input-colour").value = getColour;
+		const getColourAll = urlParams.getAll('colour');
+		const getColourLast = getColourAll[getColourAll.length - 1];
+		document.querySelector("input.form-input-colour").value = getColourLast;
 	}
 });
 </script>
