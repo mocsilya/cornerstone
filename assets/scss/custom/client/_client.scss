@@ -246,6 +246,131 @@ body.scroll .navPages > ul > li > .navPages-action {
 	}
 }
 
+
+// =============================================================================
+// E-Liquids menu 
+// =============================================================================
+
+/*
+.navPages-item-e-liquids #navPages-27 {
+	display: flex !important;
+	opacity: 1 !important;
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+*/
+.navPages-item-e-liquids div.navPage-subMenu {
+	@include breakpoint("medium") {
+		min-height: calc(100vh - 200px);
+	}
+}
+
+.navPages-item-e-liquids .navPage-subMenu-list {
+	@include breakpoint("medium") {
+		position: relative;
+		width: 100%;
+	}
+}
+
+.navPages-item-e-liquids .navPage-subMenu-list .navPage-subMenu-item {
+	@include breakpoint("medium") {
+		width: 100%;
+	}
+}
+
+.navPages-item-e-liquids .navPage-subMenu-list .navPage-subMenu-item div.navPage-subMenu,
+.navPages-item-e-liquids:hover .navPage-subMenu-list .navPage-subMenu-item div.navPage-subMenu {
+	@include breakpoint("medium") {
+		opacity: 0;
+		display: none;
+		top: 0;
+		left: 33.333333% !important;
+		width: auto !important;
+		right: 0;
+		bottom: 0;
+		max-height: none;
+		padding: 1.5rem .75rem 1.5rem 1.5rem !important;
+		box-shadow: none;
+	}
+	@include breakpoint("large") {
+		left: 25% !important;
+	}
+}
+
+.navPages-item-e-liquids:hover .navPage-subMenu-list .navPage-subMenu-item div.navPage-subMenu.sfHover {
+	@include breakpoint("medium") {
+		opacity: 1;
+		display: flex;
+		min-height: auto;
+	}
+}
+
+.navPages-item-e-liquids .navPage-subMenu-list .navPage-subMenu-action {
+	@include breakpoint("medium") {
+		margin: 0;
+		padding-top: 1.5rem;
+		padding-bottom: 1.5rem;
+		width: 33.333333%;
+	}
+	@include breakpoint("large") {
+		width: 25%;
+	}
+}
+
+.navPages-item-e-liquids .navPage-subMenu-list .sfHover .navPage-subMenu-action {
+	color: stencilColor('navPages-color-hover');
+}
+
+.navPages-item-e-liquids #navPages-flavour-type.navPage-childList {
+	@include breakpoint("medium") {
+		display: block;
+	}
+}
+
+.navPages-item-e-liquids #navPages-flavour-type .navPage-childList-item {
+	@include breakpoint("medium") {
+		margin-bottom: 1.5rem;
+	}
+}
+
+.navPages-item-e-liquids #navPages-flavour-type .navPage-childList-action {
+	@include breakpoint("medium") {
+		font-weight: 700;
+		border-bottom: 1px solid #ccc;
+		margin-bottom: .375rem;
+	}
+}
+
+.navPages-item-e-liquids #navPages-flavour-type .navPage-grandchildList {
+	@include breakpoint("medium") {
+		display: flex;
+		flex-wrap: wrap;
+	}
+}
+
+.navPages-item-e-liquids #navPages-flavour-type .navPage-grandchildList-item {
+	@include breakpoint("medium") {
+		flex: 0 0 50%;
+	}
+	@include breakpoint("large") {
+		flex: 0 0 25%;
+	}
+	@include breakpoint("xlarge") {
+		flex: 0 0 20%;
+	}
+}
+
+.navPages-item-e-liquids #navPages-flavour-type .navPage-grandchildList-action {
+	@include breakpoint("medium") {
+		padding: .125rem 0;
+		font-weight: 400;
+	}
+}
+
+
+
+
 // =============================================================================
 // Carousel
 // =============================================================================
