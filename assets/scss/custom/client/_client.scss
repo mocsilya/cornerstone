@@ -270,18 +270,23 @@ body.scroll .navPages > ul > li > .navPages-action {
 	@include breakpoint("medium") {
 		position: relative;
 		width: 100%;
+		height: auto;
+		display: block;
+		overflow-y: auto;
 	}
 }
 
 .navPages-item-e-liquids .navPage-subMenu-list .navPage-subMenu-item {
 	@include breakpoint("medium") {
+		float: none;
 		width: 100%;
+		z-index: 1;
 	}
 }
 
-.navPages-item-e-liquids .navPage-subMenu-list .navPage-subMenu-item div.navPage-subMenu,
-.navPages-item-e-liquids:hover .navPage-subMenu-list .navPage-subMenu-item div.navPage-subMenu {
+.navPages-item-e-liquids .navPage-subMenu-list .navPage-subMenu-item .navPage-childList {
 	@include breakpoint("medium") {
+		position: absolute;
 		opacity: 0;
 		display: none;
 		top: 0;
@@ -292,17 +297,18 @@ body.scroll .navPages > ul > li > .navPages-action {
 		max-height: none;
 		padding: 1.5rem .75rem 1.5rem 1.5rem !important;
 		box-shadow: none;
+		z-index: 2;
 	}
 	@include breakpoint("large") {
 		left: 25% !important;
 	}
 }
 
-.navPages-item-e-liquids:hover .navPage-subMenu-list .navPage-subMenu-item div.navPage-subMenu.sfHover {
+
+.navPages-item-e-liquids:hover .navPage-subMenu-list .navPage-subMenu-item .navPage-childList.sfHover {
 	@include breakpoint("medium") {
 		opacity: 1;
 		display: flex;
-		min-height: auto;
 	}
 }
 
@@ -312,44 +318,61 @@ body.scroll .navPages > ul > li > .navPages-action {
 		padding-top: 1.5rem;
 		padding-bottom: 1.5rem;
 		width: 33.333333%;
+		border-right: 1px solid stencilColor('navPages-subMenu-separatorColor');
 	}
 	@include breakpoint("large") {
 		width: 25%;
 	}
 }
 
-.navPages-item-e-liquids .navPage-subMenu-list .sfHover .navPage-subMenu-action {
-	color: stencilColor('navPages-color-hover');
-}
-
-.navPages-item-e-liquids #navPages-flavour-type.navPage-childList {
+.navPages-item-e-liquids .navPage-subMenu-list li:first-child .navPage-subMenu-action {
 	@include breakpoint("medium") {
-		display: block;
+		border-top: 1px solid stencilColor('navPages-subMenu-separatorColor');
 	}
 }
 
-.navPages-item-e-liquids #navPages-flavour-type .navPage-childList-item {
+.navPages-item-e-liquids .navPage-subMenu-list .sfHover .navPage-subMenu-action {
+	color: stencilColor('navPages-color-hover');
+	border-right: 0;
+	/*background: linear-gradient(to right,  #ffffff 0%,#f1f1f1 100%);*/
+}
+
+/* E-Liquid Default Menu */
+
+.navPages-item-e-liquids .navPage-childList {
+	@include breakpoint("medium") {
+		flex-direction: column;
+	}
+}
+
+/* E-Liquid Flavours Menu */
+
+.navPages-item-e-liquids #navPages-e-liquid-flavours .navPage-childList-item {
 	@include breakpoint("medium") {
 		margin-bottom: 1.5rem;
 	}
 }
 
-.navPages-item-e-liquids #navPages-flavour-type .navPage-childList-action {
+.navPages-item-e-liquids #navPages-e-liquid-flavours .navPage-childList-action {
+	padding-top: 1.5rem;
+	font-weight: 700;
 	@include breakpoint("medium") {
-		font-weight: 700;
+		padding-top: 0;
 		border-bottom: 1px solid #ccc;
 		margin-bottom: .375rem;
 	}
 }
 
-.navPages-item-e-liquids #navPages-flavour-type .navPage-grandchildList {
-	@include breakpoint("medium") {
+.navPages-item-e-liquids #navPages-e-liquid-flavours .navPage-grandchildList {
 		display: flex;
 		flex-wrap: wrap;
-	}
 }
 
-.navPages-item-e-liquids #navPages-flavour-type .navPage-grandchildList-item {
+.navPages-item-e-liquids #navPages-e-liquid-flavours .navPage-grandchildList-item {
+	flex: 0 0 50%;
+	@include breakpoint("small") {
+		flex: 0 0 33.333333%;
+	}
 	@include breakpoint("medium") {
 		flex: 0 0 50%;
 	}
@@ -361,11 +384,49 @@ body.scroll .navPages > ul > li > .navPages-action {
 	}
 }
 
-.navPages-item-e-liquids #navPages-flavour-type .navPage-grandchildList-action {
+.navPages-item-e-liquids #navPages-e-liquid-flavours .navPage-grandchildList-action {
+	font-weight: 400;
 	@include breakpoint("medium") {
 		padding: .125rem 0;
-		font-weight: 400;
+		
 	}
+}
+
+/* E-Liquid Brands Menu */
+
+.navPages-item-e-liquids #navPages-e-liquid-brands.is-open {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: flex-start;
+}
+
+.navPages-item-e-liquids #navPages-e-liquid-brands {
+	@include breakpoint("medium") {
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-content: flex-start;
+	}
+}
+
+.navPages-item-e-liquids #navPages-e-liquid-brands .navPage-childList-item {
+	flex: 0 0 50%;
+	@include breakpoint("small") {
+		flex: 0 0 33.333333%;
+	}
+	@include breakpoint("medium") {
+		flex: 0 0 50%;
+	}
+	@include breakpoint("large") {
+		flex: 0 0 25%;
+	}
+	@include breakpoint("xlarge") {
+		flex: 0 0 20%;
+	}
+}
+
+.navPages-item-e-liquids #navPages-e-liquid-brands .navPage-childList-item .navPage-childList-action {
+	padding: 0.78571rem 0px;
 }
 
 

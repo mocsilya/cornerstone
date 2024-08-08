@@ -70,7 +70,7 @@ customer:
 		{{#each categories}}
 			{{#if name '===' 'E-Liquids'}}
 				{{#each children}}
-					{{#or (if name '===' 'E-Liquid Flavours') (if name '===' 'E-Liquid Brands')}}
+				    {{#if name '===' ../../breadcrumbs.[2].name}}   
 						{{#each children}}
 						<li class="subcategories-grid-item subcategories-grid-item-{{dashcase (lowercase (sanitize name))}}">
 							<div class="subcategories-container">
@@ -102,7 +102,7 @@ customer:
 							</div>
 						</li>
 						{{/each}}
-					{{/or}}
+					{{/if}}
 				{{/each}}
 			{{/if}}
 		{{/each}}

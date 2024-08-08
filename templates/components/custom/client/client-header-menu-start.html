@@ -81,25 +81,24 @@
 						</ul>
 					{{/and}}
 				    <ul class="navPage-subMenu-list">
-			            	<li class="navPage-subMenu-item">
-			                    <a class="navPage-subMenu-action sfHover navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+			            	<li class="navPage-subMenu-item navPage-subMenu-flavours sfHover">
+			                    <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
 			                       href="/e-liquids/flavours/"
-			                       aria-label="Flavour Type"
+			                       aria-label="E-Liquid Flavours"
 			                    >
 			                        E-Liquid Flavours
 			                        <span class="collapsible-icon-wrapper"
-			                            data-collapsible="navPages-flavour-type"
+			                            data-collapsible="navPages-e-liquid-flavours"
 			                            data-collapsible-disabled-breakpoint="medium"
 			                            data-collapsible-disabled-state="open"
 			                            data-collapsible-enabled-state="closed"
 			                        >
-			                            <i class="icon navPages-action-moreIcon" aria-hidden="true">
+			                            <i class="icon navPages-action-moreIcon" aria-hidden="false">
 			                                <svg><use href="#icon-chevron-down" /></svg>
 			                            </i>
 			                        </span>
 			                    </a>
-								<div class="navPage-subMenu sfHover" aria-hidden="true" tabindex="-1">
-			                    <ul class="navPage-childList" id="navPages-flavour-type">
+			                    <ul class="navPage-childList is-open sfHover" id="navPages-e-liquid-flavours" aria-hidden="false" tabindex="-1">
 			                    {{#if children}}
 			                        {{#each children}}
 			                            {{#if name '===' 'E-Liquid Flavours'}}
@@ -131,8 +130,45 @@
 			                        {{/each}}
 			                    {{/if}}
 			                    </ul>
-								</div>
 			            	</li>
+							
+			            	<li class="navPage-subMenu-item navPage-subMenu-brands">
+			                    <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+			                       href="/e-liquids/brands/"
+			                       aria-label="E-Liquid Brands"
+			                    >
+			                        E-Liquid Brands
+			                        <span class="collapsible-icon-wrapper"
+			                            data-collapsible="navPages-e-liquid-brands"
+			                            data-collapsible-disabled-breakpoint="medium"
+			                            data-collapsible-disabled-state="open"
+			                            data-collapsible-enabled-state="closed"
+			                        >
+			                            <i class="icon navPages-action-moreIcon" aria-hidden="true">
+			                                <svg><use href="#icon-chevron-down" /></svg>
+			                            </i>
+			                        </span>
+			                    </a>
+			                    <ul class="navPage-childList" id="navPages-e-liquid-brands">
+			                    {{#if children}}
+			                        {{#each children}}
+			                            {{#if name '===' 'E-Liquid Brands'}}
+			                            {{#each children}}
+			                                <li class="navPage-childList-item">
+			                                    <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+			                                        href="{{url}}"
+			                                        aria-label="{{name}}"
+			                                    >
+			                                        {{name}}
+			                                    </a>
+			                                </li>
+			                            {{/each}}
+			                            {{/if}}
+			                        {{/each}}
+			                    {{/if}}
+			                    </ul>
+			            	</li>
+							
 				            <li class="navPage-subMenu-item">
 				                    <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
 				                       href="/e-liquids/"
@@ -150,7 +186,7 @@
 				                            </i>
 				                        </span>
 				                    </a>
-									<div class="navPage-subMenu" aria-hidden="true" tabindex="-1">
+
 				                    <ul class="navPage-childList" id="navPages-e-liquid-type">
 				                        <li class="navPage-childList-item">
 				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
@@ -193,7 +229,6 @@
 				                            </a>
 				                        </li>
 				                    </ul>
-								</div>
 				            </li>
 				            <li class="navPage-subMenu-item">
 				                    <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
@@ -212,7 +247,6 @@
 				                            </i>
 				                        </span>
 				                    </a>
-									<div class="navPage-subMenu" aria-hidden="true" tabindex="-1">
 				                    <ul class="navPage-childList" id="navPages-pgvg-ratio">
 				                        <li class="navPage-childList-item">
 				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
@@ -247,7 +281,6 @@
 				                            </a>
 				                        </li>
 				                    </ul>
-									</div>
 				            </li>
 				            <li class="navPage-subMenu-item">
 				                    <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
@@ -266,7 +299,6 @@
 				                            </i>
 				                        </span>
 				                    </a>
-									<div class="navPage-subMenu" aria-hidden="true" tabindex="-1">
 				                    <ul class="navPage-childList" id="navPages-eliquid-popular">
 				                        <li class="navPage-childList-item">
 				                            <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
@@ -309,7 +341,6 @@
 				                            </a>
 				                        </li>
 				                    </ul>
-									</div>
 				            </li>
 
 				        <li class="navPage-subMenu-item navPage-subMenu-mobile">
