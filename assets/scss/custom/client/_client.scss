@@ -4,6 +4,16 @@
 //
 
 
+// Header 
+// =============================================================================
+
+@media (max-width: 800px) {
+    #privy-widget {
+        display: none !important;
+    }
+}
+
+
 // navUser 
 // =============================================================================
 
@@ -19,12 +29,13 @@
 // Category
 // =============================================================================
 
+/*
 @media (max-width: 800px) {
     .cat-side-promo {
         display: none;
     }
 }
-
+*/
 .category-description .page-heading,
 .category-description .category-banner {
     display: none;
@@ -180,5 +191,7 @@ div[data-content-region="category_aside"] {
 	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
 }
 
-
+.page-iframe #privy-widget {
+	display: none !important;
+}
 
