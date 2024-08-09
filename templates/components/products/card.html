@@ -10,6 +10,8 @@
 {{/filter}}
 <article
     class="card
+	{{#if show_compare}} card-compare-active{{/if}}
+	{{#if theme_settings.custom_card_show_wishlist}} card-wishlist-active{{/if}}
 	{{#if brand.name}} card-brand-{{first (split brand.name ' ')}}{{/if}}
     {{#if alternate}} card--alternate{{/if}}"
     data-test="card-{{id}}"
@@ -37,6 +39,7 @@
         {{lang 'common.login_for_pricing'}}
     {{/or}}"
 >
+	{{> components/custom/client/client-card-top}}
     <figure class="card-figure">
 		<div class="card-figure-badges">
         {{#if stock_level '===' 0}}
@@ -109,28 +112,51 @@
 			{{/if}}
 		{{/if}}
 		
-		{{#filter custom_fields '_badge' property='name'}}
-			{{#if ../theme_settings.product_sold_out_badges '===' 'sash'}}
-			    <div class="sold-out-flag-sash custom-badge-sash custom-badge-{{dashcase (lowercase (sanitize value))}}">
-					<span class="sold-out-text">
-						{{value}}
-					</span>
-			    </div>
-			{{else if ../theme_settings.product_sold_out_badges '===' 'topleft'}}
-			    <div class="sold-out-flag-side custom-badge-topleft custom-badge-{{dashcase (lowercase (sanitize value))}}">
-					<span class="sold-out-text">
-						{{value}}
-					</span>
-			    </div>
-			{{else if ../theme_settings.product_sold_out_badges '===' 'burst'}}
-			    <div class="starwrap custom-badge-burst custom-badge-{{dashcase (lowercase (sanitize value))}}">
-			        <div class="sold-out-text-burst">
-			        	{{value}}
-			        </div>
-			        <div class="sold-out-flag-star"></div>
-			    </div>
-			{{/if}}
-		{{/filter}}
+
+		
+		{{#each custom_fields}}
+			{{#contains name '_badge'}}
+				{{#contains name '#'}}
+					<div class="{{#if ../theme_settings.product_sold_out_badges '===' 'sash'}}sold-out-flag-sash custom-badge-sash{{else if ../theme_settings.product_sold_out_badges '===' 'topleft'}}sold-out-flag-side custom-badge-topleft{{else if ../theme_settings.product_sold_out_badges '===' 'burst'}}starwrap custom-badge-burst{{/if}} custom-badge-{{dashcase (lowercase (sanitize value))}}" style="background: #{{{after (split name '#') 1}}};">
+					{{#if ../theme_settings.product_sold_out_badges '===' 'burst'}}
+						{{#contains value '#'}}
+				        	<div class="sold-out-text-burst" style="color: #{{{after (split value '#') 1}}};">
+				        		{{{before (split value '#') 1}}}
+				        	</div>
+						{{else}}
+					        <div class="sold-out-text-burst">
+								{{value}}
+					        </div>
+						{{/contains}}
+				        <div class="sold-out-flag-star"></div>
+					{{else}}
+						{{#contains value '#'}}
+							<span class="sold-out-text" style="color: #{{{after (split value '#') 1}}};">
+								{{{before (split value '#') 1}}}
+							</span>
+						{{else}}
+							<span class="sold-out-text">
+								{{value}}
+							</span>
+						{{/contains}}
+					{{/if}}
+					</div>
+				{{else}}
+					<div class="{{#if ../theme_settings.product_sold_out_badges '===' 'sash'}}sold-out-flag-sash custom-badge-sash{{else if ../theme_settings.product_sold_out_badges '===' 'topleft'}}sold-out-flag-side custom-badge-topleft{{else if ../theme_settings.product_sold_out_badges '===' 'burst'}}starwrap custom-badge-burst{{/if}} custom-badge-{{dashcase (lowercase (sanitize value))}}">
+					{{#if ../theme_settings.product_sold_out_badges '===' 'burst'}}
+				        <div class="sold-out-text-burst">
+				        	{{value}}
+				        </div>
+				        <div class="sold-out-flag-star"></div>
+					{{else}}
+						<span class="sold-out-text">
+							{{value}}
+						</span>
+					{{/if}}
+					</div>
+				{{/contains}}
+			{{/contains}}
+		{{/each}}
 
 		</div>
 		{{#if show_cart_action}}
@@ -223,7 +249,7 @@
                     {{/if}}
                 {{/unless}}
                 {{#if show_compare}}
-                    <label class="button button--small card-figcaption-button" for="compare-{{id}}">
+                    <label class="button button--small card-figcaption-button compare" for="compare-{{id}}">
                         {{lang 'products.compare'}} <input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}">
                     </label>
                 {{/if}}
@@ -416,6 +442,11 @@
 			<div class="card-message">
 				{{theme_settings.custom_card_message_text}}
 				{{> components/custom/client/client-card}}
+			</div>
+		{{/if}}
+		{{#if theme_settings.custom_card_variant_data}}
+			<div class="custom-product-data" data-product-id="{{id}}">
+				
 			</div>
 		{{/if}}
     </div>

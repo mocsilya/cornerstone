@@ -7,12 +7,23 @@ import cardSwatches from './custom/card-swatches';
 import cardWarranty from './custom/card-warranty';
 import cardCarousel from './custom/card-carousel';
 import menuHelper from './custom/menu-helper';
+import cardData from './custom/card-data';
 
 export default class Brand extends CatalogPage {
     constructor(context) {
         super(context);
         this.validationDictionary = createTranslationDictionary(context);
     }
+	
+	dataProductCollection() {
+	    const cards = document.querySelectorAll('.product .card, .product .listItem');
+	    const dataIdArr= [];
+	    cards.forEach(card => {
+	        const id = card.dataset.test.replace('card-', '');
+	        dataIdArr.push(Number(id));
+	    });
+	    return dataIdArr;
+	}
 
     onReady() {
         compareProducts(this.context);
@@ -28,6 +39,10 @@ export default class Brand extends CatalogPage {
         cardWarranty();
 		cardCarousel();
 		menuHelper();
+		const dataOnReady = this.context.cardVariantData;
+		if (dataOnReady) {
+			cardData(this.context.apiToken, this.dataProductCollection());
+		}
     }
 
     initFacetedSearch() {
@@ -60,7 +75,12 @@ export default class Brand extends CatalogPage {
         this.facetedSearch = new FacetedSearch(requestOptions, (content) => {
             $productListingContainer.html(content.productListing);
             $facetedSearchContainer.html(content.sidebar);
-
+			
+			const dataFacetedSearch = this.context.cardVariantData;
+			if (dataFacetedSearch) {
+				cardData(this.context.apiToken, this.dataProductCollection());
+			}
+			
             $('body').triggerHandler('compareReset');
 
             $('html, body').animate({

@@ -34,6 +34,10 @@ gql: "query productById($productId: Int!) {
                         	}
 						}
 						isPurchasable
+						weight {
+						    unit
+						    value
+						}
 						inventory {
 						    aggregated {
 						        availableToSell
@@ -76,7 +80,7 @@ gql: "query productById($productId: Int!) {
 }"
 ---
 {{inject 'productId' product.id}}
-
+{{inject "productPriceFrom" theme_settings.custom_price_from}}
 {{#partial "hero"}}
 {{assignVar "payment" "inactive"}}
 {{assignVar "breadcrumb" "inactive"}}
@@ -140,47 +144,36 @@ gql: "query productById($productId: Int!) {
 		{{/if}}
 		{{> components/custom/client/client-product-variants}}
 		{{#if theme_settings.custom_product_question}}
-		<div class="product-question">
+		<div id="product_question">
 			<div class="container">
 				<div class="product-question-title">
 					<h4 class="productView-title">{{theme_settings.custom_product_question}}</h4>
 				</div>
-				<div id="iframe_product" style="height:0;margin:auto;overflow:hidden;padding-bottom:200px;position:relative;">
-				    <script>
-						var iFrameWrap = document.getElementById('iframe_product');
-						function dataview(){
-						  function thedata(){
-							  iFrameWrap.innerHTML = '<iframe src="/iframe/?rma={{plusify (sanitize product.title)}}{{#if product.sku}}+({{plusify (sanitize product.sku)}}){{/if}}" allowfullscreen frameborder="0" scrolling="no" style="height:100%;left:0;overflow:hidden;position:absolute;top:0;width:100%;" id="iframe_product--iframe"></iframe>';
-							  // LISTENER FOR IFRAME HEIGHT
-							  var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
-							  var eventer = window[eventMethod];
-							  var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
-
-							  // LISTEN TO MESSAGE FROM CHILD WINDOW
-							  eventer(messageEvent,function(e){
-							    var pass_data = JSON.parse(e.data);
-							    if (pass_data.contentheight) {
-							      resizeIFrameToFitContent(pass_data.contentheight);
-							    }
-							  },false);
-
-							  // RESIZE IFRAME
-							  function resizeIFrameToFitContent(height) {
-							    iFrameWrap.style.paddingBottom = (height + 44) + 'px';
-							  }
-						  }
-						  window.addEventListener("DOMContentLoaded", function(){
-						      thedata();
-						  });
-  
-						  window.addEventListener("resize", function(){
-						      thedata();
-						  });
-						}
-						dataview();
-		
-				    </script>
+				<div id="iframe_product">
+				    <iframe id="iframe_product--iframe" src="{{settings.base_url}}/iframe/?rma={{encodeURI (sanitize product.title)}}{{#if product.sku}}%20({{encodeURI (sanitize product.sku)}}){{/if}}" allowfullscreen frameborder="0" scrolling="no" style="border: 0;"></iframe>
 				</div>
+				<script>
+				var iframe = document.getElementById('iframe_product--iframe');
+				iframe.addEventListener("load", function() {
+					var iframe_contents = iframe.contentWindow.document;
+					if (iframe_contents) {
+						var iframe_form = iframe_contents.getElementById('form_contact'); 
+						if (iframe_form.classList.contains('with-company')) {
+							console.log('recaptcha found');
+							iframe.classList.add('with-company');
+						}
+						if (iframe_form.classList.contains('with-manualcaptcha')) {
+							console.log('recaptcha found');
+							iframe.classList.add('with-manualcaptcha');
+						}
+						if (iframe_form.classList.contains('with-recaptcha')) {
+							console.log('recaptcha found');
+							iframe.classList.add('with-recaptcha');
+						}
+					}	
+				});
+				</script>
+
 			</div>
 		</div>
 		{{/if}}

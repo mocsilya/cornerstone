@@ -7,12 +7,23 @@ import cardSwatches from './custom/card-swatches';
 import cardWarranty from './custom/card-warranty';
 import cardCarousel from './custom/card-carousel';
 import descriptionHelper from './custom/description-helper';
+import cardData from './custom/card-data';
 
 export default class Category extends CatalogPage {
     constructor(context) {
         super(context);
         this.validationDictionary = createTranslationDictionary(context);
     }
+	
+	dataProductCollection() {
+	    const cards = document.querySelectorAll('.product .card, .product .listItem');
+	    const dataIdArr= [];
+	    cards.forEach(card => {
+	        const id = card.dataset.test.replace('card-', '');
+	        dataIdArr.push(Number(id));
+	    });
+	    return dataIdArr;
+	}
 
     setLiveRegionAttributes($element, roleType, ariaLiveStatus) {
         $element.attr({
@@ -55,6 +66,11 @@ export default class Category extends CatalogPage {
 		cardWarranty();
 		cardCarousel();
 		descriptionHelper();
+		const dataOnReady = this.context.cardVariantData;
+		if (dataOnReady) {
+			cardData(this.context.apiToken, this.dataProductCollection());
+		}
+		
     }
 
     ariaNotifyNoProducts() {
@@ -94,7 +110,12 @@ export default class Category extends CatalogPage {
         this.facetedSearch = new FacetedSearch(requestOptions, (content) => {
             $productListingContainer.html(content.productListing);
             $facetedSearchContainer.html(content.sidebar);
-
+			
+			const dataFacetedSearch = this.context.cardVariantData;
+			if (dataFacetedSearch) {
+				cardData(this.context.apiToken, this.dataProductCollection());
+			}
+			
             $('body').triggerHandler('compareReset');
 
             $('html, body').animate({

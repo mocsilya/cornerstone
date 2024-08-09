@@ -8,9 +8,12 @@ customer:
     wishlists:
         limit: 10
 ---
+{{inject 'apiToken' settings.storefront_api.token}}
+{{inject "cardVariantData" theme_settings.custom_card_variant_data}}
 {{inject 'categoryTree' forms.search.category_options}}
 {{inject 'searchProductsPerPage' theme_settings.searchpage_products_per_page}}
 {{inject 'searchResultsCount' (lang 'search.results.count' count=result_count search_query=(sanitize forms.search.query))}}
+
 {{#partial "head"}}
     {{#if pagination.product_results.previous}}
         <link rel="prev" href="{{pagination.product_results.previous}}">
