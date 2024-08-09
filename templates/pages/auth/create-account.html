@@ -8,7 +8,11 @@ blog:
 {{#partial "hero"}}
 <div class="container container-hero">
 	<div class="page-header account-header">
-    	<h1 class="page-heading">{{lang 'create_account.heading' }}</h1>
+		{{#if theme_settings.custom_b2b}}
+    		<h1 class="page-heading">Create Business Account</h1>
+		{{else}}
+			<h1 class="page-heading">{{lang 'create_account.heading' }}</h1>
+		{{/if}}
 		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 	</div>
 </div>

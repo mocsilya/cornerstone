@@ -1,8 +1,31 @@
 {{inject 'noCompareMessage' (lang 'compare.no_compare')}}
 
+{{assignVar "b2b-products" "show"}}
+{{assignVar "b2b-prices" "show"}}
+{{#if theme_settings.custom_b2b}}
+	{{#if customer.id}}
+		{{#if customer_group_name '==' theme_settings.custom_b2b_pending_group}}
+			{{#if theme_settings.custom_b2b_pending_hide_products}}
+				{{assignVar "b2b-products" "hide"}}
+			{{/if}}
+			{{#if theme_settings.custom_b2b_pending_hide_prices}}
+				{{assignVar "b2b-prices" "hide"}}
+			{{/if}}
+		{{/if}}
+	{{else}}
+		{{#if theme_settings.custom_b2b_guest_hide_products}}
+			{{assignVar "b2b-products" "hide"}}
+		{{/if}}
+		{{#if settings.hide_price_from_guests}}
+			{{assignVar "b2b-prices" "hide"}}
+		{{/if}}
+	{{/if}}
+{{/if}}
+
+{{#if (getVar "b2b-products") '===' 'show'}}
 {{> components/products/filter sort=pagination.brand.sort}}
 
-<div {{#if settings.data_tag_enabled}} data-list-name="Brand: {{brand.name}}" {{/if}}>
+<div data-list-name="Brand: {{brand.name}}">
     {{#if theme_settings.product_list_display_mode '===' 'grid'}}
         {{> components/products/grid products=brand.products show_compare=brand.show_compare theme_settings=theme_settings event="list"}}
     {{else}}
@@ -11,3 +34,4 @@
 </div>
 
 {{> components/common/paginator pagination.brand}}
+{{/if}}

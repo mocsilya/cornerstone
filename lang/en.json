@@ -20,7 +20,7 @@
         "recent_posts": "Recent Posts",
         "label": "Blog",
         "posted_by": "Posted by {name}",
-        "read_more": "read more"
+        "read_more": "Read Full Article"
     },
     "unavailable": {
         "hibernation_title": "We'll be back",
@@ -40,6 +40,7 @@
     "cart": {
         "nav_aria_label": "Cart with 0 items",
         "continue_shopping": "Click here to continue shopping",
+        "login_to_checkout": "Login to proceed to checkout",
         "items": "{NUM, plural, =0{(0 items)} one {(# item)} other {(# items)}}",
         "checkout": {
             "address": {
@@ -260,7 +261,7 @@
         "heading": "New Account",
         "created": {
             "heading": "Your account has been created",
-            "intro": "Thank you for creating your account at {store_name}. Your account details have been emailed to <strong>{email}</strong>",
+            "intro": "Thank you for creating your account at {store_name}. Your account details have been emailed to {email}",
             "continue": "Continue Shopping"
         },
         "recaptcha_title": "Google recaptcha"
@@ -388,6 +389,7 @@
         "payment_methods": {
             "heading": "Payment Methods",
             "payment_method": "Payment method",
+            "bank_account": "Bank account",
             "billing_address": "Billing address",
             "card_ending_in": "ending in {last_four}",
             "card_expiry": "{month}/{year}",
@@ -401,13 +403,15 @@
                 "american_express": "American Express",
                 "credit_card": "Credit Card",
                 "dankort": "Dankort",
-                "diners": "Diners Club",
+                "diners_club": "Diners Club",
                 "discover": "Discover",
                 "jcb": "JCB",
                 "maestro": "Maestro",
                 "mastercard": "Mastercard",
+                "unionpay": "Union Pay",
                 "visa": "Visa"
             },
+            "ach": "ACH",
             "paypal": "PayPal",
             "billing_address_labels": {
               "address_line_1": "Address Line 1",
@@ -435,6 +439,7 @@
             "reason": "Return Reason",
             "action": "Return Action",
             "comments": "Your Comments",
+            "submit_request": "Submit Return Request",
             "list": {
                 "return_number": "Return #{id}",
                 "product_details": "Returning {num_products}"
@@ -540,7 +545,8 @@
             "rma": "RMA Number",
             "question": "Comments/Questions",
             "submit": "Submit Form",
-            "successful": "We've received your feedback and will respond shortly if required. <a href=\"{shopPath}\">Continue</a>."
+            "successful": "We've received your feedback and will respond shortly if required.",
+            "manual_captcha_instruction": "Please answer the question below for additional verification."
         },
         "create_account": {
             "submit_value": "Create Account"
@@ -765,6 +771,7 @@
         "shipping_free": "Free Shipping",
         "shipping_calculated": "Calculated at Checkout",
         "sold_out": "Sold Out",
+        "out_of_stock_default_message": "Sold Out",
         "pre_order": "Pre-Order Now",
         "choose_options": "Choose Options",
         "quick_view": "Quick view",
@@ -1016,5 +1023,33 @@
         "privacy_policy": "Privacy Policy",
         "allow_category_tracking": "Allow [CATEGORY_NAME] tracking",
         "disallow_category_tracking": "Disallow [CATEGORY_NAME] tracking"
+    },
+	"optimized_checkout": {
+        "billing": {
+            "billing_heading": "Billing"
+        },
+        "customer": {
+            "customer_heading": "Customer"
+        },
+        "payment": {
+            "payment_heading": "Confirm Payment"
+        },
+        "shipping": {
+            "shipping_heading": "Shipping"
+        },
+        "order_confirmation": {
+			"order_number_text": "Your order number is <strong>{orderNumber}</strong>",
+			"order_pending_review_text": "Your order was sent to us but is currently awaiting payment. Once we receive the payment for your order, it will be completed. If you've already provided payment details then we will process your order manually and send you an email when it's completed.",
+			"order_pending_status_text": "We've received your order and are processing your payment. Once the payment is verified, your order will be completed. We will send you an email when it's completed. Please note, this process may take a few minutes depending on the processing times of your chosen method. If you have any questions about your purchase, email us at <a href=\"mailto:{supportEmail}?Subject=Order {orderNumber}\" target=\"_top\">{supportEmail}</a>.",
+			"order_incomplete_status_text": "We've received your order and payment. Your order is now being processed by our system. Please note, processing may take a few minutes. If you have any questions about your purchase, email us at <a href=\"mailto:{supportEmail}?Subject=Order {orderNumber}\" target=\"_top\">{supportEmail}</a>.",
+			"order_with_downloadable_digital_items_text": "You can download your digital purchases by clicking the links on this page, or by logging into your account at any time. There is also a download link in your confirmation email, which should be arriving shortly.",
+			"order_with_support_number_text": "An email will be sent containing information about your purchase. If you have any questions about your purchase, email us at <a href=\"mailto:{supportEmail}?Subject=Order {orderNumber}\" target=\"_top\">{supportEmail}</a> or call us at <a href=\"tel://{supportPhoneNumber}\">{supportPhoneNumber}</a>.",
+			"order_without_downloadable_digital_items_text": "Once we receive your payment, we'll send a confirmation email with a link to download your digital purchases.",
+			"order_without_support_number_text": "An email will be sent containing information about your purchase. If you have any questions about your purchase, email us at <a href=\"mailto:{supportEmail}?Subject=Order {orderNumber}\" target=\"_top\">{supportEmail}</a>.",
+			"thank_you_customer_heading": "Thank you {name}!",
+			"thank_you_heading": "Thank you!",
+			"continue_shopping": "Continue Shopping »",
+			"order_status_update_facebook_messenger_heading": "Get instant updates of your order to Messenger"
+        }
     }
 }

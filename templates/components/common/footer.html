@@ -1,23 +1,38 @@
 {{#if banners.bottom}}
-    {{#if settings.data_tag_enabled}}
-        <div class="banners" data-banner-location="bottom">
-            {{#each (limit banners.bottom_metadata 1)}}
-                <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-name="{{this.banner-name}}">
-                    <div data-event-type="promotion-click">
-                        {{{this.content}}}
-                    </div>
+    <div class="banners" data-banner-location="bottom">
+        {{#each (limit banners.bottom_metadata 1)}}
+            <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-name="{{this.banner-name}}">
+                <div data-event-type="promotion-click">
+                    {{{this.content}}}
                 </div>
-            {{/each}}
-        </div>
-    {{else}}
-        <div class="banners" data-banner-location="bottom">
-            <div class="banner">
-                {{{limit banners.bottom 1}}}
             </div>
-        </div>
-    {{/if}}
+		{{/each}}
+    </div>
 {{/if}}
-{{{region name="footer_top--global"}}}
+
+{{#if page_type '==' 'default'}}
+	{{{region name="home_below_bottom_banner"}}}
+{{else if page_type '==' 'category'}}
+	{{{region name="category_below_bottom_banner"}}}
+{{else if page_type '==' 'product'}}
+	{{{region name="product_below_bottom_banner"}}}
+{{else if page_type '==' 'page'}}
+	{{{region name="page_below_bottom_banner"}}}
+{{else if page_type '==' 'brands'}}
+	{{{region name="brands_below_bottom_banner"}}}
+{{else if page_type '==' 'brand'}}
+	{{{region name="brand_below_bottom_banner"}}}
+{{else if page_type '==' 'cart'}}
+	{{{region name="cart_below_bottom_banner"}}}
+{{else if page_type '==' 'search'}}
+	{{{region name="search_below_bottom_banner"}}}
+{{else}}
+	{{{region name="general_below_bottom_banner"}}}
+{{/if}}
+
+<div class="footer-globalregion"{{#unless theme_settings.custom_footer_global_region}} style="display:none;"{{/unless}}>
+	{{{region name="footer_top--global"}}}
+</div>
 {{#or theme_settings.custom_footer_show_newsletter theme_settings.social_icon_placement_bottom}}
 <section class="footer-newsletter">
 	{{> components/custom/client/client-newsletter-top}}
@@ -31,8 +46,12 @@
 	{{/if}}
 	{{#if theme_settings.social_icon_placement_bottom}}
 		<article class="footer-social-col" data-section-type="footer-social">
-			<h3 class="newsletter-heading">{{theme_settings.custom_footer_social_heading}}</h3>
-			<p class="newsletter-subtext">{{theme_settings.custom_footer_social_message}}</p>
+			<h3 class="newsletter-heading">
+				{{#if theme_settings.custom_footer_social_heading}}{{theme_settings.custom_footer_social_heading}}{{else}}{{lang 'social.connect'}}{{/if}}
+			</h3>
+			<p class="newsletter-subtext">
+				{{#if theme_settings.custom_footer_social_message}}{{theme_settings.custom_footer_social_message}}{{else}}{{lang 'social.connect_intro'}}{{/if}}
+			</p>
 			{{> components/common/social-links}}
 		</article>
 	{{/if}}
@@ -68,117 +87,158 @@
     <div class="container">
         <section class="footer-info">
 			{{#if theme_settings.custom_footer_show_page_columns}}
+			{{assignVar "pageCount" 0}}
 			{{#each pages}}
-				{{#unless (lowercase name) '==' 'header'}}	
+				{{#or (if (lowercase name) '===' 'header') (if (lowercase name) '===' 'iframe')}}
+				{{else}}
 				{{#if children}}
+					<!-- {{incrementVar "pageCount"}} -->
 		            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
 		                <h3 class="footer-info-heading"><a href="{{url}}">{{name}}</a></h3>
 		                <ul class="footer-info-list">
 		                    {{#each children}}
-		                        <li>
+		                        <li class="link-{{dashcase (lowercase (sanitize name))}}">
 		                            <a href="{{url}}">{{name}}</a>
 		                        </li>
 		                    {{/each}}
 		                </ul>
+						{{#if (getVar "pageCount") '===' 1}}{{{region name="footer_page_1--global"}}}{{/if}}
+						{{#if (getVar "pageCount") '===' 2}}{{{region name="footer_page_2--global"}}}{{/if}}
+						{{#if (getVar "pageCount") '===' 3}}{{{region name="footer_page_3--global"}}}{{/if}}
+						{{#if (getVar "pageCount") '===' 4}}{{{region name="footer_page_4--global"}}}{{/if}}
+						{{#if (getVar "pageCount") '===' 5}}{{{region name="footer_page_5--global"}}}{{/if}}
+						{{#if (getVar "pageCount") '===' 6}}{{{region name="footer_page_6--global"}}}{{/if}}
+						{{#if (getVar "pageCount") '===' 7}}{{{region name="footer_page_7--global"}}}{{/if}}
+						{{#if (getVar "pageCount") '===' 8}}{{{region name="footer_page_8--global"}}}{{/if}}
+						{{#if (getVar "pageCount") '===' 9}}{{{region name="footer_page_9--global"}}}{{/if}}
+						{{#if (getVar "pageCount") '===' 10}}{{{region name="footer_page_10--global"}}}{{/if}}
+						{{#if (getVar "pageCount") '===' 11}}{{{region name="footer_page_11--global"}}}{{/if}}
+						{{#if (getVar "pageCount") '===' 12}}{{{region name="footer_page_12--global"}}}{{/if}}
 		            </article>
 				{{/if}}
-				{{/unless}}
+				{{/or}}
 			{{/each}}
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
                 <h3 class="footer-info-heading">{{lang 'footer.navigate'}}</h3>
                 <ul class="footer-info-list">
                     {{#each pages}}
-						{{#unless (lowercase name) '==' 'header'}}	
+						{{#or (if (lowercase name) '===' 'header') (if (lowercase name) '===' 'iframe')}}
+						{{else}}
 						{{#unless children}}
-                        <li>
+                        <li class="link-{{dashcase (lowercase (sanitize name))}}">
                             <a href="{{url}}">{{name}}</a>
                         </li>
 						{{/unless}}
-						{{/unless}}
+						{{/or}}
                     {{/each}}
-					{{#if theme_settings.custom_footer_show_sitemap}}
-                    	<li>
+					{{#if (getVar "b2b-products") '===' 'show'}}
+						{{#if theme_settings.custom_footer_show_sitemap}}
+                    	<li class="link-sitemap">
                         	<a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
                     	</li>
+						{{/if}}
 					{{/if}}
-                    <li>
+                    <li class="link-cart">
                         <a href="{{urls.cart}}">{{lang 'common.cart'}}</a>
                     </li>
 		            {{#if customer}}
-		                <li>
+		                <li class="link-account">
 							<a href="{{urls.account.index}}" aria-label="{{lang 'common.account'}}">My {{lang 'common.account'}}</a>
 						</li>
-						<li>
+						<li class="link-logout">
 			                <a href="{{urls.auth.logout}}" aria-label="{{lang 'common.logout'}}">{{lang 'common.logout'}}</a>
 						</li>
 		            {{else}}
-						<li>
+						<li class="link-login">
 		                	<a href="{{urls.auth.login}}" aria-label="{{lang 'common.login'}}">{{lang 'common.login'}}</a>
 						</li>
 		                {{#if settings.account_creation_enabled}}
-						<li>
+						<li class="link-create-account">
 		                    <a href="{{urls.auth.create_account}}" aria-label="{{lang 'common.sign_up'}}">{{lang 'common.sign_up'}}</a>
 						</li>
 		                {{/if}}
 		            {{/if}}
                 </ul>
+				{{{region name="footer_pages--global"}}}
+				{{{region name="footer_account--global"}}}
             </article>
 			{{else}}
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
                 <h3 class="footer-info-heading">{{lang 'common.account'}}</h3>
                 <ul class="footer-info-list">
-                    <li>
+                    <li class="link-cart">
                         <a href="{{urls.cart}}">{{lang 'common.cart'}}</a>
                     </li>
 		            {{#if customer}}
-		                <li>
+		                <li class="link-account">
 							<a href="{{urls.account.index}}" aria-label="{{lang 'common.account'}}">My {{lang 'common.account'}}</a>
 						</li>
-						<li>
+						<li class="link-logout">
 			                <a href="{{urls.auth.logout}}" aria-label="{{lang 'common.logout'}}">{{lang 'common.logout'}}</a>
 						</li>
 		            {{else}}
-						<li>
+						<li class="link-login">
 		                	<a href="{{urls.auth.login}}" aria-label="{{lang 'common.login'}}">{{lang 'common.login'}}</a>
 						</li>
 		                {{#if settings.account_creation_enabled}}
-						<li>
+						<li class="link-create-account">
 		                    <a href="{{urls.auth.create_account}}" aria-label="{{lang 'common.sign_up'}}">{{lang 'common.sign_up'}}</a>
 						</li>
 		                {{/if}}
 		            {{/if}}
                 </ul>
+				{{{region name="footer_account--global"}}}
             </article>
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
                 <h3 class="footer-info-heading">{{lang 'footer.info'}}</h3>
                 <ul class="footer-info-list">
                     {{#each pages}}
-					{{#unless (lowercase name) '==' 'header'}}
-                        <li>
+					{{#or (if (lowercase name) '===' 'header') (if (lowercase name) '===' 'iframe')}}
+					{{else}}
+                        <li class="link-{{dashcase (lowercase (sanitize name))}}">
                             <a href="{{url}}">{{name}}</a>
                         </li>
-					{{/unless}}
+					{{/or}}
                     {{/each}}
-					{{#if theme_settings.custom_footer_show_sitemap}}
-                    	<li>
+					{{#if (getVar "b2b-products") '===' 'show'}}
+						{{#if theme_settings.custom_footer_show_sitemap}}
+                    	<li class="link-sitemap">
                         	<a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
                     	</li>
+						{{/if}}
 					{{/if}}
                 </ul>
+				{{{region name="footer_pages--global"}}}
             </article>
 			{{/if}}
+			{{#if (getVar "b2b-products") '===' 'show'}}
+			{{#if theme_settings.custom_footer_show_categories}}
 			{{#if theme_settings.custom_footer_show_category_columns}}
+			{{assignVar "catCount" 0}}
 			{{#each categories}}
 				{{#if children}}
+					<!-- {{incrementVar "catCount"}} -->
 		            <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
 		                <h3 class="footer-info-heading"><a href="{{url}}">{{name}}</a></h3>
 		                <ul class="footer-info-list">
 		                    {{#each children}}
-		                        <li>
+		                        <li class="link-{{dashcase (lowercase (sanitize name))}}">
 		                            <a href="{{url}}">{{name}}</a>
 		                        </li>
 		                    {{/each}}
 		                </ul>
+						{{#if (getVar "catCount") '===' 1}}{{{region name="footer_category_1--global"}}}{{/if}}
+						{{#if (getVar "catCount") '===' 2}}{{{region name="footer_category_2--global"}}}{{/if}}
+						{{#if (getVar "catCount") '===' 3}}{{{region name="footer_category_3--global"}}}{{/if}}
+						{{#if (getVar "catCount") '===' 4}}{{{region name="footer_category_4--global"}}}{{/if}}
+						{{#if (getVar "catCount") '===' 5}}{{{region name="footer_category_5--global"}}}{{/if}}
+						{{#if (getVar "catCount") '===' 6}}{{{region name="footer_category_6--global"}}}{{/if}}
+						{{#if (getVar "catCount") '===' 7}}{{{region name="footer_category_7--global"}}}{{/if}}
+						{{#if (getVar "catCount") '===' 8}}{{{region name="footer_category_8--global"}}}{{/if}}
+						{{#if (getVar "catCount") '===' 9}}{{{region name="footer_category_9--global"}}}{{/if}}
+						{{#if (getVar "catCount") '===' 10}}{{{region name="footer_category_10--global"}}}{{/if}}
+						{{#if (getVar "catCount") '===' 11}}{{{region name="footer_category_11--global"}}}{{/if}}
+						{{#if (getVar "catCount") '===' 12}}{{{region name="footer_category_12--global"}}}{{/if}}
 		            </article>
 				{{/if}}
 			{{/each}}
@@ -196,12 +256,13 @@
                 <ul class="footer-info-list">
                     {{#each categories}}
 						{{#unless children}}
-                        <li>
+                        <li class="link-{{dashcase (lowercase (sanitize name))}}">
                             <a href="{{url}}">{{name}}</a>
                         </li>
 						{{/unless}}
                     {{/each}}
 				</ul>
+				{{{region name="footer_categories--global"}}}
 			</article>
 			{{/if}}
 			{{else}}
@@ -209,27 +270,30 @@
                 <h3 class="footer-info-heading">{{lang 'footer.categories'}}</h3>
                 <ul class="footer-info-list">
                     {{#each categories}}
-                        <li>
+                        <li class="link-{{dashcase (lowercase (sanitize name))}}">
                             <a href="{{url}}">{{name}}</a>
                         </li>
                     {{/each}}
                 </ul>
+				{{{region name="footer_categories--global"}}}
             </article>
+			{{/if}}
 			{{/if}}
             {{#and theme_settings.shop_by_brand_show_footer shop_by_brand.length}}
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-brands">
                 <h3 class="footer-info-heading">{{lang 'footer.brands'}}</h3>
                 <ul class="footer-info-list">
                     {{#each shop_by_brand}}
-                        <li>
+                        <li class="link-{{dashcase (lowercase (sanitize name))}}">
                             <a href="{{url}}">{{name}}</a>
                         </li>
                     {{/each}}
-                    <li><a href="{{urls.brands}}">{{lang 'common.view_all'}}</a></li>
+                    <li class="link-brand-all"><a href="{{urls.brands}}">{{lang 'common.view_all'}}</a></li>
                 </ul>
+				{{{region name="footer_brands--global"}}}
             </article>
             {{/and}}
-
+			{{/if}}
             
             <article class="footer-info-col footer-info-col--small" data-section-type="storeInfo">
 				{{> components/custom/client/client-footer-top}}
@@ -239,26 +303,24 @@
 				{{/if}}
                 {{#all settings.phone_number theme_settings.custom_phone_show}}
                     <p class="footer-phone">
-						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-phone" /></svg></i> 
+						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-phone{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i> 
 						<strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong>
 					</p>
                 {{/all}}
                 {{#if theme_settings.custom_email_show}}
                     <p class="footer-email">
-						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-envelope" /></svg></i> 
+						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-envelope{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i> 
 						<a href="mailto:{{theme_settings.custom_email_address}}"><strong>{{lang 'footer.email_us'}}</strong></a>
 					</p>
                 {{/if}}
 				{{> components/custom/client/client-footer-bottom}}
+				{{{region name="footer_info--global"}}}
             </article>
 
         </section>
 		<section class="footer-bar">
 		{{> components/common/payment-icons}}
 			<div class="footer-text">
-        	{{#if settings.paypal_commerce_credit_message}}
-            	<p class="paypal-credit">{{nl2br settings.paypal_commerce_credit_message}}</p>
-        	{{/if}}
         	{{#if theme_settings.show_copyright_footer}}
                 <p class="copyright">&copy; {{moment format="YYYY"}} {{settings.store_name}}. {{{theme_settings.custom_footer_copyright}}}</p>
         	{{/if}}

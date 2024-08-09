@@ -10,6 +10,8 @@ customer:
     wishlists:
         limit: 10
 ---
+{{inject 'apiToken' settings.storefront_api.token}}
+{{inject "cardVariantData" theme_settings.custom_card_variant_data}}
 {{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
 {{#partial "head"}}
     {{#if pagination.category.previous}}
@@ -21,24 +23,43 @@ customer:
 {{/partial}}
 
 {{#partial "hero"}}
+{{{region name="category_below_menu"}}}
 <div class="container container-hero">
 	{{#if breadcrumbs.[1].name '==' 'Brands'}}
 		<div class="page-header category-header">
 	{{else}}
-		{{#if category.image}}
-			<div class="page-header category-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
-		    {{> components/common/responsive-img
-		        image=category.image
-		        fallback_size=theme_settings.zoom_size
-		        lazyload=theme_settings.lazyload_mode
-		        class="page-header-image"
-		    }}
+		{{#if theme_settings.custom_page_header_image_depth '==' 'none'}}
+			{{#if breadcrumbs.[1].name '==' category.name}}
+				{{#if category.image}}
+					<div class="page-header category-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
+				    {{> components/common/responsive-img
+				        image=category.image
+				        fallback_size=theme_settings.zoom_size
+				        lazyload=theme_settings.lazyload_mode
+				        class="page-header-image"
+				    }}
+				{{else}}
+					<div class="page-header category-header">
+				{{/if}}
+			{{else}}
+				<div class="page-header category-header">
+			{{/if}}
 		{{else}}
-			<div class="page-header category-header">
+			{{#if category.image}}
+				<div class="page-header category-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
+			    {{> components/common/responsive-img
+			        image=category.image
+			        fallback_size=theme_settings.zoom_size
+			        lazyload=theme_settings.lazyload_mode
+			        class="page-header-image"
+			    }}
+			{{else}}
+				<div class="page-header category-header">
+			{{/if}}
 		{{/if}}
 	{{/if}}
 	{{#unless theme_settings.hide_category_page_heading }}
-	    <h1 class="page-heading">{{category.name}}</h1>
+		    <h1 class="page-heading">{{#contains head.title " | "}}{{{first (before (split head.title ' | ') 1)}}}{{else}}{{category.name}}{{/contains}}</h1>
 	{{/unless}}
 	{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 	</div>
@@ -47,15 +68,15 @@ customer:
 
 {{#partial "page"}}
 {{{region name="category_below_header"}}}
-<div class="category-description{{#if category.description}}{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}{{/if}}">
+<div class="category-description{{#if category.image}} category-description-image{{/if}}{{#if category.description}}{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}{{/if}}">
 	{{{category.description}}}
 </div>
 {{#if category.description}}
 	{{#if theme_settings.custom_category_description_trim}}
 		<div class="category-description-button" style="display: none;">
 			<a class="button button--secondary">
-				<span class="category-description-more">Read More</span>
-				<span class="category-description-less">Read Less</span>
+				<span class="category-description-more">{{lang 'search.faceted.show-more'}}</span>
+				<span class="category-description-less">{{lang 'search.faceted.show-less'}}</span>
 			</a>
 		</div>
 	{{/if}}
@@ -72,26 +93,59 @@ customer:
 	{{/each}}
 {{/if}}
 
-{{#and (if category.products) (if (getVar "catbrand") '===' 'inactive')}}
-    {{#if category.subcategories}}
-        <div class="subcategories-above subcategories--{{theme_settings.custom_category_sidebar_display}}">
-			<ul class="subcategories-grid">
-				{{#each category.subcategories}}
-				<li class="subcategories-grid-item">
-					<div class="subcategories-container">
-						<a href="{{url}}">
-							<span class="subcategories-name">{{name}}</span>
-						</a>
-					</div>
-				</li>
-				{{/each}}
-			</ul>
-        </div>
-    {{/if}}
-{{/and}}
+{{assignVar "subimage" "inactive"}}
+{{#if category.subcategories}}
+	{{#each category.subcategories}}
+		{{#if image}}
+			{{assignVar "subimage" "active"}}
+		{{/if}}
+	{{/each}}
+{{/if}}
+{{#if (getVar "b2b-products") '===' 'show'}}
+{{#if category.subcategories}}
+    <div class="subcategories-above subcategories--{{theme_settings.custom_category_sidebar_display}}{{#unless category.products}} subcategories--noproducts{{/unless}}">
+		<ul class="subcategories-grid{{#if (getVar 'subimage') '===' 'active'}} subcategories-grid-image{{/if}}{{#unless breadcrumbs.[1].name '==' 'Brands'}}{{#unless theme_settings.custom_category_show_blocks}} subcategories-grid-blockless{{/unless}}{{/unless}}">
+			{{#each category.subcategories}}
+			<li class="subcategories-grid-item subcategories-grid-item-{{dashcase (lowercase (sanitize name))}}">
+				<div class="subcategories-container">
+				{{#if ../theme_settings.custom_category_show_blocks}}
+					<a href="{{url}}">
+					{{#if (getVar "subimage") '===' 'active'}}
+						{{#if image}}
+						<span class="subcategories-image"><img src="{{getImage image 'category_card_size'}}" alt="{{name}}"></span>
+						{{else}}
+						<span class="subcategories-blank"></span>
+						{{/if}}
+					{{/if}}
+						<span class="subcategories-name">{{name}}</span>
+					</a>
+				{{else if ../breadcrumbs.[1].name '==' 'Brands'}}
+					<a href="{{url}}">
+					{{#if (getVar "subimage") '===' 'active'}}
+						{{#if image}}
+						<span class="subcategories-image"><img src="{{getImage image 'category_card_size'}}" alt="{{name}}"></span>
+						{{else}}
+						<span class="subcategories-blank"></span>
+						{{/if}}
+					{{/if}}
+						<span class="subcategories-name">{{name}}</span>
+					</a>
+				{{else}}
+					<a href="{{url}}">
+						<span class="subcategories-name">{{name}}</span>
+					</a>
+				{{/if}}
+				</div>
+			</li>
+			{{/each}}
+		</ul>
+    </div>
+{{/if}}
+{{/if}}
 
 <div class="page">
 {{#and (if category.products) (if (getVar "catbrand") '===' 'inactive')}}
+	{{#if (getVar "b2b-products") '===' 'show'}}
     {{#if category.faceted_search_enabled}}
         <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}} toggle-content is-open" id="faceted-search-container">
             {{> components/category/sidebar}}
@@ -121,6 +175,7 @@ customer:
         	</aside>
     	{{/if}}
     {{/if}}
+	{{/if}}
 
     <div class="page-content" id="product-listing-container">
 		{{{region name="category_above_content"}}}
@@ -130,39 +185,7 @@ customer:
 {{else}}
     <div class="page-content" id="product-listing-container">
 	{{{region name="category_above_content"}}}
-	{{#if category.subcategories}}		
-		<ul class="subcategories-grid{{#unless breadcrumbs.[1].name '==' 'Brands'}}{{#unless theme_settings.custom_category_show_blocks}} subcategories-grid-blockless{{/unless}}{{/unless}}">
-			{{#each category.subcategories}}
-			<li class="subcategories-grid-item">
-				<div class="subcategories-container">
-				{{#if ../theme_settings.custom_category_show_blocks}}
-					<a href="{{url}}">
-					{{#if image}}
-						<span class="subcategories-image"><img src="{{getImage image 'category_card_size'}}" alt="{{name}}"></span>
-					{{else}}
-						<span class="subcategories-blank"></span>
-					{{/if}}
-						<span class="subcategories-name">{{name}}</span>
-					</a>
-				{{else if ../breadcrumbs.[1].name '==' 'Brands'}}
-					<a href="{{url}}">
-					{{#if image}}
-						<span class="subcategories-image"><img src="{{getImage image 'category_card_size'}}" alt="{{name}}"></span>
-					{{else}}
-						<span class="subcategories-blank"></span>
-					{{/if}}
-						<span class="subcategories-name">{{name}}</span>
-					</a>
-				{{else}}
-					<a href="{{url}}">
-						<span class="subcategories-name">{{name}}</span>
-					</a>
-				{{/if}}
-				</div>
-			</li>
-			{{/each}}
-		</ul>
-	{{else}}
+		{{#unless category.subcategories}}
         <p data-no-products-notification
            role="alert"
            aria-live="assertive"
@@ -170,8 +193,8 @@ customer:
         >
             {{lang 'categories.no_products'}}
         </p>
-	{{/if}}
-        {{{region name="category_below_content"}}}
+		{{/unless}}
+	{{{region name="category_below_content"}}}
     </div>
 {{/and}}
 {{{region name="category_below_all"}}}

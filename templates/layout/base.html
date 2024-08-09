@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="{{ locale_name }}">
     <head>
-        <title>{{ head.title }}</title>
+        <title>{{#if page_type '==' 'blog_post'}}{{#contains head.title settings.store_name}}{{#replace (concat ' - ' settings.store_name) head.title}}{{/replace}}{{else}}{{ head.title }}{{/contains}}{{else}}{{ head.title }}{{/if}}</title>
         {{{ resourceHints }}}
         {{{ head.meta_tags }}}
         {{{ head.config }}}
@@ -24,12 +24,11 @@
             window.lazySizesConfig = window.lazySizesConfig || {};
             window.lazySizesConfig.loadMode = 1;
         </script>
-        <script async src="{{cdn 'assets/dist/theme-bundle.head_async.js'}}"></script>
+        <script async src="{{cdn 'assets/dist/theme-bundle.head_async.js' resourceHint='preload' as='script'}}"></script>
         
         {{getFontsCollection font-display='block'}}
         
-        <link rel="preload" href="{{cdn 'assets/dist/theme-bundle.font.js'}}" as="script">
-        <script async src="{{cdn 'assets/dist/theme-bundle.font.js'}}"></script>
+        <script async src="{{cdn 'assets/dist/theme-bundle.font.js' resourceHint='preload' as='script'}}"></script>
 
         {{{stylesheet '/assets/css/theme.css'}}}
 
@@ -48,18 +47,47 @@
         {{~inject 'carouselArrowAndDotAriaLabel' (lang 'carousel.arrow_and_dot_aria_label')}}
         {{~inject 'carouselActiveDotAriaLabel' (lang 'carousel.active_dot_aria_label')}}
         {{~inject 'carouselContentAnnounceMessage' (lang 'carousel.content_announce_message')}}
-
-        {{!-- Get this loading ASAP --}}
-        <link rel="preload" href="{{cdn 'assets/dist/theme-bundle.main.js'}}" as="script">
 		{{> components/custom/client/client-head}}
-    </head>	
-    <body class="page-{{page_type}}{{#if page_type '==' 'page'}}{{#if (lowercase page.title) '==' 'header'}} page-headerinfo{{else}} page-{{dashcase (lowercase (sanitize page.title))}}{{/if}}{{/if}}{{#if page_type '==' 'page_contact_form'}} page-{{dashcase (lowercase (sanitize page.title))}}{{/if}}{{#if page_type '==' 'category'}} page-{{dashcase (lowercase (sanitize category.name))}}{{/if}}{{#if page_type '==' 'brand'}} page-{{dashcase (lowercase (sanitize brand.name))}}{{/if}} {{lang 'common.currency' code=currency_selector.active_currency_code}}{{#if theme_settings.custom_header_show_bar}} with-bar{{/if}}">
+    </head>
+    <body class="page-{{page_type}}{{#if page_type '==' 'product'}} page-{{dashcase (lowercase (sanitize product.title))}}{{/if}}{{#if page_type '==' 'page'}}{{#if (lowercase page.title) '==' 'header'}} page-headerinfo{{else}} page-{{dashcase (lowercase (sanitize page.title))}}{{/if}}{{/if}}{{#if page_type '==' 'page_contact_form'}} page-{{dashcase (lowercase (sanitize page.title))}}{{/if}}{{#if page_type '==' 'category'}} page-{{dashcase (lowercase (sanitize category.name))}}{{/if}}{{#if page_type '==' 'brand'}} page-{{dashcase (lowercase (sanitize brand.name))}}{{/if}} currency-{{dashcase (lowercase (sanitize currency_selector.active_currency_code))}}{{#if theme_settings.custom_header_show_bar}} with-bar{{/if}}{{#if customer.id}} user-registered{{#if customer_group_name}} user-{{dashcase (lowercase (sanitize customer_group_name))}}{{/if}}{{else}} user-guest{{/if}}">
+		{{assignVar "b2b-products" "show"}}
+		{{assignVar "b2b-prices" "show"}}
+		{{#if theme_settings.custom_b2b}}
+			{{#if customer.id}}
+				{{#if customer_group_name '==' theme_settings.custom_b2b_pending_group}}
+					{{#if theme_settings.custom_b2b_pending_hide_products}}
+						{{assignVar "b2b-products" "hide"}}
+					{{/if}}
+					{{#if theme_settings.custom_b2b_pending_hide_prices}}
+						{{assignVar "b2b-prices" "hide"}}
+					{{/if}}
+				{{/if}}
+			{{else}}
+				{{#if theme_settings.custom_b2b_guest_hide_products}}
+					{{assignVar "b2b-products" "hide"}}
+				{{/if}}
+				{{#if settings.hide_price_from_guests}}
+					{{assignVar "b2b-prices" "hide"}}
+				{{/if}}
+			{{/if}}
+		{{/if}}
 		{{> components/custom/client/client-body}}
         <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
-
-        {{> components/common/header }}
+		{{#if page_type '==' 'page_contact_form'}}
+			{{#unless (lowercase page.title) '==' 'iframe'}}
+				{{> components/common/header }}
+			{{/unless}}
+		{{else}}
+			{{> components/common/header }}
+		{{/if}}
         {{> components/common/body }}
-        {{> components/common/footer }}
+		{{#if page_type '==' 'page_contact_form'}}
+			{{#unless (lowercase page.title) '==' 'iframe'}}
+				{{> components/common/footer }}
+			{{/unless}}
+		{{else}}
+			{{> components/common/footer }}
+		{{/if}}
 		
 		{{#unless settings.shopper_consent_tracking_enabled}}
 			{{#if settings.is_eu_ip_address}}
@@ -72,9 +100,26 @@
             {{!-- Exported in app.js --}}
             function onThemeBundleMain() {
                 window.stencilBootstrap("{{page_type}}", {{jsContext}}).load();
+
+                function browserSupportsFormData() {
+                    return typeof FormData !== 'undefined' 
+                        && !!FormData.prototype.keys;
+                }
+                function loadFormDataPolyfillScript(src) {
+                    var formDataPolyfillScript = document.createElement('script');
+                    formDataPolyfillScript.src = src;
+                    formDataPolyfillScript.onerror = function () {
+                        console.error('Failed to load formData polyfill script ' + src);
+                    };
+                    document.body.appendChild(formDataPolyfillScript);
+                }
+
+                if (!browserSupportsFormData()) {
+                    loadFormDataPolyfillScript('{{cdn 'assets/dist/theme-bundle.polyfill_form_data.js'}}');
+                }
             }
         </script>
-        <script async defer src="{{cdn 'assets/dist/theme-bundle.main.js'}}" onload="onThemeBundleMain()"></script>
+        <script async defer src="{{cdn 'assets/dist/theme-bundle.main.js' resourceHint='preload' as='script'}}" onload="onThemeBundleMain()"></script>
 
         {{{footer.scripts}}}
 		{{#if page_type "==" "category"}}

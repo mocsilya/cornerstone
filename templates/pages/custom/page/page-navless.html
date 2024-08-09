@@ -1,0 +1,59 @@
+---
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+customer:
+    wishlists:
+        limit: 10
+---
+
+{{#partial "hero"}}
+{{{region name="page_below_menu"}}}
+<div class="container container-hero">
+	{{#if theme_settings.custom_page_header_image_info}}
+		<div class="page-header info-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
+	    <img class="page-header-image" src="/product_images/uploaded_images/{{theme_settings.custom_page_header_image_info}}" />
+	{{else}}
+		<div class="page-header info-header">
+	{{/if}}
+    {{#unless theme_settings.hide_page_heading }}
+	    <h1 class="page-heading">{{#contains head.title " | "}}{{{first (before (split head.title ' | ') 1)}}}{{else}}{{page.title}}{{/contains}}</h1>
+    {{/unless}}
+	{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	</div>
+</div>
+{{/partial}}
+
+{{#partial "page"}}
+
+<section class="page page-navless">
+{{{region name="page_builder_content_editor_area_top"}}}
+
+
+	<div class="page-content page-content--centered">
+
+	{{{region name="page_builder_content"}}}
+        {{#replace '%%Syndicate%%' page.content}}
+            {{> components/page/rss_feed}}
+        {{else}}
+            {{{page.content}}}
+        {{/replace}}
+	{{{region name="page_builder_bottom"}}}
+    </div>
+
+    {{#if page.feed}}
+        <ul>
+            {{#each page.feed}}
+                <li>
+                    <h6><a href="{{url}}" target="_blank">{{title}}</a></h6>
+                    <p>{{content}}</p>
+                </li>
+            {{/each}}
+        </ul>
+    {{/if}}
+{{{region name="page_builder_content_editor_area_bottom"}}}
+</section>
+
+{{/partial}}
+
+{{> layout/base}}

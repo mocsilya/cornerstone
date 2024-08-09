@@ -8,6 +8,7 @@ customer:
 ---
 
 {{#partial "hero"}}
+{{{region name="page_below_menu"}}}
 <div class="container container-hero">
 	{{#if theme_settings.custom_page_header_image_info}}
 		<div class="page-header info-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
@@ -16,7 +17,7 @@ customer:
 		<div class="page-header info-header">
 	{{/if}}
     {{#unless theme_settings.hide_page_heading }}
-        <h1 class="page-heading">{{ page.title }}</h1>
+	    <h1 class="page-heading">{{#contains head.title " | "}}{{{first (before (split head.title ' | ') 1)}}}{{else}}{{page.title}}{{/contains}}</h1>
     {{/unless}}
 	{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 	</div>
@@ -25,22 +26,105 @@ customer:
 
 {{#partial "page"}}
 
-<section class="page">
-
+<section class="page page-standard">
+{{{region name="page_builder_content_editor_area_top"}}}
 {{#if page.sub_pages}}
-    <aside class="page-sidebar page-sidebar-vertical">
-    <nav>
-		<div class="sidebarBlock sidebarCategories">
-			<h2 class="sidebarBlock-heading">{{ page.title }}</h2>
-        	<ul class="navList">
-        	{{#each page.sub_pages}}
-            	<li class="navList-item"><a class="navList-action" href="{{url}}">{{title}}</a></li>
-        	{{/each}}
-        	</ul>
+	<div class="subcategories-above subcategories--vertical">
+		<div class="accord-wrapper">	
+	    	<div class="accord accord-{{dashcase (lowercase (sanitize page.title))}} accord-active">
+				<div class="accord-heading">
+					<h4 class="accord-title">
+						{{page.title}}
+						<div class="accord-icon"><span class="accord-chevron">&nbsp;</span></div>
+					</h4>
+				</div>
+				<div class="accord-body" style="display: block;">
+	            {{#each page.sub_pages}}
+			    	<div class="accord accord-{{dashcase (lowercase (sanitize title))}}">
+						<div class="accord-link">
+							<a href="{{url}}" title="{{title}}">{{title}}</a>
+						</div>
+					</div>
+				{{/each}}
+				</div>
+			</div>
 		</div>
-    </nav>
-	</aside>
+    </div>
 {{/if}}
+
+    <aside class="page-sidebar page-sidebar-vertical">
+    	<nav>
+			<div class="sidebarBlock sidebarCategories">
+				<h2 class="sidebarBlock-heading">{{ page.title }}</h2>
+	            <div class="accord-wrapper accord-menu">	
+	            {{#each pages}}
+					{{#or (if (lowercase name) '===' 'header') (if (lowercase name) '===' 'iframe')}}
+					{{else}}
+	                {{#if children}}
+	                <div class="accord accord-{{dashcase (lowercase (sanitize name))}}{{#if ../breadcrumbs.[1].name '===' name}} accord-active{{/if}}">
+						<div class="accord-link">
+							<a href="{{url}}" title="{{name}}">{{name}}</a>
+							<div class="accord-icon"><span class="accord-chevron">&nbsp;</span></div>
+						</div>
+	                    <div class="accord-body"{{#if ../breadcrumbs.[1].name '===' name}} style="display:block;"{{/if}}>
+	                    {{#each children}}
+							{{#if children}}
+	                        <div class="accord accord-{{dashcase (lowercase (sanitize name))}}{{#if ../../breadcrumbs.[2].name '===' name}} accord-active{{/if}}">
+								<div class="accord-link">
+			                    	<a href="{{url}}" title="{{name}}">{{name}}</a>
+									<div class="accord-icon"><span class="accord-chevron">&nbsp;</span></div>
+								</div>
+			                    <div class="accord-body"{{#if ../../breadcrumbs.[2].name '===' name}} style="display:block;"{{/if}}>
+								{{#each children}}
+									{{#if children}}
+			                        <div class="accord accord-{{dashcase (lowercase (sanitize name))}}{{#if ../../../breadcrumbs.[3].name '===' name}} accord-active{{/if}}">
+										<div class="accord-link">
+					                    	<a href="{{url}}" title="{{name}}">{{name}}</a>
+											<div class="accord-icon"><span class="accord-chevron">&nbsp;</span></div>
+										</div>
+					                    <div class="accord-body"{{#if ../../../breadcrumbs.[3].name '===' name}} style="display:block;"{{/if}}>
+										{{#each children}}
+							                <div class="accord accord-{{dashcase (lowercase (sanitize name))}}{{#if ../../../../breadcrumbs.[4].name '===' name}} accord-active{{/if}}">
+												<div class="accord-link">
+							                    	<a href="{{url}}" title="{{name}}">{{name}}</a>
+												</div>
+											</div>
+										{{/each}}
+										</div>
+									</div>
+									{{else}}
+					                <div class="accord accord-{{dashcase (lowercase (sanitize name))}}{{#if ../../../breadcrumbs.[3].name '===' name}} accord-active{{/if}}">
+										<div class="accord-link">
+					                    	<a href="{{url}}" title="{{name}}">{{name}}</a>
+										</div>
+									</div>
+									{{/if}}
+								{{/each}}
+								</div>
+							</div>
+							{{else}}
+			                <div class="accord accord-{{dashcase (lowercase (sanitize name))}}{{#if ../../breadcrumbs.[2].name '===' name}} accord-active{{/if}}">
+								<div class="accord-link">
+			                    	<a href="{{url}}" title="{{name}}">{{name}}</a>
+								</div>
+							</div>
+							{{/if}}
+	                    {{/each}}
+	                    </div>
+	                </div>
+	                {{else}}
+	                <div class="accord accord-{{dashcase (lowercase (sanitize name))}}{{#if ../breadcrumbs.[1].name '===' name}} accord-active{{/if}}">
+						<div class="accord-link">
+	                    	<a href="{{url}}" title="{{name}}">{{name}}</a>
+						</div>
+					</div>
+	                {{/if}}
+					{{/or}}
+	            {{/each}}
+				</div>
+			</div>
+    	</nav>
+	</aside>
 
 	{{#if page.sub_pages}}
 	<div class="page-content">
@@ -51,8 +135,9 @@ customer:
         {{#replace '%%Syndicate%%' page.content}}
             {{> components/page/rss_feed}}
         {{else}}
-            <p>{{{page.content}}}</p>
+            {{{page.content}}}
         {{/replace}}
+	{{{region name="page_builder_bottom"}}}
     </div>
 
     {{#if page.feed}}
@@ -65,6 +150,7 @@ customer:
             {{/each}}
         </ul>
     {{/if}}
+{{{region name="page_builder_content_editor_area_bottom"}}}
 </section>
 
 {{/partial}}

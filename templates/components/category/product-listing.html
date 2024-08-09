@@ -1,25 +1,41 @@
 {{inject 'noCompareMessage' (lang 'compare.no_compare')}}
 
+{{assignVar "b2b-products" "show"}}
+{{assignVar "b2b-prices" "show"}}
+{{#if theme_settings.custom_b2b}}
+	{{#if customer.id}}
+		{{#if customer_group_name '==' theme_settings.custom_b2b_pending_group}}
+			{{#if theme_settings.custom_b2b_pending_hide_products}}
+				{{assignVar "b2b-products" "hide"}}
+			{{/if}}
+			{{#if theme_settings.custom_b2b_pending_hide_prices}}
+				{{assignVar "b2b-prices" "hide"}}
+			{{/if}}
+		{{/if}}
+	{{else}}
+		{{#if theme_settings.custom_b2b_guest_hide_products}}
+			{{assignVar "b2b-products" "hide"}}
+		{{/if}}
+		{{#if settings.hide_price_from_guests}}
+			{{assignVar "b2b-prices" "hide"}}
+		{{/if}}
+	{{/if}}
+{{/if}}
+
 {{#if category.products}}
+	{{#if (getVar "b2b-products") '===' 'show'}}
     {{> components/products/filter sort=pagination.category.sort}}
 
-    <div {{#if settings.data_tag_enabled}} data-list-name="Category: {{category.name}}" {{/if}}>
+    <div data-list-name="Category: {{category.name}}">
         {{#if theme_settings.product_list_display_mode '===' 'grid'}}
-            {{#if settings.data_tag_enabled}}
-                {{> components/products/grid products=category.products show_compare=category.show_compare theme_settings=theme_settings event="list" }}
-            {{else}}
-                {{> components/products/grid products=category.products show_compare=category.show_compare theme_settings=theme_settings}}
-            {{/if}}
+            {{> components/products/grid products=category.products show_compare=category.show_compare theme_settings=theme_settings event="list" }}
         {{else}}
-            {{#if settings.data_tag_enabled}}
-                {{> components/products/list products=category.products show_compare=category.show_compare theme_settings=theme_settings event="list" }}
-            {{else}}
-                {{> components/products/list products=category.products show_compare=category.show_compare theme_settings=theme_settings}}
-            {{/if}}
+            {{> components/products/list products=category.products show_compare=category.show_compare theme_settings=theme_settings event="list" }}
         {{/if}}
     </div>
 
     {{> components/common/paginator pagination.category}}
+	{{/if}}
 {{else}}
     {{#if category.search_error}}
         <p>{{lang 'search.errorMessage'}}</p>

@@ -1,0 +1,133 @@
+<div id="progress-checkout">
+	<div class="progress-wrapper">
+		<div class="progress-line step-1">
+			<div class="progress-line__circle"></div>
+			<div class="progress-line__circle"></div>
+			<div class="progress-line__circle"></div>
+			<div class="progress-line__circle"></div>
+		</div>
+		<div class="progress-labels">
+			<span class="progress-label--index"><b>Step 1</b>/4</span>
+			<span class="progress-label--name">{{lang 'optimized_checkout.customer.customer_heading'}}</span>
+		</div>
+	</div>
+</div>
+
+<script>
+
+(function(win) {
+    'use strict';
+	
+    var listeners = [], 
+    doc = win.document, 
+    MutationObserver = win.MutationObserver || win.WebKitMutationObserver,
+    observer;
+    
+    function ready(selector, fn) {
+        // Store the selector and callback to be monitored
+        listeners.push({
+            selector: selector,
+            fn: fn
+        });
+        if (!observer) {
+            // Watch for changes in the document
+            observer = new MutationObserver(check);
+            observer.observe(doc.documentElement, {
+                childList: true,
+                subtree: true
+            });
+        }
+        // Check if the element is currently in the DOM
+        check();
+    }
+        
+    function check() {
+        // Check the DOM for elements matching a stored selector
+        for (var i = 0, len = listeners.length, listener, elements; i < len; i++) {
+            listener = listeners[i];
+            // Query for elements matching the specified selector
+            elements = doc.querySelectorAll(listener.selector);
+            for (var j = 0, jLen = elements.length, element; j < jLen; j++) {
+                element = elements[j];
+                // Make sure the callback isn't invoked with the 
+                // same element more than once
+                if (!element.ready) {
+                    element.ready = true;
+                    // Invoke the callback with the element
+                    listener.fn.call(element, element);
+                }
+            }
+        }
+    }
+
+    // Expose `ready`
+    win.ready = ready;
+            
+})(this);
+
+const isDesktop = window.innerWidth >= 968;
+if (isDesktop) {
+	document.querySelector("#progress-checkout").classList.add("progress-checkout--desktop");
+}
+
+const stepToLabel = {
+	1: "{{lang 'optimized_checkout.customer.customer_heading'}}",
+	2: "{{lang 'optimized_checkout.shipping.shipping_heading'}}",
+	3: "{{lang 'optimized_checkout.billing.billing_heading'}}",
+	4: "{{lang 'optimized_checkout.payment.payment_heading'}}",
+};
+
+const setProgressLineStep = (step) => {
+	const progressLine = document.querySelector("#progress-checkout .progress-line");
+	progressLine.classList = `progress-line step-${step}`;
+	const progressLabelIndex = document.querySelector("#progress-checkout .progress-label--index b");
+	const progressLabelName = document.querySelector("#progress-checkout .progress-label--name");
+	const label = stepToLabel[step];
+	progressLabelIndex.innerText = `${step}`;
+	progressLabelName.innerText = label;
+};
+
+ready('.checkout-step--customer .checkout-view-content', function(element) {
+    //console.log("customer step");
+    setProgressLineStep(1);
+});
+
+ready('.checkout-step--shipping #checkout-shipping-continue', function(element) {
+    //console.log("shipping step");
+	setProgressLineStep(2);
+	const handleShippingStep = async () => {		
+		const isSameAsBilling = document.querySelector("#sameAsBilling").value === "true";
+		const shippingBtnContinue = document.querySelector("#checkout-shipping-continue");			
+		if (!isSameAsBilling) {
+			shippingBtnContinue.innerText = "{{lang 'optimized_checkout.billing.billing_heading'}}";
+	    } else {
+	    	shippingBtnContinue.innerText = "{{lang 'optimized_checkout.payment.payment_heading'}}";
+	    }
+		document.querySelector("#sameAsBilling").onchange = (e) => {
+		  let checked = e.target.checked;
+		  if (checked) {
+		    shippingBtnContinue.innerText = "{{lang 'optimized_checkout.payment.payment_heading'}}";
+		  } else {
+		    shippingBtnContinue.innerText = "{{lang 'optimized_checkout.billing.billing_heading'}}";
+		  }
+		}
+	};
+	handleShippingStep();
+});
+
+ready('.checkout-step--billing #checkout-billing-continue', function(element) {
+    //console.log("billing step");
+	setProgressLineStep(3);
+	const handleBillingStep = async () => {
+		const billingBtnContinue = document.querySelector("#checkout-billing-continue");
+		billingBtnContinue.innerText = "{{lang 'optimized_checkout.payment.payment_heading'}}";
+	};
+	handleBillingStep();
+});
+
+ready('.checkout-step--payment .checkout-view-content', function(element) {
+	//console.log("payment step");
+	setProgressLineStep(4);
+});
+
+</script>

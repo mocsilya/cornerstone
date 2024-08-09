@@ -1,21 +1,22 @@
 <a href="#main-content" class="skip-to-main-link">{{lang 'header.skip_to_main'}}</a>
 <header class="header" role="banner">
-    <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+    <a href="#" class="mobileMenu-toggle mobileMenu-{{theme_settings.custom_header_icon_style}}" data-mobile-menu-toggle="menu">
         <span class="mobileMenu-toggleIcon">Toggle menu</span>
     </a>
     {{> components/common/navigation}}
     <div class="navPages-container {{#unless theme_settings.custom_header_scroll_navpages}} navPages-container-hide{{/unless}}" id="menu" data-menu>
         {{> components/common/navigation-menu}}
     </div>
+	{{> components/custom/client/client-header}}
 </header>
-{{#if theme_settings.custom_header_search_type '===' 'box'}}
-<div class="header--boxsearch">
-	{{> components/custom/navigation-search}}
-</div>
-{{/if}}
 {{#if theme_settings.custom_header_show_bar}}
 	{{> components/custom/header-bar}}
 {{/if}}
+
+{{#if theme_settings.custom_b2b}}
+	{{> components/custom/b2b-message}}
+{{/if}}
+
 {{#if banners.top}}
 <div class="banners" data-banner-location="top">
     {{#each (limit banners.top_metadata 1)}}
@@ -27,5 +28,7 @@
     {{/each}}
 </div>
 {{/if}}
-{{{region name="header_bottom--global"}}}
+<div class="header-globalregion"{{#unless theme_settings.custom_header_global_region}} style="display:none;"{{/unless}}>
+	{{{region name="header_bottom--global"}}}
+</div>
 {{{region name="header_bottom"}}}

@@ -46,40 +46,15 @@
         "content": "i18n.BodyTextAndLinks"
       },
       {
-        "type": "font",
+        "type": "text",
         "label": "i18n.BodyTextFontFamily",
-        "id": "body-font",
-        "options": [
-          {
-            "group": "i18n.Karla",
-            "label": "i18n.Karla",
-            "value": "Google_Karla_400"
-          },
-          {
-            "group": "i18n.Roboto",
-            "label": "i18n.Roboto",
-            "value": "Google_Roboto_400"
-          },
-          {
-            "group": "i18n.SourceSansPro",
-            "label": "i18n.SourceSansPro",
-            "value": "Google_Source+Sans+Pro_400"
-          }
-        ]
+        "id": "body-font"
       },
       {
         "type": "select",
         "label": "i18n.BodyTextFontSize",
         "id": "fontSize-root",
         "options": [
-          {
-            "value": 12,
-            "label": "12px"
-          },
-          {
-            "value": 13,
-            "label": "13px"
-          },
           {
             "value": 14,
             "label": "14px"
@@ -134,36 +109,9 @@
         "content": "i18n.Headings"
       },
       {
-        "type": "font",
+        "type": "text",
         "label": "i18n.HeadingFontFamily",
-        "id": "headings-font",
-        "options": [
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.MontserratLight",
-            "value": "Google_Montserrat_400"
-          },
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSans",
-            "value": "Google_Open+Sans_400"
-          },
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSansBold",
-            "value": "Google_Open+Sans_700"
-          },
-          {
-            "group": "i18n.Roboto",
-            "label": "i18n.Roboto",
-            "value": "Google_Roboto_400"
-          },
-          {
-            "group": "i18n.Volkhov",
-            "label": "i18n.Volkhov",
-            "value": "Google_Volkhov_400"
-          }
-        ]
+        "id": "headings-font"
       },
       {
         "type": "select",
@@ -247,107 +195,30 @@
         ]
       },
       {
-        "type": "select",
-        "label": "i18n.Heading4",
-        "id": "fontSize-h4",
-        "options": [
-          {
-            "value": 16,
-            "label": "16px"
-          },
-          {
-            "value": 18,
-            "label": "18px"
-          },
-          {
-            "value": 20,
-            "label": "20px"
-          },
-          {
-            "value": 24,
-            "label": "24px"
-          },
-          {
-            "value": 28,
-            "label": "28px"
-          }
-        ]
-      },
-      {
-        "type": "select",
-        "label": "i18n.Heading5",
-        "id": "fontSize-h5",
-        "options": [
-          {
-            "value": 11,
-            "label": "11px"
-          },
-          {
-            "value": 13,
-            "label": "13px"
-          },
-          {
-            "value": 15,
-            "label": "15px"
-          },
-          {
-            "value": 19,
-            "label": "19px"
-          },
-          {
-            "value": 23,
-            "label": "23px"
-          }
-        ]
-      },
-      {
-        "type": "select",
-        "label": "i18n.Heading6",
-        "id": "fontSize-h6",
-        "options": [
-          {
-            "value": 9,
-            "label": "9px"
-          },
-          {
-            "value": 11,
-            "label": "11px"
-          },
-          {
-            "value": 13,
-            "label": "13px"
-          },
-          {
-            "value": 17,
-            "label": "17px"
-          },
-          {
-            "value": 21,
-            "label": "21px"
-          }
-        ]
-      },
-      {
         "type": "color",
         "label": "i18n.HeadingTextColor",
         "id": "color-textHeading"
       },
       {
         "type": "color",
-        "label": "i18n.PageHeaderText",
+        "label": "i18n.PgHeaderText",
         "id": "custom-page-header-text"
       },
       {
         "type": "color",
-        "label": "i18n.PageHeaderBackground",
+        "label": "i18n.PgHeaderBg",
         "id": "custom-page-header-background"
       },
       {
         "type": "select",
         "id": "custom_page_header_image_depth",
         "force_reload": true,
-        "label": "i18n.PageHeaderImageDepth",
+        "label": "i18n.PgHeaderImg",
         "options": [
+          {
+            "value": "none",
+            "label": "Top Categories Only"
+          },
           {
             "value": "slim",
             "label": "Slim"
@@ -362,39 +233,39 @@
           }
         ]
       },
-      {
+	  {
         "type": "text",
-        "label": "i18n.PageHeaderImageBlog",
+        "label": "i18n.PgHeaderImgBlog",
         "id": "custom_page_header_image_blog"
       },
-      {
+	  {
         "type": "text",
-        "label": "i18n.PageHeaderImageBrands",
+        "label": "i18n.PgHeaderImgBrands",
         "id": "custom_page_header_image_brands"
       },
       {
         "type": "text",
-        "label": "i18n.PageHeaderImageCart",
+        "label": "i18n.PgHeaderImgCart",
         "id": "custom_page_header_image_cart"
       },
       {
         "type": "text",
-        "label": "i18n.PageHeaderImageInfo",
+        "label": "i18n.PgHeaderImgInfo",
         "id": "custom_page_header_image_info"
       },
       {
         "type": "text",
-        "label": "i18n.PageHeaderImageContact",
+        "label": "i18n.PgHeaderImgContact",
         "id": "custom_page_header_image_contact"
       },
       {
         "type": "text",
-        "label": "i18n.PageHeaderImageSearch",
+        "label": "i18n.PgHeaderImgSearch",
         "id": "custom_page_header_image_search"
       },
       {
         "type": "text",
-        "label": "i18n.PageHeaderImageSitemap",
+        "label": "i18n.PgHeaderImgSitemap",
         "id": "custom_page_header_image_sitemap"
       },
       {
@@ -495,7 +366,7 @@
       },
       {
         "type": "color",
-        "label": "i18n.PaginationBackground",
+        "label": "i18n.PaginationBg",
         "id": "custom-pagination-background"
       },
       {
@@ -522,23 +393,23 @@
         "type": "select",
         "id": "custom_category_max_columns",
         "force_reload": true,
-        "label": "i18n.CategoryMaxColumns",
+        "label": "i18n.CatMaxColumns",
         "options": [
           {
             "value": 2,
-            "label": "Two"
+            "label": "2"
           },
           {
             "value": 3,
-            "label": "Three"
+            "label": "3"
           },
           {
             "value": 4,
-            "label": "Four"
+            "label": "4"
           },
           {
             "value": 5,
-            "label": "Five"
+            "label": "5"
           }
         ]
       },
@@ -546,33 +417,33 @@
         "type": "select",
         "id": "custom_category_sidebar_display",
         "force_reload": true,
-        "label": "i18n.CategorySidebarDisplay",
+        "label": "i18n.CatSidebarDisplay",
         "options": [
           {
             "value": "vertical",
-            "label": "i18n.CategorySidebarVertical"
+            "label": "i18n.CatSidebarVertical"
           },
           {
             "value": "horizontal",
-            "label": "i18n.CategorySidebarHorizontal"
+            "label": "i18n.CatSidebarHorizontal"
           }
         ]
       },
       {
         "type": "checkbox",
-        "label": "i18n.CategoryShowParents",
+        "label": "i18n.CatShowParents",
         "force_reload": true,
         "id": "custom_category_show_parents"
       },
       {
         "type": "checkbox",
-        "label": "i18n.CategoryShowBlocks",
+        "label": "i18n.CatShowBlocks",
         "force_reload": true,
         "id": "custom_category_show_blocks"
       },
       {
         "type": "checkbox",
-        "label": "i18n.CategoryDescriptionTrim",
+        "label": "i18n.CatDescriptionTrim",
         "force_reload": true,
         "id": "custom_category_description_trim"
       },
@@ -613,16 +484,6 @@
         "reference": "price_ranges",
         "reference_default": false,
         "id": "custom_price_from"
-      },
-      {
-        "type": "heading",
-        "content": "i18n.PurchaseOptions"
-      },
-      {
-        "type": "checkbox",
-        "label": "i18n.HidePurchaseOptionsPriceAnd",
-        "force_reload": true,
-        "id": "restrict_to_login"
       },
       {
         "type": "heading",
@@ -700,7 +561,7 @@
         "type": "imageDimension",
         "label": "i18n.LogoImageSize",
         "id": "logo_size",
-        "description": "Please specify a maximum image size for desktop display. We'll automatically scale down the image for smaller devices.",
+        "description": "Specify a max size.",
         "force_reload": true,
         "options": [
           {
@@ -720,131 +581,32 @@
       {
         "type": "select",
         "label": "i18n.LogoFontSize",
+        "force_reload": true,
         "id": "logo_fontSize",
         "options": [
           {
-            "value": 14,
-            "label": "14px"
-          },
-          {
-            "value": 16,
-            "label": "16px"
-          },
-          {
-            "value": 18,
-            "label": "18px"
-          },
-          {
             "value": 20,
             "label": "20px"
-          },
-          {
-            "value": 22,
-            "label": "22px"
           },
           {
             "value": 24,
             "label": "24px"
           },
           {
-            "value": 26,
-            "label": "26px"
-          },
-          {
             "value": 28,
             "label": "28px"
-          },
-          {
-            "value": 30,
-            "label": "30px"
-          },
-          {
-            "value": 32,
-            "label": "32px"
-          },
-          {
-            "value": 34,
-            "label": "34px"
           },
           {
             "value": 36,
             "label": "36px"
           },
           {
-            "value": 38,
-            "label": "38px"
-          },
-          {
-            "value": 40,
-            "label": "40px"
-          },
-          {
-            "value": 42,
-            "label": "42px"
-          },
-          {
-            "value": 44,
-            "label": "44px"
-          },
-          {
-            "value": 46,
-            "label": "46px"
-          },
-          {
             "value": 48,
             "label": "48px"
           },
           {
-            "value": 50,
-            "label": "50px"
-          },
-          {
-            "value": 52,
-            "label": "52px"
-          },
-          {
-            "value": 54,
-            "label": "54px"
-          },
-          {
-            "value": 56,
-            "label": "56px"
-          },
-          {
-            "value": 58,
-            "label": "58px"
-          },
-          {
             "value": 60,
             "label": "60px"
-          },
-          {
-            "value": 62,
-            "label": "62px"
-          },
-          {
-            "value": 64,
-            "label": "64px"
-          },
-          {
-            "value": 66,
-            "label": "66px"
-          },
-          {
-            "value": 68,
-            "label": "68px"
-          },
-          {
-            "value": 70,
-            "label": "70px"
-          },
-          {
-            "value": 72,
-            "label": "72px"
-          },
-          {
-            "value": 74,
-            "label": "74px"
           }
         ]
       },
@@ -921,6 +683,10 @@
           {
             "value": "information",
             "label": "Information"
+          },
+          {
+            "value": "natural",
+            "label": "Natural"
           },
           {
             "value": "returns",
@@ -1129,10 +895,14 @@
           {
             "value": "box",
             "label": "Box"
+          },
+          {
+            "value": "none",
+            "label": "None"
           }
         ]
       },
-      {
+	  {
         "type": "checkbox",
         "label": "i18n.HeaderIconText",
         "force_reload": true,
@@ -1155,6 +925,10 @@
           {
             "value": "cart",
             "label": "Cart"
+          },
+          {
+            "value": "dolly",
+            "label": "Dolly"
           }
         ]
       },
@@ -1198,7 +972,7 @@
       },
       {
         "type": "select",
-        "label": "i18n.HeaderMenuDropdown",
+        "label": "i18n.HMDropdown",
         "id": "custom-header-menu-dropdown",
         "force_reload": true,
         "options": [
@@ -1214,17 +988,17 @@
       },
       {
         "type": "color",
-        "label": "i18n.HeaderMenuBackground",
+        "label": "i18n.HMBackground",
         "id": "custom-header-menu-background"
       },
       {
         "type": "color",
-        "label": "i18n.HeaderMenuLink",
+        "label": "i18n.HMLink",
         "id": "custom-header-menu-link"
       },
       {
         "type": "color",
-        "label": "i18n.HeaderMenuLinkHover",
+        "label": "i18n.HMLinkHover",
         "id": "custom-header-menu-link-hover"
       },
       {
@@ -1265,211 +1039,211 @@
       },
       {
         "type": "checkbox",
-        "label": "i18n.HeaderMenu1Show",
+        "label": "i18n.HM1Show",
         "force_reload": true,
         "id": "custom_header_menu_1_show"
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuCategory",
+        "label": "i18n.HMCategory",
 		"id": "custom_header_menu_1_category",
         "reference": "custom_header_menu_1_show",
         "reference_default": false
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuImage",
+        "label": "i18n.HMImage",
 		"id": "custom_header_menu_1_image",
         "reference": "custom_header_menu_1_show",
         "reference_default": false
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuUrl",
+        "label": "i18n.HMUrl",
         "id": "custom_header_menu_1_link",
         "reference": "custom_header_menu_1_show",
         "reference_default": false
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuText",
+        "label": "i18n.HMText",
         "id": "custom_header_menu_1_text",
         "reference": "custom_header_menu_1_show",
         "reference_default": false
       },
       {
         "type": "checkbox",
-        "label": "i18n.HeaderMenu2Show",
+        "label": "i18n.HM2Show",
         "force_reload": true,
         "id": "custom_header_menu_2_show"
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuCategory",
+        "label": "i18n.HMCategory",
 		"id": "custom_header_menu_2_category",
         "reference": "custom_header_menu_2_show",
         "reference_default": false
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuImage",
+        "label": "i18n.HMImage",
 		"id": "custom_header_menu_2_image",
         "reference": "custom_header_menu_2_show",
         "reference_default": false
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuUrl",
+        "label": "i18n.HMUrl",
         "id": "custom_header_menu_2_link",
         "reference": "custom_header_menu_2_show",
         "reference_default": false
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuText",
+        "label": "i18n.HMText",
         "id": "custom_header_menu_2_text",
         "reference": "custom_header_menu_2_show",
         "reference_default": false
       },
       {
         "type": "checkbox",
-        "label": "i18n.HeaderMenu3Show",
+        "label": "i18n.HM3Show",
         "force_reload": true,
         "id": "custom_header_menu_3_show"
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuCategory",
+        "label": "i18n.HMCategory",
         "id": "custom_header_menu_3_category",
         "reference": "custom_header_menu_3_show",
         "reference_default": false
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuImage",
+        "label": "i18n.HMImage",
         "id": "custom_header_menu_3_image",
         "reference": "custom_header_menu_3_show",
         "reference_default": false
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuUrl",
+        "label": "i18n.HMUrl",
         "id": "custom_header_menu_3_link",
         "reference": "custom_header_menu_3_show",
         "reference_default": false
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuText",
+        "label": "i18n.HMText",
         "id": "custom_header_menu_3_text",
         "reference": "custom_header_menu_3_show",
         "reference_default": false
       },
       {
         "type": "checkbox",
-        "label": "i18n.HeaderMenu4Show",
+        "label": "i18n.HM4Show",
         "force_reload": true,
         "id": "custom_header_menu_4_show"
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuCategory",
+        "label": "i18n.HMCategory",
         "id": "custom_header_menu_4_category",
         "reference": "custom_header_menu_4_show",
         "reference_default": false
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuImage",
+        "label": "i18n.HMImage",
         "id": "custom_header_menu_4_image",
         "reference": "custom_header_menu_4_show",
         "reference_default": false
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuUrl",
+        "label": "i18n.HMUrl",
         "id": "custom_header_menu_4_link",
         "reference": "custom_header_menu_4_show",
         "reference_default": false
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuText",
+        "label": "i18n.HMText",
         "id": "custom_header_menu_4_text",
         "reference": "custom_header_menu_4_show",
         "reference_default": false
       },
       {
         "type": "checkbox",
-        "label": "i18n.HeaderMenu5Show",
+        "label": "i18n.HM5Show",
         "force_reload": true,
         "id": "custom_header_menu_5_show"
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuCategory",
+        "label": "i18n.HMCategory",
         "id": "custom_header_menu_5_category",
         "reference": "custom_header_menu_5_show",
         "reference_default": false
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuImage",
+        "label": "i18n.HMImage",
         "id": "custom_header_menu_5_image",
         "reference": "custom_header_menu_5_show",
         "reference_default": false
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuUrl",
+        "label": "i18n.HMUrl",
         "id": "custom_header_menu_5_link",
         "reference": "custom_header_menu_5_show",
         "reference_default": false
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuText",
+        "label": "i18n.HMText",
         "id": "custom_header_menu_5_text",
         "reference": "custom_header_menu_5_show",
         "reference_default": false
       },
       {
         "type": "checkbox",
-        "label": "i18n.HeaderMenu6Show",
+        "label": "i18n.HM6Show",
         "force_reload": true,
         "id": "custom_header_menu_6_show"
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuCategory",
+        "label": "i18n.HMCategory",
         "id": "custom_header_menu_6_category",
         "reference": "custom_header_menu_6_show",
         "reference_default": false
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuImage",
+        "label": "i18n.HMImage",
         "id": "custom_header_menu_6_image",
         "reference": "custom_header_menu_6_show",
         "reference_default": false
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuUrl",
+        "label": "i18n.HMUrl",
         "id": "custom_header_menu_6_link",
         "reference": "custom_header_menu_6_show",
         "reference_default": false
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuText",
+        "label": "i18n.HMText",
         "id": "custom_header_menu_6_text",
         "reference": "custom_header_menu_6_show",
         "reference_default": false
       },
       {
         "type": "text",
-        "label": "i18n.HeaderMenuWidth",
+        "label": "i18n.HMWidth",
         "id": "custom_header_menu_width"
       },
       {
@@ -1581,10 +1355,6 @@
         "content": "i18n.SocialMediaIcons"
       },
       {
-        "type": "paragraph",
-        "content": "i18n.SocialAccountsMustBeSet"
-      },
-      {
         "type": "checkbox",
         "label": "i18n.ShowSocialMediaIconsTop",
         "force_reload": true,
@@ -1676,12 +1446,6 @@
       },
       {
         "type": "checkbox",
-        "label": "i18n.ShowPoweredByBigCommerce",
-        "force_reload": true,
-        "id": "show_powered_by"
-      },
-      {
-        "type": "checkbox",
         "label": "i18n.HeaderShowBrands",
         "force_reload": true,
         "id": "custom_header_show_brands"
@@ -1691,6 +1455,18 @@
         "label": "i18n.ShowBrandsInFooter",
         "force_reload": true,
         "id": "shop_by_brand_show_footer"
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.HeaderGlobalRegion",
+        "force_reload": true,
+        "id": "custom_header_global_region"
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.FooterGlobalRegion",
+        "force_reload": true,
+        "id": "custom_footer_global_region"
       },
       {
         "type": "checkbox",
@@ -1794,31 +1570,6 @@
       },
       {
         "type": "checkbox",
-        "label": "i18n.ShowApplePay",
-        "force_reload": true,
-        "id": "show_accept_applepay"
-      },
-      {
-        "type": "select",
-        "label": "i18n.ApplePayColor",
-        "id": "applePay-button",
-        "options": [
-          {
-            "value": "black",
-            "label": "i18n.BlackWhiteText"
-          },
-          {
-            "value": "white",
-            "label": "i18n.WhiteBlackText"
-          },
-          {
-            "value": "white-border",
-            "label": "i18n.WhiteBlackTextWithBorder"
-          }
-        ]
-      },
-      {
-        "type": "checkbox",
         "label": "i18n.ShowKlarna",
         "force_reload": true,
         "id": "show_accept_klarna"
@@ -1889,6 +1640,10 @@
           {
             "value": "right",
             "label": "Right"
+          },
+          {
+            "value": "split",
+            "label": "Split"
           }
         ]
       },
@@ -1995,14 +1750,10 @@
         "force_reload": true,
         "options": [
           {
-            "value": 2,
-            "label": "2"
-          },
-          {
             "value": 3,
             "label": "3"
           },
-          {
+		  {
             "value": 4,
             "label": "4"
           },
@@ -2023,18 +1774,6 @@
             "label": "i18n.Disable"
           },
           {
-            "value": 1,
-            "label": "1"
-          },
-          {
-            "value": 2,
-            "label": "2"
-          },
-          {
-            "value": 3,
-            "label": "3"
-          },
-          {
             "value": 4,
             "label": "4"
           },
@@ -2043,28 +1782,12 @@
             "label": "5"
           },
           {
-            "value": 6,
-            "label": "6"
-          },
-          {
-            "value": 7,
-            "label": "7"
-          },
-          {
             "value": 8,
             "label": "8"
           },
           {
-            "value": 9,
-            "label": "9"
-          },
-          {
             "value": 10,
             "label": "10"
-          },
-          {
-            "value": 11,
-            "label": "11"
           },
           {
             "value": 12,
@@ -2091,10 +1814,6 @@
         "force_reload": true,
         "options": [
           {
-            "value": 2,
-            "label": "2"
-          },
-          {
             "value": 3,
             "label": "3"
           },
@@ -2119,18 +1838,6 @@
             "label": "i18n.Disable"
           },
           {
-            "value": 1,
-            "label": "1"
-          },
-          {
-            "value": 2,
-            "label": "2"
-          },
-          {
-            "value": 3,
-            "label": "3"
-          },
-          {
             "value": 4,
             "label": "4"
           },
@@ -2139,28 +1846,12 @@
             "label": "5"
           },
           {
-            "value": 6,
-            "label": "6"
-          },
-          {
-            "value": 7,
-            "label": "7"
-          },
-          {
             "value": 8,
             "label": "8"
           },
           {
-            "value": 9,
-            "label": "9"
-          },
-          {
             "value": 10,
             "label": "10"
-          },
-          {
-            "value": 11,
-            "label": "11"
           },
           {
             "value": 12,
@@ -2187,10 +1878,6 @@
         "force_reload": true,
         "options": [
           {
-            "value": 2,
-            "label": "2"
-          },
-          {
             "value": 3,
             "label": "3"
           },
@@ -2215,18 +1902,6 @@
             "label": "i18n.Disable"
           },
           {
-            "value": 1,
-            "label": "1"
-          },
-          {
-            "value": 2,
-            "label": "2"
-          },
-          {
-            "value": 3,
-            "label": "3"
-          },
-          {
             "value": 4,
             "label": "4"
           },
@@ -2235,28 +1910,12 @@
             "label": "5"
           },
           {
-            "value": 6,
-            "label": "6"
-          },
-          {
-            "value": 7,
-            "label": "7"
-          },
-          {
             "value": 8,
             "label": "8"
           },
           {
-            "value": 9,
-            "label": "9"
-          },
-          {
             "value": 10,
             "label": "10"
-          },
-          {
-            "value": 11,
-            "label": "11"
           },
           {
             "value": 12,
@@ -2483,12 +2142,6 @@
       },
       {
         "type": "checkbox",
-        "label": "i18n.ShowQuantitySelectionOnProduct",
-        "force_reload": true,
-        "id": "show_product_quantity_box"
-      },
-      {
-        "type": "checkbox",
         "label": "i18n.ProductTitleLeft",
         "force_reload": true,
         "id": "custom_product_title_left"
@@ -2558,72 +2211,9 @@
         "id": "show_product_reviews"
       },
       {
-        "type": "select",
-        "label": "i18n.NumberOfProductReviews",
-        "id": "productpage_reviews_count",
-        "reference": "show_product_reviews",
-        "reference_default": false,
-        "force_reload": true,
-        "options": [
-          {
-            "value": 1,
-            "label": "1"
-          },
-          {
-            "value": 2,
-            "label": "2"
-          },
-          {
-            "value": 3,
-            "label": "3"
-          },
-          {
-            "value": 4,
-            "label": "4"
-          },
-          {
-            "value": 5,
-            "label": "5"
-          },
-          {
-            "value": 6,
-            "label": "6"
-          },
-          {
-            "value": 7,
-            "label": "7"
-          },
-          {
-            "value": 8,
-            "label": "8"
-          },
-          {
-            "value": 9,
-            "label": "9"
-          },
-          {
-            "value": 10,
-            "label": "10"
-          },
-          {
-            "value": 11,
-            "label": "11"
-          },
-          {
-            "value": 12,
-            "label": "12"
-          }
-        ]
-      },
-      {
         "type": "checkbox",
         "label": "i18n.ProductWishlistShow",
         "id": "custom_product_wishlist_show"
-      },
-      {
-        "type": "color",
-        "label": "i18n.WishlistDropdownBackground",
-        "id": "dropdown--wishList-backgroundColor"
       },
       {
         "type": "text",
@@ -2631,9 +2221,24 @@
         "id": "custom_product_description_title"
       },
       {
-        "type": "checkbox",
-        "label": "i18n.ProductWarrantyGallery",
-        "id": "custom_product_warranty_gallery"
+        "type": "select",
+        "label": "i18n.ProductWarrantyLocation",
+        "id": "custom_product_warranty_location",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "normal",
+            "label": "Normal"
+          },
+          {
+            "value": "gallery",
+            "label": "Under Photos"
+          },
+          {
+            "value": "minidesc",
+            "label": "Above Price"
+          }
+        ]
       },
       {
         "type": "text",
@@ -2707,6 +2312,27 @@
         "id": "custom_product_tab2_content"
       },
       {
+        "type": "checkbox",
+        "label": "i18n.ProductTab3Show",
+        "id": "custom_product_tab3_show"
+      },
+      {
+        "type": "text",
+        "label": "i18n.ProductTab3Title",
+        "id": "custom_product_tab3_title"
+      },
+      {
+        "type": "text",
+        "label": "i18n.ProductTab3Content",
+        "id": "custom_product_tab3_content"
+      },
+      {
+        "type": "checkbox",
+        "label": "i18n.ShowQuickPaymentButtons",
+        "force_reload": true,
+        "id": "show_quick_payment_buttons"
+      },
+      {
         "type": "heading",
         "content": "i18n.NumberOfProductsDisplayed"
       },
@@ -2737,10 +2363,6 @@
             "label": "36"
           },
           {
-            "value": 45,
-            "label": "45"
-          },
-          {
             "value": 48,
             "label": "48"
           },
@@ -2751,10 +2373,6 @@
           {
             "value": 72,
             "label": "72"
-          },
-          {
-            "value": 75,
-            "label": "75"
           },
           {
             "value": 84,
@@ -2797,10 +2415,6 @@
             "label": "36"
           },
           {
-            "value": 45,
-            "label": "45"
-          },
-          {
             "value": 48,
             "label": "48"
           },
@@ -2811,10 +2425,6 @@
           {
             "value": 72,
             "label": "72"
-          },
-          {
-            "value": 75,
-            "label": "75"
           },
           {
             "value": 84,
@@ -2857,10 +2467,6 @@
             "label": "36"
           },
           {
-            "value": 45,
-            "label": "45"
-          },
-          {
             "value": 48,
             "label": "48"
           },
@@ -2871,10 +2477,6 @@
           {
             "value": 72,
             "label": "72"
-          },
-          {
-            "value": 75,
-            "label": "75"
           },
           {
             "value": 84,
@@ -2901,14 +2503,6 @@
             "label": "i18n.Disable"
           },
           {
-            "value": 1,
-            "label": "1"
-          },
-          {
-            "value": 2,
-            "label": "2"
-          },
-          {
             "value": 3,
             "label": "3"
           },
@@ -2925,10 +2519,6 @@
             "label": "6"
           },
           {
-            "value": 7,
-            "label": "7"
-          },
-          {
             "value": 8,
             "label": "8"
           },
@@ -2939,70 +2529,6 @@
           {
             "value": 10,
             "label": "10"
-          },
-          {
-            "value": 11,
-            "label": "11"
-          },
-          {
-            "value": 12,
-            "label": "12"
-          }
-        ]
-      },
-      {
-        "type": "select",
-        "label": "i18n.ProductPageCustomersAlsoViewed",
-        "id": "productpage_similar_by_views_count",
-        "force_reload": true,
-        "options": [
-          {
-            "value": 0,
-            "label": "i18n.Disable"
-          },
-          {
-            "value": 1,
-            "label": "1"
-          },
-          {
-            "value": 2,
-            "label": "2"
-          },
-          {
-            "value": 3,
-            "label": "3"
-          },
-          {
-            "value": 4,
-            "label": "4"
-          },
-          {
-            "value": 5,
-            "label": "5"
-          },
-          {
-            "value": 6,
-            "label": "6"
-          },
-          {
-            "value": 7,
-            "label": "7"
-          },
-          {
-            "value": 8,
-            "label": "8"
-          },
-          {
-            "value": 9,
-            "label": "9"
-          },
-          {
-            "value": 10,
-            "label": "10"
-          },
-          {
-            "value": 11,
-            "label": "11"
           },
           {
             "value": 12,
@@ -3416,7 +2942,7 @@
       },
       {
         "type": "imageDimension",
-        "description": "Please specify a maximum image size for desktop display. We'll automatically scale down the image for smaller devices.",
+        "description": "Specify a max size.",
         "label": "i18n.HeaderImageSize",
         "reference": "optimizedCheckout-backgroundImage",
         "reference_default": "",
@@ -3476,7 +3002,7 @@
       },
       {
         "type": "imageDimension",
-        "description": "Please specify a maximum image size for desktop display. We'll automatically scale down the image for smaller devices.",
+        "description": "Specify a max size.",
         "label": "",
         "reference": "optimizedCheckout-logo",
         "reference_default": "",
@@ -3569,51 +3095,9 @@
         "content": "i18n.Headings"
       },
       {
-        "type": "font",
+        "type": "text",
         "label": "i18n.Heading1FontFamily",
-        "id": "optimizedCheckout-headingPrimary-font",
-        "options": [
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSans",
-            "value": "Google_Open+Sans_400"
-          },
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSansBold",
-            "value": "Google_Open+Sans_700"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.MontserratLight",
-            "value": "Google_Montserrat_400"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.MontserratBold",
-            "value": "Google_Montserrat_700"
-          },
-          {
-            "group": "i18n.Karla",
-            "label": "i18n.Karla",
-            "value": "Google_Karla_400"
-          },
-          {
-            "group": "i18n.Roboto",
-            "label": "i18n.Roboto",
-            "value": "Google_Roboto_400"
-          },
-          {
-            "group": "i18n.SourceSansPro",
-            "label": "i18n.SourceSansPro",
-            "value": "Google_Source+Sans+Pro_400"
-          },
-          {
-            "group": "i18n.Volkhov",
-            "label": "i18n.Volkhov",
-            "value": "Google_Volkhov_400"
-          }
-        ]
+        "id": "optimizedCheckout-headingPrimary-font"
       },
       {
         "type": "color",
@@ -3621,51 +3105,9 @@
         "id": "optimizedCheckout-headingPrimary-color"
       },
       {
-        "type": "font",
+        "type": "text",
         "label": "i18n.Heading2FontFamily",
-        "id": "optimizedCheckout-headingSecondary-font",
-        "options": [
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSans",
-            "value": "Google_Open+Sans_400"
-          },
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSansBold",
-            "value": "Google_Open+Sans_700"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.MontserratLight",
-            "value": "Google_Montserrat_400"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.MontserratBold",
-            "value": "Google_Montserrat_700"
-          },
-          {
-            "group": "i18n.Karla",
-            "label": "i18n.Karla",
-            "value": "Google_Karla_400"
-          },
-          {
-            "group": "i18n.Roboto",
-            "label": "i18n.Roboto",
-            "value": "Google_Roboto_400"
-          },
-          {
-            "group": "i18n.SourceSansPro",
-            "label": "i18n.SourceSansPro",
-            "value": "Google_Source+Sans+Pro_400"
-          },
-          {
-            "group": "i18n.Volkhov",
-            "label": "i18n.Volkhov",
-            "value": "Google_Volkhov_400"
-          }
-        ]
+        "id": "optimizedCheckout-headingSecondary-font"
       },
       {
         "type": "color",
@@ -3691,51 +3133,9 @@
         "content": "i18n.BodyTextAndLinks"
       },
       {
-        "type": "font",
+        "type": "text",
         "label": "i18n.BodyTextFontFamily",
-        "id": "optimizedCheckout-contentPrimary-font",
-        "options": [
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSans",
-            "value": "Google_Open+Sans_400"
-          },
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSansBold",
-            "value": "Google_Open+Sans_700"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.MontserratLight",
-            "value": "Google_Montserrat_400"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.Montserrat",
-            "value": "Google_Montserrat_500"
-          },
-          {
-            "group": "i18n.Karla",
-            "label": "i18n.Karla",
-            "value": "Google_Karla_400"
-          },
-          {
-            "group": "i18n.Roboto",
-            "label": "i18n.Roboto",
-            "value": "Google_Roboto_400"
-          },
-          {
-            "group": "i18n.SourceSansPro",
-            "label": "i18n.SourceSansPro",
-            "value": "Google_Source+Sans+Pro_400"
-          },
-          {
-            "group": "i18n.Volkhov",
-            "label": "i18n.Volkhov",
-            "value": "Google_Volkhov_400"
-          }
-        ]
+        "id": "optimizedCheckout-contentPrimary-font"
       },
       {
         "type": "color",
@@ -3743,51 +3143,9 @@
         "id": "optimizedCheckout-contentPrimary-color"
       },
       {
-        "type": "font",
+        "type": "text",
         "label": "i18n.SecondaryTextFontFamily",
-        "id": "optimizedCheckout-contentSecondary-font",
-        "options": [
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSans",
-            "value": "Google_Open+Sans_400"
-          },
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSansBold",
-            "value": "Google_Open+Sans_700"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.MontserratLight",
-            "value": "Google_Montserrat_400"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.Montserrat",
-            "value": "Google_Montserrat_500"
-          },
-          {
-            "group": "i18n.Karla",
-            "label": "i18n.Karla",
-            "value": "Google_Karla_400"
-          },
-          {
-            "group": "i18n.Roboto",
-            "label": "i18n.Roboto",
-            "value": "Google_Roboto_400"
-          },
-          {
-            "group": "i18n.SourceSansPro",
-            "label": "i18n.SourceSansPro",
-            "value": "Google_Source+Sans+Pro_400"
-          },
-          {
-            "group": "i18n.Volkhov",
-            "label": "i18n.Volkhov",
-            "value": "Google_Volkhov_400"
-          }
-        ]
+        "id": "optimizedCheckout-contentSecondary-font"
       },
       {
         "type": "color",
@@ -3795,51 +3153,9 @@
         "id": "optimizedCheckout-contentSecondary-color"
       },
       {
-        "type": "font",
+        "type": "text",
         "label": "i18n.LinkFontFamily",
-        "id": "optimizedCheckout-link-font",
-        "options": [
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSans",
-            "value": "Google_Open+Sans_400"
-          },
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSansBold",
-            "value": "Google_Open+Sans_700"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.MontserratLight",
-            "value": "Google_Montserrat_400"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.Montserrat",
-            "value": "Google_Montserrat_500"
-          },
-          {
-            "group": "i18n.Karla",
-            "label": "i18n.Karla",
-            "value": "Google_Karla_400"
-          },
-          {
-            "group": "i18n.Roboto",
-            "label": "i18n.Roboto",
-            "value": "Google_Roboto_400"
-          },
-          {
-            "group": "i18n.SourceSansPro",
-            "label": "i18n.SourceSansPro",
-            "value": "Google_Source+Sans+Pro_400"
-          },
-          {
-            "group": "i18n.Volkhov",
-            "label": "i18n.Volkhov",
-            "value": "Google_Volkhov_400"
-          }
-        ]
+        "id": "optimizedCheckout-link-font"
       },
       {
         "type": "color",
@@ -3856,51 +3172,9 @@
         "content": "i18n.PrimaryActionButton"
       },
       {
-        "type": "font",
+        "type": "text",
         "label": "i18n.ButtonTextFontFamily",
-        "id": "optimizedCheckout-buttonPrimary-font",
-        "options": [
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSans",
-            "value": "Google_Open+Sans_400"
-          },
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSansBold",
-            "value": "Google_Open+Sans_700"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.MontserratLight",
-            "value": "Google_Montserrat_400"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.Montserrat",
-            "value": "Google_Montserrat_500"
-          },
-          {
-            "group": "i18n.Karla",
-            "label": "i18n.Karla",
-            "value": "Google_Karla_400"
-          },
-          {
-            "group": "i18n.Roboto",
-            "label": "i18n.Roboto",
-            "value": "Google_Roboto_400"
-          },
-          {
-            "group": "i18n.SourceSansPro",
-            "label": "i18n.SourceSansPro",
-            "value": "Google_Source+Sans+Pro_400"
-          },
-          {
-            "group": "i18n.Volkhov",
-            "label": "i18n.Volkhov",
-            "value": "Google_Volkhov_400"
-          }
-        ]
+        "id": "optimizedCheckout-buttonPrimary-font"
       },
       {
         "type": "color",
@@ -3967,51 +3241,9 @@
         "content": "i18n.SecondaryActionButton"
       },
       {
-        "type": "font",
+        "type": "text",
         "label": "i18n.ButtonTextFontFamily",
-        "id": "optimizedCheckout-buttonSecondary-font",
-        "options": [
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSans",
-            "value": "Google_Open+Sans_400"
-          },
-          {
-            "group": "i18n.OpenSans",
-            "label": "i18n.OpenSansBold",
-            "value": "Google_Open+Sans_700"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.MontserratLight",
-            "value": "Google_Montserrat_400"
-          },
-          {
-            "group": "i18n.Montserrat",
-            "label": "i18n.Montserrat",
-            "value": "Google_Montserrat_500"
-          },
-          {
-            "group": "i18n.Karla",
-            "label": "i18n.Karla",
-            "value": "Google_Karla_400"
-          },
-          {
-            "group": "i18n.Roboto",
-            "label": "i18n.Roboto",
-            "value": "Google_Roboto_400"
-          },
-          {
-            "group": "i18n.SourceSansPro",
-            "label": "i18n.SourceSansPro",
-            "value": "Google_Source+Sans+Pro_400"
-          },
-          {
-            "group": "i18n.Volkhov",
-            "label": "i18n.Volkhov",
-            "value": "Google_Volkhov_400"
-          }
-        ]
+        "id": "optimizedCheckout-buttonSecondary-font"
       },
       {
         "type": "color",
@@ -4148,6 +3380,444 @@
     "settings": [
       {
         "type": "heading",
+        "content": "i18n.ProductDetailsPage",
+        "enable": "payPalProvidersEnabled"
+      },
+      {
+        "type": "select",
+        "label": "i18n.PayPalButtonColor",
+        "id": "paymentbuttons-paypal-product-details-page-color",
+        "enable": "payPalProvidersEnabled",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "gold",
+            "label": "i18n.Gold"
+          },
+          {
+            "value": "blue",
+            "label": "i18n.Blue"
+          },
+          {
+            "value": "silver",
+            "label": "i18n.Silver"
+          },
+          {
+            "value": "black",
+            "label": "i18n.Black"
+          },
+          {
+            "value": "white",
+            "label": "i18n.White"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "i18n.PayLaterButtonColor",
+        "id": "paymentbuttons-paylater-product-details-page-color",
+        "enable": "payPalProvidersEnabled",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "gold",
+            "label": "i18n.Gold"
+          },
+          {
+            "value": "blue",
+            "label": "i18n.Blue"
+          },
+          {
+            "value": "silver",
+            "label": "i18n.Silver"
+          },
+          {
+            "value": "black",
+            "label": "i18n.Black"
+          },
+          {
+            "value": "white",
+            "label": "i18n.White"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "i18n.VenmoButtonColor",
+        "id": "paymentbuttons-venmo-product-details-page-color",
+        "enable": "venmoProvidersEnabled",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "blue",
+            "label": "i18n.Blue"
+          },
+          {
+            "value": "white",
+            "label": "i18n.White"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "i18n.ButtonContent",
+        "id": "paymentbuttons-paypal-product-details-page-label",
+        "enable": "payPalProvidersEnabled",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "checkout",
+            "label": "i18n.PayPalCheckout"
+          },
+          {
+            "value": "pay",
+            "label": "i18n.PayWithPayPal"
+          },
+          {
+            "value": "buynow",
+            "label": "i18n.BuyNow"
+          },
+          {
+            "value": "paypal",
+            "label": "i18n.PayPal"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "i18n.CartPageAddToCart"
+      },
+      {
+        "type": "select",
+        "label": "i18n.PayPalButtonColor",
+        "id": "paymentbuttons-paypal-cart-page-add-cart-color",
+        "enable": "payPalProvidersEnabled",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "gold",
+            "label": "i18n.Gold"
+          },
+          {
+            "value": "blue",
+            "label": "i18n.Blue"
+          },
+          {
+            "value": "silver",
+            "label": "i18n.Silver"
+          },
+          {
+            "value": "black",
+            "label": "i18n.Black"
+          },
+          {
+            "value": "white",
+            "label": "i18n.White"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "i18n.PayLaterButtonColor",
+        "id": "paymentbuttons-paylater-cart-page-add-cart-color",
+        "enable": "payPalProvidersEnabled",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "gold",
+            "label": "i18n.Gold"
+          },
+          {
+            "value": "blue",
+            "label": "i18n.Blue"
+          },
+          {
+            "value": "silver",
+            "label": "i18n.Silver"
+          },
+          {
+            "value": "black",
+            "label": "i18n.Black"
+          },
+          {
+            "value": "white",
+            "label": "i18n.White"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "i18n.VenmoButtonColor",
+        "id": "paymentbuttons-venmo-cart-page-add-cart-color",
+        "enable": "venmoProvidersEnabled",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "blue",
+            "label": "i18n.Blue"
+          },
+          {
+            "value": "white",
+            "label": "i18n.White"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "i18n.ButtonContent",
+        "id": "paymentbuttons-paypal-cart-page-add-cart-label",
+        "enable": "payPalProvidersEnabled",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "checkout",
+            "label": "i18n.PayPalCheckout"
+          },
+          {
+            "value": "pay",
+            "label": "i18n.PayWithPayPal"
+          },
+          {
+            "value": "buynow",
+            "label": "i18n.BuyNow"
+          },
+          {
+            "value": "paypal",
+            "label": "i18n.PayPal"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "i18n.CheckoutOnTop"
+      },
+      {
+        "type": "select",
+        "label": "i18n.PayPalButtonColor",
+        "id": "paymentbuttons-paypal-checkout-on-top-color",
+        "enable": "payPalProvidersEnabled",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "gold",
+            "label": "i18n.Gold"
+          },
+          {
+            "value": "blue",
+            "label": "i18n.Blue"
+          },
+          {
+            "value": "silver",
+            "label": "i18n.Silver"
+          },
+          {
+            "value": "black",
+            "label": "i18n.Black"
+          },
+          {
+            "value": "white",
+            "label": "i18n.White"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "i18n.PayLaterButtonColor",
+        "id": "paymentbuttons-paylater-checkout-on-top-color",
+        "enable": "payPalProvidersEnabled",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "gold",
+            "label": "i18n.Gold"
+          },
+          {
+            "value": "blue",
+            "label": "i18n.Blue"
+          },
+          {
+            "value": "silver",
+            "label": "i18n.Silver"
+          },
+          {
+            "value": "black",
+            "label": "i18n.Black"
+          },
+          {
+            "value": "white",
+            "label": "i18n.White"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "i18n.VenmoButtonColor",
+        "id": "paymentbuttons-venmo-checkout-on-top-color",
+        "enable": "venmoProvidersEnabled",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "blue",
+            "label": "i18n.Blue"
+          },
+          {
+            "value": "white",
+            "label": "i18n.White"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "i18n.ButtonContent",
+        "id": "paymentbuttons-paypal-checkout-on-top-payment-label",
+        "enable": "payPalProvidersEnabled",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "checkout",
+            "label": "i18n.PayPalCheckout"
+          },
+          {
+            "value": "pay",
+            "label": "i18n.PayWithPayPal"
+          },
+          {
+            "value": "buynow",
+            "label": "i18n.BuyNow"
+          },
+          {
+            "value": "paypal",
+            "label": "i18n.PayPal"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "i18n.CheckoutPayment"
+      },
+      {
+        "type": "select",
+        "label": "i18n.PayPalButtonColor",
+        "id": "paymentbuttons-paypal-checkout-payment-color",
+        "enable": "payPalProvidersEnabled",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "gold",
+            "label": "i18n.Gold"
+          },
+          {
+            "value": "blue",
+            "label": "i18n.Blue"
+          },
+          {
+            "value": "silver",
+            "label": "i18n.Silver"
+          },
+          {
+            "value": "black",
+            "label": "i18n.Black"
+          },
+          {
+            "value": "white",
+            "label": "i18n.White"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "i18n.PayLaterButtonColor",
+        "id": "paymentbuttons-paylater-checkout-payment-color",
+        "enable": "payPalProvidersEnabled",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "gold",
+            "label": "i18n.Gold"
+          },
+          {
+            "value": "blue",
+            "label": "i18n.Blue"
+          },
+          {
+            "value": "silver",
+            "label": "i18n.Silver"
+          },
+          {
+            "value": "black",
+            "label": "i18n.Black"
+          },
+          {
+            "value": "white",
+            "label": "i18n.White"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "i18n.VenmoButtonColor",
+        "id": "paymentbuttons-venmo-checkout-payment-color",
+        "enable": "venmoProvidersEnabled",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "blue",
+            "label": "i18n.Blue"
+          },
+          {
+            "value": "white",
+            "label": "i18n.White"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "i18n.ButtonContent",
+        "id": "paymentbuttons-paypal-checkout-payment-label",
+        "enable": "payPalProvidersEnabled",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "checkout",
+            "label": "i18n.PayPalCheckout"
+          },
+          {
+            "value": "pay",
+            "label": "i18n.PayWithPayPal"
+          },
+          {
+            "value": "buynow",
+            "label": "i18n.BuyNow"
+          },
+          {
+            "value": "paypal",
+            "label": "i18n.PayPal"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "i18n.ButtonSize",
+        "id": "paymentbuttons-paypal-checkout-payment-size",
+        "enable": "payPalProvidersEnabled",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "small",
+            "label": "i18n.Small"
+          },
+          {
+            "value": "medium",
+            "label": "i18n.Medium"
+          },
+          {
+            "value": "large",
+            "label": "i18n.Large"
+          }
+        ]
+      },
+      {
+        "type": "heading",
         "content": "i18n.PaymentButtonsContainer"
       },
       {
@@ -4172,12 +3842,92 @@
       },
       {
         "type": "heading",
-        "content": "i18n.SmartPaypalButton"
+        "content": "i18n.QuickPaymentButtons"
+      },
+      {
+        "type": "select",
+        "label": "i18n.NumberOfButtonsAlwaysVisible",
+        "force_reload": true,
+        "id": "paymentbuttons-number-of-buttons",
+        "options": [
+          {
+            "value": 1,
+            "label": "1"
+          },
+          {
+            "value": 2,
+            "label": "2"
+          }
+        ]
+      },
+      {
+        "type": "sort",
+        "label": "i18n.ProviderSortingOrderLabel",
+        "id": "paymentbuttons-provider-sorting",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "paypal",
+            "label": "i18n.PayPalProviderSortingLabel",
+            "enabledBy": "paypal"
+          },
+          {
+            "value": "paypal-credit",
+            "label": "i18n.PayPalCreditProviderSortingLabel",
+            "enabledBy": "paypal-credit"
+          },
+          {
+            "value": "paypal-venmo",
+            "label": "i18n.PayPalVenmoProviderSortingLabel",
+            "enabledBy": "paypal-venmo"
+          },
+          {
+            "value": "sepa",
+            "label": "i18n.PayPalSepaProviderSortingLabel",
+            "enabledBy": "sepa"
+          },
+          {
+            "value": "googlepay",
+            "label": "i18n.GooglepayProviderSortingLabel",
+            "enabledBy": "googlepay"
+          },
+          {
+            "value": "applepay",
+            "label": "i18n.ApplepayProviderSortingLabel",
+            "enabledBy": "applepay"
+          },
+          {
+            "value": "afterpay",
+            "label": "i18n.AfterpayProviderSortingLabel",
+            "enabledBy": "afterpay"
+          },
+          {
+            "value": "amazonpay",
+            "label": "i18n.AmazonProviderSortingLabel",
+            "enabledBy": "amazonpay"
+          },
+          {
+            "value": "masterpass",
+            "label": "i18n.MasterpassProviderSortingLabel",
+            "enabledBy": "masterpass"
+          },
+          {
+            "value": "bolt",
+            "label": "i18n.BoltProviderSortingLabel",
+            "enabledBy": "bolt"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "i18n.SmartPaypalButton",
+        "enable": "payPalProvidersEnabled"
       },
       {
         "type": "select",
         "label": "i18n.ButtonColor",
         "id": "paymentbuttons-paypal-color",
+        "enable": "payPalProvidersEnabled",
         "force_reload": true,
         "options": [
           {
@@ -4206,6 +3956,7 @@
         "type": "select",
         "label": "i18n.ButtonShape",
         "id": "paymentbuttons-paypal-shape",
+        "enable": "payPalProvidersEnabled",
         "force_reload": true,
         "options": [
           {
@@ -4222,6 +3973,7 @@
         "type": "select",
         "label": "i18n.ButtonContent",
         "id": "paymentbuttons-paypal-label",
+        "enable": "payPalProvidersEnabled",
         "force_reload": true,
         "options": [
           {
@@ -4243,29 +3995,15 @@
         ]
       },
       {
-        "type": "select",
-        "label": "i18n.DisplayStyle",
-        "id": "paymentbuttons-paypal-layout",
-        "force_reload": true,
-        "options": [
-          {
-            "value": "horizontal",
-            "label": "i18n.ShowButtonsHorizontally"
-          },
-          {
-            "value": "vertical",
-            "label": "i18n.ShowButtonsVertically"
-          }
-        ]
-      },
-      {
         "type": "heading",
-        "content": "i18n.CheckoutPayPalButton"
+        "content": "i18n.CheckoutPayPalButton",
+        "enable": "payPalProvidersEnabled"
       },
       {
         "type": "select",
         "label": "i18n.ButtonColor",
         "id": "checkout-paymentbuttons-paypal-color",
+        "enable": "payPalProvidersEnabled",
         "force_reload": true,
         "options": [
           {
@@ -4294,6 +4032,7 @@
         "type": "select",
         "label": "i18n.ButtonShape",
         "id": "checkout-paymentbuttons-paypal-shape",
+        "enable": "payPalProvidersEnabled",
         "force_reload": true,
         "options": [
           {
@@ -4310,6 +4049,7 @@
         "type": "select",
         "label": "i18n.ButtonSize",
         "id": "checkout-paymentbuttons-paypal-size",
+        "enable": "payPalProvidersEnabled",
         "force_reload": true,
         "options": [
           {
@@ -4330,6 +4070,7 @@
         "type": "select",
         "label": "i18n.ButtonContent",
         "id": "checkout-paymentbuttons-paypal-label",
+        "enable": "payPalProvidersEnabled",
         "force_reload": true,
         "options": [
           {
@@ -4347,6 +4088,149 @@
           {
             "value": "paypal",
             "label": "i18n.PayPal"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "i18n.GooglePaySettings",
+        "enable": "googleProvidersEnabled"
+      },
+      {
+        "type": "select",
+        "label": "i18n.ButtonColor",
+        "id": "googlepay-button-color",
+        "enable": "googleProvidersEnabled",
+        "options": [
+          {
+            "value": "black",
+            "label": "i18n.BlackWhiteText"
+          },
+          {
+            "value": "white",
+            "label": "i18n.WhiteBlackText"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "i18n.ApplePaySettings",
+        "enable": "appleProvidersEnabled"
+      },
+      {
+        "type": "select",
+        "label": "i18n.ButtonColor",
+        "id": "applePay-button",
+        "enable": "appleProvidersEnabled",
+        "options": [
+          {
+            "value": "black",
+            "label": "i18n.BlackWhiteText"
+          },
+          {
+            "value": "white",
+            "label": "i18n.WhiteBlackText"
+          },
+          {
+            "value": "white-border",
+            "label": "i18n.WhiteBlackTextWithBorder"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "i18n.AfterPaySettings",
+        "enable": "afterpayProvidersEnabled"
+      },
+      {
+        "type": "select",
+        "label": "i18n.ButtonColor",
+        "id": "afterpay-button-color",
+        "enable": "afterpayProvidersEnabled",
+        "options": [
+          {
+            "value": "black-mint",
+            "label": "i18n.BlackOnMintText"
+          },
+          {
+            "value": "mint-black",
+            "label": "i18n.MintOnBlackText"
+          },
+          {
+            "value": "white",
+            "label": "i18n.BlackWhiteText"
+          },
+          {
+            "value": "black",
+            "label": "i18n.WhiteBlackText"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "i18n.AmazonSettings",
+        "enable": "amazonProvidersEnabled"
+      },
+      {
+        "type": "select",
+        "label": "i18n.ButtonColor",
+        "id": "amazon-button-color",
+        "enable": "amazonProvidersEnabled",
+        "options": [
+          {
+            "value": "Gold",
+            "label": "i18n.Gold"
+          },
+          {
+            "value": "LightGray",
+            "label": "i18n.LightGray"
+          },
+          {
+            "value": "DarkGray",
+            "label": "i18n.DarkGray"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "i18n.MasterpassSettings",
+        "enable": "masterpassProvidersEnabled"
+      },
+      {
+        "type": "select",
+        "label": "i18n.ButtonColor",
+        "id": "masterpass-button-color",
+        "enable": "masterpassProvidersEnabled",
+        "options": [
+          {
+            "value": "black",
+            "label": "i18n.BlackWhiteText"
+          },
+          {
+            "value": "white",
+            "label": "i18n.WhiteBlackText"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "i18n.SmartBoltButton",
+        "enable": "isBoltProvidersEnabled"
+      },
+      {
+        "type": "select",
+        "label": "i18n.ButtonShape",
+        "id": "paymentbuttons-bolt-shape",
+        "enable": "isBoltProvidersEnabled",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "pill",
+            "label": "i18n.Pill"
+          },
+          {
+            "value": "rect",
+            "label": "i18n.Rectangle"
           }
         ]
       }

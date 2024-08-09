@@ -33,7 +33,7 @@
                                 {{#if quantity '>' 1}}
                                     {{quantity}} &times;
                                 {{/if}}
-                                {{#or ../customer (if ../theme_settings.restrict_to_login '!==' true)}}
+                                {{#or ../customer (unless ../settings.hide_price_from_guests) (if type '==' 'GiftCertificate')}}
                                     <span{{#if price_discounted}} class="price--discounted"{{/if}}>{{price.formatted}}</span>
                                     {{#if price_discounted}}
                                         {{price_discounted.formatted}}
@@ -42,6 +42,11 @@
                                     {{> components/common/login-for-pricing}}
                                 {{/or}}
                             </span>
+							<span class="previewCartItem-remove">
+								<a class="cart-remove-alt icon" href="/cart.php?action=remove&item={{id}}" onclick="Cart.RemoveItem('{{id}}'); return false;"  title="Remove">
+									<svg><use href="#icon-delete"></use></svg>
+								</a>
+							</span>
                         </div>
                     </li>
                 {{/each}}
@@ -56,7 +61,7 @@
 				
                 {{#if cart.show_primary_checkout_button}}
                     <div class="previewCartAction-checkout">
-                        <a href="{{urls.checkout.single_address}}" class="button button--small button--primary">
+                        <a href="{{urls.checkout.single_address}}" class="button button--small button--primary" data-primary-checkout-now-action>
                             <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-lock" /></svg></i> <strong>&nbsp;{{lang 'cart.preview.checkout_now'}}</strong>
                         </a>
                     </div>

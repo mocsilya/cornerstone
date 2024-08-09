@@ -1,11 +1,20 @@
 <nav class="navPages navPages-{{theme_settings.custom-header-menu-dropdown}}">
     <ul class="navPages-list{{#if theme_settings.navigation_design '!==' 'simple'}} navPages-list-depth-max {{else}} navPages-list-simple {{/if}}">
-	{{#if theme_settings.custom_header_search_type '===' 'box'}}
-		<li class="navPages-item navPages-item-search navPages-item-boxsearch">
-			{{> components/custom/navigation-search}}
-		</li>
-	{{/if}}
 		{{> components/custom/client/client-header-menu-start}}
+		{{#if (getVar "b2b-products") '===' 'show'}}
+			{{#if theme_settings.custom-header-menu-home}}
+			<li class="navPages-item navPages-item-home">
+				<a class="navPages-action navPages-action-mobile" href="{{urls.home}}">
+				    Home
+				</a>
+				<a class="navPages-action navPages-action-desktop" href="{{urls.home}}">
+				    <i class="icon navPages-action-homeIcon" aria-hidden="true">
+				        <svg><use xlink:href="#icon-home{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg>
+				    </i>
+				</a>
+			</li>
+			{{/if}}
+		{{#if theme_settings.custom_header_show_categories}}
 		{{#each categories}}
             <li class="navPages-item navPages-item-category navPages-item-{{dashcase name}}">
             {{#if ../theme_settings.navigation_design '===' 'simple'}}
@@ -32,8 +41,8 @@
 					{{#and ../theme_settings.custom_header_menu_1_show (if../theme_settings.custom_header_menu_1_category '==' name)}}
 						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
 							<li>
-								{{#if ../theme_settings.custom_header_menu_1_link}}<a href="{{../theme_settings.custom_header_menu_1_link}}">{{/if}}
-								{{#if ../theme_settings.custom_header_menu_1_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_1_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_1_link}}<a title="{{../theme_settings.custom_header_menu_1_text}}" href="{{../theme_settings.custom_header_menu_1_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_1_image}}<img alt="{{../theme_settings.custom_header_menu_1_text}}" src="{{getImageManagerImage ../theme_settings.custom_header_menu_1_image}}" data-sizes="auto" srcset="{{getImageManagerImageSrcset ../theme_settings.custom_header_menu_1_image}}" sizes="{{../theme_settings.custom_header_menu_width}}"/>{{/if}}
 								{{#if ../theme_settings.custom_header_menu_1_text}}<span>{{../theme_settings.custom_header_menu_1_text}}</span>{{/if}}
 								{{#if ../theme_settings.custom_header_menu_1_link}}</a>{{/if}}
 							</li>
@@ -42,8 +51,8 @@
 					{{#and ../theme_settings.custom_header_menu_2_show (if../theme_settings.custom_header_menu_2_category '==' name)}}
 						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
 							<li>
-								{{#if ../theme_settings.custom_header_menu_2_link}}<a href="{{../theme_settings.custom_header_menu_2_link}}">{{/if}}
-								{{#if ../theme_settings.custom_header_menu_2_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_2_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_2_link}}<a title="{{../theme_settings.custom_header_menu_2_text}}" href="{{../theme_settings.custom_header_menu_2_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_2_image}}<img alt="{{../theme_settings.custom_header_menu_2_text}}" src="{{getImageManagerImage ../theme_settings.custom_header_menu_2_image}}" data-sizes="auto" srcset="{{getImageManagerImageSrcset ../theme_settings.custom_header_menu_2_image}}" sizes="{{../theme_settings.custom_header_menu_width}}"/>{{/if}}
 								{{#if ../theme_settings.custom_header_menu_2_text}}<span>{{../theme_settings.custom_header_menu_2_text}}</span>{{/if}}
 								{{#if ../theme_settings.custom_header_menu_2_link}}</a>{{/if}}
 							</li>
@@ -52,8 +61,8 @@
 					{{#and ../theme_settings.custom_header_menu_3_show (if../theme_settings.custom_header_menu_3_category '==' name)}}
 						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
 							<li>
-								{{#if ../theme_settings.custom_header_menu_3_link}}<a href="{{../theme_settings.custom_header_menu_3_link}}">{{/if}}
-								{{#if ../theme_settings.custom_header_menu_3_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_3_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_3_link}}<a title="{{../theme_settings.custom_header_menu_3_text}}" href="{{../theme_settings.custom_header_menu_3_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_3_image}}<img alt="{{../theme_settings.custom_header_menu_3_text}}" src="{{getImageManagerImage ../theme_settings.custom_header_menu_3_image}}" data-sizes="auto" srcset="{{getImageManagerImageSrcset ../theme_settings.custom_header_menu_3_image}}" sizes="{{../theme_settings.custom_header_menu_width}}"/>{{/if}}
 								{{#if ../theme_settings.custom_header_menu_3_text}}<span>{{../theme_settings.custom_header_menu_3_text}}</span>{{/if}}
 								{{#if ../theme_settings.custom_header_menu_3_link}}</a>{{/if}}
 							</li>
@@ -62,8 +71,8 @@
 					{{#and ../theme_settings.custom_header_menu_4_show (if../theme_settings.custom_header_menu_4_category '==' name)}}
 						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
 							<li>
-								{{#if ../theme_settings.custom_header_menu_4_link}}<a href="{{../theme_settings.custom_header_menu_4_link}}">{{/if}}
-								{{#if ../theme_settings.custom_header_menu_4_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_4_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_4_link}}<a title="{{../theme_settings.custom_header_menu_4_text}}" href="{{../theme_settings.custom_header_menu_4_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_4_image}}<img alt="{{../theme_settings.custom_header_menu_4_text}}" src="{{getImageManagerImage ../theme_settings.custom_header_menu_4_image}}" data-sizes="auto" srcset="{{getImageManagerImageSrcset ../theme_settings.custom_header_menu_4_image}}" sizes="{{../theme_settings.custom_header_menu_width}}"/>{{/if}}
 								{{#if ../theme_settings.custom_header_menu_4_text}}<span>{{../theme_settings.custom_header_menu_4_text}}</span>{{/if}}
 								{{#if ../theme_settings.custom_header_menu_4_link}}</a>{{/if}}
 							</li>
@@ -72,8 +81,8 @@
 					{{#and ../theme_settings.custom_header_menu_5_show (if../theme_settings.custom_header_menu_5_category '==' name)}}
 						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
 							<li>
-								{{#if ../theme_settings.custom_header_menu_5_link}}<a href="{{../theme_settings.custom_header_menu_5_link}}">{{/if}}
-								{{#if ../theme_settings.custom_header_menu_5_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_5_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_5_link}}<a title="{{../theme_settings.custom_header_menu_5_text}}" href="{{../theme_settings.custom_header_menu_5_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_5_image}}<img alt="{{../theme_settings.custom_header_menu_5_text}}" src="{{getImageManagerImage ../theme_settings.custom_header_menu_5_image}}" data-sizes="auto" srcset="{{getImageManagerImageSrcset ../theme_settings.custom_header_menu_5_image}}" sizes="{{../theme_settings.custom_header_menu_width}}"/>{{/if}}
 								{{#if ../theme_settings.custom_header_menu_5_text}}<span>{{../theme_settings.custom_header_menu_5_text}}</span>{{/if}}
 								{{#if ../theme_settings.custom_header_menu_5_link}}</a>{{/if}}
 							</li>
@@ -82,8 +91,8 @@
 					{{#and ../theme_settings.custom_header_menu_6_show (if../theme_settings.custom_header_menu_6_category '==' name)}}
 						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
 							<li>
-								{{#if ../theme_settings.custom_header_menu_6_link}}<a href="{{../theme_settings.custom_header_menu_6_link}}">{{/if}}
-								{{#if ../theme_settings.custom_header_menu_6_image}}<img src="/product_images/uploaded_images/{{../theme_settings.custom_header_menu_6_image}}" />{{/if}}
+								{{#if ../theme_settings.custom_header_menu_6_link}}<a title="{{../theme_settings.custom_header_menu_6_text}}" href="{{../theme_settings.custom_header_menu_6_link}}">{{/if}}
+								{{#if ../theme_settings.custom_header_menu_6_image}}<img alt="{{../theme_settings.custom_header_menu_6_text}}" src="{{getImageManagerImage ../theme_settings.custom_header_menu_6_image}}" data-sizes="auto" srcset="{{getImageManagerImageSrcset ../theme_settings.custom_header_menu_6_image}}" sizes="{{../theme_settings.custom_header_menu_width}}"/>{{/if}}
 								{{#if ../theme_settings.custom_header_menu_6_text}}<span>{{../theme_settings.custom_header_menu_6_text}}</span>{{/if}}
 								{{#if ../theme_settings.custom_header_menu_6_link}}</a>{{/if}}
 							</li>
@@ -119,6 +128,7 @@
             {{/if}}
             </li>
         {{/each}}
+		{{/if}}
 	    {{#if theme_settings.navigation_design '===' 'simple'}}
 			{{#and theme_settings.custom_header_show_brands shop_by_brand.length}}
 			<li class="navPages-item navPages-item-page navPages-item-brands">
@@ -133,9 +143,11 @@
 			</li>
 			{{/and}}
 		{{/if}}
+		{{/if}}
         {{#unless theme_settings.hide_content_navigation}}
             {{#each pages}}
-			{{#unless (lowercase name) '==' 'header'}}	
+			{{#or (if (lowercase name) '===' 'header') (if (lowercase name) '===' 'iframe')}}
+			{{else}}
                 <li class="navPages-item navPages-item-page navPages-item-{{dashcase name}}">
 	            {{#if ../theme_settings.navigation_design '===' 'simple'}}
 					{{assignVar "allsinglepage" "true"}}
@@ -158,7 +170,7 @@
 					{{> components/custom/navigation-list-alternate-page}}
 	            {{/if}}
                 </li>
-			{{/unless}}
+			{{/or}}
             {{/each}}
         {{/unless}}
 		{{> components/custom/client/client-header-menu-end}}
@@ -190,7 +202,7 @@
                     {{lang 'common.currency' code=currency_selector.active_currency_code}}
                     <i class="icon navPages-action-moreIcon" aria-hidden="true">
                         <svg>
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-chevron-down"></use>
+                            <use href="#icon-chevron-down"></use>
                         </svg>
                     </i>
                 </a>
@@ -257,7 +269,7 @@
                 >
                     {{lang 'common.account'}}
                     <i class="icon navPages-action-moreIcon" aria-hidden="true">
-                        <svg><use xlink:href="#icon-chevron-down" /></svg>
+                        <svg><use href="#icon-chevron-down" /></svg>
                     </i>
                 </a>
                 <div class="navPage-subMenu" id="navPages-account" aria-hidden="true" tabindex="-1">

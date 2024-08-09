@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container"{{#if theme_settings.custom_header_search_type '==' 'box'}} data-prevent-quick-search-close{{/if}}>
     <form class="form" onsubmit="return false" data-url="{{urls.search}}" data-quick-search-form>
         <fieldset class="form-fieldset">
             <div class="form-field form-field-input">
@@ -13,10 +13,17 @@
                 >
             </div>
 			<div class="form-field form-field-submit">
-				<input data-wait-message="Searching…" class="button button--primary" type="submit" value="Go">
+				<!--<input data-wait-message="Searching…" class="button button--primary" type="submit" value="Go">-->
+				<button name="Submit" data-wait-message="Searching…" class="button button--primary" type="submit" aria-label="Submit">
+					<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-search{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}"></use></svg></i>
+				</button>
 			</div>
         </fieldset>
     </form>
+{{#if theme_settings.custom_header_search_type '==' 'box'}}
+</div>
+<div id="quickSearch" class="dropdown dropdown--quickSearch" aria-hidden="false" data-prevent-quick-search-close>
+{{/if}}
     <section class="quickSearchResults" data-bind="html: results"></section>
     <p role="status"
        aria-live="polite"

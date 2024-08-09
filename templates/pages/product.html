@@ -7,16 +7,80 @@ product:
     related_products:
         limit: {{theme_settings.productpage_related_products_count}}
     similar_by_views:
-        limit: {{theme_settings.productpage_similar_by_views_count}}
+        limit: {{theme_settings.productpage_related_products_count}}
 blog:
     recent_posts:
         limit: {{theme_settings.homepage_blog_posts_count}}
 customer:
     wishlists:
         limit: 10
+gql: "query productById($productId: Int!) {
+    site {
+        product(entityId: $productId) {
+            variants(first: 99) {
+                edges {
+                    node {
+                        sku
+                        inclTax: prices(includeTax: true) {
+                            price {
+                                value
+                                formatted
+                            }
+						}
+						exclTax: prices(includeTax: false) {
+                        	price {
+                            	value
+                            	formatted
+                        	}
+						}
+						isPurchasable
+						weight {
+						    unit
+						    value
+						}
+						inventory {
+						    aggregated {
+						        availableToSell
+						    }
+						    isInStock
+						}
+                        productOptions {
+                            edges {
+                                node {
+                                    displayName
+                                    ... on MultipleChoiceOption {
+                                        displayName
+                                        values {
+                                            edges {
+                                                node {
+                                                    label
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            productOptions {
+                edges {
+                    node {
+						isVariantOption
+                        displayName
+                        ... on MultipleChoiceOption {
+                            displayName
+                        }
+                    }
+                }
+            }
+        }
+    }
+}"
 ---
 {{inject 'productId' product.id}}
-
+{{inject "productPriceFrom" theme_settings.custom_price_from}}
 {{#partial "hero"}}
 {{assignVar "payment" "inactive"}}
 {{assignVar "breadcrumb" "inactive"}}
@@ -25,9 +89,10 @@ customer:
 		{{assignVar "payment" "active"}}
 	{{/if}}
 {{/filter}}
-{{#filter product.custom_fields 'breadcrumb' property='name'}}
+{{#filter product.custom_fields '_breadcrumb' property='name'}}
 	{{assignVar "breadcrumb" "active"}}
 {{/filter}}
+{{{region name="product_below_menu"}}}
 <div class="container container-hero">
 	<div class="page-header product-header">
     	{{#unless theme_settings.custom_product_title_left}}<h1 class="page-heading">{{product.title}}</h1>{{/unless}}
@@ -48,8 +113,10 @@ customer:
 		{{> components/common/alert/alert-info message}}
 	{{/each}}
 	{{/unless}}
-    <div {{#if (getVar 'payment') '===' 'active'}} class="payment-product"{{/if}}>
-        {{> components/products/product-view}}
+    <div class="productView-wrap{{#each product.custom_fields}}{{#if name '==' '_class'}} {{value}}{{/if}}{{/each}}{{#if (getVar 'payment') '===' 'active'}} payment-product{{/if}}"{{#if product.sku}} data-item-sku="{{product.sku}}"{{/if}}>
+		{{#if (getVar "b2b-products") '===' 'show'}}
+        	{{> components/products/product-view}}
+		{{/if}}
         {{{region name="product_below_content"}}}
     </div>
 
@@ -57,13 +124,68 @@ customer:
 {{/partial}}
 {{#partial "base"}}
 {{#unless (getVar 'payment') '===' 'active'}}
-	{{#or product.related_products product.similar_by_views}}
-		<div class="related-similar">
+	{{#if (getVar "b2b-products") '===' 'show'}}
+		{{#if theme_settings.custom_product_variant_data}}
+			{{assignVar "productHasVariants" "no"}}
+			{{#if gql.data.site.product}}
+	    		{{#each gql.data.site.product.variants.edges}}
+	        		{{#with node}}
+						{{#if @last}}
+							{{#unless @index 0}}
+								{{assignVar "productHasVariants" "yes"}}
+							{{/unless}}
+						{{/if}}
+					{{/with}}
+				{{/each}}
+				{{#if (getVar "productHasVariants") '===' 'yes'}}
+						{{> components/custom/product-variants}}
+				{{/if}}
+			{{/if}}
+		{{/if}}
+		{{> components/custom/client/client-product-variants}}
+		{{#if theme_settings.custom_product_question}}
+		<div id="product_question">
 			<div class="container">
-				{{> components/products/tabs}}
+				<div class="product-question-title">
+					<h4 class="productView-title">{{theme_settings.custom_product_question}}</h4>
+				</div>
+				<div id="iframe_product">
+				    <iframe id="iframe_product--iframe" src="{{settings.base_url}}/iframe/?rma={{encodeURI (sanitize product.title)}}{{#if product.sku}}%20({{encodeURI (sanitize product.sku)}}){{/if}}" allowfullscreen frameborder="0" scrolling="no" style="border: 0;"></iframe>
+				</div>
+				<script>
+				var iframe = document.getElementById('iframe_product--iframe');
+				iframe.addEventListener("load", function() {
+					var iframe_contents = iframe.contentWindow.document;
+					if (iframe_contents) {
+						var iframe_form = iframe_contents.getElementById('form_contact'); 
+						if (iframe_form.classList.contains('with-company')) {
+							console.log('recaptcha found');
+							iframe.classList.add('with-company');
+						}
+						if (iframe_form.classList.contains('with-manualcaptcha')) {
+							console.log('recaptcha found');
+							iframe.classList.add('with-manualcaptcha');
+						}
+						if (iframe_form.classList.contains('with-recaptcha')) {
+							console.log('recaptcha found');
+							iframe.classList.add('with-recaptcha');
+						}
+					}	
+				});
+				</script>
+
 			</div>
 		</div>
-	{{/or}}
+		{{/if}}
+		{{#or product.related_products product.similar_by_views}}
+			<div class="related-similar">
+				<div class="container">
+					{{> components/products/tabs}}
+				</div>
+			</div>
+		{{/or}}
+		{{> components/custom/client/client-product-related}}
+	{{/if}}
 {{/unless}}
 {{/partial}}
 {{> layout/base}}

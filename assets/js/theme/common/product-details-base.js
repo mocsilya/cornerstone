@@ -1,6 +1,5 @@
 import Wishlist from '../wishlist';
 import { initRadioOptions } from './aria';
-import { isObject, isNumber } from 'lodash';
 
 const optionsTypesMap = {
     INPUT_FILE: 'input-file',
@@ -91,10 +90,17 @@ export default class ProductDetailsBase {
     updateProductAttributes(data) {
         const behavior = data.out_of_stock_behavior;
         const inStockIds = data.in_stock_attributes;
-        const outOfStockMessage = ` (${data.out_of_stock_message})`;
+        const outOfStockDefaultMessage = this.context.outOfStockDefaultMessage;
+        let outOfStockMessage = data.out_of_stock_message;
 
         if (behavior !== 'hide_option' && behavior !== 'label_option') {
             return;
+        }
+
+        if (outOfStockMessage) {
+            outOfStockMessage = ` (${outOfStockMessage})`;
+        } else {
+            outOfStockMessage = ` (${outOfStockDefaultMessage})`;
         }
 
         $('[data-product-attribute-value]', this.$scope).each((i, attribute) => {
@@ -188,6 +194,7 @@ export default class ProductDetailsBase {
                 $input: $('[name=qty\\[\\]]', $scope),
             },
             $bulkPricing: $('.productView-info-bulkPricing', $scope),
+            $walletButtons: $('[data-add-to-cart-wallet-buttons]', $scope),
         };
     }
 
@@ -214,11 +221,11 @@ export default class ProductDetailsBase {
 
         this.showMessageBox(data.stock_message || data.purchasing_message);
 
-        if (isObject(data.price)) {
+        if (data.price instanceof Object) {
             this.updatePriceView(viewModel, data.price);
         }
 
-        if (isObject(data.weight)) {
+        if (data.weight instanceof Object) {
             viewModel.$weight.html(data.weight.formatted);
         }
 
@@ -246,7 +253,7 @@ export default class ProductDetailsBase {
         }
 
         // if stock view is on (CP settings)
-        if (viewModel.stock.$container.length && isNumber(data.stock)) {
+        if (viewModel.stock.$container.length && typeof data.stock === 'number') {
             // if the stock container is hidden, show
             viewModel.stock.$container.removeClass('u-hiddenVisually');
             if (data.stock > "0") {
@@ -262,6 +269,7 @@ export default class ProductDetailsBase {
         }
 
         this.updateDefaultAttributesForOOS(data);
+        this.updateWalletButtonsView(data);
 
         // If Bulk Pricing rendered HTML is available
         if (data.bulk_discount_rates && content) {
@@ -281,13 +289,22 @@ export default class ProductDetailsBase {
      * Update the view of price, messages, SKU and stock options when a product option changes
      * @param  {Object} data Product attribute data
      */
+	
     updatePriceView(viewModel, price) {
         this.clearPricingNotFound(viewModel);
-
+		const priceFrom = this.context.productPriceFrom;
+		
         if (price.with_tax) {
-            const updatedPrice = price.price_range ?
-                `${price.price_range.min.with_tax.formatted} - ${price.price_range.max.with_tax.formatted}`
-                : price.with_tax.formatted;
+			let updatedPrice;
+			if (priceFrom == true) {
+            	updatedPrice = price.price_range ?
+                	`From ${price.price_range.min.with_tax.formatted}`
+                	: price.with_tax.formatted;
+			} else {
+        		updatedPrice = price.price_range ?
+            	`${price.price_range.min.with_tax.formatted} - ${price.price_range.max.with_tax.formatted}`
+            	: price.with_tax.formatted;
+			}
             viewModel.priceLabel.$span.show();
             viewModel.$priceWithTax.html(updatedPrice);
         }
@@ -357,6 +374,20 @@ export default class ProductDetailsBase {
         }
     }
 
+    updateWalletButtonsView(data) {
+        this.toggleWalletButtonsVisibility(data.purchasable && data.instock);
+    }
+
+    toggleWalletButtonsVisibility(shouldShow) {
+        const viewModel = this.getViewModel(this.$scope);
+
+        if (shouldShow) {
+            viewModel.$walletButtons.show();
+        } else {
+            viewModel.$walletButtons.hide();
+        }
+    }
+
     enableAttribute($attribute, behavior, outOfStockMessage) {
         if (this.getAttributeType($attribute) === 'set-select') {
             return this.enableSelectOptionAttribute($attribute, behavior, outOfStockMessage);
@@ -397,7 +428,6 @@ export default class ProductDetailsBase {
                 $select[0].selectedIndex = 0;
             }
         } else {
-            $attribute.attr('disabled', 'disabled');
             $attribute.html($attribute.html().replace(outOfStockMessage, '') + outOfStockMessage);
         }
     }
@@ -406,7 +436,6 @@ export default class ProductDetailsBase {
         if (behavior === 'hide_option') {
             $attribute.toggleOption(true);
         } else {
-            $attribute.prop('disabled', false);
             $attribute.html($attribute.html().replace(outOfStockMessage, ''));
         }
     }

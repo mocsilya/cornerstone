@@ -1,21 +1,20 @@
 {{assignVar "customfields" "inactive"}}
 {{#each product.custom_fields}}
 	{{#unless name '==' 'hidden'}}
-		{{#unless name '==' 'breadcrumb'}}
-			{{#unless name '==' 'download'}}
-           			{{assignVar "customfields" "active"}}
-           	{{/unless}}
-		{{/unless}}
+		{{#startsWith '_' name}}
+		{{else}}
+           	{{assignVar "customfields" "active"}}
+        {{/startsWith}}
 	{{/unless}}
 {{/each}}
 {{assignVar "downloads" "inactive"}}
-{{#filter product.custom_fields 'download' property='name'}}
+{{#filter product.custom_fields '_download' property='name'}}
 	{{assignVar "downloads" "active"}}
 {{/filter}}
 <ul class="tabs" data-tab>
     {{#if product.description}}
         <li class="tab tab-description is-active">
-            <a class="tab-title" href="#tab-description">{{theme_settings.custom_product_description_title}}</a>
+            <a class="tab-title" href="#tab-description">{{#if theme_settings.custom_product_description_title.length}}{{theme_settings.custom_product_description_title}}{{else}}{{lang 'products.description'}}{{/if}}</a>
         </li>
     {{/if}}
     {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
@@ -29,13 +28,13 @@
         </li>
 		{{/if}}
     {{/all}}
-	{{#unless theme_settings.custom_product_warranty_gallery}}
+	{{#if theme_settings.custom_product_warranty_location '==' 'normal'}}
     {{#if product.warranty}}
         <li class="tab tab-warranty">
-            <a class="tab-title" href="#tab-warranty">{{theme_settings.custom_product_warranty_title}}</a>
+            <a class="tab-title" href="#tab-warranty">{{#if theme_settings.custom_product_warranty_title.length}}{{theme_settings.custom_product_warranty_title}}{{else}}{{lang 'products.warranty'}}{{/if}}</a>
         </li>
     {{/if}}
-	{{/unless}}
+	{{/if}}
     {{#if theme_settings.custom_product_tab1_show}}
         <li class="tab tab-custom1">
             <a class="tab-title" href="#tab-custom1">{{theme_settings.custom_product_tab1_title}}</a>
@@ -44,6 +43,11 @@
     {{#if theme_settings.custom_product_tab2_show}}
         <li class="tab tab-custom2">
             <a class="tab-title" href="#tab-custom2">{{theme_settings.custom_product_tab2_title}}</a>
+        </li>
+    {{/if}}
+    {{#if theme_settings.custom_product_tab3_show}}
+        <li class="tab tab-custom3">
+            <a class="tab-title" href="#tab-custom3">{{theme_settings.custom_product_tab3_title}}</a>
         </li>
     {{/if}}
     {{#all settings.show_product_reviews theme_settings.show_product_reviews product.reviews.total}}
@@ -57,6 +61,7 @@
         <div class="tab-content is-active" id="tab-description">
             {{{product.description}}}
 			{{> components/custom/client/client-product-description}}
+			{{{region name="product_description"}}}
         </div>
     {{/if}}
     {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
@@ -66,39 +71,51 @@
             {{> components/products/custom-fields }}
          </dl>
 		 {{> components/custom/client/client-product-fields}}
+		 {{{region name="product_fields"}}}
       </div>
 	  {{/if}}
     {{/all}}
-	{{#unless theme_settings.custom_product_warranty_gallery}}
+	{{#if theme_settings.custom_product_warranty_location '==' 'normal'}}
     {{#if product.warranty}}
         <div class="tab-content warranty-content" id="tab-warranty">
             {{{product.warranty}}}
 			{{> components/custom/client/client-product-warranty}}
+			{{{region name="product_warranty"}}}
         </div>
     {{/if}}
-	{{/unless}}
+	{{/if}}
     {{#if theme_settings.custom_product_tab1_show}}
         <div class="tab-content" id="tab-custom1">
 			<span class="tab1-page">{{{theme_settings.custom_product_tab1_content}}}</span>
 			{{> components/custom/client/client-product-tab1}}
+			{{{region name="product_tab1"}}}
 		</div>
     {{/if}}
     {{#if theme_settings.custom_product_tab2_show}}
         <div class="tab-content" id="tab-custom2">
 			<span class="tab2-page">{{{theme_settings.custom_product_tab2_content}}}</span>
 			{{> components/custom/client/client-product-tab2}}
+			{{{region name="product_tab2"}}}
+		</div>
+    {{/if}}
+    {{#if theme_settings.custom_product_tab3_show}}
+        <div class="tab-content" id="tab-custom3">
+			<span class="tab3-page">{{{theme_settings.custom_product_tab3_content}}}</span>
+			{{> components/custom/client/client-product-tab3}}
+			{{{region name="product_tab3"}}}
 		</div>
     {{/if}}
     {{#all settings.show_product_reviews theme_settings.show_product_reviews product.reviews.total}}
        <div class="tab-content" id="tab-reviews">
            {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+		   {{{region name="product_reviews"}}}
        </div>
     {{/all}}
 	
 	{{#if (getVar "downloads") '===' 'active'}}
 	<ul class="productView-download">
 	{{#each product.custom_fields}}
-		{{#if name '==' 'download'}}
+		{{#if name '==' '_download'}}
    			<li class="productView-download-item">
 				<a class="productView-download-link button button--primary" target="_blank" href="{{cdn (concat 'webdav:' value)}}">
 				     <i aria-hidden="true" class="icon">
