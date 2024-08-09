@@ -14,6 +14,21 @@
     }
 }
 
+.category-description .page-heading,
+.category-description .category-banner {
+    display: none;
+}
+
+/*
+div[data-content-region="category_aside--global"],
+div[data-content-region="category_aside"] {
+    display: none;
+    @include breakpoint("medium") {
+		display: block;
+	}
+}
+*/
+/*
 .category-header {
 	display: none;
 }
@@ -83,7 +98,7 @@
 	
 }
 
-
+*/
 
 // Main Menu
 // =============================================================================
