@@ -928,15 +928,6 @@ body.scroll .navUser-item--custom strong {
 	color: #666;
 }
 
-.price-section--withoutTax .price,
-.price-section--withoutTax abbr,
-.price-section--withoutTax span,
-.price-section--withTax .price,
-.price-section--withTax abbr,
-.price-section--withTax span {
-	text-transform: capitalize;
-}
-
 .page-product .price-now-label,
 .page-product .productView-brand {
 	display: none !important;
@@ -971,15 +962,13 @@ body.scroll .navUser-item--custom strong {
 
 .productView-info-name.sku-label,
 .productView-info-value.sku-value {
-	flex: 1 1 50%;
-	justify-content: center;
+	width: 50%;
 	background: #ffdd00;
 	color: #000;
 	vertical-align: top;
 	font-weight: 700;
 	font-size: 1rem;
 	margin-bottom: 1rem;
-	border: 0;
 	@include breakpoint("large") {
 		font-size: 1.125rem;
 	}
@@ -988,7 +977,6 @@ body.scroll .navUser-item--custom strong {
 .productView-info-name.sku-label {
 	padding: .5rem .25rem .5rem .75rem;
 	text-align: center;
-	
 }
 
 .productView-info-value.sku-value {
@@ -1040,7 +1028,7 @@ body.scroll .navUser-item--custom strong {
 	color: #333;
 	border: 2px solid #333;
 }
-
+/*
 #main-content > .variant-data {
 	display: none;
 }
@@ -1054,7 +1042,7 @@ body.scroll .navUser-item--custom strong {
 .productView .variant-data .container {
 	padding: 0;
 }
-
+*/
 
 
 // =============================================================================
@@ -1538,6 +1526,13 @@ ul.why-buy li::before {
 	}
 }
 
+// =============================================================================
+// Consent
+// =============================================================================
+
+div#consent-manager div button:nth-child(2) {
+    display: none !important;
+}
 
 
 // =============================================================================
