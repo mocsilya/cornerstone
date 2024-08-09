@@ -98,7 +98,7 @@
 			                            </i>
 			                        </span>
 			                    </a>
-			                    <ul class="navPage-childList is-open sfHover" id="navPages-e-liquid-flavours" aria-hidden="false" tabindex="-1">
+			                    <ul class="navPage-childList sfHover" id="navPages-e-liquid-flavours" aria-hidden="true" tabindex="-1">
 			                    {{#if children}}
 			                        {{#each children}}
 			                            {{#if name '===' 'E-Liquid Flavours'}}
@@ -111,7 +111,7 @@
 			                                        {{name}}
 			                                    </a>
 							                    {{#if children}}
-													<ul class="navPage-grandchildList" id="navPages-flavour-type">
+													<ul class="navPage-grandchildList" id="navPages-{{id}}">
 							                        {{#each children}}
 						                                <li class="navPage-grandchildList-item">
 						                                    <a class="navPage-grandchildList-action navPages-action{{#if is_active}} activePage{{/if}}"

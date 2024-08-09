@@ -272,7 +272,6 @@ body.scroll .navPages > ul > li > .navPages-action {
 		width: 100%;
 		height: auto;
 		display: block;
-		overflow-y: auto;
 	}
 }
 
@@ -298,6 +297,12 @@ body.scroll .navPages > ul > li > .navPages-action {
 		padding: 1.5rem .75rem 1.5rem 1.5rem !important;
 		box-shadow: none;
 		z-index: 2;
+		height: calc(100vh - 240px;);
+		overflow-y: auto;
+		background-color: #f1f1f1;
+		border-top-right-radius: .5rem;
+		border-bottom-right-radius: .5rem;
+		border-bottom-left-radius: .5rem;
 	}
 	@include breakpoint("large") {
 		left: 25% !important;
@@ -318,7 +323,6 @@ body.scroll .navPages > ul > li > .navPages-action {
 		padding-top: 1.5rem;
 		padding-bottom: 1.5rem;
 		width: 33.333333%;
-		border-right: 1px solid stencilColor('navPages-subMenu-separatorColor');
 	}
 	@include breakpoint("large") {
 		width: 25%;
@@ -333,8 +337,7 @@ body.scroll .navPages > ul > li > .navPages-action {
 
 .navPages-item-e-liquids .navPage-subMenu-list .sfHover .navPage-subMenu-action {
 	color: stencilColor('navPages-color-hover');
-	border-right: 0;
-	/*background: linear-gradient(to right,  #ffffff 0%,#f1f1f1 100%);*/
+	background: linear-gradient(to right,  #ffffff 0%,#f1f1f1 100%);
 }
 
 /* E-Liquid Default Menu */
@@ -358,23 +361,32 @@ body.scroll .navPages > ul > li > .navPages-action {
 	font-weight: 700;
 	@include breakpoint("medium") {
 		padding-top: 0;
-		border-bottom: 1px solid #ccc;
+		border-bottom: 1px solid stencilColor('navPages-subMenu-separatorColor');
 		margin-bottom: .375rem;
 	}
 }
 
 .navPages-item-e-liquids #navPages-e-liquid-flavours .navPage-grandchildList {
-		display: flex;
-		flex-wrap: wrap;
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	border-left: 1px solid stencilColor('navPages-subMenu-separatorColor');
+	border-top: 1px solid stencilColor('navPages-subMenu-separatorColor');
+	@include breakpoint("medium") {
+		border: 0;
+	}
 }
 
 .navPages-item-e-liquids #navPages-e-liquid-flavours .navPage-grandchildList-item {
 	flex: 0 0 50%;
+	border-right: 1px solid stencilColor('navPages-subMenu-separatorColor');
+	border-bottom: 1px solid stencilColor('navPages-subMenu-separatorColor');
 	@include breakpoint("small") {
 		flex: 0 0 33.333333%;
 	}
 	@include breakpoint("medium") {
 		flex: 0 0 50%;
+		border: 0;
 	}
 	@include breakpoint("large") {
 		flex: 0 0 25%;
@@ -386,23 +398,33 @@ body.scroll .navPages > ul > li > .navPages-action {
 
 .navPages-item-e-liquids #navPages-e-liquid-flavours .navPage-grandchildList-action {
 	font-weight: 400;
+	padding: .5rem;
 	@include breakpoint("medium") {
-		padding: .125rem 0;
+		padding: .125rem;
 		
 	}
 }
 
 /* E-Liquid Brands Menu */
 
-.navPages-item-e-liquids #navPages-e-liquid-brands.is-open {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	align-content: flex-start;
+@media (max-width: 800px) {
+	.navPages-item-e-liquids #navPages-e-liquid-brands.is-open {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-content: flex-start;
+	}
 }
 
 .navPages-item-e-liquids #navPages-e-liquid-brands {
+	padding: 0;
+	margin-top: 1rem;
+	border-left: 1px solid stencilColor('navPages-subMenu-separatorColor');
+	border-top: 1px solid stencilColor('navPages-subMenu-separatorColor');
+	
 	@include breakpoint("medium") {
+		margin-top: 0;
+		border: 0;
 		flex-direction: row;
 		flex-wrap: wrap;
 		align-content: flex-start;
@@ -411,10 +433,13 @@ body.scroll .navPages > ul > li > .navPages-action {
 
 .navPages-item-e-liquids #navPages-e-liquid-brands .navPage-childList-item {
 	flex: 0 0 50%;
+	border-right: 1px solid stencilColor('navPages-subMenu-separatorColor');
+	border-bottom: 1px solid stencilColor('navPages-subMenu-separatorColor');
 	@include breakpoint("small") {
 		flex: 0 0 33.333333%;
 	}
 	@include breakpoint("medium") {
+		border: 0;
 		flex: 0 0 50%;
 	}
 	@include breakpoint("large") {
@@ -426,7 +451,10 @@ body.scroll .navPages > ul > li > .navPages-action {
 }
 
 .navPages-item-e-liquids #navPages-e-liquid-brands .navPage-childList-item .navPage-childList-action {
-	padding: 0.78571rem 0px;
+	padding: .5rem;
+	@include breakpoint("medium") {
+		padding: 0 0 .35714rem;
+	}
 }
 
 
@@ -731,6 +759,18 @@ div[data-content-region="category_below_menu"] div[data-placement-status="ACTIVE
 .page-category.page-vape-tanks .subcategories--horizontal,
 .page-category.page-accessories .subcategories--horizontal {
     display: none;
+}
+
+
+
+
+// =============================================================================
+// E-liquids
+// =============================================================================
+
+
+.page-category.page-e-liquids .subcategories-above {
+	display: none;
 }
 
 
