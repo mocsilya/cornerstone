@@ -52,7 +52,11 @@ customer:
     </div>
 {{/if}}
 
-    <aside class="page-sidebar page-sidebar-vertical">
+{{assignVar "pagetype" "child"}}
+{{#if breadcrumbs.[1].name '===' page.title}}
+	{{assignVar "pagetype" "parent"}}
+{{/if}}
+    <aside class="page-sidebar page-sidebar-vertical page-sidebar-{{getVar 'pagetype'}}">
     	<nav>
 			<div class="sidebarBlock sidebarCategories">
 				<h2 class="sidebarBlock-heading">{{ page.title }}</h2>
