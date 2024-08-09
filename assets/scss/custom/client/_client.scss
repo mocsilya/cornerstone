@@ -4,6 +4,17 @@
 //
 
 
+// navUser 
+// =============================================================================
+
+.navUser .navUser-item--social {
+	display: none;
+	@include breakpoint("large") {
+		display: inline-block;
+		margin-top: .875rem;
+	}
+}
+
 
 // Category
 // =============================================================================
@@ -127,8 +138,14 @@ div[data-content-region="category_aside"] {
 // =============================================================================
 
 .productView-info-name.customfield-label,
-.productView-info-value.customfield-value {
+.productView-info-value.customfield-value,
+.productView-info-name.upc-label,
+.productView-info-value.upc-value {
     display: none;
+}
+
+.productView-options div[data-product-attribute="swatch"] .form-option-swatch {
+	border-radius: 40px;
 }
 
 
