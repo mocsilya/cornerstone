@@ -155,7 +155,7 @@
 			                            {{#if name '===' 'E-Liquid Brands'}}
 			                            {{#each children}}
 			                                <li class="navPage-childList-item">
-			                                    <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+			                                    <a class="navPage-childList-action navPage-childList-{{dashcase name}} navPages-action{{#if is_active}} activePage{{/if}}"
 			                                        href="{{url}}"
 			                                        aria-label="{{name}}"
 			                                    >
