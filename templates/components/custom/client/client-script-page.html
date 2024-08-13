@@ -1,0 +1,47 @@
+{{#contains page.title 'Price Match Request'}}
+
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", () => {
+	    const queryString = window.location.search;
+	    const urlParams = new URLSearchParams(queryString);
+	    const getUrl = urlParams.get('url');
+	    let iframeUrl;
+	    if (getUrl) {
+	        iframeUrl = getUrl;
+	    } else {
+	        iframeUrl = '';
+	    }
+	    console.log(iframeUrl);
+	    var zw2d0jc0u6pqca;
+	    (function(d, t) {
+	        var s = d.createElement(t),
+	            options = {
+	                'userName': 'mtbmonster',
+	                'formHash': 'zw2d0jc0u6pqca',
+	                'autoResize': true,
+	                'defaultValues': 'field36=' + iframeUrl,
+	                'height': '858',
+	                'async': true,
+	                'host': 'wufoo.com',
+	                'header': 'show',
+	                'ssl': true
+	            };
+	        s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'secure.wufoo.com/scripts/embed/form.js';
+	        s.onload = s.onreadystatechange = function() {
+	            var rs = this.readyState;
+	            if (rs)
+	                if (rs != 'complete')
+	                    if (rs != 'loaded') return;
+	            try {
+	                zw2d0jc0u6pqca = new WufooForm();
+	                zw2d0jc0u6pqca.initialize(options);
+	                zw2d0jc0u6pqca.display();
+	            } catch (e) {}
+	        };
+	        var scr = d.getElementsByTagName(t)[0],
+	            par = scr.parentNode;
+	        par.insertBefore(s, scr);
+	    })(document, 'script');
+	});
+</script>
+{{/contains}}
