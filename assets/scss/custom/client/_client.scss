@@ -247,6 +247,21 @@ body.scroll .navPages > ul > li > .navPages-action {
 }
 
 
+
+// =============================================================================
+// Nav Pages
+// =============================================================================
+
+.navPages-list:not(.navPages-list-depth-max) .navPage-subMenu-action {
+	padding: 0;
+}
+
+.navPage-subMenu-action:not(.navPages-action-depth-max) + .navPage-childList {
+	margin: 0;
+	padding: 0;
+}
+
+
 // =============================================================================
 // E-Liquids menu 
 // =============================================================================
@@ -262,7 +277,8 @@ body.scroll .navPages > ul > li > .navPages-action {
 */
 .navPages-item-e-liquids div.navPage-subMenu {
 	@include breakpoint("medium") {
-		min-height: calc(100vh - 200px);
+		height: 300px;
+		max-height: none;
 	}
 }
 
@@ -297,7 +313,7 @@ body.scroll .navPages > ul > li > .navPages-action {
 		padding: 1.5rem .75rem 1.5rem 1.5rem !important;
 		box-shadow: none;
 		z-index: 2;
-		height: calc(100vh - 240px;);
+		height: 258px;
 		overflow-y: auto;
 		background-color: #f1f1f1;
 		border-top-right-radius: .5rem;
@@ -337,7 +353,9 @@ body.scroll .navPages > ul > li > .navPages-action {
 
 .navPages-item-e-liquids .navPage-subMenu-list .sfHover .navPage-subMenu-action {
 	color: stencilColor('navPages-color-hover');
-	background: linear-gradient(to right,  #ffffff 0%,#f1f1f1 100%);
+	@include breakpoint("medium") {
+		background: linear-gradient(to right,  #ffffff 0%,#f1f1f1 100%);
+	}
 }
 
 /* E-Liquid Default Menu */
@@ -349,6 +367,18 @@ body.scroll .navPages > ul > li > .navPages-action {
 }
 
 /* E-Liquid Flavours Menu */
+
+.navPages-item-e-liquids div.navPage-subMenu.flavourHover {
+	@include breakpoint("medium") {
+		height: 400px;
+	}
+}
+
+.navPages-item-e-liquids .flavourHover .navPage-subMenu-list .navPage-subMenu-item .navPage-childList {
+	@include breakpoint("medium") {
+		height: 360px;
+	}
+}
 
 .navPages-item-e-liquids #navPages-e-liquid-flavours .navPage-childList-item {
 	@include breakpoint("medium") {
@@ -370,8 +400,8 @@ body.scroll .navPages > ul > li > .navPages-action {
 	margin: 0;
 	display: flex;
 	flex-wrap: wrap;
-	border-left: 1px solid stencilColor('navPages-subMenu-separatorColor');
-	border-top: 1px solid stencilColor('navPages-subMenu-separatorColor');
+	/* border-left: 1px solid stencilColor('navPages-subMenu-separatorColor'); */
+	/* border-top: 1px solid stencilColor('navPages-subMenu-separatorColor'); */
 	@include breakpoint("medium") {
 		border: 0;
 	}
@@ -379,8 +409,8 @@ body.scroll .navPages > ul > li > .navPages-action {
 
 .navPages-item-e-liquids #navPages-e-liquid-flavours .navPage-grandchildList-item {
 	flex: 0 0 50%;
-	border-right: 1px solid stencilColor('navPages-subMenu-separatorColor');
-	border-bottom: 1px solid stencilColor('navPages-subMenu-separatorColor');
+	/* border-right: 1px solid stencilColor('navPages-subMenu-separatorColor'); */
+	/* border-bottom: 1px solid stencilColor('navPages-subMenu-separatorColor'); */
 	@include breakpoint("small") {
 		flex: 0 0 33.333333%;
 	}
@@ -398,7 +428,7 @@ body.scroll .navPages > ul > li > .navPages-action {
 
 .navPages-item-e-liquids #navPages-e-liquid-flavours .navPage-grandchildList-action {
 	font-weight: 400;
-	padding: .5rem;
+	padding: .25rem 0;
 	@include breakpoint("medium") {
 		padding: .125rem;
 		
@@ -419,9 +449,8 @@ body.scroll .navPages > ul > li > .navPages-action {
 .navPages-item-e-liquids #navPages-e-liquid-brands {
 	padding: 0;
 	margin-top: 1rem;
-	border-left: 1px solid stencilColor('navPages-subMenu-separatorColor');
-	border-top: 1px solid stencilColor('navPages-subMenu-separatorColor');
-	
+	/* border-left: 1px solid stencilColor('navPages-subMenu-separatorColor'); */
+	/* border-top: 1px solid stencilColor('navPages-subMenu-separatorColor'); */
 	@include breakpoint("medium") {
 		margin-top: 0;
 		border: 0;
@@ -433,8 +462,8 @@ body.scroll .navPages > ul > li > .navPages-action {
 
 .navPages-item-e-liquids #navPages-e-liquid-brands .navPage-childList-item {
 	flex: 0 0 50%;
-	border-right: 1px solid stencilColor('navPages-subMenu-separatorColor');
-	border-bottom: 1px solid stencilColor('navPages-subMenu-separatorColor');
+	/* border-right: 1px solid stencilColor('navPages-subMenu-separatorColor'); */
+	/* border-bottom: 1px solid stencilColor('navPages-subMenu-separatorColor'); */
 	@include breakpoint("small") {
 		flex: 0 0 33.333333%;
 	}
@@ -445,13 +474,10 @@ body.scroll .navPages > ul > li > .navPages-action {
 	@include breakpoint("large") {
 		flex: 0 0 25%;
 	}
-	@include breakpoint("xlarge") {
-		flex: 0 0 20%;
-	}
 }
 
 .navPages-item-e-liquids #navPages-e-liquid-brands .navPage-childList-item .navPage-childList-action {
-	padding: .5rem;
+	padding: .25rem 0;
 	@include breakpoint("medium") {
 		padding: 0 0 .35714rem;
 	}
@@ -475,16 +501,18 @@ body.scroll .navPages > ul > li > .navPages-action {
     position: absolute;
 	text-align: center;
     top: 50%;
-    right: .75rem;
+    right: .5rem;
 	transform: translateY(-50%);
 	border-radius: .25rem;
 	font-size: 11px;
 	font-weight: 700;
-	padding: 0 .375rem 0 .25rem;
+	word-spacing: -1px;
+	padding: 0 .25rem 0 .125rem;
     background-color: stencilColor('button--primary-backgroundColor');
 	color: stencilColor('button--primary-color') !important;
 	@include breakpoint("medium") {
 		top: .125rem;
+		right: .75rem;
 		transform: none;
 	}
 }
