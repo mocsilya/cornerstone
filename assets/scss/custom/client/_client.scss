@@ -862,6 +862,33 @@ div[data-content-region="category_below_menu"] div[data-placement-status="ACTIVE
 
 
 
+// =============================================================================
+// E-liquid Brands
+// =============================================================================
+
+.page-e-liquid-brands .subcategories-image {
+	border: 1px solid #ccc;
+	min-height: 0;
+}
+
+.page-e-liquid-brands .subcategories-name {
+	display: none;
+}
+
+.page-e-liquid-brands .subcategories-above .subcategories-grid-item {
+	width: 33.333333%;
+	@include breakpoint("medium") {
+		width: 25%;
+	}
+	@include breakpoint("large") {
+		width: 20%;
+	}
+	@include breakpoint("xlarge") {
+		width: 16.666667%;
+	}
+}
+
+
 
 // =============================================================================
 // Custom Category
