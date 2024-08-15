@@ -366,6 +366,29 @@ body.scroll .navPages > ul > li > .navPages-action {
 	}
 }
 
+.navPages-item-e-liquids .navPage-childList-viewall {
+	display: none;
+	color: stencilColor('button--primary-color');
+	background-color: stencilColor('button--primary-backgroundColor');
+	border-radius: .25rem;
+	position: absolute;
+	top: .75rem;
+	right: .75rem;
+	padding: .25rem .5rem;
+	font-size: 12px;
+	font-weight: 700;
+	text-decoration: none;
+	text-transform: uppercase;
+	@include breakpoint("medium") {
+		display: block;
+	}
+}
+
+.navPages-item-e-liquids .navPage-childList-viewall:hover {
+	color: stencilColor('button--primary-colorHover');
+	background-color: stencilColor('button--primary-backgroundColorHover');
+}
+
 /* E-Liquid Flavours Menu */
 
 .navPages-item-e-liquids div.navPage-subMenu.flavourHover {
@@ -452,6 +475,7 @@ body.scroll .navPages > ul > li > .navPages-action {
 	/* border-left: 1px solid stencilColor('navPages-subMenu-separatorColor'); */
 	/* border-top: 1px solid stencilColor('navPages-subMenu-separatorColor'); */
 	@include breakpoint("medium") {
+		padding: 3rem .75rem 1.5rem 1.5rem !important;
 		margin-top: 0;
 		border: 0;
 		flex-direction: row;
@@ -795,6 +819,10 @@ div[data-content-region="category_below_header"] img {
 
 div[data-content-region="category_below_menu"] div[data-placement-status="ACTIVE"] + div[data-placement-status="ACTIVE"] {
 	display: none;
+}
+
+.subcategories-above:not(.subcategories--vertical, .subcategories--custom) ul:not(.subcategories-grid-image) {
+	text-align: center;
 }
 
 .subcategories-above:not(.subcategories--vertical, .subcategories--custom) ul:not(.subcategories-grid-image) .subcategories-name {

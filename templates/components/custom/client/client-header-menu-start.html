@@ -19,7 +19,7 @@
 						<svg><use xlink:href="#icon-chevron-down" /></svg>
 					</i>
 				</a>
-				<div class="navPage-subMenu" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
+				<div class="navPage-subMenu flavourHover" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
 					{{#and ../theme_settings.custom_header_menu_1_show (if../theme_settings.custom_header_menu_1_category '==' name)}}
 						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
 							<li>
@@ -102,6 +102,7 @@
 			                    {{#if children}}
 			                        {{#each children}}
 			                            {{#if name '===' 'E-Liquid Flavours'}}
+										<a href="{{url}}" title="View all {{name}}" class="navPage-childList-viewall">View All</a>
 			                            {{#each children}}
 			                                <li class="navPage-childList-item">
 			                                    <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
@@ -153,6 +154,7 @@
 			                    {{#if children}}
 			                        {{#each children}}
 			                            {{#if name '===' 'E-Liquid Brands'}}
+										<a href="{{url}}" title="View all {{name}}" class="navPage-childList-viewall">View All</a>
 			                            {{#each children}}
 			                                <li class="navPage-childList-item">
 			                                    <a class="navPage-childList-action navPage-childList-{{dashcase name}} navPages-action{{#if is_active}} activePage{{/if}}"
