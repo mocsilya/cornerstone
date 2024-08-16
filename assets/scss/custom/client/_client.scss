@@ -2,3 +2,108 @@
 // Custom > Client
 // =============================================================================
 //
+
+
+// =============================================================================
+// HEADER
+// =============================================================================
+
+.header .form-search-box .form-input,
+.header .form-search-box .button {
+	@include breakpoint("medium") {
+		background-color: #f0f0f0;
+		border: 1px solid #f0f0f0;
+	}
+}
+
+.header .form-search-box .form-input::placeholder {
+	color: #666;
+}
+
+
+
+// =============================================================================
+// PRODUCT PAGE STOCK
+// =============================================================================
+
+.form-field--stock {
+    display: none !important;
+}
+.productView-testing {
+    margin: 1.5rem 0;
+    border: 1px solid #ccc;
+    padding: 1.5rem;
+}
+.productView-testing h1 {
+    margin-top: 0;
+}
+.productView-testing ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+}
+.productView-testing li {
+    margin: 0;
+    padding: .5rem .75rem;
+    border: 0;
+    list-style: none;
+    flex: 1 1 50%;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+#testMessage {
+    font-weight: 700;
+    border: 1px solid #ccc;
+    padding: .5rem .75rem;
+}
+
+
+
+
+// =============================================================================
+// BLOG
+// =============================================================================
+
+.form-blog .button {
+	margin-left: 0;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.form-blog .form-input {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	border-right: 0;
+}
+
+
+// =============================================================================
+// FOOTER
+// =============================================================================
+
+.footer-info-col[data-section-type="storeInfo"] .footer-info-heading {
+	display: none;
+}
+
+.footer-logo {
+	margin-bottom: 2rem;
+}
+
+.footer-payment-icons svg {
+	fill: stencilColor('custom-footer-border');
+}
+
+
+#consent-manager-update-banner {
+	background-color: #f5f5f5 !important;
+}
+
+
+#consent-manager-update-banner a {
+	color: #14214e !important;
+}

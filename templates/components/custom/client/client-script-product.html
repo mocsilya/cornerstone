@@ -1,0 +1,44 @@
+<script>
+// In stock number
+const inStock = {{#if product.stock_level}}{{#if product.can_purchase}}{{#gt product.stock_level 1000}}{{subtract product.stock_level 1000}}{{else}}0{{/gt}}{{else}}0{{/if}}{{else}}0{{/if}};
+console.log('inStock: ' + inStock);
+// monitor the quantity field for direct typing
+let inputElem = document.querySelector('.form-input--incrementTotal');
+if (inputElem) { 
+    inputElem.addEventListener('input', () => {
+        console.log(inputElem.value);
+        const existingDiv = document.getElementById('testMessage');
+        if (inStock > 0) {
+            if (inputElem.value > inStock) {
+                const backOrder = inputElem.value - inStock;
+                existingDiv.innerText = inStock + ' in stock (available in store and next day delivery). ' + backOrder + ' on back order (available for delivery or collection in an estimated 3-5 days)';
+                existingDiv.style.display='block';
+                console.log('Backorder: ' + backOrder);
+            } else {
+                existingDiv.style.display='none';
+            }
+        }
+    });
+}
+// monitor the quantity + / - buttons
+let buttonElem = document.querySelectorAll('.form-increment .button');
+for (let i = 0; i < buttonElem.length; i++) {
+    buttonElem[i].onclick = function () {
+        buttonTimer = setTimeout(() => {
+            console.log(inputElem.value);
+            const existingDiv = document.getElementById('testMessage');
+            if (inStock > 0) {
+                if (inputElem.value > inStock) {
+                    const backOrder = inputElem.value - inStock;
+                    existingDiv.innerText = inStock + ' in stock (available in store and next day delivery). ' + backOrder + ' on back order (available for delivery or collection in an estimated 3-5 days)';
+                    existingDiv.style.display='block';
+                    console.log('Backorder: ' + backOrder);
+                } else {
+                    existingDiv.style.display='none';
+                }
+            }
+            clearTimeout(buttonTimer);
+        }, 500);
+    }
+}
+</script>

@@ -1,0 +1,42 @@
+<div id="testMessage" style="display: none;">
+    
+</div>
+<div class="productView-testing">
+    <h1 class="productView-title">Aylis Testing</h1>
+    <ul>
+    {{#if product.stock_level}}
+        {{#if product.can_purchase}}
+            <li>Purchasable?</li><li>YES</li>
+            <li>Inventory Tracking:</li><li>ON</li>
+            <li>Inventory Total:</li><li>{{product.stock_level}}</li>
+            {{#gt product.stock_level 1000}}
+                <li>Greater than 1000:</li><li>YES</li>
+                <li>Immediately Available:</li><li>{{subtract product.stock_level 1000}}</li>
+                <li>Backorder (Virtual):</li><li>1000</li>
+                <li>Messaging:</li><li>Order by 1pm for Next Working Day Delivery</li>
+                <li>Messaging:</li><li>Available for immediate collection in-store</li>
+            {{else}}
+                <li>Greater than 1000:</li><li>NO</li>
+                <li>Backorder (Virtual):</li><li>{{product.stock_level}}</li>
+                <li>Messaging:</li><li>Usually delivered within an estimated 3-5 working days</li>
+                <li>Messaging:</li><li>Delivery to store for collection in an estimated 3-5 working days</li>
+            {{/gt}}
+        {{else}}
+            <li>Purchasable?</li><li>NO</li>
+            <li>Messaging:</li><li>Not currenty available in stock</li>
+        {{/if}}
+    {{else}}
+        {{#if product.can_purchase}}
+            <li>Purchasable?</li><li>YES</li>
+            <li>Inventory Tracking:</li><li>OFF</li>
+            <li>Immediately Available:</li><li>N/a</li>
+            <li>Backorder (Virtual):</li><li>N/a</li>
+            <li>Messaging:</li><li>Usually delivered within an estimated 3-5 working days</li>
+            <li>Messaging:</li><li>Delivery to store for collection in an estimated 3-5 working days</li>
+        {{else}}
+            <li>Purchasable?</li><li>NO</li>
+            <li>Messaging:</li><li>Not currenty available in stock</li>
+        {{/if}}
+    {{/if}}
+    </ul>
+</div>
