@@ -1034,6 +1034,7 @@ div[data-content-region="category_below_menu"] div[data-placement-status="ACTIVE
 	display: flex;
 	font-weight: 400;
 	font-size: 12px;
+	flex-wrap: wrap;
 }
 
 .card-custom-row div {
@@ -1055,15 +1056,27 @@ div[data-content-region="category_below_menu"] div[data-placement-status="ACTIVE
 	background-color: #eee;
 }
 
-.card-custom-row1 div:first-child {
-	/* flex: 0 1 0; */
+.card-custom-row2 div.card-custom-ratio {
+	flex: 0 1 0;
 	color: #fff;
 	background-color: #666;
 }
 
-.card-custom-row2 div:first-child {
+.card-custom-row2 div:last-child {
+	flex: 1 1 0;
+}
+
+.card-custom-row2 div.card-custom-multibuy {
 	color: #fff;
 	background-color: #006b77;
+}
+
+.card-custom-ratio {
+	min-width: 54px;
+}
+
+.card-custom-stength {
+	min-width: 47px;
 }
 
 
