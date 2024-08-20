@@ -6198,9 +6198,6 @@ div[data-content-region="product_view_bottom--global"] {
 	text-align: center;
 	margin-top: 1.5rem;
 	margin-bottom: 1.5rem;
-	@include breakpoint("medium") {
-		text-align: right;
-	}
 }
 
 .actionBar-pagination {
@@ -6226,15 +6223,21 @@ div[data-content-region="product_view_bottom--global"] {
 .pagination-item .pagination-link,
 .pagination-item.pagination-item--next .pagination-link,
 .pagination-item.pagination-item--previous .pagination-link  {
-	border: 1px solid stencilColor("custom-pagination-background");
+	border: 1px solid stencilColor("container-border-global-color-base");
 	background: none;
-	color: stencilColor("custom-pagination-background");
+	color: stencilColor("color-textBase");
+	min-width: 24px;
 }
 
 .pagination-item .pagination-link:hover,
-.pagination-item.pagination-item--current .pagination-link,
 .pagination-item.pagination-item--next .pagination-link:hover,
 .pagination-item.pagination-item--previous .pagination-link:hover {
+	border: 1px solid stencilColor("color-textBase");
+	background: none;
+	color: stencilColor("color-textBase");
+}
+
+.pagination-item.pagination-item--current .pagination-link {
 	border: 1px solid stencilColor("custom-pagination-background");
 	background: stencilColor("custom-pagination-background");
 	color: stencilColor("custom-pagination-color");
@@ -6264,14 +6267,46 @@ div[data-content-region="product_view_bottom--global"] {
 
 .pagination-item--previous > a.pagination-link .icon svg,
 .pagination-item--next > a.pagination-link .icon svg {
-	color: stencilColor("custom-pagination-background");
-	fill: stencilColor("custom-pagination-background");
+	color: stencilColor("color-textBase");
+	fill: stencilColor("color-textBase");
 }
 
 .pagination-item--previous > a.pagination-link:hover .icon svg,
 .pagination-item--next > a.pagination-link:hover .icon svg {
+	color: stencilColor("color-textBase");
+	fill: stencilColor("color-textBase");
+}
+
+.pagination-load {
+	display: none;
+	text-align: center;
+}
+
+.page-category .page-content .pagination-load {
+	display: block;
+}
+
+.page-category .actionBar-pagination .pagination-load {
+	display: none;
+}
+
+.pagination-load-link {
+	display: inline-block;
+	padding: 1rem 3rem;
+	background: stencilColor("custom-pagination-background");
 	color: stencilColor("custom-pagination-color");
-	fill: stencilColor("custom-pagination-color");
+	border-radius: 99px;
+	text-decoration: none;
+	font-size: 1.125rem;
+	font-weight: 700;
+	margin-top: 1.5rem;
+}
+
+.pagination-load-link:active,
+.pagination-load-link:hover {
+	opacity: 0.8;
+	background: stencilColor("custom-pagination-background");
+	color: stencilColor("custom-pagination-color");
 }
 
 
