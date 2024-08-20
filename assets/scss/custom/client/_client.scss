@@ -277,7 +277,7 @@ body.scroll .navPages > ul > li > .navPages-action {
 */
 .navPages-item-e-liquids div.navPage-subMenu {
 	@include breakpoint("medium") {
-		height: 300px;
+		height: 360px;
 		max-height: none;
 	}
 }
@@ -313,7 +313,7 @@ body.scroll .navPages > ul > li > .navPages-action {
 		padding: 1.5rem .75rem 1.5rem 1.5rem !important;
 		box-shadow: none;
 		z-index: 2;
-		height: 258px;
+		height: 322px;
 		overflow-y: auto;
 		background-color: #f1f1f1;
 		border-top-right-radius: .5rem;
@@ -389,27 +389,31 @@ body.scroll .navPages > ul > li > .navPages-action {
 	background-color: stencilColor('button--primary-backgroundColorHover');
 }
 
-/* E-Liquid Flavours Menu */
+
+/* E-Liquid Flavours & Deals Menu */
 
 .navPages-item-e-liquids div.navPage-subMenu.flavourHover {
 	@include breakpoint("medium") {
-		height: 400px;
+		height: 440px;
 	}
 }
 
 .navPages-item-e-liquids .flavourHover .navPage-subMenu-list .navPage-subMenu-item .navPage-childList {
 	@include breakpoint("medium") {
-		height: 360px;
+		height: 400px;
 	}
 }
 
-.navPages-item-e-liquids #navPages-e-liquid-flavours .navPage-childList-item {
+
+.navPages-item-e-liquids #navPages-e-liquid-flavours .navPage-childList-item,
+.navPages-item-e-liquids #navPages-e-liquid-deals .navPage-childList-item {
 	@include breakpoint("medium") {
 		margin-bottom: 1.5rem;
 	}
 }
 
-.navPages-item-e-liquids #navPages-e-liquid-flavours .navPage-childList-action {
+.navPages-item-e-liquids #navPages-e-liquid-flavours .navPage-childList-action,
+.navPages-item-e-liquids #navPages-e-liquid-deals .navPage-childList-action {
 	padding-top: 1.5rem;
 	font-weight: 700;
 	@include breakpoint("medium") {
@@ -419,7 +423,8 @@ body.scroll .navPages > ul > li > .navPages-action {
 	}
 }
 
-.navPages-item-e-liquids #navPages-e-liquid-flavours .navPage-grandchildList {
+.navPages-item-e-liquids #navPages-e-liquid-flavours .navPage-grandchildList,
+.navPages-item-e-liquids #navPages-e-liquid-deals .navPage-grandchildList {
 	margin: 0;
 	display: flex;
 	flex-wrap: wrap;
@@ -430,7 +435,8 @@ body.scroll .navPages > ul > li > .navPages-action {
 	}
 }
 
-.navPages-item-e-liquids #navPages-e-liquid-flavours .navPage-grandchildList-item {
+.navPages-item-e-liquids #navPages-e-liquid-flavours .navPage-grandchildList-item,
+.navPages-item-e-liquids #navPages-e-liquid-deals .navPage-grandchildList-item {
 	flex: 0 0 50%;
 	/* border-right: 1px solid stencilColor('navPages-subMenu-separatorColor'); */
 	/* border-bottom: 1px solid stencilColor('navPages-subMenu-separatorColor'); */
@@ -449,7 +455,8 @@ body.scroll .navPages > ul > li > .navPages-action {
 	}
 }
 
-.navPages-item-e-liquids #navPages-e-liquid-flavours .navPage-grandchildList-action {
+.navPages-item-e-liquids #navPages-e-liquid-flavours .navPage-grandchildList-action,
+.navPages-item-e-liquids #navPages-e-liquid-deals .navPage-grandchildList-action {
 	font-weight: 400;
 	padding: .25rem 0;
 	@include breakpoint("medium") {
@@ -850,7 +857,6 @@ div[data-content-region="category_below_menu"] div[data-placement-status="ACTIVE
 
 
 
-
 // =============================================================================
 // E-liquids
 // =============================================================================
@@ -994,6 +1000,70 @@ div[data-content-region="category_below_menu"] div[data-placement-status="ACTIVE
 	background-color: stencilColor("button--primary-backgroundColor");
 	font-weight: 700;
 	font-size: 12px;
+}
+
+
+
+// =============================================================================
+// Product Cards
+// =============================================================================
+
+
+.card-message {
+	order: 1;
+	margin-top: 0;
+}
+
+.card-rating {
+	order: 2;
+}
+
+.card-brand {
+	order: 3;
+}
+
+.card-title {
+	order: 4;
+}
+
+.card-price {
+	order: 5;
+}
+
+.card-custom-row {
+	display: flex;
+	font-weight: 400;
+	font-size: 12px;
+}
+
+.card-custom-row div {
+	flex: 1 1 0;
+	white-space: nowrap;
+	overflow-x: hidden;
+	padding: .125rem .25rem;
+	margin-left: 1px;
+	margin-bottom: 1px;
+	text-align: center;
+}
+
+.card-custom-row div:first-child {
+	margin-left: 1px;
+}
+
+.card-custom-row1 div {
+	color: #333;
+	background-color: #eee;
+}
+
+.card-custom-row1 div:first-child {
+	/* flex: 0 1 0; */
+	color: #fff;
+	background-color: #666;
+}
+
+.card-custom-row2 div:first-child {
+	color: #fff;
+	background-color: #006b77;
 }
 
 

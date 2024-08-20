@@ -1,0 +1,15 @@
+<div class="card-custom-data">
+	<div class="card-custom-row card-custom-row1">
+		{{#filter custom_fields 'PG-VG Ratio' property='name' }}
+			<div class="card-custom-ratio">{{value}}</div>
+		{{/filter}}
+		{{#filter custom_fields 'Nicotine Strength' property='name' }}
+			<div class="card-custom-stength">{{value}}</div>
+		{{/filter}}
+	</div>
+	<div class="card-custom-row card-custom-row2">
+		{{#filter custom_fields 'Multi-Buy' property='name' }}
+			<div class="card-custom-multibuy">{{value}}</div>
+		{{/filter}}
+	</div>
+</div>

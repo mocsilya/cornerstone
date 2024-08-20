@@ -171,6 +171,58 @@
 			                    </ul>
 			            	</li>
 							
+			            	<li class="navPage-subMenu-item navPage-subMenu-deals">
+			                    <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+			                       href="/e-liquids/multi-buy-deals/"
+			                       aria-label="E-Liquid Multi-Buy Deals"
+			                    >
+			                        Multi-Buy Deals
+			                        <span class="collapsible-icon-wrapper"
+			                            data-collapsible="navPages-e-liquid-deals"
+			                            data-collapsible-disabled-breakpoint="medium"
+			                            data-collapsible-disabled-state="open"
+			                            data-collapsible-enabled-state="closed"
+			                        >
+			                            <i class="icon navPages-action-moreIcon" aria-hidden="true">
+			                                <svg><use href="#icon-chevron-down" /></svg>
+			                            </i>
+			                        </span>
+			                    </a>
+			                    <ul class="navPage-childList" id="navPages-e-liquid-deals">
+			                    {{#if children}}
+			                        {{#each children}}
+			                            {{#if name '===' 'Multi-Buy Deals'}}
+										<a href="{{url}}" title="View all {{name}}" class="navPage-childList-viewall">View All</a>
+			                            {{#each children}}
+			                                <li class="navPage-childList-item">
+			                                    <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+			                                        href="{{url}}"
+			                                        aria-label="{{name}}"
+			                                    >
+			                                        {{name}}
+			                                    </a>
+							                    {{#if children}}
+													<ul class="navPage-grandchildList" id="navPages-{{id}}">
+							                        {{#each children}}
+						                                <li class="navPage-grandchildList-item">
+						                                    <a class="navPage-grandchildList-action navPages-action{{#if is_active}} activePage{{/if}}"
+						                                        href="{{url}}"
+						                                        aria-label="{{name}}"
+						                                    >
+						                                        {{name}}
+						                                    </a>
+														</li>
+					                            	{{/each}}
+													</ul>
+					                            {{/if}}
+			                                </li>
+			                            {{/each}}
+			                            {{/if}}
+			                        {{/each}}
+			                    {{/if}}
+			                    </ul>
+			            	</li>
+							
 				            <li class="navPage-subMenu-item">
 				                    <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
 				                       href="/e-liquids/"
