@@ -20,6 +20,70 @@
 	color: #666;
 }
 
+.header-logo-image {
+    @include breakpoint("medium") {
+		max-width: 182px;
+		min-width: 182px;
+	}
+	@include breakpoint("large") {
+		max-width: 212px;
+		min-width: 212px;
+	}
+}
+
+body.scroll .header-logo-image {
+    @include breakpoint("medium") {
+		max-width: 121px;
+	    min-width: 121px;
+	}
+}
+
+
+
+// =============================================================================
+// MENU
+// =============================================================================
+
+.navPages > ul > li.navPages-item-custom .navPages-action {
+	font-size: 20px;
+	padding: .78571rem 0;
+    @include breakpoint("medium") {
+		font-size: 16px;
+		color: stencilColor('custom-header-menu-link');
+		padding: .78571rem 1.14286rem;
+	}
+}
+
+.navPages > ul > li.navPages-item-custom .navPages-action:hover {
+    @include breakpoint("medium") {
+		color: stencilColor('custom-header-menu-link-hover');
+	}
+}
+
+.navPages > ul > li.navPages-item-custom .navPages-action-desktop,
+.navPages > ul > li.navPages-item-custom .navPages-action-both {
+    @include breakpoint("medium") {
+		display: inline-block;
+	}
+}
+
+.navPages > ul > li.navPages-item-custom .navPages-action-button,
+.navPages > ul > li.navPages-item-custom .navPages-action-button:hover {
+	padding: .78571rem;
+	background-color: #cc0000;
+	color: #fff;
+	border-radius: .75rem;
+    @include breakpoint("medium") {
+		padding: .7rem 1.14286rem;
+		margin: .08571rem 0;
+		border-radius: .5rem;
+	}
+}
+
+body.scroll .navPages > ul > li.navPages-item-custom .navPages-action {
+	padding-top: .375rem;
+	padding-bottom: .375rem;
+}
 
 
 // =============================================================================
@@ -98,12 +162,7 @@
 	fill: stencilColor('custom-footer-border');
 }
 
-
+#consent-manager,
 #consent-manager-update-banner {
-	background-color: #f5f5f5 !important;
-}
-
-
-#consent-manager-update-banner a {
-	color: #14214e !important;
+	background-color: #2c3860 !important;
 }
