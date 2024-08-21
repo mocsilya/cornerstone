@@ -613,14 +613,22 @@ body.scroll .header {
 }
 
 .header-logo-image-container {
+	height: 55px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 	@include breakpoint("medium") {
-		min-height: 60px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		padding-top: 0;
+		padding-bottom: 0;
+		height: 60px;
+		min-height: 0;
+		max-width: 250px;
 	}
 	@include breakpoint("large") {
-		min-height: 80px;
+		height: 80px;
+		max-width: 300px;
 	}
 }
 
@@ -638,49 +646,26 @@ body.scroll .header {
 
 body.scroll .header-logo-image-container {
 	@include breakpoint("medium") {
-		min-height: 41px;
+		height: 41px;
 	}
 	@include breakpoint("large") {
-		min-height: 41px;
+		height: 41px;
 	}
 }
 
-
-// logo math
+/* logo math
 $value_of_logo_size: stencilString("logo_size");
 $position_of_x: str-index($value_of_logo_size, "x");
 $logo_width: str-slice($value_of_logo_size, 0, $position_of_x - 1);
 $logo_height: str-slice($value_of_logo_size, $position_of_x + 1);
+*/
 
 .header-logo-image {
-	width: auto;
-	max-width: 100%;
-	@include breakpoint("medium") {
-		width: 100%;
-		max-width: 250px;
-		height: auto;
-		max-height: 60px;
-		display: inline-block;
-	}
-	@include breakpoint("large") {
-		max-height: 80px;
-		max-width: $logo_width +"px";
-	}
-}
-
-body.scroll .header-logo-image {
-	@include breakpoint("medium") {
-		width: auto;
-		max-width: 250px;
-		height: 41px;
-		max-height: 41px;
-	}
-	@include breakpoint("large") {
-		width: auto;
-		max-width: 250px;
-		height: 41px;
-		max-height: 41px;
-	}
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	max-height: none;
+	min-height: 0;
 }
 
 .header-logo--left .header-logo-image,
@@ -6198,9 +6183,6 @@ div[data-content-region="product_view_bottom--global"] {
 	text-align: center;
 	margin-top: 1.5rem;
 	margin-bottom: 1.5rem;
-	@include breakpoint("medium") {
-		text-align: right;
-	}
 }
 
 .actionBar-pagination {
@@ -6226,15 +6208,21 @@ div[data-content-region="product_view_bottom--global"] {
 .pagination-item .pagination-link,
 .pagination-item.pagination-item--next .pagination-link,
 .pagination-item.pagination-item--previous .pagination-link  {
-	border: 1px solid stencilColor("custom-pagination-background");
+	border: 1px solid stencilColor("container-border-global-color-base");
 	background: none;
-	color: stencilColor("custom-pagination-background");
+	color: stencilColor("color-textBase");
+	min-width: 24px;
 }
 
 .pagination-item .pagination-link:hover,
-.pagination-item.pagination-item--current .pagination-link,
 .pagination-item.pagination-item--next .pagination-link:hover,
 .pagination-item.pagination-item--previous .pagination-link:hover {
+	border: 1px solid stencilColor("color-textBase");
+	background: none;
+	color: stencilColor("color-textBase");
+}
+
+.pagination-item.pagination-item--current .pagination-link {
 	border: 1px solid stencilColor("custom-pagination-background");
 	background: stencilColor("custom-pagination-background");
 	color: stencilColor("custom-pagination-color");
@@ -6264,14 +6252,46 @@ div[data-content-region="product_view_bottom--global"] {
 
 .pagination-item--previous > a.pagination-link .icon svg,
 .pagination-item--next > a.pagination-link .icon svg {
-	color: stencilColor("custom-pagination-background");
-	fill: stencilColor("custom-pagination-background");
+	color: stencilColor("color-textBase");
+	fill: stencilColor("color-textBase");
 }
 
 .pagination-item--previous > a.pagination-link:hover .icon svg,
 .pagination-item--next > a.pagination-link:hover .icon svg {
+	color: stencilColor("color-textBase");
+	fill: stencilColor("color-textBase");
+}
+
+.pagination-load {
+	display: none;
+	text-align: center;
+}
+
+.page-category .page-content .pagination-load {
+	display: block;
+}
+
+.page-category .actionBar-pagination .pagination-load {
+	display: none;
+}
+
+.pagination-load-link {
+	display: inline-block;
+	padding: 1rem 3rem;
+	background: stencilColor("custom-pagination-background");
 	color: stencilColor("custom-pagination-color");
-	fill: stencilColor("custom-pagination-color");
+	border-radius: 99px;
+	text-decoration: none;
+	font-size: 1.125rem;
+	font-weight: 700;
+	margin-top: 1.5rem;
+}
+
+.pagination-load-link:active,
+.pagination-load-link:hover {
+	opacity: 0.8;
+	background: stencilColor("custom-pagination-background");
+	color: stencilColor("custom-pagination-color");
 }
 
 
@@ -8868,4 +8888,108 @@ div[data-content-region="cart_below_table"] {
 
 .custom-widget-banner .custom-widget-button-pill {
 	border-radius: 999px;
+}
+
+
+
+// Widget > Custom Video
+// =============================================================================
+
+.custom-widget-video .custom-widget-overlay {
+	position: relative;
+	box-sizing: content-box;
+	height: 0;
+}
+
+.custom-widget-video .custom-widget-9x16 {
+	padding-bottom: 177.77%
+}
+
+.custom-widget-video .custom-widget-1x1 {
+	padding-bottom: 100%;
+}
+
+.custom-widget-video .custom-widget-4x3 {
+	padding-bottom: 75%;
+}
+
+.custom-widget-video .custom-widget-16x9 {
+	padding-bottom: 56.25%;
+}
+
+.custom-widget-video .custom-widget-play {
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+	
+.custom-widget-video .custom-widget-container {
+	position: relative;
+}
+
+.custom-widget-video .custom-widget-thumbnail {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+	
+.custom-widget-video .custom-widget-duration {
+	position: absolute;
+	z-index: 2;
+	right: 0.5rem;
+	bottom: 0.5rem;
+	padding: 0.2rem 0.4rem;
+	background-color: rgba(0, 0, 0, 0.6);
+	color: #fff;
+	font-family: sans-serif;
+	font-size: 16px;
+}
+
+.custom-widget-video .custom-widget-play-overlay {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.2);
+	transition: background-color 0.7s;
+}
+
+.custom-widget-video .custom-widget-play-overlay:hover {
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.custom-widget-video .custom-widget-overlay iframe {
+	position: absolute;
+	z-index: 3;
+	width: 100%;
+	height: 100%;
+}
+
+.custom-widget-video .custom-widget-play-icon {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 120px;
+	height: 90px;
+	border-radius: 20px;
+	background: rgba(0, 0, 0, 0.8);
+	cursor: pointer;
+}
+
+.custom-widget-video .custom-widget-play-button {
+	width: 40px;
+	height: 40px;
+	border-style: solid;
+	border-color: transparent transparent transparent #fff;
+	border-width: 20px 0px 20px 40px;
+	box-sizing: border-box;
+	background: none;
+	margin-top: 25px;
+	margin-left: 45px;
+	cursor: pointer;
 }
