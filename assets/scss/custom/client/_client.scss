@@ -20,24 +20,6 @@
 	color: #666;
 }
 
-.header-logo-image {
-    @include breakpoint("medium") {
-		max-width: 182px;
-		min-width: 182px;
-	}
-	@include breakpoint("large") {
-		max-width: 212px;
-		min-width: 212px;
-	}
-}
-
-body.scroll .header-logo-image {
-    @include breakpoint("medium") {
-		max-width: 121px;
-	    min-width: 121px;
-	}
-}
-
 
 
 // =============================================================================
@@ -147,6 +129,21 @@ body.scroll .navPages > ul > li.navPages-item-custom .navPages-action {
 
 
 // =============================================================================
+// BRANDS
+// =============================================================================
+
+.brandGrid .brand {
+    @include breakpoint("large") {
+		width: 20%;
+	}
+    @include breakpoint("xlarge") {
+		width: 16.666667%;
+	}
+}
+
+
+
+// =============================================================================
 // FOOTER
 // =============================================================================
 
@@ -166,3 +163,76 @@ body.scroll .navPages > ul > li.navPages-item-custom .navPages-action {
 #consent-manager-update-banner {
 	background-color: #2c3860 !important;
 }
+
+
+// =============================================================================
+// WIDGET LAYOUT
+// =============================================================================
+
+div[data-layout-name="Layout-S1-M2-L3"] > div[data-sub-layout] {
+	min-width: 100% !important;
+    @include breakpoint("medium") {
+		min-width: 50% !important;
+	}
+    @include breakpoint("large") {
+		min-width: 33.33333% !important;
+	}
+}
+
+div[data-layout-name="Layout-S1-M1-L2"] > div[data-sub-layout] {
+	min-width: 100% !important;
+    @include breakpoint("medium") {
+		min-width: 100% !important;
+	}
+    @include breakpoint("large") {
+		min-width: 50% !important;
+	}
+}
+
+
+
+// =============================================================================
+// WIDGET ALL CUSTOM
+// =============================================================================
+
+.custom-widget.widget-no-container .container {
+	padding: 0 !important;
+	max-width: none !important;
+}
+
+
+
+// =============================================================================
+// WIDGET BANNER
+// =============================================================================
+
+.custom-widget-banner .custom-widget-content-light {
+	background: rgba(255,255,255, 0.8);
+}
+
+.custom-widget-banner .custom-widget-content-dark {
+	background: rgba(0,0,0, 0.7);
+}
+
+.custom-widget-banner .custom-widget-content-light .custom-widget-heading,
+.custom-widget-banner .custom-widget-content-dark .custom-widget-heading {
+	width: 100% !important;
+	padding-bottom: 0 !important;
+	margin-bottom: -1px !important;
+	background: none !important;
+}
+
+.custom-widget-banner .custom-widget-content-light .custom-widget-subtext,
+.custom-widget-banner .custom-widget-content-dark .custom-widget-subtext {
+	background: none !important;
+} 
+
+.custom-widget-banner .custom-widget-content-light .custom-widget-buttons,
+.custom-widget-banner .custom-widget-content-dark .custom-widget-buttons {
+	width: 100% !important;
+	justify-content: center !important;
+	background: none !important;
+}
+
+
+
