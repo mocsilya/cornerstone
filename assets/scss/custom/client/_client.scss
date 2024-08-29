@@ -2452,6 +2452,14 @@ div[data-content-region="product_below_content"] {
 	}
 }
 
+body.page-iframe > div {
+	display: none;
+}
+
+body.page-iframe main.body > div {
+	display: block;
+}
+
 
 // Custom Tabs
 // =============================================================================

@@ -90,6 +90,8 @@ customer:
 				const oldVal = document.getElementById('contact_rma');
 				const newVal = oldVal.value = getParam;
 			}
+			document.getElementById("contact_fullname").required = true;
+			document.getElementById("contact_phone").required = true;
 		</script>
 	{{/unless}}
 {{/if}}
