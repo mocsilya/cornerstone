@@ -8907,6 +8907,8 @@ div[data-content-region="cart_below_table"] {
 	position: relative;
 	box-sizing: content-box;
 	height: 0;
+	overflow-y: hidden;
+	background-color: #000;
 }
 
 .custom-widget-video .custom-widget-9x16 {
@@ -8925,7 +8927,9 @@ div[data-content-region="cart_below_table"] {
 	padding-bottom: 56.25%;
 }
 
-.custom-widget-video .custom-widget-play {
+.custom-widget-video .custom-widget-play,
+.custom-widget-video .custom-widget-image,
+.custom-widget-video .custom-widget-picture {
 	width: 100%;
 	position: absolute;
 	top: 0;
@@ -8934,14 +8938,15 @@ div[data-content-region="cart_below_table"] {
 	bottom: 0;
 }
 	
-.custom-widget-video .custom-widget-container {
-	position: relative;
-}
 
 .custom-widget-video .custom-widget-thumbnail {
 	display: block;
 	width: 100%;
 	height: auto;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 }
 	
 .custom-widget-video .custom-widget-duration {
