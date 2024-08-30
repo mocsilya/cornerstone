@@ -796,6 +796,41 @@ div[data-content-region="product_below_price--global"] div > div > div {
 	padding-bottom: 11px;
 }
 
+.product-custom-multibuy {
+	display: flex;
+	margin-bottom: .75rem;
+}
+
+.product-custom-multibuy-name,
+.product-custom-multibuy-value {
+	flex: 0 1 0;
+	padding: .5rem 1rem;
+	white-space: nowrap;
+	font-size: 1.125rem;
+	@include breakpoint("medium") {
+		padding: .75rem 1.5rem;
+		font-size: 1.25rem;
+	}
+}
+
+.product-custom-multibuy-name {
+	margin-right: 1px;
+	background-color: #f1f1f1;
+	color: #333;
+	border-top-left-radius: .5rem;
+	border-bottom-left-radius: .5rem;
+}
+
+.product-custom-multibuy-value {
+	background-color: #006b77;
+	color: #fff;
+	font-weight: 700;
+	border-top-right-radius: .5rem;
+	border-bottom-right-radius: .5rem;
+}
+
+
+
 
 // =============================================================================
 // Cards
@@ -862,8 +897,30 @@ div[data-content-region="category_below_menu"] div[data-placement-status="ACTIVE
 // =============================================================================
 
 
-.page-category.page-e-liquids .subcategories-above {
+.page-category.page-e-liquids .subcategories-blank,
+.page-category.page-e-liquids .subcategories-image {
 	display: none;
+}
+
+.page-category.page-e-liquids .subcategories-above ul {
+	text-align: center;
+}
+
+.page-category.page-e-liquids .subcategories-above ul a .subcategories-name {
+	border: 1px solid stencilColor("button--primary-backgroundColor");
+	background-color: #fff;
+	color: #666;
+	padding-top: .375rem;
+	padding-bottom: .375rem;
+	font-size: 1.125rem;
+	border-radius: 99px;
+}
+
+.page-category.page-e-liquids .subcategories-above ul a:hover .subcategories-name {
+	border: 1px solid stencilColor("button--primary-backgroundColorHover");
+	background-color: #fff;
+	color: stencilColor("button--primary-backgroundColor");
+	opacity: 1;
 }
 
 

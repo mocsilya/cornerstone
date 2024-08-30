@@ -623,7 +623,15 @@
         ]
       },
       "images": {},
-      "settings": {}
+      "settings": {
+        "custom_header_bar_message3_text": "E-liquids Multi-Buy Deals",
+        "custom_header_bar_message3_link": "/e-liquids/multi-buy-deals/",
+        "custom_header_bar_message3_icon": "discount",
+        "custom_header_menu_1_link": "/eliquids/4-for-10-deals/?_bc_fsnf=1&brand=17",
+        "custom_header_menu_1_text": "Get 4 for £10 on Elfliq",
+        "custom_header_menu_2_link": "/gold-bar-disposable-vape-20mg/",
+        "custom_header_menu_3_link": "/smok-rigel-kit/"
+      }
     }
   ]
 }
