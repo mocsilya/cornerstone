@@ -6368,10 +6368,18 @@ div[data-content-region="page_builder_content_editor_area_bottom"] {
 	clear: both;
 }
 
+.page-iframe > div {
+	display: none;
+}
+
 .page-iframe .adminBar,
 .page-iframe #consent-manager-update-banner,
 .page-iframe #consent-manager {
 	display: none !important;
+}
+
+.page-iframe main.body > div {
+	display: block;
 }
 
 .page-iframe,
