@@ -6267,11 +6267,15 @@ div[data-content-region="product_view_bottom--global"] {
 	text-align: center;
 }
 
-.page-category .page-content .pagination-load {
+.page-category .page-content .pagination-load,
+.page-search .page-content .pagination-load,
+.page-brand .page-content .pagination-load {
 	display: block;
 }
 
-.page-category .actionBar-pagination .pagination-load {
+.page-category .actionBar-pagination .pagination-load,
+.page-search .actionBar-pagination .pagination-load,
+.page-brand .actionBar-pagination .pagination-load {
 	display: none;
 }
 
