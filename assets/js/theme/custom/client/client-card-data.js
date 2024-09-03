@@ -4,59 +4,48 @@
 
 export default function ( data ) {
     if (data) {
-    	//console.log('[data]: ', data);
 		let i = 0;
 		while (i < data.length) {
 		    console.log(data[i]);
-			//console.log("Id: " + data[i].id);
-			//console.log("Name: " + data[i].productName);
-			const div = document.querySelector('.custom-product-data[data-product-id="' + data[i].id + '"]');
-			
-			// Create the div for the html
-			const table = document.createElement("div");
-			table.className = "data-table";
-			
+			const card = document.querySelector('.card[data-entity-id="' + data[i].id + '"]');
+			const cardPrice = card.querySelector('.price.price--withTax');
+			const cardPriceFormatted = cardPrice.innerHTML;
+			const cardData = document.querySelector('.custom-product-data[data-product-id="' + data[i].id + '"]');
+			const cardMessage = cardData.previousElementSibling;
+			const cardMessagePrice = cardMessage.querySelector('.card-message-price');
+			let cardMessageVal;
+			if (cardMessagePrice) {
+				cardMessageVal = cardMessagePrice.getAttribute('data-price-value');
+			} else {
+				cardMessageVal = 0;
+			}
+			console.log('cardMessageVal: ' + cardMessageVal);
 			let j = 0;
-			while (j < data[i].productVariant.length) {
-				
-				//Create the div for the html
-				const tr = document.createElement("div");
-				tr.className = "data-tr";
-				
-				// Variant Sku
-				const sku = data[i].productVariant[j].sku;
-				
-				// Variant Pricing
-				const saleCheck = data[i].productVariant[j].prices.salePrice;
-				let price;
-				if (!saleCheck == null) {
-					price = data[i].productVariant[j].prices.salePrice.formatted;
-				} else {
-					price = data[i].productVariant[j].prices.price.formatted;
-				}
-				
-				// Product Variant Options
-				let optionName;
-				let optionValue;
-				let k = 0;
-				while (k < data[i].productVariant[j].options.edges.length) {
+			while (j < data[i].productVariant.length) {				
+				if (j < 1) {
+					// Variant Pricing
+					const saleCheck = data[i].productVariant[j].prices.salePrice;
+					let price;
+					let priceVal;
+					if (!saleCheck == null) {
+						price = data[i].productVariant[j].prices.salePrice.formatted;
+						priceVal = data[i].productVariant[j].prices.salePrice.value;
+					} else {
+						price = data[i].productVariant[j].prices.price.formatted;
+						priceVal = data[i].productVariant[j].prices.price.value;
+					}
 					
-					optionName = data[i].productVariant[j].options.edges[k].node.displayName;
-					optionValue = data[i].productVariant[j].options.edges[k].node.values.edges[0].node.label;
-					
-				    k++;
+					if (cardMessageVal > 0) {
+						if (priceVal < cardMessageVal) {
+							console.log("default="+ cardMessageVal +" ... var="+ priceVal + "variant price is less than default");
+							cardMessagePrice.innerHTML = "RRP: <s>"+cardPriceFormatted+"</s>";
+							cardPrice.innerHTML = price;
+							
+						}
+					}
 				}
-				
-				tr.innerHTML = '<div class="td td-sku">'+ sku +'</div>' +
-				'<div class="td td-option">'+ optionValue +'</div>' +
-				'<div class="td td-price">'+ price +'</div>';
-
-			    table.appendChild(tr);
-				div.append(table);
-				
 			    j++;
 			}
-			
 		    i++;
 		}
     }
