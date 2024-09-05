@@ -69,6 +69,16 @@ body.scroll .navPages > ul > li.navPages-item-custom .navPages-action {
 
 
 // =============================================================================
+// CATEGORY
+// =============================================================================
+
+.sale-flag-side,
+.sold-out-flag-side {
+	font-size: .875rem;
+}
+
+
+// =============================================================================
 // PRODUCT PAGE STOCK
 // =============================================================================
 
@@ -163,6 +173,57 @@ body.scroll .navPages > ul > li.navPages-item-custom .navPages-action {
 #consent-manager-update-banner {
 	background-color: #2c3860 !important;
 }
+
+
+
+
+// =============================================================================
+// HOME PAGE
+// =============================================================================
+
+.page-default .productGrid,
+.page-default .productGrid .product,
+.page-default .productGrid .product:first-child {
+	border: 0;
+}
+
+.page-default .productGrid .card {
+	border: 1px solid #ccc !important;
+	border-radius: .25rem;
+	padding: .75rem;
+	flex-direction: row;
+	align-items: center;
+}
+
+.page-default .productGrid .card-figure {
+	flex: 1 1 35%;
+	padding: 0;
+	vertical-align: top;
+}
+
+.page-default .productGrid .card-body {
+	flex: 1 1 65%;
+	padding: 0 0 0 .75rem;
+	vertical-align: top;
+	text-align: left;
+}
+
+.page-default .productGrid .card-brand,
+.page-default .productGrid .card-wishlist {
+	display: none;
+}
+
+.page-default .productGrid .card-wishlist-active,
+.page-default .productGrid .card-compare-active {
+	margin-top: 0;
+}
+
+.page-default .productGrid .card-title {
+	font-size: 1rem;
+}
+
+
+
 
 
 // =============================================================================
