@@ -3245,7 +3245,7 @@ div[data-content-region="category_below_all"] {
 		width: 100%;
 	}
 	@include breakpoint("xlarge") {
-		width: 80%;
+		width: 100%;
 	}
 }
 
@@ -3255,6 +3255,9 @@ div[data-content-region="category_below_all"] {
 	}
 	@include breakpoint("large") {
 		width: 75%;
+	}
+	@include breakpoint("xlarge") {
+		width: 80%;
 	}
 }
 
