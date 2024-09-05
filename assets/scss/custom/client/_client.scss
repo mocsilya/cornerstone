@@ -77,6 +77,107 @@ body.scroll .navPages > ul > li.navPages-item-custom .navPages-action {
 	font-size: .875rem;
 }
 
+.category-header {
+	margin-bottom: 0;
+}
+
+.subcategories-above  {
+	background: #f0f0f0;
+	margin: 0 0 1.5rem 0;
+}
+
+.subcategories-above .subcategories-grid {
+	padding: .75rem 4rem;
+	margin: 0 auto;
+	max-width: calc(1440px + 6rem);
+    @include breakpoint("medium") {
+		padding: .75rem 4rem;
+	}
+    @include breakpoint("large") {
+		padding: .75rem 5.25rem;
+	}
+}
+
+.subcategories-above .slick-next,
+.subcategories-above .slick-prev {
+	width: 48px;
+	height: 48px;
+	padding: 16px;
+	border: 1px solid #e0e0e0;
+}
+
+.subcategories-above .slick-next {
+	right: 8px;
+    @include breakpoint("large") {
+		right: 24px;
+	}
+}
+
+.subcategories-above .slick-prev {
+	left: 8px;
+    @include breakpoint("large") {
+		left: 24px;
+	}
+}
+
+.subcategories-above .subcategories-grid-item {
+	padding: .75rem;
+}
+
+.subcategories-above .subcategories-grid-item a {
+	display: flex;
+	align-items: center;
+}
+
+.subcategories-above .subcategories-container {
+	padding: .5rem;
+	border: 1px solid #e0e0e0;
+	border-radius: .25rem;
+	background-color: #fff;
+}
+
+.subcategories-above .subcategories-image {
+	flex: 1 1 35%;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	min-height: 6rem;
+}
+
+.subcategories-above .subcategories-name {
+	flex: 1 1 65%;
+	padding: 0 0 0 .75rem;
+	line-height: 1.3;
+	text-align: left;
+}
+
+.page-category .container-hero + .container {
+	max-width: 100%;
+	padding: 0;
+}
+
+.page-category .page {
+	padding-left: .75rem;
+	padding-right: .75rem;
+	margin: 0 auto;
+	max-width: calc(1440px + 6rem);
+    @include breakpoint("medium") {
+		padding-left: 2.25rem;
+		padding-right: 2.25rem;
+	}
+    @include breakpoint("large") {
+		padding-left: 5.25rem;
+		padding-right: 5.25rem;
+	}
+}
+
+.page-category .page-sidebar.is-open + .page-content {
+    @include breakpoint("xlarge") {
+		width: 80%;
+	}
+}
+
+
 
 // =============================================================================
 // PRODUCT PAGE STOCK
