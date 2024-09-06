@@ -281,15 +281,23 @@
                     <dt class="productView-info-name condition-label">{{lang 'products.condition'}}</dt>
                     <dd class="productView-info-value condition-value">{{product.condition}}</dd>
                 {{/if}}
-				{{#if product.availability}}
-                    {{#contains product.availability "//"}}
-                        <dt class="productView-info-name availability-label availability-custom">{{lang 'products.availability'}}</dt>
-				        <dd class="productView-info-value availability-value availability-custom" data-availabilty="{{before (split product.availability '//') 1}}">{{after (split product.availability '//') 1}}</dd>
-			        {{else}}
+				{{#if theme_settings.custom_product_availability}}
+					<dt class="productView-info-name availability-label availability-custom">{{lang 'products.availability'}}</dt>
+					{{#if product.availability}}
+						{{#contains product.availability "//"}}
+					        <dd class="productView-info-value availability-value availability-custom" data-product-availabilty="{{before (split product.availability '//') 1}}">{{after (split product.availability '//') 1}}</dd>
+				        {{else}}
+					        <dd class="productView-info-value availability-value availability-custom" data-product-availability="{{before (split theme_settings.custom_product_availability '//') 1}}">{{after (split theme_settings.custom_product_availability '//') 1}}</dd>
+				        {{/contains}}
+					{{else}}
+			            <dd class="productView-info-value availability-value availability-custom" data-product-availability="{{before (split theme_settings.custom_product_availability '//') 1}}">{{after (split theme_settings.custom_product_availability '//') 1}}</dd>
+	                {{/if}}
+				{{else}}
+					{{#if product.availability}}
 			            <dt class="productView-info-name availability-label availability-default">{{lang 'products.availability'}}</dt>
-				        <dd class="productView-info-value availability-value availability-default" data-availability="{{theme_settings.custom_product_availability}}">{{product.availability}}</dd>
-			        {{/contains}}
-                {{/if}}
+				        <dd class="productView-info-value availability-value availability-default">{{product.availability}}</dd>
+					{{/if}}
+				{{/if}}
                 {{#all product.weight theme_settings.show_product_weight}}
                     <dt class="productView-info-name weight-label">{{lang 'products.weight'}}</dt>
                     <dd class="productView-info-value weight-value" data-product-weight>{{product.weight}}</dd>
