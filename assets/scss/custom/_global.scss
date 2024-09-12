@@ -792,10 +792,27 @@ body.scroll .header-logo-text {
 	background: stencilColor("custom-header-menu-background");
 }
 
+@media (max-width: 800px) {
+	.navPages-item-wrapper > a {
+		display: none;
+	}
+	
+	.navPages-item-wrapper > .navPage-subMenu {
+		display: block;
+		opacity: 1;
+	}
+	
+	.navPages .navPages-list-depth-max .navPages-action {
+		font-size: 20px;
+	}
+	
+}
+
 .navPages-item-wrapper > .navPages-action-depth-max {
 	position: relative;
 	padding-right: 3.57143rem;
 }
+
 
 
 
