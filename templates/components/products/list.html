@@ -1,4 +1,4 @@
-<ul class="productList">
+<ul class="productList" data-price-asc="{{#if price.with_tax}}{{round price.with_tax.value}}{{else}}{{round price.without_tax.value}}{{/if}}" data-price-desc="{{#if price.with_tax}}-{{round price.with_tax.value}}{{else}}-{{round price.without_tax.value}}{{/if}}">
     {{#each products}}
 	{{assignVar "productpayment" "inactive"}}
 	{{#filter custom_fields 'hidden' property='name'}}

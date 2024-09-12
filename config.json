@@ -117,6 +117,7 @@
     "custom-header-social-hover": "#00adeb",
     "custom-header-menu-dropdown": "hover",
     "custom-header-menu-home": true,
+	"custom-header-menu-wrapper": "BROWSE THE STORE",
     "custom-header-menu-background": "#14214e",
     "custom-header-menu-link": "#ffffff",
     "custom-header-menu-link-hover": "#00adeb",
