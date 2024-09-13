@@ -4,6 +4,8 @@
 //
 
 
+$custom_header_menu_width: stencilString('custom_header_menu_width');
+
 // =============================================================================
 // HEADER
 // =============================================================================
@@ -26,13 +28,70 @@
 // MENU
 // =============================================================================
 
+.navPages {
+    @include breakpoint("medium") {
+		text-align: left;
+		padding-left: 3rem;
+		padding-right: 3rem;
+		min-height: 51px;
+	}
+    @include breakpoint("large") {
+		padding-left: 6rem;
+		padding-right: 6rem;
+		max-width: calc(1440px + 12rem);
+	}
+}
+/*
+.navPages-item-wrapper > .navPages-action-depth-max {
+	@include breakpoint("medium") {
+		width: $custom_header_menu_width;
+	}
+	@include breakpoint("large") {
+		width: calc(#{$custom_header_menu_width} + 1.5rem);
+	}
+	@include breakpoint("xlarge") {
+		width: calc(#{$custom_header_menu_width} + 3rem);
+	}
+}
+*/
+.navPages-item-wrapper > .navPages-action-depth-max:not(.is-open),
+.navPages-item-wrapper > .navPages-action-depth-max:not(.is-open):hover {
+	padding-top: 0.78571rem !important;
+	padding-bottom: 0.78571rem !important;
+	margin-top: 2px;
+	background-color: #00adeb;
+	color: #fff;
+	border-radius: .25rem;
+}
+
+.navPages-action-depth-max .navPages-action-moreIcon,
+.navPages-action-depth-max.has-subMenu.is-open .navPages-action-moreIcon {
+    @include breakpoint("medium") {
+		float: right;
+		margin-top: .5rem;
+	}
+}
+
+body.scroll .navPages > ul > li > .navPages-action {
+	padding-top: 0.78571rem;
+	padding-bottom: 0.78571rem;
+}
+
+.navPages-item-wrapper > .navPages-action-depth-max:not(.is-open) .navPages-wrapper-icon {
+	height: 3rem;
+}
+
+.navPages-item-wrapper > .navPages-action-depth-max:not(.is-open) .navPages-wrapper-icon .desktopMenu-toggleIcon {
+	top: 1.5rem;
+}
+
 .navPages > ul > li.navPages-item-custom .navPages-action {
 	font-size: 20px;
-	padding: .78571rem 0;
+	padding: 0.78571rem 0;
     @include breakpoint("medium") {
 		font-size: 16px;
 		color: stencilColor('custom-header-menu-link');
-		padding: .78571rem 1.14286rem;
+		padding: 0.78571rem 1.14286rem;
 	}
 }
 
@@ -62,9 +121,61 @@
 	}
 }
 
-body.scroll .navPages > ul > li.navPages-item-custom .navPages-action {
-	padding-top: .375rem;
-	padding-bottom: .375rem;
+div#navPages-menu-wrapper {
+    @include breakpoint("medium") {
+		padding: 0 .5rem !important;
+		width: calc(#{$custom_header_menu_width} + 1.5rem);
+	}
+}
+
+
+.navPages-list-depth-max .navPage-subMenu-horizontal.is-open {
+	@include breakpoint("medium") {
+		-webkit-box-shadow: 0px 6px 6px -6px rgba(0,0,0,0.5); 
+		box-shadow: 0px 6px 6px -6px rgba(0,0,0,0.5); 
+	}
+	@include breakpoint("large") {
+		margin-left: calc(#{$custom_header_menu_width} + 1.5rem);
+	}
+	@include breakpoint("xlarge") {
+		margin-left: calc(#{$custom_header_menu_width} + 3rem);
+	}
+}
+
+#navPages-menu-wrapper > ul > li {
+	padding-top: .25rem;
+	padding-bottom: .25rem;
+	border-bottom: 1px solid stencilColor(navPages-subMenu-separatorColor);
+}
+
+#navPages-menu-wrapper > ul > li > .navPages-action-depth-max {
+	padding-left: 4.5rem;
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: contain;
+    @include breakpoint("medium") {
+		padding-left: 3rem;
+	}
+}
+
+.navPage-subMenu-item-chandlery-above > .navPages-action { background-image: url('../img/custom/chandlery-above.webp'); }
+.navPage-subMenu-item-chandlery-below > .navPages-action { background-image: url('../img/custom/chandlery-below.webp'); }
+.navPage-subMenu-item-sailing-clothing > .navPages-action { background-image: url('../img/custom/sailing-clothing.webp'); }
+.navPage-subMenu-item-dinghies-watersports > .navPages-action { background-image: url('../img/custom/dinghies-watersports.webp'); }
+.navPage-subMenu-item-electricals > .navPages-action { background-image: url('../img/custom/electricals.webp'); }
+.navPage-subMenu-item-electronics > .navPages-action { background-image: url('../img/custom/electronics.webp'); }
+.navPage-subMenu-item-engines > .navPages-action { background-image: url('../img/custom/engines.webp'); }
+.navPage-subMenu-item-maintenance > .navPages-action { background-image: url('../img/custom/maintenance.webp'); }
+.navPage-subMenu-item-navigation-books > .navPages-action { background-image: url('../img/custom/navigation-books.webp'); }
+.navPage-subMenu-item-life-jackets > .navPages-action { background-image: url('../img/custom/life-jackets.webp'); }
+.navPage-subMenu-item-safety > .navPages-action { background-image: url('../img/custom/safety.webp'); }
+
+.navPages-list-depth-max .navPage-subMenu-item-viewall > a > span {
+	background:  stencilColor("navPages-color-hover");
+}
+
+.navPages-list-depth-max .navPage-subMenu-item-viewall > a:hover > span {
+	background:  stencilColor("navPages-color");
 }
 
 
@@ -235,6 +346,58 @@ div[data-content-region="category_above_content"] .custom-widget-banner {
     padding: .5rem .75rem;
 }
 
+.productView-info-name.availability-custom,
+.productView-info-value.availability-custom {
+	display: none;
+}
+
+.availability-messages {
+	margin: 0 0 1.5rem 0;
+}
+
+.availability-messages ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.availability-messages li {
+	display: flex;
+	margin: 0 0 .25rem 0;
+	list-style: none;
+	background-color: #f0f0f0;
+	border-radius: .5rem;
+	padding: 1rem 1.5rem;
+	align-items: center;
+	text-align: left;
+}
+
+.availability-icon {
+	flex: 0 1 0;
+	min-width: 32px;
+}
+
+.next-working-day .availability-icon img,
+.immediate-collection .availability-icon img  {
+	filter: invert(32%) sepia(99%) saturate(4093%) hue-rotate(113deg) brightness(100%) contrast(105%);
+}
+
+.x-days-delivery .availability-icon img,
+.x-days-collection .availability-icon img {
+	filter: invert(63%) sepia(79%) saturate(2414%) hue-rotate(359deg) brightness(102%) contrast(106%);
+}
+
+.not-in-stock .availability-icon img {
+	filter: invert(18%) sepia(81%) saturate(2916%) hue-rotate(358deg) brightness(72%) contrast(132%);
+}
+
+
+.availability-message {
+	flex: 1 0 0;
+	font-size: 15px;
+	font-weight: 700;
+	padding-left: .5rem;
+}
 
 
 

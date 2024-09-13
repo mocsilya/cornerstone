@@ -1,0 +1,134 @@
+<div class="availability-messages">
+    <ul>
+    {{#if product.stock_level}}
+        {{#if product.can_purchase}}
+            {{#gt product.stock_level 1000}}
+                <li class="next-working-day">
+					<div class="availability-icon">
+						<img width="32" height="32" src="{{cdn 'img/custom/truck.svg'}}" alt="truck icon">
+					</div>
+					<div class="availability-message">
+						Order by 1pm for Next Working Day Delivery
+					</div>
+				</li>
+                <li class="immediate-collection">
+					<div class="availability-icon">
+						<img width="32" height="32" src="{{cdn 'img/custom/store-alt.svg'}}" alt="store icon">
+					</div>
+					<div class="availability-message">
+						Available for immediate collection in-store
+					</div>
+				</li>
+            {{else}}
+				{{#if product.availability}}
+                	<li class="x-days-delivery">
+						<div class="availability-icon">
+							<img width="32" height="32" src="{{cdn 'img/custom/truck.svg'}}" alt="truck icon">
+						</div>
+						<div class="availability-message">
+							{{#contains product.availability "//"}}
+								{{after (split product.availability '//') 1}}
+							{{else}}
+								{{product.availability}}
+							{{/contains}}
+						</div>
+					</li>
+					<li class="x-days-collection">
+						<div class="availability-icon">
+							<img width="32" height="32" src="{{cdn 'img/custom/store-alt.svg'}}" alt="store icon">
+						</div>
+						<div class="availability-message">
+							{{#contains product.availability "Delivery"}}
+								Collect in-store {{after (split product.availability 'Delivery') 1}}
+							{{else}}
+								Collection in-store can be arranged.
+							{{/contains}}
+						</div>
+					</li>
+				{{else}}
+                	<li class="x-days-delivery">
+						<div class="availability-icon">
+							<img width="32" height="32" src="{{cdn 'img/custom/truck.svg'}}" alt="truck icon">
+						</div>
+						<div class="availability-message">
+							{{after (split theme_settings.custom_product_availability '//') 1}}
+						</div>
+					</li>
+                	<li class="x-days-collection">
+						<div class="availability-icon">
+							<img width="32" height="32" src="{{cdn 'img/custom/store-alt.svg'}}" alt="store icon">
+						</div>
+						<div class="availability-message">
+							Collect in-store {{after (split theme_settings.custom_product_availability 'Delivery') 1}}
+						</div>
+					</li>
+				{{/if}}
+            {{/gt}}
+        {{else}}
+            <li class="not-in-stock">
+				<div class="availability-icon">
+					<img width="32" height="32" src="{{cdn 'img/custom/store-alt-slash.svg'}}" alt="truck icon">
+				</div>
+				<div class="availability-message">
+					Not currenty available in stock
+				</div>
+			</li>
+        {{/if}}
+    {{else}}
+        {{#if product.can_purchase}}
+			{{#if product.availability}}
+            	<li class="x-days-delivery">
+					<div class="availability-icon">
+						<img width="32" height="32" src="{{cdn 'img/custom/truck.svg'}}" alt="truck icon">
+					</div>
+					<div class="availability-message">
+						{{#contains product.availability "//"}}
+							{{after (split product.availability '//') 1}}
+						{{else}}
+							{{product.availability}}
+						{{/contains}}
+					</div>
+				</li>
+				<li class="x-days-collection">
+					<div class="availability-icon">
+						<img width="32" height="32" src="{{cdn 'img/custom/store-alt.svg'}}" alt="store icon">
+					</div>
+					<div class="availability-message">
+						{{#contains product.availability "Delivery"}}
+							Collect in-store {{after (split product.availability 'Delivery') 1}}
+						{{else}}
+							Collection in-store can be arranged.
+						{{/contains}}
+					</div>
+				</li>
+			{{else}}
+            	<li class="x-days-delivery">
+					<div class="availability-icon">
+						<img width="32" height="32" src="{{cdn 'img/custom/truck.svg'}}" alt="truck icon">
+					</div>
+					<div class="availability-message">
+						{{after (split theme_settings.custom_product_availability '//') 1}}
+					</div>
+				</li>
+            	<li class="x-days-collection">
+					<div class="availability-icon">
+						<img width="32" height="32" src="{{cdn 'img/custom/store-alt.svg'}}" alt="store icon">
+					</div>
+					<div class="availability-message">
+						Collect in-store {{after (split theme_settings.custom_product_availability 'Delivery') 1}}
+					</div>
+				</li>
+			{{/if}}
+        {{else}}
+            <li class="not-in-stock">
+				<div class="availability-icon">
+					<img width="32" height="32" src="{{cdn 'img/custom/store-alt-slash.svg'}}" alt="truck icon">
+				</div>
+				<div class="availability-message">
+					Not currenty available in stock
+				</div>
+			</li>
+        {{/if}}
+    {{/if}}
+    </ul>
+</div>
