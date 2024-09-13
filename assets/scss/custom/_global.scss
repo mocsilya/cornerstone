@@ -6876,16 +6876,49 @@ div[data-content-region="page_builder_content_editor_area_bottom"] {
 
 .page-cart .cart-item-title .cart-item-availability dt,
 .page-cart .cart-item-title .cart-item-options--giftWrapping dt {
-	display: inline-block;
 	padding-right: .5rem;
 	margin: 0;
 	font-weight: 400;
+}
+
+.page-cart .cart-item-title .cart-item-options--giftWrapping dt {
+	display: inline-block;
+}
+
+.page-cart .cart-item-title .cart-item-availability dt {
+	display: none;
 }
 
 .page-cart .cart-item-title .cart-item-availability dd,
 .page-cart .cart-item-title .cart-item-options--giftWrapping dd {
 	display: inline-block;
 	margin: 0;
+}
+
+.page-cart .cart-item-total {
+	min-width: 130px;
+}
+
+.page-cart .cart-item-availabilityMessage {
+	min-height: 0;
+	padding: 0;
+}
+
+.page-cart .cart-item-availabilityMessage .cart-item-block {
+	padding: 0;
+}
+
+.page-cart .cart-item-availabilityMessage .cart-item-block.showMessage {
+	display: block !important;
+	@include breakpoint("medium") {
+		display: table-cell !important;
+	}
+}
+
+.page-cart .cart-item-availabilityMessage .cart-item-block div {
+	text-align: center;
+	padding: 1rem 0;
+	font-size: 15px;
 }
 
 .page-cart .cart-item-price .cart-item-label {
@@ -7143,6 +7176,8 @@ div[data-content-region="cart_below_table"] {
 	width: 100%;
 	clear: both;
 }
+
+
 
 
 
