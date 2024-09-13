@@ -229,6 +229,7 @@
     "custom_product_addtocart_pinterest": true,
     "custom_product_addtocart_modal": true,
     "custom_product_availability": "7//Delivery within an estimated 7 working days",
+	"custom_product_availability_cart": "The estimated delivery for your entire order is X working days.",
     "custom_product_variant_data": false,
     "custom_product_question": "Ask a Question",
     "custom-tab-color": "#000000",
