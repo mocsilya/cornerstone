@@ -36,19 +36,43 @@
     {{/if}}
 	{{/if}}
     {{#if theme_settings.custom_product_tab1_show}}
-        <li class="tab tab-custom1">
-            <a class="tab-title" href="#tab-custom1">{{theme_settings.custom_product_tab1_title}}</a>
-        </li>
+		{{#filter product.custom_fields '_tab1' property='name'}}
+        	<li class="tab tab-custom1">
+            	<a class="tab-title" href="#tab-custom1">{{../theme_settings.custom_product_tab1_title}}</a>
+        	</li>
+		{{else}}
+			{{#unless theme_settings.custom_product_tab1_content '==' 'hidden'}}
+		        <li class="tab tab-custom1">
+		            <a class="tab-title" href="#tab-custom1">{{theme_settings.custom_product_tab1_title}}</a>
+		        </li>
+			{{/unless}}
+		{{/filter}}
     {{/if}}
     {{#if theme_settings.custom_product_tab2_show}}
-        <li class="tab tab-custom2">
-            <a class="tab-title" href="#tab-custom2">{{theme_settings.custom_product_tab2_title}}</a>
-        </li>
+		{{#filter product.custom_fields '_tab2' property='name'}}
+        	<li class="tab tab-custom2">
+            	<a class="tab-title" href="#tab-custom2">{{../theme_settings.custom_product_tab2_title}}</a>
+        	</li>
+		{{else}}
+			{{#unless theme_settings.custom_product_tab2_content '==' 'hidden'}}
+		        <li class="tab tab-custom2">
+		            <a class="tab-title" href="#tab-custom2">{{theme_settings.custom_product_tab2_title}}</a>
+		        </li>
+			{{/unless}}
+		{{/filter}}
     {{/if}}
     {{#if theme_settings.custom_product_tab3_show}}
-        <li class="tab tab-custom3">
-            <a class="tab-title" href="#tab-custom3">{{theme_settings.custom_product_tab3_title}}</a>
-        </li>
+		{{#filter product.custom_fields '_tab3' property='name'}}
+        	<li class="tab tab-custom3">
+            	<a class="tab-title" href="#tab-custom3">{{../theme_settings.custom_product_tab3_title}}</a>
+        	</li>
+		{{else}}
+			{{#unless theme_settings.custom_product_tab3_content '==' 'hidden'}}
+		        <li class="tab tab-custom3">
+		            <a class="tab-title" href="#tab-custom3">{{theme_settings.custom_product_tab3_title}}</a>
+		        </li>
+			{{/unless}}
+		{{/filter}}
     {{/if}}
     {{#all settings.show_product_reviews theme_settings.show_product_reviews product.reviews.total}}
         <li class="tab tab-reviews">
@@ -76,35 +100,65 @@
 	  {{/if}}
     {{/all}}
 	{{#if theme_settings.custom_product_warranty_location '==' 'normal'}}
-    {{#if product.warranty}}
-        <div class="tab-content warranty-content" id="tab-warranty">
-            {{{product.warranty}}}
-			{{> components/custom/client/client-product-warranty}}
-			{{{region name="product_warranty"}}}
-        </div>
-    {{/if}}
+	    {{#if product.warranty}}
+	        <div class="tab-content warranty-content" id="tab-warranty">
+	            {{{product.warranty}}}
+				{{> components/custom/client/client-product-warranty}}
+				{{{region name="product_warranty"}}}
+	        </div>
+	    {{/if}}
 	{{/if}}
-    {{#if theme_settings.custom_product_tab1_show}}
-        <div class="tab-content" id="tab-custom1">
-			<span class="tab1-page">{{{theme_settings.custom_product_tab1_content}}}</span>
-			{{> components/custom/client/client-product-tab1}}
-			{{{region name="product_tab1"}}}
-		</div>
-    {{/if}}
-    {{#if theme_settings.custom_product_tab2_show}}
-        <div class="tab-content" id="tab-custom2">
-			<span class="tab2-page">{{{theme_settings.custom_product_tab2_content}}}</span>
-			{{> components/custom/client/client-product-tab2}}
-			{{{region name="product_tab2"}}}
-		</div>
-    {{/if}}
-    {{#if theme_settings.custom_product_tab3_show}}
-        <div class="tab-content" id="tab-custom3">
-			<span class="tab3-page">{{{theme_settings.custom_product_tab3_content}}}</span>
-			{{> components/custom/client/client-product-tab3}}
-			{{{region name="product_tab3"}}}
-		</div>
-    {{/if}}
+	{{#if theme_settings.custom_product_tab1_show}}
+		{{#filter product.custom_fields '_tab1' property='name'}}
+			<div class="tab-content" id="tab-custom1">
+				<span class="tab1-page">{{#startsWith '/' value}}{{value}}{{else}}/{{value}}{{/startsWith}}</span>
+				{{> components/custom/client/client-product-tab1}}
+				{{{region name="product_tab1"}}}
+			</div>
+		{{else}}
+			{{#unless theme_settings.custom_product_tab1_content '==' 'hidden'}}
+		        <div class="tab-content" id="tab-custom1">
+					<span class="tab1-page">{{#if theme_settings.custom_product_tab1_content}}{{#startsWith '/' theme_settings.custom_product_tab1_content}}{{{theme_settings.custom_product_tab1_content}}}{{else}}/{{{theme_settings.custom_product_tab1_content}}}{{/startsWith}}{{/if}}</span>
+					{{> components/custom/client/client-product-tab1}}
+					{{{region name="product_tab1"}}}
+				</div>
+			{{/unless}}
+		{{/filter}}
+	{{/if}}
+	{{#if theme_settings.custom_product_tab2_show}}
+		{{#filter product.custom_fields '_tab2' property='name'}}
+			<div class="tab-content" id="tab-custom2">
+				<span class="tab2-page">{{#startsWith '/' value}}{{value}}{{else}}/{{value}}{{/startsWith}}</span>
+				{{> components/custom/client/client-product-tab2}}
+				{{{region name="product_tab2"}}}
+			</div>
+		{{else}}
+			{{#unless theme_settings.custom_product_tab2_content '==' 'hidden'}}
+		        <div class="tab-content" id="tab-custom2">
+					<span class="tab2-page">{{#if theme_settings.custom_product_tab2_content}}{{#startsWith '/' theme_settings.custom_product_tab2_content}}{{{theme_settings.custom_product_tab2_content}}}{{else}}/{{{theme_settings.custom_product_tab2_content}}}{{/startsWith}}{{/if}}</span>
+					{{> components/custom/client/client-product-tab2}}
+					{{{region name="product_tab2"}}}
+				</div>
+			{{/unless}}
+		{{/filter}}
+	{{/if}}
+	{{#if theme_settings.custom_product_tab3_show}}
+		{{#filter product.custom_fields '_tab3' property='name'}}
+			<div class="tab-content" id="tab-custom3">
+				<span class="tab3-page">{{#startsWith '/' value}}{{value}}{{else}}/{{value}}{{/startsWith}}</span>
+				{{> components/custom/client/client-product-tab3}}
+				{{{region name="product_tab3"}}}
+			</div>
+		{{else}}
+			{{#unless theme_settings.custom_product_tab3_content '==' 'hidden'}}
+		        <div class="tab-content" id="tab-custom3">
+					<span class="tab3-page">{{#if theme_settings.custom_product_tab3_content}}{{#startsWith '/' theme_settings.custom_product_tab3_content}}{{{theme_settings.custom_product_tab3_content}}}{{else}}/{{{theme_settings.custom_product_tab3_content}}}{{/startsWith}}{{/if}}</span>
+					{{> components/custom/client/client-product-tab3}}
+					{{{region name="product_tab3"}}}
+				</div>
+			{{/unless}}
+		{{/filter}}
+	{{/if}}
     {{#all settings.show_product_reviews theme_settings.show_product_reviews product.reviews.total}}
        <div class="tab-content" id="tab-reviews">
            {{> components/products/reviews reviews=product.reviews product=product urls=urls}}

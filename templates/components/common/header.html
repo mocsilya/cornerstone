@@ -4,7 +4,7 @@
         <span class="mobileMenu-toggleIcon">Toggle menu</span>
     </a>
     {{> components/common/navigation}}
-    <div class="navPages-container {{#unless theme_settings.custom_header_scroll_navpages}} navPages-container-hide{{/unless}}" id="menu" data-menu>
+    <div class="navPages-container{{#unless theme_settings.custom_header_scroll_navpages}} navPages-container-hide{{/unless}} navPages-{{theme_settings.custom_header_icon_style}}" id="menu" data-menu>
         {{> components/common/navigation-menu}}
     </div>
 	{{> components/custom/client/client-header}}

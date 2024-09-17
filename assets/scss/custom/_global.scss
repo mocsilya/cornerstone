@@ -3,6 +3,13 @@
 // =============================================================================
 //
 
+
+// Vars
+// =============================================================================
+
+$custom_header_menu_width: stencilString('custom_header_menu_width');
+
+
 // General Changes
 // =============================================================================
 
@@ -693,6 +700,65 @@ body.scroll .header-logo-text {
 	}
 }
 
+.navPages-wrapper-icon {
+	display: none;
+    height: 3.57143rem;
+	width: 3.57143rem;
+    font-size: 0;
+	top: 0;
+    right: 0;
+    overflow: hidden;
+    padding: 0 1rem;
+    position: absolute;
+
+    .desktopMenu-toggleIcon,
+    .desktopMenu-toggleIcon::before,
+    .desktopMenu-toggleIcon::after {
+        content: "";
+        display: block;
+        position: absolute;
+        transform: rotate(0deg);
+        transition: transform 100ms ease-in, top 100ms ease-in 150ms, bottom 100ms ease-in 150ms; // 1
+        width: remCalc(20);
+    }
+
+    .desktopMenu-toggleIcon {
+        top: 1.65rem;
+        transition: background-color 10ms ease-in 100ms;
+    }
+
+    .desktopMenu-toggleIcon::before {
+        top: -0.5rem;
+    }
+
+    .desktopMenu-toggleIcon::after {
+        bottom: -0.5rem;
+    }
+	@include breakpoint("medium") {
+		display: inline-block;
+	}
+}
+
+.navPages-action-depth-max.is-open .desktopMenu-toggleIcon {
+    transition-delay: 100ms;
+	background-color: transparent;
+    &::before,
+    &::after {
+        bottom: auto;
+        top: auto;
+        transition: transform 100ms ease-in 150ms, top 100ms ease-in, bottom 100ms ease-in;
+    }
+    &::before {
+        top: 0;
+        transform: rotate(45deg);
+    }
+    &::after {
+        bottom: 0;
+        transform: rotate(-45deg);
+    }
+
+}
+
 .mobileMenu-toggle .mobileMenu-toggleIcon,
 .mobileMenu-toggle .mobileMenu-toggleIcon::before,
 .mobileMenu-toggle .mobileMenu-toggleIcon::after {
@@ -700,16 +766,57 @@ body.scroll .header-logo-text {
 	background: stencilColor("navUser-color");
 }
 
+.navPages-action-depth-max .desktopMenu-toggleIcon,
+.navPages-action-depth-max .desktopMenu-toggleIcon:before,
+.navPages-action-depth-max .desktopMenu-toggleIcon:after {
+	height: 3px;
+	background: stencilColor("custom-header-menu-link");
+}
+
 .mobileMenu-outline .mobileMenu-toggleIcon,
 .mobileMenu-outline .mobileMenu-toggleIcon::before,
-.mobileMenu-outline .mobileMenu-toggleIcon::after {
+.mobileMenu-outline .mobileMenu-toggleIcon::after,
+.navPages-outline .navPages-action-depth-max .desktopMenu-toggleIcon,
+.navPages-outline .navPages-action-depth-max .desktopMenu-toggleIcon::before, 
+.navPages-outline .navPages-action-depth-max .desktopMenu-toggleIcon::after {
 	height: 2px;
 }
 
 .mobileMenu-toggle.is-open .mobileMenu-toggleIcon::before,
 .mobileMenu-toggle.is-open .mobileMenu-toggleIcon::after {
-	background: stencilColor("navUser-color");
+	background: stencilColor("navPages-color");
 }
+
+.navPages-action-depth-max.is-open .desktopMenu-toggleIcon::before,
+.navPages-action-depth-max.is-open .desktopMenu-toggleIcon::after {
+	background: stencilColor("custom-header-menu-background");
+}
+
+@media (max-width: 800px) {
+	.navPages-item-wrapper > a {
+		display: none;
+	}
+	
+	.navPages-item-wrapper > .navPage-subMenu {
+		display: block;
+		opacity: 1;
+	}
+	
+	.navPages .navPages-list-depth-max .navPages-action {
+		font-size: 20px;
+	}
+	
+}
+
+.navPages-item-wrapper > .navPages-action-depth-max {
+	position: relative;
+	padding-right: 3.57143rem;
+}
+
+
+
+
+
 
 
 // Nav User
@@ -1669,7 +1776,7 @@ body.scroll .navPages-container-hide {
 	}
 }
 
-.navPages .navPage-subMenu {
+.navPages > ul:not(.navPages-list-depth-max) .navPage-subMenu {
 	@include breakpoint("medium") {
 		padding: 1.5rem !important;
 	}
@@ -1691,10 +1798,6 @@ body.scroll .navPages-container-hide {
 		flex: 1 1 auto;
 		
 	}
-}
-
-.navPages .navPage-subMenu-action:not(.navPages-action-depth-max) + .navPage-childList {
-	border-left: none;
 }
 
 @media (max-width: 800px) {
@@ -1938,11 +2041,54 @@ body.scroll .navPages-container-hide {
 	}
 }
 
-
 .navPage-subMenu-action {
 	white-space: nowrap;
 	@include breakpoint("medium") {
 		white-space: normal;
+	}
+}
+
+.navPages-list-depth-max .navPages-action-mobile {
+	display: block;
+	@include breakpoint("medium") {
+		display: none;
+	}
+}
+
+.navPages-list-depth-max .navPages-action-desktop {
+	display: none;
+	@include breakpoint("medium") {
+		display: block;
+	}
+}
+
+.navPages-list-depth-max .navPages-item-home .navPages-action-desktop {
+	padding-top: 0.78571rem;
+	padding-bottom: 1rem;
+}
+
+.navPages-list-depth-max .navPage-subMenu-horizontal.is-open {
+	@include breakpoint("medium") {
+		border-right: 1px solid stencilColor('navPages-subMenu-separatorColor');
+		border-left: 0;
+		width: $custom_header_menu_width;
+		padding: 1rem 0 !important;
+	}
+	@include breakpoint("large") {
+		padding: 1rem .75rem !important;
+		margin-left: calc(#{$custom_header_menu_width} + 1.5rem);
+		width: calc(#{$custom_header_menu_width} + 1.5rem);
+	}
+	@include breakpoint("xlarge") {
+		padding: 1.5rem 1.55rem !important;
+		margin-left: calc(#{$custom_header_menu_width} + 3rem);
+		width: calc(#{$custom_header_menu_width} + 3rem);
+	}
+}
+
+.navPages-list-depth-max .has-subMenu.is-root + .navPage-subMenu-horizontal.is-open {
+	@include breakpoint("medium") {
+		margin-left: 0;
 	}
 }
 
@@ -1951,6 +2097,37 @@ body.scroll .navPages-container-hide {
 		padding-top: .5rem;
 		padding-bottom: .5rem;
 	}
+}
+
+.navPages-list-depth-max .navPage-subMenu-item-viewall > a > span {
+	display: block;
+	padding: .25em .5rem;
+	border-radius: .25rem;
+	color: stencilColor("navPages-subMenu-backgroundColor");
+	background:  stencilColor("navPages-color");
+}
+
+.navPages-list-depth-max .navPage-subMenu-item-viewall > a:hover > span {
+	color: stencilColor("navPages-subMenu-backgroundColor");
+	background:  stencilColor("navPages-color-hover");
+}
+
+.navPages-list-depth-max .navPages-action-depth-max.is-open {
+	color: stencilColor('navPages-color');
+}
+
+.navPages-list-depth-max .navPages-action-depth-max.is-open:hover {
+	color: stencilColor('navPages-color-hover');
+}
+
+.navPages > ul.navPages-list-depth-max > li > .navPages-action.is-open svg {
+	fill: stencilColor('navPages-color');
+	stroke: stencilColor("navPages-color");
+}
+
+.navPages > ul.navPages-list-depth-max > li > .navPages-action.is-open:hover svg {
+	fill: stencilColor('navPages-color-hover');
+	stroke: stencilColor("navPages-color-hover");
 }
 
 .navPages-item-page .navPage-subMenu-horizontal.is-open {
@@ -3245,7 +3422,7 @@ div[data-content-region="category_below_all"] {
 		width: 100%;
 	}
 	@include breakpoint("xlarge") {
-		width: 80%;
+		width: 100%;
 	}
 }
 
@@ -3255,6 +3432,9 @@ div[data-content-region="category_below_all"] {
 	}
 	@include breakpoint("large") {
 		width: 75%;
+	}
+	@include breakpoint("xlarge") {
+		width: 80%;
 	}
 }
 
@@ -6696,16 +6876,49 @@ div[data-content-region="page_builder_content_editor_area_bottom"] {
 
 .page-cart .cart-item-title .cart-item-availability dt,
 .page-cart .cart-item-title .cart-item-options--giftWrapping dt {
-	display: inline-block;
 	padding-right: .5rem;
 	margin: 0;
 	font-weight: 400;
+}
+
+.page-cart .cart-item-title .cart-item-options--giftWrapping dt {
+	display: inline-block;
+}
+
+.page-cart .cart-item-title .cart-item-availability dt {
+	display: none;
 }
 
 .page-cart .cart-item-title .cart-item-availability dd,
 .page-cart .cart-item-title .cart-item-options--giftWrapping dd {
 	display: inline-block;
 	margin: 0;
+}
+
+.page-cart .cart-item-total {
+	min-width: 130px;
+}
+
+.page-cart .cart-item-availabilityMessage {
+	min-height: 0;
+	padding: 0;
+}
+
+.page-cart .cart-item-availabilityMessage .cart-item-block {
+	padding: 0;
+}
+
+.page-cart .cart-item-availabilityMessage .cart-item-block.showMessage {
+	display: block !important;
+	@include breakpoint("medium") {
+		display: table-cell !important;
+	}
+}
+
+.page-cart .cart-item-availabilityMessage .cart-item-block div {
+	text-align: center;
+	padding: 1rem 0;
+	font-size: 15px;
 }
 
 .page-cart .cart-item-price .cart-item-label {
@@ -6963,6 +7176,8 @@ div[data-content-region="cart_below_table"] {
 	width: 100%;
 	clear: both;
 }
+
+
 
 
 
