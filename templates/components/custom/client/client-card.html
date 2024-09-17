@@ -5,10 +5,21 @@
 			{{theme_settings.pdp-retail-price-label}} <s>{{price.retail_price_range.min.with_tax.formatted}}</s>
 		{{/if}}
 	{{else}}
-		{{#if price.rrp_with_tax.value '>' price.price_range.min.with_tax.value}}
-			{{theme_settings.pdp-retail-price-label}} <s>{{price.rrp_with_tax.formatted}}</s>
+		{{#if price.rrp_with_tax}}
+			{{#if price.rrp_with_tax.value '>' price.price_range.min.with_tax.value}}
+				{{theme_settings.pdp-retail-price-label}} <s>{{price.rrp_with_tax.formatted}}</s>
+			{{/if}}
+		{{else}}
+			{{#if price.with_tax.value '>' price.price_range.min.with_tax.value}}
+				{{theme_settings.pdp-retail-price-label}} <s>{{price.with_tax.formatted}}</s>
+			{{else}}
+				{{theme_settings.pdp-retail-price-label}} {{price.with_tax.formatted}}
+			{{/if}}
 		{{/if}}
 	{{/and}}
 {{else}}
-<span class="card-message-price" data-price-value="{{price.with_tax.value}}"></span>
+	{{#unless price.rrp_with_tax}}
+		{{theme_settings.pdp-retail-price-label}} {{price.with_tax.formatted}}
+	{{/unless}}
+	<span class="card-message-price" data-price-value="{{price.with_tax.value}}"></span>
 {{/if}}

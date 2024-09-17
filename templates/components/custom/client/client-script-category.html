@@ -1,0 +1,68 @@
+<script>
+function checkSort() {
+    if (localStorage.hasOwnProperty('sortParam')) {
+		const sortParam = localStorage.getItem('sortParam');
+		const sortAsc = 'priceasc';
+        const sortDesc = 'pricedesc';
+        const product = document.getElementsByClassName('product');
+		if (sortParam) {
+            if (sortParam == sortAsc || sortParam == sortDesc) {
+                let sortOrder;
+                for (let i = 0; i < product.length; i++) {
+                    if (sortParam == sortAsc) {
+                        sortOrder = product[i].getAttribute('data-price-asc');
+                    }
+                    if (sortParam == sortDesc) {
+                        sortOrder = product[i].getAttribute('data-price-desc');
+                    }
+                    product[i].style.order = sortOrder;
+                }
+            }
+        }
+	}
+}
+
+// activate function on page load
+window.onload = setTimeout(checkSort, 2000);
+
+// track any change in the url (not supported yet)
+//window.navigation.addEventListener("navigate", (event) => {
+    //console.log('location changed!');
+//})
+
+// track any change in the url
+let currentPage = location.href;
+console.log('curr_url1: ' + currentPage);
+setInterval(function() {
+    if (currentPage != location.href) {
+        // page has changed, set new page as 'current'
+        currentPage = location.href;
+        console.log('curr_url2: ' + currentPage);
+        // fixed variables 
+        const sortAsc = 'priceasc';
+        const sortDesc = 'pricedesc';
+        const product = document.getElementsByClassName('product');
+        const sortQuery = window.location.search;
+        const sortUrl = new URLSearchParams(sortQuery);
+        const sortParam = sortUrl.get('sort');
+        if (sortParam) {
+            console.log('sort param found');
+            if (sortParam == sortAsc || sortParam == sortDesc) {
+                localStorage.setItem('sortParam', sortParam);
+                lsParam = localStorage.getItem('sortParam');
+                console.log('storageparam: ' + lsParam);
+                let sortOrder;
+                for (let i = 0; i < product.length; i++) {
+                    if (sortParam == sortAsc) {
+                        sortOrder = product[i].getAttribute('data-price-asc');
+                    }
+                    if (sortParam == sortDesc) {
+                        sortOrder = product[i].getAttribute('data-price-desc');
+                    }
+                    product[i].style.order = sortOrder;
+                }
+            }
+        }
+    }
+}, 1500);
+</script>
