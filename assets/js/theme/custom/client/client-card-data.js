@@ -6,8 +6,9 @@ export default function ( data ) {
     if (data) {
 		let i = 0;
 		while (i < data.length) {
-		    console.log(data[i]);
+		    //console.log(data[i]);
 			const card = document.querySelector('.card[data-entity-id="' + data[i].id + '"]');
+			const cardRRP = card.querySelector('.rrp-price--withTax .price--rrp').innerText.trim();
 			const cardPrice = card.querySelector('.price.price--withTax');
 			const cardPriceFormatted = cardPrice.innerHTML;
 			const cardData = document.querySelector('.custom-product-data[data-product-id="' + data[i].id + '"]');
@@ -19,7 +20,7 @@ export default function ( data ) {
 			} else {
 				cardMessageVal = 0;
 			}
-			console.log('cardMessageVal: ' + cardMessageVal);
+			//console.log('cardMessageVal: ' + cardMessageVal);
 			let j = 0;
 			while (j < data[i].productVariant.length) {				
 				if (j < 1) {
@@ -37,10 +38,11 @@ export default function ( data ) {
 					
 					if (cardMessageVal > 0) {
 						if (priceVal < cardMessageVal) {
-							console.log("default="+ cardMessageVal +" ... var="+ priceVal + "variant price is less than default");
-							cardMessagePrice.innerHTML = "RRP: <s>"+cardPriceFormatted+"</s>";
+							//console.log("default="+ cardMessageVal +" ... var="+ priceVal + "variant price is less than default");
+							if (!(cardRRP)) {
+								cardMessagePrice.innerHTML = "RRP: <s>"+cardPriceFormatted+"</s>";
+							}
 							cardPrice.innerHTML = price;
-							
 						}
 					}
 				}

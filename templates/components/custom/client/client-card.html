@@ -1,4 +1,3 @@
-	
 {{#if price.price_range}}
 	{{#and price.retail_price_range.min.with_tax price.retail_price_range.max.with_tax}}
 		{{#if price.retail_price_range.min.with_tax.value '>' price.price_range.min.with_tax.value}}
@@ -18,8 +17,9 @@
 		{{/if}}
 	{{/and}}
 {{else}}
-	{{#unless price.rrp_with_tax}}
-		{{theme_settings.pdp-retail-price-label}} {{price.with_tax.formatted}}
-	{{/unless}}
-	<span class="card-message-price" data-price-value="{{price.with_tax.value}}"></span>
+	<span class="card-message-price" data-price-value="{{price.with_tax.value}}">
+		{{#unless price.rrp_with_tax}}
+			{{theme_settings.pdp-retail-price-label}} {{price.with_tax.formatted}}
+		{{/unless}}
+	</span>
 {{/if}}
