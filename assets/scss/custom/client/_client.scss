@@ -287,6 +287,12 @@ body:not(.currency-gbp) .navPages > ul > li.navPages-item-category {
 	display: none;
 }
 
+.navPages-item-category.navPages-item-hot,
+.navPages-item-category.navPages-item-hot-bikes,
+.navPages-item-category.navPages-item-hot-products {
+    display: none;
+}
+
 
 
 // Nav User
@@ -1501,6 +1507,15 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	margin: 0 0 0 .25rem;
 }
 
+.price-section--show {
+	display: block !important;
+}
+
+.price-section--show .price--rrp,
+.price-section--show .price--non-sale,
+.price-section--show .price--discounted {
+	text-decoration: none;
+}
 
 
 
@@ -2529,6 +2544,12 @@ body:not(.currency-gbp) article[data-section-type="footer-categories"] li.link-i
 
 .mtb-review-link a:hover {
     text-decoration: underline;
+}
+
+.footer-info-list .link-hot,
+.footer-info-list .link-hot-bikes,
+.footer-info-list .link-hot-products {
+    display: none;
 }
 
 

@@ -1,3 +1,14 @@
+{{#unless product.price.price_range}}
+{{#unless product.price.rrp_with_tax}}
+<script>
+	var rrpDiv = document.querySelector('.price-section.price-section--withTax.rrp-price--withTax');
+	var rrpSpan = rrpDiv.querySelector('.price--rrp');
+	rrpSpan.innerHTML = '{{product.price.with_tax.formatted}}';
+	rrpDiv.classList.add("price-section--show");
+</script>
+{{/unless}}
+{{/unless}}
+
 {{#and product.price.price_range (if theme_settings.price_ranges '==' true)}}
 <script>
 let arr = [];
