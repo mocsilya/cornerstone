@@ -1,6 +1,6 @@
 {{#filter product.custom_fields 'Multi-Buy' property='name' }}
 	<div class="product-custom-multibuy">
-		<div class="product-custom-multibuy-name">{{name}}</div>
+		<div class="product-custom-multibuy-name">{{../product.brand.name}} {{name}}</div>
 		<div class="product-custom-multibuy-value">{{value}}</div>
 	</div>
 {{/filter}}
