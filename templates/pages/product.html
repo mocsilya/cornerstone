@@ -117,7 +117,13 @@ gql: "query productById($productId: Int!) {
 		{{#if (getVar "b2b-products") '===' 'show'}}
         	{{> components/products/product-view}}
 		{{/if}}
-        {{{region name="product_below_content"}}}
+		{{#if theme_settings.custom_product_description_location '===' 'sticky'}}
+			<div class="productView-block-sticky productView-block-{{theme_settings.custom_product_gallery_size}}">
+        		{{{region name="product_below_content"}}}
+			</div>
+		{{else}}
+			{{{region name="product_below_content"}}}
+		{{/if}}
     </div>
 
     {{> components/products/schema}}

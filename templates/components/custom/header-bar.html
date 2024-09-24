@@ -1,5 +1,5 @@
 {{#if theme_settings.custom_header_show_bar}}
-<div class="header-bar">
+<div class="header-bar{{#if theme_settings.custom_header_fixed}} header-bar-fixed{{else}} header-bar-unfixed{{/if}}">
 	<div class="container">
 		<div class="header-bar-list{{#or theme_settings.custom_phone_show theme_settings.custom_email_show}} header-bar-list-contact{{/or}}{{#or theme_settings.custom_header_show_bar_message1 theme_settings.custom_header_show_bar_message2 theme_settings.custom_header_show_bar_message3}} header-bar-list-message{{/or}}">
 			{{#if theme_settings.custom_header_show_bar_message1}}
