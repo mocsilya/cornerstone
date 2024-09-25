@@ -1,5 +1,5 @@
 <a href="#main-content" class="skip-to-main-link">{{lang 'header.skip_to_main'}}</a>
-<header class="header" role="banner">
+<header class="header{{#if theme_settings.custom_header_fixed}} header-fixed{{else}} header-unfixed{{/if}}" role="banner">
     <a href="#" class="mobileMenu-toggle mobileMenu-{{theme_settings.custom_header_icon_style}}" data-mobile-menu-toggle="menu">
         <span class="mobileMenu-toggleIcon">Toggle menu</span>
     </a>
