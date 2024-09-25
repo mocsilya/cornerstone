@@ -64,14 +64,6 @@ $custom_header_menu_width: stencilString('custom_header_menu_width');
 	border-radius: .25rem;
 }
 
-.navPages-action-depth-max .navPages-action-moreIcon,
-.navPages-action-depth-max.has-subMenu.is-open .navPages-action-moreIcon {
-    @include breakpoint("medium") {
-		float: right;
-		margin-top: .5rem;
-	}
-}
-
 body.scroll .navPages > ul > li > .navPages-action {
 	padding-top: 0.78571rem;
 	padding-bottom: 0.78571rem;
@@ -145,7 +137,20 @@ div#navPages-menu-wrapper {
 #navPages-menu-wrapper > ul > li {
 	padding-top: .25rem;
 	padding-bottom: .25rem;
-	border-bottom: 1px solid stencilColor(navPages-subMenu-separatorColor);
+	border-bottom: 1px solid stencilColor("navPages-subMenu-separatorColor");
+}
+
+@media (max-width: 800px) {
+	
+	.navPages-list-depth-max.subMenu-is-open #navPages-menu-wrapper > ul > li {
+		border-bottom: 2px solid stencilColor("navPages-color");
+	}
+	
+	.navPages-action-depth-max.has-subMenu.is-open {
+		border-bottom: 4px solid stencilColor("navPages-subMenu-backgroundColor");
+		-webkit-box-shadow: 0px 2px 0px 0px stencilColor("navPages-color");
+		box-shadow: 0px 2px 0px 0px stencilColor("navPages-color");
+	}
 }
 
 #navPages-menu-wrapper > ul > li > .navPages-action-depth-max {
@@ -170,13 +175,7 @@ div#navPages-menu-wrapper {
 .navPage-subMenu-item-life-jackets > .navPages-action { background-image: url('../img/custom/life-jackets.webp'); }
 .navPage-subMenu-item-safety > .navPages-action { background-image: url('../img/custom/safety.webp'); }
 
-.navPages-list-depth-max .navPage-subMenu-item-viewall > a > span {
-	background:  stencilColor("navPages-color-hover");
-}
 
-.navPages-list-depth-max .navPage-subMenu-item-viewall > a:hover > span {
-	background:  stencilColor("navPages-color");
-}
 
 
 // =============================================================================
