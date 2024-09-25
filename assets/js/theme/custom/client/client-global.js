@@ -33,5 +33,21 @@ export default function () {
 				}
 			}
 		]
-	});	
+	});
+	const url = $('.custom-brand-url').attr('data-brand-url');
+	const placement = $('.custom-brand-url');
+	console.log('url: ' + url);
+	$.ajax({ 
+		url: url, 
+		processData : false,
+		cache: true,
+		success: function(data) {
+			const html = $.parseHTML( data );
+			const image = $(html).find('.brand-image-container').html();
+			console.log('image: ' + image);
+			if (image) {
+				$(placement).html(image);
+	    	}
+		}
+	});
 }

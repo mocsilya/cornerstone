@@ -217,7 +217,7 @@
     "custom_product_description_location": "sticky",
     "custom_product_tab1_show": true,
     "custom_product_tab1_title": "Size Chart",
-    "custom_product_tab1_content": "",
+    "custom_product_tab1_content": "hidden",
     "custom_product_tab2_show": false,
     "custom_product_tab2_title": "Tab 2",
     "custom_product_tab2_content": "",
