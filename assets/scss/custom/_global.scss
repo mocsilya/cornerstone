@@ -2020,9 +2020,9 @@ body.scroll .header-fixed .navPages-container-hide {
     position:absolute;
 	top: 50%;
 	transform: translateY(-50%);
-    border-bottom: 30px solid transparent;
+    border-bottom: 40px solid transparent;
     border-left: 20px solid stencilColor("navPages-color");
-    border-top: 30px solid transparent;
+    border-top: 40px solid transparent;
     height: 0px;
     width: 0px;
 	background-color: stencilColor("navPages-subMenu-backgroundColor");
@@ -2117,12 +2117,16 @@ body.scroll .header-fixed .navPages-container-hide {
 	}
 	
 	.navPages-action-depth-max.has-subMenu.is-open {
-		border-bottom: 1px solid stencilColor("navPages-color");
+		border-bottom: 2px solid stencilColor("navPages-color");
+		padding-left: 3.25rem;
+		position: relative;
 	}
 	
 	.navPages-action-depth-max.has-subMenu.is-open .navPages-action-moreIcon {
-		margin-top: -.125rem;
-		margin-right: .75rem;
+		position: absolute;
+		top: calc(50% - 17px);
+		left: 0;
+		margin: 0;
 		border: 1px solid stencilColor("navPages-color");
 		background-color: stencilColor("navPages-color");
 		color: stencilColor("navPages-subMenu-backgroundColor");
@@ -2146,6 +2150,10 @@ body.scroll .header-fixed .navPages-container-hide {
 	
 	.navPages > ul.navPages-list-depth-max + .navPages-list {
 		border-top: 2px solid stencilColor("navPages-color");
+	}
+	
+	.navPages > ul.navPages-list-depth-max.subMenu-is-open #navPages-menu-wrapper > ul > li {
+		border-bottom: 2px solid stencilColor("navPages-color");
 	}
 	
 	.navPages-action .navPages-action-moreIcon, 
