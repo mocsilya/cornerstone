@@ -233,6 +233,7 @@
 	"custom_product_availability_cart": "The estimated delivery for your entire order is X working days.",
 	"custom_product_variant_data": false,
 	"custom_product_question": "Ask a Question",
+	"custom_product_question_tab": false,
 	"custom-tab-color": "#000000",
 	"custom-tab-background": "#eeeeee",
 	"custom-tab-hover-color": "#ffffff",
