@@ -1,39 +1,40 @@
 {{#unless product.price.price_range}}
-{{#unless product.price.rrp_with_tax}}
-<script>
-	var rrpDiv = document.querySelector('.price-section.price-section--withTax.rrp-price--withTax');
-	var rrpSpan = rrpDiv.querySelector('.price--rrp');
-	rrpSpan.innerHTML = '{{product.price.with_tax.formatted}}';
-	rrpDiv.classList.add("price-section--show");
-</script>
-{{/unless}}
+	{{#unless product.price.rrp_with_tax}}
+		<script>
+			// add the normal price as an rrp if not a range and no rrp is available.
+			var rrpDiv = document.querySelector('.price-section.price-section--withTax.rrp-price--withTax');
+			var rrpSpan = rrpDiv.querySelector('.price--rrp');
+			rrpSpan.innerHTML = '{{product.price.with_tax.formatted}}';
+			rrpDiv.classList.add("price-section--show");
+		</script>
+	{{/unless}}
 {{/unless}}
 
-{{#and product.price.price_range (if theme_settings.price_ranges '==' true)}}
+{{#if product.options}}
 <script>
 let arr = [];
-	{{#each gql.data.site.product.variants.edges}}
-	    {{#with node}}
-	        {{#each productOptions.edges}}
-	            {{#with node}}
-	                {{#each values.edges}}
-	                    {{#with node}}
-						console.log("displayname: {{dashcase (lowercase (sanitize label))}}");
-							    let q{{../../../../sku}} = document.querySelector(".productView-options .form-field-{{dashcase (lowercase (sanitize ../../displayName))}} .form-select .form-select-option-{{dashcase (lowercase (sanitize label))}}");
-							    //console.log(query{{../../../../sku}});
-								if (q{{../../../../sku}}) {
-									console.log("2: match: {{../../../../inclTax.price.value}}");
-									arr.push('{{../../../../inclTax.price.value}}');
-								} else {
-									console.log("2: Not Found");
-								}
-						{{/with}}
-	                {{/each}}
-	            {{/with}}
-	        {{/each}}
-	    {{/with}}
-	{{/each}}
-	console.log("array:" + arr);
+{{#each gql.data.site.product.variants.edges}}
+    {{#with node}}
+        {{#each productOptions.edges}}
+            {{#with node}}
+                {{#each values.edges}}
+                    {{#with node}}
+					console.log("displayname: {{dashcase (lowercase (sanitize label))}}");
+						    let q{{strReplace ../../../../sku '-' ''}} = document.querySelector(".productView-options .form-field-{{dashcase (lowercase (sanitize ../../displayName))}} .form-select .form-select-option-{{dashcase (lowercase (sanitize label))}}");
+						    //console.log(query{{../../../../sku}});
+							if (q{{strReplace ../../../../sku '-' ''}}) {
+								console.log("2: match: {{../../../../inclTax.price.value}}");
+								arr.push('{{../../../../inclTax.price.value}}');
+							} else {
+								console.log("2: Not Found");
+							}
+					{{/with}}
+                {{/each}}
+            {{/with}}
+        {{/each}}
+    {{/with}}
+{{/each}}
+console.log("array:" + arr);
 if (arr.length) {
 	const priceDiv = document.querySelectorAll(".productView-price .price-section--withTax .price--withTax")[0];
 	if (priceDiv.innerText.includes('From ')) {
@@ -85,15 +86,16 @@ if (arr.length) {
 		}
 	}, 2000);
 } else {
- 	setTimeout(function() {
-		const priceDiv2 = document.querySelectorAll(".productView-price .price-section--withTax .price--withTax")[0];
-		priceDiv2.innerHTML = "From {{product.price.rrp_with_tax.formatted}}";
-		console.log("default price: {{product.price.rrp_with_tax.formatted}}");
- 	}, 2000);
-	
+	console.log('no variants');
+	// setTimeout(function() {
+		// const priceDiv2 = document.querySelectorAll(".productView-price .price-section--withTax .price--withTax")[0];
+		// priceDiv2.innerHTML = "From {{product.price.rrp_with_tax.formatted}}";
+		// console.log("default price: {{product.price.rrp_with_tax.formatted}}");
+	// }, 2000);
 }
 </script>
-{{/and}}
+{{/if}}
+
 <script>
 var timePrice = 0;
 var formSelect = document.querySelectorAll(".productView-options .form-select, .productView-options .form-radio");
