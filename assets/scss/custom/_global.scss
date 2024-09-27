@@ -6805,6 +6805,87 @@ div[data-content-region="page_builder_content_editor_area_bottom"] {
 	}
 }
 
+
+// question form (Side & Tab)
+
+/* Side Tab General */
+.productView-description-side .tab-content .page-iframe #contact-us-page .form,
+.productView-description-side .tab-content #iframe_product iframe {
+	@include breakpoint("large") {
+		height: 700px;
+	}
+	@include breakpoint("xlarge") {
+		height: 500px;
+	}
+}
+
+/* Side Tab Company */
+.productView-description-side .tab-content .page-iframe #contact-us-page .form.with-company,
+.productView-description-side .tab-content #iframe_product iframe.with-company {
+	@include breakpoint("large") {
+		height: 800px;
+	}
+	@include breakpoint("xlarge") {
+		height: 630px;
+	}
+}
+
+/* Side Tab Recaptcha */
+.productView-description-side .tab-content .page-iframe #contact-us-page .form.with-recaptcha,
+.productView-description-side .tab-content #iframe_product iframe.with-recaptcha {
+	@include breakpoint("large") {
+		height: 800px;
+	}
+	@include breakpoint("xlarge") {
+		height: 650px;
+	}
+}
+
+/* Side Tab Manual Captcha */
+.productView-description-side .tab-content .page-iframe #contact-us-page .form.with-manualcaptcha,
+.productView-description-side .tab-content #iframe_product iframe.with-manualcaptcha {
+	@include breakpoint("large") {
+		height: 800px;
+	}
+	@include breakpoint("xlarge") {
+		height: 600px;
+	}
+}
+
+/* Side Tab Company + Recaptcha */
+.productView-description-side .tab-content .page-iframe #contact-us-page .form.with-company.with-recaptcha,
+.productView-description-side .tab-content #iframe_product iframe.with-company.with-recaptcha, {
+	@include breakpoint("large") {
+		height: 900px;
+	}
+	@include breakpoint("xlarge") {
+		height:730px;
+	}
+}
+
+/* Side Tab Company + Manual Captcha */
+.productView-description-side .tab-content .page-iframe #contact-us-page .form.with-company.with-manualcaptcha,
+.productView-description-side .tab-content #iframe_product iframe.with-company.with-manualcaptcha {
+	@include breakpoint("large") {
+		height: 900px;
+	}
+	@include breakpoint("xlarge") {
+		height:730px;
+	}
+}
+
+/* Side Tab Company + Manual Captcha + Recaptcha */
+.productView-description-side .tab-content .page-iframe #contact-us-page .form.with-company.with-manualcaptcha.with-recaptcha,
+.productView-description-side .tab-content #iframe_product iframe.with-company.with-manualcaptcha.with-recaptcha {
+	@include breakpoint("large") {
+		height: 1000px;
+	}
+	@include breakpoint("xlarge") {
+		height:820px;
+	}
+}
+
+
 .page-iframe #contact-us-page .form-actions .button--primary {
 	padding: 1.5rem 3rem;
 	font-size: 16px;
