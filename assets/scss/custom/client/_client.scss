@@ -183,7 +183,7 @@ div#navPages-menu-wrapper {
 .navPage-subMenu-item-navigation-books > .navPages-action { background-image: url('../img/custom/navigation-books.webp'); }
 .navPage-subMenu-item-life-jackets > .navPages-action { background-image: url('../img/custom/life-jackets.webp'); }
 .navPage-subMenu-item-safety > .navPages-action { background-image: url('../img/custom/safety.webp'); }
-
+.navPage-subMenu-item-clearance > .navPages-action { background-image: url('https://cdn11.bigcommerce.com/s-zbaesdaekt/product_images/z/clearance__83045.jpg'); }
 
 
 
@@ -360,16 +360,18 @@ div[data-content-region="category_above_content"] .custom-widget-banner {
 .product-gallery-top .custom-product-brand {
 	flex: 1 1 0;
 	height: 52px;
+	align-items: center;
 }
 
 .product-gallery-top .custom-product-brand img {
-	height: 52px;
-	width: auto;
+	width: 100px;
+	height: auto;
 }
 
 .product-gallery-top .custom-product-sku,
 .product-gallery-top .custom-product-mpn {
 	flex: 1 1 0;
+	align-items: center;
 }
 
 .productView-brand,
@@ -537,7 +539,7 @@ div[data-content-region="category_above_content"] .custom-widget-banner {
 // =============================================================================
 // HOME PAGE
 // =============================================================================
-
+/*
 .page-default .productGrid,
 .page-default .productGrid .product,
 .page-default .productGrid .product:first-child {
@@ -578,7 +580,7 @@ div[data-content-region="category_above_content"] .custom-widget-banner {
 .page-default .productGrid .card-title {
 	font-size: 1rem;
 }
-
+*/
 
 
 
