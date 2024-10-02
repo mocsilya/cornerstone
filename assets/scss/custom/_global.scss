@@ -2162,6 +2162,49 @@ body.scroll .header-fixed .navPages-container-hide {
 		width: 1rem;
 	}
 	
+	.navPages > ul.navPages-list-depth-max .navPages-item-home.navPages-item-wrapper {
+		border-bottom: 1px solid stencilColor('navPages-subMenu-separatorColor');
+	}
+	
+}
+
+.navPages > ul.navPages-list-depth-max .navPages-item-category.navPages-item-wrapper > .navPage-subMenu > .navPage-subMenu-list > .navPage-subMenu-item-child > a.navPages-action-depth-max {
+	border-bottom: 1px solid stencilColor('navPages-subMenu-separatorColor');
+	@include breakpoint("medium") {
+		padding-left: .5rem;
+	}
+}
+
+#navPages-menu-wrapper .navPage-subMenu-thumb {
+	width: 4rem;
+	height: 4rem;
+	margin-right: .5rem;
+	background-repeat: none;
+	background-position: center;
+	background-size: auto 100%;
+	display: inline-block;
+	vertical-align: middle;
+	border-radius: .25rem;
+	@include breakpoint("medium") {
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+}
+
+#navPages-menu-wrapper .navPage-subMenu-thumb {
+	width: 4rem;
+	height: 4rem;
+	margin-right: .5rem;
+	background-repeat: none;
+	background-position: center;
+	background-size: auto 100%;
+	display: inline-block;
+	vertical-align: middle;
+	border-radius: .25rem;
+	@include breakpoint("medium") {
+		width: 2.5rem;
+		height: 2.5rem;
+	}
 }
 
 .navPages-item-wrapper > .navPages-action-depth-max {
@@ -2323,6 +2366,20 @@ body.scroll .header-fixed .navPages > ul > li > .navPages-action {
     }
 	@include breakpoint("medium") {
 		display: inline-block;
+	}
+}
+
+body.scroll .header-fixed .navPages-wrapper-icon {
+	@include breakpoint("medium") {
+	    height: 2.5rem;
+		width: 2.5rem;
+		padding: 0 .5rem;
+	}
+}
+
+body.scroll .header-fixed .navPages-wrapper-icon .desktopMenu-toggleIcon {
+	@include breakpoint("medium") {
+	    top: 1.25rem;
 	}
 }
 
