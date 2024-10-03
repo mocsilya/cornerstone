@@ -7,7 +7,7 @@ let inputElem = document.querySelector('.form-input--incrementTotal');
 if (inputElem) { 
     inputElem.addEventListener('input', () => {
         console.log(inputElem.value);
-        const existingDiv = document.getElementById('testMessage');
+        const existingDiv = document.getElementById('backorderMessage');
         if (inStock > 0) {
             if (inputElem.value > inStock) {
                 const backOrder = inputElem.value - inStock;
@@ -26,7 +26,7 @@ for (let i = 0; i < buttonElem.length; i++) {
     buttonElem[i].onclick = function () {
         buttonTimer = setTimeout(() => {
             console.log(inputElem.value);
-            const existingDiv = document.getElementById('testMessage');
+            const existingDiv = document.getElementById('backorderMessage');
             if (inStock > 0) {
                 if (inputElem.value > inStock) {
                     const backOrder = inputElem.value - inStock;

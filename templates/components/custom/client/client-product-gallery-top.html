@@ -1,3 +1,35 @@
+<div class="product-gallery-reviews">
+    <div class="productView-rating">
+        <dl class="productView-info">
+		{{#if settings.show_product_rating}}
+			<dt class="productView-info-name"{{#unless theme_settings.show_product_reviews}} style="display: none;"{{/unless}}>
+            {{> components/products/ratings rating=product.rating}}
+            {{#if product.num_reviews '>' 0}}
+                <a href="{{product.url}}{{#if is_ajax}}#product-reviews{{/if}}" id="productReview_link">
+                    {{lang 'products.reviews.link_to_review' total=product.num_reviews}}
+                </a>
+            {{else}}
+                <span>{{lang 'products.reviews.link_to_review' total=product.num_reviews}}</span>
+            {{/if}}
+			</dt>
+        {{/if}}				
+        {{#if settings.show_product_reviews}}		
+			<dd class="productView-info-value"{{#unless theme_settings.show_product_reviews}} style="display: none;"{{/unless}}>
+            	<a href="{{product.url}}{{#if is_ajax}}#write_review{{/if}}" 
+				class="productView-reviewLink productView-reviewLink--new" 
+				{{#unless is_ajax}}data-reveal-id="modal-review-form"{{/unless}} 
+				role="button"
+            	>
+               		{{lang 'products.reviews.new'}}
+            	</a>
+				{{#unless is_ajax}}
+            	{{> components/products/modals/writeReview}}
+				{{/unless}}
+			</dd>
+        {{/if}}
+		</dl>
+    </div>
+</div>
 <div class="product-gallery-top">
 	<div class="custom-product-brand">
 		<a href="{{product.brand.url}}" class="custom-brand-url" data-brand-url="{{product.brand.url}}"></a>

@@ -1,3 +1,27 @@
+{{#filter product.custom_fields '_tab1' property='name'}}
+	<div class="size-chart tab1-link">
+		<a class="tab-click" href="#tab-custom1">
+			<img width="24" height="24" src="{{cdn 'icons/measure.svg'}}" alt="size chart icon">
+			<span>Size Chart</span>
+		</a>
+	</div>
+{{/filter}}
+{{#if product.weight}}
+	{{#gt (before (trim product.weight ' KGS') 4) 100 }}
+		<div class="free-shipping">
+			<span>FREE UK MAINLAND DELIVERY</span>
+		</div>
+	{{/gt}}
+{{/if}}
+
+{{assignVar "nobackorder" "inactive"}}
+{{#filter product.custom_fields 'hidden' property='name'}}
+	{{#if value '==' 'nobackorder'}}
+		{{assignVar "nobackorder" "active"}}
+	{{/if}}
+{{/filter}}
+
+{{#if (getVar "nobackorder") '===' 'inactive'}}
 <div class="availability-messages">
     <ul>
     {{#if product.stock_level}}
@@ -134,4 +158,35 @@
         {{/if}}
     {{/if}}
     </ul>
+</div>
+{{else}}
+    {{#if product.stock_level}}
+        {{#if product.can_purchase}}
+            {{#gt product.stock_level 0}}
+				<div class="availability-messages">
+			    	<ul>
+		                <li class="next-working-day">
+							<div class="availability-icon">
+								<img width="32" height="32" src="{{cdn 'img/custom/truck.svg'}}" alt="truck icon">
+							</div>
+							<div class="availability-message">
+								Order by 1pm for Next Working Day Delivery
+							</div>
+						</li>
+		                <li class="immediate-collection">
+							<div class="availability-icon">
+								<img width="32" height="32" src="{{cdn 'img/custom/store-alt.svg'}}" alt="store icon">
+							</div>
+							<div class="availability-message">
+								Available for immediate collection in-store
+							</div>
+						</li>
+					</ul>
+				</div>
+			{{/gt}}
+		{{/if}}
+	{{/if}}
+{{/if}}
+<div id="backorderMessage" style="display: none;">
+    
 </div>
