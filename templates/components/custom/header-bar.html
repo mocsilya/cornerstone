@@ -1,9 +1,9 @@
 {{#if theme_settings.custom_header_show_bar}}
-<div class="header-bar">
+<div class="header-bar{{#if theme_settings.custom_header_fixed}} header-bar-fixed{{else}} header-bar-unfixed{{/if}}">
 	<div class="container">
-		<ul class="header-bar-list{{#or theme_settings.custom_phone_show theme_settings.custom_email_show}} header-bar-list-contact{{/or}}{{#or theme_settings.custom_header_show_bar_message1 theme_settings.custom_header_show_bar_message2 theme_settings.custom_header_show_bar_message3}} header-bar-list-message{{/or}}">
+		<div class="header-bar-list{{#or theme_settings.custom_phone_show theme_settings.custom_email_show}} header-bar-list-contact{{/or}}{{#or theme_settings.custom_header_show_bar_message1 theme_settings.custom_header_show_bar_message2 theme_settings.custom_header_show_bar_message3}} header-bar-list-message{{/or}}">
 			{{#if theme_settings.custom_header_show_bar_message1}}
-			<li class="header-bar-message header-bar-message-1">
+			<div class="header-bar-message header-bar-message-1">
 				{{#unless theme_settings.custom_header_bar_message1_icon '==' 'none'}}
 				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-{{theme_settings.custom_header_bar_message1_icon}}{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
 				{{/unless}}
@@ -15,10 +15,10 @@
 					{{{theme_settings.custom_header_bar_message1_text}}}
 				{{/if}}
 				</span>
-			</li>
+			</div>
 			{{/if}}
 			{{#if theme_settings.custom_header_show_bar_message2}}
-			<li class="header-bar-message header-bar-message-2">
+			<div class="header-bar-message header-bar-message-2">
 				{{#unless theme_settings.custom_header_bar_message2_icon '==' 'none'}}
 				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-{{theme_settings.custom_header_bar_message2_icon}}{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
 				{{/unless}}
@@ -30,10 +30,10 @@
 					{{{theme_settings.custom_header_bar_message2_text}}}
 				{{/if}}
 				</span>
-			</li>
+			</div>
 			{{/if}}
 			{{#if theme_settings.custom_header_show_bar_message3}}
-			<li class="header-bar-message header-bar-message-3">
+			<div class="header-bar-message header-bar-message-3">
 				{{#unless theme_settings.custom_header_bar_message3_icon '==' 'none'}}
 				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-{{theme_settings.custom_header_bar_message3_icon}}{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
 				{{/unless}}
@@ -45,10 +45,10 @@
 					{{{theme_settings.custom_header_bar_message3_text}}}
 				{{/if}}
 				</span>
-			</li>
+			</div>
 			{{/if}}
 			{{#or theme_settings.custom_email_show theme_settings.custom_phone_show}}
-			<li class="header-bar-contact">
+			<div class="header-bar-contact">
 			{{#all settings.phone_number theme_settings.custom_phone_show}}
 				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-phone{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
 				{{> components/custom/client/client-header-phone}}
@@ -59,9 +59,9 @@
 				{{> components/custom/client/client-header-email}}
 				<span class="header-bar-text"><a href="mailto:{{theme_settings.custom_email_address}}">{{lang 'footer.email_us'}}</a></span>
 			{{/if}}
-			</li>
+			</div>
 			{{/or}}
-		</ul>
+		</div>
 	</div>
 </div>
 {{/if}}

@@ -46,8 +46,12 @@
 	{{/if}}
 	{{#if theme_settings.social_icon_placement_bottom}}
 		<article class="footer-social-col" data-section-type="footer-social">
-			<h3 class="newsletter-heading">{{theme_settings.custom_footer_social_heading}}</h3>
-			<p class="newsletter-subtext">{{theme_settings.custom_footer_social_message}}</p>
+			<h3 class="newsletter-heading">
+				{{#if theme_settings.custom_footer_social_heading}}{{theme_settings.custom_footer_social_heading}}{{else}}{{lang 'social.connect'}}{{/if}}
+			</h3>
+			<p class="newsletter-subtext">
+				{{#if theme_settings.custom_footer_social_message}}{{theme_settings.custom_footer_social_message}}{{else}}{{lang 'social.connect_intro'}}{{/if}}
+			</p>
 			{{> components/common/social-links}}
 		</article>
 	{{/if}}
@@ -85,7 +89,8 @@
 			{{#if theme_settings.custom_footer_show_page_columns}}
 			{{assignVar "pageCount" 0}}
 			{{#each pages}}
-				{{#unless (lowercase name) '==' 'header'}}	
+				{{#or (if (lowercase name) '===' 'header') (if (lowercase name) '===' 'iframe')}}
+				{{else}}
 				{{#if children}}
 					<!-- {{incrementVar "pageCount"}} -->
 		            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
@@ -111,19 +116,20 @@
 						{{#if (getVar "pageCount") '===' 12}}{{{region name="footer_page_12--global"}}}{{/if}}
 		            </article>
 				{{/if}}
-				{{/unless}}
+				{{/or}}
 			{{/each}}
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
                 <h3 class="footer-info-heading">{{lang 'footer.navigate'}}</h3>
                 <ul class="footer-info-list">
                     {{#each pages}}
-						{{#unless (lowercase name) '==' 'header'}}	
+						{{#or (if (lowercase name) '===' 'header') (if (lowercase name) '===' 'iframe')}}
+						{{else}}
 						{{#unless children}}
                         <li class="link-{{dashcase (lowercase (sanitize name))}}">
                             <a href="{{url}}">{{name}}</a>
                         </li>
 						{{/unless}}
-						{{/unless}}
+						{{/or}}
                     {{/each}}
 					{{#if (getVar "b2b-products") '===' 'show'}}
 						{{#if theme_settings.custom_footer_show_sitemap}}
@@ -187,11 +193,12 @@
                 <h3 class="footer-info-heading">{{lang 'footer.info'}}</h3>
                 <ul class="footer-info-list">
                     {{#each pages}}
-					{{#unless (lowercase name) '==' 'header'}}
+					{{#or (if (lowercase name) '===' 'header') (if (lowercase name) '===' 'iframe')}}
+					{{else}}
                         <li class="link-{{dashcase (lowercase (sanitize name))}}">
                             <a href="{{url}}">{{name}}</a>
                         </li>
-					{{/unless}}
+					{{/or}}
                     {{/each}}
 					{{#if (getVar "b2b-products") '===' 'show'}}
 						{{#if theme_settings.custom_footer_show_sitemap}}

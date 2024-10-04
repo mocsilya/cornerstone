@@ -2273,11 +2273,15 @@
         "options": [
           {
             "value": "underneath",
-            "label": "Underneath"
+            "label": "Under"
           },
           {
             "value": "side",
-            "label": "Side Column"
+            "label": "Side"
+          },
+          {
+            "value": "sticky",
+            "label": "Sticky"
           }
         ]
       },

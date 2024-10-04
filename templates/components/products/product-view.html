@@ -101,11 +101,11 @@
 			{{/if}}
 		{{/each}}
 		{{#if product.videos.list.length}}
-			{{#if theme_settings.custom_product_description_location '==' 'underneath'}}
+			{{#unless theme_settings.custom_product_description_location '==' 'side'}}
 				{{> components/custom/video-player product.videos}}
-        	{{/if}}
+        	{{/unless}}
 		{{/if}}
-		{{#and product.videos.list.length (if theme_settings.custom_product_description_location '==' 'underneath')}}
+		{{#and product.videos.list.length (unless theme_settings.custom_product_description_location '==' 'side')}}
 			<ul class="productView-thumbnails"{{#gt product.images.length 3}} data-slick='{
                 "infinite": false,
                 "mobileFirst": true,
@@ -131,7 +131,11 @@
 		{{/and}}
 		{{#if (getVar "thumbs") '===' 'show'}}
             {{#each product.images}}
-                <li class="productView-thumbnail productView-thumbnail-image">
+				{{#contains alt "imageset:"}}
+					<li class="productView-thumbnail productView-thumbnail-image" data-image-set="{{{after (split alt 'imageset:') 1}}}">
+				{{else}}
+					<li class="productView-thumbnail productView-thumbnail-image">
+				{{/contains}}
                     <a
                         class="productView-thumbnail-link"
                         href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
@@ -149,7 +153,7 @@
                 </li>
             {{/each}}
 		{{/if}}
-		{{#and product.videos.list.length (if theme_settings.custom_product_description_location '==' 'underneath')}}
+		{{#and product.videos.list.length (unless theme_settings.custom_product_description_location '==' 'side')}}
 		</ul>
 		{{else}}
 			{{#if (getVar "thumbs") '===' 'show'}}
@@ -178,7 +182,9 @@
 		{{/if}}
 		{{> components/custom/client/client-product-gallery-bottom}}
     </section>
-
+	{{#if theme_settings.custom_product_description_location '===' 'sticky'}}
+	<div class="productView-details productView-details-sticky productView-details-{{theme_settings.custom_product_gallery_size}}">
+	{{/if}}
     <section class="productView-details{{#if product.brand}} productView-details-{{first (split product.brand.name ' ')}}{{/if}} productView-details-{{theme_settings.custom_product_gallery_size}} product-data">
         <div class="productView-product">
 			{{> components/custom/client/client-product-top}}
@@ -234,6 +240,7 @@
             </div>
 			<div class="productView-below-price-global">
 			{{{region name="product_below_price--global"}}}
+			{{> components/custom/client/client-product-price}}
 			</div>
             {{{region name="product_below_price"}}}
             <div class="productView-rating">
@@ -276,15 +283,23 @@
                     <dt class="productView-info-name condition-label">{{lang 'products.condition'}}</dt>
                     <dd class="productView-info-value condition-value">{{product.condition}}</dd>
                 {{/if}}
-                {{#if product.availability}}
-                    <dt class="productView-info-name availability-label">{{lang 'products.availability'}}</dt>
-                    <dd class="productView-info-value availability-value">{{product.availability}}</dd>
+				{{#if theme_settings.custom_product_availability}}
+					<dt class="productView-info-name availability-label availability-custom">{{lang 'products.availability'}}</dt>
+					{{#if product.availability}}
+						{{#contains product.availability "//"}}
+					        <dd class="productView-info-value availability-value availability-custom" data-product-availabilty="{{before (split product.availability '//') 1}}">{{after (split product.availability '//') 1}}</dd>
+				        {{else}}
+					        <dd class="productView-info-value availability-value availability-custom" data-product-availability="{{before (split theme_settings.custom_product_availability '//') 1}}">{{after (split theme_settings.custom_product_availability '//') 1}}</dd>
+				        {{/contains}}
+					{{else}}
+			            <dd class="productView-info-value availability-value availability-custom" data-product-availability="{{before (split theme_settings.custom_product_availability '//') 1}}">{{after (split theme_settings.custom_product_availability '//') 1}}</dd>
+	                {{/if}}
 				{{else}}
-					{{#if theme_settings.custom_product_availability}}
-						<dt class="productView-info-name availability-label">{{lang 'products.availability'}}</dt>
-						<dd class="productView-info-value availability-value">{{theme_settings.custom_product_availability}}</dd>
+					{{#if product.availability}}
+			            <dt class="productView-info-name availability-label availability-default">{{lang 'products.availability'}}</dt>
+				        <dd class="productView-info-value availability-value availability-default">{{product.availability}}</dd>
 					{{/if}}
-                {{/if}}
+				{{/if}}
                 {{#all product.weight theme_settings.show_product_weight}}
                     <dt class="productView-info-name weight-label">{{lang 'products.weight'}}</dt>
                     <dd class="productView-info-value weight-value" data-product-weight>{{product.weight}}</dd>
@@ -435,10 +450,22 @@
 			{{/filter}}
         </div>
     </section>
-	{{#if theme_settings.custom_product_description_location '===' 'underneath'}}
-		{{{region name="product_view_bottom"}}}
-		{{{region name="product_view_bottom--global"}}}
+	{{#if theme_settings.custom_product_description_location '===' 'sticky'}}
+	</div>
 	{{/if}}
+	{{#unless theme_settings.custom_product_description_location '===' 'side'}}
+		{{#if theme_settings.custom_product_description_location '===' 'sticky'}}
+		<div class="productView-block-sticky productView-block-{{theme_settings.custom_product_gallery_size}}">
+			{{{region name="product_view_bottom"}}}
+			{{{region name="product_view_bottom--global"}}}
+			{{> components/custom/client/client-product-view}}
+		</div>
+		{{else}}
+			{{{region name="product_view_bottom"}}}
+			{{{region name="product_view_bottom--global"}}}
+			{{> components/custom/client/client-product-view}}
+		{{/if}}
+	{{/unless}}
     <article class="productView-description productView-description-{{theme_settings.custom_product_description_location}} productView-description-{{theme_settings.custom_product_gallery_size}}">
         {{#if theme_settings.show_product_details_tabs}}
             {{> components/products/description-tabs}}
@@ -446,10 +473,11 @@
             {{> components/products/description}}
         {{/if}}
     </article>
-	{{#unless theme_settings.custom_product_description_location '===' 'underneath'}}
+	{{#if theme_settings.custom_product_description_location '===' 'side'}}
 		{{{region name="product_view_bottom"}}}
 		{{{region name="product_view_bottom--global"}}}
-	{{/unless}}
+		{{> components/custom/client/client-product-view}}
+	{{/if}}
 </div>
 {{#if theme_settings.custom_product_addtocart_modal}}
 <div id="previewModal" class="modal modal--large" data-reveal>
@@ -458,3 +486,42 @@
     <div class="loadingOverlay"></div>
 </div>
 {{/if}}
+{{#filter product.custom_fields '_imageset' property='name'}}
+<script>
+let timeDelay = 0;
+const formOptions = document.querySelectorAll(".productView-options .form-field-{{dashcase value}} .form-select, .productView-options .form-field-{{dashcase value}} .form-radio");
+for (let i = 0; i < formOptions.length; i++) {
+	formOptions[i].addEventListener("change", function() {
+		clearTimeout(timeDelay);
+	    timeDelay = setTimeout(function() {
+			// Hide Images not in Set
+			let imageSet;
+			if (formOptions[i].classList.contains('form-select')) {
+				imageSet = formOptions[i].options[formOptions[i].selectedIndex].getAttribute('aria-label');
+			} else {
+				imageSet = formOptions[i].getAttribute('aria-label');
+			}
+			const imageList = document.querySelectorAll('.productView-thumbnail');
+			imageList.forEach((imageItem) => {
+				const imageData = imageItem.getAttribute('data-image-set');
+				if (imageSet === 'None') {
+					imageItem.style.display = 'block';
+				} else {
+					if (imageData === imageSet) {
+						imageItem.style.display = 'block';
+					} else {
+						imageItem.style.display = 'none';
+					}
+				}
+			});
+			const findSlick = document.querySelectorAll('.productView-thumbnails.slick-initialized .slick-track');
+			const isSlick = findSlick[0];
+			if (findSlick.length > 0) {
+				isSlick.style.transform = 'translate3d(0px, 0px, 0px)';
+			}
+	    }, 750);
+	});
+}
+</script>
+{{/filter}}
+		

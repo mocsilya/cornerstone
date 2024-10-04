@@ -1,10 +1,12 @@
 <div class="navPage-subMenu navPage-subMenu-horizontal" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
     <ul class="navPage-subMenu-list">
-        <li class="navPage-subMenu-item-parent">
-            <a class="navPage-subMenu-action navPages-action navPages-action-depth-max" href="{{url}}">{{lang 'category.view_all.name' category=name}}</a>
+        <li class="navPage-subMenu-item-parent navPage-subMenu-item-viewall">
+            <a class="navPage-subMenu-action navPages-action navPages-action-depth-max" href="{{url}}">
+				<span>{{lang 'category.view_all.name' category=name}}</span>
+			</a>
         </li>
         {{#each children}}
-            <li class="navPage-subMenu-item-child">
+            <li class="navPage-subMenu-item-child navPage-subMenu-item-{{dashcase name}}">
                 {{#if children}}
                     <a class="navPage-subMenu-action navPages-action navPages-action-depth-max has-subMenu{{#if is_active}} activePage{{/if}}" href="{{url}}" data-collapsible="navPages-{{id}}">
                         {{name}}<i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use href="#icon-chevron-down" /></svg></i>
