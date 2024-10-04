@@ -290,6 +290,27 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
+.header-logo-image-container {
+	display: flex;
+	align-items: center;
+}
+
+.header-logo-image {
+	max-height: 33px;
+	@include breakpoint("medium") {
+		width: 250px;
+		min-width: 250px;
+		max-width: 250px;
+		height: 43px;
+		min-height: 43px;
+		max-height: 43px;
+	}
+}
+
+.navUser-section--norm.navUser-section-left {
+	display: none;
+}
+
 .navUser-item--custom .navUser-action {
 	background-color: #efe9f1;
 	color: stencilColor("color-primary");
