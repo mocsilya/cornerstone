@@ -1,0 +1,36 @@
+{{assignVar "cartQty" "hide"}}
+{{assignVar "cartQtyCFW" "qty-cfw-no"}}
+{{assignVar "cartQtyCFM" "qty-cfm-no"}}
+
+{{#each cart.items}}
+	{{#contains name 'Pills for Women'}}
+		{{#or (if quantity '==' '1') (if quantity '==' '2')}}
+			{{assignVar "cartQty" "show"}}
+			{{assignVar "cartQtyCFW" "qty-cfw-yes"}}
+		{{/or}}
+	{{/contains}}
+	{{#contains name 'Pills for Men'}}
+		{{#or (if quantity '==' '1') (if quantity '==' '2')}}
+			{{assignVar "cartQty" "show"}}
+			{{assignVar "cartQtyCFM" "qty-cfm-yes"}}
+		{{/or}}
+	{{/contains}}
+{{/each}}
+
+{{#if (getVar "cartQty") '===' "show"}}
+	<div class="cart-qty-upgrade {{getVar 'cartQtyCFW'}} {{getVar 'cartQtyCFM'}}">Upgrade to 3 bottles to save 33%</div>
+{{/if}}
+
+{{> components/common/payment-icons}}
+
+<div class="product-shipping">
+	<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-{{theme_settings.custom_header_bar_message2_icon}}{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
+	{{> components/custom/client/client-header-bar2}}
+	<span class="header-bar-text">
+	{{#if theme_settings.custom_header_bar_message2_link}}
+		<a href="{{theme_settings.custom_header_bar_message2_link}}">{{{theme_settings.custom_header_bar_message2_text}}}</a>
+	{{else}}
+		{{{theme_settings.custom_header_bar_message2_text}}}
+	{{/if}}
+	</span>
+</div>

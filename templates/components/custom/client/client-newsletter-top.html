@@ -1,0 +1,9 @@
+<div class="container">
+	<div class="footer-cta">
+		<div class="container container-cta">
+		{{#if page.title '==' 'Success Stories'}}
+			{{{region name="success_stories--global"}}}
+		{{else}}
+			{{{region name="customer_testimonials--global"}}}
+		{{/if}}
+		</div>

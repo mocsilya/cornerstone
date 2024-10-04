@@ -1,0 +1,98 @@
+{{assignVar "sku-type" "none"}}
+{{#contains product.sku "C4W"}}{{assignVar "sku-type" "cfw"}}{{/contains}}
+{{#contains product.sku "CFW"}}{{assignVar "sku-type" "cfw"}}{{/contains}}
+{{#contains product.sku "C4M"}}{{assignVar "sku-type" "cfm"}}{{/contains}}
+{{#contains product.sku "CFM"}}{{assignVar "sku-type" "cfm"}}{{/contains}}
+{{#unless (getVar "sku-type") '===' 'none'}}
+{{#if product.warranty}}
+<div class="minidesc-content">
+	{{{product.warranty}}}
+</div>
+{{/if}}
+<!--
+<div class="productView-image-ingredients">
+    <ul>
+        <li class="ingredient-cfw">
+            <div><img src="/product_images/uploaded_images/nutrient-chasteberry.png"><span></span></div>
+            <h3>Chasteberry</h3>
+        </li>
+        <li class="ingredient-cfm ingredient-cfw">
+            <div><img src="/product_images/uploaded_images/nutrient-larginine.png"><span></span></div>
+            <h3>L-Arginine</h3>
+        </li>
+        <li class="ingredient-cfm">
+            <div><img src="/product_images/uploaded_images/nutrient-ltaurine.png"><span></span></div>
+            <h3>L-Aurine</h3>
+        </li>
+        <li class="ingredient-cfm">
+            <div><img src="/product_images/uploaded_images/nutrient-lcarnitine.png"><span></span></div>
+            <h3>L-Carnitine</h3>
+        </li>
+        <li class="ingredient-cfm ingredient-cfw">
+            <div><img src="/product_images/uploaded_images/nutrient-greentea.png"><span></span></div>
+            <h3>Green Tea Extract</h3>
+        </li>
+        <li class="ingredient-cfw">
+            <div><img src="/product_images/uploaded_images/nutrient-magnesium.png"><span></span></div>
+            <h3>Magnesium</h3>
+        </li>
+    </ul>
+	<div class="full-list">
+		<a class="button button--secondary scroll-click" href="#ingredients">All Ingredients</a>
+	</div>
+</div>
+-->
+{{/unless}}
+</div>
+<!--
+<div class="productView-trust-wrap">
+	<div class="productView-trust-2">
+		<ul>
+			<li><img title="FertilitySmart Conceive For Women All Natural Premium Ingredients" src="/product_images/uploaded_images/all-natural-premium-ingredients.png" alt="FertilitySmart Conceive For Women All Natural Premium Ingredients"></li>
+			<li><img title="FertilitySmart Conceive For Women Six Times Award Winner" src="/product_images/uploaded_images/fertilitysmart-for-men-six-times-award.png" alt="FertilitySmart Conceive For Women Six Times Award Winner"></li>
+			<li><img title="FertilitySmart Conceive For Women Award Winner" src="/product_images/uploaded_images/tasteforlife.png" alt="FertilitySmart Conceive For Women Award Winner"></li>
+			<li><img title="FertilitySmart Conceive For Women GMP Certified" src="/product_images/uploaded_images/gmp-certified.png" alt="FertilitySmart Conceive For Women GMP Certified"></li>
+			<li><img title="FertilitySmart Natural Products" src="/product_images/uploaded_images/icons-npa.jpg"></li>
+			<li><img title="FertilitySmart PCI Level 1" src="/product_images/uploaded_images/icons-pci.jpg"></li>
+		</ul>
+	</div>
+</div>
+<div class="productView-trust-wrap">
+	<div class="productView-trust-1">
+		<ul>
+	      <li>
+	        <img src="/assets/img/custom/no-fillers.svg" alt="No Fillers">
+	        <span class="list-item__span">No Fillers</span>
+	      </li>
+	      <li>
+	        <img src="/assets/img/custom/no-artificial-flavours.svg" alt="No Artificial Flavours">
+	        <span class="list-item__span">No Artificial Flavours</span>
+	      </li>
+	      <li>
+	        <img src="/assets/img/custom/no-preservatives.svg" alt="No Preservatives">
+	        <span class="list-item__span">No Preservatives</span>
+	      </li>
+	      <li>
+	        <img src="/assets/img/custom/no-animal-testing.svg" alt="No Animal Testing">
+	        <span class="list-item__span">No Animal Testing</span>
+	      </li>
+	      <li>
+	        <img src="/assets/img/custom/no-gelatin.svg" alt="No Gelatin">
+	        <span class="list-item__span">No Gelatin</span>
+	      </li>
+	      <li>
+	        <img src="/assets/img/custom/gluten-free.svg" alt="Gluten-Free">
+	        <span class="list-item__span">Gluten-Free</span>
+	      </li>
+	      <li>
+	        <img src="/assets/img/custom/lactose-free.svg" alt="Lactose Free">
+	        <span class="list-item__span">Lactose Free</span>
+	      </li>
+	      <li>
+	        <img src="/assets/img/custom/sugar-free.svg" alt="Sugar Free">
+	        <span class="list-item__span">Sugar Free</span>
+	      </li>
+	    </ul>
+	</div>
+</div>
+-->

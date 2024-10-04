@@ -1,0 +1,13 @@
+<div class="custom-mob-nav">
+	<div class="custom-mob-nav-cfw"><a href="/fertilitysmart-conceive-for-women">CONCEIVE FOR WOMEN</a></div>
+	<div class="custom-mob-nav-cfm"><a href="/fertilitysmart-conceive-for-men">CONCEIVE FOR MEN</a></div>
+</div>
+{{#if page_type '==' 'product'}}
+<div class="quick-add">
+	<div class="container">
+		<div class="quick-add-buttons">
+			<a class="button button--primary" href="/cart.php?action=add&sku={{product.sku}}">{{lang 'products.add_to_cart'}}</a><a class="button button--primary button--addone" href="/cart.php?action=add&sku={{product.sku}}">Buy 1 Bottle</a><a class="button button--primary button--addthree" href="/cart.php?action=add&sku={{product.sku}}&qty=3">Buy 3 for 2</a>
+		</div>
+	</div>
+</div>
+{{/if}}

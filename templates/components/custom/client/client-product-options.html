@@ -1,0 +1,16 @@
+<!--
+{{#if currency_selector.currencies.length '>' 1}}
+<div class="productView-currency">
+	<strong>Change Currency</strong>
+	<ul>
+	{{#each currency_selector.currencies}}
+		<li>
+			<a href="{{{switch_url}}}"{{#if is_active}} class="currency-active"{{/if}} data-currency-code="{{{code}}}">
+				<span>{{{flag}}}</span>
+			</a>
+		</li>
+	{{/each}}
+	</ul>
+</div>
+{{/if}}
+-->
