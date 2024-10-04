@@ -6654,19 +6654,11 @@ div[data-content-region="product_view_bottom--global"] {
 }
 
 .pagination-load {
-	display: none;
+	display: block;
 	text-align: center;
 }
 
-.page-category .page-content .pagination-load,
-.page-search .page-content .pagination-load,
-.page-brand .page-content .pagination-load {
-	display: block;
-}
-
-.page-category .actionBar-pagination .pagination-load,
-.page-search .actionBar-pagination .pagination-load,
-.page-brand .actionBar-pagination .pagination-load {
+.actionBar-pagination .pagination-load {
 	display: none;
 }
 
@@ -7060,7 +7052,7 @@ div[data-content-region="page_builder_content_editor_area_bottom"] {
 }
 
 .form-blog .form-input {
-	width: calc(100% - 3.375rem);
+	width: calc(100% - 4rem);
 	display: inline-block;
 	vertical-align: top;
 }
