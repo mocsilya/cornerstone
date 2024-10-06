@@ -125,7 +125,7 @@
 }
 
 .widget-banner-home .widget-extra-review {
-    background-color: #642a75;
+    background-color: #1f4070;
     color: #fff;
     padding: 1rem;
     border-radius: 1.5rem 1.5rem 0 1.5rem;
@@ -167,7 +167,7 @@
 
 .widget-extra-desktop {
     text-align: center;
-    background-color: #642a75;
+    background-color: #1f4070;
     display: none;
     font-size: 0;
     @include breakpoint("medium") {
@@ -272,12 +272,19 @@ h1, h2, h3, h4, h5, h6 {
 	.navPages-container.is-open {
 		padding-top: 85px;
 	}
-	.navPages-item-conceive-women .navPages-action {
-		color: #e36197;
+	.navPages-item-ultra .navPages-action {
+		color: #e9ce38;
 	}
-	.navPages-item-conceive-men .navPages-action {
-		color: #2975ab;
+	.navPages-item-focus .navPages-action {
+		color: #11ade4;
 	}
+	.navPages-item-memory .navPages-action {
+		color: #8f489e;
+	}
+	.navPages-item-mood .navPages-action {
+		color: #fbb611;
+	}
+	
 	.navPages-item-conceive-women .navPages-action:hover,
 	.navPages-item-conceive-men .navPages-action:hover {
 		opacity: 0.8;
@@ -312,7 +319,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navUser-item--custom .navUser-action {
-	background-color: #efe9f1;
+	background-color: #d5e1f6;
 	color: stencilColor("color-primary");
 	margin-left: 1px;
 	border-radius: .5rem;
@@ -363,6 +370,10 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
+.navUser ul li.navUser-item--ultra .navUser-action,
+.navUser ul li.navUser-item--focus .navUser-action,
+.navUser ul li.navUser-item--memory .navUser-action,
+.navUser ul li.navUser-item--mood .navUser-action,
 .navUser ul li.navUser-item--stories .navUser-action,
 .navUser ul li.navUser-item--questions .navUser-action {
 	@include breakpoint("large") {
@@ -371,41 +382,42 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
-.navUser ul li.navUser-item--cfm {
+.navUser ul li.navUser-item--mood {
 	padding-right: 0.78571rem;
 	@include breakpoint("large") {
 		padding-right: 0;
 	}
 }
 
-.navUser-item--cfw .navUser-action,
-.navUser-item--cfm .navUser-action {
-	padding: 10px 0.78571rem 9px 0.78571rem;
-	line-height: 16px;
-	color: #fff;
-}
-
-.navUser-item--cfw .navUser-action:hover,
-.navUser-item--cfm .navUser-action:hover {
+.navUser-item--ultra .navUser-action:hover,
+.navUser-item--focus .navUser-action:hover,
+.navUser-item--memory .navUser-action:hover,
+.navUser-item--mood .navUser-action:hover {
 	opacity: 0.8;
 }
 
-.navUser-item--cfw .navUser-action,
-.navUser-item--cfw .navUser-action:hover {
-	background-color: #e36197;
+.navUser-item--ultra .navUser-action,
+.navUser-item--ultra .navUser-action:hover {
+	color: #fff;
+	background-color: #e9ce38;
 }
 
-.navUser-item--cfm .navUser-action,
-.navUser-item--cfm .navUser-action:hover {
-	background-color: #2975ab;
+.navUser-item--focus .navUser-action,
+.navUser-item--focus .navUser-action:hover {
+	color: #fff;
+	background-color: #11ade4;
 }
 
-.navUser-item--cfw span,
-.navUser-item--cfm span {
-	display: block;
-	font-size: 10px;
-	text-align: center;
-	line-height: 14px;
+.navUser-item--memory .navUser-action,
+.navUser-item--memory .navUser-action:hover {
+	color: #fff;
+	background-color: #8f489e;
+}
+
+.navUser-item--mood .navUser-action,
+.navUser-item--mood .navUser-action:hover {
+	color: #fff;
+	background-color: #fbb611;
 }
 
 .navUser-item--phone {
@@ -440,6 +452,7 @@ h1, h2, h3, h4, h5, h6 {
 	left: 0;
 	right: 0;
 	display: flex;
+	flex-wrap: wrap;
 	@include breakpoint("medium") {
 		display: none;
 	}
@@ -449,12 +462,20 @@ h1, h2, h3, h4, h5, h6 {
 	flex: 1 1 0;
 }
 
-.custom-mob-nav-cfw {
-	background-color: #e36197;
+.custom-mob-nav-ultra {
+	background-color: #e9ce38;
 }
 
-.custom-mob-nav-cfm {
-	background-color: #2975ab;
+.custom-mob-nav-focus {
+	background-color: #11ade4;
+}
+
+.custom-mob-nav-memory {
+	background-color: #8f489e;
+}
+
+.custom-mob-nav-mood {
+	background-color: #fbb611;
 }
 
 .custom-mob-nav div a {
@@ -569,7 +590,7 @@ h1, h2, h3, h4, h5, h6, .button {
 
 .cookieMessage {
 	display: none !important;
-	background: #efe9f1;
+	background: #d5e1f6;
 }
 
 
@@ -872,7 +893,7 @@ dl.productView-info {
 .product-shipping span,
 .product-shipping a,
 .product-shipping a:hover {
-	color: #642a75;
+	color: #1f4070;
 	text-decoration: none;
 	cursor: default;
 	opacity: 1;
@@ -890,8 +911,8 @@ dl.productView-info {
 }
 
 .product-shipping .header-bar-icon .icon svg {
-	color: #642a75;
-	fill: #642a75;
+	color: #1f4070;
+	fill: #1f4070;
 }
 
 
@@ -1024,7 +1045,7 @@ dl.productView-info {
 }
 
 .productView-trust-1 {
-	background-color: #642a75;
+	background-color: #1f4070;
 	padding-top: 3rem;
 }
 
@@ -1136,7 +1157,7 @@ dl.productView-info {
 .productView-trust-2 p {
 	text-align: center;
 	margin-bottom: 0;
-	color: #642a75;
+	color: #1f4070;
 }
 
 .productView-trust-2 h2 {
@@ -1211,7 +1232,7 @@ dl.productView-info {
 }
 
 .productView.c4w .description-content {
-	background-color: #fbe8f0;
+	background-color: #d5e1f6;
 }
 
 .productView.c4m .description-content {
@@ -1296,7 +1317,7 @@ dl.productView-info {
 }
 
 .product-banner {
-	border-bottom: 2px solid #642a75;
+	border-bottom: 2px solid #1f4070;
 	@include breakpoint("medium") {
 		display: flex;
 		align-items: center;
@@ -1362,7 +1383,7 @@ dl.productView-info {
 #ingredients > div > p {
 	text-align: center;
 	margin-bottom: 0;
-	color: #642a75;
+	color: #1f4070;
 }
 
 #ingredients > div > h2 {
@@ -1454,7 +1475,7 @@ dl.productView-info {
 
 #ingredients h3,
 #ingredients h4 {
-	color: #642a75;
+	color: #1f4070;
 	font-size: 18px;
 	margin: .75rem 0;
 }
@@ -1565,8 +1586,8 @@ dl.productView-info {
 }
 
 .page-product .category-description-button .button {
-	border: 1px solid #642a75;
-	color: #642a75;
+	border: 1px solid #1f4070;
+	color: #1f4070;
 	padding: 1rem 2rem;
 	border-radius: 999px;
 	margin: .25rem;
@@ -1694,7 +1715,7 @@ dl.productView-info {
 }
 
   .usage__subheading {
-    color: #642a75;
+    color: #1f4070;
     text-transform: uppercase;
     margin: 0;
   }
@@ -1710,7 +1731,7 @@ dl.productView-info {
   }
   
   .usage p:not(.usage__p) {
-    color: #642a75;
+    color: #1f4070;
 	font-weight: 500;
 	margin-bottom: 0;
 	display: none;
@@ -1782,7 +1803,7 @@ dl.productView-info {
   }
 
   .table-ingredients-cell__heading.text-purple {
-    color: #642a75;
+    color: #1f4070;
   }
 
   .table-ingredients-cell__icon {
@@ -1795,7 +1816,7 @@ dl.productView-info {
   }
 
   .table-ingredients-cell--bg-accent {
-    background-color: #642a75;
+    background-color: #1f4070;
     color: #fff;
   }
 
@@ -1846,7 +1867,7 @@ dl.productView-info {
   }
 
    .usage .table-ingredients .table-ingredients-cell-fluid:last-of-type {
-    border-top: 1px solid #642a75;
+    border-top: 1px solid #1f4070;
   }
 
    .usage .table-ingredients-column .table-ingredients-cell:not(.table-ingredients-cell--bg-accent):nth-of-type(2n + 1) {
@@ -1962,7 +1983,7 @@ dl.productView-info {
 
     .comparison__table-cell__heading.text-purple {
       font: 700 12px/16px "Jost", sans-serif;
-      color: #642A75;
+      color: #1f4070;
     }
 
     .comparison__table-cell__icon {
@@ -1975,7 +1996,7 @@ dl.productView-info {
     }
 
     .comparison__table-cell--bg-accent {
-      background-color: #642A75;
+      background-color: #1f4070;
       color: #fff;
     }
 
@@ -1987,7 +2008,7 @@ dl.productView-info {
 .story-container {
     padding-bottom: 20px;
     margin-bottom: 40px;
-    border-bottom: 2px solid #642a75;
+    border-bottom: 2px solid #1f4070;
 }
 
 .story-container h3 {
@@ -2044,7 +2065,7 @@ dl.productView-info {
 .calltoaction .DetailRow a.btn.add-to-cart {
     color: #fff !important;
     font-size: 16px;
-    background-color: #642a75;
+    background-color: #1f4070;
     width: 100%;
     padding: 0;
     height: 50px;
@@ -2077,7 +2098,7 @@ dl.productView-info {
     border-top: 1px solid #ccc;
     display: block;
     width: 100%;
-    color: #642a75!important;
+    color: #1f4070!important;
     text-align: center;
     padding: 10px 0;
 	background: none;
@@ -2087,15 +2108,15 @@ dl.productView-info {
 .page-tabs ul.tabs .tab .tab-title:hover {
     text-align: center;
     padding: 10px 0;
-	background: #efe9f1;
+	background: #d5e1f6;
 }
 
 .page-page .page-tabs .tab .page-heading {
     border-top: 1px solid #ccc;
     padding: 30px 0 10px 0;
     margin: 0;
-    border-bottom: 2px solid #642a75;
-	color: #642a75;
+    border-bottom: 2px solid #1f4070;
+	color: #1f4070;
 }
 
 .page-page .page-tabs .page-heading {
@@ -2336,13 +2357,13 @@ dl.productView-info {
 }
 
 .page-cart .coupon-code-add {
-	background-color: #642a75;
+	background-color: #1f4070;
 	color: #fff;
 }
 
 .page-cart .coupon-code-cancel {
 	background-color: #E0D4E3;
-	color: #642a75;
+	color: #1f4070;
 }
 
 .page-cart .coupon-form .form-input {
@@ -2379,7 +2400,7 @@ dl.productView-info {
 
 .cart-qty-upgrade.qty-cfw-no.qty-cfm-no,
 .cart-qty-upgrade.qty-cfw-yes.qty-cfm-yes {
-	color: #642a75;
+	color: #1f4070;
 	background-color: #E0D4E3;
 }
 
@@ -2441,7 +2462,7 @@ dl.productView-info {
 .cart-upsell .upsell-item-price-data,
 .cart-upsell .upsell-item-price-data abbr {
 	font-weight: 700;
-	color: #642a75;
+	color: #1f4070;
 }
 
 .cart-upsell .upsell-item-price-data:first-child,
@@ -2499,7 +2520,7 @@ dl.productView-info {
 }
 
 .productGrid-bundle .price strong {
-	color: #642a75;
+	color: #1f4070;
 }
 
 .productGrid-bundle .button {
@@ -2514,7 +2535,7 @@ dl.productView-info {
 
 
 .footer-newsletter .footer-newsletter-col {
-	background-color: #FBE8F0;
+	background-color: #d5e1f6;
 	border-radius: 50px;
 	border-top-left-radius: 0px;
 	margin: 3rem 0;
@@ -2559,15 +2580,27 @@ dl.productView-info {
 	text-transform: uppercase;
 }
 
-.footer-info .footer-info-col:first-child li:first-child a {
-	color: #e36197;
+.footer-info .footer-info-col li.link-ultra a {
+	color: #e9ce38;
 	font-weight: 700;
 }
 
-.footer-info .footer-info-col:first-child li:last-child a {
-	color: #2975ab;
+.footer-info .footer-info-col li.link-focus a {
+	color: #11ade4;
 	font-weight: 700;
 }
+
+.footer-info .footer-info-col li.link-memory a {
+	color: #8f489e;
+	font-weight: 700;
+}
+
+.footer-info .footer-info-col li.link-mood a {
+	color: #fbb611;
+	font-weight: 700;
+}
+
+
 
 .footer-info-col address {
 	font-style: normal;
@@ -2659,21 +2692,15 @@ dl.productView-info {
 
 .footer-cta .container-cta .button {
 	background-color: stencilColor("custom-footer-newsletter-button-background");
-	border: 1px solid #e36197;
-	color: #e36197;
+	border: 1px solid #d5e1f6;
+	color: #fff;
 }
 
 .footer-cta .container-cta .button:hover {
 	background-color: stencilColor("custom-footer-newsletter-button-background");
-	border: 1px solid #e36197;
-	color: #fff;
+	border: 1px solid #d5e1f6;
+	color: #d5e1f6;
 }
-
-
-
-
-
-
 
 .page-product .container-custom,
 .page-fertilitysmart-fertility-pills-for-women .container-hero + .container,
