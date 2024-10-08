@@ -829,6 +829,20 @@ div[data-content-region="product_below_price--global"] div > div > div {
 	border-bottom-right-radius: .5rem;
 }
 
+.productView #braintreepaypal-container1 {
+    background-color: #FFC439;
+    border-radius: .25rem;
+}
+
+.productView #braintreepaypal-container1:hover {
+    background-color: #f2ba36;
+}
+
+.productView #braintreepaypal-container1 > .paypal-buttons {
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
 
 
 
@@ -1208,15 +1222,22 @@ div[data-content-region="blog_banner"] div > div > div {
 
 
 // =============================================================================
-// Footer Blog
+// Footer
 // =============================================================================
 
+.footer {
+	border-top: 2px solid #fff;
+}
 .footer-blog-list li {
 	text-align: center;
 }
 
 .footer-newsletter-summary {
 	text-align: center;
+}
+
+.footer-partners {
+	margin: 1.5rem 0;
 }
 
 /*

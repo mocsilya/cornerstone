@@ -103,7 +103,7 @@
     "custom_header_show_bar_message2": true,
     "custom_header_show_bar_message3": true,
     "custom_header_bar_message1_text": "Same Day Dispatch: Order by 4pm",
-    "custom_header_bar_message2_text": "Free 24hr Delivery on Orders >£39.99",
+    "custom_header_bar_message2_text": "Free 24hr Delivery on Orders >£29.99",
     "custom_header_bar_message3_text": "E-liquids Multi-Buy Deals",
     "custom_header_bar_message1_link": "/shipping-returns/",
     "custom_header_bar_message2_link": "/shipping-returns/",
@@ -169,7 +169,7 @@
     "custom-footer-newsletter-background": "#f1f1f1",
     "custom-footer-newsletter-text": "#3c3936",
     "custom-footer-newsletter-input-text": "#666666",
-    "custom-footer-newsletter-input-border": "#ffffff",
+    "custom-footer-newsletter-input-border": "#666666",
     "custom-footer-newsletter-input-background": "#ffffff",
     "custom-footer-newsletter-button": "#ffffff",
     "custom-footer-newsletter-button-hover": "#ffffff",
@@ -233,7 +233,7 @@
     "custom_product_availability_cart": "The estimated delivery for your entire order is X working days.",
     "custom_product_variant_data": false,
     "custom_product_question": "Ask a Question",
-	"custom_product_question_tab": false,
+    "custom_product_question_tab": false,
     "custom-tab-color": "#3c3936",
     "custom-tab-background": "#f1f1f1",
     "custom-tab-hover-color": "#ffffff",
@@ -588,7 +588,8 @@
     "amazon-button-color": "Gold",
     "masterpass-button-color": "black",
     "paymentbuttons-provider-sorting": [
-      "paypal"
+      "paypal",
+      "paypal-credit"
     ]
   },
   "read_only_files": [
