@@ -127,7 +127,7 @@
 				{{/if}}
             	{{#if theme_settings.navigation_design '===' 'alternate'}}
 					{{#if theme_settings.custom-header-menu-home}}
-						<li class="navPages-item navPages-item-home">
+						<li class="navPages-item navPages-item-home{{#if theme_settings.custom-header-menu-wrapper}} navPages-item-wrapper{{/if}}">
 							<a class="navPages-action navPages-action-mobile navPages-action-depth-max" href="{{urls.home}}">
 								<span>Home</span>
 							</a>
@@ -155,12 +155,17 @@
 							        {{#each categories}}
 							            <li class="navPage-subMenu-item-child navPage-subMenu-item-{{dashcase name}}">
 							                {{#if children}}
-							                    <a class="navPage-subMenu-action navPages-action navPages-action-depth-max has-subMenu{{#if is_active}} activePage{{/if}}" href="{{url}}" data-collapsible="navPages-{{id}}">
-							                        {{name}}<i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use href="#icon-chevron-down" /></svg></i>
+												<a class="navPage-subMenu-action navPages-action navPages-action-depth-max has-subMenu{{#if is_active}} activePage{{/if}}" href="{{url}}" data-collapsible="navPages-{{id}}">
+													{{#if image}}<span class="navPage-subMenu-thumb" style="background-image: url('{{getImage image 'thumbnail'}}');"></span>{{/if}}
+							                        {{name}}
+													<i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use href="#icon-chevron-down" /></svg></i>
 							                    </a>
 							                    {{> components/common/navigation-dropdown}}
 							                {{else}}
-							                    <a class="navPage-subMenu-action navPages-action{{#if is_active}} activePage{{/if}}" href="{{url}}">{{name}}</a>
+							                    <a class="navPage-subMenu-action navPages-action{{#if is_active}} activePage{{/if}}" href="{{url}}">
+													{{#if image}}<span class="navPage-subMenu-thumb" style="background-image: url('{{getImage image 'thumbnail'}}');"></span>{{/if}}
+													{{name}}
+												</a>
 							                {{/if}}
 							            </li>
 							        {{/each}}

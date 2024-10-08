@@ -79,6 +79,11 @@
             <a class="tab-title productView-reviewTabLink" href="#tab-reviews">{{lang 'products.reviews.header' total=product.reviews.total}}</a>
         </li>
     {{/all}}
+    {{#all theme_settings.custom_product_question theme_settings.custom_product_question_tab}}
+        <li class="tab tab-question">
+            <a class="tab-title" href="#tab-question">{{theme_settings.custom_product_question}}</a>
+        </li>
+    {{/all}}
 </ul>
 <div class="tabs-contents">
     {{#if product.description}}
@@ -164,6 +169,15 @@
            {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
 		   {{{region name="product_reviews"}}}
        </div>
+    {{/all}}
+    {{#all theme_settings.custom_product_question theme_settings.custom_product_question_tab}}
+        <div class="tab-content" id="tab-question">
+			<div id="product_question">
+				<div id="iframe_product">
+				    <iframe id="iframe_product--iframe" src="{{settings.base_url}}/iframe/?rma={{encodeURI (sanitize product.title)}}{{#if product.sku}}%20({{encodeURI (sanitize product.sku)}}){{/if}}" allowfullscreen frameborder="0" scrolling="no" style="border: 0;"></iframe>
+				</div>
+			</div>
+        </div>
     {{/all}}
 	
 	{{#if (getVar "downloads") '===' 'active'}}
