@@ -101,11 +101,11 @@
 			{{/if}}
 		{{/each}}
 		{{#if product.videos.list.length}}
-			{{#if theme_settings.custom_product_description_location '==' 'underneath'}}
+			{{#unless theme_settings.custom_product_description_location '==' 'side'}}
 				{{> components/custom/video-player product.videos}}
-        	{{/if}}
+        	{{/unless}}
 		{{/if}}
-		{{#and product.videos.list.length (if theme_settings.custom_product_description_location '==' 'underneath')}}
+		{{#and product.videos.list.length (unless theme_settings.custom_product_description_location '==' 'side')}}
 			<ul class="productView-thumbnails"{{#gt product.images.length 3}} data-slick='{
                 "infinite": false,
                 "mobileFirst": true,
@@ -153,7 +153,7 @@
                 </li>
             {{/each}}
 		{{/if}}
-		{{#and product.videos.list.length (if theme_settings.custom_product_description_location '==' 'underneath')}}
+		{{#and product.videos.list.length (unless theme_settings.custom_product_description_location '==' 'side')}}
 		</ul>
 		{{else}}
 			{{#if (getVar "thumbs") '===' 'show'}}
@@ -182,7 +182,9 @@
 		{{/if}}
 		{{> components/custom/client/client-product-gallery-bottom}}
     </section>
-
+	{{#if theme_settings.custom_product_description_location '===' 'sticky'}}
+	<div class="productView-details productView-details-sticky productView-details-{{theme_settings.custom_product_gallery_size}}">
+	{{/if}}
     <section class="productView-details{{#if product.brand}} productView-details-{{first (split product.brand.name ' ')}}{{/if}} productView-details-{{theme_settings.custom_product_gallery_size}} product-data">
         <div class="productView-product">
 			{{> components/custom/client/client-product-top}}
@@ -448,11 +450,22 @@
 			{{/filter}}
         </div>
     </section>
-	{{#if theme_settings.custom_product_description_location '===' 'underneath'}}
-		{{{region name="product_view_bottom"}}}
-		{{{region name="product_view_bottom--global"}}}
-		{{> components/custom/client/client-product-view}}
+	{{#if theme_settings.custom_product_description_location '===' 'sticky'}}
+	</div>
 	{{/if}}
+	{{#unless theme_settings.custom_product_description_location '===' 'side'}}
+		{{#if theme_settings.custom_product_description_location '===' 'sticky'}}
+		<div class="productView-block-sticky productView-block-{{theme_settings.custom_product_gallery_size}}">
+			{{{region name="product_view_bottom"}}}
+			{{{region name="product_view_bottom--global"}}}
+			{{> components/custom/client/client-product-view}}
+		</div>
+		{{else}}
+			{{{region name="product_view_bottom"}}}
+			{{{region name="product_view_bottom--global"}}}
+			{{> components/custom/client/client-product-view}}
+		{{/if}}
+	{{/unless}}
     <article class="productView-description productView-description-{{theme_settings.custom_product_description_location}} productView-description-{{theme_settings.custom_product_gallery_size}}">
         {{#if theme_settings.show_product_details_tabs}}
             {{> components/products/description-tabs}}
@@ -460,11 +473,11 @@
             {{> components/products/description}}
         {{/if}}
     </article>
-	{{#unless theme_settings.custom_product_description_location '===' 'underneath'}}
+	{{#if theme_settings.custom_product_description_location '===' 'side'}}
 		{{{region name="product_view_bottom"}}}
 		{{{region name="product_view_bottom--global"}}}
 		{{> components/custom/client/client-product-view}}
-	{{/unless}}
+	{{/if}}
 </div>
 {{#if theme_settings.custom_product_addtocart_modal}}
 <div id="previewModal" class="modal modal--large" data-reveal>
