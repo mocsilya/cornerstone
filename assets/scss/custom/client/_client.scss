@@ -308,6 +308,22 @@ body.scroll .header-logo-image {
 	display: none;
 }
 
+.productView-info-availability {
+	margin-bottom: 0;
+	display: flex;
+	padding: .5rem;
+	border: 1px solid #ccc;
+	border-radius: .375rem;
+}
+
+.productView-info-availability .productView-info-name {
+	width: auto;
+}
+
+.productView-info-availability .productView-info-value {
+	width: auto;
+}
+
 .productView-info-custom .icon {
 	vertical-align: top;
 }
@@ -407,35 +423,36 @@ body.scroll .header-logo-image {
 // GBICS CONNECT
 // =============================================================================
 
-
-body.with-bar.page-gbics-connect .header {
+/*
+body.with-bar.page-gbics-connect-partner-program .header {
     @include breakpoint("medium") {
 		padding-top: 0;
 	}
 }
 
-.page-gbics-connect .header .navUser > .container {
+.page-gbics-connect-partner-program .header .navUser > .container {
     -webkit-box-shadow: 0px 1px 0px 0px #1c3147;
     box-shadow: 0px 1px 0px 0px #1c3147;
 }
 
-.page-gbics-connect .header-bar,
-.page-gbics-connect .navUser-section,
-.page-gbics-connect .navUser .dropdown--quickSearch,
-.page-gbics-connect .navPages-container,
-.page-gbics-connect .mobileMenu-toggle {
+.page-gbics-connect-partner-program .header-bar,
+.page-gbics-connect-partner-program .navUser-section,
+.page-gbics-connect-partner-program .navUser .dropdown--quickSearch,
+.page-gbics-connect-partner-program .navPages-container,
+.page-gbics-connect-partner-program .mobileMenu-toggle {
 	display: none !important;
 }
 
-.page-gbics-connect .header-logo {
+.page-gbics-connect-partner-program .header-logo {
     flex: 1 1 auto;
 }
 
-.page-gbics-connect .header-logo .header-logo-image-container {
+.page-gbics-connect-partner-program .header-logo .header-logo-image-container {
     justify-content: center;
 }
+*/
 
-.page-gbics-connect #contact-us-page .form {
+.page-gbics-connect-partner-program #contact-us-page .form {
     margin: 1.5rem auto;
     background: #dddddd;
     background: -moz-linear-gradient(top, #dddddd 0%, #ffffff 100%);

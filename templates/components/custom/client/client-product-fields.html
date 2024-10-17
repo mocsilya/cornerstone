@@ -1,5 +1,5 @@
-<dl class="productView-info productView-info-custom">
-	{{#if product.availability}}
+{{#if product.availability}}
+<dl class="productView-info productView-info-custom productView-info-availability">	
 	<dt class="productView-info-name custom-label">{{lang 'products.availability'}}</dt>
 	<dd class="productView-info-value custom-value">
 		{{#if product.availability '==' 'Stock'}}
@@ -8,5 +8,5 @@
 			{{product.availability}}
 		{{/if}}
 	</dd>
-	{{/if}}
 </dl>
+{{/if}}
