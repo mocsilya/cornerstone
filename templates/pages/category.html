@@ -68,17 +68,19 @@ customer:
 
 {{#partial "page"}}
 {{{region name="category_below_header"}}}
-<div class="category-description{{#if category.image}} category-description-image{{/if}}{{#if category.description}}{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}{{/if}}">
-	{{{category.description}}}
-</div>
-{{#if category.description}}
-	{{#if theme_settings.custom_category_description_trim}}
-		<div class="category-description-button" style="display: none;">
-			<a class="button button--secondary">
-				<span class="category-description-more">{{lang 'search.faceted.show-more'}}</span>
-				<span class="category-description-less">{{lang 'search.faceted.show-less'}}</span>
-			</a>
-		</div>
+{{#if theme_settings.custom_category_description_position '==' 'top'}}
+	<div class="category-description{{#if category.image}} category-description-image{{/if}}{{#if category.description}}{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}{{/if}}">
+		{{{category.description}}}
+	</div>
+	{{#if category.description}}
+		{{#if theme_settings.custom_category_description_trim}}
+			<div class="category-description-button" style="display: none;">
+				<a class="button button--secondary">
+					<span class="category-description-more">{{lang 'search.faceted.show-more'}}</span>
+					<span class="category-description-less">{{lang 'search.faceted.show-less'}}</span>
+				</a>
+			</div>
+		{{/if}}
 	{{/if}}
 {{/if}}
 
@@ -197,6 +199,21 @@ customer:
 	{{{region name="category_below_content"}}}
     </div>
 {{/and}}
+{{#if theme_settings.custom_category_description_position '==' 'bottom'}}
+	<div class="category-description{{#if category.image}} category-description-image{{/if}}{{#if category.description}}{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}{{/if}}">
+		{{{category.description}}}
+	</div>
+	{{#if category.description}}
+		{{#if theme_settings.custom_category_description_trim}}
+			<div class="category-description-button" style="display: none;">
+				<a class="button button--secondary">
+					<span class="category-description-more">{{lang 'search.faceted.show-more'}}</span>
+					<span class="category-description-less">{{lang 'search.faceted.show-less'}}</span>
+				</a>
+			</div>
+		{{/if}}
+	{{/if}}
+{{/if}}
 {{{region name="category_below_all"}}}
 </div>
 

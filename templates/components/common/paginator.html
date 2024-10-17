@@ -1,4 +1,16 @@
 <nav class="pagination" aria-label="pagination">
+{{#if next}}
+	<div class="pagination-load">
+		<a class="pagination-load-link scroll-url"
+               href="{{next}}"
+			   data-scroll-url="#product-listing-container" 
+               {{#unless reload}}data-faceted-search-facet{{/unless}}
+               aria-label="{{lang 'common.next'}}"
+		>
+			{{lang 'search.faceted.show-more'}}
+		</a>
+	</div>
+{{/if}}
     <ul class="pagination-list">
         {{#if previous}}
             <li class="pagination-item pagination-item--previous">

@@ -89,10 +89,14 @@
 							</dt>
 							<dd class="cart-item-availability-description">
 								{{#if availability}}
-									{{availability}}
+									{{#contains availability "//"}}
+								        <span class="cart-item-availabilty-data" data-product-availabilty="{{before (split availability '//') 1}}">{{after (split availability '//') 1}}</span>
+							        {{else}}
+								        <span class="cart-item-availabilty-data" data-product-availability="{{before (split ../theme_settings.custom_product_availability '//') 1}}">{{after (split ../theme_settings.custom_product_availability '//') 1}}</span>
+							        {{/contains}}
 								{{else}}
-									{{../theme_settings.custom_product_availability}}
-								{{/if}}
+						            <span class="cart-item-availabilty-data" data-product-availability="{{before (split ../theme_settings.custom_product_availability '//') 1}}">{{after (split ../theme_settings.custom_product_availability '//') 1}}</span>
+				                {{/if}}
 							</dd>
 				    	</dl>
 					{{/if}}
@@ -180,5 +184,12 @@
                 </td>
             </tr>
         {{/each}}
+		{{#if theme_settings.custom_product_availability}}
+		<tr class="cart-item cart-item-availabilityMessage" data-item-row>
+			<td class="cart-item-block" id="availabilityMessage" style="display: none;" colspan="5" >
+				<div>{{before (split theme_settings.custom_product_availability_cart 'X') 1}}<strong><span>{{before (split theme_settings.custom_product_availability '//') 1}}</span></strong>{{after (split theme_settings.custom_product_availability_cart 'X') 1}}</div>
+			</td>
+		</tr>
+		{{/if}}
     </tbody>
 </table>
