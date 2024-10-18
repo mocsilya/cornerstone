@@ -2141,6 +2141,46 @@ dl.productView-info {
     opacity: .5;
 }
 
+.page-product .pagination-list {
+	@include breakpoint("medium") {
+		text-align: right;
+	}
+}
+
+.page-product .pagination-load {
+	display: none;
+}
+
+
+.pagination-item .pagination-link,
+.pagination-item.pagination-item--next .pagination-link,
+.pagination-item.pagination-item--previous .pagination-link {
+	color: stencilColor('custom-pagination-background');
+	border: 1px solid stencilColor('custom-pagination-background');
+}
+
+.pagination-item .pagination-link:hover,
+.pagination-item.pagination-item--next .pagination-link:hover,
+.pagination-item.pagination-item--previous .pagination-link:hover {
+	color: stencilColor('custom-pagination-background');
+	background-color: stencilColor('custom-pagination-background');
+	color: #fff;
+}
+
+.pagination-item--previous > a.pagination-link .icon,
+.pagination-item--next > a.pagination-link .icon {
+	color: stencilColor('custom-pagination-background');
+	fill: stencilColor('custom-pagination-background');
+	stroke: stencilColor('custom-pagination-background');
+}
+
+.pagination-item--previous > a.pagination-link:hover .icon,
+.pagination-item--next > a.pagination-link:hover .icon {
+	color: #fff;
+	fill: #ffffff;
+	stroke: #ffffff;
+}
+
 
 // =============================================================================
 // CART
@@ -2719,7 +2759,7 @@ dl.productView-info {
 	background-color: #f6ebef;
 	@include breakpoint("medium") {
 		background-color: #f6ebef;
-		background-image: url('https://cdn11.bigcommerce.com/s-costxe5lpb/images/stencil/original/image-manager/cfw-photo-2000x1000.jpg?t=1698067075');
+		background-image: url('https://cdn11.bigcommerce.com/s-costxe5lpb/images/stencil/original/image-manager/cfw-photo-2000x1000-b.jpg?t=1729243886');
 		background-position: top right -250px;
 		background-repeat: no-repeat;
 		background-size: 1000px 500px;
@@ -2732,7 +2772,7 @@ dl.productView-info {
 .productView.c4m {
 	background-color: #ecf4ff;
 	@include breakpoint("medium") {
-		background-image: url('https://cdn11.bigcommerce.com/s-costxe5lpb/images/stencil/original/image-manager/cfm-photo-2000x1000.jpg?t=1698067074');
+		background-image: url('https://cdn11.bigcommerce.com/s-costxe5lpb/images/stencil/original/image-manager/cfm-photo-2000x1000-b.jpg?t=1729243885');
 		background-position: top right -250px;
 		background-repeat: no-repeat;
 		background-size: 1000px 500px;
@@ -2751,14 +2791,14 @@ dl.productView-info {
 }
 
 .productView.c4w #product_photo_mob {
-	background-image: url('https://cdn11.bigcommerce.com/s-costxe5lpb/images/stencil/original/image-manager/cfw-photo-2000x1000.jpg?t=1698067075');
+	background-image: url('https://cdn11.bigcommerce.com/s-costxe5lpb/images/stencil/original/image-manager/cfw-photo-2000x1000-b.jpg?t=1729243886');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 
 .productView.c4m #product_photo_mob {
-	background-image: url('https://cdn11.bigcommerce.com/s-costxe5lpb/images/stencil/original/image-manager/cfm-photo-2000x1000.jpg?t=1698067074');
+	background-image: url('https://cdn11.bigcommerce.com/s-costxe5lpb/images/stencil/original/image-manager/cfm-photo-2000x1000-b.jpg?t=1729243885');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
