@@ -93,18 +93,38 @@ gql: "query productById($productId: Int!) {
 	{{assignVar "breadcrumb" "active"}}
 {{/filter}}
 {{{region name="product_below_menu"}}}
-<div class="container container-hero">
-	<div class="page-header product-header">
-    	{{#unless theme_settings.custom_product_title_left}}<h1 class="page-heading">{{product.title}}</h1>{{/unless}}
-		{{#unless (getVar 'payment') '===' 'active'}}
-			{{#if (getVar 'breadcrumb') '===' 'active'}}
-				{{> components/custom/breadcrumbs-product}}
-			{{else}}
-				{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-			{{/if}}
-		{{/unless}}
+
+{{#if theme_settings.custom_product_description_location '===' 'sticky'}}
+	{{#if theme_settings.custom_product_title_left}}
+		<div class="container container-hero">
+			<div class="page-header product-header">
+		    	{{#unless (getVar 'payment') '===' 'active'}}
+					{{#if (getVar 'breadcrumb') '===' 'active'}}
+						{{> components/custom/breadcrumbs-product}}
+					{{else}}
+						{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+					{{/if}}
+				{{/unless}}
+			</div>
+		</div>
+	{{/if}}
+{{else}}
+	<div class="container container-hero">
+		<div class="page-header product-header">
+	    	{{#unless theme_settings.custom_product_title_left}}
+					<h1 class="page-heading">{{product.title}}</h1>
+			{{/unless}}
+			{{#unless (getVar 'payment') '===' 'active'}}
+				{{#if (getVar 'breadcrumb') '===' 'active'}}
+					{{> components/custom/breadcrumbs-product}}
+				{{else}}
+					{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+				{{/if}}
+			{{/unless}}
+		</div>
 	</div>
-</div>
+{{/if}}
+
 {{/partial}}
 
 {{#partial "page"}}
