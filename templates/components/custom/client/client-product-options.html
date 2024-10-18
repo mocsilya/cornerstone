@@ -35,14 +35,11 @@
 						Order by 1pm for Next Working Day Delivery
 					</div>
 					<div class="availability-click">
-						<a href="#modalNextDay" data-reveal-id="modalNextDay">
+						<div class="tooltip">
 							<img width="16" height="16" src="{{cdn 'icons/information.svg'}}" alt="info icon">
-						</a>
-					</div>
-					<div id="modalNextDay" class="modal modal--small" data-reveal>
-					    {{> components/common/modal/modal-close-btn}}
-						<div class="modal-body">
-							This item is in stock at our primary warehouse and is available for next working day mainland delivery, providing you complete your order and checkout by 1pm. Orders are dispatched Monday to Friday, excluding bank holidays, and are delivered on the next working day. We use a fully-tracked delivery service, typically using DHL or Royal Mail, based upon the nature of the product and shipping destination. Terms and Conditions apply.
+							<div class="tooltip-content" style="display: none;">
+								This item is in stock at our primary warehouse and is available for next working day mainland delivery, providing you complete your order and checkout by 1pm. Orders are dispatched Monday to Friday, excluding bank holidays, and are delivered on the next working day. We use a fully-tracked delivery service, typically using DHL or Royal Mail, based upon the nature of the product and shipping destination. Terms and Conditions apply.
+							</div>
 						</div>
 					</div>
 				</li>
@@ -54,14 +51,11 @@
 						Available for immediate collection in-store
 					</div>
 					<div class="availability-click">
-						<a href="#modalNextDay" data-reveal-id="modalImmediateCollection">
+						<div class="tooltip">
 							<img width="16" height="16" src="{{cdn 'icons/information.svg'}}" alt="info icon">
-						</a>
-					</div>
-					<div id="modalImmediateCollection" class="modal modal--small" data-reveal>
-					    {{> components/common/modal/modal-close-btn}}
-						<div class="modal-body">
-							This item is in stock at our shop located at ME2 4JF and is available for you to collect during our opening hours of Monday to Saturday 9am to 5pm. Bank Holiday opening hours vary. We always suggest you phone us prior to visiting to ensure there are no issues with your placed order. Terms and Conditions apply.
+							<div class="tooltip-content" style="display: none;">
+								This item is in stock at our shop located at ME2 4JF and is available for you to collect during our opening hours of Monday to Saturday 9am to 5pm. Bank Holiday opening hours vary. We always suggest you phone us prior to visiting to ensure there are no issues with your placed order. Terms and Conditions apply.
+							</div>
 						</div>
 					</div>
 				</li>
@@ -79,14 +73,11 @@
 							{{/contains}}
 						</div>
 						<div class="availability-click">
-							<a href="#modalXDays" data-reveal-id="modalXDays">
+							<div class="tooltip">
 								<img width="16" height="16" src="{{cdn 'icons/information.svg'}}" alt="info icon">
-							</a>
-						</div>
-						<div id="modalXDays" class="modal modal--small" data-reveal>
-						    {{> components/common/modal/modal-close-btn}}
-							<div class="modal-body">
-								We expect you to receive your order within this delivery timeframe, but this item is typically not available for next working day delivery. Should you wish to find out a specific delivery timeframe based upon your location, please feel free to contact us before or after placing your order. We use a tracked delivery service, typically using DHL or Royal Mail, based upon the nature of the product and shipping destination. Terms and Conditions apply.
+								<div class="tooltip-content" style="display: none;">
+									We expect you to receive your order within this delivery timeframe, but this item is typically not available for next working day delivery. Should you wish to find out a specific delivery timeframe based upon your location, please feel free to contact us before or after placing your order. We use a tracked delivery service, typically using DHL or Royal Mail, based upon the nature of the product and shipping destination. Terms and Conditions apply.
+								</div>
 							</div>
 						</div>
 					</li>
@@ -102,14 +93,11 @@
 							{{/contains}}
 						</div>
 						<div class="availability-click">
-							<a href="#modalXCollection" data-reveal-id="modalXCollection">
+							<div class="tooltip">
 								<img width="16" height="16" src="{{cdn 'icons/information.svg'}}" alt="info icon">
-							</a>
-						</div>
-						<div id="modalXCollection" class="modal modal--small" data-reveal>
-						    {{> components/common/modal/modal-close-btn}}
-							<div class="modal-body">
-								This item is not available for immediate collection. The timeframe shown is our best estimate for when the item will arrive at our shop located at ME2 4JF for you to collect. Terms and Conditions apply. Should you wish to find out a more accurate collection timeframe, please feel free to contact us before or after placing your order.
+								<div class="tooltip-content" style="display: none;">
+									This item is not available for immediate collection. The timeframe shown is our best estimate for when the item will arrive at our shop located at ME2 4JF for you to collect. Terms and Conditions apply. Should you wish to find out a more accurate collection timeframe, please feel free to contact us before or after placing your order.
+								</div>
 							</div>
 						</div>
 					</li>
@@ -122,14 +110,11 @@
 							{{after (split theme_settings.custom_product_availability '//') 1}}
 						</div>
 						<div class="availability-click">
-							<a href="#modalXDays" data-reveal-id="modalXDays">
+							<div class="tooltip">
 								<img width="16" height="16" src="{{cdn 'icons/information.svg'}}" alt="info icon">
-							</a>
-						</div>
-						<div id="modalXDays" class="modal modal--small" data-reveal>
-						    {{> components/common/modal/modal-close-btn}}
-							<div class="modal-body">
-								We expect you to receive your order within this delivery timeframe, but this item is typically not available for next working day delivery. Should you wish to find out a specific delivery timeframe based upon your location, please feel free to contact us before or after placing your order. We use a tracked delivery service, typically using DHL or Royal Mail, based upon the nature of the product and shipping destination. Terms and Conditions apply.
+								<div class="tooltip-content" style="display: none;">
+									We expect you to receive your order within this delivery timeframe, but this item is typically not available for next working day delivery. Should you wish to find out a specific delivery timeframe based upon your location, please feel free to contact us before or after placing your order. We use a tracked delivery service, typically using DHL or Royal Mail, based upon the nature of the product and shipping destination. Terms and Conditions apply.
+								</div>
 							</div>
 						</div>
 					</li>
@@ -141,14 +126,11 @@
 							Collect in-store {{after (split theme_settings.custom_product_availability 'Delivery') 1}}
 						</div>
 						<div class="availability-click">
-							<a href="#modalXCollection" data-reveal-id="modalXCollection">
+							<div class="tooltip">
 								<img width="16" height="16" src="{{cdn 'icons/information.svg'}}" alt="info icon">
-							</a>
-						</div>
-						<div id="modalXCollection" class="modal modal--small" data-reveal>
-						    {{> components/common/modal/modal-close-btn}}
-							<div class="modal-body">
-								This item is not available for immediate collection. The timeframe shown is our best estimate for when the item will arrive at our shop located at ME2 4JF for you to collect. Terms and Conditions apply. Should you wish to find out a more accurate collection timeframe, please feel free to contact us before or after placing your order.
+								<div class="tooltip-content" style="display: none;">
+									This item is not available for immediate collection. The timeframe shown is our best estimate for when the item will arrive at our shop located at ME2 4JF for you to collect. Terms and Conditions apply. Should you wish to find out a more accurate collection timeframe, please feel free to contact us before or after placing your order.
+								</div>
 							</div>
 						</div>
 					</li>
@@ -189,14 +171,11 @@
 						{{/contains}}
 					</div>
 					<div class="availability-click">
-						<a href="#modalXDays" data-reveal-id="modalXDays">
+						<div class="tooltip">
 							<img width="16" height="16" src="{{cdn 'icons/information.svg'}}" alt="info icon">
-						</a>
-					</div>
-					<div id="modalXDays" class="modal modal--small" data-reveal>
-					    {{> components/common/modal/modal-close-btn}}
-						<div class="modal-body">
-							We expect you to receive your order within this delivery timeframe, but this item is typically not available for next working day delivery. Should you wish to find out a specific delivery timeframe based upon your location, please feel free to contact us before or after placing your order. We use a tracked delivery service, typically using DHL or Royal Mail, based upon the nature of the product and shipping destination. Terms and Conditions apply.
+							<div class="tooltip-content" style="display: none;">
+								We expect you to receive your order within this delivery timeframe, but this item is typically not available for next working day delivery. Should you wish to find out a specific delivery timeframe based upon your location, please feel free to contact us before or after placing your order. We use a tracked delivery service, typically using DHL or Royal Mail, based upon the nature of the product and shipping destination. Terms and Conditions apply.
+							</div>
 						</div>
 					</div>
 				</li>
@@ -212,14 +191,11 @@
 						{{/contains}}
 					</div>
 					<div class="availability-click">
-						<a href="#modalXCollection" data-reveal-id="modalXCollection">
+						<div class="tooltip">
 							<img width="16" height="16" src="{{cdn 'icons/information.svg'}}" alt="info icon">
-						</a>
-					</div>
-					<div id="modalXCollection" class="modal modal--small" data-reveal>
-					    {{> components/common/modal/modal-close-btn}}
-						<div class="modal-body">
-							This item is not available for immediate collection. The timeframe shown is our best estimate for when the item will arrive at our shop located at ME2 4JF for you to collect. Terms and Conditions apply. Should you wish to find out a more accurate collection timeframe, please feel free to contact us before or after placing your order.
+							<div class="tooltip-content" style="display: none;">
+								This item is not available for immediate collection. The timeframe shown is our best estimate for when the item will arrive at our shop located at ME2 4JF for you to collect. Terms and Conditions apply. Should you wish to find out a more accurate collection timeframe, please feel free to contact us before or after placing your order.
+							</div>
 						</div>
 					</div>
 				</li>
@@ -232,14 +208,11 @@
 						{{after (split theme_settings.custom_product_availability '//') 1}}
 					</div>
 					<div class="availability-click">
-						<a href="#modalXDays" data-reveal-id="modalXDays">
+						<div class="tooltip">
 							<img width="16" height="16" src="{{cdn 'icons/information.svg'}}" alt="info icon">
-						</a>
-					</div>
-					<div id="modalXDays" class="modal modal--small" data-reveal>
-					    {{> components/common/modal/modal-close-btn}}
-						<div class="modal-body">
-							We expect you to receive your order within this delivery timeframe, but this item is typically not available for next working day delivery. Should you wish to find out a specific delivery timeframe based upon your location, please feel free to contact us before or after placing your order. We use a tracked delivery service, typically using DHL or Royal Mail, based upon the nature of the product and shipping destination. Terms and Conditions apply.
+							<div class="tooltip-content" style="display: none;">
+								We expect you to receive your order within this delivery timeframe, but this item is typically not available for next working day delivery. Should you wish to find out a specific delivery timeframe based upon your location, please feel free to contact us before or after placing your order. We use a tracked delivery service, typically using DHL or Royal Mail, based upon the nature of the product and shipping destination. Terms and Conditions apply.
+							</div>
 						</div>
 					</div>
 				</li>
@@ -251,14 +224,11 @@
 						Collect in-store {{after (split theme_settings.custom_product_availability 'Delivery') 1}}
 					</div>
 					<div class="availability-click">
-						<a href="#modalXCollection" data-reveal-id="modalXCollection">
+						<div class="tooltip">
 							<img width="16" height="16" src="{{cdn 'icons/information.svg'}}" alt="info icon">
-						</a>
-					</div>
-					<div id="modalXCollection" class="modal modal--small" data-reveal>
-					    {{> components/common/modal/modal-close-btn}}
-						<div class="modal-body">
-							This item is not available for immediate collection. The timeframe shown is our best estimate for when the item will arrive at our shop located at ME2 4JF for you to collect. Terms and Conditions apply. Should you wish to find out a more accurate collection timeframe, please feel free to contact us before or after placing your order.
+							<div class="tooltip-content" style="display: none;">
+								This item is not available for immediate collection. The timeframe shown is our best estimate for when the item will arrive at our shop located at ME2 4JF for you to collect. Terms and Conditions apply. Should you wish to find out a more accurate collection timeframe, please feel free to contact us before or after placing your order.
+							</div>
 						</div>
 					</div>
 				</li>
@@ -300,14 +270,11 @@
 								Order by 1pm for Next Working Day Delivery
 							</div>
 							<div class="availability-click">
-								<a href="#modalNextDay" data-reveal-id="modalNextDay">
+								<div class="tooltip">
 									<img width="16" height="16" src="{{cdn 'icons/information.svg'}}" alt="info icon">
-								</a>
-							</div>
-							<div id="modalNextDay" class="modal modal--small" data-reveal>
-							    {{> components/common/modal/modal-close-btn}}
-								<div class="modal-body">
-									This item is in stock at our primary warehouse and is available for next working day mainland delivery, providing you complete your order and checkout by 1pm. Orders are dispatched Monday to Friday, excluding bank holidays, and are delivered on the next working day. We use a fully-tracked delivery service, typically using DHL or Royal Mail, based upon the nature of the product and shipping destination. Terms and Conditions apply.
+									<div class="tooltip-content" style="display: none;">
+										This item is in stock at our primary warehouse and is available for next working day mainland delivery, providing you complete your order and checkout by 1pm. Orders are dispatched Monday to Friday, excluding bank holidays, and are delivered on the next working day. We use a fully-tracked delivery service, typically using DHL or Royal Mail, based upon the nature of the product and shipping destination. Terms and Conditions apply.
+									</div>
 								</div>
 							</div>
 						</li>
@@ -319,14 +286,11 @@
 								Available for immediate collection in-store
 							</div>
 							<div class="availability-click">
-								<a href="#modalNextDay" data-reveal-id="modalImmediateCollection">
+								<div class="tooltip">
 									<img width="16" height="16" src="{{cdn 'icons/information.svg'}}" alt="info icon">
-								</a>
-							</div>
-							<div id="modalImmediateCollection" class="modal modal--small" data-reveal>
-							    {{> components/common/modal/modal-close-btn}}
-								<div class="modal-body">
-									This item is in stock at our shop located at ME2 4JF and is available for you to collect during our opening hours of Monday to Saturday 9am to 5pm. Bank Holiday opening hours vary. We always suggest you phone us prior to visiting to ensure there are no issues with your placed order. Terms and Conditions apply.
+									<div class="tooltip-content" style="display: none;">
+										This item is in stock at our shop located at ME2 4JF and is available for you to collect during our opening hours of Monday to Saturday 9am to 5pm. Bank Holiday opening hours vary. We always suggest you phone us prior to visiting to ensure there are no issues with your placed order. Terms and Conditions apply.
+									</div>
 								</div>
 							</div>
 						</li>

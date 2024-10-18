@@ -34,10 +34,12 @@
 	<div class="custom-product-brand">
 		<a href="{{product.brand.url}}" class="custom-brand-url" data-brand-url="{{product.brand.url}}"></a>
 	</div>
-	<div class="custom-product-sku">
-		<strong>{{lang "products.sku"}}</strong> {{product.sku}}
-	</div>
-	<div class="custom-product-mpn">
-		<strong>MPN:</strong> {{product.mpn}}
-	</div>
+	<dl class="custom-product-sku">
+		<dt class="productView-info-name sku-name"><strong>{{lang "products.sku"}}</strong></dt>
+		<dd class="productView-info-value sku-value" data-product-sku="">{{product.sku}}</dd>
+	</dl>
+	<dl class="custom-product-mpn">
+		<dt class="productView-info-name mpn-name"><strong>MPN:</strong></dt>
+		<dd class="productView-info-value mpn-value" data-product-mpn="">{{product.mpn}}</dd>
+	</dl>
 </div>
