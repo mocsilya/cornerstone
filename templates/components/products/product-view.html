@@ -291,6 +291,8 @@
                 <dd class="productView-info-value sku-value"{{#unless product.sku}} style="display: none;"{{/unless}} data-product-sku>{{product.sku}}</dd>
                 <dt class="productView-info-name upc-label"{{#unless product.upc}} style="display: none;"{{/unless}}>{{lang 'products.upc'}}</dt>
                 <dd class="productView-info-value upc-value"{{#unless product.upc}} style="display: none;"{{/unless}} data-product-upc>{{product.upc}}</dd>
+                <dt class="productView-info-name mpn-label"{{#unless product.mpn}} style="display: none;"{{/unless}}>MPN:</dt>
+                <dd class="productView-info-value mpn-value"{{#unless product.mpn}} style="display: none;"{{/unless}} data-product-mpn>{{product.mpn}}</dd>
                 {{#if product.condition}}
                     <dt class="productView-info-name condition-label">{{lang 'products.condition'}}</dt>
                     <dd class="productView-info-value condition-value">{{product.condition}}</dd>

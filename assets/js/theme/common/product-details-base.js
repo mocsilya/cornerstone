@@ -185,6 +185,10 @@ export default class ProductDetailsBase {
                 $label: $('dt.sku-label', $scope),
                 $value: $('[data-product-sku]', $scope),
             },
+            mpn: {
+                $label: $('dt.mpn-label', $scope),
+                $value: $('[data-product-mpn]', $scope),
+            },
             upc: {
                 $label: $('dt.upc-label', $scope),
                 $value: $('[data-product-upc]', $scope),
@@ -241,6 +245,15 @@ export default class ProductDetailsBase {
         } else {
             viewModel.sku.$label.hide();
             viewModel.sku.$value.text('').hide();
+        }
+		
+        // If MPN is available
+        if (data.mpn) {
+            viewModel.mpn.$value.text(data.mpn).show();
+            viewModel.mpn.$label.show();
+        } else {
+            viewModel.mpn.$label.hide();
+            viewModel.mpn.$value.text('').hide();
         }
 
         // If UPC is available
