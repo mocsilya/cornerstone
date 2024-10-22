@@ -95,7 +95,7 @@ gql: "query productById($productId: Int!) {
 {{{region name="product_below_menu"}}}
 
 {{#if theme_settings.custom_product_description_location '===' 'sticky'}}
-	{{#if theme_settings.custom_product_title_left}}
+	{{#if theme_settings.custom_product_title_right}}
 		<div class="container container-hero">
 			<div class="page-header product-header">
 		    	{{#unless (getVar 'payment') '===' 'active'}}
@@ -111,7 +111,7 @@ gql: "query productById($productId: Int!) {
 {{else}}
 	<div class="container container-hero">
 		<div class="page-header product-header">
-	    	{{#unless theme_settings.custom_product_title_left}}
+	    	{{#unless theme_settings.custom_product_title_right}}
 					<h1 class="page-heading">{{product.title}}</h1>
 			{{/unless}}
 			{{#unless (getVar 'payment') '===' 'active'}}
