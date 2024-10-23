@@ -7726,8 +7726,9 @@ div[data-content-region="cart_below_table"] {
 	}
 }
 
-.footer-email a {
-	text-decoration: none;
+.footer-email a,
+.footer-phone a {
+	text-decoration: none !important;
 }
 
 .footer-email .icon,
