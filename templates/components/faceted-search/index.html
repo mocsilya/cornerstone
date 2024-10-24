@@ -3,11 +3,16 @@
 
     <a href="#facetedSearch-navList" role="button" class="facetedSearch-toggle toggleLink" data-collapsible>
         <span class="facetedSearch-toggle-text">
+			<span style="display: none;">
             {{#if facets.length '>' 2}}
                 {{lang 'search.faceted.browse-by'}} {{join (pluck facets 'title') ', ' limit=2}} &amp; {{toLowerCase (lang 'search.faceted.more')}}
             {{else}}
                 {{lang 'search.faceted.browse-by'}} {{join (pluck facets 'title') ', ' lastSeparator=' & '}}
             {{/if}}
+			</span>
+            <i class="icon" aria-hidden="true">
+                <svg><use href="#icon-filter"/></svg>
+            </i>
         </span>
 
         <span class="facetedSearch-toggle-indicator">

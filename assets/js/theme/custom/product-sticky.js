@@ -42,7 +42,7 @@ export default function (context) {
 								$('.productView-details-sticky').removeClass('productView-details-fixed').css('margin-left', '0px').css('padding-top', '0px');
 							}
 						}
-
+						/*
 						if (document.getElementById('product_question')) {
 							var top_of_element = $('#product_question').offset().top;
 							var bottom_of_element = $('#product_question').offset().top + $('#product_question').outerHeight();
@@ -55,6 +55,9 @@ export default function (context) {
 								var bottom_of_element = $('div[data-content-region="product_below_bottom_banner"]').offset().top + $('div[data-content-region="product_below_bottom_banner"]').outerHeight();
 							}
 						}
+						*/
+						var top_of_element = $('div[data-content-region="product_below_bottom_banner"]').offset().top;
+						var bottom_of_element = $('div[data-content-region="product_below_bottom_banner"]').offset().top + $('div[data-content-region="product_below_bottom_banner"]').outerHeight();
 						
 						var bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();
 						var top_of_screen = $(window).scrollTop();
