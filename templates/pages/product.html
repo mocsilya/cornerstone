@@ -95,7 +95,7 @@ gql: "query productById($productId: Int!) {
 {{{region name="product_below_menu"}}}
 
 {{#if theme_settings.custom_product_description_location '===' 'sticky'}}
-	{{#if theme_settings.custom_product_title_left}}
+	{{#if theme_settings.custom_product_title_right}}
 		<div class="container container-hero">
 			<div class="page-header product-header">
 		    	{{#unless (getVar 'payment') '===' 'active'}}
@@ -111,7 +111,7 @@ gql: "query productById($productId: Int!) {
 {{else}}
 	<div class="container container-hero">
 		<div class="page-header product-header">
-	    	{{#unless theme_settings.custom_product_title_left}}
+	    	{{#unless theme_settings.custom_product_title_right}}
 					<h1 class="page-heading">{{product.title}}</h1>
 			{{/unless}}
 			{{#unless (getVar 'payment') '===' 'active'}}
@@ -171,7 +171,7 @@ gql: "query productById($productId: Int!) {
 		{{> components/custom/client/client-product-variants}}
 		{{#if theme_settings.custom_product_question}}
 			{{#unless theme_settings.custom_product_question_tab}}
-				<div id="product_question">
+				<div id="product_question" class="{{#if theme_settings.custom_product_description_location '===' 'sticky'}}product-question-sticky{{else}}product-question-unstuck{{/if}} product-question-{{theme_settings.custom_product_gallery_size}}">
 					<div class="container">
 						<div class="product-question-title">
 							<h4 class="productView-title">{{theme_settings.custom_product_question}}</h4>
@@ -205,7 +205,7 @@ gql: "query productById($productId: Int!) {
 			</script>
 		{{/if}}
 		{{#or product.related_products product.similar_by_views}}
-			<div class="related-similar">
+			<div class="related-similar {{#if theme_settings.custom_product_description_location '===' 'sticky'}}related-similar-sticky{{else}}related-similar-unstuck{{/if}} related-similar-{{theme_settings.custom_product_gallery_size}}">
 				<div class="container">
 					{{> components/products/tabs}}
 				</div>

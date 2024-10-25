@@ -2142,9 +2142,9 @@
       },
       {
         "type": "checkbox",
-        "label": "i18n.ProductTitleLeft",
+        "label": "i18n.ProductTitleRight",
         "force_reload": true,
-        "id": "custom_product_title_left"
+        "id": "custom_product_title_right"
       },
       {
         "type": "checkbox",

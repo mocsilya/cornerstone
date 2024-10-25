@@ -52,7 +52,7 @@
 			{{#all settings.phone_number theme_settings.custom_phone_show}}
 				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-phone{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
 				{{> components/custom/client/client-header-phone}}
-				<span class="header-bar-text">{{lang 'footer.call_us' phone_number=settings.phone_number}}</span>
+				<span class="header-bar-text"><a href="tel:{{strReplace settings.phone_number ' ' ''}}">{{lang 'footer.call_us' phone_number=settings.phone_number}}</a></span>
 			{{/all}}
 			{{#if theme_settings.custom_email_show}}
 				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-envelope{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
