@@ -2,7 +2,8 @@
  * Open a tab with custom link
 */
 export default function () { 
-	$('.tab-click').click(function () {
+	$('.tab-click').click(function(e) {
+		e.preventDefault();
 		const clickHref = $(this).attr('href');
 		const dpr = window.devicePixelRatio;
 		const headerHeight = $('.header').outerHeight() * dpr;
