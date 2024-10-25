@@ -1,6 +1,6 @@
 <p class="footer-phone">
 	<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-phone{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i> 
-	<strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong>
+	<a href="tel:{{strReplace settings.phone_number ' ' ''}}"><strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong></a>
 </p>
 <p class="footer-email">
 	<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-envelope{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i> 
