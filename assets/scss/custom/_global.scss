@@ -5338,6 +5338,15 @@ a:hover span.card-image:only-of-type img {
 // Product Page
 // =============================================================================
 
+.page-product #main-content > .container {
+	position: static;
+}
+
+.page-product #main-content {
+	position: relative;
+	margin-bottom: 0;
+}
+
 div[data-content-region="product_view_top"],
 div[data-content-region="product_view_bottom"],
 div[data-content-region="product_view_top--global"],
@@ -5604,6 +5613,12 @@ div[data-content-region="product_view_bottom--global"] {
 	height: 100vh;
 	overflow-y: auto;
 	z-index: 99;
+}
+
+.productView-wrap:not(.payment-product) .productView-details-absolute {
+	position: absolute;
+	top: auto;
+	bottom: 0 !important;
 }
 
 .productView-product {
