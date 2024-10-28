@@ -1,3 +1,18 @@
+<div class="product-gallery-top">
+	<div class="custom-product-brand">
+		<a href="{{product.brand.url}}" class="custom-brand-url" data-brand-url="{{product.brand.url}}"></a>
+	</div>
+	<div class="custom-product-codes">
+		<dl class="custom-product-sku">
+			<dt class="productView-info-name sku-name"><strong>{{lang "products.sku"}}</strong></dt>
+			<dd class="productView-info-value sku-value" data-product-sku="">{{product.sku}}</dd>
+		</dl>
+		<dl class="custom-product-mpn">
+			<dt class="productView-info-name mpn-name"><strong>MPN:</strong></dt>
+			<dd class="productView-info-value mpn-value" data-product-mpn="">{{product.mpn}}</dd>
+		</dl>
+	</div>
+</div>
 <div class="product-gallery-reviews">
     <div class="productView-rating">
         <dl class="productView-info">
@@ -29,17 +44,4 @@
         {{/if}}
 		</dl>
     </div>
-</div>
-<div class="product-gallery-top">
-	<div class="custom-product-brand">
-		<a href="{{product.brand.url}}" class="custom-brand-url" data-brand-url="{{product.brand.url}}"></a>
-	</div>
-	<dl class="custom-product-sku">
-		<dt class="productView-info-name sku-name"><strong>{{lang "products.sku"}}</strong></dt>
-		<dd class="productView-info-value sku-value" data-product-sku="">{{product.sku}}</dd>
-	</dl>
-	<dl class="custom-product-mpn">
-		<dt class="productView-info-name mpn-name"><strong>MPN:</strong></dt>
-		<dd class="productView-info-value mpn-value" data-product-mpn="">{{product.mpn}}</dd>
-	</dl>
 </div>

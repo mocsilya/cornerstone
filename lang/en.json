@@ -471,7 +471,7 @@
             "no_items": "The items you've recently looked at on our site will appear below."
         },
         "wishlists": {
-            "heading": "Favourite Products",
+            "heading": "Favourites",
             "tag_line": "Fill in the form below to create a new Favourite List. Click the \"Create Favourite List\" button when you're done.",
             "new": "New Favourites List",
             "you_have_none": "You have no Favourite Lists, add one now.",
