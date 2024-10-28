@@ -64,13 +64,15 @@ export default function (context) {
 	
 						//if ((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)) {
 						if (bottom_of_screen > top_of_element) {
-							$('.productView-details-sticky').removeClass('productView-details-fixed').css('margin-left', '0px');
+							$('.productView-details-sticky').addClass('productView-details-absolute');
+						} else {
+							$('.productView-details-sticky').removeClass('productView-details-absolute');
 						}
 			
 					});
 				}
 			} else {
-				$('.productView-details-sticky').removeClass('productView-details-fixed').removeAttr('style');
+				$('.productView-details-sticky').removeClass('productView-details-fixed').removeClass('productView-details-absolute').removeAttr('style');
 			}
 		}).resize();
 	}
