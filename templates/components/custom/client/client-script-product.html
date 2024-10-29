@@ -1,44 +1,148 @@
+{{assignVar "nobackorder" "false"}}
+{{#filter product.custom_fields 'hidden' property='name'}}
+	{{#if value '==' 'nobackorder'}}
+		{{assignVar "nobackorder" "true"}}
+	{{/if}}
+{{/filter}}
+
+{{assignVar "hasVariants" "false"}}
+{{assignVar "aboveZero" "false"}}
+{{assignVar "above1000" "false"}}
+{{#if gql.data.site.product}}
+	{{#each gql.data.site.product.variants.edges}}
+		{{#with node}}
+			{{#if @last}}
+				{{#unless @index 0}}
+					{{assignVar "hasVariants" "true"}}
+				{{/unless}}
+			{{/if}}
+	        {{#if isPurchasable}}
+				{{#if inventory.aggregated.availableToSell ">" 1000}}
+					{{assignVar "above1000" "true"}}
+				{{/if}}
+				{{#if inventory.aggregated.availableToSell ">" 0}}
+					{{assignVar "aboveZero" "true"}}
+				{{/if}}
+			{{/if}}
+		{{/with}}
+	{{/each}}
+{{/if}}
+
 <script>
-// In stock number
-const inStock = {{#if product.stock_level}}{{#if product.can_purchase}}{{#gt product.stock_level 1000}}{{subtract product.stock_level 1000}}{{else}}0{{/gt}}{{else}}0{{/if}}{{else}}0{{/if}};
-console.log('inStock: ' + inStock);
-// monitor the quantity field for direct typing
-let inputElem = document.querySelector('.form-input--incrementTotal');
-if (inputElem) { 
-    inputElem.addEventListener('input', () => {
-        console.log(inputElem.value);
-        const existingDiv = document.getElementById('backorderMessage');
-        if (inStock > 0) {
-            if (inputElem.value > inStock) {
-                const backOrder = inputElem.value - inStock;
-                existingDiv.innerText = inStock + ' in stock (available in store and next day delivery). ' + backOrder + ' on back order (available for delivery or collection in an estimated 3-5 days)';
-                existingDiv.style.display='block';
-                console.log('Backorder: ' + backOrder);
-            } else {
-                existingDiv.style.display='none';
-            }
-        }
-    });
-}
-// monitor the quantity + / - buttons
-let buttonElem = document.querySelectorAll('.form-increment .button');
-for (let i = 0; i < buttonElem.length; i++) {
-    buttonElem[i].onclick = function () {
-        buttonTimer = setTimeout(() => {
-            console.log(inputElem.value);
-            const existingDiv = document.getElementById('backorderMessage');
-            if (inStock > 0) {
-                if (inputElem.value > inStock) {
-                    const backOrder = inputElem.value - inStock;
-                    existingDiv.innerText = inStock + ' in stock (available in store and next day delivery). ' + backOrder + ' on back order (available for delivery or collection in an estimated 3-5 days)';
-                    existingDiv.style.display='block';
-                    console.log('Backorder: ' + backOrder);
-                } else {
-                    existingDiv.style.display='none';
-                }
-            }
-            clearTimeout(buttonTimer);
-        }, 500);
-    }
-}
+
 </script>
+
+{{#if (getVar "nobackorder") '===' 'false'}}
+	<script>
+	{{#if (getVar "hasVariants") '===' 'true'}}
+		{{#if (getVar "above1000") '===' 'true'}}
+			let inStock = 1001;
+		{{else}}
+			{{#if (getVar "aboveZero") '===' 'true'}}
+				let inStock = 999;
+			{{else}}
+				let inStock = 0;
+			{{/if}}
+		{{/if}}
+	{{else}}
+		let inStock = {{#if product.stock_level}}{{#if product.can_purchase}}{{product.stock_level}}{{else}}0{{/if}}{{else}}0{{/if}};
+		// let inStock = {{#if product.stock_level}}{{#if product.can_purchase}}{{#gt product.stock_level 1000}}{{subtract product.stock_level 1000}}{{else}}0{{/gt}}{{else}}0{{/if}}{{else}}0{{/if}};
+	{{/if}}
+	document.addEventListener("DOMContentLoaded", function(event) { 
+		if (inStock > 1000) {
+			document.querySelector('.availability-now').style.display = 'block';
+		} else {
+			if (inStock > 0) {
+				document.querySelector('.availability-soon').style.display = 'block';
+			}
+		}	
+	});
+	let inputElem = document.querySelector('.form-input--incrementTotal');
+	let buttonElem = document.querySelectorAll('.form-increment .button');
+	let messageDiv = document.getElementById('backorderMessage');
+	var timeStart = 0;
+	var optionClick = document.querySelectorAll(".productView-options .form-radio, .productView-options .form-select");
+	for (let i = 0; i < optionClick.length; i++) {
+		optionClick[i].addEventListener("change", function() {
+			clearTimeout(timeStart);
+		    timeStart = setTimeout(function() {
+
+				const stockData = document.querySelector(".in-stock-number");
+		        if (stockData === null) {
+		            inStock = 0;
+		        } else {
+		            inStock = Number(stockData.innerText);
+		        }
+				console.log('instock: ' + inStock);
+		        // set the message
+				const availabilityNow = document.querySelector('.availability-now');
+				const availabilitySoon = document.querySelector('.availability-soon');
+				if (inStock == 0) {
+					const outofStock = document.querySelector('.add-to-cart-wrapper .alertBox').offsetHeight;
+					if (outofStock > 0) {
+					    availabilityNow.style.display = 'none';
+						availabilitySoon.style.display = 'none';
+					}
+				} else {
+					if (inStock > 1000) {
+					    availabilityNow.style.display = 'block';
+						availabilitySoon.style.display = 'none';
+					} else {
+						availabilityNow.style.display = 'none';
+						availabilitySoon.style.display = 'block';
+					}
+				}
+			
+				messageDiv.style.display = 'none';
+		    }, 1500);
+		});
+	}
+
+
+
+	if (inputElem) {
+		// monitor the quantity input directly
+	    inputElem.addEventListener('input', () => {
+			if (inStock > 999) {
+				const availableQty = inStock - 1000;
+				const userQty = inputElem.value;
+				if (userQty > availableQty) {
+					const backOrder = userQty - availableQty;
+		            messageDiv.innerHTML = '<span>' + availableQty + '</span> in stock (Order by 1pm for Next Working Day Delivery or collect immediately in-store). <span>' + backOrder + '</span> on back order ({{#if product.availability}}{{#contains product.availability "//"}}{{after (split product.availability "//") 1}}{{else}}{{product.availability}}{{/contains}}{{else}}{{after (split theme_settings.custom_product_availability "//") 1}}{{/if}})';
+		            messageDiv.style.display = 'block';
+		        } else {
+		            messageDiv.style.display = 'none';
+		        }
+			}
+	    });		
+		// monitor the quantity + / - buttons
+		for (let i = 0; i < buttonElem.length; i++) {
+		    buttonElem[i].onclick = function () {
+		        buttonTimer = setTimeout(() => {
+					if (inStock > 999) {
+						const availableQty = inStock - 1000;
+						const userQty = inputElem.value;
+			            if (userQty > availableQty) {
+							const backOrder = userQty - availableQty;
+			                messageDiv.innerHTML = '<span class="num-available">' + availableQty + '</span> in stock (Order by 1pm for Next Working Day Delivery or collect immediately in-store). <span class="num-backorder">' + backOrder + '</span> on back order ({{#if product.availability}}{{#contains product.availability "//"}}{{after (split product.availability "//") 1}}{{else}}{{product.availability}}{{/contains}}{{else}}{{after (split theme_settings.custom_product_availability "//") 1}}{{/if}})';
+			                messageDiv.style.display = 'block';
+			            } else {
+			                messageDiv.style.display = 'none';
+			            }
+					}
+		            clearTimeout(buttonTimer);
+		        }, 500);
+		    }
+		}
+	}
+	</script>
+{{else}}
+	{{#if product.can_purchase}}
+		<script>
+		const availabilityNow = document.querySelector('.availability-now');
+		availabilityNow.style.display = 'block';
+		</script>
+	{{/if}}
+{{/if}}
+
+

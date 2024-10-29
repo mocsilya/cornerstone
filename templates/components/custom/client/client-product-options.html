@@ -14,13 +14,103 @@
 	{{/gt}}
 {{/if}}
 
-{{assignVar "nobackorder" "inactive"}}
-{{#filter product.custom_fields 'hidden' property='name'}}
-	{{#if value '==' 'nobackorder'}}
-		{{assignVar "nobackorder" "active"}}
-	{{/if}}
-{{/filter}}
-
+<div class="availability-messages">
+	<ul class="availability-now" style="display: none;">
+	    <li class="next-working-day">
+			<div class="availability-icon">
+				<img width="32" height="32" src="{{cdn 'img/custom/truck.svg'}}" alt="truck icon">
+			</div>
+			<div class="availability-message">
+				Order by 1pm for Next Working Day Delivery
+			</div>
+			<div class="availability-click">
+				<div class="tooltip">
+					<img width="16" height="16" src="{{cdn 'icons/information.svg'}}" alt="info icon">
+					<div class="tooltip-content" style="display: none;">
+						This item is in stock at our primary warehouse and is available for next working day mainland delivery, providing you complete your order and checkout by 1pm. Orders are dispatched Monday to Friday, excluding bank holidays, and are delivered on the next working day. We use a fully-tracked delivery service, typically using DHL or Royal Mail, based upon the nature of the product and shipping destination. Terms and Conditions apply.
+					</div>
+				</div>
+			</div>
+		</li>
+        <li class="immediate-collection">
+			<div class="availability-icon">
+				<img width="32" height="32" src="{{cdn 'img/custom/store-alt.svg'}}" alt="store icon">
+			</div>
+			<div class="availability-message">
+				Available for immediate collection in-store
+			</div>
+			<div class="availability-click">
+				<div class="tooltip">
+					<img width="16" height="16" src="{{cdn 'icons/information.svg'}}" alt="info icon">
+					<div class="tooltip-content" style="display: none;">
+						This item is in stock at our shop located at ME2 4JF and is available for you to collect during our opening hours of Monday to Saturday 9am to 5pm. Bank Holiday opening hours vary. We always suggest you phone us prior to visiting to ensure there are no issues with your placed order. Terms and Conditions apply.
+					</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+	<ul class="availability-soon" style="display: none;">
+		<li class="x-days-delivery">
+			<div class="availability-icon">
+				<img width="32" height="32" src="{{cdn 'img/custom/truck.svg'}}" alt="truck icon">
+			</div>
+			<div class="availability-message">
+			{{#if product.availability}}
+				{{#contains product.availability "//"}}
+					{{after (split product.availability '//') 1}}
+				{{else}}
+					{{product.availability}}
+				{{/contains}}
+			{{else}}
+				{{after (split theme_settings.custom_product_availability '//') 1}}
+			{{/if}}
+			</div>
+			<div class="availability-click">
+				<div class="tooltip">
+					<img width="16" height="16" src="{{cdn 'icons/information.svg'}}" alt="info icon">
+					<div class="tooltip-content" style="display: none;">
+						We expect you to receive your order within this delivery timeframe, but this item is typically not available for next working day delivery. Should you wish to find out a specific delivery timeframe based upon your location, please feel free to contact us before or after placing your order. We use a tracked delivery service, typically using DHL or Royal Mail, based upon the nature of the product and shipping destination. Terms and Conditions apply.
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="x-days-collection">
+			<div class="availability-icon">
+				<img width="32" height="32" src="{{cdn 'img/custom/store-alt.svg'}}" alt="store icon">
+			</div>
+			<div class="availability-message">
+			{{#if product.availability}}
+				{{#contains product.availability "Delivery"}}
+					Collect in-store {{after (split product.availability 'Delivery') 1}}
+				{{else}}
+					Collection in-store can be arranged.
+				{{/contains}}
+			{{else}}
+				Collect in-store {{after (split theme_settings.custom_product_availability 'Delivery') 1}}
+			{{/if}}
+			</div>
+			<div class="availability-click">
+				<div class="tooltip">
+					<img width="16" height="16" src="{{cdn 'icons/information.svg'}}" alt="info icon">
+					<div class="tooltip-content" style="display: none;">
+						This item is not available for immediate collection. The timeframe shown is our best estimate for when the item will arrive at our shop located at ME2 4JF for you to collect. Terms and Conditions apply. Should you wish to find out a more accurate collection timeframe, please feel free to contact us before or after placing your order.
+					</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+	<ul class="availability-none" style="display: none;">
+        <li class="not-in-stock">
+			<div class="availability-icon">
+				<img width="32" height="32" src="{{cdn 'img/custom/store-alt-slash.svg'}}" alt="truck icon">
+			</div>
+			<div class="availability-message">
+				Not currently available in stock
+			</div>
+		</li>
+	</ul>
+</div>
+<!--
 {{#if (getVar "nobackorder") '===' 'inactive'}}
 <div class="availability-messages">
     <ul>
@@ -137,24 +227,7 @@
 				{{/if}}
             {{/gt}}
         {{else}}
-            <li class="not-in-stock">
-				<div class="availability-icon">
-					<img width="32" height="32" src="{{cdn 'img/custom/store-alt-slash.svg'}}" alt="truck icon">
-				</div>
-				<div class="availability-message">
-					Not currently available in stock
-				</div>
-				<script>
-					document.addEventListener("DOMContentLoaded", function(event) { 
-						const outofstock = document.getElementById('alertBox-message-text');
-						if (outofstock) {
-							if (outofstock.innerHTML.indexOf("Out of stock") !== -1) {
-							    outofstock.parentNode.parentNode.style.display = 'none';
-							}
-						}
-					});
-				</script>
-			</li>
+            
         {{/if}}
     {{else}}
         {{#if product.can_purchase}}
@@ -300,6 +373,7 @@
 		{{/if}}
 	{{/if}}
 {{/if}}
+-->
 <div id="backorderMessage" style="display: none;">
     
 </div>

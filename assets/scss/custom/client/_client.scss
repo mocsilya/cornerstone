@@ -424,6 +424,51 @@ div[data-content-region="category_above_content"] .custom-widget-banner {
 // PRODUCT PAGE
 // =============================================================================
 
+.productView-images-medium {
+    @include breakpoint("large") {
+		width: 55%;
+	}
+    @include breakpoint("xlarge") {
+		width: 65%;
+	}
+}
+
+.productView-details-medium {
+    @include breakpoint("large") {
+		width: 45%;
+	}
+    @include breakpoint("xlarge") {
+		width: 35%;
+	}
+}
+
+.productView-block-sticky.productView-block-medium,
+.productView-description-sticky.productView-description-medium {
+    @include breakpoint("large") {
+		max-width: 55%;
+	}
+    @include breakpoint("xlarge") {
+		max-width: 65%;
+	}
+}
+
+.related-similar-sticky.related-similar-medium .tabs {
+    @include breakpoint("large") {
+		max-width: calc(55% - 1rem);
+	}
+    @include breakpoint("xlarge") {
+		max-width: calc(65% - 1rem);
+	}
+}
+
+.related-similar-sticky.related-similar-medium .tabs-contents {
+    @include breakpoint("large") {
+		max-width: calc(55% - 4rem);
+	}
+    @include breakpoint("xlarge") {
+		max-width: calc(65% - 4rem);
+	}
+}
 
 .product-gallery-reviews .productView-rating .productView-info {
 	display: flex;
@@ -894,9 +939,29 @@ article.productView-description  {
 }
 
 #backorderMessage {
-    font-weight: 700;
     border: 1px solid #ccc;
+	border-radius: .5rem;
     padding: .5rem .75rem;
+	line-height: 1.5rem;
+	margin: 1rem 0;
+}
+
+#backorderMessage span {
+    display: inline-block;
+	height: 1.5rem;
+	min-width: 1.75rem;
+	text-align: center;
+	color: #fff;
+	font-weight: 700;
+	border-radius: .5rem;
+}
+
+#backorderMessage .num-available {
+	background-color: #009a00;
+}
+
+#backorderMessage .num-backorder {
+	background-color: #666;
 }
 
 .productView-info-name.availability-custom,
@@ -904,12 +969,17 @@ article.productView-description  {
 	display: none;
 }
 
-.availability-messages {
-	margin: 0 0 1.5rem 0;
+.add-to-cart-wrapper .alertBox {
+	margin: 0;
+	padding: 1rem;
+	border-radius: .5rem;
+	background-color: #e5e5e5;
+	border:1px solid #e5e5e5;
+	margin: 1rem 0;
 }
 
 .availability-messages ul {
-	margin: 0;
+	margin: 1rem 0;
 	padding: .5rem 1rem;
 	border-radius: .5rem;
 	list-style: none;
