@@ -8,7 +8,7 @@ export default function (context) {
 			if ($(window).width() > 1260) {	
 				if (!$('.productView-wrap').hasClass('payment-product')){
 	
-					$('.productView-details-sticky').removeClass('productView-details-fixed').removeAttr('style');
+					$('.productView-details-sticky').removeClass('productView-details-fixed').removeClass('productView-details-absolute').removeAttr('style');
 	
 					var totalWidth = $('.productView').outerWidth();
 					var halfWidth = totalWidth / 2;
