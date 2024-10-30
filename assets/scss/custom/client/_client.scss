@@ -153,12 +153,11 @@ div[data-content-region="home_below_top_banner"] .custom-widget-content {
 	color: stencilColor("navPages-color-hover");
 }
 
-body.scroll .navPages > ul > li > .navPages-action {
+body.scroll .header-fixed .navPages > ul > li > .navPages-action {
 	@include breakpoint("medium") {
 		padding: 0.78571rem 1.14286rem 1.14286rem;
 	}
 }
-
 
 @media (max-width: 800px) {
 	.navPages > ul > li.navPages-item-page > .navPages-action,
