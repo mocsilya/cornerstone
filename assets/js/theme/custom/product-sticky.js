@@ -41,6 +41,21 @@ export default function (context) {
 							} else {
 								$('.productView-details-sticky').removeClass('productView-details-fixed').css('margin-left', '0px').css('padding-top', '0px');
 							}
+							
+							var top_of_element = $('div[data-content-region="product_below_bottom_banner"]').offset().top;
+							var bottom_of_element = $('div[data-content-region="product_below_bottom_banner"]').offset().top + $('div[data-content-region="product_below_bottom_banner"]').outerHeight();
+						
+							var bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();
+							var top_of_screen = $(window).scrollTop();
+	
+							//if ((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)) {
+							if (bottom_of_screen > top_of_element) {
+								$('.productView-details-sticky').addClass('productView-details-absolute');
+							} else {
+								$('.productView-details-sticky').removeClass('productView-details-absolute');
+							}
+						} else {
+							$('.productView-details-sticky').removeClass('productView-details-fixed').removeClass('productView-details-absolute').removeAttr('style');
 						}
 						/*
 						if (document.getElementById('product_question')) {
@@ -56,19 +71,6 @@ export default function (context) {
 							}
 						}
 						*/
-						var top_of_element = $('div[data-content-region="product_below_bottom_banner"]').offset().top;
-						var bottom_of_element = $('div[data-content-region="product_below_bottom_banner"]').offset().top + $('div[data-content-region="product_below_bottom_banner"]').outerHeight();
-						
-						var bottom_of_screen = $(window).scrollTop() + $(window).innerHeight();
-						var top_of_screen = $(window).scrollTop();
-	
-						//if ((bottom_of_screen > top_of_element) && (top_of_screen < bottom_of_element)) {
-						if (bottom_of_screen > top_of_element) {
-							$('.productView-details-sticky').addClass('productView-details-absolute');
-						} else {
-							$('.productView-details-sticky').removeClass('productView-details-absolute');
-						}
-			
 					});
 				}
 			} else {
