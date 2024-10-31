@@ -12,12 +12,8 @@ export default function () {
 			cache: true,
 			success: function(data) {
 				const html = $.parseHTML( data );
-				$(html).find('span.form-option-variant').each(function() {
-					if ($(this).hasClass('form-option-variant--pattern')){
-						$(swatches).append(this);
-					} else if ($(this).hasClass('form-option-variant--color')){
-						$(swatches).append(this);
-					}
+				$(html).find('label.form-option-swatch').each(function() {
+					$(swatches).append(this);
 		    	});
 			}
 		});		
