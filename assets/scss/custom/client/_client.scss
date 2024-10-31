@@ -58,7 +58,7 @@ body.scroll .header-fixed .header-logo-image-container {
 	padding-top: 0.78571rem !important;
 	padding-bottom: 0.78571rem !important;
 	margin-top: 2px;
-	background-color: #00adeb;
+	background-color: stencilColor('navPages-color-hover');
 	color: #fff;
 	border-radius: .25rem;
 }
@@ -355,7 +355,7 @@ div[data-content-region="category_above_content"] .custom-widget-banner {
 }
 
 .card-title a:hover {
-	color: #00adeb;
+	color: stencilColor('card-title-color-hover');
 }
 
 .card-figure:hover .card-figcaption {
@@ -369,7 +369,7 @@ div[data-content-region="category_above_content"] .custom-widget-banner {
 
 .card-price .price-section {
 	margin-right: .5rem;
-	color: #14214e;
+	color: stencilColor('card-title-color');
 }
 
 .page-product .card-price .price-section {
@@ -423,14 +423,14 @@ div[data-content-region="category_above_content"] .custom-widget-banner {
 	padding-top: 1rem;
 	padding-bottom: .7rem;
 	border-bottom: .3rem solid #fff;
-	color: #14214e;
+	color: stencilColor('custom-tab-color');
 	font-weight: 700;
 }
 
 .tab .tab-title:hover,
 .tab.is-active .tab-title,
 .tab.is-active .tab-title:hover {
-	border-bottom: .3rem solid #14214e;
+	border-bottom: .3rem solid stencilColor('custom-tab-color');
 }
 
 
@@ -659,7 +659,7 @@ div[data-content-region="category_above_content"] .custom-widget-banner {
 	border-radius: .5rem;
 	padding: .5rem;
 	text-decoration: none;
-	color: #14214e;
+	color:stencilColor('custom-tab-color');
 	font-weight: 700;
 	text-transform: uppercase;
 }
@@ -869,6 +869,11 @@ article.productView-description  {
 	filter: invert(12%) sepia(12%) saturate(6929%) hue-rotate(204deg) brightness(96%) contrast(99%);
 }
 
+.why-buy-anode-outlet .why-buy-icon img,
+.why-buy-anode-outlet .why-buy-click img {
+	filter: invert(39%) sepia(90%) saturate(4820%) hue-rotate(183deg) brightness(94%) contrast(101%);
+}
+
 .tooltip {
 	position: relative;
 	display: inline-block;
@@ -1031,6 +1036,10 @@ article.productView-description  {
 
 .availability-click img {
 	filter: invert(12%) sepia(12%) saturate(6929%) hue-rotate(204deg) brightness(96%) contrast(99%);
+}
+
+availability-anode-outlet .availability-click img {
+	filter: invert(39%) sepia(90%) saturate(4820%) hue-rotate(183deg) brightness(94%) contrast(101%);
 }
 
 .next-working-day .availability-icon img,
