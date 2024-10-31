@@ -196,6 +196,10 @@ div[data-content-region="category_aside"] {
 	
 }
 
+.footer-newsletter {
+	border-bottom: 2px solid #fff;
+}
+
 .footer-newsletter article:first-child {
 	@include breakpoint("medium") {
 		border-right: 1px solid #fff;

@@ -214,7 +214,7 @@
     "custom_product_warranty_location": "gallery",
     "custom_product_warranty_title": "Care Guide",
     "custom_product_gallery_size": "medium",
-    "custom_product_description_location": "side",
+    "custom_product_description_location": "sticky",
     "custom_product_tab1_show": true,
     "custom_product_tab1_title": "Delivery",
     "custom_product_tab1_content": "/delivery/",
