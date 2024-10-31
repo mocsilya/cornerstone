@@ -207,6 +207,21 @@ body.scroll .header-fixed .navPages > ul > li.navPages-item-brands .navPages-act
 
 
 // =============================================================================
+// GRID
+// =============================================================================
+
+@media (max-width: 551px) {
+	.productGrid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+    .productGrid .product:nth-child(2) {
+        border-top: 1px solid #dddddd;
+    }
+}
+
+
+
+// =============================================================================
 // CATEGORY
 // =============================================================================
 
@@ -1166,6 +1181,17 @@ article.productView-description  {
 iframe#ReturnsPolicy {
 	width: 100% !important;
 	border: 1px solid #ccc;
+}
+
+
+
+// =============================================================================
+// CART
+// =============================================================================
+
+.page-cart .cart-item-title .cart-item-availability,
+.page-cart .cart-item-availabilityMessage {
+	display: none !important;
 }
 
 
