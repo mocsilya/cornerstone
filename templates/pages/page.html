@@ -31,14 +31,14 @@ customer:
 {{#if page.sub_pages}}
 	<div class="subcategories-above subcategories--vertical">
 		<div class="accord-wrapper">	
-	    	<div class="accord accord-{{dashcase (lowercase (sanitize page.title))}} accord-active">
+	    	<div class="accord accord-{{dashcase (lowercase (sanitize page.title))}}">
 				<div class="accord-heading">
 					<h4 class="accord-title">
 						{{page.title}}
 						<div class="accord-icon"><span class="accord-chevron">&nbsp;</span></div>
 					</h4>
 				</div>
-				<div class="accord-body" style="display: block;">
+				<div class="accord-body">
 	            {{#each page.sub_pages}}
 			    	<div class="accord accord-{{dashcase (lowercase (sanitize title))}}">
 						<div class="accord-link">

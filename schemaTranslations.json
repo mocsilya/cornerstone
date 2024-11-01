@@ -3166,7 +3166,7 @@
   "i18n.CardMessageText": {
     "default": "Custom message text"
   },
-  "i18n.ProductTitleLeft": {
+  "i18n.ProductTitleRight": {
     "default": "Show product title above details rather than in page header."
   },
   "i18n.ProductAddToCartShow": {
