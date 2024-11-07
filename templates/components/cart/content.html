@@ -9,7 +9,7 @@
     </thead>
     <tbody class="cart-list">
         {{#each cart.items}}
-            <tr class="cart-item" data-item-row>
+            <tr class="cart-item" data-item-row data-item-id="{{product_id}}" data-item-sku="{{sku}}" data-item-stock="{{product_stock}}">
                 <td class="cart-item-block cart-item-figure">
                     {{#if type '==' 'GiftCertificate'}}
                         <img
