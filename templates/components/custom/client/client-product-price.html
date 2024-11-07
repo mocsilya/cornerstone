@@ -1,10 +1,110 @@
+{{assignVar "vStock" "false"}}
+{{#if gql.data.site.product}}
+	{{#each gql.data.site.product.variants.edges}}
+		{{#with node}}
+			{{#if inventory.aggregated.availableToSell ">" 0}}
+				{{assignVar "vStock" "true"}}
+			{{/if}}
+			{{#if @last}}
+				{{#if @index 0}}
+					{{assignVar "vStock" "false"}}
+				{{/if}}
+			{{/if}}
+		{{/with}}
+	{{/each}}
+{{/if}}
+
 <div class="product-icons-container">
 	<div class="product-icons">
 		<div class="product-icon product-icon-alt">
             <a class="product-icon-text" href="/price-match-request/?url={{settings.secure_base_url}}{{settings.request.absolute_path}}">Price Match Request</a>
 		</div>
+		{{#if (getVar "vStock") '===' 'true'}}
 		<div class="product-icon">
-			<a class="product-icon-text" href="/pay-later-options-klarna/">0% finance up to 36 months*</a>
+			<a class="product-icon-text" href="#modalAvailability" data-reveal-id="modalAvailability">Check Availability</a>
+		</div>
+		{{/if}}
+	</div>
+</div>
+{{#if (getVar "vStock") '===' 'true'}}
+<div id="modalAvailability" class="modal modal--small" data-reveal>
+    {{> components/common/modal/modal-close-btn}}
+    <div class="modal-body">
+        <div class="variant-data">
+			<div class="table-scroll">
+				<table class="table">
+					<tbody>
+					{{#each gql.data.site.product.variants.edges}}
+						<tr{{#with node}}{{#unless isPurchasable}} class="tr-variant-unavailable"{{/unless}}{{/with}}>
+						    {{#with node}}
+						        {{#each productOptions.edges}}
+						            {{#with node}}
+						                {{#each values.edges}}
+						                    {{#with node}}
+						                        <td class="td-option td-{{dashcase (lowercase (sanitize ../../displayName))}}">{{label}}</td>
+						                    {{/with}}
+						                {{/each}}
+						            {{/with}}
+						        {{/each}}
+						        <td class="td-price">
+									{{#if ../../product.price.without_tax}}
+										{{exclTax.price.formatted}}
+									{{else}}
+										{{inclTax.price.formatted}}
+									{{/if}}
+								</td>
+								<td class="td-stock">
+								    <span class="td-stock-text">
+									{{#if inventory.aggregated.availableToSell '==' 0}}
+										Out of stock
+									{{else if inventory.aggregated.availableToSell '<=' 1000}}
+										In Stock Dispatch Within 1 Week
+									{{else if inventory.aggregated.availableToSell '<=' 2000}}
+										In Stock Dispatch Within 2 Weeks
+									{{else if inventory.aggregated.availableToSell '<=' 3000}}
+										In Stock Dispatch Within 3 Weeks
+									{{else if inventory.aggregated.availableToSell '<=' 4000}}
+										In Stock Dispatch within 24 Hours
+									{{else if inventory.aggregated.availableToSell '<=' 5000}}
+										In Stock Dispatch Today (Before 1pm)
+									{{else if inventory.aggregated.availableToSell '<=' 5200}}
+										Due in January
+									{{else if inventory.aggregated.availableToSell '<=' 5400}}
+										Due in February
+									{{else if inventory.aggregated.availableToSell '<=' 5600}}
+										Due in March
+									{{else if inventory.aggregated.availableToSell '<=' 5800}}
+										Due in April
+									{{else if inventory.aggregated.availableToSell '<=' 6000}}
+										Due in May
+									{{else if inventory.aggregated.availableToSell '<=' 6200}}
+										Due in June
+									{{else if inventory.aggregated.availableToSell '<=' 6400}}
+										Due in July
+									{{else if inventory.aggregated.availableToSell '<=' 6600}}
+										Due in August
+									{{else if inventory.aggregated.availableToSell '<=' 6800}}
+										Due in September
+									{{else if inventory.aggregated.availableToSell '<=' 7000}}
+										Due in October
+									{{else if inventory.aggregated.availableToSell '<=' 7200}}
+										Due in November
+									{{else if inventory.aggregated.availableToSell '<=' 7400}}
+									    Due in December
+									{{else if inventory.aggregated.availableToSell '<=' 7600}}
+									    To be confirmed
+									{{else}}
+										Availability Unknown
+									{{/if}}
+									</span>
+								</td>
+						    {{/with}}
+						</tr>
+					{{/each}}
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 </div>
+{{/if}}

@@ -10,202 +10,429 @@
 	{{/unless}}
 {{/unless}}
 
-{{#if product.options}}
-<script>
-let arr = [];
-{{#each gql.data.site.product.variants.edges}}
-    {{#with node}}
-        {{#each productOptions.edges}}
-            {{#with node}}
-                {{#each values.edges}}
-                    {{#with node}}
-					console.log("displayname: {{dashcase (lowercase (sanitize label))}}");
-						    let q{{strReplace ../../../../sku '-' ''}} = document.querySelector(".productView-options .form-field-{{dashcase (lowercase (sanitize ../../displayName))}} .form-select .form-select-option-{{dashcase (lowercase (sanitize label))}}");
-						    //console.log(query{{../../../../sku}});
-							if (q{{strReplace ../../../../sku '-' ''}}) {
-								console.log("2: match: {{../../../../inclTax.price.value}}");
-								arr.push('{{../../../../inclTax.price.value}}');
-							} else {
-								console.log("2: Not Found");
-							}
-					{{/with}}
-                {{/each}}
-            {{/with}}
-        {{/each}}
-    {{/with}}
-{{/each}}
-console.log("array:" + arr);
-if (arr.length) {
-	const priceDiv = document.querySelectorAll(".productView-price .price-section--withTax .price--withTax")[0];
-	if (priceDiv.innerText.includes('From ')) {
-	//if (priceDiv.innerText.includes(' - ')) {
-		priceDiv.style.opacity = "0";
-	}
-	const priceMinMath = Math.min.apply(Math, arr);
-	const priceMin = (Math.round(priceMinMath * 100) / 100).toFixed(2);
-	function numberWithCommas(x) {
-		return x.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ",");
-	}
-	console.log("priceMin" + priceMin);
-	const priceFormatted = "{{#if currency_selector.active_currency_code '==' 'GBP'}}£{{else if currency_selector.active_currency_code '==' 'CAD'}}${{else if currency_selector.active_currency_code '==' 'AUD'}}${{else if currency_selector.active_currency_code '==' 'USD'}}${{else}}€{{/if}}" + numberWithCommas(priceMin);
-	console.log("priceFormatted" + priceFormatted);
-	const priceRange = priceDiv.innerText;
-	//const priceTrim = priceRange.substring(priceRange.indexOf(' - ') + 1);
-	//const priceMax = priceRange.substring(priceRange.indexOf('-') + 2);
-	const priceFrom = priceRange.substring(priceRange.indexOf('From ') + 5);
-	console.log("priceFrom" + priceFrom);
-	let priceUpdate;
-	//if (priceFormatted == priceMax) {
-	if (priceFormatted == priceFrom) {
-		priceUpdate = priceFrom;
-	} else {
-		//priceUpdate = priceFormatted + " " + priceTrim;
-		priceUpdate = priceFormatted;
-	}
-	console.log("price update:" + priceUpdate);
-	const priceSaved = document.querySelectorAll(".productView-price .price-section--saving .price--saving")[0];
-	const priceSavedCheck = priceSaved.innerText;
-	const priceRRP = document.querySelectorAll(".productView-price .price-section--withTax .price--rrp")[0];
-	const priceRRPCheck = priceRRP.innerText;
-	
-	let priceSavedFormatted;
-	if (!priceSavedCheck.trim().length && !priceRRPCheck.trim().length) {
-		priceSavedFormatted = false;
-	} else {
-		const priceRRPValue = priceRRP.innerText.replace(/[^0-9.]/g, '');
-		const priceSavedMath = priceRRPValue - priceMin;
-		const priceSavedValue = (Math.round(priceSavedMath * 100) / 100).toFixed(2);
-		priceSavedFormatted = "{{#if currency_selector.active_currency_code '==' 'GBP'}}£{{else if currency_selector.active_currency_code '==' 'CAD'}}${{else if currency_selector.active_currency_code '==' 'AUD'}}${{else if currency_selector.active_currency_code '==' 'USD'}}${{else}}€{{/if}}" + numberWithCommas(priceSavedValue);
-	}
-	setTimeout(function() {
-		priceDiv.style.opacity = "1";
-		// priceDiv.innerHTML = priceUpdate;
-		priceDiv.innerHTML = "From " + priceUpdate;
-		if (priceSavedFormatted) {
-			priceSaved.innerHTML = priceSavedFormatted;
-		}
-	}, 2000);
-} else {
-	console.log('no variants');
-	// setTimeout(function() {
-		// const priceDiv2 = document.querySelectorAll(".productView-price .price-section--withTax .price--withTax")[0];
-		// priceDiv2.innerHTML = "From {{product.price.rrp_with_tax.formatted}}";
-		// console.log("default price: {{product.price.rrp_with_tax.formatted}}");
-	// }, 2000);
-}
-</script>
+{{assignVar "parentStock" "false"}}
+{{assignVar "variantStock" "false"}}
+
+{{#if product.stock_level ">" 0}}
+	{{assignVar "parentStock" "true"}}
 {{/if}}
 
-<script>
-var timePrice = 0;
-var formSelect = document.querySelectorAll(".productView-options .form-select, .productView-options .form-radio");
-var alertBox = document.querySelector(".add-to-cart-wrapper .alertBox.productAttributes-message");
-var alertBoxTrigger = "Due:";
-var alertBoxHref = '?make={{{encodeURI product.brand.name}}}&model={{{encodeURI product.title}}}'
+{{#if gql.data.site.product}}
+	{{#each gql.data.site.product.variants.edges}}
+		{{#with node}}
+			{{#if inventory.aggregated.availableToSell ">" 0}}
+				{{assignVar "variantStock" "true"}}
+			{{/if}}
+			{{#if @last}}
+				{{#if @index 0}}
+					{{assignVar "variantStock" "false"}}
+				{{/if}}
+			{{/if}}
+		{{/with}}
+	{{/each}}
+{{/if}}
 
-for (let i = 0; i < formSelect.length; i++) {
-	formSelect[i].addEventListener("change", function() {
-		clearTimeout(timePrice);
-	    timePrice = setTimeout(function() {
-			// Klarna
-			var newPriceCurrency = document.querySelector(".productView-price span[data-product-price-with-tax]").textContent;
-			var newPriceNumber = Number(newPriceCurrency.replace(/[^0-9\.-]+/g,""));		
-			var newPriceKlarna = newPriceNumber * 100;
-			document.querySelector('klarna-placement').dataset.purchaseAmount = newPriceKlarna;
-			window.Klarna.OnsiteMessaging.refresh();
+{{#if (getVar "variantStock") '===' 'true'}}
+	<style>
+		.alertBox.productAttributes-message {
+			display: none !important;
+		}
+	</style>
+	<script>
+	var timeStart = 0;
+	var optionClick = document.querySelectorAll(".productView-options .form-radio, .productView-options .form-select");
+	var optionHref = '?make={{{encodeURI product.brand.name}}}&model={{{encodeURI product.title}}}'
+	var currentMonth = '{{moment "now" "MM"}}';
+
+	for (let i = 0; i < optionClick.length; i++) {
+		optionClick[i].addEventListener("change", function() {
+			clearTimeout(timeStart);
+		    timeStart = setTimeout(function() {
+	        
+		        // Klarna
+				var newPriceCurrency = document.querySelector(".productView-price span[data-product-price-with-tax]").textContent;
+				var newPriceNumber = Number(newPriceCurrency.replace(/[^0-9\.-]+/g,""));		
+				var newPriceKlarna = newPriceNumber * 100;
+				document.querySelector('klarna-placement').dataset.purchaseAmount = newPriceKlarna;
+				window.Klarna.OnsiteMessaging.refresh();
 			
-			// Pre Order / C2W Form Box (on change)
-			if (formSelect[i].classList.contains('form-select-size')) {
-				const sizeText = formSelect[i].options[formSelect[i].selectedIndex].text.toString();
-				//c2w update size
-				const formCycle = document.getElementById('form-action-cycle');
-				const formCycleHref = new URL(formCycle.href);
-				formCycleHref.searchParams.append('size', sizeText);
-				formCycle.href = formCycleHref;
-				//preorder update size
-				const formPreorder = document.getElementById('form-action-preorder');
-				const formPreorderHref = new URL(formPreorder.href);
-				formPreorderHref.searchParams.append('size', sizeText);
-				formPreorder.href = formPreorderHref;
-			} else if (formSelect[i].classList.contains('form-select-colour')) {
-				var colourText = formSelect[i].options[formSelect[i].selectedIndex].text.toString();
-				//c2w update colour
-				const formCycle = document.getElementById('form-action-cycle');
-				const formCycleHref = new URL(formCycle.href);
-				formCycleHref.searchParams.append('colour', colourText);
-				formCycle.href = formCycleHref;
-				//preorder update colour
-				const formPreorder = document.getElementById('form-action-preorder');
-				const formPreorderHref = new URL(formPreorder.href);
-				formPreorderHref.searchParams.append('colour', colourText);
-				formPreorder.href = formPreorderHref;
+		        // check if it's a select or form-radio
+		        let optionType;
+		        if (optionClick[i].classList.contains('form-select')) {
+		            optionType = 'select';
+		        } else if (optionClick[i].classList.contains('form-radio')) {
+		            optionType = 'swatch';
+		        } else {
+		            optionType = 'other';
+		        }
+		        console.log('optionType: ' + optionType);
+	        
+		        // check for size or colour or battery
+		        let optionName;
+		        if (optionType == 'select') {
+		            optionName = optionClick[i].parentNode;
+		        }
+		        if (optionType == 'swatch') {
+		            optionName = optionClick[i].parentNode.parentNode;
+		        }
+		        let optionSpecific;
+		        if (optionName.classList.contains('form-field-size')) {
+		            optionSpecific = 'size';
+		        } else if (optionName.classList.contains('form-field-colour')) {
+		            optionSpecific = 'colour';
+		        } else if (optionName.classList.contains('form-field-battery')) {
+		            optionSpecific = 'battery';
+		        } else {
+		            optionSpecific = 'other';
+		        }
+		        console.log('optionSpecific: ' + optionSpecific);
+	        
+		        // if size / colour / battery found
+		        if (optionSpecific == 'size' || optionSpecific == 'colour' || optionSpecific == 'battery') {
+			        const stockData = document.querySelector(".in-stock-number");
+			        let stockNumber;
+			        if (stockData === null) {
+			            stockNumber = 0;
+			        } else {
+			            stockNumber = Number(stockData.innerText);
+			        }
+			        console.log('stockNumber: ' + stockNumber);
+		        
+			        // set the message and month
+					let message;
+					let dueMonth;
+					if (stockNumber == 0) {
+					    message = 'Out of Stock';
+					    dueMonth = '0';
+					} else if (stockNumber <= 1000) {
+					    message = 'In Stock Dispatch Within 1 Week';
+					    dueMonth = '0';
+					} else if (stockNumber <= 2000) {
+					    message = 'In Stock Dispatch Within 2 Weeks';
+					    dueMonth = '0';
+					} else if (stockNumber <= 3000) {
+					    message = 'In Stock Dispatch Within 3 Weeks';
+					    dueMonth = '0';
+					} else if (stockNumber <= 4000) {
+					    message = 'In Stock Dispatch within 24 Hours';
+					    dueMonth = '0';
+					} else if (stockNumber <= 5000) {
+					    mmessage = 'In Stock Dispatch Today';
+					    dueMonth = '0';
+					} else if (stockNumber <= 5200) {
+					    message = 'Due in January';
+					    dueMonth = '1';
+					} else if (stockNumber <= 5400) {
+					    message = 'Due In: - February';
+					    dueMonth = '2';
+					} else if (stockNumber <= 5600) {
+					    message = 'Due in March';
+					    dueMonth = '3';
+					} else if (stockNumber <= 5800) {
+					    message = 'Due in April';
+					    dueMonth = '4';
+					} else if (stockNumber <= 6000) {
+					    message = 'Due in May';
+					    dueMonth = '5';
+					} else if (stockNumber <= 6200) {
+					    message = 'Due in June';
+					    dueMonth = '6';
+					} else if (stockNumber <= 6400) {
+					    message = 'Due in July';
+					    dueMonth = '7';
+					} else if (stockNumber <= 6600) {
+					    message = 'Due in August';
+					    dueMonth = '8';
+					} else if (stockNumber <= 6800) {
+					    message = 'Due in September';
+					    dueMonth = '9';
+					} else if (stockNumber <= 7000) {
+					    message = 'Due in October';
+					    dueMonth = '10';
+					} else if (stockNumber <= 7200) {
+					    message = 'Due in November';
+					    dueMonth = '11';
+					} else if (stockNumber <= 7400) {
+					    message = 'Due in December';
+					    dueMonth = '12';
+					} else if (stockNumber <= 7600) {
+					    message = 'Due in TBC';
+					    dueMonth = '0';
+					} else {
+					    message = 'No Availabilty Information';
+					    dueMonth = '0';
+					}
+				
+					let nextMonth = false;
+					if (dueMonth > 0) {
+					    if (currentMonth == 12) {
+					        if (dueMonth == 1) {
+					            nextMonth = true;
+					        }
+					    } else {
+					        const checkMonth = Number(currentMonth) + 1;
+					        if (checkMonth == dueMonth) {
+					            nextMonth = true;
+					        }
+					    }
+					}
+				
+					console.log('nextMonth: ' + nextMonth);
+				
+					// place the message 
+					const messageActive = document.querySelector('.form-field--message p');
+					if (messageActive) {
+					    messageActive.innerHTML = message;
+					} else {
+					    const target = document.querySelector('.form-field--stock');
+					    const newContent = '<div class="form-field form-field--message"><p>' + message + '</p></div>';
+					    target.insertAdjacentHTML('afterend', newContent);
+					}
+				
+		            if (stockNumber > 4000 && stockNumber < 7600) {
+		                if (nextMonth == true) {
+		                    document.getElementById('add-to-cart-wrapper').style.display = 'flex';
+		                    document.getElementById('form-action-preorder').classList.remove('button');
+		                } else {
+		                    document.getElementById('add-to-cart-wrapper').style.display = 'none';
+		                    document.getElementById('form-action-preorder').classList.add('button');
+		                }
+		            } else {
+		                document.getElementById('add-to-cart-wrapper').style.display = 'flex';
+		                document.getElementById('form-action-preorder').classList.remove('button');
+		            }
+	            
+		            //update the C2W and Pre Order URL's
+		            let optionValue;
+	                if (optionType == 'select') {
+	                    optionValue = optionClick[i].options[optionClick[i].selectedIndex].text.toString();
+	                }
+	                if (optionType == 'swatch') {
+	                    optionValue = optionClick[i].getAttribute('aria-label');
+	                }
+	                console.log('optionValue: ' + optionValue);
+                
+	                const formCycle = document.getElementById('form-action-cycle');
+	                const formCycleHref = new URL(formCycle.href);
+	                const formPreorder = document.getElementById('form-action-preorder');
+					const formPreorderHref = new URL(formPreorder.href);
+	                if (optionSpecific == 'size') {
+	                    formCycleHref.searchParams.append('size', optionValue);
+	                    formPreorderHref.searchParams.append('size', optionValue);
+	                }
+	                if (optionSpecific == 'colour') {
+	                    formCycleHref.searchParams.append('colour', optionValue);
+	                    formPreorderHref.searchParams.append('colour', optionValue);
+	                }
+					formCycle.href = formCycleHref;
+					formPreorder.href = formPreorderHref;
+		        }
+		    }, 1000);
+		});
+	}
+	</script>
+{{else}}
+
+	{{#if product.options}}
+	<script>
+	let arr = [];
+	{{#each gql.data.site.product.variants.edges}}
+	    {{#with node}}
+	        {{#each productOptions.edges}}
+	            {{#with node}}
+	                {{#each values.edges}}
+	                    {{#with node}}
+						console.log("displayname: {{dashcase (lowercase (sanitize label))}}");
+							    let q{{strReplace ../../../../sku '-' ''}} = document.querySelector(".productView-options .form-field-{{dashcase (lowercase (sanitize ../../displayName))}} .form-select .form-select-option-{{dashcase (lowercase (sanitize label))}}");
+							    //console.log(query{{../../../../sku}});
+								if (q{{strReplace ../../../../sku '-' ''}}) {
+									console.log("2: match: {{../../../../inclTax.price.value}}");
+									arr.push('{{../../../../inclTax.price.value}}');
+								} else {
+									console.log("2: Not Found");
+								}
+						{{/with}}
+	                {{/each}}
+	            {{/with}}
+	        {{/each}}
+	    {{/with}}
+	{{/each}}
+	console.log("array:" + arr);
+	if (arr.length) {
+		const priceDiv = document.querySelectorAll(".productView-price .price-section--withTax .price--withTax")[0];
+		if (priceDiv.innerText.includes('From ')) {
+		//if (priceDiv.innerText.includes(' - ')) {
+			priceDiv.style.opacity = "0";
+		}
+		const priceMinMath = Math.min.apply(Math, arr);
+		const priceMin = (Math.round(priceMinMath * 100) / 100).toFixed(2);
+		function numberWithCommas(x) {
+			return x.toString().replace(/\B(?=(?:\d{3})+(?!\d))/g, ",");
+		}
+		console.log("priceMin" + priceMin);
+		const priceFormatted = "{{#if currency_selector.active_currency_code '==' 'GBP'}}£{{else if currency_selector.active_currency_code '==' 'CAD'}}${{else if currency_selector.active_currency_code '==' 'AUD'}}${{else if currency_selector.active_currency_code '==' 'USD'}}${{else}}€{{/if}}" + numberWithCommas(priceMin);
+		console.log("priceFormatted" + priceFormatted);
+		const priceRange = priceDiv.innerText;
+		//const priceTrim = priceRange.substring(priceRange.indexOf(' - ') + 1);
+		//const priceMax = priceRange.substring(priceRange.indexOf('-') + 2);
+		const priceFrom = priceRange.substring(priceRange.indexOf('From ') + 5);
+		console.log("priceFrom" + priceFrom);
+		let priceUpdate;
+		//if (priceFormatted == priceMax) {
+		if (priceFormatted == priceFrom) {
+			priceUpdate = priceFrom;
+		} else {
+			//priceUpdate = priceFormatted + " " + priceTrim;
+			priceUpdate = priceFormatted;
+		}
+		console.log("price update:" + priceUpdate);
+		const priceSaved = document.querySelectorAll(".productView-price .price-section--saving .price--saving")[0];
+		const priceSavedCheck = priceSaved.innerText;
+		const priceRRP = document.querySelectorAll(".productView-price .price-section--withTax .price--rrp")[0];
+		const priceRRPCheck = priceRRP.innerText;
+	
+		let priceSavedFormatted;
+		if (!priceSavedCheck.trim().length && !priceRRPCheck.trim().length) {
+			priceSavedFormatted = false;
+		} else {
+			const priceRRPValue = priceRRP.innerText.replace(/[^0-9.]/g, '');
+			const priceSavedMath = priceRRPValue - priceMin;
+			const priceSavedValue = (Math.round(priceSavedMath * 100) / 100).toFixed(2);
+			priceSavedFormatted = "{{#if currency_selector.active_currency_code '==' 'GBP'}}£{{else if currency_selector.active_currency_code '==' 'CAD'}}${{else if currency_selector.active_currency_code '==' 'AUD'}}${{else if currency_selector.active_currency_code '==' 'USD'}}${{else}}€{{/if}}" + numberWithCommas(priceSavedValue);
+		}
+		setTimeout(function() {
+			priceDiv.style.opacity = "1";
+			// priceDiv.innerHTML = priceUpdate;
+			priceDiv.innerHTML = "From " + priceUpdate;
+			if (priceSavedFormatted) {
+				priceSaved.innerHTML = priceSavedFormatted;
 			}
+		}, 2000);
+	} else {
+		console.log('no variants');
+		// setTimeout(function() {
+			// const priceDiv2 = document.querySelectorAll(".productView-price .price-section--withTax .price--withTax")[0];
+			// priceDiv2.innerHTML = "From {{product.price.rrp_with_tax.formatted}}";
+			// console.log("default price: {{product.price.rrp_with_tax.formatted}}");
+		// }, 2000);
+	}
+	</script>
+	{{/if}}
+	
+	<script>
+	var timePrice = 0;
+	var formSelect = document.querySelectorAll(".productView-options .form-select, .productView-options .form-radio");
+	var alertBox = document.querySelector(".add-to-cart-wrapper .alertBox.productAttributes-message");
+	var alertBoxTrigger = "Due:";
+	var alertBoxHref = '?make={{{encodeURI product.brand.name}}}&model={{{encodeURI product.title}}}'
+
+	for (let i = 0; i < formSelect.length; i++) {
+		formSelect[i].addEventListener("change", function() {
+			clearTimeout(timePrice);
+		    timePrice = setTimeout(function() {
+				// Klarna
+				var newPriceCurrency = document.querySelector(".productView-price span[data-product-price-with-tax]").textContent;
+				var newPriceNumber = Number(newPriceCurrency.replace(/[^0-9\.-]+/g,""));		
+				var newPriceKlarna = newPriceNumber * 100;
+				document.querySelector('klarna-placement').dataset.purchaseAmount = newPriceKlarna;
+				window.Klarna.OnsiteMessaging.refresh();
 			
-			// Pre Order / C2W Alert Box (on change)
-			if (alertBox.style.display != 'none') {
+				// Pre Order / C2W Form Box (on change)
 				if (formSelect[i].classList.contains('form-select-size')) {
-					var sizeText = formSelect[i].options[formSelect[i].selectedIndex].text.toString();
-					alertBoxHref = alertBoxHref+'&size='+sizeText;
-					console.log(alertBoxHref);
+					const sizeText = formSelect[i].options[formSelect[i].selectedIndex].text.toString();
+					//c2w update size
+					const formCycle = document.getElementById('form-action-cycle');
+					const formCycleHref = new URL(formCycle.href);
+					formCycleHref.searchParams.append('size', sizeText);
+					formCycle.href = formCycleHref;
+					//preorder update size
+					const formPreorder = document.getElementById('form-action-preorder');
+					const formPreorderHref = new URL(formPreorder.href);
+					formPreorderHref.searchParams.append('size', sizeText);
+					formPreorder.href = formPreorderHref;
 				} else if (formSelect[i].classList.contains('form-select-colour')) {
 					var colourText = formSelect[i].options[formSelect[i].selectedIndex].text.toString();
-					alertBoxHref = alertBoxHref+'&colour='+colourText;
-					console.log(alertBoxHref);
+					//c2w update colour
+					const formCycle = document.getElementById('form-action-cycle');
+					const formCycleHref = new URL(formCycle.href);
+					formCycleHref.searchParams.append('colour', colourText);
+					formCycle.href = formCycleHref;
+					//preorder update colour
+					const formPreorder = document.getElementById('form-action-preorder');
+					const formPreorderHref = new URL(formPreorder.href);
+					formPreorderHref.searchParams.append('colour', colourText);
+					formPreorder.href = formPreorderHref;
 				}
-				var alertBoxButton = '<div class="alertBox-buttons"><a class="button button--primary" href="/pre-order/'+alertBoxHref+'">PRE ORDER</a><a class="button button--secondary" href="/cycle-to-work-pre-order/'+alertBoxHref+'">Cycle To Work</a></div>';
-				var alertBoxText = document.querySelector(".add-to-cart-wrapper .alertBox-message").textContent;
-				var alertBoxLink = document.querySelector('.alertBox-buttons');
-				if (alertBoxText.indexOf(alertBoxTrigger) !== -1) {
-					if (!(alertBoxLink)) {
-						alertBox.innerHTML += alertBoxButton;
+			
+				// Pre Order / C2W Alert Box (on change)
+				if (alertBox.style.display != 'none') {
+					if (formSelect[i].classList.contains('form-select-size')) {
+						var sizeText = formSelect[i].options[formSelect[i].selectedIndex].text.toString();
+						alertBoxHref = alertBoxHref+'&size='+sizeText;
+						console.log(alertBoxHref);
+					} else if (formSelect[i].classList.contains('form-select-colour')) {
+						var colourText = formSelect[i].options[formSelect[i].selectedIndex].text.toString();
+						alertBoxHref = alertBoxHref+'&colour='+colourText;
+						console.log(alertBoxHref);
+					}
+					var alertBoxButton = '<div class="alertBox-buttons"><a class="button button--primary" href="/pre-order/'+alertBoxHref+'">PRE ORDER</a><a class="button button--secondary" href="/cycle-to-work-pre-order/'+alertBoxHref+'">Cycle To Work</a></div>';
+					var alertBoxText = document.querySelector(".add-to-cart-wrapper .alertBox-message").textContent;
+					var alertBoxLink = document.querySelector('.alertBox-buttons');
+					if (alertBoxText.indexOf(alertBoxTrigger) !== -1) {
+						if (!(alertBoxLink)) {
+							alertBox.innerHTML += alertBoxButton;
+						}
+					} else {
+						if (alertBoxLink) {
+							alertBoxLink.remove();
+						}
 					}
 				} else {
 					if (alertBoxLink) {
 						alertBoxLink.remove();
 					}
 				}
-			} else {
-				if (alertBoxLink) {
-					alertBoxLink.remove();
+				//Pre Order In Stock
+				if (formSelect[i].classList.contains('form-select-size')) {
+					const selectValue = formSelect[i].options[formSelect[i].selectedIndex].getAttribute('aria-label');
+					const selectPhrase = "In Stock";
+					const instockButton = document.getElementById("form-action-preorder");
+					if (selectValue.includes(selectPhrase)) {
+						instockButton.style.display = 'flex';
+					} else {
+						instockButton.style.display = 'none';
+					}
 				}
-			}
-			//Pre Order In Stock
-			if (formSelect[i].classList.contains('form-select-size')) {
-				const selectValue = formSelect[i].options[formSelect[i].selectedIndex].getAttribute('aria-label');
-				const selectPhrase = "In Stock";
-				const instockButton = document.getElementById("form-action-preorder");
-				if (selectValue.includes(selectPhrase)) {
-					instockButton.style.display = 'flex';
-				} else {
-					instockButton.style.display = 'none';
-				}
-			}
-	    }, 1000);
-	});
-}
-
-window.addEventListener("pageshow", function (event) {
-	var historyTraversal = event.persisted,
-		perf = window.performance,
-		perfEntries = 
-		perf && perf.getEntriesByType && perf.getEntriesByType("navigation"),
-		perfEntryType = perfEntries && perfEntries[0] && perfEntries[0].type,
-		navigationType = perf && perf.navigation && perf.navigation.type;
-	if (historyTraversal || perfEntryType === "back_forward" || navigationType === 2) {
-		// Pre Order (on forward/back)
-		clearTimeout(timePrice);
-		timePrice = setTimeout(function() {
-	  		var alertBoxText2 = document.querySelector(".add-to-cart-wrapper .alertBox-message").textContent;
-			var alertBoxLink2 = document.querySelector('.alertBox-buttons');
-			if (alertBoxText2.indexOf(alertBoxTrigger) !== -1) {
-				if (!(alertBoxLink2)) {
-					alertBox.innerHTML += alertBoxButton;
-				}
-			}
-		}, 1000);
+		    }, 1000);
+		});
 	}
-});
-</script>
+
+	window.addEventListener("pageshow", function (event) {
+		var historyTraversal = event.persisted,
+			perf = window.performance,
+			perfEntries = 
+			perf && perf.getEntriesByType && perf.getEntriesByType("navigation"),
+			perfEntryType = perfEntries && perfEntries[0] && perfEntries[0].type,
+			navigationType = perf && perf.navigation && perf.navigation.type;
+		if (historyTraversal || perfEntryType === "back_forward" || navigationType === 2) {
+			// Pre Order (on forward/back)
+			clearTimeout(timePrice);
+			timePrice = setTimeout(function() {
+		  		var alertBoxText2 = document.querySelector(".add-to-cart-wrapper .alertBox-message").textContent;
+				var alertBoxLink2 = document.querySelector('.alertBox-buttons');
+				if (alertBoxText2.indexOf(alertBoxTrigger) !== -1) {
+					if (!(alertBoxLink2)) {
+						alertBox.innerHTML += alertBoxButton;
+					}
+				}
+			}, 1000);
+		}
+	});
+	</script>
+	
+{{/if}}
+
+
 
 {{#filter product.custom_fields 'faq' property='value' }}
 <script>
