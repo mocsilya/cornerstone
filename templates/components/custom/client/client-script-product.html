@@ -28,10 +28,6 @@
 	{{/each}}
 {{/if}}
 
-<script>
-
-</script>
-
 {{#if (getVar "nobackorder") '===' 'false'}}
 	<script>
 	{{#if (getVar "hasVariants") '===' 'true'}}
@@ -114,7 +110,7 @@
 		            messageDiv.style.display = 'none';
 		        }
 			}
-	    });		
+	    });
 		// monitor the quantity + / - buttons
 		for (let i = 0; i < buttonElem.length; i++) {
 		    buttonElem[i].onclick = function () {
@@ -145,4 +141,13 @@
 	{{/if}}
 {{/if}}
 
-
+<script>
+	let textLabel = document.querySelectorAll('.productView-options .form-label small');
+	for (let i = 0; i < textLabel.length; i++) {
+		const labelContent = textLabel[i].innerText;
+		const labelString = '{{lang "common.required"}}';
+		if (labelContent.includes(labelString)) {
+			textLabel[i].innerText = 'Select Option Below';
+		}
+	}
+</script>

@@ -7,7 +7,7 @@
 	</div>
 {{/filter}}
 {{#if product.weight}}
-	{{#gt (before (trim product.weight ' KGS') 4) 100 }}
+	{{#gt (before (trim product.weight ' KGS') 4) 998}}
 		<div class="free-shipping">
 			<span>FREE UK MAINLAND DELIVERY</span>
 		</div>
@@ -32,6 +32,7 @@
 				</div>
 			</div>
 		</li>
+		{{#contains settings.store_name 'Pirates'}}
         <li class="immediate-collection">
 			<div class="availability-icon">
 				<img width="32" height="32" src="{{cdn 'img/custom/store-alt.svg'}}" alt="store icon">
@@ -48,6 +49,7 @@
 				</div>
 			</div>
 		</li>
+		{{/contains}}
 	</ul>
 	<ul class="availability-soon" style="display: none;">
 		<li class="x-days-delivery">
@@ -74,6 +76,7 @@
 				</div>
 			</div>
 		</li>
+		{{#contains settings.store_name 'Pirates'}}
 		<li class="x-days-collection">
 			<div class="availability-icon">
 				<img width="32" height="32" src="{{cdn 'img/custom/store-alt.svg'}}" alt="store icon">
@@ -98,6 +101,7 @@
 				</div>
 			</div>
 		</li>
+		{{/contains}}
 	</ul>
 	<ul class="availability-none" style="display: none;">
         <li class="not-in-stock">

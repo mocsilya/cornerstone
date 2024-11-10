@@ -20,13 +20,17 @@
 			<img width="32" height="32" src="{{cdn 'img/custom/store-alt.svg'}}" alt="truck icon">
 		</div>
 		<div class="why-buy-message">
-			<span>Bricks &amp;</span><span>Mortar</span>
+			{{#contains settings.store_name 'Pirates'}}<span>Bricks &amp;</span><span>Mortar</span>{{else}}<span>Established</span><span>over 30 years</span>{{/contains}}
 		</div>
 		<div class="why-buy-click">
 			<div class="tooltip">
 				<img width="16" height="16" src="{{cdn 'icons/information.svg'}}" alt="info icon">
 				<div id="modalWhyBuy2" class="tooltip-content" style="display: none;">
-					For almost 40 years we have been based in Rochester, Kent. We're open 6 days a week, and have grown to be one of the largest chandlery stores in the UK. You're always welcome to order items for collection from our store, or visit us where you can expect excellent customer service and experienced advice. 
+					{{#contains settings.store_name 'Pirates'}}
+						For over 40 years we have been based in Rochester, Kent. We're open 6 days a week, and have grown to be one of the largest chandlery stores in the UK. You're always welcome to order items for collection from our store, or visit us where you can expect excellent customer service and experienced advice.
+					{{else}}
+						Founded in 1991, we've been advising boaters for over 30 years with trusted and knowledgeable advice.
+					{{/contains}}
 				</div>
 			</div>
 		</div>
