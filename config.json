@@ -304,7 +304,7 @@
     "brand_size": "480x240",
     "gallery_size": "240x240",
     "productgallery_size": "190x250",
-    "product_size": "540x450",
+    "product_size": "500x659",
     "productview_thumb_size": "150x150",
     "productthumb_size": "100x100",
     "thumb_size": "200x200",
@@ -396,7 +396,7 @@
     "carousel-play-pause-button-bgColor": "#ffffff",
     "carousel-play-pause-button-borderColor": "#ffffff",
     "card-title-color": "#14214e",
-    "card-title-color-hover": "#00adeb",
+    "card-title-color-hover": "#757575",
     "card-figcaption-button-background": "#ffffff",
     "card-figcaption-button-color": "#14214e",
     "card--alternate-backgroundColor": "#ffffff",
@@ -440,8 +440,8 @@
     "overlay-backgroundColor": "#14214e",
     "loadingOverlay-backgroundColor": "#ffffff",
     "pace-progress-backgroundColor": "#00ADEB",
-    "spinner-borderColor-dark": "#14214E",
-    "spinner-borderColor-light": "#00ADEB",
+    "spinner-borderColor-dark": "#999999",
+    "spinner-borderColor-light": "#ffffff",
     "hide_content_navigation": true,
     "optimizedCheckout-header-backgroundColor": "#f5f5f5",
     "optimizedCheckout-show-backgroundImage": false,
@@ -588,8 +588,9 @@
     "amazon-button-color": "Gold",
     "masterpass-button-color": "black",
     "paymentbuttons-provider-sorting": [
-      "googlepay",
-      "applepay"
+	  "applepay",
+	  "googlepay"
+      
     ]
   },
   "read_only_files": [
