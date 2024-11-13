@@ -1484,6 +1484,11 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
     white-space: nowrap;
 }
 
+.td-stock-text a {
+    display: flex;
+    margin: 0 4px;
+}
+
 .td-stock-text .button {
     white-space: nowrap;
     margin: 0 0 0 .5rem;

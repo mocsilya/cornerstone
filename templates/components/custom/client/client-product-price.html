@@ -1,17 +1,9 @@
 {{assignVar "vStock" "false"}}
+
 {{#if gql.data.site.product}}
-	{{#each gql.data.site.product.variants.edges}}
-		{{#with node}}
-			{{#if inventory.aggregated.availableToSell ">" 0}}
-				{{assignVar "vStock" "true"}}
-			{{/if}}
-			{{#if @last}}
-				{{#if @index 0}}
-					{{assignVar "vStock" "false"}}
-				{{/if}}
-			{{/if}}
-		{{/with}}
-	{{/each}}
+	{{#if gql.data.site.product.inventory.hasVariantInventory}}
+		{{assignVar "vStock" "true"}}
+	{{/if}}
 {{/if}}
 
 <div class="product-icons-container">

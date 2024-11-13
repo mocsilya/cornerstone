@@ -13,24 +13,18 @@
 {{assignVar "parentStock" "false"}}
 {{assignVar "variantStock" "false"}}
 
-{{#if product.stock_level ">" 0}}
-	{{assignVar "parentStock" "true"}}
+{{#if gql.data.site.product}}
+	{{#if gql.data.site.product.inventory.aggregated.availableToSell ">" 0}}
+		{{assignVar "parentStock" "true"}}
+	{{/if}}
+	{{#if gql.data.site.product.inventory.hasVariantInventory}}
+		{{assignVar "variantStock" "true"}}
+	{{/if}}
 {{/if}}
 
-{{#if gql.data.site.product}}
-	{{#each gql.data.site.product.variants.edges}}
-		{{#with node}}
-			{{#if inventory.aggregated.availableToSell ">" 0}}
-				{{assignVar "variantStock" "true"}}
-			{{/if}}
-			{{#if @last}}
-				{{#if @index 0}}
-					{{assignVar "variantStock" "false"}}
-				{{/if}}
-			{{/if}}
-		{{/with}}
-	{{/each}}
-{{/if}}
+STOCK LEVEL: {{product.stock_level}}<br>
+PARENT STOCK: {{getVar "parentStock"}}<br>
+VARIANT STOCK: {{getVar "variantStock"}}<br>
 
 {{#if (getVar "variantStock") '===' 'true'}}
 	<style>
