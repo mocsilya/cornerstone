@@ -56,7 +56,7 @@
 								<td class="td-stock">
 								    <span class="td-stock-text">
 									{{#if inventory.aggregated.availableToSell '==' 0}}
-										Out of stock
+										Out of stock. <a href="/contact-us/">Contact</a> for alternatives
 									{{else if inventory.aggregated.availableToSell '<=' 1000}}
 										In Stock Dispatch Within 1 Week
 									{{else if inventory.aggregated.availableToSell '<=' 2000}}
@@ -92,9 +92,9 @@
 									{{else if inventory.aggregated.availableToSell '<=' 7400}}
 									    Due in December
 									{{else if inventory.aggregated.availableToSell '<=' 7600}}
-									    To be confirmed
+									    Due in: Expected - Date To Be Confirmed
 									{{else}}
-										Availability Unknown
+										No Availabilty Info
 									{{/if}}
 									</span>
 								</td>

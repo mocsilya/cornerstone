@@ -1465,6 +1465,15 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
     margin: 0;
 }
 
+.productView-options .form-field--message a {
+	color: stencilColor('button--primary-backgroundColor');
+}
+
+.productView-options .form-field--message a:hover {
+	color: stencilColor('button--primary-backgroundColor');
+	text-decoration: underline;
+}
+
 #modalAvailability table td {
 	font-size: 14px;
 }

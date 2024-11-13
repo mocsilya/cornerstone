@@ -102,7 +102,7 @@
 					let message;
 					let dueMonth;
 					if (stockNumber == 0) {
-					    message = 'Out of Stock';
+					    message = 'Out of stock. <a href="/contact-us/">Contact</a> for alternatives';
 					    dueMonth = '0';
 					} else if (stockNumber <= 1000) {
 					    message = 'In Stock Dispatch Within 1 Week';
@@ -156,10 +156,10 @@
 					    message = 'Due in December';
 					    dueMonth = '12';
 					} else if (stockNumber <= 7600) {
-					    message = 'Due in TBC';
+					    message = 'Due in: Expected - Date To Be Confirmed';
 					    dueMonth = '0';
 					} else {
-					    message = 'No Availabilty Information';
+					    message = 'No Availabilty Info';
 					    dueMonth = '0';
 					}
 				
@@ -188,7 +188,8 @@
 					    const newContent = '<div class="form-field form-field--message"><p>' + message + '</p></div>';
 					    target.insertAdjacentHTML('afterend', newContent);
 					}
-				
+					/*
+					If the big preorder button system is required.
 		            if (stockNumber > 4000 && stockNumber < 7600) {
 		                if (nextMonth == true) {
 		                    document.getElementById('add-to-cart-wrapper').style.display = 'flex';
@@ -201,7 +202,15 @@
 		                document.getElementById('add-to-cart-wrapper').style.display = 'flex';
 		                document.getElementById('form-action-preorder').classList.remove('button');
 		            }
-	            
+	            	*/
+					
+		            if (stockNumber > 0 && stockNumber < 7600) {
+		                document.getElementById('add-to-cart-wrapper').style.display = 'flex';
+		            } else {
+		                document.getElementById('add-to-cart-wrapper').style.display = 'none';
+		            }
+					
+					
 		            //update the C2W and Pre Order URL's
 		            let optionValue;
 	                if (optionType == 'select') {
@@ -227,7 +236,7 @@
 					formCycle.href = formCycleHref;
 					formPreorder.href = formPreorderHref;
 		        }
-		    }, 1000);
+		    }, 1500);
 		});
 	}
 	</script>
