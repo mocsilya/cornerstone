@@ -17,6 +17,12 @@ customer:
 gql: "query productById($productId: Int!) {
     site {
         product(entityId: $productId) {
+			inventory {
+                aggregated {
+                    availableToSell
+                }
+                hasVariantInventory
+            }
             variants(first: 99) {
                 edges {
                     node {
