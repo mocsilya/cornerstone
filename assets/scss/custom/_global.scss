@@ -3522,6 +3522,10 @@ ol.breadcrumbs {
 	}
 }
 
+div[data-content-region="category_above_content"] > div {
+	margin-bottom: 1.5rem;
+}
+
 .category-description-trim.is-closed {
 	-webkit-mask:linear-gradient(#fff,transparent);
 	mask:linear-gradient(#fff,transparent);
@@ -4183,6 +4187,10 @@ body.hasAdminBar.has-bar .brand-anchor {
 	@include breakpoint("medium") {
 		margin: 0;
 	}
+}
+
+div[data-content-region="brand_above_content"] > div {
+	margin-bottom: 1.5rem;
 }
 
 
