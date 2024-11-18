@@ -991,6 +991,10 @@ body.scroll .header-fixed .form-search-box .dropdown--quickSearch.is-open {
 	-webkit-appearance: none;
 }
 
+.form-search-box .form-input.search-active {
+	background: url("../icons/loading.svg") no-repeat 100% 50%;
+}
+
 .form-search-box .quickSearchResults {
 	width: 100%;
 	max-width: calc(800px - 3rem);
@@ -1169,6 +1173,10 @@ body.scroll .header-fixed .form-search-box .dropdown--quickSearch.is-open {
 	border-bottom-right-radius: 0;
 	color: stencilColor("navUser-color-hover");
 	line-height: 24px;
+}
+
+.dropdown--quickSearch .form-field-input .form-input.search-active {
+	background: rgba(stencilColor("header-backgroundColor"), 0.2) url("../icons/loading.svg") no-repeat 98% 50%;
 }
 
 .dropdown--quickSearch .form-field-submit .button {
