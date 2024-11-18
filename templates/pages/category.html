@@ -178,26 +178,29 @@ customer:
     	{{/if}}
     {{/if}}
 	{{/if}}
-
-    <div class="page-content" id="product-listing-container">
+    <div class="page-content">
 		{{{region name="category_above_content"}}}
-        {{> components/category/product-listing}}
+	    <div class="page-content-listings" id="product-listing-container">
+	        {{> components/category/product-listing}}
+	    </div>
         {{{region name="category_below_content"}}}
     </div>
 {{else}}
-    <div class="page-content" id="product-listing-container">
-	{{{region name="category_above_content"}}}
-		{{#unless category.subcategories}}
-        <p data-no-products-notification
-           role="alert"
-           aria-live="assertive"
-           tabindex="-1"
-        >
-            {{lang 'categories.no_products'}}
-        </p>
-		{{/unless}}
-	{{{region name="category_below_content"}}}
-    </div>
+	<div class="page-content">
+		{{{region name="category_above_content"}}}
+		<div class="page-content-listings" id="product-listing-container">
+			{{#unless category.subcategories}}
+		    <p data-no-products-notification
+		       role="alert"
+		       aria-live="assertive"
+		       tabindex="-1"
+		    >
+		        {{lang 'categories.no_products'}}
+		    </p>
+			{{/unless}}
+		</div>
+		{{{region name="category_below_content"}}}
+	</div>
 {{/and}}
 {{#if theme_settings.custom_category_description_position '==' 'bottom'}}
 	<div class="category-description{{#if category.image}} category-description-image{{/if}}{{#if category.description}}{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}{{/if}}">
