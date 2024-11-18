@@ -315,6 +315,11 @@ body.scroll .header-fixed .navPages > ul > li.navPages-item-brands .navPages-act
 	}
 }
 
+div[data-content-region="brand_above_content"] > div,
+div[data-content-region="category_above_content"] > div {
+	margin-bottom: 0;
+}
+
 .sale-flag-side,
 .sold-out-flag-side {
 	font-size: .875rem;
