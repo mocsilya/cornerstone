@@ -4,6 +4,7 @@
 import 'slick-carousel';
 
 export default function () {
+	$('.subcategories-above').show();
 	$('.subcategories-grid-image').slick({
 		slidesToShow: 2,
         slidesToScroll: 1,
