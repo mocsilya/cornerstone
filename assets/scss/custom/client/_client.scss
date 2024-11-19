@@ -321,13 +321,140 @@ body.scroll .header-fixed .navPages > ul > li.navPages-item-brands .navPages-act
 	}
 }
 
-div[data-content-region="category_below_header"] {
+div[data-content-region="category_below_header"],
+div[data-content-region="category_below_header--global"] {
 	background-color: #f0f0f0;
 }
 
 div[data-content-region="brand_above_content"] > div,
 div[data-content-region="category_above_content"] > div {
 	margin-bottom: 0;
+}
+
+div[data-content-region="category_below_header--global"] > div {
+	margin-bottom: 1.5rem;
+}
+
+.metal-guides {
+	display: flex;
+	flex-wrap: wrap;
+	background-color: #fff;
+	border-radius: .25rem;
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+	margin-left: auto;
+	margin-right: auto;
+	padding: .5rem;
+	max-width: calc(1440px - 6rem);
+}
+
+.metal-guide {
+	padding: .5rem;
+}
+
+.metal-guide.mg-col-1,
+.metal-guide.mg-col-5 {
+	min-width: 100%;
+	justify-content: center;
+	align-items: center;
+    @include breakpoint("large") {
+		display: flex;
+		min-width: 20%;
+		max-width: 20%;
+	}
+}
+
+.metal-guide.mg-col-2,
+.metal-guide.mg-col-3,
+.metal-guide.mg-col-4 {
+	flex: 1 0 0;
+	max-width: 33.3333333%;
+	justify-content: center;
+	align-items: center;
+    @include breakpoint("large") {
+		max-width: 20%;
+		min-width: 20%;
+	}
+}
+
+.metal-container {
+	background-color: #f0f0f0;
+	border: 1px solid #ddd;
+	border-radius: .25rem;
+	padding: 1rem .5rem;
+	text-align: center;
+    @include breakpoint("medium") {
+		display: flex;
+		align-items: center;
+		padding: .5rem;
+	}
+}
+
+.metal-icon {
+	display: block;
+	max-width: 90px;
+	height: 90px;
+	text-align: center;
+	line-height: 90px;
+	font-size: 40px;
+	font-weight: 700;
+	color: #fff;
+	margin: auto;
+    @include breakpoint("medium") {
+		min-width: 90px;
+		margin: 0;
+	}
+}
+
+.metal-al .metal-icon {
+	background-color: #F08800;
+}
+
+.metal-mg .metal-icon {
+	background-color: #D14343;
+}
+
+.metal-zn .metal-icon {
+	background-color: #3DA435;
+}
+
+.metal-text {
+	text-align: center;
+	line-height: 1.3;
+	margin-top: .5rem;
+	font-weight: 700;
+	min-height: 37px;
+    @include breakpoint("medium") {
+		min-height: 0;
+		text-align: left;
+		padding-left: 1rem;
+	}
+}
+
+.metal-al .metal-text {
+	color: #F08800;
+}
+
+.metal-mg .metal-text {
+	color: #D14343;
+}
+
+.metal-zn .metal-text {
+	color: #3DA435;
+}
+
+.metal-guide.mg-col-1 h3 {
+	margin: 0;
+	text-align: center;
+}
+
+.metal-guide.mg-col-5 p {
+	margin: 0;
+	text-align: center;
+	font-weight: 700;
+    @include breakpoint("large") {
+		text-align: left;
+	}
 }
 
 .sale-flag-side,
