@@ -2009,7 +2009,7 @@ body.scroll .header-fixed .navPages-container-hide {
 
 .navPages-list-depth-max .navPage-subMenu-item-viewall > a > span {
 	display: block;
-	padding: .25em .5rem;
+	padding: .25em 1.5rem .25em .5rem;
 	border-radius: .25rem;
 	color: stencilColor("navPages-subMenu-backgroundColor");
 	background:  stencilColor("navPages-color");
