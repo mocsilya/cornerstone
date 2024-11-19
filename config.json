@@ -98,20 +98,20 @@
     "custom_header_cart_type": "cart",
     "custom_header_search_label": "Search over 15,000 products..",
     "custom_header_search_type": "box",
-    "custom_header_show_bar": false,
+    "custom_header_show_bar": true,
     "custom_header_show_bar_message1": true,
     "custom_header_show_bar_message2": false,
     "custom_header_show_bar_message3": false,
-    "custom_header_bar_message1_text": "October Savings are LIVE - Up to 20% OFF (no code required).",
+    "custom_header_bar_message1_text": "BLACK FRIDAY SALE! 20% OFF · No Code Required",
     "custom_header_bar_message2_text": "",
     "custom_header_bar_message3_text": "",
-    "custom_header_bar_message1_link": "/clearance/",
+    "custom_header_bar_message1_link": "",
     "custom_header_bar_message2_link": "",
     "custom_header_bar_message3_link": "",
-    "custom_header_bar_message1_icon": "discount",
+    "custom_header_bar_message1_icon": "none",
     "custom_header_bar_message2_icon": "none",
     "custom_header_bar_message3_icon": "none",
-    "custom-header-bar-background": "#eba800",
+    "custom-header-bar-background": "#E42620",
     "custom-header-bar-text": "#ffffff",
     "custom-header-bar-icon": "#ffffff",
     "custom-header-social": "#14214e",
@@ -588,9 +588,8 @@
     "amazon-button-color": "Gold",
     "masterpass-button-color": "black",
     "paymentbuttons-provider-sorting": [
-	  "applepay",
-	  "googlepay"
-      
+      "applepay",
+      "googlepay"
     ]
   },
   "read_only_files": [
