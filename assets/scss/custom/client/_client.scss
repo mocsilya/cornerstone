@@ -297,6 +297,11 @@ body.scroll .header-logo-image {
 // Product Pages
 // =============================================================================
 
+
+.page-product .breadcrumbs {
+	margin: 0;
+}
+
 .productView-options form + .alertBox {
 	display: flex;
 }
@@ -403,19 +408,38 @@ body.scroll .header-logo-image {
     @include breakpoint("xlarge") {
 		width: 30%;
 	}
-    
 }
 
 .productView-details-small .productView-options .form-field {
     @include breakpoint("xlarge") {
 		 padding-left: 30%;
 	}
-   
 }
 
 
 .productView-options .add-to-cart-wallet-buttons button.show-more-button {
     display: none;
+}
+
+
+.productView-info .productView-info-name {
+    @include breakpoint("large") {
+		width: 140px;
+		padding-right: 0;
+	}
+}
+
+.productView-info.productView-info-availability .productView-info-name {
+    @include breakpoint("large") {
+		width: calc(140px - .5rem);
+		padding-right: 0;
+	}
+}
+
+.productView-info .productView-info-value {
+    @include breakpoint("large") {
+		width: calc(100% - 140px);
+	}
 }
 
 
