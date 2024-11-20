@@ -18,6 +18,7 @@ export default function () {
 					const content1 = $(html1).find('.page-content').contents();
 					if ($(content1).length > 0) {
 					    $('#tab-custom1').html(content1);
+						$('.tab-custom1:not(.tab)').hide();
 					}
 				}
 			});
@@ -37,6 +38,7 @@ export default function () {
 					const content2 = $(html2).find('.page-content').contents();
 					if ($(content2).length > 0) {
 					    $('#tab-custom2').html(content2);
+						$('.tab-custom2:not(.tab)').hide();
 					}
 				}
 			});
@@ -56,6 +58,7 @@ export default function () {
 					const content3 = $(html3).find('.page-content').contents();
 					if ($(content3).length > 0) {
 					    $('#tab-custom3').html(content3);
+						$('.tab-custom3:not(.tab)').hide();
 					}
 				}
 			});

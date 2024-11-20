@@ -65,12 +65,11 @@
                     value="{{#if product.pre_order}}{{lang 'products.pre_order'}}{{else}}{{#if theme_settings.custom_product_addtocart_show}}{{theme_settings.custom_product_addtocart_text}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}{{/if}}"
             >
             <span class="product-status-message aria-description--hidden">{{lang 'products.adding_to_cart'}} {{lang 'category.add_cart_announcement'}}</span>
-            {{#if this.with_wallet_buttons}}
-                <div class="add-to-cart-wallet-buttons" data-add-to-cart-wallet-buttons>
-                    {{> components/common/wallet-buttons}}
-                </div>
-            {{/if}}
 		</div>
-
+        {{#if this.with_wallet_buttons}}
+            <div class="add-to-cart-wallet-buttons" data-add-to-cart-wallet-buttons>
+                {{> components/common/wallet-buttons}}
+            </div>
+        {{/if}}
     {{/or}}
 </div>

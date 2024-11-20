@@ -31,14 +31,14 @@ customer:
 {{#if page.sub_pages}}
 	<div class="subcategories-above subcategories--vertical">
 		<div class="accord-wrapper">	
-	    	<div class="accord accord-{{dashcase (lowercase (sanitize page.title))}} accord-active">
+	    	<div class="accord accord-{{dashcase (lowercase (sanitize page.title))}}">
 				<div class="accord-heading">
 					<h4 class="accord-title">
 						{{page.title}}
 						<div class="accord-icon"><span class="accord-chevron">&nbsp;</span></div>
 					</h4>
 				</div>
-				<div class="accord-body" style="display: block;">
+				<div class="accord-body">
 	            {{#each page.sub_pages}}
 			    	<div class="accord accord-{{dashcase (lowercase (sanitize title))}}">
 						<div class="accord-link">
@@ -52,7 +52,11 @@ customer:
     </div>
 {{/if}}
 
-    <aside class="page-sidebar page-sidebar-vertical">
+{{assignVar "pagetype" "child"}}
+{{#if breadcrumbs.[1].name '===' page.title}}
+	{{assignVar "pagetype" "parent"}}
+{{/if}}
+    <aside class="page-sidebar page-sidebar-vertical page-sidebar-{{getVar 'pagetype'}}">
     	<nav>
 			<div class="sidebarBlock sidebarCategories">
 				<h2 class="sidebarBlock-heading">{{ page.title }}</h2>

@@ -2,147 +2,199 @@
     <ul class="navPages-list{{#if theme_settings.navigation_design '!==' 'simple'}} navPages-list-depth-max {{else}} navPages-list-simple {{/if}}">
 		{{> components/custom/client/client-header-menu-start}}
 		{{#if (getVar "b2b-products") '===' 'show'}}
-			{{#if theme_settings.custom-header-menu-home}}
-			<li class="navPages-item navPages-item-home">
-				<a class="navPages-action navPages-action-mobile" href="{{urls.home}}">
-				    Home
-				</a>
-				<a class="navPages-action navPages-action-desktop" href="{{urls.home}}">
-				    <i class="icon navPages-action-homeIcon" aria-hidden="true">
-				        <svg><use xlink:href="#icon-home{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg>
-				    </i>
-				</a>
-			</li>
-			{{/if}}
-		{{#if theme_settings.custom_header_show_categories}}
-		{{#each categories}}
-            <li class="navPages-item navPages-item-category navPages-item-{{dashcase name}}">
-            {{#if ../theme_settings.navigation_design '===' 'simple'}}
-				{{#if children}}
-				<a class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}} navPages-action-mobile"
-					href="{{url}}" 
-					data-collapsible="navPages-{{id}}" 
-				>
-				    {{name}}
-				    <i class="icon navPages-action-moreIcon" aria-hidden="true">
-				        <svg><use xlink:href="#icon-chevron-down" /></svg>
-				    </i>
-				</a>
-				<a class="navPages-action{{#if is_active}} activePage{{/if}} navPages-action-desktop"
-					href="{{url}}"
-					aria-label="{{name}}"
-				>
-					{{name}}
-					<i class="icon navPages-action-moreIcon" aria-hidden="true">
-						<svg><use xlink:href="#icon-chevron-down" /></svg>
-					</i>
-				</a>
-				<div class="navPage-subMenu" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
-					{{#and ../theme_settings.custom_header_menu_1_show (if../theme_settings.custom_header_menu_1_category '==' name)}}
-						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
-							<li>
-								{{#if ../theme_settings.custom_header_menu_1_link}}<a title="{{../theme_settings.custom_header_menu_1_text}}" href="{{../theme_settings.custom_header_menu_1_link}}">{{/if}}
-								{{#if ../theme_settings.custom_header_menu_1_image}}<img alt="{{../theme_settings.custom_header_menu_1_text}}" src="{{getImageManagerImage ../theme_settings.custom_header_menu_1_image}}" data-sizes="auto" srcset="{{getImageManagerImageSrcset ../theme_settings.custom_header_menu_1_image}}" sizes="{{../theme_settings.custom_header_menu_width}}"/>{{/if}}
-								{{#if ../theme_settings.custom_header_menu_1_text}}<span>{{../theme_settings.custom_header_menu_1_text}}</span>{{/if}}
-								{{#if ../theme_settings.custom_header_menu_1_link}}</a>{{/if}}
-							</li>
-						</ul>
-					{{/and}}
-					{{#and ../theme_settings.custom_header_menu_2_show (if../theme_settings.custom_header_menu_2_category '==' name)}}
-						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
-							<li>
-								{{#if ../theme_settings.custom_header_menu_2_link}}<a title="{{../theme_settings.custom_header_menu_2_text}}" href="{{../theme_settings.custom_header_menu_2_link}}">{{/if}}
-								{{#if ../theme_settings.custom_header_menu_2_image}}<img alt="{{../theme_settings.custom_header_menu_2_text}}" src="{{getImageManagerImage ../theme_settings.custom_header_menu_2_image}}" data-sizes="auto" srcset="{{getImageManagerImageSrcset ../theme_settings.custom_header_menu_2_image}}" sizes="{{../theme_settings.custom_header_menu_width}}"/>{{/if}}
-								{{#if ../theme_settings.custom_header_menu_2_text}}<span>{{../theme_settings.custom_header_menu_2_text}}</span>{{/if}}
-								{{#if ../theme_settings.custom_header_menu_2_link}}</a>{{/if}}
-							</li>
-						</ul>
-					{{/and}}
-					{{#and ../theme_settings.custom_header_menu_3_show (if../theme_settings.custom_header_menu_3_category '==' name)}}
-						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
-							<li>
-								{{#if ../theme_settings.custom_header_menu_3_link}}<a title="{{../theme_settings.custom_header_menu_3_text}}" href="{{../theme_settings.custom_header_menu_3_link}}">{{/if}}
-								{{#if ../theme_settings.custom_header_menu_3_image}}<img alt="{{../theme_settings.custom_header_menu_3_text}}" src="{{getImageManagerImage ../theme_settings.custom_header_menu_3_image}}" data-sizes="auto" srcset="{{getImageManagerImageSrcset ../theme_settings.custom_header_menu_3_image}}" sizes="{{../theme_settings.custom_header_menu_width}}"/>{{/if}}
-								{{#if ../theme_settings.custom_header_menu_3_text}}<span>{{../theme_settings.custom_header_menu_3_text}}</span>{{/if}}
-								{{#if ../theme_settings.custom_header_menu_3_link}}</a>{{/if}}
-							</li>
-						</ul>
-					{{/and}}
-					{{#and ../theme_settings.custom_header_menu_4_show (if../theme_settings.custom_header_menu_4_category '==' name)}}
-						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
-							<li>
-								{{#if ../theme_settings.custom_header_menu_4_link}}<a title="{{../theme_settings.custom_header_menu_4_text}}" href="{{../theme_settings.custom_header_menu_4_link}}">{{/if}}
-								{{#if ../theme_settings.custom_header_menu_4_image}}<img alt="{{../theme_settings.custom_header_menu_4_text}}" src="{{getImageManagerImage ../theme_settings.custom_header_menu_4_image}}" data-sizes="auto" srcset="{{getImageManagerImageSrcset ../theme_settings.custom_header_menu_4_image}}" sizes="{{../theme_settings.custom_header_menu_width}}"/>{{/if}}
-								{{#if ../theme_settings.custom_header_menu_4_text}}<span>{{../theme_settings.custom_header_menu_4_text}}</span>{{/if}}
-								{{#if ../theme_settings.custom_header_menu_4_link}}</a>{{/if}}
-							</li>
-						</ul>
-					{{/and}}
-					{{#and ../theme_settings.custom_header_menu_5_show (if../theme_settings.custom_header_menu_5_category '==' name)}}
-						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
-							<li>
-								{{#if ../theme_settings.custom_header_menu_5_link}}<a title="{{../theme_settings.custom_header_menu_5_text}}" href="{{../theme_settings.custom_header_menu_5_link}}">{{/if}}
-								{{#if ../theme_settings.custom_header_menu_5_image}}<img alt="{{../theme_settings.custom_header_menu_5_text}}" src="{{getImageManagerImage ../theme_settings.custom_header_menu_5_image}}" data-sizes="auto" srcset="{{getImageManagerImageSrcset ../theme_settings.custom_header_menu_5_image}}" sizes="{{../theme_settings.custom_header_menu_width}}"/>{{/if}}
-								{{#if ../theme_settings.custom_header_menu_5_text}}<span>{{../theme_settings.custom_header_menu_5_text}}</span>{{/if}}
-								{{#if ../theme_settings.custom_header_menu_5_link}}</a>{{/if}}
-							</li>
-						</ul>
-					{{/and}}
-					{{#and ../theme_settings.custom_header_menu_6_show (if../theme_settings.custom_header_menu_6_category '==' name)}}
-						<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
-							<li>
-								{{#if ../theme_settings.custom_header_menu_6_link}}<a title="{{../theme_settings.custom_header_menu_6_text}}" href="{{../theme_settings.custom_header_menu_6_link}}">{{/if}}
-								{{#if ../theme_settings.custom_header_menu_6_image}}<img alt="{{../theme_settings.custom_header_menu_6_text}}" src="{{getImageManagerImage ../theme_settings.custom_header_menu_6_image}}" data-sizes="auto" srcset="{{getImageManagerImageSrcset ../theme_settings.custom_header_menu_6_image}}" sizes="{{../theme_settings.custom_header_menu_width}}"/>{{/if}}
-								{{#if ../theme_settings.custom_header_menu_6_text}}<span>{{../theme_settings.custom_header_menu_6_text}}</span>{{/if}}
-								{{#if ../theme_settings.custom_header_menu_6_link}}</a>{{/if}}
-							</li>
-						</ul>
-					{{/and}}
-					{{assignVar "allsingle" "true"}}
-			        {{#each children}}
-						{{#if children}}
-							{{assignVar "allsingle" "false"}}
-						{{/if}}
-					{{/each}}
-					{{#if ../theme_settings.custom_header_group_single}}
-						{{#if (getVar "allsingle") '!==' 'true'}}
-							{{> components/custom/navigation-list-group theme_settings=../theme_settings}}
-						{{else}}
-							{{> components/common/navigation-list}}
-						{{/if}}
-					{{else}}
-						{{> components/common/navigation-list}}
+			{{#if theme_settings.custom_header_show_categories}}
+				{{#if theme_settings.navigation_design '===' 'simple'}}
+					{{#if theme_settings.custom-header-menu-home}}
+						<li class="navPages-item navPages-item-home">
+							<a class="navPages-action navPages-action-mobile" href="{{urls.home}}">
+							    Home
+							</a>
+							<a class="navPages-action navPages-action-desktop" href="{{urls.home}}">
+							    <i class="icon navPages-action-homeIcon" aria-hidden="true">
+							        <svg><use xlink:href="#icon-home{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg>
+							    </i>
+							</a>
+						</li>
 					{{/if}}
-				</div>
-				{{else}}
-				<a class="navPages-action{{#if is_active}} activePage{{/if}}"
-				   href="{{url}}"
-				   aria-label="{{name}}"
-				>
-				    {{name}}
-				</a>
+					{{#each categories}}
+	            	<li class="navPages-item navPages-item-category navPages-item-{{dashcase name}}">
+						{{#if children}}
+							<a class="navPages-action has-subMenu{{#if is_active}} activePage{{/if}} navPages-action-mobile"
+								href="{{url}}" 
+								data-collapsible="navPages-{{id}}" 
+							>
+							    {{name}}
+							    <i class="icon navPages-action-moreIcon" aria-hidden="true">
+							        <svg><use xlink:href="#icon-chevron-down" /></svg>
+							    </i>
+							</a>
+							<a class="navPages-action{{#if is_active}} activePage{{/if}} navPages-action-desktop"
+								href="{{url}}"
+								aria-label="{{name}}"
+							>
+								{{name}}
+								<i class="icon navPages-action-moreIcon" aria-hidden="true">
+									<svg><use xlink:href="#icon-chevron-down" /></svg>
+								</i>
+							</a>
+							<div class="navPage-subMenu" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
+								{{#and ../theme_settings.custom_header_menu_1_show (if../theme_settings.custom_header_menu_1_category '==' name)}}
+									<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+										<li>
+											{{#if ../theme_settings.custom_header_menu_1_link}}<a title="{{../theme_settings.custom_header_menu_1_text}}" href="{{../theme_settings.custom_header_menu_1_link}}">{{/if}}
+											{{#if ../theme_settings.custom_header_menu_1_image}}<img alt="{{../theme_settings.custom_header_menu_1_text}}" src="{{getImageManagerImage ../theme_settings.custom_header_menu_1_image}}" data-sizes="auto" srcset="{{getImageManagerImageSrcset ../theme_settings.custom_header_menu_1_image}}" sizes="{{../theme_settings.custom_header_menu_width}}"/>{{/if}}
+											{{#if ../theme_settings.custom_header_menu_1_text}}<span>{{../theme_settings.custom_header_menu_1_text}}</span>{{/if}}
+											{{#if ../theme_settings.custom_header_menu_1_link}}</a>{{/if}}
+										</li>
+									</ul>
+								{{/and}}
+								{{#and ../theme_settings.custom_header_menu_2_show (if../theme_settings.custom_header_menu_2_category '==' name)}}
+									<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+										<li>
+											{{#if ../theme_settings.custom_header_menu_2_link}}<a title="{{../theme_settings.custom_header_menu_2_text}}" href="{{../theme_settings.custom_header_menu_2_link}}">{{/if}}
+											{{#if ../theme_settings.custom_header_menu_2_image}}<img alt="{{../theme_settings.custom_header_menu_2_text}}" src="{{getImageManagerImage ../theme_settings.custom_header_menu_2_image}}" data-sizes="auto" srcset="{{getImageManagerImageSrcset ../theme_settings.custom_header_menu_2_image}}" sizes="{{../theme_settings.custom_header_menu_width}}"/>{{/if}}
+											{{#if ../theme_settings.custom_header_menu_2_text}}<span>{{../theme_settings.custom_header_menu_2_text}}</span>{{/if}}
+											{{#if ../theme_settings.custom_header_menu_2_link}}</a>{{/if}}
+										</li>
+									</ul>
+								{{/and}}
+								{{#and ../theme_settings.custom_header_menu_3_show (if../theme_settings.custom_header_menu_3_category '==' name)}}
+									<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+										<li>
+											{{#if ../theme_settings.custom_header_menu_3_link}}<a title="{{../theme_settings.custom_header_menu_3_text}}" href="{{../theme_settings.custom_header_menu_3_link}}">{{/if}}
+											{{#if ../theme_settings.custom_header_menu_3_image}}<img alt="{{../theme_settings.custom_header_menu_3_text}}" src="{{getImageManagerImage ../theme_settings.custom_header_menu_3_image}}" data-sizes="auto" srcset="{{getImageManagerImageSrcset ../theme_settings.custom_header_menu_3_image}}" sizes="{{../theme_settings.custom_header_menu_width}}"/>{{/if}}
+											{{#if ../theme_settings.custom_header_menu_3_text}}<span>{{../theme_settings.custom_header_menu_3_text}}</span>{{/if}}
+											{{#if ../theme_settings.custom_header_menu_3_link}}</a>{{/if}}
+										</li>
+									</ul>
+								{{/and}}
+								{{#and ../theme_settings.custom_header_menu_4_show (if../theme_settings.custom_header_menu_4_category '==' name)}}
+									<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+										<li>
+											{{#if ../theme_settings.custom_header_menu_4_link}}<a title="{{../theme_settings.custom_header_menu_4_text}}" href="{{../theme_settings.custom_header_menu_4_link}}">{{/if}}
+											{{#if ../theme_settings.custom_header_menu_4_image}}<img alt="{{../theme_settings.custom_header_menu_4_text}}" src="{{getImageManagerImage ../theme_settings.custom_header_menu_4_image}}" data-sizes="auto" srcset="{{getImageManagerImageSrcset ../theme_settings.custom_header_menu_4_image}}" sizes="{{../theme_settings.custom_header_menu_width}}"/>{{/if}}
+											{{#if ../theme_settings.custom_header_menu_4_text}}<span>{{../theme_settings.custom_header_menu_4_text}}</span>{{/if}}
+											{{#if ../theme_settings.custom_header_menu_4_link}}</a>{{/if}}
+										</li>
+									</ul>
+								{{/and}}
+								{{#and ../theme_settings.custom_header_menu_5_show (if../theme_settings.custom_header_menu_5_category '==' name)}}
+									<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+										<li>
+											{{#if ../theme_settings.custom_header_menu_5_link}}<a title="{{../theme_settings.custom_header_menu_5_text}}" href="{{../theme_settings.custom_header_menu_5_link}}">{{/if}}
+											{{#if ../theme_settings.custom_header_menu_5_image}}<img alt="{{../theme_settings.custom_header_menu_5_text}}" src="{{getImageManagerImage ../theme_settings.custom_header_menu_5_image}}" data-sizes="auto" srcset="{{getImageManagerImageSrcset ../theme_settings.custom_header_menu_5_image}}" sizes="{{../theme_settings.custom_header_menu_width}}"/>{{/if}}
+											{{#if ../theme_settings.custom_header_menu_5_text}}<span>{{../theme_settings.custom_header_menu_5_text}}</span>{{/if}}
+											{{#if ../theme_settings.custom_header_menu_5_link}}</a>{{/if}}
+										</li>
+									</ul>
+								{{/and}}
+								{{#and ../theme_settings.custom_header_menu_6_show (if../theme_settings.custom_header_menu_6_category '==' name)}}
+									<ul class="navPage-subMenu-image" style="width: {{../theme_settings.custom_header_menu_width}}">
+										<li>
+											{{#if ../theme_settings.custom_header_menu_6_link}}<a title="{{../theme_settings.custom_header_menu_6_text}}" href="{{../theme_settings.custom_header_menu_6_link}}">{{/if}}
+											{{#if ../theme_settings.custom_header_menu_6_image}}<img alt="{{../theme_settings.custom_header_menu_6_text}}" src="{{getImageManagerImage ../theme_settings.custom_header_menu_6_image}}" data-sizes="auto" srcset="{{getImageManagerImageSrcset ../theme_settings.custom_header_menu_6_image}}" sizes="{{../theme_settings.custom_header_menu_width}}"/>{{/if}}
+											{{#if ../theme_settings.custom_header_menu_6_text}}<span>{{../theme_settings.custom_header_menu_6_text}}</span>{{/if}}
+											{{#if ../theme_settings.custom_header_menu_6_link}}</a>{{/if}}
+										</li>
+									</ul>
+								{{/and}}
+								{{assignVar "allsingle" "true"}}
+						        {{#each children}}
+									{{#if children}}
+										{{assignVar "allsingle" "false"}}
+									{{/if}}
+								{{/each}}
+								{{#if ../theme_settings.custom_header_group_single}}
+									{{#if (getVar "allsingle") '!==' 'true'}}
+										{{> components/custom/navigation-list-group theme_settings=../theme_settings}}
+									{{else}}
+										{{> components/common/navigation-list}}
+									{{/if}}
+								{{else}}
+									{{> components/common/navigation-list}}
+								{{/if}}
+							</div>
+						{{else}}
+							<a class="navPages-action{{#if is_active}} activePage{{/if}}"
+							   href="{{url}}"
+							   aria-label="{{name}}"
+							>
+							    {{name}}
+							</a>
+						{{/if}}
+					</li>
+        			{{/each}}
 				{{/if}}
-            {{/if}}
-            {{#if ../theme_settings.navigation_design '===' 'alternate'}}
-                {{> components/common/navigation-list-alternate}}
-            {{/if}}
-            </li>
-        {{/each}}
-		{{/if}}
-	    {{#if theme_settings.navigation_design '===' 'simple'}}
-			{{#and theme_settings.custom_header_show_brands shop_by_brand.length}}
-			<li class="navPages-item navPages-item-page navPages-item-brands">
-				{{> components/custom/navigation-list-brand}}
-			</li>
-			{{/and}}
-		{{/if}}
-		{{#if theme_settings.navigation_design '===' 'alternate'}}
-			{{#and theme_settings.custom_header_show_brands shop_by_brand.length}}
-			<li class="navPages-item navPages-item-page navPages-item-brands">
-				{{> components/custom/navigation-list-alternate-brand}}
-			</li>
-			{{/and}}
-		{{/if}}
+            	{{#if theme_settings.navigation_design '===' 'alternate'}}
+					{{#if theme_settings.custom-header-menu-home}}
+						<li class="navPages-item navPages-item-home{{#if theme_settings.custom-header-menu-wrapper}} navPages-item-wrapper{{/if}}">
+							<a class="navPages-action navPages-action-mobile navPages-action-depth-max" href="{{urls.home}}">
+								<span>Home</span>
+							</a>
+							<a class="navPages-action navPages-action-desktop navPages-action-depth-max" href="{{urls.home}}">
+							    <i class="icon navPages-action-homeIcon" aria-hidden="true">
+							        <svg><use xlink:href="#icon-home{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg>
+							    </i>
+							</a>
+						</li>
+					{{/if}}
+					{{#if theme_settings.custom-header-menu-wrapper}}
+			            <li class="navPages-item navPages-item-category navPages-item-wrapper">
+						    <a class="navPages-action navPages-action-depth-max has-subMenu is-root{{#if is_active}} activePage{{/if}}"
+						       href="#"
+						       data-collapsible="navPages-menu-wrapper"
+						       aria-label="{{theme_settings.custom-header-menu-wrapper}}"
+						    >
+						        {{theme_settings.custom-header-menu-wrapper}}
+								<span class="navPages-wrapper-icon">
+						        	<span class="desktopMenu-toggleIcon">Toggle menu</span>
+								</span>
+						    </a>
+							<div class="navPage-subMenu navPage-subMenu-horizontal" id="navPages-menu-wrapper" aria-hidden="true" tabindex="-1">
+							    <ul class="navPage-subMenu-list">
+							        {{#each categories}}
+							            <li class="navPage-subMenu-item-child navPage-subMenu-item-{{dashcase name}}">
+							                {{#if children}}
+												<a class="navPage-subMenu-action navPages-action navPages-action-depth-max has-subMenu{{#if is_active}} activePage{{/if}}" href="{{url}}" data-collapsible="navPages-{{id}}">
+													{{#if image}}<span class="navPage-subMenu-thumb" style="background-image: url('{{getImage image 'thumbnail'}}');"></span>{{/if}}
+							                        {{name}}
+													<i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use href="#icon-chevron-down" /></svg></i>
+							                    </a>
+							                    {{> components/common/navigation-dropdown}}
+							                {{else}}
+							                    <a class="navPage-subMenu-action navPages-action{{#if is_active}} activePage{{/if}}" href="{{url}}">
+													{{#if image}}<span class="navPage-subMenu-thumb" style="background-image: url('{{getImage image 'thumbnail'}}');"></span>{{/if}}
+													{{name}}
+												</a>
+							                {{/if}}
+							            </li>
+							        {{/each}}
+							    </ul>
+							</div>
+						</li>
+					{{else}}
+						{{#each categories}}
+						<li class="navPages-item navPages-item-category navPages-item-{{dashcase name}}">
+							{{> components/common/navigation-list-alternate}}
+						</li>
+						{{/each}}
+					{{/if}}
+            	{{/if}}
+			{{/if}}
+		    {{#if theme_settings.navigation_design '===' 'simple'}}
+				{{#and theme_settings.custom_header_show_brands shop_by_brand.length}}
+				<li class="navPages-item navPages-item-page navPages-item-brands">
+					{{> components/custom/navigation-list-brand}}
+				</li>
+				{{/and}}
+			{{/if}}
+			{{#if theme_settings.navigation_design '===' 'alternate'}}
+				{{#and theme_settings.custom_header_show_brands shop_by_brand.length}}
+				<li class="navPages-item navPages-item-page navPages-item-brands">
+					{{> components/custom/navigation-list-alternate-brand}}
+				</li>
+				{{/and}}
+			{{/if}}
 		{{/if}}
         {{#unless theme_settings.hide_content_navigation}}
             {{#each pages}}
