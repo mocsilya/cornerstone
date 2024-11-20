@@ -1618,6 +1618,13 @@ body.hasAdminBar.scroll .header-fixed .dropdown--quickSearch.is-open {
 	}
 }
 
+.navPages > ul > li > .navPages-action.is-open.activePage:hover,
+.navPages > ul > li > .navPages-action.is-open.activePage {
+	@include breakpoint("medium") {
+		color: stencilColor("navPages-color");
+	}
+}
+
 .navPages > ul > li > .navPages-action svg {
 	@include breakpoint("medium") {
 		fill: stencilColor("custom-header-menu-link");
@@ -1976,6 +1983,9 @@ body.scroll .header-fixed .navPages-container-hide {
 		width: $custom_header_menu_width;
 		padding: 1rem 0 !important;
 	}
+	@include breakpoint("medium") {
+		margin-left: $custom_header_menu_width;
+	}
 	@include breakpoint("large") {
 		padding: 1rem .75rem !important;
 		margin-left: calc(#{$custom_header_menu_width} + 1.5rem);
@@ -2092,6 +2102,7 @@ body.scroll .header-fixed .navPages-container-hide {
 		border-right: 0;
 		width: $custom_header_menu_width;
 		padding: 1rem 0 !important;
+		margin-right: $custom_header_menu_width;
 	}
 	@include breakpoint("large") {
 		padding: 1rem .75rem !important;
