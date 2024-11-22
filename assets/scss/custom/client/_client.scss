@@ -49,7 +49,7 @@ header.header {
 		min-width: 555px;
 		min-height: 94px;
 	}
-	@include breakpoint("large") {
+	@include breakpoint("xlarge") {
 		max-width: 645px;
 		min-width: 645px;
 		min-height: 94px;
@@ -1019,8 +1019,8 @@ body.scroll .navUser-item--custom strong {
     color: #fff;
 }
 
-.productView-info-name.availability-default,
-.productView-info-value.availability-default {
+.productView-info-name.availability-label,
+.productView-info-value.availability-value {
     display: none;
 }
 
@@ -1086,6 +1086,11 @@ body.scroll .navUser-item--custom strong {
 	padding: .25rem .75rem;
 	border-left: 1px solid stencilColor("color-textBase");
 	border-top: 1px solid stencilColor("color-textBase");
+}
+
+.productView-info-bulkPricing ul,
+.productView-info-bulkPricingButtons ul {
+	margin-top: .5rem;
 }
 
 .bulkpricing-heading {
@@ -1260,7 +1265,8 @@ body.scroll .navUser-item--custom strong {
 // CART
 // =============================================================================
 
-.cart-item-availability.availability-default {
+
+.cart-item-availabilityMessage {
     display: none;
 }
 
@@ -1301,7 +1307,7 @@ ul.why-buy li {
     list-style: none;
     background-position: left top;
     background-repeat: no-repeat;
-    font-size: 14px;
+    font-size: 16px;
     position: relative;
 }
 
@@ -1309,8 +1315,7 @@ ul.why-buy li::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 3px;
     width: 14px;
     height: 14px;
     background-image: url("../img/custom/tick.svg");

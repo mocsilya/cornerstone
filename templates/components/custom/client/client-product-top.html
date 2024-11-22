@@ -54,7 +54,19 @@
 	{{#contains settings.request.host ".es"}}
 		<li>Contáctenos para modificaciones personalizadas!</li>
 	{{else}}
-		<li>Free Delivery on Orders Over £100 to the UK Mainland.</li>
-		<li>For Multi-Buy Discount or Custom Modifications, Call the Team Today!</li>
+		<li>Free Delivery on Orders Over £100.</li>
+		<li>Delivered Fully Assembled</li>
+		{{#if product.availability}}
+			<li>
+			{{#contains product.availability "//"}}
+				{{after (split product.availability '//') 1}}
+			{{else}}
+				{{product.availability}}
+			{{/contains}}
+			</li>
+		{{/if}}
+		{{#if product.warranty}}
+			<li>{{{product.warranty}}} <a title="Product Warranty"href="/trolley-warranties/">Read More</a></li>
+		{{/if}}
 	{{/contains}}
 </ul>
