@@ -93,7 +93,7 @@
 								{{#contains availability "//"}}
 									<span class="cart-item-availabilty-data cart-item-availabilty-admin cart-item-availabilty-data" data-product-availabilty="{{before (split availability '//') 1}}">{{after (split availability '//') 1}}</span>
 						        {{else}}
-									<span class="cart-item-availabilty-data cart-item-availabilty-admin cart-item-availabilty-nodata">{{product.availability}}</span>
+									<span class="cart-item-availabilty-data cart-item-availabilty-admin cart-item-availabilty-nodata">{{availability}}</span>
 						        {{/contains}}
 							{{else}}
 								{{#contains ../theme_settings.custom_product_availability "//"}}
