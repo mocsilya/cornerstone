@@ -303,10 +303,14 @@
 						{{#contains product.availability "//"}}
 					        <dd class="productView-info-value availability-value availability-custom" data-product-availabilty="{{before (split product.availability '//') 1}}">{{after (split product.availability '//') 1}}</dd>
 				        {{else}}
-					        <dd class="productView-info-value availability-value availability-custom" data-product-availability="{{before (split theme_settings.custom_product_availability '//') 1}}">{{after (split theme_settings.custom_product_availability '//') 1}}</dd>
+					        <dd class="productView-info-value availability-value availability-default">{{product.availability}}</dd>
 				        {{/contains}}
 					{{else}}
-			            <dd class="productView-info-value availability-value availability-custom" data-product-availability="{{before (split theme_settings.custom_product_availability '//') 1}}">{{after (split theme_settings.custom_product_availability '//') 1}}</dd>
+						{{#contains theme_settings.custom_product_availability "//"}}
+			            	<dd class="productView-info-value availability-value availability-custom" data-product-availability="{{before (split theme_settings.custom_product_availability '//') 1}}">{{after (split theme_settings.custom_product_availability '//') 1}}</dd>
+						{{else}}
+							<dd class="productView-info-value availability-value availability-default">{{theme_settings.custom_product_availability}}</dd>
+						{{/contains}}
 	                {{/if}}
 				{{else}}
 					{{#if product.availability}}
