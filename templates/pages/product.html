@@ -220,5 +220,29 @@ gql: "query productById($productId: Int!) {
 		{{> components/custom/client/client-product-related}}
 	{{/if}}
 {{/unless}}
+{{#if product.bulk_discount_rates.length}}
+	{{#if product.can_purchase}}
+	<script>
+		const form = document.getElementById('add-to-cart-form');
+		const formWrapper = document.getElementById('add-to-cart-wrapper');
+		const formQty = document.querySelector('.form-input--incrementTotal');
+		let buttons = document.querySelectorAll('.bulkpricing-button .button');
+		let timeStart = 0;
+		for (let i = 0; i < buttons.length; i++) {
+			buttons[i].addEventListener("click", function(e) {
+				clearTimeout(timeStart);
+				e.preventDefault();
+				const buttonQty = buttons[i].getAttribute('data-bulkqty');
+				formQty.value = buttonQty;
+			    timeStart = setTimeout(function() {
+					if (formWrapper.style.display != 'none') {
+						form.submit();
+					}
+			    }, 500);
+			});
+		}
+	</script>
+	{{/if}}
+{{/if}}
 {{/partial}}
 {{> layout/base}}
