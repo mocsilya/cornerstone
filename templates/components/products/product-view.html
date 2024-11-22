@@ -298,18 +298,21 @@
                     <dd class="productView-info-value condition-value">{{product.condition}}</dd>
                 {{/if}}
 				{{#if theme_settings.custom_product_availability}}
-					<dt class="productView-info-name availability-label availability-custom">{{lang 'products.availability'}}</dt>
 					{{#if product.availability}}
 						{{#contains product.availability "//"}}
-					        <dd class="productView-info-value availability-value availability-custom" data-product-availabilty="{{before (split product.availability '//') 1}}">{{after (split product.availability '//') 1}}</dd>
+							<dt class="productView-info-name availability-label availability-custom availability-admin availability-data">{{lang 'products.availability'}}</dt>
+					        <dd class="productView-info-value availability-value availability-custom availability-admin availability-data" data-product-availabilty="{{before (split product.availability '//') 1}}">{{after (split product.availability '//') 1}}</dd>
 				        {{else}}
-					        <dd class="productView-info-value availability-value availability-default">{{product.availability}}</dd>
+							<dt class="productView-info-name availability-label availability-custom availability-admin availability-nodata">{{lang 'products.availability'}}</dt>
+					        <dd class="productView-info-value availability-value availability-custom availability-admin availability-nodata">{{product.availability}}</dd>
 				        {{/contains}}
 					{{else}}
 						{{#contains theme_settings.custom_product_availability "//"}}
-			            	<dd class="productView-info-value availability-value availability-custom" data-product-availability="{{before (split theme_settings.custom_product_availability '//') 1}}">{{after (split theme_settings.custom_product_availability '//') 1}}</dd>
+							<dt class="productView-info-name availability-label availability-custom availability-theme availability-data">{{lang 'products.availability'}}</dt>
+			            	<dd class="productView-info-value availability-value availability-custom availability-theme availability-data" data-product-availability="{{before (split theme_settings.custom_product_availability '//') 1}}">{{after (split theme_settings.custom_product_availability '//') 1}}</dd>
 						{{else}}
-							<dd class="productView-info-value availability-value availability-default">{{theme_settings.custom_product_availability}}</dd>
+							<dt class="productView-info-name availability-label availability-custom availability-theme availability-nodata">{{lang 'products.availability'}}</dt>
+							<dd class="productView-info-value availability-value availability-custom availability-theme availability-nodata">{{theme_settings.custom_product_availability}}</dd>
 						{{/contains}}
 	                {{/if}}
 				{{else}}
