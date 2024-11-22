@@ -379,9 +379,35 @@
                 {{/if}}
 				{{#if (getVar "b2b-prices") '===' 'show'}}
                 {{#if settings.bulk_discount_enabled}}
+				<div class="productView-info-bulkPricingWrap">
                     <div class="productView-info-bulkPricing">
                         {{> components/products/bulk-discount-rates bulk_discount_rates=product.bulk_discount_rates}}
                     </div>
+					{{#if product.bulk_discount_rates.length}}
+						{{#if product.can_purchase}}
+						<div class="productView-info-bulkPricingButtons">
+							<ul>
+							{{#each product.bulk_discount_rates}}
+								<li>
+									<div class="bulkpricing-button">
+										<a id="button-bulk-{{@index}}" class="button button--primary" data-bulkqty="{{min}}" href="#">
+											<span class="bulkpricing-icon">
+												<i class="icon" aria-hidden="true">
+													<svg>
+														<use xlink:href="#icon-{{../theme_settings.custom_header_cart_type}}{{#if ../theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" />
+													</svg>
+												</i>
+											</span>
+											<span class="bulkpricing-text"><strong>+ {{min}}</strong></span>
+										</a>
+									</div>
+								</li>
+							{{/each}}
+							</ul>
+						</div>
+						{{/if}}
+					{{/if}}
+				</div>
                 {{/if}}
 				{{/if}}
             </dl>
@@ -402,7 +428,7 @@
 					<p class="alertBox-column alertBox-message">{{product.release_date}}</p>
 				</div>
             {{/if}}
-            <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
+            <form id="add-to-cart-form" class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
                   data-cart-item-add>
                 <input type="hidden" name="action" value="add">
                 <input type="hidden" name="product_id" value="{{product.id}}"/>

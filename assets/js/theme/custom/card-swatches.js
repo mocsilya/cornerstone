@@ -20,7 +20,7 @@ export default function () {
 	});
 
     // Check if content has changed
-	if (!$("body").hasClass("page-product")) {
+	if ($("body").hasClass('page-category') || $("body").hasClass('page-brand') || $("body").hasClass('page-search')) {
 	    var target = document.querySelector("#product-listing-container");
 	    var observer = new MutationObserver(function(mutations) {
 			$('.figure__swatches').each(function() {
