@@ -1088,10 +1088,16 @@ body.scroll .navUser-item--custom strong {
 	border-top: 1px solid stencilColor("color-textBase");
 }
 
-.bulkpricing-container {
-	color: #333;
-	border: 2px solid #333;
+.bulkpricing-heading {
+	color: stencilColor('button--default-colorActive');
 }
+
+.bulkpricing-saving {
+	color: stencilColor('button--primary-backgroundColor');
+	background-color: stencilColor('button--default-colorActive');
+}
+
+
 /*
 #main-content > .variant-data {
 	display: none;
@@ -1385,17 +1391,17 @@ ul.why-buy li::before {
 #flyoutBanner {
 	margin: 0 !important;
 	position: fixed;
+	top: auto;
 	bottom: 0;
 	left: 50%;
 	transform: translateX(-50%);
-	width: 100%;
+	width: auto;
 	z-index: 99;
 	@include breakpoint("medium") {
-		max-width: 200px;
 		bottom: auto;
-		left:auto;
+		left: auto;
 		top: 134px;
-		transform: translateX(0);
+		transform: none;
 		right: 0;
 	}
 }
@@ -1407,6 +1413,7 @@ ul.why-buy li::before {
 	text-align: center;
 	border-top-left-radius: .5rem;
 	border-top-right-radius: .5rem;
+	width: 300px;
 	@include breakpoint("medium") {
 		padding-bottom: 1px;
 		border-bottom-left-radius: .5rem;
