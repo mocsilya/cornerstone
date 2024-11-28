@@ -162,7 +162,7 @@
     "custom_footer_show_sitemap": true,
     "custom_footer_show_blog": true,
     "custom_footer_show_blog_home": true,
-    "custom_footer_show_newsletter": false,
+    "custom_footer_show_newsletter": true,
     "custom_footer_show_categories": true,
     "custom_footer_newsletter_heading": "Become a Monster!",
     "custom_footer_newsletter_message": "Get the latest news and special offers.",
