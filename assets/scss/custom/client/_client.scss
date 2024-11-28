@@ -340,6 +340,12 @@ body:not(.currency-gbp) .navPages > ul > li.navPages-item-category {
 	color: stencilColor('button--primary-color');
 }
 
+.navUser-item--custom a,
+.navUser-item--custom a:hover {
+	color: stencilColor('button--primary-backgroundColor');
+	text-decoration: none;
+}
+
 .navUser-item--custom strong {
     font-size: 21px;
     line-height: 1;
@@ -2705,6 +2711,15 @@ body:not(.currency-gbp) article[data-section-type="footer-categories"] li.link-i
     display: none;
 }
 
+.footer-newsletter .newsletter-heading {
+	color: stencilColor('custom-footer-newsletter-button-background');
+	text-transform: uppercase;
+	font-size: 1.5rem;
+	@include breakpoint("small") {
+		font-size: 2rem;
+	}
+}
+
 
 // Blog
 // =============================================================================
@@ -2872,7 +2887,7 @@ body:not(.currency-gbp) article[data-section-type="footer-categories"] li.link-i
 	align-items: center;
 	justify-content: center;
 	background-color: #64aa35;
-	background-color: stencilColor("custom-header-menu-background");
+	background-color: stencilColor("custom-footer-blog-background");
 	border-top: 1px solid #666;
 }
 
@@ -2891,7 +2906,7 @@ body:not(.currency-gbp) article[data-section-type="footer-categories"] li.link-i
 	text-align: center;
 	text-decoration: none;
 	color: #fff;
-	background-color: stencilColor("custom-header-menu-background");
+	background-color: stencilColor("custom-footer-blog-background");
 }
 
 .socialLinks--item-facebook a:hover  {

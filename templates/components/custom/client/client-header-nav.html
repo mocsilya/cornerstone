@@ -11,11 +11,11 @@
 			<ul class="dropdown-menu" id="customDropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
 	            <li class="dropdown-menu-item">
 					<span>Talk to our experts!</span>
-					<div><strong>{{settings.phone_number}}</strong></div>
+					<div><a href="tel:{{strReplace settings.phone_number ' ' ''}}"><strong>{{settings.phone_number}}</strong></a></div>
 				</li>
 	        </ul>
         </li>
 		<li class="navUser-item navUser-item--custom navUser-item--custom-desktop">
 			<span>Talk to our experts!</span>
-			<div><strong>{{settings.phone_number}}</strong></div>
+			<div><a href="tel:{{strReplace settings.phone_number ' ' ''}}"><strong>{{settings.phone_number}}</strong></a></div>
 		</li>

@@ -12,7 +12,7 @@
             <a class="product-icon-text" href="/price-match-request/?url={{settings.secure_base_url}}{{settings.request.absolute_path}}">Price Match Request</a>
 		</div>
 		{{#if (getVar "vStock") '===' 'true'}}
-		<div class="product-icon">
+		<div class="product-icon" style="display:none;">
 			<a class="product-icon-text" href="#modalAvailability" data-reveal-id="modalAvailability">Check Availability</a>
 		</div>
 		{{/if}}
@@ -48,43 +48,45 @@
 								<td class="td-stock">
 								    <span class="td-stock-text">
 									{{#if inventory.aggregated.availableToSell '==' 0}}
-										Out of stock. <a href="/contact-us/">Contact</a> for alternatives
+										Sold Out. <a href="/contact-us/">Contact</a> For Alternatives
+									{{else if inventory.aggregated.availableToSell '<=' 100}}
+										IN STOCK Dispatch Same Day
 									{{else if inventory.aggregated.availableToSell '<=' 1000}}
-										In Stock Dispatch Within 1 Week
+										IN STOCK Dispatch Within 1 Week
 									{{else if inventory.aggregated.availableToSell '<=' 2000}}
-										In Stock Dispatch Within 2 Weeks
+										IN STOCK Dispatch Within 2 Weeks
 									{{else if inventory.aggregated.availableToSell '<=' 3000}}
-										In Stock Dispatch Within 3 Weeks
+										IN STOCK Dispatch Within 3 Days
 									{{else if inventory.aggregated.availableToSell '<=' 4000}}
-										In Stock Dispatch within 24 Hours
+										IN STOCK Dispatch Within 24 Hours
 									{{else if inventory.aggregated.availableToSell '<=' 5000}}
-										In Stock Dispatch Today (Before 1pm)
+										IN STOCK Dispatch Today (Before 1pm)
 									{{else if inventory.aggregated.availableToSell '<=' 5200}}
-										Due in January
+										Due: January
 									{{else if inventory.aggregated.availableToSell '<=' 5400}}
-										Due in February
+										Due: February
 									{{else if inventory.aggregated.availableToSell '<=' 5600}}
-										Due in March
+										Due: March
 									{{else if inventory.aggregated.availableToSell '<=' 5800}}
-										Due in April
+										Due: April
 									{{else if inventory.aggregated.availableToSell '<=' 6000}}
-										Due in May
+										Due: May
 									{{else if inventory.aggregated.availableToSell '<=' 6200}}
-										Due in June
+										Due: June
 									{{else if inventory.aggregated.availableToSell '<=' 6400}}
-										Due in July
+										Due: July
 									{{else if inventory.aggregated.availableToSell '<=' 6600}}
-										Due in August
+										Due: August
 									{{else if inventory.aggregated.availableToSell '<=' 6800}}
-										Due in September
+										Due: September
 									{{else if inventory.aggregated.availableToSell '<=' 7000}}
-										Due in October
+										Due: October
 									{{else if inventory.aggregated.availableToSell '<=' 7200}}
-										Due in November
+										Due: November
 									{{else if inventory.aggregated.availableToSell '<=' 7400}}
-									    Due in December
+									    Due: December
 									{{else if inventory.aggregated.availableToSell '<=' 7600}}
-									    Due in: Expected - Date To Be Confirmed
+									    Expected Date To Be Confirmed
 									{{else}}
 										No Availabilty Info
 									{{/if}}

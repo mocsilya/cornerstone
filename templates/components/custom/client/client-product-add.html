@@ -7,7 +7,8 @@
 	</div>
 	{{/if}}
 {{/filter}}
-<span class="form-action-buttons form-action-buttons-2">
+
+<span class="form-action-buttons form-action-buttons-2"{{#if gql.data.site.product.inventory.aggregated.availableToSell ">" 0}}{{#if gql.data.site.product.inventory.aggregated.availableToSell "<" 101}} style="display: none;"{{/if}}{{/if}}>
 	<a id="form-action-preorder" href="/pre-order/?make={{{encodeURI product.brand.name}}}&model={{{encodeURI product.title}}}">
 		<span><strong>Pre Order</strong><span> Reserve with £200</span></span>
 	</a>

@@ -92,61 +92,64 @@
 					let message;
 					let dueMonth;
 					if (stockNumber == 0) {
-					    message = 'Out of stock. <a href="/contact-us/">Contact</a> for alternatives';
+					    message = 'Sold Out. <a href="/contact-us/">Contact</a> For Alternatives';
 					    dueMonth = '0';
+					} else if (stockNumber <= 100) {
+						message = 'IN STOCK Dispatch Same Day';
+						dueMonth = '0';
 					} else if (stockNumber <= 1000) {
-					    message = 'In Stock Dispatch Within 1 Week';
+					    message = 'IN STOCK Dispatch Within 1 Week';
 					    dueMonth = '0';
 					} else if (stockNumber <= 2000) {
-					    message = 'In Stock Dispatch Within 2 Weeks';
+					    message = 'IN STOCK Dispatch Within 2 Weeks';
 					    dueMonth = '0';
 					} else if (stockNumber <= 3000) {
-					    message = 'In Stock Dispatch Within 3 Weeks';
+					    message = 'IN STOCK Dispatch Within 3 Days';
 					    dueMonth = '0';
 					} else if (stockNumber <= 4000) {
-					    message = 'In Stock Dispatch within 24 Hours';
+					    message = 'IN STOCK Dispatch Within 24 Hours';
 					    dueMonth = '0';
 					} else if (stockNumber <= 5000) {
-					    mmessage = 'In Stock Dispatch Today';
+					    mmessage = 'IN STOCK Dispatch Today (Before 1pm)';
 					    dueMonth = '0';
 					} else if (stockNumber <= 5200) {
-					    message = 'Due in January';
+					    message = 'Due: January';
 					    dueMonth = '1';
 					} else if (stockNumber <= 5400) {
-					    message = 'Due In: - February';
+					    message = 'Due: February';
 					    dueMonth = '2';
 					} else if (stockNumber <= 5600) {
-					    message = 'Due in March';
+					    message = 'Due: March';
 					    dueMonth = '3';
 					} else if (stockNumber <= 5800) {
-					    message = 'Due in April';
+					    message = 'Due: April';
 					    dueMonth = '4';
 					} else if (stockNumber <= 6000) {
-					    message = 'Due in May';
+					    message = 'Due: May';
 					    dueMonth = '5';
 					} else if (stockNumber <= 6200) {
-					    message = 'Due in June';
+					    message = 'Due: June';
 					    dueMonth = '6';
 					} else if (stockNumber <= 6400) {
-					    message = 'Due in July';
+					    message = 'Due: July';
 					    dueMonth = '7';
 					} else if (stockNumber <= 6600) {
-					    message = 'Due in August';
+					    message = 'Due: August';
 					    dueMonth = '8';
 					} else if (stockNumber <= 6800) {
-					    message = 'Due in September';
+					    message = 'Due: September';
 					    dueMonth = '9';
 					} else if (stockNumber <= 7000) {
-					    message = 'Due in October';
+					    message = 'Due: October';
 					    dueMonth = '10';
 					} else if (stockNumber <= 7200) {
-					    message = 'Due in November';
+					    message = 'Due: November';
 					    dueMonth = '11';
 					} else if (stockNumber <= 7400) {
-					    message = 'Due in December';
+					    message = 'Due: December';
 					    dueMonth = '12';
 					} else if (stockNumber <= 7600) {
-					    message = 'Due in: Expected - Date To Be Confirmed';
+					    message = 'Expected Date To Be Confirmed';
 					    dueMonth = '0';
 					} else {
 					    message = 'No Availabilty Info';
@@ -195,9 +198,16 @@
 	            	*/
 					
 		            if (stockNumber > 0 && stockNumber < 7600) {
-		                document.getElementById('add-to-cart-wrapper').style.display = 'flex';
+		                //document.getElementById('add-to-cart-wrapper').style.display = 'flex';
+						if (stockNumber > 0 && stockNumber < 101) {
+							//document.getElementById('add-to-cart-wrapper').style.display = 'none';
+							document.querySelector('.form-action-buttons-2').style.display = 'none';
+						} else {
+							document.querySelector('.form-action-buttons-2').style.display = 'flex';
+						}
 		            } else {
-		                document.getElementById('add-to-cart-wrapper').style.display = 'none';
+		                //document.getElementById('add-to-cart-wrapper').style.display = 'none';
+						document.querySelector('.form-action-buttons-2').style.display = 'none';
 		            }
 					
 					
@@ -230,8 +240,8 @@
 		});
 	}
 	</script>
-{{else}}
-
+{{/if}}
+<!--
 	{{#if product.options}}
 	<script>
 	let arr = [];
@@ -428,10 +438,7 @@
 		}
 	});
 	</script>
-	
-{{/if}}
-
-
+-->
 
 {{#filter product.custom_fields 'faq' property='value' }}
 <script>
