@@ -1618,6 +1618,13 @@ body.hasAdminBar.scroll .header-fixed .dropdown--quickSearch.is-open {
 	}
 }
 
+.navPages > ul > li > .navPages-action.is-open.activePage:hover,
+.navPages > ul > li > .navPages-action.is-open.activePage {
+	@include breakpoint("medium") {
+		color: stencilColor("navPages-color");
+	}
+}
+
 .navPages > ul > li > .navPages-action svg {
 	@include breakpoint("medium") {
 		fill: stencilColor("custom-header-menu-link");
@@ -1976,6 +1983,9 @@ body.scroll .header-fixed .navPages-container-hide {
 		width: $custom_header_menu_width;
 		padding: 1rem 0 !important;
 	}
+	@include breakpoint("medium") {
+		margin-left: $custom_header_menu_width;
+	}
 	@include breakpoint("large") {
 		padding: 1rem .75rem !important;
 		margin-left: calc(#{$custom_header_menu_width} + 1.5rem);
@@ -2092,6 +2102,7 @@ body.scroll .header-fixed .navPages-container-hide {
 		border-right: 0;
 		width: $custom_header_menu_width;
 		padding: 1rem 0 !important;
+		margin-right: $custom_header_menu_width;
 	}
 	@include breakpoint("large") {
 		padding: 1rem .75rem !important;
@@ -4441,6 +4452,15 @@ div[data-content-region="brand_above_content"] > div {
 	cursor: default;
 }
 
+.card-swatches .form-option-variant {
+	height: 1rem;
+}
+
+.card-swatches .form-option-variant--pattern {
+	width: 1rem;
+	height: 1rem;
+}
+
 
 
 .card-swatches .form-option-expanded {
@@ -5878,33 +5898,93 @@ div[data-content-region="product_view_bottom--global"] {
 }
 
 
-.productView-info-bulkPricing {
+.productView-info-bulkPricingWrap {
 	float: left;
 	width: 100%;
+	overflow-x: auto;
+	display: flex;
 	@include breakpoint("small") {
 		float: none;
 	}
 }
 
-.bulkpricing-container {
-	font-size: 13px;
-	font-weight: 700;
-	border: 2px solid stencilColor("color-success");
-	color: stencilColor("color-success");
-	padding: .5rem .75rem;
-	margin-top: 1.5rem;
-	border-radius: .25rem;
+.productView-info-bulkPricing {
+	float: none;
+	width: 100%;
+	flex: 1 1 0;
 }
 
-.bulkpricing-container ul,
-.bulkpricing-container li {
-	margin: 0;
+.productView-info-bulkPricingButtons {
+	flex: 0 1 0;
+}
+
+.productView-info-bulkPricing ul, 
+.productView-info-bulkPricingButtons ul {
+	display: flex;
+	flex-direction: column;
+	font-size: 13px;
+	font-weight: 700;
 	padding: 0;
+	margin: 1.5rem 0 0 0;
 	list-style: none;
 }
 
-.bulkpricing-container li {
-	padding: .25rem 0;
+.productView-info-bulkPricing li, 
+.productView-info-bulkPricingButtons li {
+	display: flex;
+	flex: 1 1 0;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	margin-bottom: 2px;
+}
+
+.productView-info-bulkPricingButtons li {
+	min-width: 90px;
+}
+
+.bulkpricing-heading {
+	flex: 1 1 0;
+	text-align: center;
+	padding: calc(.5rem + 1px);
+	line-height: 1.5rem;
+	background-color: stencilColor("color-greyLightest");
+	color: stencilColor("color-success");
+}
+
+.bulkpricing-saving {
+	flex: 1 1 0;
+	text-align: center;
+	padding: calc(.5rem + 1px);
+	line-height: 1.5rem;
+	background-color: stencilColor("color-success");
+	color: #fff;
+}
+
+.productView-info-bulkPricingButtons .bulkpricing-button {
+	text-align: center;
+}
+
+.productView-info-bulkPricingButtons .button--primary {
+	padding: .5rem 1rem;
+	min-width: 90px;
+	margin: 0;
+	line-height: 1.5rem;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.productView-info-bulkPricingButtons .bulkpricing-icon,
+.productView-info-bulkPricingButtons .bulkpricing-text {
+	height: 1.5rem;
+	line-height: 1.5rem;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.productView-info-bulkPricingButtons .icon {
+	height: 1.5rem;
+	width: 1.5rem;
 }
 
 .productView-rating span,

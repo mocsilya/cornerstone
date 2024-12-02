@@ -89,21 +89,23 @@ customer:
     </div>
 </div>
 {{#if theme_settings.custom_product_availability}}
-<script>
-window.addEventListener('load', function () {
-	const list = document.querySelectorAll('.cart-item-availabilty-data');	
-	let listArr = [];
-	for (let i = 0; i < list.length; i++) {
-		const listAtt = list[i].getAttribute('data-product-availabilty');
-		listArr.push(listAtt);
-	}
-	console.log('list: ' + listArr);
-	const listMax = Math.max.apply(null, listArr);
-	document.getElementById('availabilityMessage').querySelector('span').innerHTML = listMax;
-	document.getElementById('availabilityMessage').classList.add("showMessage");
-	localStorage.setItem('availabiltyCart', listMax);
-})
-</script>
+	{{#contains theme_settings.custom_product_availability "//"}}
+		<script>
+		window.addEventListener('load', function () {
+			const list = document.querySelectorAll('.cart-item-availabilty-data');	
+			let listArr = [];
+			for (let i = 0; i < list.length; i++) {
+				const listAtt = list[i].getAttribute('data-product-availabilty');
+				listArr.push(listAtt);
+			}
+			console.log('list: ' + listArr);
+			const listMax = Math.max.apply(null, listArr);
+			document.getElementById('availabilityMessage').querySelector('span').innerHTML = listMax;
+			document.getElementById('availabilityMessage').classList.add("showMessage");
+			localStorage.setItem('availabiltyCart', listMax);
+		})
+		</script>
+	{{/contains}}
 {{/if}}
 {{/partial}}
 {{> layout/base}}
