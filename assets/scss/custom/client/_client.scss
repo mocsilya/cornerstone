@@ -1361,7 +1361,32 @@ availability-anode-outlet .availability-click img {
 	fill: stencilColor('custom-footer-border');
 }
 
-#consent-manager,
+#consent-manager {
+	top: 50% !important;
+	left: 50% !important;
+	width: 80% !important;
+	bottom: auto !important;
+	transform: translate(-50%, -50%);
+	max-width: 310px;
+	background-color: none !important;
+}
+
+#consent-manager > div > div {
+	background-color: #14214e !important;
+	border: 5px solid #fff;
+	-webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5); 
+	box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5);
+}
+
+#consent-manager > div > div > div {
+	text-align: center;
+	justify-content: center !important;
+}
+
+#consent-manager button:first-child {
+	margin-left: 0 !important;
+}
+
 #consent-manager-update-banner {
 	background-color: #2c3860 !important;
 }
@@ -1495,7 +1520,6 @@ div[data-layout-name="Layout-S1-M1-L2"] > div[data-sub-layout] {
 
 
 
-
 // =============================================================================
 // WIDGET ALL CUSTOM
 // =============================================================================
@@ -1505,8 +1529,6 @@ div[data-layout-name="Layout-S1-M1-L2"] > div[data-sub-layout] {
 	padding: 0 !important;
 	max-width: none !important;
 }
-
-
 
 
 

@@ -44,6 +44,7 @@
 		let inStock = {{#if product.stock_level}}{{#if product.can_purchase}}{{product.stock_level}}{{else}}0{{/if}}{{else}}0{{/if}};
 		// let inStock = {{#if product.stock_level}}{{#if product.can_purchase}}{{#gt product.stock_level 1000}}{{subtract product.stock_level 1000}}{{else}}0{{/gt}}{{else}}0{{/if}}{{else}}0{{/if}};
 	{{/if}}
+	{{#if (getVar "hasVariants") '===' 'false'}}
 	document.addEventListener("DOMContentLoaded", function(event) { 
 		if (inStock > 1000) {
 			document.querySelector('.availability-now').style.display = 'block';
@@ -53,6 +54,7 @@
 			}
 		}	
 	});
+	{{/if}}
 	let inputElem = document.querySelector('.form-input--incrementTotal');
 	let buttonElem = document.querySelectorAll('.form-increment .button');
 	let messageDiv = document.getElementById('backorderMessage');
