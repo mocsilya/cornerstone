@@ -5428,6 +5428,10 @@ a:hover span.card-image:only-of-type img {
 	display: block;
 }
 
+.productGrid .product.spotlight .card-spotlight-actions .button {
+	width: 100%;
+}
+
 .productGrid .product.spotlight .card-summary {
 	margin: 1rem 0;
 }
@@ -5455,16 +5459,6 @@ a:hover span.card-image:only-of-type img {
 	}
 	@include breakpoint("large") {
 		font-size: 1.5rem;
-	}
-}
-
-.productGrid .product.spotlight .card .form-option-variant--color,
-.productGrid .product.spotlight .card .form-option-variant--pattern {
-	@include breakpoint("medium") {
-		margin-right: 4px;
-		margin-bottom: 4px;
-		height: 2rem;
-		width: 2rem;
 	}
 }
 
