@@ -988,6 +988,14 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	}
 }
 
+.card-figcaption.clicked .card-figcaption-button.compare,
+.card-wishlist li .button--primary {
+	background-color: stencilColor('button--primary-backgroundColorHover');
+	color: stencilColor('button--primary-colorHover');
+}
+
+
+
 
 
 // =============================================================================
