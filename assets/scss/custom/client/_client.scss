@@ -4,6 +4,14 @@
 //
  
 
+// Xmas
+// =============================================================================
+
+.navUser {
+	background: url('../img/custom/header-xmas.png') center;
+}
+
+
 // General
 // =============================================================================
 
@@ -277,6 +285,10 @@ body.with-bar[zb-bar="show"] .header {
 
 .navPages > ul > li.navPages-item-black-friday > .navPages-action {
 	color: #ffdd00;
+}
+
+.navPages > ul > li.navPages-item-xmas-deals > .navPages-action {
+	color: #ff3333;
 }
 
 .navPages > ul > li.navPages-item-international {
