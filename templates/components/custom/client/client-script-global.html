@@ -1,0 +1,87 @@
+{{#or (if page_type '===' 'category') (if page_type '===' 'search') (if page_type '===' 'brand')}}
+<script>
+    // Check if content has changed
+	if (document.body.classList.contains('page-category') || document.body.classList.contains('page-brand') || document.body.classList.contains('page-search')){
+	    const target = document.querySelector('#product-listing-container');
+		const sortAsc = 'priceasc';
+        const sortDesc = 'pricedesc';
+		const product = document.getElementsByClassName('product');
+	    const observer = new MutationObserver(function(mutations) {
+			const sortBox = document.getElementById('sort');
+			const sortParam = sortBox.options[sortBox.selectedIndex].value;
+			console.log('sortParam: ' + sortParam);
+			if (sortParam) {
+	            if (sortParam == sortAsc || sortParam == sortDesc) {
+	                let sortOrder;
+	                for (let i = 0; i < product.length; i++) {
+	                    if (sortParam == sortAsc) {
+	                        sortOrder = product[i].getAttribute('data-price-asc');
+	                    }
+	                    if (sortParam == sortDesc) {
+	                        sortOrder = product[i].getAttribute('data-price-desc');
+	                    }
+	                    product[i].style.order = sortOrder;
+	                }
+	            }
+	        }
+	    });
+	    const config = { attributes: true, childList: true, characterData: true };
+	    observer.observe(target, config);
+	}
+</script>
+{{/or}}
+{{#if page_type '===' 'compare'}}
+<!--
+<script>
+	const tableRow = document.getElementsByClassName('compareTable-row');
+    let rowHeading;
+	let rowText;
+    for (let i = 0; i < tableRow.length; i++) {
+		rowHeading = tableRow[i].querySelector('.compareTable-heading');
+        rowText = rowHeading.innerText;
+		console.log('rowText: ' + rowText);
+		if (rowText == 'BRAKES') {
+			console.log('brakes found');
+			rowHeading.classList.add('compare-label');
+			rowHeading.onclick = function (e) {
+				e.preventDefault();
+				// Open the modal
+				const modalContent = document.getElementById('modal-content');
+				modalContent.innerHTML = '';
+				modalContent.parentNode.classList.add('open');
+				modalContent.parentNode.setAttribute('style', 'display: block; opacity: 1; visibility: visible; height: 90vh;');
+				document.body.classList.add('has-activeModal');
+				const modalBg = document.querySelector('.modal-background');
+				if (modalBg) {
+					modalBg.removeAttribute('style');
+				} else {
+					const divBg = document.createElement('div');
+					divBg.classList.add('modal-background');
+					document.body.appendChild(divBg);
+				}
+				
+				const url = '/latest-posts/top-10-tips-for-looking-after-your-electric-mountain-bike-emtb-this-winter/';
+				fetch(url).then(response => response.text()).then(html => {
+					
+					// get the article content
+					const fragment = document.createDocumentFragment('div');
+					const tempDiv = document.createElement('div');
+					fragment.appendChild(tempDiv);
+					tempDiv.innerHTML = html;
+					const content = tempDiv.querySelector('.blog-post').innerHTML;
+					
+					//append content to the modal
+					const modalHeight = modalContent.parentNode.clientHeight;
+					const modalBody = document.createElement('div');
+					modalBody.classList.add('modal-body');
+					modalBody.style.height = modalHeight + 'px';
+					modalBody.innerHTML = content;
+					modalContent.appendChild(modalBody);
+				})
+				.catch((err) => console.log('Can not access ' + url + ' response. Blocked by browser?' + err));
+			}
+		}
+    }
+</script>
+-->
+{{/if}}

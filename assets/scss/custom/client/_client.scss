@@ -1000,12 +1000,68 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	}
 }
 
+.card-figcaption .card-figcaption-button.compare .icon svg,
+.card-wishlist li .button--primary .icon svg {
+	fill: stencilColor('button--primary-backgroundColor');
+	color: stencilColor('button--primary-backgroundColor');
+}
+
 .card-figcaption.clicked .card-figcaption-button.compare,
 .card-wishlist li .button--primary {
 	background-color: stencilColor('button--primary-backgroundColorHover');
 	color: stencilColor('button--primary-colorHover');
 }
 
+.page-category .card-figure,
+.page-search .card-figure,
+.page-brand .card-figure {
+	padding-bottom: 30px;
+}
+
+.card-figcaption {
+	align-items: stretch;
+	opacity: 1;
+}
+
+.card-figcaption-button.card-wishlist,
+.card-figcaption-button.compare,
+.card-figcaption-button.quickview {
+	border: 1px solid #000;
+	align-self: end;
+}
+
+.card-figcaption-button.compare,
+.card-figcaption-button.quickview,
+.card-wishlist .dropdown-menu-button {
+	padding: .25rem .5rem;
+}
+
+.card-figcaption-button.card-wishlist {
+	order: 2;
+}
+
+.card-figcaption-button.compare {
+	order: 3;
+}
+
+
+
+.card-figcaption-chooseoptions,
+.card-figcaption-addtocart,
+.card-figcaption-preorder,
+.card-figcaption-outofstock {
+	display: none;
+}
+
+.card-figcaption:hover .card-figcaption-chooseoptions,
+.card-figcaption:hover .card-figcaption-addtocart,
+.card-figcaption:hover .card-figcaption-preorder,
+.card-figcaption:hover .card-figcaption-outofstock {
+	display: flex;
+	justify-content: center;
+	order: 1;
+	align-self: end;
+}
 
 
 
@@ -1158,6 +1214,15 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 .compareTable-description,
 .compareTable-availabilty {
     display: none;
+}
+
+.compare-wrapper #table th.compareTable-heading.compare-label {
+	padding-right: 45px;
+	background-image: url('../img/custom/info.png');
+	background-position: right 14px center;
+	background-repeat: no-repeat;
+	background-size: 23px 24px;
+	cursor: pointer;
 }
 
 
@@ -1864,14 +1929,9 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 }
 
 @media (max-width: 1023px) {
- .card-figcaption-button.compare,
- .card-wishlist {
-	 top: -80px;
- }
- .card-title-top {
-	 min-height: 48px;
- }
- 
+	.card-title-top {
+		min-height: 48px;
+	}
 }
 
 
