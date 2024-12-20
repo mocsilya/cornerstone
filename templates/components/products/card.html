@@ -245,7 +245,7 @@
             <div class="card-figcaption-body">
                 {{#unless hide_product_quick_view}}
                     {{#if theme_settings.show_product_quick_view}}
-                        <button type="button" class="button button--small card-figcaption-button quickview" data-event-type="product-click" data-product-id="{{id}}" title="{{lang 'products.quick_view'}}"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-quickview-regular" /></svg></i></button>
+                        <button type="button" class="button button--small card-figcaption-button quickview" data-event-type="product-click" data-product-id="{{id}}" title="{{lang 'products.quick_view'}}"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-quickview-regular" /></svg></i><span>{{lang 'products.quick_view'}}</span></button>
                     {{/if}}
                 {{/unless}}
 				{{#if theme_settings.custom_card_show_wishlist}}
@@ -258,7 +258,7 @@
 					   title="{{lang 'account.wishlists.heading'}}"
 				       href="#"
 				    >
-						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-heart-regular" /></svg></i>
+						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-heart-regular" /></svg></i><span>{{lang 'account.wishlists.heading'}}</span>
 				    </a>
 					<ul aria-hidden="true" class="dropdown-menu" data-dropdown-content id="wishlist-dropdown-{{id}}{{#if card_group}}-{{card_group}}{{/if}}">
 			            {{#each customer.wishlists}}
@@ -282,7 +282,7 @@
 					   title="{{lang 'account.wishlists.heading'}}"
 				       href="#"
 				    >
-						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-heart-regular" /></svg></i>
+						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-heart-regular" /></svg></i><span>{{lang 'account.wishlists.heading'}}</span>
 				    </a>
 					<ul aria-hidden="true" class="dropdown-menu" data-dropdown-content id="wishlist-dropdown-{{id}}{{#if card_group}}-{{card_group}}{{/if}}">
 			        	<li>
@@ -294,7 +294,7 @@
 				{{/if}}
                 {{#if show_compare}}
                     <label class="button button--small card-figcaption-button compare" for="compare-{{id}}" title="{{lang 'products.compare'}}">
-						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-compare-regular" /></svg></i>
+						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-compare-regular" /></svg></i><span>{{lang 'products.compare'}}</span>
                          <input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}">
                     </label>
                 {{/if}}
