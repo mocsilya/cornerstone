@@ -464,6 +464,10 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	width: 40%;
 }
 
+.page-default .card-figcaption-button.card-wishlist {
+	display: none;
+}
+
 
 
 // Hero Carousel
@@ -1012,22 +1016,30 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	color: stencilColor('button--primary-colorHover');
 }
 
-.page-category .card-figure,
-.page-search .card-figure,
-.page-brand .card-figure {
-	padding-bottom: 30px;
-}
-
 .card-figcaption {
 	align-items: stretch;
 	opacity: 1;
+}
+
+.card-figcaption-body {
+	padding-top: 10px;
+	justify-content: center;
 }
 
 .card-figcaption-button.card-wishlist,
 .card-figcaption-button.compare,
 .card-figcaption-button.quickview {
 	border: 1px solid #000;
-	align-self: end;
+	align-self: start;
+	flex: 0 1 0;
+}
+
+.card-figcaption-button.card-wishlist{
+	min-width: 38px;
+}
+
+.card-figcaption-button.compare {
+	min-width: 110px;
 }
 
 .card-figcaption-button.compare,
@@ -1036,22 +1048,14 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	padding: .25rem .5rem;
 }
 
-.card-figcaption-button.card-wishlist {
-	order: 2;
-}
 
-.card-figcaption-button.compare {
-	order: 3;
-}
-
-.card-figcaption-button.compare span,
-.card-figcaption-button.quickview span,
-.card-wishlist .dropdown-menu-button span {
+.card-figcaption-button.compare span {
 	display: inline-block;
 	font-size: .75rem;
 	text-transform: uppercase;
-	padding-top: .3rem;
+	padding-top: .25rem;
 	padding-left: .5rem;
+	line-height: 1;
 }
 
 .card-figcaption-chooseoptions,
@@ -1067,7 +1071,6 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 .card-figcaption:hover .card-figcaption-outofstock {
 	display: flex;
 	justify-content: center;
-	order: 1;
 	align-self: end;
 }
 
