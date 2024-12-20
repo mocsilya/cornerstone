@@ -297,7 +297,7 @@
     "show_product_weight": false,
     "show_product_dimensions": false,
     "show_product_swatch_names": true,
-    "product_list_display_mode": "list",
+    "product_list_display_mode": "grid",
     "logo-position": "center",
     "logo_size": "650x160",
     "logo_fontSize": 28,
