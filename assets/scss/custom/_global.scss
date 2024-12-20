@@ -4690,6 +4690,7 @@ a:hover span.card-image:only-of-type img {
 	display: block;
 	text-align: center;
 	padding: 0.57143rem 0;
+	text-decoration: none;
 }
 
 .card-wishlist .dropdown-menu-button .icon {
@@ -4787,6 +4788,10 @@ a:hover span.card-image:only-of-type img {
 .card-figcaption-button .icon {
 	height: 1.25rem;
 	width: 1.25rem;
+}
+
+.card-figcaption-button span {
+	display: none;
 }
 
 .card-figcaption.clicked {
@@ -5015,6 +5020,10 @@ a:hover span.card-image:only-of-type img {
 .productList .listItem-actions .listItem-buttons .icon {
 	width: 1.25rem;
 	height: 1.25rem;
+}
+
+.productList .listItem-actions .listItem-buttons .button span {
+	display: none;
 }
 
 .productList .product.spotlight .listItem-details,
