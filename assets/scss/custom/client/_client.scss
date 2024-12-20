@@ -1044,7 +1044,15 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	order: 3;
 }
 
-
+.card-figcaption-button.compare span,
+.card-figcaption-button.quickview span,
+.card-wishlist .dropdown-menu-button span {
+	display: inline-block;
+	font-size: .75rem;
+	text-transform: uppercase;
+	padding-top: .3rem;
+	padding-left: .5rem;
+}
 
 .card-figcaption-chooseoptions,
 .card-figcaption-addtocart,
@@ -2688,6 +2696,10 @@ div[data-content-region="product_below_content"] {
 		overflow-y: auto;
 	}
     
+}
+
+.page-product .card-figcaption-button.card-wishlist {
+	display: none;
 }
 
 
