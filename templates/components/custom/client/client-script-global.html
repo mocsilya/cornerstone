@@ -31,7 +31,6 @@
 </script>
 {{/or}}
 {{#if page_type '===' 'compare'}}
-<!--
 <script>
 	const tableRow = document.getElementsByClassName('compareTable-row');
     let rowHeading;
@@ -40,48 +39,92 @@
 		rowHeading = tableRow[i].querySelector('.compareTable-heading');
         rowText = rowHeading.innerText;
 		console.log('rowText: ' + rowText);
-		if (rowText == 'BRAKES') {
-			console.log('brakes found');
+		if (rowText == 'MOTOR CONTROLLER' || rowText == 'MOTOR' || rowText == 'BATTERY') {
+			console.log('Found: ' + rowText);
 			rowHeading.classList.add('compare-label');
-			rowHeading.onclick = function (e) {
-				e.preventDefault();
-				// Open the modal
-				const modalContent = document.getElementById('modal-content');
-				modalContent.innerHTML = '';
-				modalContent.parentNode.classList.add('open');
-				modalContent.parentNode.setAttribute('style', 'display: block; opacity: 1; visibility: visible; height: 90vh;');
-				document.body.classList.add('has-activeModal');
-				const modalBg = document.querySelector('.modal-background');
-				if (modalBg) {
-					modalBg.removeAttribute('style');
-				} else {
-					const divBg = document.createElement('div');
-					divBg.classList.add('modal-background');
-					document.body.appendChild(divBg);
-				}
-				
-				const url = '/latest-posts/top-10-tips-for-looking-after-your-electric-mountain-bike-emtb-this-winter/';
-				fetch(url).then(response => response.text()).then(html => {
-					
-					// get the article content
-					const fragment = document.createDocumentFragment('div');
-					const tempDiv = document.createElement('div');
-					fragment.appendChild(tempDiv);
-					tempDiv.innerHTML = html;
-					const content = tempDiv.querySelector('.blog-post').innerHTML;
-					
-					//append content to the modal
-					const modalHeight = modalContent.parentNode.clientHeight;
-					const modalBody = document.createElement('div');
-					modalBody.classList.add('modal-body');
-					modalBody.style.height = modalHeight + 'px';
-					modalBody.innerHTML = content;
-					modalContent.appendChild(modalBody);
-				})
-				.catch((err) => console.log('Can not access ' + url + ' response. Blocked by browser?' + err));
-			}
 		}
     }
+	function loadArticle() {
+	   var rowClicks = document.getElementsByClassName('compare-label');
+	   for (let j = 0; j < rowClicks.length; j++) {
+	      rowClicks[j].onclick = function(e) {
+			  e.preventDefault();
+			  const rowClickText = rowClicks[j].innerText;
+			  console.log('rowClickText: ' + rowClickText);
+  			var url;
+  			if (rowClickText == 'MOTOR CONTROLLER') {
+  				url = '/latest-posts/emtb-controller-guide-2025/'
+  			} else if (rowClickText == 'MOTOR') {
+  				url = '/latest-posts/emtb-motor-guide-choose-the-perfect-one-2025/'
+  			} else if (rowClickText == 'BATTERY') {
+  				url = '/latest-posts/emtb-battery-size-guide-2025/'
+  			}
+  			console.log('url: ' + url);
+  			// Open the modal
+  			const modalContent = document.getElementById('modal-content');
+  			modalContent.innerHTML = '';
+  			modalContent.parentNode.classList.add('open');
+  			modalContent.parentNode.setAttribute('style', 'display: block; opacity: 1; visibility: visible; height: 90vh;');
+  			document.body.classList.add('has-activeModal');
+  			const modalBg = document.querySelector('.modal-background');
+  			if (modalBg) {
+  				modalBg.removeAttribute('style');
+  			} else {
+  				const divBg = document.createElement('div');
+  				divBg.classList.add('modal-background');
+  				document.body.appendChild(divBg);
+  			}
+
+  			fetch(url).then(response => response.text()).then(html => {
+	
+  				// get the article content
+  				const fragment = document.createDocumentFragment('div');
+  				const tempDiv = document.createElement('div');
+  				fragment.appendChild(tempDiv);
+  				tempDiv.innerHTML = html;
+  				const content = tempDiv.querySelector('.blog-post').innerHTML;
+	
+  				//append content to the modal
+  				const modalHeight = modalContent.parentNode.clientHeight;
+  				const modalBody = document.createElement('div');
+  				modalBody.classList.add('modal-body');
+  				modalBody.style.height = modalHeight + 'px';
+  				modalBody.innerHTML = content;
+  				modalContent.appendChild(modalBody);
+  			})
+  			.catch((err) => console.log('Can not access ' + url + ' response. Blocked by browser?' + err));
+		  }
+	   }
+	}
+	loadArticle();
 </script>
--->
 {{/if}}
+
+{{#unless page_type '===' 'checkout'}}
+<script>
+	function getDayName(dateStr, locale) {
+	    var date = new Date(dateStr);
+	    return date.toLocaleDateString(locale, { weekday: 'short' });        
+	}
+	var dateStr = '{{moment "now" "YYYY-MM-DD"}}';
+	var day = getDayName(dateStr, "en-EN");
+	var whatsApp = document.querySelector('.whatsappChatButton');
+	if (day != 'Sun') {
+		hour = {{moment "now" "H"}};
+		min = {{moment "now" "m"}};
+		if (hour > 7 && hour < 17) {
+			if (hour == 8) {
+				if (min > 14) {
+					whatsApp.style.display = 'block';
+				}
+			} else if (hour == 16) {
+				if (min < 46) {
+					whatsApp.style.display = 'block';
+				}
+			} else {
+				whatsApp.style.display = 'block';
+			}
+		}
+	}
+</script>
+{{/unless}}

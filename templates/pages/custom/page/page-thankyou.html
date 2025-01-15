@@ -1,0 +1,150 @@
+---
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+customer:
+    wishlists:
+        limit: 10
+---
+
+{{#partial "hero"}}
+{{{region name="page_below_menu"}}}
+<div class="container container-hero">
+	{{#if theme_settings.custom_page_header_image_info}}
+		<div class="page-header info-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
+	    <img class="page-header-image" src="/product_images/uploaded_images/{{theme_settings.custom_page_header_image_info}}" />
+	{{else}}
+		<div class="page-header info-header">
+	{{/if}}
+    {{#unless theme_settings.hide_page_heading }}
+	    <h1 class="page-heading">{{#contains head.title " | "}}{{{first (before (split head.title ' | ') 1)}}}{{else}}{{page.title}}{{/contains}}</h1>
+    {{/unless}}
+	{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	</div>
+</div>
+{{/partial}}
+
+{{#partial "page"}}
+
+<section class="page page-navless">
+{{{region name="page_builder_content_editor_area_top"}}}
+
+
+	<div class="page-content page-content--centered">
+
+	{{{region name="page_builder_content"}}}
+        {{#replace '%%Syndicate%%' page.content}}
+            {{> components/page/rss_feed}}
+        {{else}}
+            {{{page.content}}}
+        {{/replace}}
+		<ul class="subcategories-grid">
+			{{#each categories}}
+			<li class="subcategories-grid-item">
+				<div class="subcategories-container">
+					<a href="{{url}}">
+					{{#if image}}
+						<span class="subcategories-image"><img src="{{getImage image 'category_card_size'}}" alt="{{name}}"></span>
+					{{else}}
+						<span class="subcategories-blank">View Category</span>
+					{{/if}}
+						<span class="subcategories-name">{{name}}</span>
+					</a>
+				</div>
+			</li>
+			{{/each}}
+		</ul>
+		<ul class="sitemap-list">
+		    <li class="sitemap-list-item">
+		        <h2>{{lang 'footer.info'}}</h2>
+		        <ul>
+				{{#each pages}}
+					{{#if children}}
+					<li class=sitemap-{{dashcase name}}>
+						<a href="{{url}}">{{name}}</a>
+						<ul>
+						{{#each children}}
+							{{#if children}}
+							<li>
+								<a href="{{url}}">{{name}}</a>
+								<ul>
+								{{#each children}}
+									<li><a href="{{url}}">{{name}}</a></li>
+								{{/each}}
+								</ul>
+							</li>
+							{{else}}
+								<li><a href="{{url}}">{{name}}</a></li>
+							{{/if}}
+						{{/each}}
+						</ul>
+					</li>
+					{{else}}
+					<li><a href="{{url}}">{{name}}</a></li>
+		            {{/if}}
+		        {{/each}}
+		        </ul>
+		    </li>
+		    <li class="sitemap-list-item">
+		        <h2>{{lang 'footer.categories'}}</h2>
+		        <ul>
+				{{#each categories}}
+					{{#if children}}
+					<li>
+						<a href="{{url}}">{{name}}</a>
+						<ul>
+						{{#each children}}
+							{{#if children}}
+							<li>
+								<a href="{{url}}">{{name}}</a>
+								<ul>
+								{{#each children}}
+									<li><a href="{{url}}">{{name}}</a></li>
+								{{/each}}
+								</ul>
+							</li>
+							{{else}}
+								<li><a href="{{url}}">{{name}}</a></li>
+							{{/if}}
+						{{/each}}
+						</ul>
+					</li>
+					{{else}}
+					<li><a href="{{url}}">{{name}}</a></li>
+		            {{/if}}
+		        {{/each}}
+		        </ul>
+		    </li>
+		    <li class="sitemap-list-item">
+		        <h2>{{lang 'footer.brands'}}</h2>
+		        <ul>
+                {{#each shop_by_brand}}
+                    <li>
+                        <a href="{{url}}">{{name}}</a>
+                    </li>
+                {{/each}}
+                	<li>
+						<a href="{{urls.brands}}">{{lang 'common.view_all'}}</a>
+					</li>
+		        </ul>
+		    </li>
+		</ul>
+	{{{region name="page_builder_bottom"}}}
+    </div>
+
+    {{#if page.feed}}
+        <ul>
+            {{#each page.feed}}
+                <li>
+                    <h6><a href="{{url}}" target="_blank">{{title}}</a></h6>
+                    <p>{{content}}</p>
+                </li>
+            {{/each}}
+        </ul>
+    {{/if}}
+{{{region name="page_builder_content_editor_area_bottom"}}}
+</section>
+
+{{/partial}}
+
+{{> layout/base}}
