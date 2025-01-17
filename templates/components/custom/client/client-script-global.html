@@ -30,6 +30,7 @@
 	}
 </script>
 {{/or}}
+<!--
 {{#if page_type '===' 'compare'}}
 <script>
 	const tableRow = document.getElementsByClassName('compareTable-row');
@@ -99,7 +100,7 @@
 	loadArticle();
 </script>
 {{/if}}
-
+-->
 {{#unless page_type '===' 'checkout'}}
 <script>
 	function getDayName(dateStr, locale) {
@@ -108,21 +109,29 @@
 	}
 	var dateStr = '{{moment "now" "YYYY-MM-DD"}}';
 	var day = getDayName(dateStr, "en-EN");
-	var whatsApp = document.querySelector('.whatsappChatButton');
+	var whatsAppIcon = document.querySelector('.navUser-item--whatsapp');
+	var whatsAppHeader = document.querySelector('.navUser-item--custom .whatsappChatButton');
+	var whatsAppFooter = document.querySelector('.footer-info-col .whatsappChatButton');
 	if (day != 'Sun') {
 		hour = {{moment "now" "H"}};
 		min = {{moment "now" "m"}};
 		if (hour > 7 && hour < 17) {
 			if (hour == 8) {
 				if (min > 14) {
-					whatsApp.style.display = 'block';
+					whatsAppIcon.style.display = 'inline-block';
+					whatsAppHeader.style.display = 'block';
+					whatsAppFooter.style.display = 'block';
 				}
 			} else if (hour == 16) {
 				if (min < 46) {
-					whatsApp.style.display = 'block';
+					whatsAppIcon.style.display = 'inline-block';
+					whatsAppHeader.style.display = 'block';
+					whatsAppFooter.style.display = 'block';
 				}
 			} else {
-				whatsApp.style.display = 'block';
+				whatsAppIcon.style.display = 'inline-block';
+				whatsAppHeader.style.display = 'block';
+				whatsAppFooter.style.display = 'block';
 			}
 		}
 	}

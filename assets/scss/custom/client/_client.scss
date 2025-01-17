@@ -333,15 +333,33 @@ body:not(.currency-gbp) .navPages > ul > li.navPages-item-category {
 
 .navUser-item--custom-desktop {
 	display: none;
-	@include breakpoint("large") {
+	@include breakpoint("xlarge") {
 		display: inline-block;
 	}
 }
 
 .navUser-item--custom-mobile {
 	display: inline-block;
-	@include breakpoint("large") {
+	@include breakpoint("xlarge") {
 		display: none;
+	}
+}
+
+@media (max-width: 1260px) {	
+	.navUser-item--whatsapp {
+		display: none !important;
+	}
+}
+
+.navUser-item--whatsapp {
+	@include breakpoint("large") {
+		display: inline-block;
+	}
+}
+
+.navUser-item--custom .whatsappChatButton {
+	@include breakpoint("large") {
+		display: none !important;
 	}
 }
 

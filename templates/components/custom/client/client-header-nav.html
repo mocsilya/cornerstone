@@ -1,4 +1,4 @@
-        <li class="navUser-item navUser-item--custom navUser-item--custom-mobile">
+		<li class="navUser-item navUser-item--custom navUser-item--custom-mobile">
             <a class="navUser-action navUser-action--custom has-dropdown"
 			   href="#"
                data-dropdown="customDropdown"
@@ -12,6 +12,11 @@
 	            <li class="dropdown-menu-item">
 					<span>Talk to our experts!</span>
 					<div><a href="tel:{{strReplace settings.phone_number ' ' ''}}"><strong>{{settings.phone_number}}</strong></a></div>
+					<div class="whatsapp whatsappChatButton" style="display:none;">
+						<a aria-label="Chat on WhatsApp" href="https://wa.me/447716899970" target="_blank">
+							<img width="207" height="48" alt="Chat on WhatsApp" src="https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/original/image-manager/whatsappbuttongreenlarge.png?t=1736441803">
+						</a>
+					</div>
 				</li>
 	        </ul>
         </li>
@@ -19,3 +24,12 @@
 			<span>Talk to our experts!</span>
 			<div><a href="tel:{{strReplace settings.phone_number ' ' ''}}"><strong>{{settings.phone_number}}</strong></a></div>
 		</li>
+        <li class="navUser-item navUser-item--custom navUser-item--custom-desktop navUser-item--whatsapp" style="display:none;">
+            <a class="navUser-action navUser-action--custom"
+			   href="https://wa.me/447716899970" 
+			   target="_blank"
+               aria-label="Chat on WhatsApp"
+            >
+				<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-whatsapp" /></svg></i></span>
+            </a>
+        </li>
