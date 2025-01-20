@@ -112,6 +112,7 @@
 	var whatsAppIcon = document.querySelector('.navUser-item--whatsapp');
 	var whatsAppHeader = document.querySelector('.navUser-item--custom .whatsappChatButton');
 	var whatsAppFooter = document.querySelector('.footer-info-col .whatsappChatButton');
+	var whatsAppPage = document.querySelector('.page-content .whatsappChatButton');
 	if (day != 'Sun') {
 		hour = {{moment "now" "H"}};
 		min = {{moment "now" "m"}};
@@ -121,17 +122,26 @@
 					whatsAppIcon.style.display = 'inline-block';
 					whatsAppHeader.style.display = 'block';
 					whatsAppFooter.style.display = 'block';
+					if (whatsAppPage) {
+						whatsAppPage.style.display = 'block';
+					}
 				}
 			} else if (hour == 16) {
 				if (min < 46) {
 					whatsAppIcon.style.display = 'inline-block';
 					whatsAppHeader.style.display = 'block';
 					whatsAppFooter.style.display = 'block';
+					if (whatsAppPage) {
+						whatsAppPage.style.display = 'block';
+					}
 				}
 			} else {
 				whatsAppIcon.style.display = 'inline-block';
 				whatsAppHeader.style.display = 'block';
 				whatsAppFooter.style.display = 'block';
+				if (whatsAppPage) {
+					whatsAppPage.style.display = 'block';
+				}
 			}
 		}
 	}
