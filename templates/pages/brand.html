@@ -9,6 +9,8 @@ customer:
     wishlists:
         limit: 10
 ---
+{{inject 'apiToken' settings.storefront_api.token}}
+{{inject "cardVariantData" theme_settings.custom_card_variant_data}}
 {{inject "brandProductsPerPage" theme_settings.brandpage_products_per_page}}
 {{#partial "head"}}
     {{#if pagination.brand.previous}}
@@ -46,18 +48,24 @@ customer:
         {{> components/brand/sidebar}}
     </aside>
 	{{/if}}
-    <div class="page-content" id="product-listing-container">
-        {{#if brand.search_error }}
-            <p>{{lang 'search.errorMessage'}}</p>
-        {{else}}
-            {{#if brand.products}}
-                {{> components/brand/product-listing}}
-            {{else}}
-                <p>{{lang 'brands.no_products'}}</p>
-            {{/if}}
-            {{{region name="brand_below_content"}}}
-        {{/if}}
+	
+    <div class="page-content">
+		{{{region name="brand_above_content"}}}
+	    <div class="page-content-listings" id="product-listing-container">
+	        {{#if brand.search_error }}
+	            <p>{{lang 'search.errorMessage'}}</p>
+	        {{else}}
+	            {{#if brand.products}}
+	                {{> components/brand/product-listing}}
+	            {{else}}
+	                <p>{{lang 'brands.no_products'}}</p>
+	            {{/if}}
+	            {{{region name="brand_below_content"}}}
+	        {{/if}}
+	    </div>
+        {{{region name="brand_below_content"}}}
     </div>
+
 </div>
 
 {{/partial}}

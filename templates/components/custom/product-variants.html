@@ -1,6 +1,6 @@
 <div class="variant-data">
 	<div class="container">
-		<div class="table-wrap">
+		<div class="table-scroll">
 			<table class="table">
 				<thead>
 					<tr>
@@ -8,12 +8,13 @@
 					    {{#each gql.data.site.product.productOptions.edges}}
 					        {{#with node}}
 								{{#if isVariantOption}}
-					            	<th class="th-option th-{{dashcase (lowercase (sanitize displayName))}}">{{displayName}}</th>
+					            	<th class="th-option th-{{dashcase (lowercase (sanitize displayName))}}">{{displayName}}:</th>
 								{{/if}}
 					        {{/with}}
 					    {{/each}}
-						<th class="th-stock">Stock</th>
-					    <th class="th-price">Price{{#if product.price.without_tax}} (Ex.{{else}} (Inc.{{/if}} {{settings.tax_label}})</th>
+						<th class="th-weight">{{lang 'products.weight'}}</th>
+						<th class="th-stock">{{lang 'products.current_stock'}}</th>
+					    <th class="th-price">{{lang 'cart.checkout.price'}}{{#if product.price.without_tax}} {{{before (split (lang 'products.price_without_tax') ' ') 1}}}{{else}}  {{{before (split (lang 'products.price_with_tax') ' ') 1}}}{{/if}} {{settings.tax_label}})</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -30,6 +31,9 @@
 					                {{/each}}
 					            {{/with}}
 					        {{/each}}
+							<td class="td-weight">
+								{{weight.value}}{{weight.unit}}</span>
+							</td>
 							<td class="td-stock">
 								{{#if isPurchasable}}
 									<span class="td-stock-value{{#if inventory.aggregated.availableToSell '==' 0}} td-stock-out" style="display: none;"{{else}} td-stock-in"{{/if}}>{{inventory.aggregated.availableToSell}}</span>

@@ -2142,9 +2142,9 @@
       },
       {
         "type": "checkbox",
-        "label": "i18n.ProductTitleLeft",
+        "label": "i18n.ProductTitleRight",
         "force_reload": true,
-        "id": "custom_product_title_left"
+        "id": "custom_product_title_right"
       },
       {
         "type": "checkbox",
@@ -2273,11 +2273,15 @@
         "options": [
           {
             "value": "underneath",
-            "label": "Underneath"
+            "label": "Under"
           },
           {
             "value": "side",
-            "label": "Side Column"
+            "label": "Side"
+          },
+          {
+            "value": "sticky",
+            "label": "Sticky"
           }
         ]
       },

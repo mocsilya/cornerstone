@@ -24,6 +24,7 @@ import sidebarHelper from './custom/sidebar-helper';
 import scrollClick from './custom/scroll-click';
 import boxSearch from './custom/box-search';
 import accordionHelper from './custom/accordion-helper';
+import scrollUrl from './custom/scroll-url';
 
 export default class Global extends PageManager {
     onReady() {
@@ -49,5 +50,6 @@ export default class Global extends PageManager {
 		scrollClick();
 		boxSearch();
 		accordionHelper();
+		scrollUrl();
     }
 }

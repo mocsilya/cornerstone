@@ -53,6 +53,18 @@
 	{{{region name="product_view_top--global"}}}
 	{{{region name="product_view_top"}}}
     <section class="productView-images productView-images-{{theme_settings.custom_product_gallery_size}}" data-image-gallery>
+		{{#and (if theme_settings.custom_product_description_location '===' 'sticky') (unless theme_settings.custom_product_title_right)}}
+		<div class="producView-sticky-header">
+			{{#unless (getVar 'payment') '===' 'active'}}
+				{{#if (getVar 'breadcrumb') '===' 'active'}}
+					{{> components/custom/breadcrumbs-product}}
+				{{else}}
+					{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+				{{/if}}
+			{{/unless}}
+			<h1 class="productView-title">{{product.title}}</h1>
+		</div>
+		{{/and}}
         {{!--
             Note that these image sizes are coupled to image sizes used in /assets/js/theme/common/product-details.js
             for variant/rule image replacement
@@ -101,11 +113,11 @@
 			{{/if}}
 		{{/each}}
 		{{#if product.videos.list.length}}
-			{{#if theme_settings.custom_product_description_location '==' 'underneath'}}
+			{{#unless theme_settings.custom_product_description_location '==' 'side'}}
 				{{> components/custom/video-player product.videos}}
-        	{{/if}}
+        	{{/unless}}
 		{{/if}}
-		{{#and product.videos.list.length (if theme_settings.custom_product_description_location '==' 'underneath')}}
+		{{#and product.videos.list.length (unless theme_settings.custom_product_description_location '==' 'side')}}
 			<ul class="productView-thumbnails"{{#gt product.images.length 3}} data-slick='{
                 "infinite": false,
                 "mobileFirst": true,
@@ -153,7 +165,7 @@
                 </li>
             {{/each}}
 		{{/if}}
-		{{#and product.videos.list.length (if theme_settings.custom_product_description_location '==' 'underneath')}}
+		{{#and product.videos.list.length (unless theme_settings.custom_product_description_location '==' 'side')}}
 		</ul>
 		{{else}}
 			{{#if (getVar "thumbs") '===' 'show'}}
@@ -182,7 +194,9 @@
 		{{/if}}
 		{{> components/custom/client/client-product-gallery-bottom}}
     </section>
-
+	{{#if theme_settings.custom_product_description_location '===' 'sticky'}}
+	<div class="productView-details productView-details-sticky productView-details-{{theme_settings.custom_product_gallery_size}}">
+	{{/if}}
     <section class="productView-details{{#if product.brand}} productView-details-{{first (split product.brand.name ' ')}}{{/if}} productView-details-{{theme_settings.custom_product_gallery_size}} product-data">
         <div class="productView-product">
 			{{> components/custom/client/client-product-top}}
@@ -190,7 +204,7 @@
 			{{{region name="product_top--global"}}}
 			</div>
 			{{{region name="product_top"}}}
-			{{#if theme_settings.custom_product_title_left}}
+			{{#if theme_settings.custom_product_title_right}}
             <h1 class="productView-title">{{product.title}}</h1>
 			{{/if}}
             {{#if product.brand}}
@@ -238,6 +252,7 @@
             </div>
 			<div class="productView-below-price-global">
 			{{{region name="product_below_price--global"}}}
+			{{> components/custom/client/client-product-price}}
 			</div>
             {{{region name="product_below_price"}}}
             <div class="productView-rating">
@@ -276,19 +291,36 @@
                 <dd class="productView-info-value sku-value"{{#unless product.sku}} style="display: none;"{{/unless}} data-product-sku>{{product.sku}}</dd>
                 <dt class="productView-info-name upc-label"{{#unless product.upc}} style="display: none;"{{/unless}}>{{lang 'products.upc'}}</dt>
                 <dd class="productView-info-value upc-value"{{#unless product.upc}} style="display: none;"{{/unless}} data-product-upc>{{product.upc}}</dd>
+                <dt class="productView-info-name mpn-label"{{#unless product.mpn}} style="display: none;"{{/unless}}>MPN:</dt>
+                <dd class="productView-info-value mpn-value"{{#unless product.mpn}} style="display: none;"{{/unless}} data-product-mpn>{{product.mpn}}</dd>
                 {{#if product.condition}}
                     <dt class="productView-info-name condition-label">{{lang 'products.condition'}}</dt>
                     <dd class="productView-info-value condition-value">{{product.condition}}</dd>
                 {{/if}}
-                {{#if product.availability}}
-                    <dt class="productView-info-name availability-label availability-custom">{{lang 'products.availability'}}</dt>
-                    <dd class="productView-info-value availability-value availability-custom">{{product.availability}}</dd>
+				{{#if theme_settings.custom_product_availability}}
+					{{#if product.availability}}
+						{{#contains product.availability "//"}}
+							<dt class="productView-info-name availability-label availability-custom availability-admin availability-data">{{lang 'products.availability'}}</dt>
+					        <dd class="productView-info-value availability-value availability-custom availability-admin availability-data" data-product-availabilty="{{before (split product.availability '//') 1}}">{{after (split product.availability '//') 1}}</dd>
+				        {{else}}
+							<dt class="productView-info-name availability-label availability-custom availability-admin availability-nodata">{{lang 'products.availability'}}</dt>
+					        <dd class="productView-info-value availability-value availability-custom availability-admin availability-nodata">{{product.availability}}</dd>
+				        {{/contains}}
+					{{else}}
+						{{#contains theme_settings.custom_product_availability "//"}}
+							<dt class="productView-info-name availability-label availability-custom availability-theme availability-data">{{lang 'products.availability'}}</dt>
+			            	<dd class="productView-info-value availability-value availability-custom availability-theme availability-data" data-product-availability="{{before (split theme_settings.custom_product_availability '//') 1}}">{{after (split theme_settings.custom_product_availability '//') 1}}</dd>
+						{{else}}
+							<dt class="productView-info-name availability-label availability-custom availability-theme availability-nodata">{{lang 'products.availability'}}</dt>
+							<dd class="productView-info-value availability-value availability-custom availability-theme availability-nodata">{{theme_settings.custom_product_availability}}</dd>
+						{{/contains}}
+	                {{/if}}
 				{{else}}
-					{{#if theme_settings.custom_product_availability}}
-						<dt class="productView-info-name availability-label availability-default">{{lang 'products.availability'}}</dt>
-						<dd class="productView-info-value availability-value availability-default">{{theme_settings.custom_product_availability}}</dd>
+					{{#if product.availability}}
+			            <dt class="productView-info-name availability-label availability-default">{{lang 'products.availability'}}</dt>
+				        <dd class="productView-info-value availability-value availability-default">{{product.availability}}</dd>
 					{{/if}}
-                {{/if}}
+				{{/if}}
                 {{#all product.weight theme_settings.show_product_weight}}
                     <dt class="productView-info-name weight-label">{{lang 'products.weight'}}</dt>
                     <dd class="productView-info-value weight-value" data-product-weight>{{product.weight}}</dd>
@@ -354,9 +386,35 @@
                 {{/if}}
 				{{#if (getVar "b2b-prices") '===' 'show'}}
                 {{#if settings.bulk_discount_enabled}}
+				<div class="productView-info-bulkPricingWrap">
                     <div class="productView-info-bulkPricing">
                         {{> components/products/bulk-discount-rates bulk_discount_rates=product.bulk_discount_rates}}
                     </div>
+					{{#if product.bulk_discount_rates.length}}
+						{{#if product.can_purchase}}
+						<div class="productView-info-bulkPricingButtons">
+							<ul>
+							{{#each product.bulk_discount_rates}}
+								<li>
+									<div class="bulkpricing-button">
+										<a id="button-bulk-{{@index}}" class="button button--primary" data-bulkqty="{{min}}" href="#">
+											<span class="bulkpricing-icon">
+												<i class="icon" aria-hidden="true">
+													<svg>
+														<use xlink:href="#icon-{{../theme_settings.custom_header_cart_type}}{{#if ../theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" />
+													</svg>
+												</i>
+											</span>
+											<span class="bulkpricing-text"><strong>+ {{min}}</strong></span>
+										</a>
+									</div>
+								</li>
+							{{/each}}
+							</ul>
+						</div>
+						{{/if}}
+					{{/if}}
+				</div>
                 {{/if}}
 				{{/if}}
             </dl>
@@ -377,7 +435,7 @@
 					<p class="alertBox-column alertBox-message">{{product.release_date}}</p>
 				</div>
             {{/if}}
-            <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
+            <form id="add-to-cart-form" class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
                   data-cart-item-add>
                 <input type="hidden" name="action" value="add">
                 <input type="hidden" name="product_id" value="{{product.id}}"/>
@@ -439,10 +497,22 @@
 			{{/filter}}
         </div>
     </section>
-	{{#if theme_settings.custom_product_description_location '===' 'underneath'}}
-		{{{region name="product_view_bottom"}}}
-		{{{region name="product_view_bottom--global"}}}
+	{{#if theme_settings.custom_product_description_location '===' 'sticky'}}
+	</div>
 	{{/if}}
+	{{#unless theme_settings.custom_product_description_location '===' 'side'}}
+		{{#if theme_settings.custom_product_description_location '===' 'sticky'}}
+		<div class="productView-block-sticky productView-block-{{theme_settings.custom_product_gallery_size}}">
+			{{{region name="product_view_bottom"}}}
+			{{{region name="product_view_bottom--global"}}}
+			{{> components/custom/client/client-product-view}}
+		</div>
+		{{else}}
+			{{{region name="product_view_bottom"}}}
+			{{{region name="product_view_bottom--global"}}}
+			{{> components/custom/client/client-product-view}}
+		{{/if}}
+	{{/unless}}
     <article class="productView-description productView-description-{{theme_settings.custom_product_description_location}} productView-description-{{theme_settings.custom_product_gallery_size}}">
         {{#if theme_settings.show_product_details_tabs}}
             {{> components/products/description-tabs}}
@@ -450,10 +520,11 @@
             {{> components/products/description}}
         {{/if}}
     </article>
-	{{#unless theme_settings.custom_product_description_location '===' 'underneath'}}
+	{{#if theme_settings.custom_product_description_location '===' 'side'}}
 		{{{region name="product_view_bottom"}}}
 		{{{region name="product_view_bottom--global"}}}
-	{{/unless}}
+		{{> components/custom/client/client-product-view}}
+	{{/if}}
 </div>
 {{#if theme_settings.custom_product_addtocart_modal}}
 <div id="previewModal" class="modal modal--large" data-reveal>

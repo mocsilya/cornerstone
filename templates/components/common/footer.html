@@ -89,7 +89,8 @@
 			{{#if theme_settings.custom_footer_show_page_columns}}
 			{{assignVar "pageCount" 0}}
 			{{#each pages}}
-				{{#unless (lowercase name) '==' 'header'}}	
+				{{#or (if (lowercase name) '===' 'header') (if (lowercase name) '===' 'iframe')}}
+				{{else}}
 				{{#if children}}
 					<!-- {{incrementVar "pageCount"}} -->
 		            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
@@ -115,19 +116,20 @@
 						{{#if (getVar "pageCount") '===' 12}}{{{region name="footer_page_12--global"}}}{{/if}}
 		            </article>
 				{{/if}}
-				{{/unless}}
+				{{/or}}
 			{{/each}}
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
                 <h3 class="footer-info-heading">{{lang 'footer.navigate'}}</h3>
                 <ul class="footer-info-list">
                     {{#each pages}}
-						{{#unless (lowercase name) '==' 'header'}}	
+						{{#or (if (lowercase name) '===' 'header') (if (lowercase name) '===' 'iframe')}}
+						{{else}}
 						{{#unless children}}
                         <li class="link-{{dashcase (lowercase (sanitize name))}}">
                             <a href="{{url}}">{{name}}</a>
                         </li>
 						{{/unless}}
-						{{/unless}}
+						{{/or}}
                     {{/each}}
 					{{#if (getVar "b2b-products") '===' 'show'}}
 						{{#if theme_settings.custom_footer_show_sitemap}}
@@ -191,11 +193,12 @@
                 <h3 class="footer-info-heading">{{lang 'footer.info'}}</h3>
                 <ul class="footer-info-list">
                     {{#each pages}}
-					{{#unless (lowercase name) '==' 'header'}}
+					{{#or (if (lowercase name) '===' 'header') (if (lowercase name) '===' 'iframe')}}
+					{{else}}
                         <li class="link-{{dashcase (lowercase (sanitize name))}}">
                             <a href="{{url}}">{{name}}</a>
                         </li>
-					{{/unless}}
+					{{/or}}
                     {{/each}}
 					{{#if (getVar "b2b-products") '===' 'show'}}
 						{{#if theme_settings.custom_footer_show_sitemap}}
@@ -301,7 +304,7 @@
                 {{#all settings.phone_number theme_settings.custom_phone_show}}
                     <p class="footer-phone">
 						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-phone{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i> 
-						<strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong>
+						<a href="tel:{{strReplace settings.phone_number ' ' ''}}"><strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong></a>
 					</p>
                 {{/all}}
                 {{#if theme_settings.custom_email_show}}

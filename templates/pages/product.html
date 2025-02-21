@@ -17,6 +17,12 @@ customer:
 gql: "query productById($productId: Int!) {
     site {
         product(entityId: $productId) {
+			inventory {
+                aggregated {
+                    availableToSell
+                }
+                hasVariantInventory
+            }
             variants(first: 99) {
                 edges {
                     node {
@@ -34,6 +40,10 @@ gql: "query productById($productId: Int!) {
                         	}
 						}
 						isPurchasable
+						weight {
+						    unit
+						    value
+						}
 						inventory {
 						    aggregated {
 						        availableToSell
@@ -76,7 +86,7 @@ gql: "query productById($productId: Int!) {
 }"
 ---
 {{inject 'productId' product.id}}
-
+{{inject "productPriceFrom" theme_settings.custom_price_from}}
 {{#partial "hero"}}
 {{assignVar "payment" "inactive"}}
 {{assignVar "breadcrumb" "inactive"}}
@@ -89,18 +99,38 @@ gql: "query productById($productId: Int!) {
 	{{assignVar "breadcrumb" "active"}}
 {{/filter}}
 {{{region name="product_below_menu"}}}
-<div class="container container-hero">
-	<div class="page-header product-header">
-    	{{#unless theme_settings.custom_product_title_left}}<h1 class="page-heading">{{product.title}}</h1>{{/unless}}
-		{{#unless (getVar 'payment') '===' 'active'}}
-			{{#if (getVar 'breadcrumb') '===' 'active'}}
-				{{> components/custom/breadcrumbs-product}}
-			{{else}}
-				{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
-			{{/if}}
-		{{/unless}}
+
+{{#if theme_settings.custom_product_description_location '===' 'sticky'}}
+	{{#if theme_settings.custom_product_title_right}}
+		<div class="container container-hero">
+			<div class="page-header product-header">
+		    	{{#unless (getVar 'payment') '===' 'active'}}
+					{{#if (getVar 'breadcrumb') '===' 'active'}}
+						{{> components/custom/breadcrumbs-product}}
+					{{else}}
+						{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+					{{/if}}
+				{{/unless}}
+			</div>
+		</div>
+	{{/if}}
+{{else}}
+	<div class="container container-hero">
+		<div class="page-header product-header">
+	    	{{#unless theme_settings.custom_product_title_right}}
+					<h1 class="page-heading">{{product.title}}</h1>
+			{{/unless}}
+			{{#unless (getVar 'payment') '===' 'active'}}
+				{{#if (getVar 'breadcrumb') '===' 'active'}}
+					{{> components/custom/breadcrumbs-product}}
+				{{else}}
+					{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+				{{/if}}
+			{{/unless}}
+		</div>
 	</div>
-</div>
+{{/if}}
+
 {{/partial}}
 
 {{#partial "page"}}
@@ -113,7 +143,13 @@ gql: "query productById($productId: Int!) {
 		{{#if (getVar "b2b-products") '===' 'show'}}
         	{{> components/products/product-view}}
 		{{/if}}
-        {{{region name="product_below_content"}}}
+		{{#if theme_settings.custom_product_description_location '===' 'sticky'}}
+			<div class="productView-block-sticky productView-block-{{theme_settings.custom_product_gallery_size}}">
+        		{{{region name="product_below_content"}}}
+			</div>
+		{{else}}
+			{{{region name="product_below_content"}}}
+		{{/if}}
     </div>
 
     {{> components/products/schema}}
@@ -139,8 +175,43 @@ gql: "query productById($productId: Int!) {
 			{{/if}}
 		{{/if}}
 		{{> components/custom/client/client-product-variants}}
+		{{#if theme_settings.custom_product_question}}
+			{{#unless theme_settings.custom_product_question_tab}}
+				<div id="product_question" class="{{#if theme_settings.custom_product_description_location '===' 'sticky'}}product-question-sticky{{else}}product-question-unstuck{{/if}} product-question-{{theme_settings.custom_product_gallery_size}}">
+					<div class="container">
+						<div class="product-question-title">
+							<h4 class="productView-title">{{theme_settings.custom_product_question}}</h4>
+						</div>
+						<div id="iframe_product">
+						    <iframe id="iframe_product--iframe" src="{{settings.base_url}}/iframe/?rma={{encodeURI (sanitize product.title)}}{{#if product.sku}}%20({{encodeURI (sanitize product.sku)}}){{/if}}" allowfullscreen frameborder="0" scrolling="no" style="border: 0;"></iframe>
+						</div>
+					</div>
+				</div>
+			{{/unless}}
+			<script>
+			var iframe = document.getElementById('iframe_product--iframe');
+			iframe.addEventListener("load", function() {
+				var iframe_contents = iframe.contentWindow.document;
+				if (iframe_contents) {
+					var iframe_form = iframe_contents.getElementById('form_contact'); 
+					if (iframe_form.classList.contains('with-company')) {
+						console.log('recaptcha found');
+						iframe.classList.add('with-company');
+					}
+					if (iframe_form.classList.contains('with-manualcaptcha')) {
+						console.log('recaptcha found');
+						iframe.classList.add('with-manualcaptcha');
+					}
+					if (iframe_form.classList.contains('with-recaptcha')) {
+						console.log('recaptcha found');
+						iframe.classList.add('with-recaptcha');
+					}
+				}	
+			});
+			</script>
+		{{/if}}
 		{{#or product.related_products product.similar_by_views}}
-			<div class="related-similar">
+			<div class="related-similar {{#if theme_settings.custom_product_description_location '===' 'sticky'}}related-similar-sticky{{else}}related-similar-unstuck{{/if}} related-similar-{{theme_settings.custom_product_gallery_size}}">
 				<div class="container">
 					{{> components/products/tabs}}
 				</div>
@@ -149,5 +220,29 @@ gql: "query productById($productId: Int!) {
 		{{> components/custom/client/client-product-related}}
 	{{/if}}
 {{/unless}}
+{{#if product.bulk_discount_rates.length}}
+	{{#if product.can_purchase}}
+	<script>
+		const form = document.getElementById('add-to-cart-form');
+		const formWrapper = document.getElementById('add-to-cart-wrapper');
+		const formQty = document.querySelector('.form-input--incrementTotal');
+		let buttons = document.querySelectorAll('.bulkpricing-button .button');
+		let timeStart = 0;
+		for (let i = 0; i < buttons.length; i++) {
+			buttons[i].addEventListener("click", function(e) {
+				clearTimeout(timeStart);
+				e.preventDefault();
+				const buttonQty = buttons[i].getAttribute('data-bulkqty');
+				formQty.value = buttonQty;
+			    timeStart = setTimeout(function() {
+					if (formWrapper.style.display != 'none') {
+						form.submit();
+					}
+			    }, 500);
+			});
+		}
+	</script>
+	{{/if}}
+{{/if}}
 {{/partial}}
 {{> layout/base}}

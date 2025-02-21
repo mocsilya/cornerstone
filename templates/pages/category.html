@@ -10,6 +10,8 @@ customer:
     wishlists:
         limit: 10
 ---
+{{inject 'apiToken' settings.storefront_api.token}}
+{{inject "cardVariantData" theme_settings.custom_card_variant_data}}
 {{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
 {{#partial "head"}}
     {{#if pagination.category.previous}}
@@ -57,7 +59,7 @@ customer:
 		{{/if}}
 	{{/if}}
 	{{#unless theme_settings.hide_category_page_heading }}
-		    <h1 class="page-heading">{{#contains head.title " | "}}{{{before (split head.title ' | ') 1}}}{{else}}{{category.name}}{{/contains}}</h1>
+		    <h1 class="page-heading">{{#contains head.title " | "}}{{{first (before (split head.title ' | ') 1)}}}{{else}}{{category.name}}{{/contains}}</h1>
 	{{/unless}}
 	{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 	</div>
@@ -65,18 +67,21 @@ customer:
 {{/partial}}
 
 {{#partial "page"}}
+{{{region name="category_below_header--global"}}}
 {{{region name="category_below_header"}}}
-<div class="category-description{{#if category.image}} category-description-image{{/if}}{{#if category.description}}{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}{{/if}}">
-	{{{category.description}}}
-</div>
-{{#if category.description}}
-	{{#if theme_settings.custom_category_description_trim}}
-		<div class="category-description-button" style="display: none;">
-			<a class="button button--secondary">
-				<span class="category-description-more">Read More</span>
-				<span class="category-description-less">Read Less</span>
-			</a>
-		</div>
+{{#if theme_settings.custom_category_description_position '==' 'top'}}
+	<div class="category-description{{#if category.image}} category-description-image{{/if}}{{#if category.description}}{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}{{/if}}">
+		{{{category.description}}}
+	</div>
+	{{#if category.description}}
+		{{#if theme_settings.custom_category_description_trim}}
+			<div class="category-description-button" style="display: none;">
+				<a class="button button--secondary">
+					<span class="category-description-more">{{lang 'search.faceted.show-more'}}</span>
+					<span class="category-description-less">{{lang 'search.faceted.show-less'}}</span>
+				</a>
+			</div>
+		{{/if}}
 	{{/if}}
 {{/if}}
 
@@ -174,27 +179,45 @@ customer:
     	{{/if}}
     {{/if}}
 	{{/if}}
-
-    <div class="page-content" id="product-listing-container">
+    <div class="page-content">
 		{{{region name="category_above_content"}}}
-        {{> components/category/product-listing}}
+	    <div class="page-content-listings" id="product-listing-container">
+	        {{> components/category/product-listing}}
+	    </div>
         {{{region name="category_below_content"}}}
     </div>
 {{else}}
-    <div class="page-content" id="product-listing-container">
-	{{{region name="category_above_content"}}}
-		{{#unless category.subcategories}}
-        <p data-no-products-notification
-           role="alert"
-           aria-live="assertive"
-           tabindex="-1"
-        >
-            {{lang 'categories.no_products'}}
-        </p>
-		{{/unless}}
-	{{{region name="category_below_content"}}}
-    </div>
+	<div class="page-content">
+		{{{region name="category_above_content"}}}
+		<div class="page-content-listings" id="product-listing-container">
+			{{#unless category.subcategories}}
+		    <p data-no-products-notification
+		       role="alert"
+		       aria-live="assertive"
+		       tabindex="-1"
+		    >
+		        {{lang 'categories.no_products'}}
+		    </p>
+			{{/unless}}
+		</div>
+		{{{region name="category_below_content"}}}
+	</div>
 {{/and}}
+{{#if theme_settings.custom_category_description_position '==' 'bottom'}}
+	<div class="category-description{{#if category.image}} category-description-image{{/if}}{{#if category.description}}{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}{{/if}}">
+		{{{category.description}}}
+	</div>
+	{{#if category.description}}
+		{{#if theme_settings.custom_category_description_trim}}
+			<div class="category-description-button" style="display: none;">
+				<a class="button button--secondary">
+					<span class="category-description-more">{{lang 'search.faceted.show-more'}}</span>
+					<span class="category-description-less">{{lang 'search.faceted.show-less'}}</span>
+				</a>
+			</div>
+		{{/if}}
+	{{/if}}
+{{/if}}
 {{{region name="category_below_all"}}}
 </div>
 

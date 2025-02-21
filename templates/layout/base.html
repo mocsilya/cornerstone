@@ -49,7 +49,7 @@
         {{~inject 'carouselContentAnnounceMessage' (lang 'carousel.content_announce_message')}}
 		{{> components/custom/client/client-head}}
     </head>
-    <body class="page-{{page_type}}{{#if page_type '==' 'product'}} page-{{dashcase (lowercase (sanitize product.title))}}{{/if}}{{#if page_type '==' 'page'}}{{#if (lowercase page.title) '==' 'header'}} page-headerinfo{{else}} page-{{dashcase (lowercase (sanitize page.title))}}{{/if}}{{/if}}{{#if page_type '==' 'page_contact_form'}} page-{{dashcase (lowercase (sanitize page.title))}}{{/if}}{{#if page_type '==' 'category'}} page-{{dashcase (lowercase (sanitize category.name))}}{{/if}}{{#if page_type '==' 'brand'}} page-{{dashcase (lowercase (sanitize brand.name))}}{{/if}} currency-{{dashcase (lowercase (sanitize currency_selector.active_currency_code))}}{{#if theme_settings.custom_header_show_bar}} with-bar{{/if}}{{#if customer.id}} user-registered{{#if customer_group_name}} user-{{dashcase (lowercase (sanitize customer_group_name))}}{{/if}}{{else}} user-guest{{/if}}">
+    <body class="page-{{page_type}}{{#if page_type '==' 'product'}} page-{{dashcase (lowercase (sanitize product.title))}}{{/if}}{{#if page_type '==' 'page'}}{{#if (lowercase page.title) '==' 'header'}} page-headerinfo{{else}} page-{{dashcase (lowercase (sanitize page.title))}}{{/if}}{{/if}}{{#if page_type '==' 'page_contact_form'}} page-{{dashcase (lowercase (sanitize page.title))}}{{/if}}{{#if page_type '==' 'category'}} page-{{dashcase (lowercase (sanitize category.name))}}{{/if}}{{#if page_type '==' 'brand'}} page-{{dashcase (lowercase (sanitize brand.name))}}{{/if}} currency-{{dashcase (lowercase (sanitize currency_selector.active_currency_code))}}{{#if theme_settings.custom_header_show_bar}} with-bar{{/if}}{{#if theme_settings.custom_header_fixed}} body-fixed{{else}} body-unfixed{{/if}}{{#if customer.id}} user-registered{{#if customer_group_name}} user-{{dashcase (lowercase (sanitize customer_group_name))}}{{/if}}{{else}} user-guest{{/if}}">
 		{{assignVar "b2b-products" "show"}}
 		{{assignVar "b2b-prices" "show"}}
 		{{#if theme_settings.custom_b2b}}
@@ -73,10 +73,21 @@
 		{{/if}}
 		{{> components/custom/client/client-body}}
         <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
-
-        {{> components/common/header }}
+		{{#if page_type '==' 'page_contact_form'}}
+			{{#unless (lowercase page.title) '==' 'iframe'}}
+				{{> components/common/header }}
+			{{/unless}}
+		{{else}}
+			{{> components/common/header }}
+		{{/if}}
         {{> components/common/body }}
-        {{> components/common/footer }}
+		{{#if page_type '==' 'page_contact_form'}}
+			{{#unless (lowercase page.title) '==' 'iframe'}}
+				{{> components/common/footer }}
+			{{/unless}}
+		{{else}}
+			{{> components/common/footer }}
+		{{/if}}
 		
 		{{#unless settings.shopper_consent_tracking_enabled}}
 			{{#if settings.is_eu_ip_address}}
@@ -117,6 +128,8 @@
 			{{> components/custom/client/client-script-product}}
 		{{else if page_type "==" "cart"}}
 			{{> components/custom/client/client-script-cart}}
+		{{else if page_type "==" "page"}}
+			{{> components/custom/client/client-script-page}}
 		{{/if}}
 		{{> components/custom/client/client-script-global}}
     </body>

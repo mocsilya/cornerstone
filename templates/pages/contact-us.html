@@ -8,6 +8,7 @@ customer:
 ---
 
 {{#partial "hero"}}
+{{#unless (lowercase page.title) '===' 'iframe'}}
 <div class="container container-hero">
 	{{#if theme_settings.custom_page_header_image_contact}}
 		<div class="page-header contact-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
@@ -21,6 +22,7 @@ customer:
 	{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
 	</div>
 </div>
+{{/unless}}
 {{/partial}}
 
 {{#partial "page"}}
@@ -50,13 +52,47 @@ customer:
         {{#if forms.contact.success}}
             <div id="contact-us-success">{{{lang 'forms.contact_us.successful' shopPath=urls.home}}}</div>
         {{else}}
-            <p>{{{page.content}}}</p>
+			{{#unless (lowercase page.title) '==' 'iframe'}}
+				<p>{{{page.content}}}</p>
+			{{/unless}}
             {{> components/page/contact-us-form}}
         {{/if}}
 	{{{region name="page_builder_bottom"}}}
     </div>
 {{{region name="page_builder_content_editor_area_bottom"}}}
 </section>
+
+
+{{#if forms.contact.rma}}
+	{{#unless (lowercase page.title) '==' 'iframe'}}
+		<script>
+			const queryString = window.location.search;
+			const urlParams = new URLSearchParams(queryString);
+			const getParam = urlParams.get('rma');
+			if (getParam) {
+				const hideRMA = "hide";
+				const oldLabel = document.getElementById('label_rma');
+				const oldVal = document.getElementById('contact_rma');
+				if (getParam == hideRMA) {
+					oldLabel.parentNode.style.display = "none";
+				} else {
+					const newLabel = oldLabel.innerHTML = "{{lang 'cart.checkout.item'}} / {{lang 'products.sku'}}";
+					const newVal = oldVal.value = getParam;
+				}
+			}
+		</script>
+	{{else}}
+		<script>
+			const queryString = window.location.search;
+			const urlParams = new URLSearchParams(queryString);
+			const getParam = urlParams.get('rma');
+			if (getParam) {
+				const oldVal = document.getElementById('contact_rma');
+				const newVal = oldVal.value = getParam;
+			}
+		</script>
+	{{/unless}}
+{{/if}}
 
 {{/partial}}
 

@@ -545,7 +545,7 @@
             "rma": "RMA Number",
             "question": "Comments/Questions",
             "submit": "Submit Form",
-            "successful": "We've received your feedback and will respond shortly if required. <a href=\"{shopPath}\">Continue</a>.",
+            "successful": "We've received your feedback and will respond shortly if required.",
             "manual_captcha_instruction": "Please answer the question below for additional verification."
         },
         "create_account": {
@@ -805,10 +805,10 @@
             "view": "Buy in bulk and save",
             "modal_title": "Bulk discount rates",
             "instructions": "Below are the available bulk discount rates for each individual item when you purchase a certain amount",
-            "range": "Buy {min} {max, plural, =0{or above} other {- #}}",
-            "percent": "and get {discount} off",
-            "price": "and get {discount} off",
-            "fixed": "and pay only {discount} each"
+            "range": "Buy {min} {max, plural, =0{+} other {- #}}",
+            "percent": "{discount} off",
+            "price": "{discount} off",
+            "fixed": "{discount} each"
         },
         "card_default_image_alt": "Image coming soon"
     },
