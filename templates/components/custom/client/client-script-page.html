@@ -45,3 +45,34 @@
 	});
 </script>
 {{/contains}}
+
+<script>
+	window.onload = function() {    
+	    let elements = document.querySelectorAll(".accord-click");
+	    for (let i = 0; i < elements.length; i++) {
+	        elements[i].onclick = function (e) {
+				const getId = elements[i].getAttribute("href").substring(1);
+	            console.log('getId: ' + getId);
+				const accordId = document.getElementById(getId);
+				console.log('accordId: ' + accordId);
+				if (accordId) {
+					accordId.classList.add("accord-active");
+					accordId.querySelector(".accord-body").style.display = 'block';
+					const y = accordId.getBoundingClientRect().top + window.scrollY;
+					if (window.innerWidth < 801) {
+						window.scroll({
+						  top: y - 50,
+						  behavior: 'smooth'
+						});
+					} else {
+						window.scroll({
+						  top: y,
+						  behavior: 'smooth'
+						});
+					}
+					e.preventDefault();
+				}
+	        }
+	    }
+	};
+</script>

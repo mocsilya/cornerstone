@@ -51,10 +51,14 @@
 										Sold Out. <a href="/contact-us/">Contact</a> For Alternatives
 									{{else if inventory.aggregated.availableToSell '<=' 100}}
 										IN STOCK Dispatch Same Day
+									{{else if inventory.aggregated.availableToSell '<=' 500}}
+										Supplier Warehouse Dispatch Within 1 Week
 									{{else if inventory.aggregated.availableToSell '<=' 1000}}
 										IN STOCK Dispatch Within 1 Week
 									{{else if inventory.aggregated.availableToSell '<=' 2000}}
 										IN STOCK Dispatch Within 2 Weeks
+									{{else if inventory.aggregated.availableToSell '<=' 2500}}
+										IN STOCK Dispatch Within 3 Weeks
 									{{else if inventory.aggregated.availableToSell '<=' 3000}}
 										IN STOCK Dispatch Within 3 Days
 									{{else if inventory.aggregated.availableToSell '<=' 4000}}
