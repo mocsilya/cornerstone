@@ -1,3 +1,78 @@
+{{#contains settings.store_name 'Fender'}}
+<script>
+{{#if product.stock_level ">" 0}}
+	let allStock = {{product.stock_level}};
+{{else}}
+	let allStock = 0;
+{{/if}}
+{{#filter product.custom_fields '_supplier_stock' property='name'}}
+	let supplierStock = {{value}};
+{{else}}
+	let supplierStock = 0;
+{{/filter}}
+	let inStock = allStock - supplierStock;
+	if (inStock < 1) {
+		inStock = 0;
+	}
+	if (supplierStock > allStock) {
+		supplierStock = allStock;
+	}
+	console.log('allStock: ' + allStock);
+	console.log('supplierStock: ' + supplierStock);
+	console.log('inStock: ' + inStock);
+	document.addEventListener("DOMContentLoaded", function(event) { 
+		if (inStock > 0) {
+			document.querySelector('.availability-now').style.display = 'block';
+		} else {
+			if (allStock > 0) {
+				document.querySelector('.availability-soon').style.display = 'block';
+			} else {
+				document.querySelector('.availability-none').style.display = 'block';
+			}
+		}	
+	});
+	let inputElem = document.querySelector('.form-input--incrementTotal');
+	let buttonElem = document.querySelectorAll('.form-increment .button');
+	let messageDiv = document.getElementById('backorderMessage');
+	if (inputElem) {
+		// monitor the quantity input directly
+	    inputElem.addEventListener('input', () => {
+			if (inStock > 0) {
+				const availableQty = inStock;
+				const userQty = inputElem.value;
+				if (userQty > availableQty) {
+					const backOrder = userQty - availableQty;
+		            messageDiv.innerHTML = '<span>' + availableQty + '</span> in stock (Order by 1pm for Next Working Day Delivery or collect immediately in-store). <span>' + backOrder + '</span> from supplier ({{#if product.availability}}{{#contains product.availability "//"}}{{after (split product.availability "//") 1}}{{else}}{{product.availability}}{{/contains}}{{else}}{{after (split theme_settings.custom_product_availability "//") 1}}{{/if}})';
+		            messageDiv.style.display = 'block';
+		        } else {
+		            messageDiv.style.display = 'none';
+		        }
+			}
+	    });
+		// monitor the quantity + / - buttons
+		for (let i = 0; i < buttonElem.length; i++) {
+		    buttonElem[i].onclick = function () {
+		        buttonTimer = setTimeout(() => {
+					if (inStock > 0) {
+						const availableQty = inStock;
+						const userQty = inputElem.value;
+			            if (userQty > availableQty) {
+							const backOrder = userQty - availableQty;
+			                messageDiv.innerHTML = '<span class="num-available">' + availableQty + '</span> in stock (Order by 1pm for Next Working Day Delivery or collect immediately in-store). <span class="num-backorder">' + backOrder + '</span> from supplier ({{#if product.availability}}{{#contains product.availability "//"}}{{after (split product.availability "//") 1}}{{else}}{{product.availability}}{{/contains}}{{else}}{{after (split theme_settings.custom_product_availability "//") 1}}{{/if}})';
+			                messageDiv.style.display = 'block';
+			            } else {
+			                messageDiv.style.display = 'none';
+			            }
+					}
+		            clearTimeout(buttonTimer);
+		        }, 500);
+		    }
+		}
+	}
+</script>
+	
+{{else}}
+
 {{assignVar "nobackorder" "false"}}
 {{#filter product.custom_fields 'hidden' property='name'}}
 	{{#if value '==' 'nobackorder'}}
@@ -143,6 +218,8 @@
 	{{/if}}
 {{/if}}
 
+{{/contains}}
+
 <script>
 	let textLabel = document.querySelectorAll('.productView-options .form-label small');
 	for (let i = 0; i < textLabel.length; i++) {
@@ -153,3 +230,4 @@
 		}
 	}
 </script>
+
