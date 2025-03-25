@@ -5,11 +5,41 @@
 {{else}}
 	let allStock = 0;
 {{/if}}
-{{#filter product.custom_fields '_supplier_stock' property='name'}}
-	let supplierStock = {{value}};
+
+// {{#filter product.custom_fields '_supplier_stock' property='name'}}
+//	let supplierStock = {{value}};
+//{{else}}
+//	let supplierStock = 0;
+//{{/filter}}
+
+{{assignVar "hasVariants" "false"}}
+{{#if gql.data.site.product}}
+	{{#each gql.data.site.product.variants.edges}}
+		{{#with node}}
+			{{#if @last}}
+				{{#unless @index 0}}
+					{{assignVar "hasVariants" "true"}}
+				{{/unless}}
+			{{/if}}
+		{{/with}}
+	{{/each}}
+{{/if}}
+
+{{#if (getVar "hasVariants") '===' 'false'}}
+	{{#if gql.data.site.product.inventory.aggregated.warningLevel ">" 0}}
+		let supplierStock = {{gql.data.site.product.inventory.aggregated.warningLevel}};
+	{{else}}
+		let supplierStock = 0;
+	{{/if}}
 {{else}}
-	let supplierStock = 0;
-{{/filter}}
+{{#each gql.data.site.product.variants.edges}}
+	{{#with node}}
+		let {{sku}}_allStock = {{inventory.aggregated.availableToSell}};
+		let {{sku}}_supplierStock = {{inventory.aggregated.warningLevel}};
+	{{/with}}
+{{/each}}
+{{/if}}
+
 	let inStock = allStock - supplierStock;
 	if (inStock < 1) {
 		inStock = 0;
