@@ -67,32 +67,63 @@
 	if (inputElem) {
 		// monitor the quantity input directly
 	    inputElem.addEventListener('input', () => {
-			if (inStock > 0) {
-				const availableQty = inStock;
-				const userQty = inputElem.value;
-				if (userQty > availableQty) {
-					const backOrder = userQty - availableQty;
-		            messageDiv.innerHTML = '<span>' + availableQty + '</span> in stock (Order by 1pm for Next Working Day Delivery or collect immediately in-store). <span>' + backOrder + '</span> from supplier ({{#if product.availability}}{{#contains product.availability "//"}}{{after (split product.availability "//") 1}}{{else}}{{product.availability}}{{/contains}}{{else}}{{after (split theme_settings.custom_product_availability "//") 1}}{{/if}})';
-		            messageDiv.style.display = 'block';
-		        } else {
-		            messageDiv.style.display = 'none';
-		        }
+			//if (inStock > 0) {
+				//const availableQty = inStock;
+				//const userQty = inputElem.value;
+				//if (userQty > availableQty) {
+					//const backOrder = userQty - availableQty;
+		            //messageDiv.innerHTML = '<span>' + availableQty + '</span> in stock (Order by 1pm for Next Working Day Delivery or collect immediately in-store). <span>' + backOrder + '</span> from supplier ({{#if product.availability}}{{#contains product.availability "//"}}{{after (split product.availability "//") 1}}{{else}}{{product.availability}}{{/contains}}{{else}}{{after (split theme_settings.custom_product_availability "//") 1}}{{/if}})';
+		            //messageDiv.style.display = 'block';
+		        //} else {
+		            //messageDiv.style.display = 'none';
+		        //}
+			//}
+			const userQty = inputElem.value;
+			if (userQty <= inStock) {
+				document.querySelector('.availability-now').style.display = 'block';
+				document.querySelector('.availability-soon').style.display = 'none';
+				document.querySelector('.availability-none').style.display = 'none';
+			} else {
+				if (userQty <= allStock) {
+					document.querySelector('.availability-soon').style.display = 'block';
+					document.querySelector('.availability-now').style.display = 'none';
+					document.querySelector('.availability-none').style.display = 'none';
+				} else {
+					document.querySelector('.availability-none').style.display = 'block';
+					document.querySelector('.availability-soon').style.display = 'none';
+					document.querySelector('.availability-now').style.display = 'none';
+				}
 			}
 	    });
 		// monitor the quantity + / - buttons
 		for (let i = 0; i < buttonElem.length; i++) {
 		    buttonElem[i].onclick = function () {
 		        buttonTimer = setTimeout(() => {
-					if (inStock > 0) {
-						const availableQty = inStock;
-						const userQty = inputElem.value;
-			            if (userQty > availableQty) {
-							const backOrder = userQty - availableQty;
-			                messageDiv.innerHTML = '<span class="num-available">' + availableQty + '</span> in stock (Order by 1pm for Next Working Day Delivery or collect immediately in-store). <span class="num-backorder">' + backOrder + '</span> from supplier ({{#if product.availability}}{{#contains product.availability "//"}}{{after (split product.availability "//") 1}}{{else}}{{product.availability}}{{/contains}}{{else}}{{after (split theme_settings.custom_product_availability "//") 1}}{{/if}})';
-			                messageDiv.style.display = 'block';
-			            } else {
-			                messageDiv.style.display = 'none';
-			            }
+					//if (inStock > 0) {
+						//const availableQty = inStock;
+						//const userQty = inputElem.value;
+			            //if (userQty > availableQty) {
+							//const backOrder = userQty - availableQty;
+			                //messageDiv.innerHTML = '<span class="num-available">' + availableQty + '</span> in stock (Order by 1pm for Next Working Day Delivery or collect immediately in-store). <span class="num-backorder">' + backOrder + '</span> from supplier ({{#if product.availability}}{{#contains product.availability "//"}}{{after (split product.availability "//") 1}}{{else}}{{product.availability}}{{/contains}}{{else}}{{after (split theme_settings.custom_product_availability "//") 1}}{{/if}})';
+			                //messageDiv.style.display = 'block';
+							//} else {
+			                //messageDiv.style.display = 'none';
+						//}
+					const userQty = inputElem.value;
+					if (userQty <= inStock) {
+						document.querySelector('.availability-now').style.display = 'block';
+						document.querySelector('.availability-soon').style.display = 'none';
+						document.querySelector('.availability-none').style.display = 'none';
+					} else {
+						if (userQty <= allStock) {
+							document.querySelector('.availability-soon').style.display = 'block';
+							document.querySelector('.availability-now').style.display = 'none';
+							document.querySelector('.availability-none').style.display = 'none';
+						} else {
+							document.querySelector('.availability-none').style.display = 'block';
+							document.querySelector('.availability-soon').style.display = 'none';
+							document.querySelector('.availability-now').style.display = 'none';
+						}
 					}
 		            clearTimeout(buttonTimer);
 		        }, 500);

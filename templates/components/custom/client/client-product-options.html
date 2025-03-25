@@ -32,7 +32,7 @@
 				</div>
 			</div>
 		</li>
-		{{#contains settings.store_name 'Pirates'}}
+		{{#or (if (occurrences settings.store_name 'Pirates') '>' 0) (if (occurrences settings.store_name 'Fender') '>' 0)}}
         <li class="immediate-collection">
 			<div class="availability-icon">
 				<img width="32" height="32" src="{{cdn 'img/custom/store-alt.svg'}}" alt="store icon">
@@ -49,7 +49,7 @@
 				</div>
 			</div>
 		</li>
-		{{/contains}}
+		{{/or}}
 	</ul>
 	<ul class="availability-soon" style="display: none;">
 		<li class="x-days-delivery">
@@ -76,7 +76,7 @@
 				</div>
 			</div>
 		</li>
-		{{#contains settings.store_name 'Pirates'}}
+		{{#or (if (occurrences settings.store_name 'Pirates') '>' 0) (if (occurrences settings.store_name 'Fender') '>' 0)}}
 		<li class="x-days-collection">
 			<div class="availability-icon">
 				<img width="32" height="32" src="{{cdn 'img/custom/store-alt.svg'}}" alt="store icon">
@@ -101,7 +101,7 @@
 				</div>
 			</div>
 		</li>
-		{{/contains}}
+		{{/or}}
 	</ul>
 	<ul class="availability-none" style="display: none;">
         <li class="not-in-stock">

@@ -1300,10 +1300,13 @@ availability-anode-outlet .availability-click img {
 	filter: invert(32%) sepia(99%) saturate(4093%) hue-rotate(113deg) brightness(100%) contrast(105%);
 }
 
-.x-days-delivery .availability-icon img,
+.x-days-delivery .availability-icon img {
+	filter: invert(32%) sepia(99%) saturate(4093%) hue-rotate(113deg) brightness(100%) contrast(105%);
+}
+
 .x-days-collection .availability-icon img {
-	//filter: invert(63%) sepia(79%) saturate(2414%) hue-rotate(359deg) brightness(102%) contrast(106%);
-	filter: invert(42%) sepia(5%) saturate(5%) hue-rotate(340deg) brightness(93%) contrast(93%);
+	filter: invert(63%) sepia(79%) saturate(2414%) hue-rotate(359deg) brightness(102%) contrast(106%);
+	//filter: invert(42%) sepia(5%) saturate(5%) hue-rotate(340deg) brightness(93%) contrast(93%);
 }
 
 .not-in-stock .availability-icon img {
