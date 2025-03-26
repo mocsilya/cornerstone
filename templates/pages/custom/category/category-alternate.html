@@ -68,10 +68,12 @@ customer:
 {{#partial "page"}}
 {{{region name="category_below_header"}}}
 <div class="category-alternate">
-	{{#if category.description}}
-		<div class="category-description{{#if category.subcategories}} category-description-withsub{{/if}}">
-			{{{category.description}}}
-		</div>
+	{{#if theme_settings.custom_category_description_position '==' 'top'}}
+		{{#if category.description}}
+			<div class="category-description{{#if category.subcategories}} category-description-withsub{{/if}}">
+				{{{category.description}}}
+			</div>
+		{{/if}}
 	{{/if}}
 	{{#if (getVar "b2b-products") '===' 'show'}}
 		{{#if category.subcategories}}
@@ -140,6 +142,13 @@ customer:
 		{{{region name="category_above_content"}}}
         {{{region name="category_below_content"}}}
     </div>
+{{/if}}
+{{#if theme_settings.custom_category_description_position '==' 'bottom'}}
+	{{#if category.description}}
+		<div class="category-description">
+			{{{category.description}}}
+		</div>
+	{{/if}}
 {{/if}}
 {{{region name="category_below_all"}}}
 </div>

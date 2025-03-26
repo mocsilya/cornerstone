@@ -1,11 +1,11 @@
 <h2 class="page-heading page-heading-top">{{theme_settings.custom_homepage_top_title}}</h2>
 {{#if theme_settings.custom_homepage_top_carousel}}
-	{{> components/products/carousel products=products columns=theme_settings.homepage_top_products_column_count customArrowClass='js-top-product-arrow' list="Most Popular Products"}}
+	{{> components/products/carousel products=products columns=theme_settings.homepage_top_products_column_count customArrowClass='js-top-product-arrow' list="Most Popular Products" card_group="top"}}
 {{else}}
 	<ul class="productGrid productGrid--maxCol{{ columns }} productGrid-{{ columns }}" data-product-type="top_sellers" data-list-name="Most Popular Products">
 	{{#each products}}
 		<li class="product{{#filter custom_fields 'hidden' property='name' }}{{#if value '==' 'spotlight'}} spotlight{{else if value '==' 'payment'}} payment{{/if}}{{/filter}}{{#each custom_fields}}{{#if name '==' '_class'}} {{value}}{{/if}}{{/each}}">
-	    	{{>components/products/card show_rating=../settings.show_product_rating settings=../settings theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
+	    	{{>components/products/card show_rating=../settings.show_product_rating settings=../settings theme_settings=../theme_settings customer=../customer event="list" card_group="top" position=(add @index 1)}}
 		</li>
 	{{/each}}
 	</ul>

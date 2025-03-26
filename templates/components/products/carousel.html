@@ -11,20 +11,88 @@
         "slidesToScroll": 1,
         "slide": "[data-product-slide]",
         "responsive": [
-            {
-                "breakpoint": 1400,
-                "settings": {
-                    "slidesToShow": {{ columns }},
-                    "slidesToScroll": {{ columns }}
-                }
-            },
-            {
-                "breakpoint": 1261,
-                "settings": {
-                    "slidesToShow": 4,
-                    "slidesToScroll": 4
-                }
-            },
+			{{#if product.related_products}}
+				{{#if theme_settings.custom_product_description_location '===' 'sticky'}}
+					{{#if theme_settings.custom_product_gallery_size '===' 'small'}}
+			            {
+			                "breakpoint": 1400,
+			                "settings": {
+			                    "slidesToShow": 2,
+			                    "slidesToScroll": 2
+			                }
+			            },
+			            {
+			                "breakpoint": 1261,
+			                "settings": {
+			                    "slidesToShow": 2,
+			                    "slidesToScroll": 2
+			                }
+			            },
+					{{/if}}
+					{{#if theme_settings.custom_product_gallery_size '===' 'medium'}}
+			            {
+			                "breakpoint": 1400,
+			                "settings": {
+			                    "slidesToShow": 3,
+			                    "slidesToScroll": 3
+			                }
+			            },
+			            {
+			                "breakpoint": 1261,
+			                "settings": {
+			                    "slidesToShow": 2,
+			                    "slidesToScroll": 2
+			                }
+			            },
+					{{/if}}
+					{{#if theme_settings.custom_product_gallery_size '===' 'large'}}
+			            {
+			                "breakpoint": 1400,
+			                "settings": {
+			                    "slidesToShow": 4,
+			                    "slidesToScroll": 4
+			                }
+			            },
+			            {
+			                "breakpoint": 1261,
+			                "settings": {
+			                    "slidesToShow": 3,
+			                    "slidesToScroll": 3
+			                }
+			            },
+					{{/if}}
+				{{else}}
+			        {
+			            "breakpoint": 1400,
+			            "settings": {
+			                "slidesToShow": {{ columns }},
+			                "slidesToScroll": {{ columns }}
+			            }
+			        },
+			        {
+			            "breakpoint": 1261,
+			            "settings": {
+			                "slidesToShow": 4,
+			                "slidesToScroll": 4
+			            }
+			        },
+				{{/if}}
+			{{else}}
+			    {
+			        "breakpoint": 1400,
+			        "settings": {
+			            "slidesToShow": {{ columns }},
+			            "slidesToScroll": {{ columns }}
+			        }
+			    },
+			    {
+			        "breakpoint": 1261,
+			        "settings": {
+			            "slidesToShow": 4,
+			            "slidesToScroll": 4
+			        }
+			    },
+			{{/if}}
             {
                 "breakpoint": 801,
                 "settings": {
@@ -44,7 +112,8 @@
 >
     {{#each products}}
     <div data-product-slide class="productCarousel-slide js-product-slide {{#filter custom_fields 'hidden' property='name' }}{{#if value '==' 'spotlight'}} spotlight{{else if value '==' 'payment'}} payment{{/if}}{{/filter}}{{#each custom_fields}}{{#if name '==' '_class'}} {{value}}{{/if}}{{/each}}">
-        {{> components/products/card show_rating=../settings.show_product_rating settings=../settings theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
+        <!-- card group: {{../card_group}} -->
+		{{> components/products/card show_rating=../settings.show_product_rating settings=../settings theme_settings=../theme_settings customer=../customer event="list" card_group=../card_group position=(add @index 1)}}
     </div>
     {{/each}}
     {{#if products.length '>' 1}}

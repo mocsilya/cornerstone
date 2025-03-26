@@ -37,6 +37,7 @@
                aria-label="{{this.label}}"
         >
         <label class="form-option form-option-swatch form-option-swatch-{{id}} form-option-swatch-{{dashcase this.label}}" for="attribute_swatch_{{../id}}_{{id}}" data-product-attribute-value="{{id}}">
+            <span class='form-option-variant--wrap'>
             {{#if image}}
                 <span class='form-option-variant form-option-variant--pattern' title="{{this.label}}" style="background-image: url('{{getImage image "swatch_option_size"}}');"></span>
             {{/if}}
@@ -54,6 +55,7 @@
                     {{/if}}
                 {{/if}}
             {{/if}}
+            </span>
             {{#if pattern}}
                 <span class="form-option-expanded">
                     <span class="form-option-image" style="background-image: url('{{getImage image 'core-swatch'}}');"></span>

@@ -35,7 +35,7 @@ There are a few important arguments to know about when using this component:
     pixels wide will be used otherwise. This argument has no effect if the lazyload mode is not "lazyload+lqip".
 
 --}}
-<img {{#if image}}{{!-- Get the default image for legacy browsers that do not support srcset
+<img {{#contains class 'card-image'}} width="{{before (split theme_settings.productgallery_size 'x') 1}}" height="{{after (split theme_settings.productgallery_size 'x') 1}}"{{/contains}} {{#contains class 'heroCarousel-image'}} width="{{before (split theme_settings.custom_homepage_carousel_size 'x') 1}}" height="{{after (split theme_settings.custom_homepage_carousel_size 'x') 1}}"{{/contains}} {{#if image}}{{!-- Get the default image for legacy browsers that do not support srcset
 --}}src="{{getImageSrcset image 1x=(default fallback_size '160w')}}" alt="{{image.alt}}" title="{{image.alt}}" {{!--
   Allow lazysizes to generate the 'sizes' attribute automatically --}}data-sizes="auto"
   {{#unless lazyload '==' 'disabled'}}
@@ -58,4 +58,4 @@ pick the best-sized image based on its own understanding of how it will render t
 {{else if default_image}}src="{{cdn default_image}}" alt="{{lang 'products.card_default_image_alt'}}"{{/if}}
 class="{{#unless lazyload '==' 'disabled'}}lazyload{{/unless}}{{#if class}} {{class}}{{/if}}"
 {{#if lazyload '==' 'lazyload'}}loading="lazy"{{/if}}
-{{otherAttributes}} />
+{{{otherAttributes}}}/>
