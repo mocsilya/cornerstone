@@ -1,17 +1,3 @@
-{{#contains settings.store_name 'Fender'}}
-<script>
-{{#if product.stock_level ">" 0}}
-	let allStock = {{product.stock_level}};
-{{else}}
-	let allStock = 0;
-{{/if}}
-
-// {{#filter product.custom_fields '_supplier_stock' property='name'}}
-//	let supplierStock = {{value}};
-//{{else}}
-//	let supplierStock = 0;
-//{{/filter}}
-
 {{assignVar "hasVariants" "false"}}
 {{#if gql.data.site.product}}
 	{{#each gql.data.site.product.variants.edges}}
@@ -25,20 +11,22 @@
 	{{/each}}
 {{/if}}
 
+<script>
+	let inputElem = document.querySelector('.form-input--incrementTotal');
+	let buttonElem = document.querySelectorAll('.form-increment .button');
 {{#if (getVar "hasVariants") '===' 'false'}}
+	// without Variants
+	{{#if product.stock_level ">" 0}}
+		let allStock = {{product.stock_level}};
+	{{else}}
+		let allStock = 0;
+	{{/if}}
+	
 	{{#if gql.data.site.product.inventory.aggregated.warningLevel ">" 0}}
 		let supplierStock = {{gql.data.site.product.inventory.aggregated.warningLevel}};
 	{{else}}
 		let supplierStock = 0;
 	{{/if}}
-{{else}}
-{{#each gql.data.site.product.variants.edges}}
-	{{#with node}}
-		let {{sku}}_allStock = {{inventory.aggregated.availableToSell}};
-		let {{sku}}_supplierStock = {{inventory.aggregated.warningLevel}};
-	{{/with}}
-{{/each}}
-{{/if}}
 
 	let inStock = allStock - supplierStock;
 	if (inStock < 1) {
@@ -61,37 +49,97 @@
 			}
 		}	
 	});
-	let inputElem = document.querySelector('.form-input--incrementTotal');
-	let buttonElem = document.querySelectorAll('.form-increment .button');
-	let messageDiv = document.getElementById('backorderMessage');
+{{else}}
+	// with Variants 
+	var variants = {
+	{{#each gql.data.site.product.variants.edges}}
+		{{#with node}}
+			{{#if @last}}
+				'{{sku}}_allStock': '{{inventory.aggregated.availableToSell}}',
+				'{{sku}}_supplierStock': '{{inventory.aggregated.warningLevel}}'
+			{{else}}
+				'{{sku}}_allStock': '{{inventory.aggregated.availableToSell}}',
+				'{{sku}}_supplierStock': '{{inventory.aggregated.warningLevel}}',
+			{{/if}}
+		{{/with}}
+	{{/each}}
+	};
+	let allStock;
+	let supplierStock;
+	let inStock;
+	var timeStart = 0;
+	var optionClick = document.querySelectorAll(".productView-options .form-radio, .productView-options .form-select");
+	for (let i = 0; i < optionClick.length; i++) {
+		optionClick[i].addEventListener("change", function() {
+			clearTimeout(timeStart);
+		    timeStart = setTimeout(function() {
+
+				const elemSku = document.querySelector(".productView-info-value.sku-value");
+		        const varSku = elemSku.innerText;
+				const varAll = varSku + '_allStock';
+				const varSupplier = varSku + '_supplierStock';
+		
+				allStock = Number(variants[varAll]);
+				supplierStock = Number(variants[varSupplier]);
+				inStock = allStock - supplierStock;
+				if (inStock < 1) {
+					inStock = 0;
+				}
+				if (supplierStock > allStock) {
+					supplierStock = allStock;
+				}
+				const userQty = inputElem.value;
+				
+				console.log('varSku: ' + varSku);
+				console.log('allStock: ' + allStock);
+				console.log('supplierStock: ' + supplierStock);
+				console.log('inStock: ' + inStock);
+				console.log('userQty: ' + userQty);
+				
+				if (userQty <= inStock) {
+					document.querySelector('.availability-now').style.display = 'block';
+					document.querySelector('.availability-soon').style.display = 'none';
+					document.querySelector('.availability-none').style.display = 'none';
+				} else {
+					if (userQty <= allStock) {
+						document.querySelector('.availability-soon').style.display = 'block';
+						document.querySelector('.availability-now').style.display = 'none';
+						document.querySelector('.availability-none').style.display = 'none';
+					} else {
+						document.querySelector('.availability-none').style.display = 'block';
+						document.querySelector('.availability-soon').style.display = 'none';
+						document.querySelector('.availability-now').style.display = 'none';
+					}
+				}
+        
+		    }, 1000);
+		});
+	}
+{{/if}}
+
 	if (inputElem) {
 		// monitor the quantity input directly
 	    inputElem.addEventListener('input', () => {
-			//if (inStock > 0) {
-				//const availableQty = inStock;
-				//const userQty = inputElem.value;
-				//if (userQty > availableQty) {
-					//const backOrder = userQty - availableQty;
-		            //messageDiv.innerHTML = '<span>' + availableQty + '</span> in stock (Order by 1pm for Next Working Day Delivery or collect immediately in-store). <span>' + backOrder + '</span> from supplier ({{#if product.availability}}{{#contains product.availability "//"}}{{after (split product.availability "//") 1}}{{else}}{{product.availability}}{{/contains}}{{else}}{{after (split theme_settings.custom_product_availability "//") 1}}{{/if}})';
-		            //messageDiv.style.display = 'block';
-		        //} else {
-		            //messageDiv.style.display = 'none';
-		        //}
-			//}
 			const userQty = inputElem.value;
-			if (userQty <= inStock) {
-				document.querySelector('.availability-now').style.display = 'block';
+			if (allStock == null){
+				document.querySelector('.availability-now').style.display = 'none';
 				document.querySelector('.availability-soon').style.display = 'none';
 				document.querySelector('.availability-none').style.display = 'none';
 			} else {
-				if (userQty <= allStock) {
-					document.querySelector('.availability-soon').style.display = 'block';
-					document.querySelector('.availability-now').style.display = 'none';
+				if (userQty <= inStock) {
+					document.querySelector('.availability-now').style.display = 'block';
+					document.querySelector('.availability-soon').style.display = 'none';
 					document.querySelector('.availability-none').style.display = 'none';
 				} else {
-					document.querySelector('.availability-none').style.display = 'block';
-					document.querySelector('.availability-soon').style.display = 'none';
-					document.querySelector('.availability-now').style.display = 'none';
+					if (userQty <= allStock) {
+						document.querySelector('.availability-soon').style.display = 'block';
+						document.querySelector('.availability-now').style.display = 'none';
+						document.querySelector('.availability-none').style.display = 'none';
+					} else {
+						document.querySelector('.availability-none').style.display = 'block';
+						document.querySelector('.availability-soon').style.display = 'none';
+						document.querySelector('.availability-now').style.display = 'none';
+					}
 				}
 			}
 	    });
@@ -99,30 +147,29 @@
 		for (let i = 0; i < buttonElem.length; i++) {
 		    buttonElem[i].onclick = function () {
 		        buttonTimer = setTimeout(() => {
-					//if (inStock > 0) {
-						//const availableQty = inStock;
-						//const userQty = inputElem.value;
-			            //if (userQty > availableQty) {
-							//const backOrder = userQty - availableQty;
-			                //messageDiv.innerHTML = '<span class="num-available">' + availableQty + '</span> in stock (Order by 1pm for Next Working Day Delivery or collect immediately in-store). <span class="num-backorder">' + backOrder + '</span> from supplier ({{#if product.availability}}{{#contains product.availability "//"}}{{after (split product.availability "//") 1}}{{else}}{{product.availability}}{{/contains}}{{else}}{{after (split theme_settings.custom_product_availability "//") 1}}{{/if}})';
-			                //messageDiv.style.display = 'block';
-							//} else {
-			                //messageDiv.style.display = 'none';
-						//}
 					const userQty = inputElem.value;
-					if (userQty <= inStock) {
-						document.querySelector('.availability-now').style.display = 'block';
+					console.log('inStockLive: ' + inStock);
+					console.log('allStockLive: ' + allStock);
+					console.log('userQty: ' + userQty);
+					if (allStock == null){
+						document.querySelector('.availability-now').style.display = 'none';
 						document.querySelector('.availability-soon').style.display = 'none';
 						document.querySelector('.availability-none').style.display = 'none';
 					} else {
-						if (userQty <= allStock) {
-							document.querySelector('.availability-soon').style.display = 'block';
-							document.querySelector('.availability-now').style.display = 'none';
+						if (userQty <= inStock) {
+							document.querySelector('.availability-now').style.display = 'block';
+							document.querySelector('.availability-soon').style.display = 'none';
 							document.querySelector('.availability-none').style.display = 'none';
 						} else {
-							document.querySelector('.availability-none').style.display = 'block';
-							document.querySelector('.availability-soon').style.display = 'none';
-							document.querySelector('.availability-now').style.display = 'none';
+							if (userQty <= allStock) {
+								document.querySelector('.availability-soon').style.display = 'block';
+								document.querySelector('.availability-now').style.display = 'none';
+								document.querySelector('.availability-none').style.display = 'none';
+							} else {
+								document.querySelector('.availability-none').style.display = 'block';
+								document.querySelector('.availability-soon').style.display = 'none';
+								document.querySelector('.availability-now').style.display = 'none';
+							}
 						}
 					}
 		            clearTimeout(buttonTimer);
@@ -131,8 +178,20 @@
 		}
 	}
 </script>
-	
-{{else}}
+
+<script>
+	let textLabel = document.querySelectorAll('.productView-options .form-label small');
+	for (let i = 0; i < textLabel.length; i++) {
+		const labelContent = textLabel[i].innerText;
+		const labelString = '{{lang "common.required"}}';
+		if (labelContent.includes(labelString)) {
+			textLabel[i].innerText = 'Select Option Below';
+		}
+	}
+</script>
+
+
+<!-- Old script for 1000 system 
 
 {{assignVar "nobackorder" "false"}}
 {{#filter product.custom_fields 'hidden' property='name'}}
@@ -165,7 +224,7 @@
 {{/if}}
 
 {{#if (getVar "nobackorder") '===' 'false'}}
-	<script>
+<script>
 	{{#if (getVar "hasVariants") '===' 'true'}}
 		{{#if (getVar "above1000") '===' 'true'}}
 			let inStock = 1001;
@@ -232,8 +291,6 @@
 		});
 	}
 
-
-
 	if (inputElem) {
 		// monitor the quantity input directly
 	    inputElem.addEventListener('input', () => {
@@ -269,7 +326,7 @@
 		    }
 		}
 	}
-	</script>
+</script>
 {{else}}
 	{{#if product.can_purchase}}
 		<script>
@@ -278,17 +335,5 @@
 		</script>
 	{{/if}}
 {{/if}}
-
-{{/contains}}
-
-<script>
-	let textLabel = document.querySelectorAll('.productView-options .form-label small');
-	for (let i = 0; i < textLabel.length; i++) {
-		const labelContent = textLabel[i].innerText;
-		const labelString = '{{lang "common.required"}}';
-		if (labelContent.includes(labelString)) {
-			textLabel[i].innerText = 'Select Option Below';
-		}
-	}
-</script>
+-->
 
