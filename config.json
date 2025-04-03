@@ -629,46 +629,7 @@
         ]
       },
       "images": {},
-      "settings": {
-        "custom-homepage-carousel-button-background": "#F2112F",
-        "custom-homepage-carousel-button-background-hover": "#FD455E",
-        "custom_header_search_label": "Search over 500 fenders..",
-        "custom_header_show_bar": false,
-        "custom-header-social-hover": "#F2112F",
-        "custom-header-menu-link-hover": "#F2112F",
-        "custom_footer_show_blog": false,
-        "custom-footer-newsletter-button-background": "#F2112F",
-        "custom-footer-newsletter-button-background-hover": "#FD455E",
-        "custom-footer-blog-button-background": "#F2112F",
-        "custom-footer-blog-button-background-hover": "#FD455E",
-        "custom-footer-social": "#F2112F",
-        "custom-footer-social-hover": "#FD455E",
-        "custom-footer-link-hover": "#F2112F",
-        "custom_category_sidebar_display": "horizontal",
-        "custom_product_tab1_title": "Size Guide",
-        "color-textBase--hover": "#F2112F",
-        "color-textSecondary": "#FD455E",
-        "color-textLink": "#F2112F",
-        "color-textLink--active": "#FD455E",
-        "button--default-color": "#E42620",
-        "button--default-colorHover": "#FFFFFF",
-        "button--default-colorActive": "#F2112F",
-        "button--default-borderColor": "#F2112F",
-        "button--default-borderColorHover": "#F2112F",
-        "button--default-borderColorActive": "#F2112F",
-        "button--primary-colorHover": "#FFFFFF",
-        "button--primary-backgroundColor": "#F2112F",
-        "button--primary-backgroundColorHover": "#14214E",
-        "icon-color-hover": "#F2112F",
-        "select-arrow-color": "#F2112F",
-        "navUser-color-hover": "#F2112F",
-        "navPages-color-hover": "#F2112F",
-        "pace-progress-backgroundColor": "#F2112F",
-        "pdp-custom-fields-tab-label": "Specifications",
-        "paymentbuttons-provider-sorting": [
-          "paypal"
-        ]
-      }
+      "settings": {}
     }
   ]
 }
