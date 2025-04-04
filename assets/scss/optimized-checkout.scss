@@ -519,3 +519,12 @@ $optimizedCheckout-input--error-boxShadow: 0 0 3px transparentize(stencilColor("
 #progress-checkout .progress-labels > span b {
 	font-weight: 700;
 }
+
+
+//
+// CUSTOM
+// Import client specific customisations
+// -----------------------------------------------------------------------------
+
+@import url("checkout.css");
+

@@ -20,7 +20,9 @@ gql: "query productById($productId: Int!) {
 			inventory {
                 aggregated {
                     availableToSell
+                    warningLevel
                 }
+                isInStock
                 hasVariantInventory
             }
             variants(first: 99) {
@@ -47,6 +49,7 @@ gql: "query productById($productId: Int!) {
 						inventory {
 						    aggregated {
 						        availableToSell
+						        warningLevel
 						    }
 						    isInStock
 						}
