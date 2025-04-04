@@ -270,11 +270,11 @@ body.scroll .navUser-item--custom span {
 		font-size: 1.25rem;
 	}
 	@include breakpoint("large") {
-		font-size: 2.125rem;
+		font-size: 2.5rem;
 		letter-spacing: -2px;
 	}
-	@include breakpoint("xlarge") {
-		font-size: 2.125rem;
+	@include breakpoint("xxlarge") {
+		font-size: 4rem;
 	}
 }
 /*
@@ -1269,6 +1269,58 @@ body.scroll .navUser-item--custom strong {
 	display: none;
 }
 
+.page-cart .cart-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    @include breakpoint("medium") {
+        flex-direction: row;
+		flex-wrap: wrap;
+	}
+}
+
+.page-cart .cart-content-items {
+    order: 1;
+}
+
+.page-cart .cart-content-container {
+    order: 2;
+}
+
+.page-cart .sc-button-container:not(.sc-button-preview) {
+    display: none;
+    order: 3;
+}
+
+.sc-button-container > div {
+    text-align: center;
+    @include breakpoint("medium") {
+		text-align: left;
+	}
+	@include breakpoint("large") {
+		text-align: right;
+	}
+}
+
+.previewCart .sc-button-container > div {
+    padding-left: 0.78571rem;
+    padding-right: 0.78571rem;
+}
+
+.sc-button-container button.sc-modal-trigger {
+    padding: 0.85714rem 2.28571rem !important;
+    width: 100% !important;
+    font-weight: 700;
+}
+
+.cart-content-container .sc-button-container button.sc-modal-trigger {
+    @include breakpoint("small") {
+		margin-left: auto !important;
+		margin-right: auto !important;
+		max-width: 250px !important;
+		min-width: 250px !important;
+	}
+}
+
 
 
 // =============================================================================
@@ -1557,6 +1609,7 @@ ul.why-buy li::before {
 
 .question-cta {
     text-align: center;
+	margin-bottom: 1rem;
 }
 
 .question-cta .button {
