@@ -1558,10 +1558,10 @@ dl.productView-info {
 	display: none;
 }
 
-.productView.ultra #ingredients div.category-description-trim.is-closed ul li.l-arginine,
-.productView.ultra #ingredients div.category-description-trim.is-closed ul li.chasteberry,
-.productView.ultra #ingredients div.category-description-trim.is-closed ul li.tea,
-.productView.ultra #ingredients div.category-description-trim.is-closed ul li.magnesium {
+.productView.ultra #ingredients div.category-description-trim.is-closed ul li.cordyceps-item,
+.productView.ultra #ingredients div.category-description-trim.is-closed ul li.chlorella-item,
+.productView.ultra #ingredients div.category-description-trim.is-closed ul li.coq10-item,
+.productView.ultra #ingredients div.category-description-trim.is-closed ul li.pantothenic-item {
 	display: block;
 }
 
@@ -1591,9 +1591,9 @@ dl.productView-info {
 	padding: 1rem;
 	background-color: #eee;
     border-radius: 12px;
-    background-size: 145px 143px;
+    background-size: 145px 145px;
     background-repeat: no-repeat;
-    background-position: right bottom;
+    background-position: center bottom 14px;
 	min-height: 200px;
 }
 
@@ -1625,7 +1625,7 @@ dl.productView-info {
 }
 
 #ingredients li p {
-	padding-bottom: 130px;
+	padding-bottom: 160px;
 	margin: 0;
 }
 
@@ -1640,95 +1640,66 @@ dl.productView-info {
 	}
 }
 
-.whats-inside__list-item.l-carnitine div {
-  background-image: url('../img/custom/l-carnitine.png');
+.whats-inside__list-item.cordyceps-item div {
+  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-cordyceps.png');
 }
 
-.whats-inside__list-item.l-arginine div {
-  background-image: url('../img/custom/l-arginine.png');
+.whats-inside__list-item.chlorella-item div {
+  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-chlorella.png');
 }
 
-.whats-inside__list-item.l-aurine div {
-  background-image: url('../img/custom/l-aurine.png');
+.whats-inside__list-item.coq10-item div {
+  background-image: url('https://cdn3.bigcommerce.com/s-costxe5lpb/templates/__custom/images/nutrient-coq10.png?t=1507889847');
 }
 
-.whats-inside__list-item.tea div {
-  background-image: url('../img/custom/tea.png');
+.whats-inside__list-item.pantothenic-item div {
+  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-pantothenic.png');
 }
 
-.whats-inside__list-item.quai div {
-  background-image: url('../img/custom/quai.png');
+.whats-inside__list-item.guarana-item div {
+  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-guarana.png');
 }
 
-.whats-inside__list-item.maca div {
-  background-image: url('../img/custom/maca.png');
+.whats-inside__list-item.magnesium-item div {
+  background-image: url('https://cdn3.bigcommerce.com/s-costxe5lpb/templates/__custom/images/nutrient-magnesium.png?t=1507889847');
 }
 
-.whats-inside__list-item.l-acetyl div {
-  background-image: url('../img/custom/l-acetyl.png');
+.whats-inside__list-item.caffine-item div {
+  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-caffine.png');
 }
 
-.whats-inside__list-item.vitamin-c div {
-  background-image: url('../img/custom/vitamin-c.png');
+.whats-inside__list-item.omega3-item div {
+  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-omega3.png');
 }
 
-.whats-inside__list-item.zinc div {
-  background-image: url('../img/custom/zinc.png');
+.whats-inside__list-item.iron-item div {
+  background-image: url('https://cdn3.bigcommerce.com/s-costxe5lpb/templates/__custom/images/nutrient-iron.png?t=1507889847');
 }
 
-.whats-inside__list-item.vitamin-b6 div {
-  background-image: url('../img/custom/b6.png');
+.whats-inside__list-item.zink-item div {
+  background-image: url('https://cdn3.bigcommerce.com/s-costxe5lpb/templates/__custom/images/nutrient-zinc.png?t=1507889847');
 }
 
-.whats-inside__list-item.folic-acid div {
-  background-image: url('../img/custom/folic-acid.png');
+.whats-inside__list-item.greentea-item div {
+  background-image: url('https://cdn3.bigcommerce.com/s-costxe5lpb/templates/__custom/images/nutrient-greentea.png?t=1507889847');
 }
 
-.whats-inside__list-item.selenium div {
-  background-image: url('../img/custom/selenium.png');
+.whats-inside__list-item.vitaminb6-item div {
+  background-image: url('https://cdn3.bigcommerce.com/s-costxe5lpb/templates/__custom/images/nutrient-vitaminb6.png?t=1507889847');
 }
 
-.whats-inside__list-item.b12 div {
-  background-image: url('../img/custom/b12.png');
+.whats-inside__list-item.vitaminb12-item div {
+  background-image: url('https://cdn3.bigcommerce.com/s-costxe5lpb/templates/__custom/images/nutrient-vitaminb12.png?t=1507889847');
 }
 
-.whats-inside__list-item.vitamin-e div {
-  background-image: url('../img/custom/vitamin-e.png');
+.whats-inside__list-item.vitaminb1-item div {
+  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-vitaminb1.png');
 }
 
-.whats-inside__list-item.chasteberry div {
-  background-image: url('../img/custom/chasteberry.png');
+.whats-inside__list-item.vitaminb3-item div {
+  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-vitaminb3.png');
 }
 
-.whats-inside__list-item.magnesium div {
-  background-image: url('../img/custom/magnesium.png');
-}
-
-.whats-inside__list-item.b1 div {
-  background-image: url('../img/custom/b1.png');
-}
-
-.whats-inside__list-item.coq10 div {
-  background-image: url('../img/custom/coq10.png');
-}
-
-.whats-inside__list-item.iron div {
-  background-image: url('../img/custom/iron.png');
-}
-
-.whats-inside__list-item.b6-green div {
-  background-image: url('../img/custom/b6-green.png');
-}
-
-.whats-inside__list-item.d3 div {
-  background-image: url('../img/custom/d3.png');
-}
-
-//TEMP CODING
-.productView #ingredients div.category-description-trim.is-closed ul li.l-arginine.cfw-only,
-.productView #ingredients div.category-description-trim.is-closed ul li.tea.cfm-only {
-	display: none;
-}
 
 .page-product .category-description-button  {
 	margin-top: 1.5rem;
