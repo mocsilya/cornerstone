@@ -88,10 +88,14 @@ body.scroll .header-fixed .navPages-wrapper-icon .desktopMenu-toggleIcon,
 	top: 1.5rem;
 }
 
-.navPages > ul.navPages-list-depth-max .navPages-item-category.navPages-item-wrapper > .navPage-subMenu > .navPage-subMenu-list > .navPage-subMenu-item-child > a.navPages-action-depth-max {
+.navPages > ul.navPages-list-depth-max .navPages-item-category.navPages-item-wrapper > .navPage-subMenu > .navPage-subMenu-list > .navPage-subMenu-item-child > a.navPages-action-depth-max,
+.navPages > ul.navPages-list-depth-max .navPages-item-category.navPages-item-wrapper > .navPage-subMenu > .navPage-subMenu-list > .navPage-subMenu-item-child > a.navPages-action.has-image {
+    border-bottom: 1px solid #f0f0f0;
     @include breakpoint("medium") {
 		padding-top: .25rem;
 		padding-bottom: .25rem;
+		padding-left: .5rem;
+		padding-right: .5rem;
 	}
 }
 
@@ -206,8 +210,8 @@ body.scroll .header-fixed .navPages > ul > li.navPages-item-brands .navPages-act
 }
 
 
-.navPages-list-depth-max > .navPages-item-category > .navPage-subMenu-horizontal > .navPage-subMenu-list > .navPage-subMenu-item-child > .navPage-subMenu-action:not(.has-subMenu),
-.navPages-list-depth-max > .navPages-item-brands > .navPage-subMenu-horizontal > .navPage-subMenu-list > .navPage-subMenu-item-child > .navPage-subMenu-action:not(.has-subMenu) {
+.navPages-list-depth-max > .navPages-item-category > .navPage-subMenu-horizontal > .navPage-subMenu-list > .navPage-subMenu-item-child > .navPage-subMenu-action.no-image,
+.navPages-list-depth-max > .navPages-item-brands > .navPage-subMenu-horizontal > .navPage-subMenu-list > .navPage-subMenu-item-child > .navPage-subMenu-action.no-image {
 	color: stencilColor('custom-header-menu-link');
 	background-color: stencilColor('custom-header-menu-background');
 	border-radius: .5rem;
