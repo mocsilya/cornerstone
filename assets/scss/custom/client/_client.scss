@@ -205,6 +205,23 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 500 !important;
 }
 
+.page-ultra-with-cognicetam .specialcolour {
+	color: #e9ce38;
+}
+
+.page-focus .specialcolour {
+	color: #11ade4;
+}
+
+.page-memory .specialcolour {
+	color: #8f489e;
+}
+
+.page-mood .specialcolour {
+	color: #fbb611;
+}
+
+
 // =============================================================================
 // Header
 // =============================================================================
@@ -292,7 +309,8 @@ h1, h2, h3, h4, h5, h6 {
 	.navPages-item-products,
 	#navPages-information.navPage-subMenu .navPage-subMenu-item:first-child,
 	#navPages-information.navPage-subMenu .navPage-subMenu-item:nth-child(2),
-	#navPages-information.navPage-subMenu .navPage-subMenu-item:nth-child(3) {
+	#navPages-more-info.navPage-subMenu .navPage-subMenu-item:first-child,
+	#navPages-more-info.navPage-subMenu .navPage-subMenu-item:nth-child(2) {
 		display: none;
 	}
 }
@@ -1398,13 +1416,27 @@ dl.productView-info {
 }
 
 .page-ultra-with-cognicetam .description-images img,
-.page-focus.description-images img,
+.page-focus .description-images img,
 .page-memory .description-images img,
 .page-mood .description-images img {
 	width: 50%;
 	max-width: 280px;
 	border: 10px solid #fff;
 	display: inline-block;
+}
+
+.page-memory .description-images img:last-child {
+	width: 80%;
+	max-width: 600px;
+}
+
+.page-mood .description-images img {
+	width: 100%;
+	max-width: 600px;
+}
+
+.page-mood .description-images img:last-child {
+	width: 70%;
 }
 
 .page-ultra-with-cognicetam .icon--ratingFull svg {
@@ -1558,34 +1590,57 @@ dl.productView-info {
 	display: none;
 }
 
-.productView.ultra #ingredients div.category-description-trim.is-closed ul li.cordyceps-item,
-.productView.ultra #ingredients div.category-description-trim.is-closed ul li.chlorella-item,
-.productView.ultra #ingredients div.category-description-trim.is-closed ul li.coq10-item,
-.productView.ultra #ingredients div.category-description-trim.is-closed ul li.pantothenic-item {
+.productView.ultra #ingredients div.category-description-trim.is-closed ul li.caffeine-item.ultra-item,
+.productView.ultra #ingredients div.category-description-trim.is-closed ul li.chlorella-item.ultra-item,
+.productView.ultra #ingredients div.category-description-trim.is-closed ul li.coq10-item.ultra-item,
+.productView.ultra #ingredients div.category-description-trim.is-closed ul li.cordyceps-item.ultra-item {
 	display: block;
 }
 
-.productView.focus #ingredients div.category-description-trim.is-closed ul li.l-arginine,
-.productView.focus #ingredients div.category-description-trim.is-closed ul li.chasteberry,
-.productView.focus #ingredients div.category-description-trim.is-closed ul li.tea,
-.productView.focus #ingredients div.category-description-trim.is-closed ul li.magnesium {
+.productView.focus #ingredients div.category-description-trim.is-closed ul li.acerola-item.focus-item,
+.productView.focus #ingredients div.category-description-trim.is-closed ul li.acetyl-item.focus-item,
+.productView.focus #ingredients div.category-description-trim.is-closed ul li.ascophylum-item.focus-item,
+.productView.focus #ingredients div.category-description-trim.is-closed ul li.greencoffee-item.focus-item {
 	display: block;
 }
 
-.productView.memory #ingredients div.category-description-trim.is-closed ul li.l-arginine,
-.productView.memory #ingredients div.category-description-trim.is-closed ul li.chasteberry,
-.productView.memory #ingredients div.category-description-trim.is-closed ul li.tea,
-.productView.memory #ingredients div.category-description-trim.is-closed ul li.magnesium {
+.productView.memory #ingredients div.category-description-trim.is-closed ul li.nacetyl-item.memory-item,
+.productView.memory #ingredients div.category-description-trim.is-closed ul li.ginkgo-item.memory-item,
+.productView.memory #ingredients div.category-description-trim.is-closed ul li.folic-item.memory-item,
+.productView.memory #ingredients div.category-description-trim.is-closed ul li.vitaminb12-item.memory-item {
 	display: block;
 }
 
-.productView.mood #ingredients div.category-description-trim.is-closed ul li.l-arginine,
-.productView.mood #ingredients div.category-description-trim.is-closed ul li.chasteberry,
-.productView.mood #ingredients div.category-description-trim.is-closed ul li.tea,
-.productView.mood #ingredients div.category-description-trim.is-closed ul li.magnesium {
+.productView.mood #ingredients div.category-description-trim.is-closed ul li.htp-item.mood-item,
+.productView.mood #ingredients div.category-description-trim.is-closed ul li.camomile-item.mood-item,
+.productView.mood #ingredients div.category-description-trim.is-closed ul li.jujube-item.mood-item,
+.productView.mood #ingredients div.category-description-trim.is-closed ul li.ltryptophan-item.mood-item {
 	display: block;
 }
 
+.productView.ultra #ingredients div.category-description-trim ul li.focus-item,
+.productView.ultra #ingredients div.category-description-trim ul li.memory-item,
+.productView.ultra #ingredients div.category-description-trim ul li.mood-item {
+	display: none;
+}
+
+.productView.focus #ingredients div.category-description-trim ul li.ultra-item,
+.productView.focus #ingredients div.category-description-trim ul li.memory-item,
+.productView.focus #ingredients div.category-description-trim ul li.mood-item {
+	display: none;
+}
+
+.productView.memory #ingredients div.category-description-trim ul li.ultra-item,
+.productView.memory #ingredients div.category-description-trim ul li.focus-item,
+.productView.memory #ingredients div.category-description-trim ul li.mood-item {
+	display: none;
+}
+
+.productView.mood #ingredients div.category-description-trim ul li.ultra-item,
+.productView.mood #ingredients div.category-description-trim ul li.focus-item,
+.productView.mood #ingredients div.category-description-trim ul li.memory-item {
+	display: none;
+}
 
 #ingredients ul li div {
 	padding: 1rem;
@@ -1640,8 +1695,25 @@ dl.productView-info {
 	}
 }
 
-.whats-inside__list-item.cordyceps-item div {
-  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-cordyceps.png');
+
+.whats-inside__list-item.htp-item div {
+  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-5htp.png');
+}
+
+.whats-inside__list-item.acerola-item div {
+  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-caffine.png');
+}
+
+.whats-inside__list-item.acetyl-item div {
+  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-alcar.png');
+}
+
+.whats-inside__list-item.ascophylum-item div {
+  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-noodsum.png');
+}
+
+.whats-inside__list-item.camomile-item div {
+  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-camomile.png');
 }
 
 .whats-inside__list-item.chlorella-item div {
@@ -1652,52 +1724,88 @@ dl.productView-info {
   background-image: url('https://cdn3.bigcommerce.com/s-costxe5lpb/templates/__custom/images/nutrient-coq10.png?t=1507889847');
 }
 
-.whats-inside__list-item.pantothenic-item div {
-  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-pantothenic.png');
+.whats-inside__list-item.cordyceps-item div {
+  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-cordyceps.png');
 }
 
-.whats-inside__list-item.guarana-item div {
-  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-guarana.png');
+.whats-inside__list-item.folic-item div {
+  background-image: url('https://cdn3.bigcommerce.com/s-costxe5lpb/templates/__custom/images/nutrient-folicacid.png?t=1507889847');
 }
 
-.whats-inside__list-item.magnesium-item div {
-  background-image: url('https://cdn3.bigcommerce.com/s-costxe5lpb/templates/__custom/images/nutrient-magnesium.png?t=1507889847');
+.whats-inside__list-item.ginkgo-item div {
+  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-ginkgo.png');
 }
 
-.whats-inside__list-item.caffine-item div {
+.whats-inside__list-item.greencoffee-item div {
   background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-caffine.png');
-}
-
-.whats-inside__list-item.omega3-item div {
-  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-omega3.png');
-}
-
-.whats-inside__list-item.iron-item div {
-  background-image: url('https://cdn3.bigcommerce.com/s-costxe5lpb/templates/__custom/images/nutrient-iron.png?t=1507889847');
-}
-
-.whats-inside__list-item.zink-item div {
-  background-image: url('https://cdn3.bigcommerce.com/s-costxe5lpb/templates/__custom/images/nutrient-zinc.png?t=1507889847');
 }
 
 .whats-inside__list-item.greentea-item div {
   background-image: url('https://cdn3.bigcommerce.com/s-costxe5lpb/templates/__custom/images/nutrient-greentea.png?t=1507889847');
 }
 
-.whats-inside__list-item.vitaminb6-item div {
-  background-image: url('https://cdn3.bigcommerce.com/s-costxe5lpb/templates/__custom/images/nutrient-vitaminb6.png?t=1507889847');
+.whats-inside__list-item.guarana-item div {
+  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-guarana.png');
 }
 
-.whats-inside__list-item.vitaminb12-item div {
-  background-image: url('https://cdn3.bigcommerce.com/s-costxe5lpb/templates/__custom/images/nutrient-vitaminb12.png?t=1507889847');
+.whats-inside__list-item.iron-item div {
+  background-image: url('https://cdn3.bigcommerce.com/s-costxe5lpb/templates/__custom/images/nutrient-iron.png?t=1507889847');
+}
+
+.whats-inside__list-item.jujube-item div {
+  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-jujube.png');
+}
+
+.whats-inside__list-item.lemonbalm-item div {
+  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-lemonbalm.png');
+}
+
+.whats-inside__list-item.ltryptophan-item div {
+  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-ltryptophan.png');
+}
+
+.whats-inside__list-item.macaroot-item div {
+  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-maca.png');
+}
+
+.whats-inside__list-item.magnesium-item div {
+  background-image: url('https://cdn3.bigcommerce.com/s-costxe5lpb/templates/__custom/images/nutrient-magnesium.png?t=1507889847');
+}
+
+.whats-inside__list-item.nacetyl-item div {
+  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-nac.png');
+}
+
+.whats-inside__list-item.omega3-item div {
+  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-omega3.png');
+}
+
+.whats-inside__list-item.pantothenic-item div {
+  background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-pantothenic.png');
 }
 
 .whats-inside__list-item.vitaminb1-item div {
   background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-vitaminb1.png');
 }
 
+.whats-inside__list-item.vitaminb12-item div {
+  background-image: url('https://cdn3.bigcommerce.com/s-costxe5lpb/templates/__custom/images/nutrient-vitaminb12.png?t=1507889847');
+}
+
 .whats-inside__list-item.vitaminb3-item div {
   background-image: url('https://cdn11.bigcommerce.com/s-0ce01/stencil/ec7a7010-b39c-0136-d9dd-03d2712052fb/e/015a67b0-50ea-013d-6666-52d8849909a7/img/client/nutrient-vitaminb3.png');
+}
+
+.whats-inside__list-item.vitaminb6-item div {
+  background-image: url('https://cdn3.bigcommerce.com/s-costxe5lpb/templates/__custom/images/nutrient-vitaminb6.png?t=1507889847');
+}
+
+.whats-inside__list-item.vitamind3-item div {
+  background-image: url('https://cdn3.bigcommerce.com/s-costxe5lpb/templates/__custom/images/nutrient-vitamind3.png?t=1507889847');
+}
+
+.whats-inside__list-item.zink-item div {
+  background-image: url('https://cdn3.bigcommerce.com/s-costxe5lpb/templates/__custom/images/nutrient-zinc.png?t=1507889847');
 }
 
 
@@ -2055,9 +2163,14 @@ dl.productView-info {
 	padding-right: 10px;
 	overflow-y: hidden;
 	min-width: 100px;
+	border-bottom: 1px solid rgba(100, 42, 117, 0.4);
 	@include breakpoint("small") {
-		height: 60px;
+		height: 70px;
 	}
+}
+
+.comparison__table-last {
+	border-bottom: 0;
 }
 
 .comparison__table-cell:first-child  {
@@ -2068,18 +2181,16 @@ dl.productView-info {
 }
 
 .comparison__table-cell:last-child  {
-	height: 90px;
+	height: 70px;
 	@include breakpoint("small") {
 	    height: 70px;
     }
     @include breakpoint("medium") {
-	    height: 60px;
+	    height: 70px;
     }
 }
 
-.comparison__table-cell:not(:last-of-type) {
-  border-bottom: 1px solid rgba(100, 42, 117, 0.4);
-}
+
 
 .comparison__table-cell--centered {
   justify-content: center;
@@ -2117,6 +2228,21 @@ img[alt="X"].comparison__table-cell__icon  {
   color: #fff;
 }
 
+.productView.ultra .comparison__table-focus,
+.productView.ultra .comparison__table-memory,
+.productView.ultra .comparison__table-mood,
+.productView.focus .comparison__table-ultra,
+.productView.focus .comparison__table-memory,
+.productView.focus .comparison__table-mood,
+.productView.memory .comparison__table-ultra,
+.productView.memory .comparison__table-focus,
+.productView.memory .comparison__table-mood,
+.productView.mood .comparison__table-ultra,
+.productView.mood .comparison__table-focus,
+.productView.mood .comparison__table-memory {
+	display: none;
+}
+
 
 // =============================================================================
 // PAGES
@@ -2126,10 +2252,19 @@ img[alt="X"].comparison__table-cell__icon  {
     padding-bottom: 20px;
     margin-bottom: 40px;
     border-bottom: 2px solid #1f4070;
+	position: relative;
+}
+
+.story-container:after {
+    display: block;
+	clear: both;
 }
 
 .story-container h3 {
     margin-top: 1.5rem;
+	@include breakpoint("large") {
+		margin-top: 0;
+	}
 }
 
 .imagefloat {
@@ -2137,7 +2272,9 @@ img[alt="X"].comparison__table-cell__icon  {
     padding: 0 0 20px 0;
 	@include breakpoint("large") {
 		width: 50%;
-		float: left;
+		position: absolute;
+		left: 0;
+		top: 0;
 		padding: 0 40px 30px 0;
 	}
 }
@@ -2145,6 +2282,12 @@ img[alt="X"].comparison__table-cell__icon  {
 .imagefloat img {
     width: 100%;
     height: auto;
+}
+
+.textfloat {
+	@include breakpoint("large") {
+		padding-left: 50%;
+	}
 }
 
 .calltoaction {
@@ -2248,7 +2391,7 @@ img[alt="X"].comparison__table-cell__icon  {
     display: none;
     color: #000;
     text-align: left;
-    font-size: 0;
+    font-size: 14px;
 }
 
 .tab-content-left,.tab-content-right {
