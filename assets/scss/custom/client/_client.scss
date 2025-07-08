@@ -191,7 +191,7 @@ div[data-content-region="home_below_top_banner"] .custom-widget-content {
 }
 
 .navPages-list-simple .navPages-item-category.navPages-item-accessories .navPage-subMenu-item,
-.navPages-list-simple .navPages-item-category.navPages-item-vape-pods .navPage-subMenu-item{
+.navPages-list-simple .navPages-item-category.navPages-item-vape-pods .navPage-subMenu-item {
     @include breakpoint("medium") {
 		width: 100%;
 	}
@@ -317,12 +317,26 @@ body.scroll .header-fixed .navPages > ul > li > .navPages-action {
 
 .navPages-list:not(.navPages-list-depth-max) .navPage-subMenu-action {
 	padding: 0;
+	white-space: nowrap;
+	@include breakpoint("medium") {
+		white-space: normal;
+	}
 }
 
 .navPage-subMenu-action:not(.navPages-action-depth-max) + .navPage-childList {
 	margin: 0;
 	padding: 0;
+	@include breakpoint("medium") {
+		padding: 0 0 1rem 0;
+	}
 }
+
+@media (max-width: 800px) {
+	.navPage-childList {
+		border-left: 0;
+	}
+}
+
 
 
 // =============================================================================
@@ -582,7 +596,21 @@ body.scroll .header-fixed .navPages > ul > li > .navPages-action {
 .navPage-subMenu .navPage-childList-elfliq,
 .navPage-subMenu .navPage-childList-ivg,
 .navPage-subMenu .navPage-childList-pod-salt,
-.navPage-subMenu .navPage-childList-vsavi {
+.navPage-subMenu .navPage-childList-vsavi,
+.navPage-subMenu .navPage-childList-edge,
+.navPage-subMenu .navPage-childList-hangsen,
+.navPage-subMenu .navPage-childList-oxva,
+.navPage-subMenu .navPage-childList-aspire127,
+.navPage-subMenu .navPage-childList-edge187,
+.navPage-subMenu .navPage-childList-innokin128,
+.navPage-subMenu .navPage-childList-smok129,
+.navPage-subMenu .navPage-childList-v2-vapour2130,
+.navPage-subMenu .navPage-childList-xeo140,
+.navPage-subMenu .navPage-childList-aspire95, 
+.navPage-subMenu .navPage-childList-innokin97, 
+.navPage-subMenu .navPage-childList-smok98, 
+.navPage-subMenu .navPage-childList-vaporesso364, 
+.navPage-subMenu .navPage-childList-v2-vsavi99 {
 	position: relative;
 }
 
@@ -590,7 +618,21 @@ body.scroll .header-fixed .navPages > ul > li > .navPages-action {
 .navPage-subMenu .navPage-childList-elfliq::after,
 .navPage-subMenu .navPage-childList-ivg::after,
 .navPage-subMenu .navPage-childList-pod-salt::after,
-.navPage-subMenu .navPage-childList-vsavi::after {
+.navPage-subMenu .navPage-childList-vsavi::after,
+.navPage-subMenu .navPage-childList-edge::after,
+.navPage-subMenu .navPage-childList-hangsen::after,
+.navPage-subMenu .navPage-childList-oxva::after,
+.navPage-subMenu .navPage-childList-aspire127::after,
+.navPage-subMenu .navPage-childList-edge187::after,
+.navPage-subMenu .navPage-childList-innokin128::after,
+.navPage-subMenu .navPage-childList-smok129::after,
+.navPage-subMenu .navPage-childList-v2-vapour2130::after,
+.navPage-subMenu .navPage-childList-xeo140::after,
+.navPage-subMenu .navPage-childList-aspire95::after, 
+.navPage-subMenu .navPage-childList-innokin97::after, 
+.navPage-subMenu .navPage-childList-smok98::after, 
+.navPage-subMenu .navPage-childList-vaporesso364::after, 
+.navPage-subMenu .navPage-childList-v2-vsavi99::after {
     content: "< POPULAR";
     position: absolute;
 	text-align: center;
@@ -700,6 +742,13 @@ body.scroll .header-fixed .navPages > ul > li > .navPages-action {
 .navPage-subMenu-mobile {
 	@include breakpoint("medium") {
 		display: none;
+	}
+}
+
+.navPage-subMenu-desktop {
+    display: none;
+	@include breakpoint("medium") {
+		display: block;
 	}
 }
 
