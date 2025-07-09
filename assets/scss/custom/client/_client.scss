@@ -340,6 +340,23 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
+.header-bar {
+	overflow-y: visible;
+}
+
+.FriendBuy a {
+    text-decoration: none;
+    display: inline-block;
+    height: 21px;
+    padding: 0;
+}
+
+.FriendBuy img {
+    height: 21px;
+    width: auto;
+    margin: 0;
+}
+
 .navUser-section--norm.navUser-section-left {
 	display: none;
 }
