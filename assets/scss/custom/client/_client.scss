@@ -172,17 +172,14 @@ div[data-content-region="home_below_top_banner"] .custom-widget-content {
 	}
 }
 
-.navPages-list-simple .navPages-item-category.navPages-item-accessories,
-.navPages-list-simple .navPages-item-category.navPages-item-vape-pods {
+.navPages-list-simple .navPages-item-category.navPages-item-accessories {
     @include breakpoint("medium") {
 		position: relative;
 	}
 }
 
 .navPages-click .navPages-list-simple .navPages-item-category.navPages-item-accessories .navPage-subMenu.is-open,
-.navPages-hover .navPages-list-simple .navPages-item-category.navPages-item-accessories:hover div.navPage-subMenu,
-.navPages-click .navPages-list-simple .navPages-item-category.navPages-item-vape-pods .navPage-subMenu.is-open,
-.navPages-hover .navPages-list-simple .navPages-item-category.navPages-item-vape-pods:hover div.navPage-subMenu {
+.navPages-hover .navPages-list-simple .navPages-item-category.navPages-item-accessories:hover div.navPage-subMenu {
     @include breakpoint("medium") {
 		min-width: 250px;
 		left: auto;
@@ -190,8 +187,7 @@ div[data-content-region="home_below_top_banner"] .custom-widget-content {
 	}
 }
 
-.navPages-list-simple .navPages-item-category.navPages-item-accessories .navPage-subMenu-item,
-.navPages-list-simple .navPages-item-category.navPages-item-vape-pods .navPage-subMenu-item {
+.navPages-list-simple .navPages-item-category.navPages-item-accessories .navPage-subMenu-item {
     @include breakpoint("medium") {
 		width: 100%;
 	}
@@ -1368,6 +1364,36 @@ div[data-content-region="blog_banner"] div > div > div {
     @include breakpoint("small") {
 		margin: 0;
 	}
+}
+
+.footer-newsletter .container .container {
+	padding: 0 !important;
+	max-width: 100% !important;
+}
+
+.footer-newsletter-col form {
+	padding: 0 !important;
+	margin: 0 !important;
+	max-width: 100% !important;
+}
+
+
+.footer-newsletter-col form h1,
+.footer-newsletter-col form h2,
+.footer-newsletter-col form h3,
+.footer-newsletter-col form h1 span,
+.footer-newsletter-col form h2 span,
+.footer-newsletter-col form h3 span {
+	font-size: 22px !important;
+	font-weight: 700 !important;
+	font-family: stencilFontFamily("headings-font") !important;
+}
+
+.footer-newsletter-col form p,
+.footer-newsletter-col form span,
+.footer-newsletter-col form input,
+.footer-newsletter-col form button {
+	font-family: stencilFontFamily("body-font") !important;
 }
 
 /*
