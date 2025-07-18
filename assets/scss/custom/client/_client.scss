@@ -205,19 +205,19 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 500 !important;
 }
 
-.page-ultra-with-cognicetam .specialcolour {
+.page-brainsmart-ultra-with-cognicetam-brain-supplements .specialcolour {
 	color: #e9ce38;
 }
 
-.page-focus .specialcolour {
+.page-brainsmart-focus-focus-supplements .specialcolour {
 	color: #11ade4;
 }
 
-.page-memory .specialcolour {
+.page-brainsmart-memory-memory-supplements .specialcolour {
 	color: #8f489e;
 }
 
-.page-mood .specialcolour {
+.page-brainsmart-mood-anxiety-remedies .specialcolour {
 	color: #fbb611;
 }
 
@@ -225,7 +225,6 @@ h1, h2, h3, h4, h5, h6 {
 // =============================================================================
 // Header
 // =============================================================================
-
 
 .header-bar-message-2 .header-bar-text-gbp,
 .header-bar-message-2 .header-bar-text-usd,
@@ -344,14 +343,46 @@ h1, h2, h3, h4, h5, h6 {
 	overflow-y: visible;
 }
 
+
+.header-bar .header-bar-message {
+	padding: 8px 0 0 0;
+	@include breakpoint("medium") {
+		padding: 0;
+	}
+}
+
+.header-bar .header-bar-icon {
+	padding-top: 8px;
+	vertical-align: top;
+}
+
+.header-bar .header-bar-text {
+	vertical-align: top;
+}
+
+.FriendBuy {
+	margin: 2px 0 0 0;
+	line-height: 23px;
+}
+
+.FriendBuy span {
+	display: inline-block;
+	vertical-align: top;
+}
+
 .FriendBuy a {
     text-decoration: none;
     display: inline-block;
-    height: 21px;
-    padding: 0;
+	vertical-align: top;
+    height: 23px;
+    margin: 0;
+	padding: 1px;
+	border-radius: 2px;
+	background-color: #fff;
 }
 
 .FriendBuy img {
+	display: block;
     height: 21px;
     width: auto;
     margin: 0;
@@ -550,19 +581,19 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
-.page-ultra-with-cognicetam .quick-add {
+.page-brainsmart-ultra-with-cognicetam-brain-supplements .quick-add {
 	background-color: rgba(233, 206, 56, .15);
 }
 
-.page-focus .quick-add {
+.page-brainsmart-focus-focus-supplements .quick-add {
 	background-color: rgba(41, 117, 171, .15);
 }
 
-.page-memory .quick-add {
+.page-brainsmart-memory-memory-supplements .quick-add {
 	background-color: rgba(143, 72, 158, .15);
 }
 
-.page-mood .quick-add {
+.page-brainsmart-mood-anxiety-remedies .quick-add {
 	background-color: rgba(251, 182, 17, .15);
 }
 
@@ -878,11 +909,15 @@ div[data-content-region=home_below_carousel] div div[data-layout-name="Layout"]:
 dl.productView-info {
 	margin: 0;
 }
+
 .productView-info-name.sku-label,
 .productView-info-value.sku-value,
 .productView-info-name.upc-label,
 .productView-info-value.upc-value,
-.productView-info-bulkPricing {
+.productView-info-name.mpn-label,
+.productView-info-value.mpn-value,
+.productView-info-bulkPricing,
+.productView-info-bulkPricingWrap {
 	display: none;
 }
 
@@ -1418,10 +1453,10 @@ dl.productView-info {
 	}
 }
 
-.page-ultra-with-cognicetam .description-images,
-.page-focus .description-images,
-.page-memory .description-images,
-.page-mood .description-images {
+.page-brainsmart-ultra-with-cognicetam-brain-supplements .description-images,
+.page-brainsmart-focus-focus-supplements .description-images,
+.page-brainsmart-memory-memory-supplements .description-images,
+.page-brainsmart-mood-anxiety-remedies .description-images {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -1432,46 +1467,46 @@ dl.productView-info {
 	max-width: 600px;
 }
 
-.page-ultra-with-cognicetam .description-images img,
-.page-focus .description-images img,
-.page-memory .description-images img,
-.page-mood .description-images img {
+.page-brainsmart-ultra-with-cognicetam-brain-supplements .description-images img,
+.page-brainsmart-focus-focus-supplements .description-images img,
+.page-brainsmart-memory-memory-supplements .description-images img,
+.page-brainsmart-mood-anxiety-remedies .description-images img {
 	width: 50%;
 	max-width: 280px;
 	border: 10px solid #fff;
 	display: inline-block;
 }
 
-.page-memory .description-images img:last-child {
+.page-brainsmart-memory-memory-supplements .description-images img:last-child {
 	width: 80%;
 	max-width: 600px;
 }
 
-.page-mood .description-images img {
+.page-brainsmart-mood-anxiety-remedies .description-images img {
 	width: 100%;
 	max-width: 600px;
 }
 
-.page-mood .description-images img:last-child {
+.page-brainsmart-mood-anxiety-remedies .description-images img:last-child {
 	width: 70%;
 }
 
-.page-ultra-with-cognicetam .icon--ratingFull svg {
+.page-brainsmart-ultra-with-cognicetam-brain-supplements .icon--ratingFull svg {
 	fill: #e9ce38;
 	stroke: #e9ce38;
 }
 
-.page-focus .icon--ratingFull svg {
+.page-brainsmart-focus-focus-supplements .icon--ratingFull svg {
 	fill:  #11ade4;
 	stroke:  #11ade4;
 }
 
-.page-memory .icon--ratingFull svg {
+.page-brainsmart-memory-memory-supplements .icon--ratingFull svg {
 	fill:  #8f489e;
 	stroke:  #8f489e;
 }
 
-.page-mood .icon--ratingFull svg {
+.page-brainsmart-mood-anxiety-remedies .icon--ratingFull svg {
 	fill:  #fbb611;
 	stroke:  #fbb611;
 }
@@ -1489,19 +1524,19 @@ dl.productView-info {
 	}
 }
 
-.page-ultra-with-cognicetam .product-banner {
+.page-brainsmart-ultra-with-cognicetam-brain-supplements .product-banner {
 	border-bottom: 2px solid #e9ce38;
 }
 
-.page-focus .product-banner {
+.page-brainsmart-focus-focus-supplements .product-banner {
 	border-bottom: 2px solid  #11ade4;
 }
 
-.page-memory .product-banner {
+.page-brainsmart-memory-memory-supplements .product-banner {
 	border-bottom: 2px solid  #8f489e;
 }
 
-.page-mood .product-banner {
+.page-brainsmart-mood-anxiety-remedies .product-banner {
 	border-bottom: 2px solid #fbb611;
 }
 
@@ -1531,23 +1566,23 @@ dl.productView-info {
 	}
 }
 
-.page-ultra-with-cognicetam .product-banner-text,
-.page-ultra-with-cognicetam h2 {
+.page-brainsmart-ultra-with-cognicetam-brain-supplements .product-banner-text,
+.page-brainsmart-ultra-with-cognicetam-brain-supplements h2 {
 	color: #e9ce38;
 }
 
-.page-focus .product-banner-text,
-.page-focus h2 {
+.page-brainsmart-focus-focus-supplements .product-banner-text,
+.page-brainsmart-focus-focus-supplements h2 {
 	color:  #11ade4;
 }
 
-.page-memory .product-banner-text,
-.page-memory h2 {
+.page-brainsmart-memory-memory-supplements .product-banner-text,
+.page-brainsmart-memory-memory-supplements h2 {
 	color:  #8f489e;
 }
 
-.page-mood .product-banner-text,
-.page-mood h2 {
+.page-brainsmart-mood-anxiety-remedies .product-banner-text,
+.page-brainsmart-mood-anxiety-remedies h2 {
 	color:  #fbb611;
 }
 
@@ -1718,7 +1753,7 @@ dl.productView-info {
 }
 
 .whats-inside__list-item.acerola-item div {
-  background-image: url('../img/custom/nutrient-caffine.png');
+  background-image: url('../img/custom/nutrient-acerola.png');
 }
 
 .whats-inside__list-item.acetyl-item div {
@@ -1727,6 +1762,10 @@ dl.productView-info {
 
 .whats-inside__list-item.ascophylum-item div {
   background-image: url('../img/custom/nutrient-noodsum.png');
+}
+
+.whats-inside__list-item.caffeine-item div {
+  background-image: url('../img/custom/nutrient-guarana.png');
 }
 
 .whats-inside__list-item.camomile-item div {
@@ -1903,22 +1942,22 @@ dl.productView-info {
 	}
 }
 
-.page-ultra-with-cognicetam .usage {
+.page-brainsmart-ultra-with-cognicetam-brain-supplements .usage {
     background-color: #e9ce38;
 	background-image: url('https://cdn11.bigcommerce.com/s-0ce01/images/stencil/original/image-manager/banner-ultra-mobile.jpg?t=1752062962');
 }
 
-.page-focus .usage {
+.page-brainsmart-focus-focus-supplements .usage {
     background-color: #11ade4;
 	background-image: url('https://cdn11.bigcommerce.com/s-0ce01/images/stencil/original/image-manager/banner-focus-mobile.jpg?t=1752062960');
 }
 
-.page-memory .usage {
+.page-brainsmart-memory-memory-supplements .usage {
     background-color: #8f489e;
 	background-image: url('https://cdn11.bigcommerce.com/s-0ce01/images/stencil/original/image-manager/banner-memory-mobile.jpg?t=1752062961');
 }
 
-.page-mood .usage {
+.page-brainsmart-mood-anxiety-remedies .usage {
     background-color: #fbb611;
 	background-image: url('https://cdn11.bigcommerce.com/s-0ce01/images/stencil/original/image-manager/banner-mood-mobile.jpg?t=1752062961');
 }
@@ -2119,19 +2158,19 @@ dl.productView-info {
 	}
 }
 
-.page-ultra-with-cognicetam .comparison-tables {
+.page-brainsmart-ultra-with-cognicetam-brain-supplements .comparison-tables {
 	background-color: #fcfaeb;
 }
 
-.page-focus .comparison-tables {
+.page-brainsmart-focus-focus-supplements .comparison-tables {
 	background-color: #DFEBF2;
 }
 
-.page-memory .comparison-tables {
+.page-brainsmart-memory-memory-supplements .comparison-tables {
 	background-color: #EEE4F0;
 }
 
-.page-mood .comparison-tables {
+.page-brainsmart-mood-anxiety-remedies .comparison-tables {
 	background-color: #FEF4DF
 }
 
@@ -2443,6 +2482,7 @@ img[alt="X"].comparison__table-cell__icon  {
 // =============================================================================
 // CART
 // =============================================================================
+
 
 .page-cart .header-globalregion {
 	display: none;
@@ -2790,6 +2830,13 @@ img[alt="X"].comparison__table-cell__icon  {
 	border-radius: 999px;
 }
 
+.productGrid-bundle .card-image {
+	position: static;
+	width: 100%;
+	height: auto;
+}
+
+
 
 // =============================================================================
 // FOOTER
@@ -2965,10 +3012,10 @@ img[alt="X"].comparison__table-cell__icon  {
 }
 
 .page-product .container-custom,
-.page-ultra-with-cognicetam .container-hero + .container,
-.page-focus .container-hero + .container,
-.page-memory .container-hero + .container,
-.page-mood .container-hero + .container {
+.page-brainsmart-ultra-with-cognicetam-brain-supplements .container-hero + .container,
+.page-brainsmart-focus-focus-supplements .container-hero + .container,
+.page-brainsmart-memory-memory-supplements .container-hero + .container,
+.page-brainsmart-mood-anxiety-remedies .container-hero + .container {
 	max-width: none;
 }
 
