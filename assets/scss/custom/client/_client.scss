@@ -339,6 +339,9 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
+
+// FRIEND BUY
+/*
 .header-bar {
 	overflow-y: visible;
 }
@@ -387,6 +390,7 @@ h1, h2, h3, h4, h5, h6 {
     width: auto;
     margin: 0;
 }
+*/
 
 .navUser-section--norm.navUser-section-left {
 	display: none;
@@ -1701,7 +1705,10 @@ dl.productView-info {
     background-size: 145px 145px;
     background-repeat: no-repeat;
     background-position: center bottom 14px;
-	min-height: 200px;
+	min-height: 240px;
+	@include breakpoint("medium") {
+		min-height: 200px;
+	}
 }
 
 .productView.ultra #ingredients ul li div {
