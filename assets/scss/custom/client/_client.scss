@@ -36,6 +36,76 @@ body.scroll .header-fixed .header-logo-image-container {
 
 
 // =============================================================================
+// NAV USER
+// =============================================================================
+
+.navUser ul li.navUser-item--custom-desktop {
+	@include breakpoint("xlarge") {
+		padding-right: 2rem;
+		border-right: 1px solid stencilColor('navUser-color');
+		margin-right: 1rem;
+	}
+}
+
+.navUser-item--custom-desktop {
+	display: none;
+	@include breakpoint("xlarge") {
+		display: inline-block;
+	}
+}
+
+.navUser-item--custom-mobile {
+	display: inline-block;
+	@include breakpoint("xlarge") {
+		display: none;
+	}
+}
+/*
+@media (max-width: 1260px) {	
+	.navUser-item--whatsapp {
+		display: none !important;
+	}
+}
+
+.navUser-item--whatsapp {
+	@include breakpoint("large") {
+		display: inline-block;
+	}
+}
+
+.navUser-item--custom .whatsappChatButton {
+	@include breakpoint("large") {
+		display: none !important;
+	}
+}
+*/
+.navUser-item--custom > span {
+    font-size: 14px;
+    line-height: 1;
+	font-weight: 700;
+	color: stencilColor('navUser-color');
+}
+
+.navUser-item--custom a,
+.navUser-item--custom a:hover {
+	color: stencilColor('button--primary-backgroundColor');
+	text-decoration: none;
+}
+
+.navUser-item--custom strong {
+    font-size: 21px;
+    line-height: 1;
+	color: stencilColor('button--primary-backgroundColor');
+}
+
+.navUser-item--custom .dropdown-menu-item {
+	padding: .75rem 1.5rem;
+	text-align: center;
+}
+
+
+
+// =============================================================================
 // MENU
 // =============================================================================
 
@@ -88,7 +158,13 @@ body.scroll .header-fixed .navPages-wrapper-icon .desktopMenu-toggleIcon,
 	top: 1.5rem;
 }
 
-.navPages > ul.navPages-list-depth-max .navPages-item-category.navPages-item-wrapper > .navPage-subMenu > .navPage-subMenu-list > .navPage-subMenu-item-child > a.navPages-action-depth-max,
+.navPages > ul.navPages-list-depth-max .navPages-item-category.navPages-item-wrapper > .navPage-subMenu > .navPage-subMenu-list > .navPage-subMenu-item-child > a.navPages-action-depth-max {
+    @include breakpoint("medium") {
+		padding-top: .25rem;
+		padding-bottom: .25rem;
+	}
+}
+
 .navPages > ul.navPages-list-depth-max .navPages-item-category.navPages-item-wrapper > .navPage-subMenu > .navPage-subMenu-list > .navPage-subMenu-item-child > a.navPages-action.has-image {
     border-bottom: 1px solid #f0f0f0;
     @include breakpoint("medium") {

@@ -1,0 +1,43 @@
+{{#contains settings.store_name 'Anode'}}
+		<li class="navUser-item navUser-item--custom navUser-item--custom-mobile">
+            <a class="navUser-action navUser-action--custom has-dropdown"
+			   href="#"
+               data-dropdown="customDropdown"
+			   aria-controls="customDropdown"
+			   aria-expanded="false"
+               aria-label="Phone"
+            >
+				<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-phone{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}" /></svg></i></span>
+            </a>
+            
+			<ul class="dropdown-menu" id="customDropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+	            <li class="dropdown-menu-item">
+					<span>7:30am - 5:30pm</span>
+					<div><a href="tel:{{strReplace settings.phone_number ' ' ''}}"><strong>{{settings.phone_number}}</strong></a></div>
+					<!--
+					<div class="whatsapp whatsappChatButton" style="display:none;">
+						<a aria-label="Chat on WhatsApp" href="" target="_blank">
+							<img width="207" height="48" alt="Chat on WhatsApp" src="">
+						</a>
+					</div>
+					-->
+				</li>
+	        </ul>
+	        
+        </li>
+		<li class="navUser-item navUser-item--custom navUser-item--custom-desktop">
+			<span>7:30am - 5:30pm</span>
+			<div><a href="tel:{{strReplace settings.phone_number ' ' ''}}"><strong>{{settings.phone_number}}</strong></a></div>
+		</li>
+		<!--
+        <li class="navUser-item navUser-item--custom navUser-item--custom-desktop navUser-item--whatsapp" style="display:none;">
+            <a class="navUser-action navUser-action--custom"
+			   href="" 
+			   target="_blank"
+               aria-label="Chat on WhatsApp"
+            >
+				<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-whatsapp" /></svg></i></span>
+            </a>
+        </li>
+        -->
+{{/contains}}

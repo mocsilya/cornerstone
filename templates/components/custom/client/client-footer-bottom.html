@@ -1,8 +1,12 @@
+{{#unless theme_settings.custom_phone_show}}
 <p class="footer-phone">
 	<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-phone{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i> 
 	<a href="tel:{{strReplace settings.phone_number ' ' ''}}"><strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong></a>
 </p>
+{{/unless}}
+{{#unless theme_settings.custom_email_show}}
 <p class="footer-email">
 	<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-envelope{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i> 
 	<a href="mailto:{{theme_settings.custom_email_address}}"><strong>{{lang 'footer.email_us'}}</strong></a>
 </p>
+{{/unless}}
