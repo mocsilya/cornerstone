@@ -932,9 +932,7 @@ div[data-content-region="category_above_content"] .custom-widget-banner {
 	cursor: default;
 }
 
-.productView-brand,
-.productView-details.product-data .productView-info-name.sku-label,
-.productView-details.product-data .productView-info-value.sku-value {
+.productView-brand {
 	display: none;
 }
 
@@ -980,7 +978,12 @@ div[data-content-region="category_above_content"] .custom-widget-banner {
 }
 
 .productView-details.product-data .productView-rating,
-.productView-details.product-data dl.productView-info {
+.productView-details.product-data .productView-info-name.sku-label,
+.productView-details.product-data .productView-info-value.sku-value,
+.productView-details.product-data .productView-info-name.upc-label,
+.productView-details.product-data .productView-info-value.upc-value,
+.productView-details.product-data .productView-info-name.mpn-label,
+.productView-details.product-data .productView-info-value.mpn-value {
 	display: none;
 }
 
