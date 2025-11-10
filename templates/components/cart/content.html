@@ -180,7 +180,7 @@
                                 data-confirm-delete="{{lang 'cart.confirm_delete'}}"
                                 aria-label="{{lang 'cart.remove_item' name=name}}"
                         >
-                            <svg><use href="#icon-delete"></use></svg>
+                            <svg aria-hidden="true"><use href="#icon-delete"></use></svg>
                         </button>
 						{{else}}
 						<a class="cart-remove-alt icon" href="cart.php?action=remove&item={{id}}" onclick="Cart.RemoveItem('{{id}}'); return false;"  title="Remove">

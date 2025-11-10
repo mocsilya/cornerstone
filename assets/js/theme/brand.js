@@ -2,7 +2,7 @@ import { hooks } from '@bigcommerce/stencil-utils';
 import CatalogPage from './catalog';
 import compareProducts from './global/compare-products';
 import FacetedSearch from './common/faceted-search';
-import { createTranslationDictionary } from '../theme/common/utils/translations-utils';
+import { createTranslationDictionary } from './common/utils/translations-utils';
 import cardSwatches from './custom/card-swatches';
 import cardWarranty from './custom/card-warranty';
 import cardCarousel from './custom/card-carousel';

@@ -144,7 +144,7 @@ export default class Search extends CatalogPage {
         default: break;
         }
 
-        $($tabsCollection.get(nextTabIdx)).focus().trigger('click');
+        $($tabsCollection.get(nextTabIdx)).trigger('focus').trigger('click');
     }
 
     onReady() {
@@ -226,7 +226,7 @@ export default class Search extends CatalogPage {
             >${this.context.searchResultsCount}</p>`)
             .prependTo('body');
 
-        setTimeout(() => $searchResultsMessage.focus(), 100);
+        setTimeout(() => $searchResultsMessage.trigger('focus'), 100);
         cardSwatches();
         cardWarranty();
 		cardCarousel();
