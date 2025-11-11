@@ -112,14 +112,30 @@ h1, h2, h3, h4, h5, h6 {
 	right: 0;
 	bottom: 0;
 	z-index: 1000;
+    background: stencilColor("container-fill-dark");
+    color: #000;
 }
 
 .cookieMessage-container {
 	padding: .75rem 1.5rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+	@include breakpoint("medium") {
+        width: 83.33333%;
+	}
+	@include breakpoint("xlarge") {
+        width: 58.33333%;
+	}
 }
 
 .cookieMessage-text {
 	margin: .75rem 0;
+	@include breakpoint("medium") {
+        display: inline-block;
+        padding: 0 .78571rem;
+        vertical-align: middle;
+        width: 66.66667%;
+	}
 }
 
 .cookieMessage-text p {
@@ -132,7 +148,16 @@ h1, h2, h3, h4, h5, h6 {
 	margin: .75rem 0;
 	font-weight: bold;
 	cursor: pointer;
+	width: 100%;
+	@include breakpoint("medium") {
+        vertical-align: middle;
+        width: 25%;
+	}
+	@include breakpoint("xlarge") {
+        vertical-align: top;
+	}
 }
+
 
 // alignment tweak on dropdowns (e.g. wishlist)
 .dropdown-menu-button .icon {
@@ -6305,6 +6330,15 @@ div[data-content-region="product_view_bottom--global"] {
 	border-radius: 0;
 }
 
+.productView-options .add-to-cart-buttons {
+	margin-top: 1rem;
+	@include breakpoint("small") {
+		width: 100%;
+		flex: 1 0 0;
+		margin-top: 0;
+	}
+}
+
 .productView-options .form-action {
 	padding: 0;
 	margin: 0;
@@ -6373,13 +6407,11 @@ div[data-content-region="product_view_bottom--global"] {
 	margin: 0;
 	flex: 1 0 0;
 	min-width: 100%;
-	@include breakpoint("small") {
-		padding-left: 155px;
-	}
 }
 
 .productView-options .add-to-cart-wallet-buttons button {
 	width: 100% !important;
+	min-width: 0;
 } 
 
 .productView-options .add-to-cart-wallet-buttons,

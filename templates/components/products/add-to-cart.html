@@ -55,7 +55,7 @@
     {{/or}}
 
     {{#or customer (unless settings.hide_price_from_guests)}}
-
+	<div class="add-to-cart-buttons {{#if product.pre_order}}pre-order-buttons{{/if}}">
         <div class="form-action{{#all settings.show_wishlist theme_settings.custom_product_wishlist_show}}{{else}} form-action-maxwidth{{/all}}">
             <input {{#if theme_settings.custom_product_addtocart_pinterest}}onclick="pintrk('track', 'addtocart');"{{/if}}
                     id="form-action-addToCart"
@@ -71,5 +71,6 @@
                 {{> components/common/wallet-buttons}}
             </div>
         {{/if}}
+	</div>
     {{/or}}
 </div>
