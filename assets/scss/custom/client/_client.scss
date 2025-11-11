@@ -816,26 +816,18 @@ div[data-content-region="product_below_menu"] div[data-placement-status="ACTIVE"
 	fill: #ffc425;
 }
 
-div[data-content-region="product_below_price"] a,
 div[data-content-region="product_below_price--global"] a {
 	color: stencilColor("button--primary-backgroundColor") !important;
 }
 
-div[data-content-region="product_below_price"] a:hover,
 div[data-content-region="product_below_price--global"] a:hover {
 	color: stencilColor("button--primary-backgroundColorHover") !important;
 }
 
-div[data-content-region="product_below_price"] {
-	//margin-bottom: 1.5rem;
-}
-
-div[data-content-region="product_below_price"] div > div > div,
 div[data-content-region="product_below_price--global"] div > div > div {
 	padding-left: 0;
 	padding-right: 0;
 }
-
 
 .productView-description-underneath.productView-description-large {
 	@include breakpoint("large") {
