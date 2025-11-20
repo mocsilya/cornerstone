@@ -155,14 +155,14 @@
 							        {{#each categories}}
 							            <li class="navPage-subMenu-item-child navPage-subMenu-item-{{dashcase name}}">
 							                {{#if children}}
-												<a class="navPage-subMenu-action navPages-action navPages-action-depth-max has-subMenu{{#if is_active}} activePage{{/if}}" href="{{url}}" data-collapsible="navPages-{{id}}">
+												<a class="navPage-subMenu-action navPages-action navPages-action-depth-max has-subMenu{{#if is_active}} activePage{{/if}}{{#if image}} has-image{{else}} no-image{{/if}}" href="{{url}}" data-collapsible="navPages-{{id}}">
 													{{#if image}}<span class="navPage-subMenu-thumb" style="background-image: url('{{getImage image 'thumbnail'}}');"></span>{{/if}}
 							                        {{name}}
 													<i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use href="#icon-chevron-down" /></svg></i>
 							                    </a>
 							                    {{> components/common/navigation-dropdown}}
 							                {{else}}
-							                    <a class="navPage-subMenu-action navPages-action{{#if is_active}} activePage{{/if}}" href="{{url}}">
+							                    <a class="navPage-subMenu-action navPages-action{{#if is_active}} activePage{{/if}}{{#if image}} has-image{{else}} no-image{{/if}}" href="{{url}}">
 													{{#if image}}<span class="navPage-subMenu-thumb" style="background-image: url('{{getImage image 'thumbnail'}}');"></span>{{/if}}
 													{{name}}
 												</a>
@@ -281,6 +281,11 @@
                         {{/each}}
                     </ul>
                 </div>
+            </li>
+        {{/if}}
+        {{#if theme_settings.show_channels}}
+            <li class="navPages-item">
+                {{> components/common/channel-selector-mobile}}
             </li>
         {{/if}}
         {{#if settings.gift_certificates_enabled}}

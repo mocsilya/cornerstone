@@ -14,10 +14,10 @@ customer:
 {{inject "brandProductsPerPage" theme_settings.brandpage_products_per_page}}
 {{#partial "head"}}
     {{#if pagination.brand.previous}}
-        <link rel="prev" href="{{pagination.brand.previous}}">
+        <link rel="prev" href="{{{pagination.brand.previous}}}">
     {{/if}}
     {{#if pagination.brand.next}}
-        <link rel="next" href="{{pagination.brand.next}}">
+        <link rel="next" href="{{{pagination.brand.next}}}">
     {{/if}}
 {{/partial}}
 {{#partial "hero"}}
@@ -65,7 +65,6 @@ customer:
 	    </div>
         {{{region name="brand_below_content"}}}
     </div>
-
 </div>
 
 {{/partial}}
