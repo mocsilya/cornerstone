@@ -1,6 +1,6 @@
 {{#unless product.price.price_range}}
 	{{#unless product.price.rrp_with_tax}}
-		<script>
+		<script nonce="{{nonce}}">
 			// add the normal price as an rrp if not a range and no rrp is available.
 			var rrpDiv = document.querySelector('.price-section.price-section--withTax.rrp-price--withTax');
 			var rrpSpan = rrpDiv.querySelector('.price--rrp');
@@ -28,7 +28,7 @@
 			display: none !important;
 		}
 	</style>
-	<script>
+	<script nonce="{{nonce}}">
 	var timeStart = 0;
 	var optionClick = document.querySelectorAll(".productView-options .form-radio, .productView-options .form-select");
 	var optionHref = '?make={{{encodeURI product.brand.name}}}&model={{{encodeURI product.title}}}'
@@ -447,7 +447,7 @@
 -->
 
 {{#filter product.custom_fields 'faq' property='value' }}
-<script>
+<script nonce="{{nonce}}">
 	window.onload = function() {    
 	    let elements = document.querySelectorAll(".productView-options .form-label");
 	    for (let i = 0; i < elements.length; i++) {
@@ -483,7 +483,7 @@
 {{/filter}}
 
 {{#contains product.title 'Pre Order'}}
-<script>
+<script nonce="{{nonce}}">
 document.addEventListener("DOMContentLoaded", () => { 
 	const queryString = window.location.search;
 	const urlParams = new URLSearchParams(queryString);

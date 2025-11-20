@@ -1,6 +1,6 @@
 {{#contains page.title 'Price Match Request'}}
 
-<script type="text/javascript">
+<script nonce="{{nonce}}">
 	document.addEventListener("DOMContentLoaded", () => {
 	    const queryString = window.location.search;
 	    const urlParams = new URLSearchParams(queryString);
@@ -46,7 +46,7 @@
 </script>
 {{/contains}}
 
-<script>
+<script nonce="{{nonce}}">
 	window.onload = function() {    
 	    let elements = document.querySelectorAll(".accord-click");
 	    for (let i = 0; i < elements.length; i++) {

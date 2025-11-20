@@ -1,5 +1,5 @@
 {{#or (if page_type '===' 'category') (if page_type '===' 'search') (if page_type '===' 'brand')}}
-<script>
+<script nonce="{{nonce}}">
     // Check if content has changed
 	if (document.body.classList.contains('page-category') || document.body.classList.contains('page-brand') || document.body.classList.contains('page-search')){
 	    const target = document.querySelector('#product-listing-container');
@@ -102,7 +102,7 @@
 {{/if}}
 -->
 {{#unless page_type '===' 'checkout'}}
-<script>
+<script nonce="{{nonce}}">
 	function getDayName(dateStr, locale) {
 	    var date = new Date(dateStr);
 	    return date.toLocaleDateString(locale, { weekday: 'short' });        
