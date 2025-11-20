@@ -125,7 +125,9 @@ body.page-page_contact_form .sidebarCategories > .sidebarBlock-heading {
 .productView-options .form-field-invisiframe .faq-label,
 .productView-options .form-field-invisiframe .faq-label:first-child,
 .productView-options .form-field-tubeless-set-up .faq-label,
-.productView-options .form-field-tubeless-set-up .faq-label:first-child {
+.productView-options .form-field-tubeless-set-up .faq-label:first-child,
+.productView-options .form-field-frame-protection .faq-label,
+.productView-options .form-field-frame-protection .faq-label:first-child {
 	padding-right: 40px !important;
 	background-image: url('../img/custom/info.png');
 	background-position: right 8px center;
@@ -284,6 +286,10 @@ body.with-bar[zb-bar="show"] .header {
 }
 
 .navPages > ul > li.navPages-item-black-friday > .navPages-action {
+	color: #ffdd00;
+}
+
+.navPages > ul > li.navPages-item-summer-sale > .navPages-action {
 	color: #ffdd00;
 }
 
