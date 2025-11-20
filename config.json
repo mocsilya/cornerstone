@@ -370,6 +370,7 @@
     "color-greyLightest": "#e5e5e5",
     "banner--default-backgroundColor": "#707070",
     "banner--default-color": "#ffffff",
+    "button--default-color": "#666666",
     "button--default-colorHover": "#000000",
     "button--default-colorActive": "#000000",
     "button--default-borderColor": "#8F8F8F",
