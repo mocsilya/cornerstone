@@ -315,7 +315,9 @@ body:not(.currency-gbp) .navPages > ul > li.navPages-item-category {
     display: none;
 }
 
-
+.navPage-subMenu-item .collapsible-icon-wrapper {
+	max-width: 50px;
+}
 
 // Nav User
 // =============================================================================
@@ -500,9 +502,9 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 .page-default div[data-content-region="home_below_top_banner"] p strong {
 	font-family: stencilFontFamily('headings-font');
 	text-transform: uppercase;
-	font-size: 1.5rem !important;
+	font-size: 1.25rem !important;
 	@include breakpoint("large") {
-		font-size: 2rem !important;
+		font-size: 1.5rem !important;
 	}
 }
 
@@ -937,6 +939,11 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	@include breakpoint("large") {
 		display: block;
 	}
+}
+
+.category-description-image h3 {
+	margin-top: .5rem;
+	text-transform: none !important;
 }
 
 .category-description-image p {
