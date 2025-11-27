@@ -2,3 +2,264 @@
 // Custom > Client
 // =============================================================================
 //
+
+// Header
+
+
+
+.why-buy-bar {
+	background-color: #f4f4f4;
+}
+
+.why-buy-bar .container {
+	padding: 0;
+}
+
+.why-buy-wrapper {
+	
+}
+
+.why-buy-blocks {
+	display: flex;
+	flex: 1 0 0;
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	width: 100vw;
+}
+
+.why-buy-block {
+	flex: 1 1 0;
+	text-align: center;
+	padding: .75rem;
+	white-space: nowrap;
+}
+
+
+
+// navUser
+
+.navUser-text {
+	display: none;
+}
+
+.header-logo {
+	@include breakpoint("medium") {
+        max-width: calc(50% + 30px);
+		justify-content: flex-end;
+	}
+}
+
+.header-logo__link {
+	@include breakpoint("medium") {
+		justify-content: flex-end;
+	}
+}
+
+.header-logo--left .header-logo-image-container {
+	@include breakpoint("medium") {
+        justify-content: flex-end;
+		max-width: 60px;
+	}
+	@include breakpoint("large") {
+        justify-content: flex-end;
+		max-width: 80px;
+	}
+}
+
+.navUser-section--norm.navUser-section-left {
+	@include breakpoint("medium") {
+        min-width: 120px;
+		flex: 0 1 0;
+		margin-left: auto;
+	}
+}
+
+.navUser-section--alt.navUser-section-left {
+	@include breakpoint("medium") {
+        min-width: 200px;
+		flex: 0 1 0;
+	}
+}
+
+.navUser-item--iconsearch .navUser-action {
+	@include breakpoint("medium") {
+        background-color: #f4f4f4;
+		border-radius: 50px;
+		padding-top: .25rem;
+		padding-bottom: .25rem;
+	}
+}
+
+.navUser-item--iconsearch .navUser-action .navUser-icon-search {
+	@include breakpoint("large") {
+        margin-top: .25rem;
+	}
+}
+
+.navUser-item--iconsearch .navUser-action .navUser-icon-search,
+.navUser-item--iconsearch .navUser-action .navUser-icon-search .icon {
+	@include breakpoint("medium") {
+        width: 1.5rem;
+		height: 1.5rem;
+	}
+	@include breakpoint("large") {
+		width: 1.5rem;
+        height: 1.5rem;
+	}
+}
+
+.navUser-item--iconsearch .navUser-text {
+	@include breakpoint("medium") {
+        min-width: 0;
+		font-weight: 400;
+	}
+}
+
+.navUser-item--currency .navUser-icon-outline {
+	border: 1px solid stencilColor("navUser-color");
+	padding-top: 5px;
+	@include breakpoint("large") {
+        padding-top: 8px;
+	}
+}
+
+
+
+// navPages
+
+.navPages {
+	@include breakpoint("medium") {
+		-webkit-box-shadow: inset 0px 1px 0px 0px #ddd; 
+		box-shadow: inset 0px 1px 0px 0px #ddd;
+	}
+}
+
+.navPages-list:not(.navPages-list-depth-max) .navPages-action-moreIcon {
+	@include breakpoint("medium") {
+        display: none;
+	}
+}
+
+.header-logo {
+	@include breakpoint("medium") {
+        max-width: calc(50% + 30px);
+	}
+}
+
+
+// Footer
+
+.footer {
+	background-image: url("https://cdn11.bigcommerce.com/s-8hl787wvsy/product_images/uploaded_images/fotter-bg.png");
+	background-position: center bottom;
+	background-repeat: no-repeat;
+}
+
+.footer-bar {
+	padding-top: 1rem;
+	border-top: 0;
+}
+
+section.footer-info {
+	display: flex;
+}
+
+section.footer-info-col {
+	display: flex;
+	flex-direction: column;
+}
+
+.footer-info article[data-section-type="storeInfo"] {
+	order: 1;
+}
+
+.footer-info article[data-section-type="footer-categories"] {
+	order: 2;
+}
+
+.footer-info article[data-section-type="footer-webPages"] {
+	order: 3;
+}
+
+.footer-info-heading {
+	display: none;
+}
+
+.footer-info address {
+	margin-top: .75rem;
+}
+
+
+// Homepage 
+
+
+.page-default .container-hero {
+	max-width: none;
+}
+
+.page-default .container-hero .slick-track,
+.page-default .container-hero .slick-track .slick-slide {
+	width: 100% !important;
+}
+
+.heroCarousel-content {
+	@include breakpoint("medium") {
+        background: rgba(0,0,0, 0.4);
+		max-width: 800px;
+		padding: 2rem !important;
+		left: 50px !important;
+		right: auto !important;
+	}
+}
+
+.heroCarousel-title {
+	width: 100%;
+	background: none;
+}
+
+.heroCarousel-description {
+	width: 100%;
+	background: none;
+}
+
+.home-awards {
+	display: flex;
+	align-items: center;
+}
+
+.home-awards div {
+	padding: .25rem;
+}
+
+.home-awards div:first-child {
+	padding-left: 0;
+}
+
+.home-awards div:last-child {
+	padding-right: 0;
+}
+
+.custom-blocks-style-1 .slick-track,
+.custom-blocks-style-2 .slick-track  {
+	width: 100% !important;
+}
+
+.custom-blocks-style-1 .custom-widget-item,
+.custom-blocks-style-2 .custom-widget-item {
+	width: 25% !important;
+}
+
+.custom-blocks-style-1 .custom-widget-content {
+		top: .75rem;
+		left: .75rem;
+		right: .75rem;
+		bottom: .75rem;
+		background: rgba(0,0,0, 0.4);
+		transform: none;
+}
+
+.custom-widget-blocks.custom-widget-brand-logo .custom-widget-link {
+	height: 80px;
+	padding-bottom: 0;
+	border: 0;
+}
