@@ -33,6 +33,29 @@
 <div class="footer-globalregion"{{#unless theme_settings.custom_footer_global_region}} style="display:none;"{{/unless}}>
 	{{{region name="footer_top--global"}}}
 </div>
+
+{{#if theme_settings.custom_footer_show_blog}}
+<section class="footer-blog">
+	{{> components/custom/client/client-blog-top}}
+		{{#if settings.request.absolute_path '===' '/'}}
+			<div class="container">
+				<article class="footer-blog-col" data-section-type="footer-blog">
+					{{> components/custom/footer-blog}}
+				</article>
+			</div>
+		{{else}}
+			{{#unless theme_settings.custom_footer_show_blog_home}}
+				<div class="container">
+					<article class="footer-blog-col" data-section-type="footer-blog">
+						{{> components/custom/footer-blog}}
+					</article>
+				</div>
+			{{/unless}}
+		{{/if}}
+	{{> components/custom/client/client-blog-bottom}}
+</section>
+{{/if}}
+
 {{#or theme_settings.custom_footer_show_newsletter theme_settings.social_icon_placement_bottom}}
 <section class="footer-newsletter">
 	{{> components/custom/client/client-newsletter-top}}
@@ -59,28 +82,6 @@
 	{{> components/custom/client/client-newsletter-bottom}}
 </section>
 {{/or}}
-
-{{#if theme_settings.custom_footer_show_blog}}
-<section class="footer-blog">
-	{{> components/custom/client/client-blog-top}}
-		{{#if settings.request.absolute_path '===' '/'}}
-			<div class="container">
-				<article class="footer-blog-col" data-section-type="footer-blog">
-					{{> components/custom/footer-blog}}
-				</article>
-			</div>
-		{{else}}
-			{{#unless theme_settings.custom_footer_show_blog_home}}
-				<div class="container">
-					<article class="footer-blog-col" data-section-type="footer-blog">
-						{{> components/custom/footer-blog}}
-					</article>
-				</div>
-			{{/unless}}
-		{{/if}}
-	{{> components/custom/client/client-blog-bottom}}
-</section>
-{{/if}}
 
 <footer class="footer" role="contentinfo">
     <h2 class="footer-title-sr-only">{{lang 'footer.title'}}</h2>
