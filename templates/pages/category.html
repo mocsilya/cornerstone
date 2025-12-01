@@ -62,6 +62,7 @@ customer:
 		    <h1 class="page-heading">{{#contains head.title " | "}}{{{first (before (split head.title ' | ') 1)}}}{{else}}{{category.name}}{{/contains}}</h1>
 	{{/unless}}
 	{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	{{> components/custom/client/client-category-header}}
 	</div>
 </div>
 {{/partial}}
