@@ -1,1 +1,11 @@
-<img class="footer-logo footer-logo-piratescave" alt="OLPRO Logo" width="100" height="100" src="assets/img/footer-logo.png">
+<div class="footer-info-left">
+	<div class="footer-info-logo">
+		<img class="footer-logo footer-logo-piratescave" alt="OLPRO Logo" width="100" height="100" src="{{cdn 'assets/img/client/footer-logo.png'}}">
+	</div>
+	{{> components/common/social-links}}
+</div>
+<div class="footer-info-right">
+    <p class="footer-phone">
+		<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-phone{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i> 
+		<a href="tel:{{strReplace settings.phone_number ' ' ''}}"><strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong></a>
+	</p>

@@ -1,0 +1,11 @@
+		{{#if settings.request.absolute_path '===' '/'}}
+			<div class="container container-blog-heading">
+				<h3>Latest from the Blog</h3>
+			</div>
+		{{else}}
+			{{#unless theme_settings.custom_footer_show_blog_home}}
+				<div class="container container-blog-heading">
+					<h3>Latest from the Blog</h3>
+				</div>
+			{{/unless}}
+		{{/if}}

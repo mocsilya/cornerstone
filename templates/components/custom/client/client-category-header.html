@@ -1,0 +1,20 @@
+{{#if category.description}}
+	<div class="category-description">
+		{{{category.description}}}
+	</div>
+{{/if}}
+{{#if category.subcategories}}
+    <div class="subcategories-above subcategories--horizontal">
+		<ul class="subcategories-grid subcategories-grid-blockless">
+			{{#each category.subcategories}}
+			<li class="subcategories-grid-item subcategories-grid-item-{{dashcase (lowercase (sanitize name))}}">
+				<div class="subcategories-container">
+					<a href="{{url}}">
+						<span class="subcategories-name">{{name}}</span>
+					</a>
+				</div>
+			</li>
+			{{/each}}
+		</ul>
+    </div>
+{{/if}}
