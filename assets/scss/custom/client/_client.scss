@@ -456,12 +456,16 @@ div[data-content-region="home_below_new_products"] > div div[data-layout-name="L
 
 .custom-blocks-style-1 .slick-track,
 .custom-blocks-style-2 .slick-track  {
-	width: 100% !important;
+    @include breakpoint("medium") {
+		width: 100% !important;
+	}
 }
 
 .custom-blocks-style-1 .custom-widget-item,
 .custom-blocks-style-2 .custom-widget-item {
-	width: 25% !important;
+	@include breakpoint("medium") {
+		width: 25% !important;
+	}
 }
 
 .custom-blocks-style-1 .custom-widget-content {
