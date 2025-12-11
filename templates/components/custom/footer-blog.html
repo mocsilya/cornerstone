@@ -30,6 +30,16 @@
 			<p class="footer-blog-publish"><strong class="footer-blog-author">{{author}}</strong><span class="footer-blog-date">{{date_published}}</span></p>
 			<h4 class="footer-blog-title">{{title}}</h4>
 			<p class="footer-blog-summary">{{summary}}&hellip;</p>
+			{{#if tags}}
+			<p class="footer-blog-tags">
+			{{#each tags}}
+				{{#startsWith '_' name}}
+				{{else}}
+				<a href="{{url}}" title="Blog posts relating to {{name}}" class="footer-blog-tag footer-blog-tag-{{dashcase name}}">#{{name}}</a> 
+				{{/startsWith}}
+			{{/each}}
+			</p>
+			{{/if}}
 			<a title="{{title}}" href="{{url}}" class="button button--primary footer-blog-button" role="button">{{lang 'blog.read_more'}}</a>
 		</div>
 	</li>
@@ -63,6 +73,16 @@
 			<p class="footer-blog-publish"><strong class="footer-blog-author">{{author}}</strong><span class="footer-blog-date">{{date_published}}</span></p>
 			<h4 class="footer-blog-title">{{title}}</h4>
 			<p class="footer-blog-summary">{{summary}}&hellip;</p>
+			{{#if tags}}
+			<p class="footer-blog-tags">
+			{{#each tags}}
+				{{#startsWith '_' name}}
+				{{else}}
+				<a href="{{url}}" title="Blog posts relating to {{name}}" class="footer-blog-tag footer-blog-tag-{{dashcase name}}">#{{name}}</a> 
+				{{/startsWith}}
+			{{/each}}
+			</p>
+			{{/if}}
 			<a title="{{title}}" href="{{url}}" class="button button--primary footer-blog-button" role="button">{{lang 'blog.read_more'}}</a>
 		</div>
 	</li>
@@ -96,6 +116,16 @@
 			<p class="footer-blog-publish"><strong class="footer-blog-author">{{author}}</strong><span class="footer-blog-date">{{date_published}}</span></p>
 			<h4 class="footer-blog-title">{{title}}</h4>
 			<p class="footer-blog-summary">{{summary}}&hellip;</p>
+			{{#if tags}}
+			<p class="footer-blog-tags">
+			{{#each tags}}
+				{{#startsWith '_' name}}
+				{{else}}
+				<a href="{{url}}" title="Blog posts relating to {{name}}" class="footer-blog-tag footer-blog-tag-{{dashcase name}}">#{{name}}</a> 
+				{{/startsWith}}
+			{{/each}}
+			</p>
+			{{/if}}
 			<a title="{{title}}" href="{{url}}" class="button button--primary footer-blog-button" role="button">{{lang 'blog.read_more'}}</a>
 		</div>
 	</li>

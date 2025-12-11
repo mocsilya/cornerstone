@@ -8533,10 +8533,31 @@ div[data-content-region="cart_below_table"] {
 	color: stencilColor("custom-footer-blog-heading");
 }
 
+.footer-blog-summary {
+	margin-bottom: 1rem;
+}
+
+.footer-blog-tags {
+	margin: 0;
+}
+
+.footer-blog-tags a {
+	display: inline-block;
+	margin-right: .5rem;
+	color: stencilColor("custom-footer-blog-text");
+	text-decoration: none;
+}
+
+.footer-blog-tags a:hover {
+	color: stencilColor("custom-footer-blog-heading");
+	text-decoration: none;
+}
+
 .footer-blog-button {
 	color: stencilColor("custom-footer-blog-button");
 	background-color: stencilColor("custom-footer-blog-button-background");
 	border-color: stencilColor("custom-footer-blog-button-background");
+	margin-top: 1.5rem;
 }
 
 .footer-blog-button:hover {
