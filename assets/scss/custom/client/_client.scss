@@ -3,6 +3,11 @@
 // =============================================================================
 //
  
+// TEMP
+#product_question {
+    height: 1px;
+    overflow: hidden;
+}
 
 // Xmas
 // =============================================================================
@@ -1441,6 +1446,10 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	padding-top: 1.5rem;
 }
 
+h1.productView-title {
+    text-transform: none !important;
+}
+
 .productView-options .form-field {
     padding-left: 40%;
     margin-bottom: 0.25rem;
@@ -2011,7 +2020,7 @@ h3.card-title-top {
 .card-brand-logo-Mondraker { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-mondraker3.jpg?t=1598630682'); }
 .card-brand-logo-NS { background-image: url('https://cdn7.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-nsbikes.jpg'); }
 .card-brand-logo-Santa { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/original/image-manager/2023-scb-stack-logo-black.png?t=1691172494'); }
-.card-brand-logo-Whyte { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-whyte.png?t=1559835075'); }
+.card-brand-logo-Whyte { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/original/image-manager/logo-card-whyte.png?t=1765473252'); }
 .card-brand-logo-Transition { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-transition.png?t=1623175065'); }
 .card-brand-logo-Trek { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/product_images/uploaded_images/logo-trek.png?t=1559835097'); }
 .card-brand-logo-Marin { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/original/image-manager/logo-brand-marin.png?t=1717679237'); }
@@ -2019,7 +2028,8 @@ h3.card-title-top {
 .card-brand-logo-GASGAS { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/original/image-manager/logo-brand-gasgas.png?t=1717684656'); }
 .card-brand-logo-Husqvarna { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/original/image-manager/logo-brand-husqvarna.png?t=1717685140'); }
 .card-brand-logo-Commencal { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/2560w/t/commencal_1729180945__69457.original.png'); }
-
+.card-brand-logo-Haibike { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/original/image-manager/logo-card-haibike.png?t=1765473251'); }
+.card-brand-logo-Amflow { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/original/image-manager/logo-card-amflow.png?t=1765473250'); }
 
 // -----------------------------------------------------------------------------
 //

@@ -30,9 +30,8 @@
 	}
 </script>
 {{/or}}
-<!--
 {{#if page_type '===' 'compare'}}
-<script>
+<script nonce="{{nonce}}">
 	const tableRow = document.getElementsByClassName('compareTable-row');
     let rowHeading;
 	let rowText;
@@ -40,7 +39,7 @@
 		rowHeading = tableRow[i].querySelector('.compareTable-heading');
         rowText = rowHeading.innerText;
 		console.log('rowText: ' + rowText);
-		if (rowText == 'MOTOR CONTROLLER' || rowText == 'MOTOR' || rowText == 'BATTERY') {
+		if (rowText == 'DISPLAY' || rowText == 'MOTOR CONTROLLER' || rowText == 'DRIVE UNIT & MOTOR' || rowText == 'BATTERY' || rowText == 'FRAME MATERIAL' || rowText == 'HYDRAULIC BRAKES' || rowText == 'BRAKES' || rowText == 'FORK TRAVEL' || rowText == 'PEDALS' || rowText == 'NUMBER OF GEARS' || rowText == 'SHIFTERS & REAR DERAILLEUR' || rowText == 'HANDLEBAR' || rowText == 'CHARGER' || rowText == 'DROPPER SEATPOST' || rowText == 'WHEEL SIZE' || rowText == 'WHEELS' || rowText == 'TYRES' || rowText == 'FORK' || rowText == 'REAR SHOCK') {
 			console.log('Found: ' + rowText);
 			rowHeading.classList.add('compare-label');
 		}
@@ -53,12 +52,44 @@
 			  const rowClickText = rowClicks[j].innerText;
 			  console.log('rowClickText: ' + rowClickText);
   			var url;
-  			if (rowClickText == 'MOTOR CONTROLLER') {
+  			if (rowClickText == 'DISPLAY') {
+  				url = '/latest-posts/emtb-display-guide-2025/'
+  			} else if (rowClickText == 'MOTOR CONTROLLER') {
   				url = '/latest-posts/emtb-controller-guide-2025/'
-  			} else if (rowClickText == 'MOTOR') {
-  				url = '/latest-posts/emtb-motor-guide-choose-the-perfect-one-2025/'
+  			} else if (rowClickText == 'DRIVE UNIT & MOTOR') {
+  				url = '/latest-posts/emtb-motor-guide-choose-the-perfect-one-2025-4e6aa4/'
   			} else if (rowClickText == 'BATTERY') {
-  				url = '/latest-posts/emtb-battery-size-guide-2025/'
+  				url = '/latest-posts/emtb-battery-size-guide-/'
+  			} else if (rowClickText == 'FRAME MATERIAL') {
+  				url = '/latest-posts/carbon-vs-aluminium-frames-emtb-mtb/'
+  			} else if (rowClickText == 'HYDRAULIC BRAKES') {
+  				url = '/latest-posts/mountain-bike-hydraulic-brakes-guide/'
+  			} else if (rowClickText == 'BRAKES') {
+  				url = '/latest-posts/emtbmtb-brakes-guide/'
+  			} else if (rowClickText == 'FORK TRAVEL') {
+  				url = '/latest-posts/how-much-fork-travel-do-i-need-for-mountain-biking-emtbmtb/'
+  			} else if (rowClickText == 'PEDALS') {
+  				url = '/latest-posts/mountain-bike-pedals-guide/'
+  			} else if (rowClickText == 'NUMBER OF GEARS') {
+  				url = '/latest-posts/mountain-bike-number-of-gears-guide/'
+  			} else if (rowClickText == 'SHIFTERS & REAR DERAILLEUR') {
+  				url = '/latest-posts/mountain-bike-drivetrain-shifterderailleur-guide/'
+  			} else if (rowClickText == 'HANDLEBAR') {
+  				url = '/latest-posts/mtb-handlebars-explained/'
+  			} else if (rowClickText == 'CHARGER') {
+  				url = '/latest-posts/electric-mountain-bike-charger-guide-2025-805aa5/'
+  			} else if (rowClickText == 'DROPPER SEATPOST') {
+  				url = '/latest-posts/understanding-mtbemtb-dropper-seatposts/'
+  			} else if (rowClickText == 'WHEEL SIZE') {
+  				url = '/latest-posts/mountain-bike-wheel-size-guide/'
+  			} else if (rowClickText == 'WHEELS') {
+  				url = '/latest-posts/mountain-bike-wheels-guide/'
+  			} else if (rowClickText == 'TYRES') {
+  				url = '/latest-posts/mountain-bike-tyre-guide/'
+  			} else if (rowClickText == 'FORK') {
+  				url = '/latest-posts/mountain-bike-suspension-fork-guide/'
+  			} else if (rowClickText == 'REAR SHOCK') {
+  				url = '/latest-posts/emtbmtb-a-complete-guide-to-rear-shocks-2025/'
   			}
   			console.log('url: ' + url);
   			// Open the modal
@@ -100,7 +131,6 @@
 	loadArticle();
 </script>
 {{/if}}
--->
 {{#unless page_type '===' 'checkout'}}
 <script nonce="{{nonce}}">
 	function getDayName(dateStr, locale) {
