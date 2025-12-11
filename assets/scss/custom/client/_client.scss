@@ -375,10 +375,11 @@ div[data-content-region="home_below_new_products"] > div div[data-layout-name="L
 .home-awards {
 	display: flex;
 	align-items: center;
+	padding-right: 1.5rem;
 }
 
 .home-awards div {
-	padding: .25rem;
+	padding: .5rem;
 }
 
 .home-awards div:first-child {
