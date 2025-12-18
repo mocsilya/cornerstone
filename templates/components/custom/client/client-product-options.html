@@ -1,0 +1,10 @@
+{{HELLO WORLD}}
+
+{{#each product.custom_fields}}
+	{{#if name '==' '_whybuy'}}
+    	<div class="whybuy">
+			<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-tick" /></svg></i>
+			<span>{{{value}}}</span>
+		</div>
+	{{/if}}
+{{/each}}

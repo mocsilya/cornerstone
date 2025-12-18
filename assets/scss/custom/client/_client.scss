@@ -3,6 +3,38 @@
 // =============================================================================
 //
 
+// General 
+
+.tabs {
+	justify-content: flex-start;
+	border-bottom: 1px solid #ff7000;
+}
+
+.tab {
+	flex: 1 1 auto;
+}
+
+.tab.is-active {
+	margin-bottom: 0;
+}
+
+.tab-title {
+	font-weight: 700;
+	@include breakpoint("medium") {
+        font-size: 1.125rem;
+        text-align: left;
+	    padding-left: 0;
+		padding-right: 0;
+	}
+	@include breakpoint("large") {
+        font-size: 1.25rem;
+	}
+}
+
+.slick-next, .slick-prev {
+	border: 1px solid stencilColor("color-greyLightest");
+}
+
 // Header
 
 .why-buy-bar {
@@ -931,6 +963,10 @@ div[data-content-region="home_below_new_products"] > div div[data-layout-name="L
 
 // cards
 
+.card-title {
+	min-height: 45px;
+}
+
 .card-message {
 	color: #999;
 	font-weight: 400;
@@ -957,9 +993,237 @@ div[data-content-region="home_below_featured_products"] div[data-sub-layout-cont
 
 // PDP 
 
+.page-product .container-hero {
+	height: 2rem;
+}
+
+.page-product .container-hero .product-header {
+	display: none;
+}
+
+// hide "before"" text and price
+.page-product .price-section.non-sale-price--withTax {
+	display: none !important;
+}
+
+// hide "after" text
+.page-product .price-section.price-section--withTax.price--withTax .price-now-label {
+	display: none !important;
+}
+
+.page-product .price-section.price-section--saving.price {
+	color: #cc0000;
+}
+
+.page-product .price-section.price-section--withTax.price--withTax .price.price--withTax {
+	color: #1DBA63;
+}
+
+.productView-options .form-action .button--primary {
+	padding: 18px 0;
+	box-shadow: 0px 4px 4px -2px  rgba(0,0,0,0.5);
+	border-radius: .5rem;
+}
+
+.page-product .share-container {
+	display: none;
+}
+
 .customfield-avif-img-url-main,
-.customfield-avif-img-url {
+.productView-description .customfield-avif-img-url-main,
+.customfield-avif-img-url,
+.productView-description .customfield-avif-img-url,
+.customfield-colour,
+.productView-description .customfield-colour,
+.customfield-suitable-for,
+.productView-description .customfield-suitable-for {
     display: none;
 }
 
+.productView-description .productView-info dt:nth-of-type(even),
+.productView-description .productView-info dd:nth-of-type(even) {
+	background: none;
+}
+
+.productView-description .productView-info {
+	border-bottom: 1px solid stencilColor("color-greyLightest");
+	background: #fff;
+}
+
+.productView-description .productView-info-name {
+	border-top: 1px solid stencilColor("color-greyLightest");
+	border-right: 1px solid stencilColor("color-greyLightest");
+	border-left: 1px solid stencilColor("color-greyLightest");
+}
+
+.productView-description .productView-info-value {
+	border-top: 1px solid stencilColor("color-greyLightest");
+	border-right: 1px solid stencilColor("color-greyLightest");
+}
+
+.whybuy {
+	font-size: 1.125rem;
+	padding: .375rem 0;
+	line-height: 1.2;
+}
+
+.whybuy .icon {
+	color: #1DBA63;
+}
+
+.breadcrumbs-custom ol.breadcrumbs {
+	text-align: left;
+	margin-bottom: .75rem;
+	margin-top: 1.5rem;
+}
+
+
+.productView-images-large,
+.productView-block-sticky.productView-block-large,
+.productView-description-sticky.productView-description-large {
+	@include breakpoint("large") {
+		width: 60%;
+	}
+}
+
+.productView-details-large,
+.productView-description-side.productView-description-large {
+	@include breakpoint("large") {
+		width: 40%;
+	}
+}
+
+.productView-block-sticky.productView-block-large,
+.productView-description-sticky.productView-description-large {
+	@include breakpoint("large") {
+		max-width: 60%;
+	}
+}
+
+.related-similar-sticky.related-similar-large .tabs {
+	@include breakpoint("large") {
+		max-width: calc(60% - 1rem);
+	}
+}
+
+.related-similar-sticky.related-similar-large .tabs-contents {
+	@include breakpoint("large") {
+		max-width: calc(60% - 4rem);
+	}
+}
+
+.productView-description .tabs-contents {
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	background: #f4f4f4;
+	margin-top: 1.5rem;
+	border-radius: .5rem;
+}
+
+.productView-options .form-field--stock {
+	margin-top: .55rem;
+	padding-left: 0;
+}
+
+.productView-options .form-field--stock .icon {
+	color: #1DBA63;
+}
+
+.productView-options .form-field--stock .form-label,
+.productView-options .form-field--stock .in-stock-number {
+	display: none;
+}
+
+.productView-options .form-field--stock .in-stock-label {
+	font-size: 16px;
+	line-height: 16px;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #1DBA63;
+}
+
+.productView-options .productView-upsell {
+	display: none;
+}
+
+.productView-upsell-container {
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	max-width: calc(1440px + 12rem);
+	@include breakpoint("medium") {
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
+	@include breakpoint("large") {
+		padding-left: 6rem;
+		padding-right: 6rem;
+	}
+}
+
+.productView-upsell-header {
+	@include breakpoint("large") {
+		max-width: calc(60% - 1rem);
+	}
+} 
+
+.productView-upsell-header h3 {
+	border-bottom: 1px solid #ff7000;
+	padding-bottom: .75rem;
+	margin-bottom: 1.5rem;
+	font-size: 1rem;
+	@include breakpoint("medium") {
+        font-size: 1.125rem;
+	}
+	@include breakpoint("large") {
+        font-size: 1.25rem;
+	}
+} 
+
+
+.productView-upsell-container .productView-upsell {
+	padding: 1.5rem;
+	background-color: #f4f4f4;
+	display: flex;
+	gap: 1.5rem;
+	border-radius: .5rem;
+	overflow-x: auto;
+	@include breakpoint("large") {
+		max-width: calc(60% - 1rem);
+	}
+}
+
+.productView-upsell-container .upsell-item {
+	flex: 1 1 0;
+	flex-direction: column;
+	align-items: flex-start;
+	border: none;
+	background-color: #fff;
+	box-shadow: 0px 4px 4px -2px  rgba(0,0,0,0.1);
+	border-radius: .5rem;
+	padding: .75rem;
+	min-width: 200px;
+}
+
+.productView-upsell-container .upsell-item-image,
+.productView-upsell-container .upsell-item-image img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+
+.upsell-item-price-data.upsell-item-nonsale-with-tax {
+	display: none;
+}
+
+.upsell-item-price-data.upsell-item-price-with-tax {
+	color: #1DBA63;
+}
+
+.upsell-item-price-saved strong {
+	font-weight: 400;
+	color: #cc0000;
+}
 

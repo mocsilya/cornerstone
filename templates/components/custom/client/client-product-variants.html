@@ -1,0 +1,11 @@
+{{#filter product.custom_fields '_upsell' property='name' }}
+
+<div class="productView-upsell-container">
+	<div class="productView-upsell-header">
+		<h3>Add-ons for {{../product.title}}</h3>
+	</div>
+	<div class="productView-upsell" data-upsell-id="{{../product.id}}">
+			
+	</div>		
+</div>
+{{/filter}}

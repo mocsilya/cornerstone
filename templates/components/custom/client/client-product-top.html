@@ -1,0 +1,16 @@
+{{#if theme_settings.custom_product_title_right}}
+	<div class="breadcrumbs-custom">
+		<ol class="breadcrumbs">
+		{{#each breadcrumbs}}
+			<li class="breadcrumb {{#if @last}}is-active{{/if}}">
+				<a class="breadcrumb-label"
+				href="{{url}}"
+				{{#if @last}}aria-current="page"{{/if}}
+				>
+					<span>{{name}}</span>
+				</a>
+			</li>
+		{{/each}}
+	    </ol>
+	</div>
+{{/if}}
