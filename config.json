@@ -243,6 +243,7 @@
     "custom_product_variant_data": false,
     "custom_product_question": "",
     "custom_product_question_tab": false,
+    "custom_product_videosection": true,
     "custom-tab-color": "#999999",
     "custom-tab-background": "#FFFFFF",
     "custom-tab-hover-color": "#000000",
