@@ -223,7 +223,7 @@
 	"custom_product_warranty_location": "normal",
 	"custom_product_warranty_title": "Warranty",
 	"custom_product_gallery_size": "medium",
-	"custom_product_description_location": "underneath",
+	"custom_product_description_location": "side",
 	"custom_product_tab1_show": false,
 	"custom_product_tab1_title": "Tab 1",
 	"custom_product_tab1_content": "",
