@@ -24,7 +24,7 @@ customer:
 
 {{#partial "hero"}}
 {{{region name="category_below_menu"}}}
-<div class="container container-hero">
+<div class="container container-hero container-hero-blocks">
 	{{#if breadcrumbs.[1].name '==' 'Brands'}}
 		<div class="page-header category-header">
 	{{else}}
@@ -71,12 +71,12 @@ customer:
 {{{region name="category_below_header--global"}}}
 {{{region name="category_below_header"}}}
 {{#if theme_settings.custom_category_description_position '==' 'top'}}
-	<div class="category-description{{#if category.image}} category-description-image{{/if}}{{#if category.description}}{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}{{/if}}">
+	<div class="category-description{{#if category.image}} category-description-image{{/if}}{{#if category.description}}{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}{{/if}} category-description-blocks">
 		{{{category.description}}}
 	</div>
 	{{#if category.description}}
 		{{#if theme_settings.custom_category_description_trim}}
-			<div class="category-description-button" style="display: none;">
+			<div class="category-description-button category-description-blocks" style="display: none;">
 				<a class="button button--secondary">
 					<span class="category-description-more">{{lang 'search.faceted.show-more'}}</span>
 					<span class="category-description-less">{{lang 'search.faceted.show-less'}}</span>
@@ -177,12 +177,12 @@ customer:
     </div>
 
 {{#if theme_settings.custom_category_description_position '==' 'bottom'}}
-	<div class="category-description{{#if category.image}} category-description-image{{/if}}{{#if category.description}}{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}{{/if}}">
+	<div class="category-description{{#if category.image}} category-description-image{{/if}}{{#if category.description}}{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}{{/if}} category-description-blocks">
 		{{{category.description}}}
 	</div>
 	{{#if category.description}}
 		{{#if theme_settings.custom_category_description_trim}}
-			<div class="category-description-button" style="display: none;">
+			<div class="category-description-button category-description-blocks" style="display: none;">
 				<a class="button button--secondary">
 					<span class="category-description-more">{{lang 'search.faceted.show-more'}}</span>
 					<span class="category-description-less">{{lang 'search.faceted.show-less'}}</span>
