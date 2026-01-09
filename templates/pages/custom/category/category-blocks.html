@@ -93,7 +93,6 @@ customer:
 	{{/if}}
 {{/each}}
 
-
 <div class="page page-category-blocks">
     <div class="page-content">
 		{{{region name="category_above_content"}}}
@@ -132,6 +131,45 @@ customer:
 						</div>
 					</li>
 				{{/each}}
+			{{else}}
+				{{#if children}}
+					{{#each children}}
+						{{#if (getVar 'crumbName') '===' name}}
+							{{#each children}}
+								<li class="subcategories-grid-item subcategories-grid-item-{{dashcase (lowercase (sanitize name))}}">
+									<div class="subcategories-container">
+									{{#if image}}
+										<div class="subcategories-image" style="background-image: url('{{getImage image 'category_card_size'}}')">
+									{{else}}
+										<div class="subcategories-blank">
+									{{/if}}
+											<div class="subcategories-content">
+												<span class="subcategories-name">
+													<a class="subcategories-name-link" href="{{url}}">
+														<span class="subcategory-name-count">{{count}}</span>
+														<span class="subcategory-name-text">{{name}}</span>
+													</a>
+												</span>
+												{{#if children}}
+													<span class="subcategories-children">
+														{{#each children}}
+															<span class="subcategory-child">
+																<a class="subcategories-child-link" href="{{url}}">
+																	<span class="subcategory-child-count">{{count}}</span>
+																	<span class="subcategory-child-text">{{name}}</span>
+																</a>
+															</span>
+														{{/each}}
+													</span>
+												{{/if}}
+											</div>
+										</div>
+									</div>
+								</li>
+							{{/each}}
+						{{/if}}
+					{{/each}}
+				{{/if}}
 			{{/if}}
 		{{/each}}
 		</ul>

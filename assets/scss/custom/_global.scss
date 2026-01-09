@@ -4209,7 +4209,8 @@ div[data-content-region="category_below_all"] {
 	}
 }
 
-.page-category-blocks .subcategories-image {
+.page-category-blocks .subcategories-image,
+.page-category-blocks .subcategories-blank {
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
