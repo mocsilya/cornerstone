@@ -4216,10 +4216,11 @@ div[data-content-region="category_below_all"] {
 	background-repeat: no-repeat;
 	box-sizing: content-box;
 	height: 0;
-	padding-bottom: 100%;
+	padding: 0 0 100% 0;
 	position :relative;
 	min-height: 0;
 	border-radius: .5rem;
+	text-align: left;
 }
 
 .page-category-blocks .subcategories-content {
@@ -4258,6 +4259,10 @@ div[data-content-region="category_below_all"] {
 .page-category-blocks .subcategory-name-text,
 .page-category-blocks .subcategory-child-text {
 	display: inline-block;
+}
+
+.page-category-blocks .subcategory-child-text {
+	font-weight: 400;
 }
 
 .page-category-blocks .subcategory-name-count,
