@@ -159,6 +159,8 @@
 		{{/and}}
 		{{#if (getVar "thumbs") '===' 'show'}}
             {{#each product.images}}
+				{{#contains alt "HIDEIMAGE"}}
+				{{else}}
 				{{#contains alt "imageset:"}}
 					<li class="productView-thumbnail productView-thumbnail-image" data-image-set="{{{after (split alt 'imageset:') 1}}}">
 				{{else}}
@@ -179,6 +181,7 @@
                     }}
                     </a>
                 </li>
+				{{/contains}}
             {{/each}}
 		{{/if}}
 		{{#and product.videos.list.length (unless theme_settings.custom_product_description_location '==' 'side')}}
