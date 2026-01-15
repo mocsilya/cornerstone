@@ -825,6 +825,21 @@ div[data-content-region="home_below_new_products"] > div div[data-layout-name="L
 
 // blog page
 
+.blog-header {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}
+
+.blog-header.page-header-image .page-heading,
+.blog-header.page-header-image .breadcrumbs,
+.blog-header.page-header-image .page-heading + nav .breadcrumbs {
+	background: none;
+}
+
+.blog-header.page-header-image img {
+	transform: translateY(-70%);
+}
+
 div[data-content-region="blog_top"] {
 	text-align: center;
 }
@@ -1055,6 +1070,99 @@ div[data-content-region="blog_top"] > div {
 
 .footer-blog-button:hover {
 	background: rgba(255,255,255, 0.25);
+}
+
+
+
+// blog post
+
+.page-blog_post .page-sidebar,
+.page-blog_post .blog-post-figure,
+.page-blog_post .blog-header,
+.page-blog_post .share-container {
+	display: none;
+}
+
+.page-blog_post .page {
+	@include breakpoint("medium") {
+		text-align: center;
+	}
+	
+}
+
+.page-blog_post .page-content {
+	@include breakpoint("medium") {
+		float: none;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 960px;
+	}
+}
+
+.page-blog_post .blogpost-header {
+	background: none;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.page-blog_post .blogpost-header nav {
+	order: 1;
+}
+
+.page-blog_post .blogpost-header .breadcrumbs {
+	padding-top: 1.5rem;
+}
+
+.page-blog_post .blogpost-header .page-heading + nav .breadcrumbs {
+	margin-bottom: 0;
+}
+
+.page-blog_post .blogpost-header .page-header-info {
+	text-align: center;
+	margin: 0;
+	order: 2;
+}
+
+.page-blog_post .blogpost-header .breadcrumb a,
+.page-blog_post .blogpost-header .breadcrumb a:hover,
+.page-blog_post .blogpost-header .breadcrumb::before,
+.page-blog_post .blogpost-header .breadcrumb.is-active > .breadcrumb-label,
+.page-blog_post .blogpost-header .breadcrumb.is-active > .breadcrumb-label:hover {
+	color: #000;
+}
+
+.page-blog_post .blogpost-header .page-heading {
+	color: #000;
+	margin-top: 1.5rem;
+	margin-bottom: 0;
+	order: 3;
+}
+
+.page-blog_post .blogpost-header .breadcrumb:not(:first-child):before {
+	border-right: 0.1em solid #000;
+}
+
+.page-blog_post .blogpost-header .breadcrumb.is-active {
+	display: none;
+}
+
+.page-blog_post .tag {
+	display: inline-block;
+	border: 1px solid #ddd;
+	border-radius: 3rem;
+	margin: .25rem;
+	padding-left: .5rem;
+	padding-right: .5rem;
+}
+
+.page-blog_post .tag a {
+	color: #333;
+}
+
+.page-blog_post .tag a:hover {
+	color: #000;
 }
 
 
