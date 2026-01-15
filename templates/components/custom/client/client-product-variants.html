@@ -1,5 +1,36 @@
-{{#filter product.custom_fields '_upsell' property='name' }}
+{{assignVar "hideimage" "no"}}
+{{#each product.images}}
+	{{#contains alt "HIDEIMAGE"}}
+		{{assignVar "hideimage" "yes"}}
+	{{/contains}}
+{{/each}}
 
+{{#if (getVar "hideimage") '===' 'yes'}}
+<div class="productView-seeitinaction-container">
+	<div class="productView-seeitinaction-header">
+		<h3>See the {{product.title}} in action.</h3>
+	</div>
+	<div class="productView-seeitinaction">
+		<div class="productView-seeitinaction-grid">
+		{{#each product.images}}
+		{{#contains alt "HIDEIMAGE"}}
+			<div class="productView-seeitinaction-item">
+                {{> components/common/responsive-img
+                    image=this
+                    fallback_size=../theme_settings.product_size
+                    lazyload=../theme_settings.lazyload_mode
+                }}
+            </div>
+		{{/contains}}
+		{{/each}}
+		</div>
+	</div>		
+</div>
+{{/if}}
+
+
+
+{{#filter product.custom_fields '_upsell' property='name' }}
 <div class="productView-upsell-container">
 	<div class="productView-upsell-header">
 		<h3>Add-ons for {{../product.title}}</h3>

@@ -1164,6 +1164,11 @@ div[data-content-region="home_below_featured_products"] div[data-sub-layout-cont
 
 // PDP 
 
+.productView-wrap:not(.payment-product) .productView-details-fixed {
+	margin-top: 137px;
+	height: calc(100vh - 137px);
+}
+
 .page-product .container-hero {
 	height: 2rem;
 }
@@ -1323,7 +1328,8 @@ div[data-content-region="home_below_featured_products"] div[data-sub-layout-cont
 	display: none;
 }
 
-.productView-upsell-container {
+.productView-upsell-container,
+.productView-seeitinaction-container {
 	margin-top: 3rem;
 	margin-bottom: 3rem;
 	padding-left: 1.5rem;
@@ -1339,13 +1345,15 @@ div[data-content-region="home_below_featured_products"] div[data-sub-layout-cont
 	}
 }
 
-.productView-upsell-header {
+.productView-upsell-header,
+.productView-seeitinaction-header {
 	@include breakpoint("large") {
 		max-width: calc(60% - 1rem);
 	}
 } 
 
-.productView-upsell-header h3 {
+.productView-upsell-header h3,
+.productView-seeitinaction-header h3 {
 	border-bottom: 1px solid #ff7000;
 	padding-bottom: .75rem;
 	margin-bottom: 1.5rem;
@@ -1403,6 +1411,60 @@ div[data-content-region="home_below_featured_products"] div[data-sub-layout-cont
 	font-weight: 400;
 	color: #cc0000;
 }
+
+.productView-seeitinaction {
+	overflow-x: auto;
+	@include breakpoint("large") {
+		max-width: calc(60% - 1rem);
+	}
+}
+
+.productView-seeitinaction-grid {
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+.productView-seeitinaction-item {
+	flex: 1 0 0;
+	padding-right: 1px;
+	align-self: start;
+}
+
+.productView-seeitinaction-item img {
+	height: 300px;
+	width: auto;
+	max-width: none;
+}
+
+.videoGallery-section .videoGallery-item {
+	border-bottom: 1px solid #eee;
+
+}
+
+.videoGallery-section .videoGallery-item .video {
+	opacity: 1;
+	margin-bottom: 0;
+	padding-top: .75rem;
+	padding-bottom: .75rem;
+}
+
+.videoGallery-section .video-figure,
+.videoGallery-section .video-description {
+	display: none;
+}
+
+.videoGallery-section .video-title {
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.2;
+}
+
+.videoGallery-section .video.is-active .video-title {
+	font-weight: 700;
+}
+
+
+
 
 .buy-icons {
 	display: flex;
