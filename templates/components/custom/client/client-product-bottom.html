@@ -25,6 +25,13 @@
 	</div>
 </div>
 
-<div class="custom-klarna">
-	Klarna script will go here.
+<div class="klarna-promo">
+	<div class="custom-klarna klarna-heading">
+		Klarna script will go here.
+	</div>
+	<klarna-placement
+  data-key="credit-promotion-badge"
+  data-locale="en-GB"
+  data-purchase-amount="{{#if product.price.without_tax.value}}{{multiply product.price.without_tax.value 100}}{{else}}{{multiply product.price.with_tax.value 100}}{{/if}}"
+></klarna-placement>
 </div>

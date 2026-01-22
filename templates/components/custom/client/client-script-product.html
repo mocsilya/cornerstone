@@ -1,0 +1,64 @@
+<script nonce="{{nonce}}">
+	var timeStart = 0;
+	var optionClick = document.querySelectorAll(".productView-options .form-radio, .productView-options .form-select");
+	for (let i = 0; i < optionClick.length; i++) {
+		optionClick[i].addEventListener("change", function() {
+			clearTimeout(timeStart);
+		    timeStart = setTimeout(function() {
+		        // Klarna
+				var newPriceCurrency = document.querySelector(".productView-price span[data-product-price-with-tax]").textContent;
+				var newPriceNumber = Number(newPriceCurrency.replace(/[^0-9\.-]+/g,""));		
+				var newPriceKlarna = newPriceNumber * 100;
+				document.querySelector('klarna-placement').dataset.purchaseAmount = newPriceKlarna;
+				window.Klarna.OnsiteMessaging.refresh();
+		    }, 1500);
+		});
+	}
+</script>
+
+{{#if product.can_purchase}}
+{{assignVar "hasOptions" "no"}}
+{{#each product.options}}
+	{{#if @last}}
+		{{#unless @index 0}}
+			{{assignVar "hasOptions" "yes"}}
+		{{/unless}}
+	{{/if}}
+{{/each}}
+<div class="jump-addtocart" style="display: none;">
+	<div class="jump-button">
+		<a class="scroll-click button button--primary" href="#add-to-cart-form">
+			<strong>
+				{{#if (getVar "hasOptions") '===' 'yes'}}
+					{{lang 'products.choose_options'}}
+				{{else}}
+					{{lang 'products.add_to_cart'}}
+				{{/if}}
+			</strong>
+		</a>
+	</div>
+</div>
+{{/if}}
+<script nonce="{{nonce}}">
+window.addEventListener('scroll', function() {
+	function isElementVisible(el) {
+	    const rect = el.getBoundingClientRect();
+	    const vWidth = window.innerWidth || doc.documentElement.clientWidth;
+	    const vHeight = window.innerHeight || doc.documentElement.clientHeight;
+
+	    // Check if the element is out of bounds
+	    if (rect.right < 0 || rect.bottom < 0 || rect.left > vWidth || rect.top > vHeight) return false;
+
+	    // Return true if any of the above disjunctions are false
+	    return true;
+	}
+
+	// Usage
+	const myElement = document.querySelector('.product-options');
+	if (isElementVisible(myElement)) {
+		document.querySelector('.jump-addtocart').style.display = "none";
+	} else {
+		document.querySelector('.jump-addtocart').style.display = "block";
+	}
+});
+</script>

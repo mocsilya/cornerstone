@@ -37,6 +37,11 @@
 
 // Header
 
+body.scroll .header-fixed {
+	-webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2); 
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
+}
+
 .why-buy-bar {
 	background-color: #f4f4f4;
 }
@@ -1453,13 +1458,6 @@ div[data-content-region="home_below_featured_products"] div[data-sub-layout-cont
 	}
 }
 
-.productView-upsell-header,
-.productView-seeitinaction-header {
-	@include breakpoint("large") {
-		max-width: calc(60% - 1rem);
-	}
-} 
-
 .productView-upsell-header h3,
 .productView-seeitinaction-header h3 {
 	border-bottom: 1px solid #ff7000;
@@ -1474,7 +1472,6 @@ div[data-content-region="home_below_featured_products"] div[data-sub-layout-cont
 	}
 } 
 
-
 .productView-upsell-container .productView-upsell {
 	padding: 1.5rem;
 	background-color: #f4f4f4;
@@ -1482,9 +1479,6 @@ div[data-content-region="home_below_featured_products"] div[data-sub-layout-cont
 	gap: 1.5rem;
 	border-radius: .5rem;
 	overflow-x: auto;
-	@include breakpoint("large") {
-		max-width: calc(60% - 1rem);
-	}
 }
 
 .productView-upsell-container .upsell-item {
@@ -1497,6 +1491,7 @@ div[data-content-region="home_below_featured_products"] div[data-sub-layout-cont
 	border-radius: .5rem;
 	padding: .75rem;
 	min-width: 200px;
+	max-width: 240px;
 }
 
 .productView-upsell-container .upsell-item-image,
@@ -1522,9 +1517,6 @@ div[data-content-region="home_below_featured_products"] div[data-sub-layout-cont
 
 .productView-seeitinaction {
 	overflow-x: auto;
-	@include breakpoint("large") {
-		max-width: calc(60% - 1rem);
-	}
 }
 
 .productView-seeitinaction-grid {
@@ -1571,9 +1563,6 @@ div[data-content-region="home_below_featured_products"] div[data-sub-layout-cont
 	font-weight: 700;
 }
 
-
-
-
 .buy-icons {
 	display: flex;
 	justify-content: space-evenly;
@@ -1607,10 +1596,20 @@ div[data-content-region="home_below_featured_products"] div[data-sub-layout-cont
 	fill: #ff7000;
 }
 
-
 .custom-klarna {
 	margin-top: 1.5rem;
 	border: 1px solid stencilColor("color-greyLightest");
 	padding: .75rem 1rem;
 	border-radius: .25rem;
+}
+
+.jump-addtocart {
+	position: fixed;
+	left: 50%;
+	bottom: 0;
+	z-index: 99;
+}
+
+.jump-button {
+	transform: translateX(-50%); 
 }
