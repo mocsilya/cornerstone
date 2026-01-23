@@ -512,6 +512,110 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 {{/contains}}
 
+
+<script nonce="{{nonce}}">
+	// spec explanations
+	const tableRow = document.getElementsByClassName('customfield-label');
+	let rowHeading;
+	let rowText;
+    for (let i = 0; i < tableRow.length; i++) {
+        rowHeading = tableRow[i].innerText;
+		rowText = rowHeading.substring(0, rowHeading.length - 1);
+		console.log('rowText: ' + rowText);
+		if (rowText == 'DISPLAY' || rowText == 'MOTOR CONTROLLER' || rowText == 'DRIVE UNIT & MOTOR' || rowText == 'BATTERY' || rowText == 'FRAME MATERIAL' || rowText == 'HYDRAULIC BRAKES' || rowText == 'BRAKES' || rowText == 'FORK TRAVEL' || rowText == 'PEDALS' || rowText == 'NUMBER OF GEARS' || rowText == 'SHIFTERS & REAR DERAILLEUR' || rowText == 'HANDLEBAR' || rowText == 'CHARGER' || rowText == 'DROPPER SEATPOST' || rowText == 'WHEEL SIZE' || rowText == 'WHEELS' || rowText == 'TYRES' || rowText == 'FORK' || rowText == 'REAR SHOCK') {
+			console.log('Found: ' + rowText);
+			tableRow[i].classList.add('compare-label');
+		}
+    }
+	function loadArticle() {
+	   var rowClicks = document.getElementsByClassName('compare-label');
+	   for (let j = 0; j < rowClicks.length; j++) {
+	      rowClicks[j].onclick = function(e) {
+			  e.preventDefault();
+			  const rowClickHeading = rowClicks[j].innerText;
+			  const rowClickText = rowClickHeading.substring(0, rowClickHeading.length - 1);
+			  console.log('rowClickText: ' + rowClickText);
+  			var url;
+  			if (rowClickText == 'DISPLAY') {
+  				url = '/latest-posts/emtb-display-guide-2025/'
+  			} else if (rowClickText == 'MOTOR CONTROLLER') {
+  				url = '/latest-posts/emtb-controller-guide-2025/'
+  			} else if (rowClickText == 'DRIVE UNIT & MOTOR') {
+  				url = '/latest-posts/emtb-motor-guide-choose-the-perfect-one-2025-4e6aa4/'
+  			} else if (rowClickText == 'BATTERY') {
+  				url = '/latest-posts/emtb-battery-size-guide-/'
+  			} else if (rowClickText == 'FRAME MATERIAL') {
+  				url = '/latest-posts/carbon-vs-aluminium-frames-emtb-mtb/'
+  			} else if (rowClickText == 'HYDRAULIC BRAKES') {
+  				url = '/latest-posts/mountain-bike-hydraulic-brakes-guide/'
+  			} else if (rowClickText == 'BRAKES') {
+  				url = '/latest-posts/emtbmtb-brakes-guide/'
+  			} else if (rowClickText == 'FORK TRAVEL') {
+  				url = '/latest-posts/how-much-fork-travel-do-i-need-for-mountain-biking-emtbmtb/'
+  			} else if (rowClickText == 'PEDALS') {
+  				url = '/latest-posts/mountain-bike-pedals-guide/'
+  			} else if (rowClickText == 'NUMBER OF GEARS') {
+  				url = '/latest-posts/mountain-bike-number-of-gears-guide/'
+  			} else if (rowClickText == 'SHIFTERS & REAR DERAILLEUR') {
+  				url = '/latest-posts/mountain-bike-drivetrain-shifterderailleur-guide/'
+  			} else if (rowClickText == 'HANDLEBAR') {
+  				url = '/latest-posts/mtb-handlebars-explained/'
+  			} else if (rowClickText == 'CHARGER') {
+  				url = '/latest-posts/electric-mountain-bike-charger-guide-2025-805aa5/'
+  			} else if (rowClickText == 'DROPPER SEATPOST') {
+  				url = '/latest-posts/understanding-mtbemtb-dropper-seatposts/'
+  			} else if (rowClickText == 'WHEEL SIZE') {
+  				url = '/latest-posts/mountain-bike-wheel-size-guide/'
+  			} else if (rowClickText == 'WHEELS') {
+  				url = '/latest-posts/mountain-bike-wheels-guide/'
+  			} else if (rowClickText == 'TYRES') {
+  				url = '/latest-posts/mountain-bike-tyre-guide/'
+  			} else if (rowClickText == 'FORK') {
+  				url = '/latest-posts/mountain-bike-suspension-fork-guide/'
+  			} else if (rowClickText == 'REAR SHOCK') {
+  				url = '/latest-posts/emtbmtb-a-complete-guide-to-rear-shocks-2025/'
+  			}
+  			console.log('url: ' + url);
+  			// Open the modal
+  			const modalContent = document.getElementById('modal-content');
+  			modalContent.innerHTML = '';
+  			modalContent.parentNode.classList.add('open');
+  			modalContent.parentNode.setAttribute('style', 'display: block; opacity: 1; visibility: visible; height: 90vh;');
+  			document.body.classList.add('has-activeModal');
+  			const modalBg = document.querySelector('.modal-background');
+  			if (modalBg) {
+  				modalBg.removeAttribute('style');
+  			} else {
+  				const divBg = document.createElement('div');
+  				divBg.classList.add('modal-background');
+  				document.body.appendChild(divBg);
+  			}
+
+  			fetch(url).then(response => response.text()).then(html => {
+	
+  				// get the article content
+  				const fragment = document.createDocumentFragment('div');
+  				const tempDiv = document.createElement('div');
+  				fragment.appendChild(tempDiv);
+  				tempDiv.innerHTML = html;
+  				const content = tempDiv.querySelector('.blog-post').innerHTML;
+	
+  				//append content to the modal
+  				const modalHeight = modalContent.parentNode.clientHeight;
+  				const modalBody = document.createElement('div');
+  				modalBody.classList.add('modal-body');
+  				modalBody.style.height = modalHeight + 'px';
+  				modalBody.innerHTML = content;
+  				modalContent.appendChild(modalBody);
+  			})
+  			.catch((err) => console.log('Can not access ' + url + ' response. Blocked by browser?' + err));
+		  }
+	   }
+	}
+	loadArticle();
+</script>
+
+
 <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
 <!-- <script src="https://cdn11.bigcommerce.com/s-h4smy34w/content/imegawidget-custom.js"></script> -->
 <!-- <script src="{{cdn 'webdav:imegawidget-custom.js'}}"></script> -->

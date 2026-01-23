@@ -1086,7 +1086,7 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 }
 
 .card-figcaption-button.compare {
-	min-width: 150px;
+	min-width: 120px;
 }
 
 .card-figcaption-button.compare span {
@@ -1290,7 +1290,7 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 }
 
 
-// Compare
+// Compare and Product Page Spec
 // =============================================================================
 
 .compareTable-description,
@@ -1302,6 +1302,15 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	padding-right: 45px;
 	background-image: url('../img/custom/info.png');
 	background-position: right 14px center;
+	background-repeat: no-repeat;
+	background-size: 23px 24px;
+	cursor: pointer;
+}
+
+.productView-description .customfield-label.compare-label {
+	padding-left: 40px;
+	background-image: url('../img/custom/info.png');
+	background-position: left 8px center;
 	background-repeat: no-repeat;
 	background-size: 23px 24px;
 	cursor: pointer;
