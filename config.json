@@ -324,7 +324,7 @@
     "default_image_product": "img/ProductDefault.gif",
     "default_image_gift_certificate": "img/GiftCertificate.png",
     "body-font": "Google_Inter_400",
-    "headings-font": "Google_Anybody_600",
+    "headings-font": "Google_Montserrat_700",
     "fontSize-root": 16,
     "fontSize-h1": 24,
     "fontSize-h2": 21,

@@ -1998,6 +1998,38 @@ h3.card-title-top {
 	}
 }
 
+.card-figcaption-button.compare {
+	min-width: 170px;
+}
+
+.card-figcaption-button.compare:hover,
+.card-figcaption.clicked .card-figcaption-button.compare {
+	background-color: #ff7000;
+	border: 1px solid #ff7000;
+	color: #fff !important;
+}
+
+.card-figcaption .card-figcaption-button.compare:hover .icon svg,
+.card-figcaption.clicked .card-figcaption-button.compare .icon svg {
+	fill: #fff;
+	color: #fff;
+}
+
+.card-figcaption-button.compare,
+.card-figcaption-button.quickview,
+.card-wishlist .dropdown-menu-button {
+	padding-top: .375rem;
+	padding-bottom: .375rem;
+}
+
+.navUser-item--comparison .navUser-item--compare.show {
+	background-color: #ff7000;
+}
+
+.navUser-item--compare.show .countPill {
+	color: #ff7000;
+}
+
 
 // Card Brands
 // =============================================================================
