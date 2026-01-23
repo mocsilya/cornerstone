@@ -4909,6 +4909,18 @@ a:hover span.card-image:only-of-type img {
 	width: 1.25rem;
 }
 
+.card-figcaption-button .icon-tick {
+	display: none;
+}
+
+.card-figcaption.clicked .icon-compare {
+	display: none;
+}
+
+.card-figcaption.clicked .icon-tick {
+	display: inline-block;
+}
+
 .card-figcaption-button span {
 	display: none;
 }
@@ -5099,6 +5111,18 @@ a:hover span.card-image:only-of-type img {
 .productList .listItem-actions.clicked .button.compare .icon svg {
 	color: stencilColor('button--primary-color');
 	fill: stencilColor('button--primary-color');
+}
+
+.productList .listItem-actions .button.compare .icon-tick {
+	display: none;
+}
+
+.productList .listItem-actions.clicked .button.compare .icon-compare {
+	display: none;
+}
+
+.productList .listItem-actions.clicked .button.compare .icon-tick {
+	display: inline-block;
 }
 
 .listItem-buttons .button.compare input {
