@@ -114,10 +114,13 @@
 		{{/each}}
 		{{#if product.videos.list.length}}
 			{{#unless theme_settings.custom_product_description_location '==' 'side'}}
-				{{> components/custom/video-player product.videos}}
-        	{{/unless}}
+				{{#unless theme_settings.custom_product_videosection}}
+					{{> components/custom/video-player product.videos}}
+        		{{/unless}}
+			{{/unless}}
 		{{/if}}
 		{{#and product.videos.list.length (unless theme_settings.custom_product_description_location '==' 'side')}}
+			{{#unless theme_settings.custom_product_videosection}}
 			<ul class="productView-thumbnails"{{#gt product.images.length 3}} data-slick='{
                 "infinite": false,
                 "mobileFirst": true,
@@ -128,6 +131,19 @@
                 "slidesToScroll": 4
             }'{{/gt}}>
 				{{> components/custom/video-toggle}}
+			{{else}}
+				{{#if (getVar "thumbs") '===' 'show'}}
+				<ul class="productView-thumbnails"{{#gt product.images.length 4}} data-slick='{
+	                "infinite": false,
+	                "mobileFirst": true,
+	                "swipe": true,
+	                "dots": false,
+	                "accessibility": false,
+	                "slidesToShow": 4,
+	                "slidesToScroll": 4
+	            }'{{/gt}}>
+				{{/if}}
+			{{/unless}}
 		{{else}}
 			{{#if (getVar "thumbs") '===' 'show'}}
 			<ul class="productView-thumbnails"{{#gt product.images.length 4}} data-slick='{
@@ -143,6 +159,8 @@
 		{{/and}}
 		{{#if (getVar "thumbs") '===' 'show'}}
             {{#each product.images}}
+				{{#contains alt "HIDEIMAGE"}}
+				{{else}}
 				{{#contains alt "imageset:"}}
 					<li class="productView-thumbnail productView-thumbnail-image" data-image-set="{{{after (split alt 'imageset:') 1}}}">
 				{{else}}
@@ -163,6 +181,7 @@
                     }}
                     </a>
                 </li>
+				{{/contains}}
             {{/each}}
 		{{/if}}
 		{{#and product.videos.list.length (unless theme_settings.custom_product_description_location '==' 'side')}}
@@ -172,11 +191,12 @@
 			</ul>
 			{{/if}}
 		{{/and}}
-		{{#if product.videos.list.length}}
-			{{#if theme_settings.custom_product_description_location '==' 'side'}}
-				{{> components/products/videos product.videos}}
+
+			{{#if product.videos.list.length}}
+				{{#if theme_settings.custom_product_description_location '==' 'side'}}
+					{{> components/products/videos product.videos}}
+				{{/if}}
 			{{/if}}
-		{{/if}}
 
 		{{#if theme_settings.custom_product_warranty_location '==' 'gallery'}}
         	{{#if product.warranty}}
@@ -519,6 +539,16 @@
         {{else}}
             {{> components/products/description}}
         {{/if}}
+		{{#unless theme_settings.custom_product_description_location '==' 'side'}}
+			{{#if theme_settings.custom_product_videosection}}
+				{{#if product.videos.list.length}}
+					<div class="videoGallery-section">
+						<h4 class="productView-title">{{lang 'products.videos.header'}}</h4>
+						{{> components/products/videos product.videos}}
+					</div>
+				{{/if}}
+			{{/if}}
+		{{/unless}}
     </article>
 	{{#if theme_settings.custom_product_description_location '===' 'side'}}
 		{{{region name="product_view_bottom"}}}
