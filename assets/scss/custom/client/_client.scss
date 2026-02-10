@@ -1486,6 +1486,8 @@ div[data-content-region="home_below_featured_products"] div[data-sub-layout-cont
 	@include breakpoint("large") {
 		padding-left: 6rem;
 		padding-right: 6rem;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
 
