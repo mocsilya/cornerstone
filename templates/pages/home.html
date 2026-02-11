@@ -31,6 +31,7 @@ customer:
 	{{> components/common/alert/alert-info message}}
 {{/each}}
 <div class="main full">
+{{> components/custom/client/client-home-top}}
 {{{region name="home_below_top_banner"}}}
 {{#if theme_settings.custom_homepage_show_tabs}}
 	{{#if (getVar "b2b-products") '===' 'show'}}
@@ -96,6 +97,7 @@ customer:
 	{{/if}}
     {{{region name="home_below_new_products"}}}
 {{/if}}
+{{> components/custom/client/client-home-bottom}}
 </div>
 {{#if theme_settings.custom_homepage_show_modal}}
 	{{> components/custom/modal-subscribe}}
