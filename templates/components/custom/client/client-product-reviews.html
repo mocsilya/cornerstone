@@ -1,0 +1,11 @@
+<div class="yotpo yotpo-main-widget" 
+    data-product-id="{{product.id}}" 
+    data-price="{{#if product.price.price_range}}{{#if product.price.price_range.min.with_tax}}{{product.price.price_range.min.with_tax.value}}{{else}}{{product.price.price_range.min.without_tax.value}}{{/if}}{{else}}{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}{{/if}}" 
+    data-currency="{{ currency_selector.active_currency_code }}" 
+    data-name="{{ product.title }}" 
+    data-url="{{ product.url }}" 
+    data-image-url="{{getImage product.main_image}}" 
+    data-description="{{ product.description }}"> 
+</div> 
+<!--<div class="yotpo yotpo-pictures-widget" data-gallery-id="5bfd484dec337241362a8ac7" data-product-id="{{product.id}}"> </div>-->
+<div class="yotpo yotpo-pictures-widget" data-gallery-id="60f14731238de431c4214cf7" data-product-id="{{product.id}}"></div>

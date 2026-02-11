@@ -393,6 +393,18 @@ div[data-content-region="home_below_new_products"] > div div[data-layout-name="L
 	}
 }
 
+div[data-content-region="home_below_featured_products"] div[data-sub-layout-container] {
+	@include breakpoint("large") {
+		justify-content: center;
+	}
+}
+
+div[data-content-region="home_below_featured_products"] div[data-sub-layout-container] div[data-sub-layout] {
+	@include breakpoint("large") {
+		max-width: 500px;
+	}
+}
+
 .page-default .productCarousel {
 	margin-left: auto;
 	margin-right: auto;
@@ -1303,19 +1315,11 @@ div[data-content-region="blog_top"] > div {
 	display: none;
 }
 
-
-div[data-content-region="home_below_featured_products"] div[data-sub-layout-container] {
-	@include breakpoint("large") {
-		justify-content: center;
-	}
-	
+.yotpo-reviews-star-ratings-widget span {
+    font-size: 14px !important;
 }
 
-div[data-content-region="home_below_featured_products"] div[data-sub-layout-container] div[data-sub-layout] {
-	@include breakpoint("large") {
-		max-width: 500px;
-	}
-}
+
 
 // PDP 
 
@@ -1450,11 +1454,13 @@ div[data-content-region="home_below_featured_products"] div[data-sub-layout-cont
 }
 
 .productView-description .tabs-contents {
-	padding-left: 1.5rem;
-	padding-right: 1.5rem;
-	background: #f4f4f4;
 	margin-top: 1.5rem;
-	border-radius: .5rem;
+}
+
+.productView-description .tab-content.is-active {
+    padding: 1.5rem;
+    background: #f4f4f4;
+    border-radius: .5rem;
 }
 
 .productView-options .form-field--stock {
@@ -1669,6 +1675,18 @@ div[data-content-region="home_below_featured_products"] div[data-sub-layout-cont
 		display: inline-block;
 	}
 }
+
+.page-product .yotpo-star-rating-reviews-highly-rated-topics {
+    border-radius: .25rem !important;
+}
+
+.page-product #yotpo-reviews-main-widget {
+    background-color: #fff !important;
+    border-radius: .25rem;
+    padding-bottom: .75rem;
+}
+
+
 
 
 
