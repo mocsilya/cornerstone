@@ -241,20 +241,15 @@ body.scroll .navPages {
 	}
 }
 
-.navPage-subMenu {
-	@include breakpoint("large") {
-		min-width: calc(100vw - 12rem);
-		max-width: 1440px;
-	}
-}
-
-.navPages-item-page {
+.navPages-item-page,
+.navPages-list-depth-max.subMenu-is-open .navPages-item-page.is-hidden,
+.navPages-list-depth-max.subMenu-is-open .navPages-item-page {
 	@include breakpoint("medium") {
         display: none;
 	}
 }
 
-.navPages-list:not(.navPages-list-depth-max) .navPages-action-moreIcon {
+.navPages > ul > li > a .navPages-action-moreIcon {
 	@include breakpoint("medium") {
         display: none;
 	}
@@ -267,6 +262,11 @@ body.scroll .navPages {
         padding-left: .5rem;
 		padding-right: .5rem;
 	}
+}
+
+.navPages > ul.subMenu-is-open > li > .navPages-action.is-open,
+.navPages > ul.subMenu-is-open > li > .navPages-action.is-open:hover {
+	color: #ff7000;
 }
 
 
