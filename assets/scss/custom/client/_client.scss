@@ -108,7 +108,7 @@ body.scroll .header-fixed {
 		margin-left: auto;
 	}
 	@include breakpoint("large") {
-        min-width: 285px;
+        min-width: 350px;
 		display: flex;
 		align-items: center;
 	}
@@ -125,10 +125,12 @@ body.scroll .header-fixed {
 
 .navUser-action.navUser-action--custom {
 	padding-top: .5rem;
+	padding-left: .5rem;
+	padding-right: .5rem;
 	padding-bottom: 1rem;
 }
 
-.navUser ul li.navUser-item--dicover {
+.navUser ul li.navUser-item--rewards {
 	padding-right: 1rem;
 }
 
@@ -247,12 +249,10 @@ body.scroll .navPages {
 }
 
 .navPages-item-page {
-	@include breakpoint("large") {
+	@include breakpoint("medium") {
         display: none;
 	}
 }
-
-
 
 .navPages-list:not(.navPages-list-depth-max) .navPages-action-moreIcon {
 	@include breakpoint("medium") {
@@ -263,6 +263,10 @@ body.scroll .navPages {
 .navPages > ul > li > .navPages-action {
 	text-transform: uppercase;
 	font-size: .975rem;
+	@include breakpoint("medium") {
+        padding-left: .5rem;
+		padding-right: .5rem;
+	}
 }
 
 
@@ -404,18 +408,13 @@ div[data-content-region="home_below_new_products"] > div div[data-layout-name="L
 	}
 }
 
-.page-default .container-hero .slick-track,
-.page-default .container-hero .slick-track .slick-slide {
-	width: 100% !important;
-}
-
 .heroCarousel--left .heroCarousel-slide {
 	background: #000;
-	height: 480px;
+	height: 33.3333vw;
 }
 
 .heroCarousel--left .heroCarousel-slide .heroCarousel-image-wrapper {
-	height: 480px;
+	height: 33.3333vw;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -507,7 +506,6 @@ div[data-content-region="home_below_new_products"] > div div[data-layout-name="L
         font-size: 1.25rem;
 	}
 }
-
 
 .home-awards {
 	display: flex;
@@ -1033,9 +1031,15 @@ div[data-content-region="blog_top"] > div {
 	overflow: hidden;
 }
 
+.footer-blog-img img:hover {
+	opacity: 0.8;
+}
+
+/*
 .footer-blog-img img {
 	opacity: 0.6;
 }
+*/
 
 .footer-blog-content {
 	position: absolute;
@@ -1049,6 +1053,7 @@ div[data-content-region="blog_top"] > div {
 		top: 50%;
 		bottom: auto;
 	}
+	display: none;
 }
 
 .footer-blog-tags {
@@ -1060,9 +1065,15 @@ div[data-content-region="blog_top"] > div {
 
 .footer-blog-tags a,
 .footer-blog-tags a:hover {
+	display: none;
 	color: stencilColor("custom-footer-blog-heading");
 	font-weight: 700;
 	font-size: 1.125rem;
+}
+
+.footer-blog-tags a.footer-blog-tag-our-community,
+.footer-blog-tags a.footer-blog-tag-our-expert-advice {
+	display: inline-block;
 }
 
 .footer-blog-publish {
