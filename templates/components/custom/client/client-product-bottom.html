@@ -1,3 +1,23 @@
+<div class="productView-options-region" style="display: none;">
+	<strong>THIS PRODUCT IS NOT AVAILABLE IN YOUR REGION</strong>
+</div>
+{{#each breadcrumbs}}
+{{#if name '===' 'OLPRO EXTRA'}}
+<style>
+	html.glopal div.productView-options-region {
+		display: block !important;
+	    padding: .75rem;
+	    border: 1px solid #000;
+	    margin: 1rem 0;
+	    text-align: center;
+	}
+	html.glopal #add-to-cart-form {
+		display: none !important;
+	}
+</style>
+{{/if}}
+{{/each}}
+
 <div class="buy-icons">
 	<div class="buy-icon buy-icon-1">
 		<span class="buy-icon-image">
@@ -26,9 +46,6 @@
 </div>
 
 <div class="klarna-promo">
-	<div class="custom-klarna klarna-heading">
-		Klarna script will go here.
-	</div>
 	<klarna-placement
   data-key="credit-promotion-badge"
   data-locale="en-GB"

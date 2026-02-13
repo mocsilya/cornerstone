@@ -1323,6 +1323,31 @@ div[data-content-region="blog_top"] > div {
 
 // PDP 
 
+
+@media (max-width: 800px) {
+	div[data-content-region="product_view_top--global"] {
+		order: 1;
+	}
+	div[data-content-region="product_view_top"] {
+		order: 2;
+	}
+	.productView-details.product-data {
+		order: 3;
+	}
+	.productView-details.product-options {
+		order: 4;
+	}
+	div[data-content-region="product_view_bottom"] {
+		order: 5;
+	}
+	div[data-content-region="product_view_bottom--global"] {
+		order: 6;
+	}
+	.productView-description {
+		order: 7;
+	}
+}
+
 .productView-wrap:not(.payment-product) .productView-details-fixed {
 	margin-top: 137px;
 	height: calc(100vh - 137px);
@@ -1616,6 +1641,7 @@ div[data-content-region="blog_top"] > div {
 .buy-icons {
 	display: flex;
 	justify-content: space-evenly;
+	margin-bottom: 1.5rem;
 }
 
 .buy-icon {
@@ -1647,7 +1673,6 @@ div[data-content-region="blog_top"] > div {
 }
 
 .custom-klarna {
-	margin-top: 1.5rem;
 	border: 1px solid stencilColor("color-greyLightest");
 	padding: .75rem 1rem;
 	border-radius: .25rem;
@@ -1687,6 +1712,14 @@ div[data-content-region="blog_top"] > div {
 }
 
 
+.page-product input#form-action-addToCart:disabled,
+.page-product input#form-action-addToCart[disabled],
+.page-product #add-to-cart-wrapper .form-increment .button:disabled, 
+.page-product #add-to-cart-wrapper .form-increment .button[disabled],
+.page-product #add-to-cart-wrapper .form-increment .form-input--incrementTotal:disabled,
+.page-product #add-to-cart-wrapper .form-increment .form-input--incrementTotal[disabled] {
+	display: none;
+}
 
 
 
@@ -1695,4 +1728,53 @@ div[data-content-region="blog_top"] > div {
 div[data-layout-name="Products"] > div > div > div > div > div > div,
 div[data-layout-name="Products"] > div > div > div > div > div > div > div {
 	border: 1px solid #eee;
+}
+
+
+// CHAT
+
+div#chat-widget-container {
+    bottom: 80px !important;
+}
+
+div#chat-widget-container iframe:not(#chat-widget-minimized) {
+    height: calc(100% - 80px) !important;
+    margin-top: 80px !important;
+}
+
+
+// REWARDS
+
+div.smile-launcher-frame-container,
+div.smile-panel-frame-container {
+    left: auto !important;
+    right: 10px !important;
+}
+
+
+// GLOPAL
+
+html.glopal .navPages ul.navPages-list li.navPages-item-olpro-extra,
+html.glopal .navPages ul.navPages-list li.navPage-subMenu-item-olpro-extra {
+    display: none !important;
+}
+
+
+// YOTPO
+
+.yotpo .yotpo-testimonials-btn {
+    display: none !important;
+}
+
+.yotpo-reviews-tab-floating-tab {
+    margin-left: -10px !important;
+    margin-bottom: 227px;
+    border-radius: 50px !important;
+    z-index: 50 !important;
+    align-self: flex-end !important;
+    background-color: #FF7000 !important;
+}
+
+.card-body .yotpo-reviews-star-ratings-widget {
+    justify-content: center !important;
 }

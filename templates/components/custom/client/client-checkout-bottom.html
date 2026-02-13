@@ -1,0 +1,18 @@
+<div class="yotpo-widget-instance" data-yotpo-instance-id="990156"></div>
+
+{{#contains customer.customer_group_name 'B2B APP'}}
+<style>
+    div.yotpo-widget-checkout-redemptions-widget,
+    a.redeemable-label,
+    div#redeemable-collapsable {
+        display: none !important;
+    }
+</style>
+{{else}}
+<style>
+    .checkout-step--payment label[for="radio-bankdeposit"],
+    .checkout-step--payment input#radio-bankdeposit {
+        display: none !important;
+    }
+</style>
+{{/contains}}
