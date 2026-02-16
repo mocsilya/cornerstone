@@ -1,21 +1,38 @@
-<li class="navUser-item navUser-item--custom navUser-item--help">
-	<a class="navUser-action navUser-action--custom" href="/help/" aria-label="Discover">
-		<span class="navUser-text">
-			Help
-		</span>
-	</a>
-</li>
-<li class="navUser-item navUser-item--custom navUser-item--discover">
-	<a class="navUser-action navUser-action--custom" href="/discover/" aria-label="Discover">
-		<span class="navUser-text">
-			Discover
-		</span>
-	</a>
-</li>
-<li class="navUser-item navUser-item--custom navUser-item--rewards">
-	<a class="navUser-action navUser-action--custom" href="/rewards/" aria-label="Rewards">
-		<span class="navUser-text">
-			Rewards
-		</span>
-	</a>
-</li>
+{{#each pages}}
+	{{#or (if name '==' 'Customer Service') (if name '==' 'Discover')}}
+	<li class="navUser-item navUser-item--custom navUser-item--{{dashcase name}}">
+        <a class="navUser-action navUser-action--custom has-dropdown"
+		   href="#"
+           data-dropdown="{{camelcase name}}Dropdown"
+		   aria-controls="{{camelcase name}}Dropdown"
+		   aria-expanded="false"
+           aria-label="{{name}}"
+        >
+			<span class="navUser-text">
+				{{#if name '==' 'Customer Service'}}Help{{else}}{{name}}{{/if}}
+			</span>
+        </a>
+		<ul class="dropdown-menu" id="{{camelcase name}}Dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+    	{{#each children}}
+			<li class="dropdown-menu-item">
+				<a href="{{url}}">{{name}}</a>
+			</li>
+    	{{/each}}
+		</ul>
+	</li>
+	{{/or}}
+{{/each}}
+	<li class="navUser-item navUser-item--custom navUser-item--discover">
+		<a class="navUser-action navUser-action--custom" href="/discover/" aria-label="Discover">
+			<span class="navUser-text">
+				Discover
+			</span>
+		</a>
+	</li>
+	<li class="navUser-item navUser-item--custom navUser-item--olprospares">
+		<a class="navUser-action navUser-action--custom" href="/olprospares/" aria-label="OLPRO Spares">
+			<span class="navUser-text">
+				OLPROSpares
+			</span>
+		</a>
+	</li>
