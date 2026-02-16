@@ -374,6 +374,8 @@ section.footer-info {
 	display: flex;
 	flex-direction: column;
 	width: 50%;
+	text-align: left;
+	padding-bottom: 3rem;
 }
 
 .footer-info article[data-section-type="storeInfo"] {
@@ -388,6 +390,10 @@ section.footer-info {
 	@include breakpoint("large") {
 		width: 33.33333%;
 	}
+}
+
+.footer-info article[data-section-type="storeInfo"] .footer-info-heading {
+	display: none;
 }
 
 .footer-info article[data-section-type="footer-categories"] {
@@ -447,6 +453,13 @@ section.footer-info {
 
 .footer-info-heading {
 	display: block;
+}
+
+.footer-payment-icons {
+	justify-content: center;
+	@include breakpoint("large") {
+		justify-content: flex-start;
+	}
 }
 
 .footer-payment-icons svg {
@@ -1878,6 +1891,19 @@ div[data-content-region="blog_top"] > div {
 	display: none !important;
 }
 
+.nextday-delivery p {
+	margin-bottom: 0;
+	font-size: 1.125rem;
+	line-height: 1.4;
+}
+
+.stock-delivery {
+	color: #b20000;
+	margin-bottom: 1.5rem;
+	font-size: 1.125rem;
+	line-height: 1.4;
+}
+
 
 
 // Page Builder
@@ -1939,3 +1965,4 @@ html.glopal .navPages ul.navPages-list li.navPage-subMenu-item-olpro-extra {
 .card-body .yotpo-reviews-star-ratings-widget {
     justify-content: center !important;
 }
+

@@ -6,3 +6,17 @@
 		</div>
 	{{/if}}
 {{/each}}
+
+{{#and (if product.stock_level '>' 0) (if product.stock_level '!=' undefined)}}
+{{#gt product.stock_level 0}}
+<div class="nextday-delivery" id="demo"></div>
+{{else}}
+<div class="nextday-delivery" id="demo1"></div>
+{{/gt}}
+{{/and}}
+
+{{#and (if product.stock_level '<' 50) (if product.stock_level '!=' undefined)}}
+<div class="stock-delivery">
+	Only {{product.stock_level}} left in stock.
+</div>
+{{/and}}

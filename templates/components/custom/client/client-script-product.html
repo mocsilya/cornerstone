@@ -56,3 +56,178 @@ window.addEventListener('scroll', function() {
 	}
 });
 </script>
+
+<!-- countDowntimer start -->
+<script nonce="{{nonce}}">
+    let currentdatewithhours = new Date(new Date().setHours(13, 0, 0));
+    let nextdatewithhours = new Date(new Date().setHours(13, 0, 0));
+    // console.log("nextdatewithhours",nextdatewithhours);
+    //  console.log("currentdatewithhours",currentdatewithhours);
+    var d1 = new Date()
+    d1.setDate(d1.getDate() + (1 + 7 - d1.getDay()) % 7)
+    d1.setHours(13, 0, 0, 0);
+    //console.log('countDownDate', d1);
+    let countDownDateM = new Date(d1).getTime();
+    let n = currentdatewithhours.getDay();
+    var countDownDate = currentdatewithhours.getTime();
+    var ncountDownDate = nextdatewithhours.setDate(nextdatewithhours.getDate() + 1);
+    //console.log('nextdatewithhours', nextdatewithhours, 'ncountDownDate', ncountDownDate);
+
+    var x = setInterval(function () {
+
+        const daysname = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+        const monthsname = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        // Get today's date and time
+        const nth = function (d) {
+            if (d > 3 && d < 21) return d + "<sup>th</sup>";
+            switch (d % 10) {
+                case 1: return d + "<sup>st</sup>";
+                case 2: return d + "<sup>nd</sup>";
+                case 3: return d + "<sup>rd</sup>";
+                default: return d + "<sup>th</sup>";
+            }
+        }
+
+        const dayIcrement = function (dist) {
+            let hrsM = Math.floor((dist) / (1000 * 60 * 60));
+            let dayInc = '';
+            if (hrsM > 48) {
+                dayInc = 4;
+            } else if (hrsM > 24) {
+                dayInc = 3;
+            } else if (hrsM > 13) {
+                dayInc = 2;
+            } else if (hrsM < 13) {
+                dayInc = 1;
+            }
+            return dayInc;
+        };
+        var now = new Date().getTime();
+        var now1 = new Date();
+        // Find the distance between now and the count down date
+
+        var mondayDate = d1.getDate();
+        var dayName = daysname[d1.getDay()];
+        var monthName = monthsname[d1.getMonth()];
+
+        var now_utc = new Date(now1.getUTCFullYear(), now1.getUTCMonth(), now1.getUTCDate(), now1.getUTCHours(), now1.getUTCMinutes(), now1.getUTCSeconds());
+        var sd = new Date(now_utc.getTime());
+        // Find the distance between now and the count down date
+        var distance = countDownDate - sd;
+        var distanceM = countDownDateM - sd;
+        // console.log("sd",sd);
+
+        //debugger;
+        var d = new Date();
+
+        if (d.getUTCHours() <= 12) {
+            var hrs = (12 - d.getUTCHours());
+        } else {
+            var hrs = (23 + 13 - d.getUTCHours());
+        }
+        var min = 59 - d.getUTCMinutes();
+        if ((min + '').length == 1) {
+            min = '0' + min;
+        }
+        var sec = 59 - d.getUTCSeconds();
+        if ((sec + '').length == 1) {
+            sec = '0' + sec;
+        }
+
+        let display2 = '';
+        if (n != 4 && n != 5) {
+            if (hrs < 13) {
+                let datenew = new Date();
+                let sdataa = new Date(datenew.setUTCDate(d.getUTCDate() + 1));
+                //console.log('sdataa', daysname[sdataa.getDay()], nth(sdataa.getDate()), '', monthsname[sdataa.getMonth()]);
+                display2 = `<p>
+                 <span style="color: #b20000" id="delivercountdown">Want next day delivery? Order within <strong>`+ hrs + `h ` + min + `mins</strong> for delivery by ` + daysname[sdataa.getDay()] + ` ` + nth(sdataa.getDate()) + ` ` + monthsname[sdataa.getMonth()] + `. Only available for UK delivery.</span></p>`;
+            } else {
+                let datenew = new Date();
+                let sdataa = new Date(datenew.setUTCDate(d.getUTCDate() + 2));
+                // console.log('sdataa', sdataa.getDate(), 'day', sdataa.getDate(), '', nth(sdataa.getDate()));
+                display2 = `<p>
+                 <span style="color: #b20000" id="delivercountdown">Want next day delivery? Order within <strong>`+ hrs + `h ` + min + `mins</strong> for delivery by ` + daysname[sdataa.getDay()] + ` ` + nth(sdataa.getDate()) + ` ` + monthsname[sdataa.getMonth()] + `. Only available for UK delivery.</span></p>`;
+
+            }
+        } else if (n == 4) {
+            if (hrs < 13) {
+                let datenew = new Date();
+                let sdataa = new Date(datenew.setUTCDate(d.getUTCDate() + 1));
+                //console.log('sdataa', daysname[sdataa.getDay()], nth(sdataa.getDate()), '', monthsname[sdataa.getMonth()]);
+                display2 = `<p>
+                 <span style="color: #b20000" id="delivercountdown">Want next day delivery? Order within <strong>`+ hrs + `h ` + min + `mins</strong> for delivery by ` + daysname[sdataa.getDay()] + ` ` + nth(sdataa.getDate()) + ` ` + monthsname[sdataa.getMonth()] + `. Only available for UK delivery.</span></p>`;
+            } else {
+                let datenew = new Date();
+                let sdataa = new Date(datenew.setUTCDate(d.getUTCDate() + 4));
+                // console.log('sdataa', sdataa.getDate(), 'day', sdataa.getDate(), '', nth(sdataa.getDate()));
+                display2 = `<p>
+                 <span style="color: #b20000" id="delivercountdown">Want next day delivery? Order within <strong>`+ hrs + `h ` + min + `mins</strong> for delivery by ` + daysname[sdataa.getDay()] + ` ` + nth(sdataa.getDate()) + ` ` + monthsname[sdataa.getMonth()] + `. Only available for UK delivery.</span></p>`;
+
+            }
+        } else if (n == 5) {
+            if (hrs < 13) {
+                let datenew = new Date();
+                let sdataa = new Date(datenew.setUTCDate(d.getUTCDate() + 3));
+                //console.log('sdataa', daysname[sdataa.getDay()], nth(sdataa.getDate()), '', monthsname[sdataa.getMonth()]);
+                display2 = `<p>
+                 <span style="color: #b20000" id="delivercountdown">Want next day delivery? Order within <strong>`+ hrs + `h ` + min + `mins</strong> for delivery by ` + daysname[sdataa.getDay()] + ` ` + nth(sdataa.getDate()) + ` ` + monthsname[sdataa.getMonth()] + `. Only available for UK delivery.</span></p>`;
+            }
+            // else {
+            //     let datenew = new Date();
+            //     let sdataa = new Date(datenew.setUTCDate(d.getUTCDate() + 4));
+            //     // console.log('sdataa', sdataa.getDate(), 'day', sdataa.getDate(), '', nth(sdataa.getDate()));
+            //     display2 = `<p>
+            //      <span style="color: #b20000" id="delivercountdown"><strong> Want next day delivery? Order within `+ hrs + `h ` + min + `Min ` + sec + `sec for delivery by ` + daysname[sdataa.getDay()] + ` ` + nth(sdataa.getDate()) + ` ` + monthsname[sdataa.getMonth()] + `. This offer is only from Monday to Friday and only for UK delivery.</strong></span></p>`;
+
+            // }
+        }
+
+        //excluding monday
+        // Time calculations for days, hours, minutes and seconds
+        let daysM = Math.floor(distanceM / (1000 * 60 * 60 * 24));
+        //let hoursM = Math.floor((distanceM % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let hoursM = Math.floor((distanceM) / (1000 * 60 * 60));
+        let minutesM = Math.floor((distanceM % (1000 * 60 * 60)) / (1000 * 60));
+        let secondsM = Math.floor((distanceM % (1000 * 60)) / 1000);
+        //debugger;
+        if (document.getElementById("demo") != null) {
+            if (n !== 6 && n !== 0) {
+                //debugger;
+              //  console.log("document", document.getElementById("demo"));
+                document.getElementById("demo").innerHTML = display2;
+                if (n == 5) {
+                    if (distance < 0) {
+                        // debugger;
+                        let datenew = new Date(d);
+                        //console.log('distanceM', distanceM);
+                        let sdata = new Date(datenew.setUTCDate(d.getUTCDate() + dayIcrement(distanceM)));
+                        //console.log('sdataa', daysname[sdata.getDay()], nth(sdata.getDate()), '', monthsname[sdata.getMonth()])
+
+                        //let dayM = daysM > 1 ? daysM + "days" : daysM + "day";
+                        document.getElementById("demo").innerHTML = `<p>
+                 <span style="color: #b20000" id="delivercountdown">Want next day delivery? Order within <strong>` + hoursM + `h ` + minutesM + `mins</strong> for delivery by ` + daysname[sdata.getDay()] + ` ` + nth(sdata.getDate()) + ` ` + monthsname[sdata.getMonth()] + `. Only available for UK delivery.</span></p>`;
+                    } else {
+                        document.getElementById("demo").innerHTML = display2;
+                    }
+                }
+            }
+            else {
+                if (distanceM < 0) {
+                    clearInterval(x);
+                    document.getElementById("demo").innerHTML = "";
+                } else {
+                    //console.log('distanceM', distanceM);
+                    let datenew = new Date(d);
+                    let sdata = new Date(datenew.setUTCDate(d.getUTCDate() + dayIcrement(distanceM)));
+                    //console.log('sdataa', daysname[sdata.getDay()], nth(sdata.getDate()), '', monthsname[sdata.getMonth()])
+                    //let dayM = daysM > 1 ? daysM + "days" : daysM + "day";
+                    document.getElementById("demo").innerHTML = `<p>
+                 <span style="color: #b20000" id="delivercountdown">Want next day delivery? Order within <strong>` + hoursM + `h ` + minutesM + `mins</strong> for delivery by ` + daysname[sdata.getDay()] + ` ` + nth(sdata.getDate()) + ` ` + monthsname[sdata.getMonth()] + `. Only available for UK delivery.</span></p>`;
+                }
+            }
+        }
+    }, 1000);
+</script>
+<!-- countDowntimer end -->

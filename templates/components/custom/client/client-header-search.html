@@ -1,5 +1,5 @@
 {{#each pages}}
-	{{#or (if name '==' 'Customer Service') (if name '==' 'Discover')}}
+	{{#or (if name '==' 'Help') (if name '==' 'Discover')}}
 	<li class="navUser-item navUser-item--custom navUser-item--{{dashcase name}}">
         <a class="navUser-action navUser-action--custom has-dropdown"
 		   href="#"
@@ -9,7 +9,7 @@
            aria-label="{{name}}"
         >
 			<span class="navUser-text">
-				{{#if name '==' 'Customer Service'}}Help{{else}}{{name}}{{/if}}
+				{{name}}
 			</span>
         </a>
 		<ul class="dropdown-menu" id="{{camelcase name}}Dropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
@@ -22,13 +22,6 @@
 	</li>
 	{{/or}}
 {{/each}}
-	<li class="navUser-item navUser-item--custom navUser-item--discover">
-		<a class="navUser-action navUser-action--custom" href="/discover/" aria-label="Discover">
-			<span class="navUser-text">
-				Discover
-			</span>
-		</a>
-	</li>
 	<li class="navUser-item navUser-item--custom navUser-item--olprospares">
 		<a class="navUser-action navUser-action--custom" href="/olprospares/" aria-label="OLPRO Spares">
 			<span class="navUser-text">
