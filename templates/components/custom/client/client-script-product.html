@@ -48,8 +48,10 @@ window.addEventListener('scroll', function() {
 	}
 
 	// Usage
-	const myElement = document.querySelector('.product-options');
-	if (isElementVisible(myElement)) {
+	const productData = document.querySelector('.productView-details.product-data');
+	const productOptions = document.querySelector('.productView-details.product-options');
+	const productImages = document.querySelector('.productView-images');
+	if (isElementVisible(productData) || isElementVisible(productOptions) || isElementVisible(productImages)) {
 		document.querySelector('.jump-addtocart').style.display = "none";
 	} else {
 		document.querySelector('.jump-addtocart').style.display = "block";
