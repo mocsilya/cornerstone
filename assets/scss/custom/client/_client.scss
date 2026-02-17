@@ -236,10 +236,6 @@ body.scroll .header-fixed {
 	
 }
 
-        
-
-
-
 
 // navPages
 
@@ -936,6 +932,21 @@ div[data-content-region="home_below_top_products"] div[data-sub-layout-container
 	padding-bottom: .25rem;
 }
 
+.sidebarCategories.sidebarCategories-parents {
+	display: none;
+	@include breakpoint("medium") {
+		display: block;
+	}
+}
+
+.facetedSearch-toggle-text {
+	width: 24px;
+}
+
+.facetedSearch-toggle-indicator {
+	width: calc(100% - 25px);
+}
+
 
 
 // Category blocks template 
@@ -1562,7 +1573,9 @@ div[data-content-region="blog_top"] > div {
 .customfield-vatrate,
 .productView-description .customfield-vatrate,
 .customfield-fbt-product,
-.productView-description .customfield-fbt-product {
+.productView-description .customfield-fbt-product,
+.customfield-custom-field-category,
+.productView-description .customfield-custom-field-category {
     display: none;
 }
 
