@@ -4897,6 +4897,10 @@ a:hover span.card-image:only-of-type img {
 	padding-bottom: .75rem;
 }
 
+.card-figcaption-outofstock {
+	min-width: 100%;
+}
+
 .card-figcaption-chooseoptions:hover,
 .card-figcaption-addtocart:hover,
 .card-figcaption-preorder:hover {
