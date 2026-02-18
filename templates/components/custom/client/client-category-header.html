@@ -3,6 +3,41 @@
 		{{{category.description}}}
 	</div>
 {{/if}}
+
+{{assignVar "crumbName" "unknown"}}
+{{#each breadcrumbs}}
+	{{#if @last}}
+		{{assignVar "crumbName" name}}
+	{{/if}}
+{{/each}}
+
+{{#or (if (getVar 'crumbName') '===' 'Awnings') (if (getVar 'crumbName') '===' 'Tents')}}
+	{{#each categories}}
+		{{#if (getVar 'crumbName') '===' name}}
+			{{#each children}}
+				{{#or (if name '===' 'Awnings By Type') (if name '===' 'Tents By Berth')}}
+				    <div class="subcategories-above subcategories--horizontal">
+						<ul class="subcategories-grid subcategories-grid-blockless">
+							{{#each children}}
+							{{#if @index '<' 4}}
+								<li class="subcategories-grid-item subcategories-grid-item-{{dashcase (lowercase (sanitize name))}}">
+									<div class="subcategories-container">
+										<a href="{{url}}">
+											<span class="subcategories-name">{{name}}</span>
+										</a>
+									</div>
+								</li>
+							{{/if}}
+							{{/each}}
+						</ul>
+				    </div>
+				{{/or}}
+			{{/each}}
+		{{/if}}
+	{{/each}}
+
+{{else}}
+
 {{#if category.subcategories}}
     <div class="subcategories-above subcategories--horizontal">
 		<ul class="subcategories-grid subcategories-grid-blockless">
@@ -18,3 +53,5 @@
 		</ul>
     </div>
 {{/if}}
+
+{{/or}}

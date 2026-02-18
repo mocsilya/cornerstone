@@ -1,0 +1,26 @@
+{{assignVar "productLength" "no"}}
+{{assignVar "productWidth" "no"}}
+{{assignVar "productHeight" "no"}}
+{{#each product.custom_fields}}
+	{{#if name '==' 'Length'}}
+		{{assignVar "productLength" "yes"}}
+	{{/if}}
+	{{#if name '==' 'Width'}}
+		{{assignVar "productWidth" "yes"}}
+	{{/if}}
+	{{#if name '==' 'Height'}}
+		{{assignVar "productHeight" "yes"}}
+	{{/if}}
+{{/each}}
+
+{{#all (if (getVar 'productLength') '==' 'yes') (if (getVar 'productWidth') '==' 'yes') (if (getVar 'productHeight') '==' 'yes')}}
+<div class="ar-container">
+	<a class="ar-link" target="_blank" href="https://size.link/?l={{#filter product.custom_fields 'Length' property='name'}}{{{before (split value 'cm') 1}}}{{/filter}}&w={{#filter product.custom_fields 'Width' property='name'}}{{{before (split value 'cm') 1}}}{{/filter}}&h={{#filter product.custom_fields 'Height' property='name'}}{{{before (split value 'cm') 1}}}{{/filter}}&units=cm">
+		<span class="ar-link-icon">
+			<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-quickview-regular" /></svg></i></span>
+		</span>
+		<span class="ar-link-text">View Dimensions in Augmented Reality</span>
+	</a>
+	<span class="ar-note">Requires a mobile/tablet device.</span>
+</div>
+{{/all}}
