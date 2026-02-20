@@ -209,7 +209,7 @@
     "custom-page-header-text": "#ffffff",
     "custom-page-header-background": "#000000",
     "custom_page_header_image_depth": "medium",
-    "custom_page_header_image_blog": "snowy-tent-mountain.jpg",
+    "custom_page_header_image_blog": "snowy-mountain.jpg",
     "custom_page_header_image_brands": "",
     "custom_page_header_image_cart": "",
     "custom_page_header_image_info": "",
@@ -595,7 +595,12 @@
     "afterpay-button-color": "black-mint",
     "amazon-button-color": "Gold",
     "masterpass-button-color": "black",
-    "paymentbuttons-provider-sorting": []
+    "paymentbuttons-provider-sorting": [
+      "paypal",
+      "paypal-credit",
+      "googlepay",
+      "applepay"
+    ]
   },
   "read_only_files": [
     "/assets/scss/components/citadel",
