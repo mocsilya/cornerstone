@@ -1,0 +1,159 @@
+,
+"shippingDetails": [
+    {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": 0,
+            "currency": "GBP"
+        },
+        "freeShippingThreshold": {
+            "@type": "DeliveryChargeSpecification",
+            "eligibleTransactionVolume": {
+                "@type": "PriceSpecification",
+                "value": 60,
+                "currency": "GBP"
+            }
+        },
+        "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": "GB"
+        },
+        "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 0,
+                "maxValue": 1,
+                "unitCode": "DAY"
+            },
+            "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 3,
+                "maxValue": 5,
+                "unitCode": "DAY"
+            }
+        }
+    },
+    {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": 3.99,
+            "currency": "GBP"
+        },
+        "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": "GB"
+        },
+        "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 0,
+                "maxValue": 1,
+                "unitCode": "DAY"
+            },
+            "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 3,
+                "maxValue": 5,
+                "unitCode": "DAY"
+            }
+        }
+    },
+    {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": 6.95,
+            "currency": "GBP"
+        },
+        "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": "GB"
+        },
+        "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 0,
+                "maxValue": 1,
+                "unitCode": "DAY"
+            },
+            "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 0,
+                "maxValue": 1,
+                "unitCode": "DAY"
+            }
+        }
+    },
+    {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": 7,
+            "currency": "EUR"
+        },
+        "shippingDestination": [
+            {
+                "@type": "DefinedRegion",
+                "addressCountry": "FR"
+            },
+            {
+                "@type": "DefinedRegion",
+                "addressCountry": "DE"
+            },
+            {
+                "@type": "DefinedRegion",
+                "addressCountry": "IE"
+            },
+            {
+                "@type": "DefinedRegion",
+                "addressCountry": "IT"
+            },
+            {
+                "@type": "DefinedRegion",
+                "addressCountry": "NL"
+            },
+            {
+                "@type": "DefinedRegion",
+                "addressCountry": "ES"
+            }
+        ],
+        "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 0,
+                "maxValue": 1,
+                "unitCode": "DAY"
+            },
+            "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 101,
+                "unitCode": "DAY"
+            }
+        }
+    }
+],
+"hasMerchantReturnPolicy": {
+    "@type": "MerchantReturnPolicy",
+    "applicableCountry": [
+        "GB",
+        "FR",
+        "DE",
+        "IE",
+        "IT",
+        "NL",
+        "ES"
+    ],
+    "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+    "merchantReturnDays": 30,
+    "returnMethod": "https://schema.org/ReturnByMail",
+    "returnFees": "https://schema.org/ReturnFeesCustomerResponsibility",
+    "returnPolicyCountry": "GB",
+    "merchantReturnLink": "https://olproshop.com/returns/"
+}
