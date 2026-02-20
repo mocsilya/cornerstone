@@ -3854,20 +3854,10 @@
         "content": "i18n.QuickPaymentButtons"
       },
       {
-        "type": "select",
+        "type": "text",
         "label": "i18n.NumberOfButtonsAlwaysVisible",
         "force_reload": true,
-        "id": "paymentbuttons-number-of-buttons",
-        "options": [
-          {
-            "value": 1,
-            "label": "1"
-          },
-          {
-            "value": 2,
-            "label": "2"
-          }
-        ]
+        "id": "paymentbuttons-number-of-buttons"
       },
       {
         "type": "sort",
