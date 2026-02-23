@@ -158,6 +158,7 @@ body.scroll .header-logo .header-logo-image-container {
 }
 
 .navUser-section--norm.navUser-section-left {
+    min-width: 100px;
 	@include breakpoint("medium") {
         min-width: 370px;
 		display: flex;
@@ -190,6 +191,7 @@ body.scroll .header-logo .header-logo-image-container {
 }
 
 .navUser-section--alt.navUser-section-left {
+    min-width: 140px;
 	@include breakpoint("medium") {
         min-width: 220px;
 		flex: 0 1 0;
@@ -291,6 +293,32 @@ body.scroll .header-logo .header-logo-image-container {
 .navUser .navUser-item--custom .dropdown-menu.is-open:after {
 	display: none !important;
 	
+}
+
+.navUser .navUser-item--info {
+    display: inline-block;
+    @include breakpoint("medium") {
+		display: none;
+	}
+}
+
+.navUser .navUser-item--info .dropdown-menu.is-open {
+	border: 0;
+	box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px 0px;
+	right: 0px !important;
+	left: auto !important;
+	padding: 1rem .75rem;
+	width: 170px !important;
+	max-width: 170px !important;
+}
+
+.navUser .navUser-item--info .dropdown-menu.is-open:before,
+.navUser .navUser-item--info .dropdown-menu.is-open:after {
+	display: none !important;
+}
+
+.navUser .navUser-item--info .dropdown-menu-item a {
+	font-weight: 700;
 }
 
 .navUser .countPill {
@@ -401,6 +429,14 @@ body.scroll .navPages {
 	}
 
 }
+
+.navPages-list--user .navPages-action[aria-label="Need Help?"],
+.navPages-list--user .navPages-action[aria-label="Discover OLPRO"],
+.navPages-list--user .navPages-action[aria-label="OLPROSPARES"] {
+    display: none !important;
+}
+
+
 
 // header bar 
 
@@ -957,7 +993,7 @@ div[data-content-region="home_below_top_products"] div[data-sub-layout-container
 
 // Category subcats
 
-.subcategories-above {
+.page-category .subcategories-above {
 	display: none;
 }
 
@@ -1116,11 +1152,35 @@ div[data-content-region="home_below_top_products"] div[data-sub-layout-container
 }
 
 
+// info page
+
+.info-header .page-heading {
+    color: #fff;
+	background: none;
+	padding-bottom: 0;
+}
+
+.page-header-image .breadcrumbs,
+.page-header-image .page-heading + nav .breadcrumbs {
+	background: none;
+	padding-top: 1.5rem;
+	padding-bottom: 0;
+}
+
+.info-header.page-header-image img {
+	opacity: 0.5;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+.page-alternate .subcategories-above .subcategories-name {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
 
 
 // blog page
-
-
 
 .blog-header.page-header-image .page-heading,
 .blog-header.page-header-image .breadcrumbs,
@@ -2211,7 +2271,9 @@ div.smile-panel-frame-container {
 // GLOPAL
 
 html.glopal .navPages ul.navPages-list li.navPages-item-olpro-extra,
-html.glopal .navPages ul.navPages-list li.navPage-subMenu-item-olpro-extra {
+html.glopal .navPages ul.navPages-list li.navPage-subMenu-item-olpro-extra,
+html.glopal .page-product .nextday-delivery,
+html.glopal .page-product .stock-delivery {
     display: none !important;
 }
 
@@ -2220,6 +2282,7 @@ html.glopal .navPages ul.navPages-list li.navPage-subMenu-item-olpro-extra {
 #wi-country-selector-modal {
     display: none !important;
 }
+
 
 
 // YOTPO
