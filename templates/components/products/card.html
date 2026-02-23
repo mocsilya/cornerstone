@@ -294,7 +294,7 @@
 				{{/if}}
                 {{#if show_compare}}
                     <label class="button button--small card-figcaption-button compare" for="compare-{{id}}" title="{{lang 'products.compare'}}">
-						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-compare-regular" /></svg></i><span>{{lang 'products.compare'}}</span>
+						<i class="icon icon-compare" aria-hidden="true"><svg><use xlink:href="#icon-compare-regular" /></svg></i><i class="icon icon-tick" aria-hidden="true"><svg><use xlink:href="#icon-tick-regular" /></svg></i><span>{{lang 'products.compare'}}</span>
                          <input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}">
                     </label>
                 {{/if}}

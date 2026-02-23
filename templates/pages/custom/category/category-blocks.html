@@ -1,0 +1,198 @@
+---
+category:
+    shop_by_price: {{theme_settings.shop_by_price_visibility}}
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+customer:
+    wishlists:
+        limit: 10
+---
+{{inject 'apiToken' settings.storefront_api.token}}
+{{inject "cardVariantData" theme_settings.custom_card_variant_data}}
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{{pagination.category.previous}}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{{pagination.category.next}}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "hero"}}
+{{{region name="category_below_menu"}}}
+<div class="container container-hero container-hero-blocks">
+	{{#if breadcrumbs.[1].name '==' 'Brands'}}
+		<div class="page-header category-header">
+	{{else}}
+		{{#if theme_settings.custom_page_header_image_depth '==' 'none'}}
+			{{#if breadcrumbs.[1].name '==' category.name}}
+				{{#if category.image}}
+					<div class="page-header category-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
+				    {{> components/common/responsive-img
+				        image=category.image
+				        fallback_size=theme_settings.zoom_size
+				        lazyload=theme_settings.lazyload_mode
+				        class="page-header-image"
+				    }}
+				{{else}}
+					<div class="page-header category-header">
+				{{/if}}
+			{{else}}
+				<div class="page-header category-header">
+			{{/if}}
+		{{else}}
+			{{#if category.image}}
+				<div class="page-header category-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
+			    {{> components/common/responsive-img
+			        image=category.image
+			        fallback_size=theme_settings.zoom_size
+			        lazyload=theme_settings.lazyload_mode
+			        class="page-header-image"
+			    }}
+			{{else}}
+				<div class="page-header category-header">
+			{{/if}}
+		{{/if}}
+	{{/if}}
+	{{#unless theme_settings.hide_category_page_heading }}
+		    <h1 class="page-heading">{{#contains head.title " | "}}{{{first (before (split head.title ' | ') 1)}}}{{else}}{{category.name}}{{/contains}}</h1>
+	{{/unless}}
+	{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	{{> components/custom/client/client-category-header}}
+	</div>
+</div>
+{{/partial}}
+
+{{#partial "page"}}
+{{{region name="category_below_header--global"}}}
+{{{region name="category_below_header"}}}
+{{#if theme_settings.custom_category_description_position '==' 'top'}}
+	<div class="category-description{{#if category.image}} category-description-image{{/if}}{{#if category.description}}{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}{{/if}} category-description-blocks">
+		{{{category.description}}}
+	</div>
+	{{#if category.description}}
+		{{#if theme_settings.custom_category_description_trim}}
+			<div class="category-description-button category-description-blocks" style="display: none;">
+				<a class="button button--secondary">
+					<span class="category-description-more">{{lang 'search.faceted.show-more'}}</span>
+					<span class="category-description-less">{{lang 'search.faceted.show-less'}}</span>
+				</a>
+			</div>
+		{{/if}}
+	{{/if}}
+{{/if}}
+
+{{assignVar "crumbName" "unknown"}}
+{{#each breadcrumbs}}
+	{{#if @last}}
+		{{assignVar "crumbName" name}}
+	{{/if}}
+{{/each}}
+
+<div class="page page-category-blocks">
+    <div class="page-content">
+		{{{region name="category_above_content"}}}
+	    <ul class="subcategories-grid subcategories-grid-image">
+		{{#each categories}}
+			{{#if (getVar 'crumbName') '===' name}}
+				{{#each children}}
+					<li class="subcategories-grid-item subcategories-grid-item-{{dashcase (lowercase (sanitize name))}}">
+						<div class="subcategories-container">
+						{{#if image}}
+							<div class="subcategories-image" style="background-image: url('{{getImage image 'category_card_size'}}')">
+						{{else}}
+							<div class="subcategories-blank">
+						{{/if}}
+								<div class="subcategories-content">
+									<span class="subcategories-name">
+										<a class="subcategories-name-link" href="{{url}}">
+											<span class="subcategory-name-count">{{count}}</span>
+											<span class="subcategory-name-text">{{name}}</span>
+										</a>
+									</span>
+									{{#if children}}
+										<span class="subcategories-children">
+											{{#each children}}
+												<span class="subcategory-child">
+													<a class="subcategories-child-link" href="{{url}}">
+														<span class="subcategory-child-count">{{count}}</span>
+														<span class="subcategory-child-text">{{name}}</span>
+													</a>
+												</span>
+											{{/each}}
+										</span>
+									{{/if}}
+								</div>
+							</div>
+						</div>
+					</li>
+				{{/each}}
+			{{else}}
+				{{#if children}}
+					{{#each children}}
+						{{#if (getVar 'crumbName') '===' name}}
+							{{#each children}}
+								<li class="subcategories-grid-item subcategories-grid-item-{{dashcase (lowercase (sanitize name))}}">
+									<div class="subcategories-container">
+									{{#if image}}
+										<div class="subcategories-image" style="background-image: url('{{getImage image 'category_card_size'}}')">
+									{{else}}
+										<div class="subcategories-blank">
+									{{/if}}
+											<div class="subcategories-content">
+												<span class="subcategories-name">
+													<a class="subcategories-name-link" href="{{url}}">
+														<span class="subcategory-name-count">{{count}}</span>
+														<span class="subcategory-name-text">{{name}}</span>
+													</a>
+												</span>
+												{{#if children}}
+													<span class="subcategories-children">
+														{{#each children}}
+															<span class="subcategory-child">
+																<a class="subcategories-child-link" href="{{url}}">
+																	<span class="subcategory-child-count">{{count}}</span>
+																	<span class="subcategory-child-text">{{name}}</span>
+																</a>
+															</span>
+														{{/each}}
+													</span>
+												{{/if}}
+											</div>
+										</div>
+									</div>
+								</li>
+							{{/each}}
+						{{/if}}
+					{{/each}}
+				{{/if}}
+			{{/if}}
+		{{/each}}
+		</ul>
+        {{{region name="category_below_content"}}}
+    </div>
+
+{{#if theme_settings.custom_category_description_position '==' 'bottom'}}
+	<div class="category-description{{#if category.image}} category-description-image{{/if}}{{#if category.description}}{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}{{/if}} category-description-blocks">
+		{{{category.description}}}
+	</div>
+	{{#if category.description}}
+		{{#if theme_settings.custom_category_description_trim}}
+			<div class="category-description-button category-description-blocks" style="display: none;">
+				<a class="button button--secondary">
+					<span class="category-description-more">{{lang 'search.faceted.show-more'}}</span>
+					<span class="category-description-less">{{lang 'search.faceted.show-less'}}</span>
+				</a>
+			</div>
+		{{/if}}
+	{{/if}}
+{{/if}}
+{{{region name="category_below_all"}}}
+</div>
+
+{{/partial}}
+{{> layout/base}}
