@@ -148,9 +148,9 @@
     "custom_header_menu_3_text": "Grab This Deal",
     "custom_header_menu_4_show": true,
     "custom_header_menu_4_category": "Coils",
-    "custom_header_menu_4_image": "pel-menu-banner-innokin-zenith-zlide.jpg",
-    "custom_header_menu_4_link": "/innokin-zenith-coils-5-pack/",
-    "custom_header_menu_4_text": "Over 20% Off.  Now £9.90 - Pack of 5",
+    "custom_header_menu_4_image": "pel-menu-banner-innokin-z-coil.jpg",
+    "custom_header_menu_4_link": "/innokin-z-coils-5-pack/",
+    "custom_header_menu_4_text": "Was £12.49 > Now £7.95 - Pack of 5",
     "custom_header_menu_5_show": true,
     "custom_header_menu_5_category": "Vape Pods",
     "custom_header_menu_5_image": "pel-menu-banner-elf-bar-elfa-pro-replacement-pods.jpg",
@@ -243,7 +243,7 @@
     "custom_product_variant_data": false,
     "custom_product_question": "",
     "custom_product_question_tab": false,
-	"custom_product_videosection": false,
+    "custom_product_videosection": false,
     "custom-tab-color": "#3c3936",
     "custom-tab-background": "#f1f1f1",
     "custom-tab-hover-color": "#ffffff",
@@ -591,14 +591,15 @@
     "checkout-paymentbuttons-paypal-shape": "rect",
     "checkout-paymentbuttons-paypal-size": "large",
     "checkout-paymentbuttons-paypal-label": "pay",
-    "paymentbuttons-number-of-buttons": 2,
+    "paymentbuttons-number-of-buttons": 5,
     "googlepay-button-color": "black",
     "afterpay-button-color": "black-mint",
     "amazon-button-color": "Gold",
     "masterpass-button-color": "black",
     "paymentbuttons-provider-sorting": [
       "paypal",
-      "paypal-credit"
+      "paypal-credit",
+      "applepay"
     ]
   },
   "read_only_files": [
