@@ -12,8 +12,8 @@ export default function (context) {
 	
 	if (window.location.href.indexOf('monster-index') > -1) {
 		const options = {
-		  template: 'custom/client/client-script-category',
-		  config: { blog: { posts: { limit: 100 } } },
+		  template: 'custom/json-blog',
+		  config: { blog: { posts: { limit: 150 } } },
 		};
 	
 		utils.api.getPage('/latest-posts', options, (error, response) => {
