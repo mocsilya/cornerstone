@@ -1,0 +1,103 @@
+---
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+customer:
+    wishlists:
+        limit: 10
+---
+
+{{#partial "hero"}}
+{{{region name="page_below_menu"}}}
+<div class="container container-hero">
+	<div class="page-header info-header page-header-image page-header-medium page-header-monsterindex">
+	    <img class="page-header-image" src="/product_images/uploaded_images/{{dashcase page.title}}-banner.jpg?v={{moment 'now' 'X'}}" />
+	    {{#unless theme_settings.hide_page_heading }}
+		    <h1 class="page-heading">{{#contains head.title " | "}}{{{first (before (split head.title ' | ') 1)}}}{{else}}{{page.title}}{{/contains}}</h1>
+	    {{/unless}}
+		{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	</div>
+</div>
+{{/partial}}
+
+{{#partial "page"}}
+
+<section class="page page-navless">
+{{{region name="page_builder_content_editor_area_top"}}}
+
+
+	<div class="page-content page-content--centered">
+
+	{{{region name="page_builder_content"}}}
+        {{#replace '%%Syndicate%%' page.content}}
+            {{> components/page/rss_feed}}
+        {{else}}
+			<div class="monsterindex-container">
+				<div class="monsterindex-left">
+					<div class="monsterindex-item monsterindex-item-left">
+						<div class="monsterindex-content">
+							<h3>Model Comparison</h3>
+							<ul class="monsterindex-posts modelComparison-posts" data-modelComparison-posts>
+							</ul>
+						</div>
+					</div>
+					<div class="monsterindex-item">
+						<div class="monsterindex-content">
+							<h3>Setup &amp; Maintenance</h3>
+							<ul class="monsterindex-posts setupMaintenance-posts" data-setupMaintenance-posts>
+							</ul>
+						</div>
+					</div>
+					<div class="monsterindex-item">
+						<div class="monsterindex-content">
+							<h3>EMTB Tech</h3>
+							<ul class="monsterindex-posts emtbTech-posts" data-emtbTech-posts>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="monsterindex-right">
+					<div class="monsterindex-item">
+						<div class="monsterindex-content">
+							<h3>Bike Tech</h3>
+							<ul class="monsterindex-posts bikeTech-posts" data-bikeTech-posts>
+							</ul>
+						</div>
+					</div>
+					<div class="monsterindex-item">
+						<div class="monsterindex-content">
+							<h3>New to MTB &amp; EMTB</h3>
+							<ul class="monsterindex-posts newtoMtb-posts" data-newtoMtb-posts>
+							</ul>
+						</div>
+					</div>
+					<div class="monsterindex-item">
+						<div class="monsterindex-content">
+							<h3>Where to Ride & Race</h3>
+							<ul class="monsterindex-posts wheretoRide-posts" data-wheretoRide-posts>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+            {{{page.content}}}
+        {{/replace}}
+	{{{region name="page_builder_bottom"}}}
+    </div>
+
+    {{#if page.feed}}
+        <ul>
+            {{#each page.feed}}
+                <li>
+                    <h6><a href="{{url}}" target="_blank">{{title}}</a></h6>
+                    <p>{{content}}</p>
+                </li>
+            {{/each}}
+        </ul>
+    {{/if}}
+{{{region name="page_builder_content_editor_area_bottom"}}}
+</section>
+
+{{/partial}}
+
+{{> layout/base}}

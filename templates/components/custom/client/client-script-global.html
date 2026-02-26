@@ -39,7 +39,7 @@
 		rowHeading = tableRow[i].querySelector('.compareTable-heading');
         rowText = rowHeading.innerText;
 		console.log('rowText: ' + rowText);
-		if (rowText == 'DISPLAY' || rowText == 'MOTOR CONTROLLER' || rowText == 'DRIVE UNIT & MOTOR' || rowText == 'BATTERY' || rowText == 'FRAME MATERIAL' || rowText == 'HYDRAULIC BRAKES' || rowText == 'BRAKES' || rowText == 'FORK TRAVEL' || rowText == 'PEDALS' || rowText == 'NUMBER OF GEARS' || rowText == 'SHIFTERS & REAR DERAILLEUR' || rowText == 'HANDLEBAR' || rowText == 'CHARGER' || rowText == 'DROPPER SEATPOST' || rowText == 'WHEEL SIZE' || rowText == 'WHEELS' || rowText == 'TYRES' || rowText == 'FORK' || rowText == 'REAR SHOCK') {
+		if (rowText == 'DISPLAY' || rowText == 'MOTOR CONTROLLER' || rowText == 'DRIVE UNIT' || rowText == 'MOTOR' || rowText == 'BATTERY' || rowText == 'FRAME MATERIAL' || rowText == 'HYDRAULIC BRAKES' || rowText == 'BRAKES' || rowText == 'FORK TRAVEL' || rowText == 'PEDALS' || rowText == 'NUMBER OF GEARS' || rowText == 'SHIFTERS' || rowText == 'REAR DERAILLEUR' || rowText == 'HANDLEBAR' || rowText == 'CHARGER' || rowText == 'DROPPER SEATPOST' || rowText == 'WHEEL SIZE' || rowText == 'WHEELS' || rowText == 'TYRES' || rowText == 'FORK' || rowText == 'REAR SHOCK') {
 			console.log('Found: ' + rowText);
 			rowHeading.classList.add('compare-label');
 		}
@@ -56,7 +56,9 @@
   				url = '/latest-posts/emtb-display-guide-2025/'
   			} else if (rowClickText == 'MOTOR CONTROLLER') {
   				url = '/latest-posts/emtb-controller-guide-2025/'
-  			} else if (rowClickText == 'DRIVE UNIT & MOTOR') {
+  			} else if (rowClickText == 'DRIVE UNIT') {
+  				url = '/latest-posts/emtb-motor-guide-choose-the-perfect-one-2025-4e6aa4/'
+  			} else if (rowClickText == 'MOTOR') {
   				url = '/latest-posts/emtb-motor-guide-choose-the-perfect-one-2025-4e6aa4/'
   			} else if (rowClickText == 'BATTERY') {
   				url = '/latest-posts/emtb-battery-size-guide-/'
@@ -72,7 +74,9 @@
   				url = '/latest-posts/mountain-bike-pedals-guide/'
   			} else if (rowClickText == 'NUMBER OF GEARS') {
   				url = '/latest-posts/mountain-bike-number-of-gears-guide/'
-  			} else if (rowClickText == 'SHIFTERS & REAR DERAILLEUR') {
+  			} else if (rowClickText == 'SHIFTERS') {
+  				url = '/latest-posts/mountain-bike-drivetrain-shifterderailleur-guide/'
+  			} else if (rowClickText == 'REAR DERAILLEUR') {
   				url = '/latest-posts/mountain-bike-drivetrain-shifterderailleur-guide/'
   			} else if (rowClickText == 'HANDLEBAR') {
   				url = '/latest-posts/mtb-handlebars-explained/'
