@@ -7626,23 +7626,22 @@ div[data-content-region="page_builder_content_editor_area_bottom"] {
 	height: 100%;
 }
 
-.blog-post {
+.page-blog .blog-post {
 	display: flex;
 	flex-direction: column;
 }
 
-.blog-post-body,
-.blog-post-body .blog-date {
+.page-blog .blog-post-body,
+.page-blog .blog-post-body .blog-date {
 	text-align: left;
 }
 
-.blog-post-body .blog-title {
+.page-blog .blog-post-body .blog-title {
 	margin-left: 0;
 	margin-right: 0;
 }
 
-
-.blog-link {
+.page-blog .blog-link {
 	margin-top: .75rem;
 	align-self: flex-start;
     border: 1px solid stencilColor("custom-card-border");
