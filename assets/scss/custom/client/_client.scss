@@ -635,22 +635,34 @@ div[data-content-region="home_below_top_products"] div[data-sub-layout-container
 
 .heroCarousel--left .heroCarousel-slide {
 	background: #000;
-	height: 33.3333vw;
+	height: 100vw;
+	@include breakpoint("medium") {
+        height: 50vw;
+	}
+	@include breakpoint("large") {
+        height: 33.3333vw;
+	}
 }
 
 .heroCarousel--left .heroCarousel-slide .heroCarousel-image-wrapper {
-	height: 33.3333vw;
 	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
+	@include breakpoint("medium") {
+        height: 50vw;
+	}
+	@include breakpoint("medium") {
+        height: 33.3333vw;
+	}
 }
 
 .heroCarousel--left .heroCarousel-slide .heroCarousel-image {
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
+	opacity: 0.5;
 	@include breakpoint("medium") {
         opacity: 1;
 	}
@@ -2306,5 +2318,27 @@ html.glopal .page-product .stock-delivery {
 
 .yotpo-pictures-widget .yotpo-slider-title-wrapper .yotpo-slider-title {
     display: none;
+}
+
+// Elfsight instagram
+
+.elfsight-container {
+    position: relative;
+}
+
+#eapps-instagram-feed-1 {
+    position: relative;
+    z-index: 1;
+}
+
+.elfsight-mask  {
+    position: absolute;
+    z-index: 2;
+    background-color: #fff;
+    width: 240px;
+    height: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 6px;
 }
 
