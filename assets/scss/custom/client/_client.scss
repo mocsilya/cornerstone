@@ -635,7 +635,7 @@ div[data-content-region="home_below_top_products"] div[data-sub-layout-container
 
 .heroCarousel--left .heroCarousel-slide {
 	background: #000;
-	height: 100vw;
+	height: 75vw;
 	@include breakpoint("medium") {
         height: 50vw;
 	}
@@ -662,7 +662,7 @@ div[data-content-region="home_below_top_products"] div[data-sub-layout-container
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
-	opacity: 0.5;
+	opacity: 1;
 	@include breakpoint("medium") {
         opacity: 1;
 	}
