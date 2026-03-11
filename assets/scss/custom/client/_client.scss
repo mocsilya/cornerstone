@@ -674,22 +674,22 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	text-align: center;
 }
 
+.carousel-links h1 {
+    text-transform: none !important;
+}
+
 .carousel-links li a {
 	display: block;
 	padding: 1rem .5rem;
 	font-weight: 700;
 	border-radius: .5rem;
 	text-decoration: none;
-	background: #000;
-	color: #eee;
 	font-weight: 700;
-	border: 2px solid #000;
+	border: none;
 }
 
 .carousel-links li a:hover {
-	color: #fff;
-	border: 2px solid #333;
-	background: #333;
+	border: none;
 }
 
 .carousel-international {
@@ -2626,20 +2626,19 @@ div[data-content-region="product_below_content"] {
 	position: relative;
 }
 
-.product-gallery-message-left {
+.product-gallery-message-content {
 	position: absolute;
-	left: 0;
-	top: 0;
-	width: auto;
 	z-index: 1;
+	left: 0;
+	right: 0;
+	display: flex;
+	justify-content: space-between;
 }
 
+.product-gallery-message-left,
+.product-gallery-message-middle,
 .product-gallery-message-right {
-	position: absolute;
-	right: 0;
-	top: 0;
-	width: auto;
-	z-index: 1;
+    text-align: center;
 }
 
 .product-gallery-message-link,
@@ -2672,12 +2671,6 @@ div[data-content-region="product_below_content"] {
 	color: #cc0000;
 }
 
-.product-gallery-message-finance,
-.product-gallery-message-finance:hover {
-	background: #fff;
-	color: #000;
-}
-
 .product-gallery-message-text {
 	height: 16px;
 	line-height: 16px;
@@ -2694,6 +2687,10 @@ div[data-content-region="product_below_content"] {
 	display: flex;
 	justify-content: center;
 	margin-bottom: 10px;
+}
+
+.productView-options .footer-payment-icons svg {
+	fill: #000;
 }
 
 .productView-options .form-action .button--primary, .productView-options .form-action .dropdown-menu-button {

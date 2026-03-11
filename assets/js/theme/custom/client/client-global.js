@@ -9,7 +9,7 @@ export default function (context) {
 		$(".cart-terms").hide();
 	});
 	
-	
+	/*
 	if (window.location.href.indexOf('monster-index') > -1) {
 		const options = {
 		  template: 'custom/json-blog',
@@ -73,6 +73,6 @@ export default function (context) {
 			    $('[data-wheretoRide-posts]').append(html6);
 			});
 		});
-	}
+	}*/
 	
 }
