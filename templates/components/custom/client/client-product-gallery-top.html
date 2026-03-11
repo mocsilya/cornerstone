@@ -10,25 +10,61 @@
 	    <div class="product-gallery-message-content">
 		    <div class="product-gallery-message-left">
 		{{#contains product.title 'Sale'}}
-			    <span class="product-gallery-message-link product-gallery-message-sale" target="_blank" href="/deals-discount-codes-and-vouchers/">
+			    <a class="product-gallery-message-link product-gallery-message-sale" target="_blank" href="/deals-discount-codes-and-vouchers/">
 				    <span class="product-gallery-message-text">S A L E</span>
-			    </span>
+			    </a>
 		{{else}}
-			    <span class="product-gallery-message-link product-gallery-message-finance" target="_blank" href="/deals-discount-codes-and-vouchers/">
+			    <a class="product-gallery-message-link product-gallery-message-finance" target="_blank" href="/bike-electric-bike-finance/">
 				    <span class="product-gallery-message-text">0% Finance Available&nbsp;*</span>
-			    </span>
+			    </a>
 		{{/contains}}
 		    </div>
 		    <div class="product-gallery-message-middle">
-			    <span class="product-gallery-message-link">
+				<a class="product-gallery-message-link" href="#" data-reveal-id="insuranceModal">
 				    <span class="product-gallery-message-text">30 days FREE bike Insurance</span>
-			    </span>
+			    </a>
 		    </div>
 	    	<div class="product-gallery-message-right">
 			    <a class="product-gallery-message-link" target="_blank" href="/shipping-tax-and-delivery-information/">
 				    <span class="product-gallery-message-text">FREE UK Delivery&nbsp;*</span>
 			    </a>
 		    </div>
+		</div>
+	</div>
+	<div id="insuranceModal" class="modal model-large" data-reveal>
+		<div class="modal-content">
+			<button class="modal-close" type="button" title="Close">
+				<span class="aria-description--hidden">Close</span>
+				<span aria-hidden="true">×</span>
+			</button>
+			<div class="modal-body">
+				<div class="insurance-modal-content">
+					<div class="insurance-modal-block">
+						<div class="insurance-modal-image">
+							<img width="578" height="412" src="https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/original/image-manager/mtb-monstervelo-life-free-30-insurance.jpeg?t=1741781703" alt="Velo Insurance">
+						</div>
+						<div class="insurance-modal-text">
+							<p><strong>We offer 30 days free insurance</strong>&nbsp;with all new bikes purchased from MTB Monster, provided by our insurance partner VeloLife. You will be covered for the first 30 days of ownership against theft, accidental damage and malicious damage, so you can purchase with confidence. If ordering online, you will be given a link upon completing your order to activate your 30 days free insurance.</p>
+							<p>If you are purchasing in-store or through our sales team then speak to them directly about activating your free insurance on your behalf. Please see details below.&nbsp;If you have just purchased your new bike, register for your free insurance&nbsp;<a href="https://www.velolife.co/retailer-form/30-day?storeID=35530686-dca3-11ee-8431-0a937813a306"><strong>here.</strong></a>&nbsp;T&amp;Cs apply.</p>
+						</div>
+					</div>
+					<div class="insurance-modal-block">
+						<div class="insurance-modal-image">
+							<img width="574" height="440" src="https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/original/image-manager/mtb-monster-velo-life-free-30-insurance-includsions.jpeg?t=1741781777" alt="Velo Insurance Inclusions">
+						</div>
+						<div class="insurance-modal-text">
+							<p><strong>The basic terms and conditions for activating the 30 days free insurance, you must:</strong></p>
+							<p>1. Have received your bike in the last 7 days<br>
+							2. Be over 18 years old<br>
+							3. Be Resident of the UK, Isle of Man and the Channel Islands<br>
+							4. Use the correct lock<br>
+							5. Confirm that you have received your bike from MTB Monster and still have possession of the bike<br>
+							6. Confirm that the bike is in good working order and has not been damaged in any way</p>
+							<p>Any questions just ask at info@velolife.co or 01908 92 92 30, or visit&nbsp;<a href="https://www.velolife.co/">www.velolife.co</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 {{/if}}

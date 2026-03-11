@@ -1140,8 +1140,8 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 .card-figure:hover .card-figcaption-chooseoptions,
 .card-figure:hover .card-figcaption-addtocart,
 .card-figure:hover .card-figcaption-preorder,
-.card-ffigure:hover .card-figcaption-outofstock {
-	display: flex;
+.card-figure:hover .card-figcaption-outofstock {
+	display: none;
 	justify-content: center;
 }
 
@@ -2063,6 +2063,8 @@ h3.card-title-top {
 .card-brand-logo-Commencal { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/2560w/t/commencal_1729180945__69457.original.png'); }
 .card-brand-logo-Haibike { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/original/image-manager/logo-card-haibike.png?t=1765473251'); }
 .card-brand-logo-Amflow { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/original/image-manager/logo-card-amflow.png?t=1765473250'); }
+.card-brand-logo-Norco { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/original/image-manager/logo-norco.png?t=1773224098'); }
+
 
 // -----------------------------------------------------------------------------
 //
@@ -2642,6 +2644,8 @@ div[data-content-region="product_below_content"] {
 }
 
 .product-gallery-message-link,
+.product-gallery-message-link:active,
+.product-gallery-message-link:visited,
 .product-gallery-message-link:hover {
 	color: #fff;
 	background-color: #000;
@@ -2664,11 +2668,13 @@ div[data-content-region="product_below_content"] {
 
 .product-gallery-message-link:hover {
 	color: #fff;
+	background-color: #65AA36;
 }
 
 .product-gallery-message-sale,
 .product-gallery-message-sale:hover {
-	color: #cc0000;
+	color: #fff;
+	background-color:  #cc0000;
 }
 
 .product-gallery-message-text {
@@ -2683,10 +2689,54 @@ div[data-content-region="product_below_content"] {
 	fill: stencilColor("button--primary-backgroundColor");
 }
 
+
+.insurance-modal-content {
+	display: flex;
+	flex-direction: column;
+}
+
+.insurance-modal-content > div {
+	border-bottom: 2px solid #000;
+}
+
+.insurance-modal-content > div:last-child {
+	border-bottom: 0;
+	padding-top: 1.5rem;
+}
+
+.insurance-modal-block {
+	@include breakpoint("medium") {
+		display: flex;
+	}
+}
+
+.insurance-modal-image {
+	padding-bottom: 1.5rem;
+	@include breakpoint("medium") {
+		flex: 1 1 40%;
+		padding-right: 1.5rem;
+	}
+}
+
+.insurance-modal-text {
+	@include breakpoint("medium") {
+		flex: 1 1 60%;
+		padding-left: 1.5rem;
+	}
+}
+
+
+
 .productView-options .footer-payment-icons {
 	display: flex;
 	justify-content: center;
+	margin-top: 10px;
 	margin-bottom: 10px;
+}
+
+.productView-options .footer-payment-icon {
+	width: auto;
+	flex: 1 1 0;
 }
 
 .productView-options .footer-payment-icons svg {
