@@ -56,7 +56,7 @@
     "custom_phone_show": false,
     "custom_email_show": false,
     "custom_email_address": "",
-    "custom_homepage_carousel_size": "1280x320",
+    "custom_homepage_carousel_size": "1200x400",
     "custom_homepage_carousel_transition": "slide",
     "custom_homepage_carousel_mob-images": false,
     "custom_homepage_carousel_mob-1": "",
@@ -585,7 +585,7 @@
       "paypal",
       "bank"
     ],
-    "lazyload_mode": "lazyload+lqip",
+    "lazyload_mode": "lazyload",
     "checkout-paymentbuttons-paypal-color": "black",
     "checkout-paymentbuttons-paypal-shape": "rect",
     "checkout-paymentbuttons-paypal-size": "large",
