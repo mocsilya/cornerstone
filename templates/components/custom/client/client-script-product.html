@@ -456,8 +456,15 @@
 				const get_text = elements[i].textContent;
 				const trim_text = get_text.substring(0, get_text.indexOf(":")).trim();
 				const dash_text = trim_text.replace(/\s+/g, '-').toLowerCase();
-				const accord_text = "accord_" + dash_text;
+				let accord_text;
+				if (dash_text == 'tubeless-/-cushcore-set-up') {
+					accord_text = "accord_tubeless-set-up";
+				} else {
+					accord_text = "accord_" + dash_text;
+				}
+				
 	            console.log(accord_text);
+				
 				const faqId = document.getElementById(accord_text);
 				if (faqId) {
 					faqId.classList.add("accord-active");
