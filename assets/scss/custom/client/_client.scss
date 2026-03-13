@@ -633,7 +633,7 @@ div[data-content-region="home_below_top_products"] div[data-sub-layout-container
 	}
 }
 
-.heroCarousel--left .heroCarousel-slide {
+.heroCarousel .heroCarousel-slide {
 	background: #000;
 	height: 75vw;
 	@include breakpoint("medium") {
@@ -644,7 +644,7 @@ div[data-content-region="home_below_top_products"] div[data-sub-layout-container
 	}
 }
 
-.heroCarousel--left .heroCarousel-slide .heroCarousel-image-wrapper {
+.heroCarousel .heroCarousel-slide .heroCarousel-image-wrapper {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -658,17 +658,13 @@ div[data-content-region="home_below_top_products"] div[data-sub-layout-container
 	}
 }
 
-.heroCarousel--left .heroCarousel-slide .heroCarousel-image {
+.heroCarousel .heroCarousel-slide .heroCarousel-image {
 	height: 100%;
 	width: 100%;
 	object-fit: cover;
-	opacity: 1;
-	@include breakpoint("medium") {
-        opacity: 1;
-	}
 }
 
-.heroCarousel--left .heroCarousel-content {
+.heroCarousel .heroCarousel-content {
 	background: none;
 	padding: 2rem !important;
 	position: absolute;
@@ -676,51 +672,45 @@ div[data-content-region="home_below_top_products"] div[data-sub-layout-container
     transform: translateY(-50%);
 	text-align: center;
 	@include breakpoint("medium") {
-        background: rgba(0,0,0, 0.4);
 		left: 10%;
 		right: 10%;
 		width: 80%;
 	}
-	@include breakpoint("large") {
-		left: 50%;
-		transform: translate(-50%, -50%);
-		right: auto;
-		width: 50%;
-		max-width: 756px;
-		margin-left: -22.5vw;
-	}
 }
 
-.heroCarousel--left .heroCarousel-title {
+.heroCarousel .heroCarousel-title {
 	width: 100%;
 	background: none;
 	text-align: center;
-	font-size: 2rem;
+	font-size: 4rem;
+	line-height: 1;
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
+	@include breakpoint("medium") {
+		font-size: 5rem;
+	}
 	@include breakpoint("large") {
-        text-align: left;
-		font-size: 2.5rem;
+		font-size: 6rem;
 	}
 }
 
-.heroCarousel--left .heroCarousel-description {
-	font-weight: 400;
-	line-height: 1.5;
-	font-size: 1rem;
+.heroCarousel .heroCarousel-description {
+	font-weight: 700;
+	line-height: 1.2;
+	font-size: 1.25rem;
 	width: 100%;
 	background: none;
+	padding: 1rem 2.5rem 2rem 2.5rem;
 	@include breakpoint("medium") {
-        font-size: 1.25rem;
+        font-size: 1.75rem;
 	}
 	@include breakpoint("large") {
-        text-align: left;
+        font-size: 2rem;
 	}
 }
 
-.heroCarousel--left .heroCarousel-inner {
+.heroCarousel .heroCarousel-inner {
 	align-items: center;
-	@include breakpoint("large") {
-        align-items: flex-start;
-	}
 }
 
 .heroCarousel-button {
@@ -731,17 +721,20 @@ div[data-content-region="home_below_top_products"] div[data-sub-layout-container
 	}
 }
 
-.heroCarousel--left .heroCarousel-action,
-.heroCarousel--right .heroCarousel-action,
-.heroCarousel--center .heroCarousel-action,
-.heroCarousel--split .heroCarousel-action {
-	padding: .75rem 1.5rem;
-	border-radius: .75rem;
-	font-size: 1rem;
-	@include breakpoint("medium") {
-        font-size: 1.25rem;
-	}
+.heroCarousel .heroCarousel-action {
+	padding: 1rem 3rem;
+	border-radius: .5rem;
+	font-size: 2rem;
+	-webkit-box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.75); 
+	box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.75);
 }
+
+.heroCarousel .slick-next,
+.heroCarousel .slick-prev {
+	border: 1px solid #fff;
+	background: rgba(0,0,0,0.5);
+}
+
 
 .home-awards {
 	display: flex;
