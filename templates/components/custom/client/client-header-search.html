@@ -1,3 +1,10 @@
+	<li class="navUser-item navUser-item--custom navUser-item--olprospares">
+		<a class="navUser-action navUser-action--custom" href="/olprospares/" aria-label="OLPRO Spares">
+			<span class="navUser-text">
+				OLPROSpares
+			</span>
+		</a>
+	</li>
 {{#each pages}}
 	{{#or (if name '==' 'Help') (if name '==' 'Discover')}}
 	<li class="navUser-item navUser-item--custom navUser-item--{{dashcase name}}">
@@ -22,10 +29,3 @@
 	</li>
 	{{/or}}
 {{/each}}
-	<li class="navUser-item navUser-item--custom navUser-item--olprospares">
-		<a class="navUser-action navUser-action--custom" href="/olprospares/" aria-label="OLPRO Spares">
-			<span class="navUser-text">
-				OLPROSpares
-			</span>
-		</a>
-	</li>
