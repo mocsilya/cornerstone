@@ -442,6 +442,14 @@ body.scroll .navPages {
 	}
 }
 
+.navPages-list-depth-max .navPages-item-olprospares {
+	@include breakpoint("large") {
+        border-left: 1px solid #000;
+		padding-left: .5rem;
+		margin-left: .5rem;
+	}
+}
+
 .navPages > ul > li > a .navPages-action-moreIcon {
 	@include breakpoint("medium") {
         display: none;
