@@ -176,11 +176,11 @@ body.scroll .header-logo .header-logo-image-container {
 
 .navUser-item--widesearch {
 	@include breakpoint("medium") {
-        width: 120px;
+        width: 100px;
 		order: 4;
 	}
 	@include breakpoint("xlarge") {
-        width: 240px;
+        width: 100px;
 	}
 }
 
@@ -232,12 +232,12 @@ body.scroll .header-logo .header-logo-image-container {
 		padding-top: .5rem;
 		padding-bottom: .5rem;
 	}
-	@include breakpoint("large") {
-		
-	}
 }
 
 .navUser-item--iconsearch .navUser-action .navUser-icon-search {
+	@include breakpoint("medium") {
+        text-align: left;
+	}
 	@include breakpoint("large") {
         margin-top: .25rem;
 	}
@@ -259,6 +259,14 @@ body.scroll .header-logo .header-logo-image-container {
 	@include breakpoint("medium") {
         min-width: 0;
 		font-weight: 400;
+		width: auto;
+		text-transform: uppercase;
+		font-weight: 700;
+		font-size: 12px;
+		line-height: 22px;
+	}
+	@include breakpoint("large") {
+		line-height: 30px;
 	}
 }
 
@@ -444,9 +452,27 @@ body.scroll .navPages {
 
 .navPages-list-depth-max .navPages-item-olprospares {
 	@include breakpoint("large") {
-        border-left: 1px solid #000;
-		padding-left: .5rem;
-		margin-left: .5rem;
+		padding-left: .7rem;
+		margin-left: .8rem;
+		position: relative;
+	}
+}
+
+.navPages-list-depth-max .navPages-item-olprospares::before {
+	@include breakpoint("large") {
+	    content: '';
+	    background-color: #999;
+	    height: 31px;
+	    width: 1px;
+	    position: absolute;
+	    left: 0;
+		top: 7px;
+	}
+}
+
+body.scroll .navPages-list-depth-max .navPages-item-olprospares::before {
+	@include breakpoint("large") {
+		top: 0px;
 	}
 }
 
