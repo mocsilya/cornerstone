@@ -415,6 +415,14 @@ body:not(.currency-gbp) .navPages > ul > li.navPages-item-category {
 	color: #fff;
 }
 
+.form-search-box .form-input.search-active {
+	border: 1px solid #666;
+	color: #000;
+	@include breakpoint("medium") {
+		color: #fff;
+	}
+}
+
 .form-search-box .form-input::placeholder {
 	color: #fff;
 }
@@ -422,6 +430,46 @@ body:not(.currency-gbp) .navPages > ul > li.navPages-item-category {
 .navUser .form-search-box .button, .navUser .form-search-box .button:hover {
 	border: 1px solid #666;
 	border-left: 0;
+}
+
+.form-search-box .card {
+	flex-wrap: wrap;
+	@include breakpoint("small") {
+		flex-wrap: nowrap;
+	}
+}
+
+.form-search-box .card-figure {
+    order: 2;
+    flex: 1 1 0;
+    min-width: 100px;
+    max-width: 100px;
+	@include breakpoint("small") {
+		order: 1;
+	}
+}
+
+.form-search-box .card-title-top {
+    order: 1;
+    flex: 1 0 0;
+    width: 100%;
+	min-width: 100%;
+    padding-left: .5rem;
+    padding-right: .5rem;
+	@include breakpoint("small") {
+		order: 2;
+	    flex: 1 1 0;
+	    width: calc(100% - 230px);
+		min-width: auto;
+	}
+}
+
+.form-search-box .card-body {
+    order: 3;
+    flex: 1 1 0;
+    width: auto;
+    min-width: 130px;
+    max-width: 130px;
 }
 
 
@@ -2066,6 +2114,7 @@ h3.card-title-top {
 .card-brand-logo-Haibike { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/original/image-manager/logo-card-haibike.png?t=1765473251'); }
 .card-brand-logo-Amflow { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/original/image-manager/logo-card-amflow.png?t=1765473250'); }
 .card-brand-logo-Norco { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/original/image-manager/logo-norco.png?t=1773224098'); }
+.card-brand-logo-Velduro { background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/original/image-manager/brand-velduro.png?t=1776437954'); }
 
 
 // -----------------------------------------------------------------------------
@@ -2954,6 +3003,28 @@ body:not(.currency-gbp) article[data-section-type="footer-categories"] li.link-i
 
 .footer-newsletter .newsletter-subtext {
 	display: none;
+}
+
+
+div[data-content-region="footer_categories--global"] {
+	text-align: center;
+	@include breakpoint("small") {
+		text-align: left;
+	}
+}
+
+.shimano-service-center {
+	max-width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	@include breakpoint("small") {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+.shimano-service-center .custom-widget-image img {
+	border-radius: .5rem;
 }
 
 
