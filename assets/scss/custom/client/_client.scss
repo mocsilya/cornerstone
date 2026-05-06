@@ -409,17 +409,14 @@ body.scroll .navPages {
 	}
 }
 
+.navPages-list-depth-max > .navPages-item-page:not(.navPages-item-brands) .navPages-action-depth-max.has-subMenu.is-open,
+.navPages-list-depth-max > .navPages-item-page:not(.navPages-item-brands) .navPage-subMenu-action {
+        text-align: left;
+}
+
 .navPages-item-page,
 .navPages-list-depth-max.subMenu-is-open .navPages-item-page.is-hidden,
 .navPages-list-depth-max.subMenu-is-open .navPages-item-page {
-	@include breakpoint("medium") {
-        display: none;
-	}
-}
-
-.navPages-list-depth-max .navPages-item-olprospares,
-.navPages-list-depth-max.subMenu-is-open .navPages-item-olprospares,
-.navPages-list-depth-max.subMenu-is-open .navPages-item-olprospares.is-hidden {
 	@include breakpoint("medium") {
         display: none;
 	}
@@ -434,7 +431,7 @@ body.scroll .navPages {
 .navPages-list-depth-max .navPages-item-olprospares,
 .navPages-list-depth-max.subMenu-is-open .navPages-item-olprospares,
 .navPages-list-depth-max.subMenu-is-open .navPages-item-olprospares.is-hidden {
-	@include breakpoint("large") {
+	@include breakpoint("medium") {
         display: block;
 	}
 }
@@ -451,7 +448,7 @@ body.scroll .navPages {
 }
 
 .navPages-list-depth-max .navPages-item-olprospares {
-	@include breakpoint("large") {
+	@include breakpoint("medium") {
 		padding-left: .7rem;
 		margin-left: .8rem;
 		position: relative;
@@ -459,7 +456,7 @@ body.scroll .navPages {
 }
 
 .navPages-list-depth-max .navPages-item-olprospares::before {
-	@include breakpoint("large") {
+	@include breakpoint("medium") {
 	    content: '';
 	    background-color: #999;
 	    height: 31px;
@@ -471,7 +468,7 @@ body.scroll .navPages {
 }
 
 body.scroll .navPages-list-depth-max .navPages-item-olprospares::before {
-	@include breakpoint("large") {
+	@include breakpoint("medium") {
 		top: 0px;
 	}
 }
@@ -550,6 +547,35 @@ body.scroll .navPages-list-depth-max .navPages-item-olprospares::before {
         padding: 0 .5rem;
     }
 }
+
+
+
+// info pages
+
+
+.page-page aside.page-sidebar,
+.page-page_contact_form aside.page-sidebar {
+	display: none;
+}
+
+.page-page .page,
+.page-page .page-standard,
+.page-page_contact_form .page,
+.page-page_contact_form .page-standard {
+	@include breakpoint("large") {
+		max-width: 1024px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.page-page .page-content,
+.page-page .page-sidebar + .page-content,
+.page-page_contact_form .page-content,
+.page-page_contact_form .page-sidebar + .page-content {
+	width: 100%;
+}
+
 
 
 // Searchanise
@@ -1794,6 +1820,10 @@ div[data-content-region="blog_top"] > div {
 
 .card .price-now-label + .price.price--withTax {
 	color: #1CBB63;
+}
+
+.productCarousel .productCarousel-slide {
+	border: 0;
 }
 
 .productCarousel .slick-dots {
