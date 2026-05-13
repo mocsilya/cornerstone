@@ -597,7 +597,6 @@
     "masterpass-button-color": "black",
     "paymentbuttons-provider-sorting": [
       "paypal",
-      "paypal-credit",
       "applepay"
     ]
   },

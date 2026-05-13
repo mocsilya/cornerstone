@@ -1,1 +1,50 @@
+<style>
+.checkout-button-container {
+    display: none;
+}
+.checkout-step--payment .form-checklist {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout-step--payment li#radio-stripeocs-checkout_session {
+    order: -1;
+    border-bottom: 1px solid #ccc !important;
+}
+
+.checkout-step--payment li.radio-cod {
+    order: 1;
+    background-image: url('https://cdn11.bigcommerce.com/s-h4smy34w/images/stencil/original/image-manager/imega-v12.jpg?t=1715163869');
+    background-position: right center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.checkout-step--payment li.radio-applepay {
+    order: 2;
+}
+
+.checkout-step--payment li.radio-paypalcommerce {
+    order: 3;
+}
+
+.checkout-step--payment li.radio-bankdeposit {
+    order: 4;
+}
+
+.checkout-step--payment li.radio-klarna-pay_over_time,
+.checkout-step--payment li.radio-klarna-pay_later,
+.checkout-step--payment li.radio-klarna-direct_bank_transfer {
+    order: 5;
+}
+
+.checkout-step--payment li.radio-googlepaystripeocs {
+    order: 6;
+    border-bottom: 0;
+}
+
+.checkout-step--payment .form-checklist-item:last-child {
+    border-bottom: 1px solid #ccc;
+}
+</style>
 

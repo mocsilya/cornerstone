@@ -1339,6 +1339,32 @@ body:not(.currency-gbp) div[data-content-region="home_below_menu"] + .carousel-l
 	}
 }
 
+.page-sidebar .accordion--navList .accordion-title {
+	font-size: 14px;
+}
+
+.page-sidebar .accordion--navList .accordion-heading {
+	display: flex;
+	align-items: center;
+}
+
+.page-sidebar .accordion--navList .compare-label {
+	cursor: pointer;
+	display: block;
+    min-width: 58px;
+	height: 58px;
+    background-image: url(../img/custom/info.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 23px 24px;
+	@include breakpoint("medium") {
+		min-width: 36px;
+	    width: 36px;
+		height: 24px;
+		background-position: center left;
+	}
+}
+
 
 // Compare and Product Page Spec
 // =============================================================================
