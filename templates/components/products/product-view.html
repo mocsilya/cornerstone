@@ -511,9 +511,12 @@
 				{{{region name="product_upsell--global"}}}
 				{{{region name="product_upsell"}}}
 				</div>
-	  			<div class="productView-upsell" data-upsell-id="{{../product.id}}">
+				<div class="productView-upsell-container">
+	  				<div class="productView-upsell" data-upsell-id="{{../product.id}}">
 			
-	  			</div>
+	  				</div>
+					<button type="button" id="bulk-add-upsells" class="button button--primary">{{#if theme_settings.custom_product_addtocart_show}}{{theme_settings.custom_product_addtocart_text}}{{else}}{{lang 'products.add_to_cart'}}{{/if}}</button>
+				</div>
 			{{/filter}}
         </div>
     </section>

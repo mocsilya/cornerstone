@@ -6839,6 +6839,44 @@ div[data-content-region="product_view_bottom--global"] {
 	margin: 0;
 }
 
+
+// NEW UPSELL
+
+
+/* Make the label behave like a block */
+.upsell-item-inner {
+    display: block;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+    padding: 10px;
+}
+
+/* Hover state */
+.upsell-item-inner:hover {
+    background-color: #f9f9f9;
+}
+
+/* When the hidden checkbox is CHECKED, style the label immediately following it */
+.upsell-item-input:checked + .upsell-item-inner {
+    border-color: #444; /* Or your theme's primary color */
+    background-color: #f0f7ff;
+}
+
+/* Change the text of the indicator when selected */
+.upsell-item-input:checked + .upsell-item-inner .upsell-selection-indicator {
+    font-weight: bold;
+}
+.upsell-item-input:checked + .upsell-item-inner .upsell-selection-indicator::before {
+    content: '✓ ';
+}
+
+
+
+
+
+
+
 .variant-data {
 	margin-bottom: 3rem;
 }
