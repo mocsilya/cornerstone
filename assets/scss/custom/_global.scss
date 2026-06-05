@@ -6658,6 +6658,10 @@ div[data-content-region="product_view_bottom--global"] {
 	text-align: left;
 }
 
+.variant-data {
+	margin-bottom: 3rem;
+}
+
 .previewCart .productView {
 	@include breakpoint("medium") {
 		width: calc(100% - 292px);
@@ -6751,36 +6755,57 @@ div[data-content-region="product_view_bottom--global"] {
 
 .upsell-item {
 	display: flex;
-	align-items: center;
-	border-top: 1px solid stencilColor("container-border-global-color-base");
-	border-right: 1px solid stencilColor("container-border-global-color-base");
-	border-left: 1px solid stencilColor("container-border-global-color-base");
+	border-radius: .25rem;
+	margin: .25rem 0;
 }
 
-.upsell-item:last-child {
-	-webkit-box-shadow: 0px 1px 0px 0px stencilColor("container-border-global-color-base"); 
-	box-shadow: 0px 1px 0px 0px stencilColor("container-border-global-color-base");
+.upsell-item-inner {
+    display: block;
+    cursor: pointer;
+    border: 2px solid stencilColor("color-whitesBase");
+    transition: all 0.2s ease;
+    padding: 1rem;
+	border-radius: .5rem;
+	width: 100%;
+	position: relative;
+}
+
+.upsell-item-inner:hover {
+	border-color: stencilColor("color-success");
+}
+
+.upsell-item-input:checked + .upsell-item-inner {
+    border-color: stencilColor("color-success");
+}
+
+.upsell-item-input:checked + .upsell-item-inner .upsell-selection-indicator {
+    font-weight: bold;
+}
+.upsell-item-input:checked + .upsell-item-inner .upsell-selection-indicator::before {
+    content: '✓ ';
 }
 
 .upsell-item-image {
-	padding: .5rem;
-	height: calc(100px + 1rem);
-	display: block;
-	margin: 0;
-}
-
-.upsell-item-image a {
-	display: block;
+	display: inline-block;
+	vertical-align: top;
+	width: 60px;
+	height: 60px;
 }
 
 .upsell-item-image img {
-	width: auto;
-	height: 100px;
+	width: 100%;
+	height: 100%; 
+	object-fit: contain;
+	object-position: left;
 }
 
 .upsell-item-details {
-	padding: .5rem .5rem .5rem 0;
 	text-align: left;
+	display: inline-block;
+	width: calc(100% - 80px);
+	padding-left: 1rem;
+	display: inline-block;
+	vertical-align: top;
 }
 
 .upsell-item-details ul {
@@ -6802,7 +6827,6 @@ div[data-content-region="product_view_bottom--global"] {
 .upsell-item-brand {
 	display: none;
 }
-
 
 .upsell-item-price-data {
 	display: inline-block;
@@ -6832,54 +6856,24 @@ div[data-content-region="product_view_bottom--global"] {
 }
 
 .upsell-item-actions {
-	padding-top: .5rem;
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 
+.upsell-selection-indicator,
 .upsell-item-actions .button {
-	margin: 0;
-}
-
-
-// NEW UPSELL
-
-
-/* Make the label behave like a block */
-.upsell-item-inner {
-    display: block;
-    cursor: pointer;
-    border: 2px solid transparent;
-    transition: all 0.2s ease;
-    padding: 10px;
-}
-
-/* Hover state */
-.upsell-item-inner:hover {
-    background-color: #f9f9f9;
-}
-
-/* When the hidden checkbox is CHECKED, style the label immediately following it */
-.upsell-item-input:checked + .upsell-item-inner {
-    border-color: #444; /* Or your theme's primary color */
-    background-color: #f0f7ff;
-}
-
-/* Change the text of the indicator when selected */
-.upsell-item-input:checked + .upsell-item-inner .upsell-selection-indicator {
-    font-weight: bold;
-}
-.upsell-item-input:checked + .upsell-item-inner .upsell-selection-indicator::before {
-    content: '✓ ';
+	padding: .175rem .5rem;
+	border-radius: .25rem;
+	margin: .25rem;
+	color: stencilColor("button--primary-color");
+	background-color: stencilColor("button--primary-backgroundColor");
+	display: inline-block;
 }
 
 
 
 
-
-
-
-.variant-data {
-	margin-bottom: 3rem;
-}
 
 
 
