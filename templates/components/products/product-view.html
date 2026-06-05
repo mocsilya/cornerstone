@@ -305,6 +305,20 @@
                 {{/if}}
 				</dl>
             </div>
+			{{#if theme_settings.custom_product_upsell_location '===' 'top'}}
+			{{#filter product.custom_fields '_upsell' property='name' }}
+				<div class="productView-upsell-regions">
+				{{{region name="product_upsell--global"}}}
+				{{{region name="product_upsell"}}}
+				</div>
+				<div class="productView-upsell-container">
+	  				<div class="productView-upsell" data-upsell-id="{{../product.id}}">
+			
+	  				</div>
+					<button type="button" id="bulk-add-upsells" class="button button--primary">Add Selected</button>
+				</div>
+			{{/filter}}
+			{{/if}}
             {{product.detail_messages}}
             <dl class="productView-info">
                 <dt class="productView-info-name sku-label"{{#unless product.sku}} style="display: none;"{{/unless}}>{{lang 'products.sku'}}</dt>
@@ -446,7 +460,21 @@
     </section>
 
     <section class="productView-details{{#if product.brand}} productView-details-{{first (split product.brand.name ' ')}}{{/if}} productView-details-{{theme_settings.custom_product_gallery_size}} product-options">
-        <div class="productView-options">
+		{{#if theme_settings.custom_product_upsell_location '===' 'middle'}}
+		{{#filter product.custom_fields '_upsell' property='name' }}
+			<div class="productView-upsell-regions">
+			{{{region name="product_upsell--global"}}}
+			{{{region name="product_upsell"}}}
+			</div>
+			<div class="productView-upsell-container">
+  				<div class="productView-upsell" data-upsell-id="{{../product.id}}">
+		
+  				</div>
+				<button type="button" id="bulk-add-upsells" class="button button--primary">Add Selected</button>
+			</div>
+		{{/filter}}
+		{{/if}}
+		<div class="productView-options">
             {{#if product.release_date }}
 				<div class="alertBox productAttributes-message" style="">
 					<div class="alertBox-column alertBox-icon">
@@ -506,15 +534,20 @@
 			{{{region name="product_bottom--global"}}}
 			</div>
 			{{{region name="product_bottom"}}}
+			{{#if theme_settings.custom_product_upsell_location '===' 'bottom'}}
 			{{#filter product.custom_fields '_upsell' property='name' }}
 				<div class="productView-upsell-regions">
 				{{{region name="product_upsell--global"}}}
 				{{{region name="product_upsell"}}}
 				</div>
-	  			<div class="productView-upsell" data-upsell-id="{{../product.id}}">
+				<div class="productView-upsell-container">
+	  				<div class="productView-upsell" data-upsell-id="{{../product.id}}">
 			
-	  			</div>
+	  				</div>
+					<button type="button" id="bulk-add-upsells" class="button button--primary">Add Selected</button>
+				</div>
 			{{/filter}}
+			{{/if}}
         </div>
     </section>
 	{{#if theme_settings.custom_product_description_location '===' 'sticky'}}
