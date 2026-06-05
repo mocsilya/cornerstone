@@ -89,6 +89,16 @@ body.scroll .header-fixed {
 	border-right: 1px solid #fff;
 }
 
+.navUser-item--cart .previewCart-additionalCheckoutButtons {
+	padding-left: 0.78571rem;
+	padding-right: 0.78571rem;
+}
+
+.previewCart-additionalCheckoutButtons .BraintreePaypalCheckout,
+.previewCart-additionalCheckoutButtons .BraintreePaypalCreditCheckout {
+	display: none !important;
+}
+
 
 
 // navUser
@@ -1884,20 +1894,20 @@ div[data-content-region="blog_top"] > div {
 }
 
 // hide "before"" text and price
-.page-product .price-section.non-sale-price--withTax {
+.price-section.non-sale-price--withTax {
 	display: none !important;
 }
 
 // hide "after" text
-.page-product .price-section.price-section--withTax.price--withTax .price-now-label {
+.price-section.price-section--withTax.price--withTax .price-now-label {
 	display: none !important;
 }
 
-.page-product .price-section.price-section--saving.price {
+.price-section.price-section--saving.price {
 	color: #cc0000;
 }
 
-.page-product .price-section.price-section--withTax.price--withTax .price.price--withTax {
+.price-section.price-section--withTax.price--withTax .price.price--withTax {
 	color: #1DBA63;
 }
 
@@ -2058,43 +2068,8 @@ div[data-content-region="blog_top"] > div {
 	color: #1DBA63;
 }
 
-.productView-options .productView-upsell {
-	display: none;
-}
 
-.productView-upsell-container,
-.productView-seeitinaction-container {
-	margin-top: 3rem;
-	margin-bottom: 3rem;
-	padding-left: 1.5rem;
-	padding-right: 1.5rem;
-	max-width: calc(1440px + 12rem);
-	@include breakpoint("medium") {
-		padding-left: 3rem;
-		padding-right: 3rem;
-	}
-	@include breakpoint("large") {
-		padding-left: 6rem;
-		padding-right: 6rem;
-		margin-left: auto;
-		margin-right: auto;
-	}
-}
-
-.productView-upsell-header h3,
-.productView-seeitinaction-header h3 {
-	border-bottom: 1px solid #ff7000;
-	padding-bottom: .75rem;
-	margin-bottom: 1.5rem;
-	font-size: 1rem;
-	@include breakpoint("medium") {
-        font-size: 1.125rem;
-	}
-	@include breakpoint("large") {
-        font-size: 1.25rem;
-	}
-} 
-
+/*
 .productView-upsell-container .productView-upsell {
 	padding: 1.5rem;
 	background-color: #f4f4f4;
@@ -2137,6 +2112,65 @@ div[data-content-region="blog_top"] > div {
 	font-weight: 400;
 	color: #cc0000;
 }
+*/
+
+.upsell-item-actions {
+	display: inline-block !important;
+	top: auto;
+	bottom: 0;
+}
+
+.upsell-selection-indicator,
+.upsell-selection-indicator:hover,
+.upsell-item-actions .button,
+.upsell-item-actions .button:hover {
+	color: #fff;
+	background-color: #000;
+	border: 1px solid #000;
+}
+
+#bulk-add-upsells {
+	color: #fff;
+	background-color: #000;
+	border: 1px solid #000;
+}
+
+#bulk-add-upsells:hover {
+	color: #fff;
+	background-color: stencilColor("button--primary-backgroundColorHover");
+	border: 1px solid stencilColor("button--primary-backgroundColorHover");
+}
+
+.productView-seeitinaction-container {
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	max-width: calc(1440px + 12rem);
+	@include breakpoint("medium") {
+		padding-left: 3rem;
+		padding-right: 3rem;
+	}
+	@include breakpoint("large") {
+		padding-left: 6rem;
+		padding-right: 6rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.productView-seeitinaction-header h3 {
+	border-bottom: 1px solid #ff7000;
+	padding-bottom: .75rem;
+	margin-bottom: 1.5rem;
+	font-size: 1rem;
+	@include breakpoint("medium") {
+        font-size: 1.125rem;
+	}
+	@include breakpoint("large") {
+        font-size: 1.25rem;
+	}
+} 
 
 .productView-seeitinaction {
 	overflow-x: auto;
@@ -2158,6 +2192,9 @@ div[data-content-region="blog_top"] > div {
 	width: auto;
 	max-width: none;
 }
+
+
+
 
 .videoGallery-section .videoGallery-item {
 	border-bottom: 1px solid #eee;
@@ -2409,10 +2446,30 @@ div[data-content-region="blog_top"] > div {
 }
 
 
+// add to cart popup
+.previewCartCheckout-additionalCheckoutButtons .BraintreePaypalCheckout,
+.previewCartCheckout-additionalCheckoutButtons .BraintreePaypalCreditCheckout {
+	display: none !important;
+}
+
+
 // cart
 
 div[data-content-region="cart_below_totals"] {
     display: none;
+}
+
+.cart-additionalCheckoutButtons {
+	margin-top: 0 !important;
+}
+
+.cart-additionalCheckoutButtons .BraintreePaypalCheckout,
+.cart-additionalCheckoutButtons .BraintreePaypalCreditCheckout {
+	display: none !important;
+}
+
+.cart-additionalCheckoutButtons .CheckoutButton {
+	margin: 0 !important;
 }
 
 
