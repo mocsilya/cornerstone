@@ -67,10 +67,9 @@ export default function (context) {
         const $modal = $('#previewModal');
         const $target = $modal.find('.modal-body .productView');
 
-        if ($modal.hasClass('open') && $target.length && !$('.productView-upsell-container-modal').length) {
+        if ($modal.hasClass('open') && $target.length && $target.hasClass('productView-upsell-modal') && !$('.productView-upsell-container-modal').length) {
             const currentId = $('[name="product_id"]').val() || $('.productView').data('event-id');
             if (currentId) {
-				$target.addClass('productView-upsell-modal');
                 $target.append(`
                     <div class="productView-upsell-container productView-upsell-container-modal">
                         <div class="productView-upsell" data-upsell-id="${currentId}"></div>
