@@ -6714,13 +6714,14 @@ div[data-content-region="product_view_bottom--global"] {
 	text-align: center;
 }
 
-.previewCartCheckout-additionalCheckoutButtons > div,
-.previewCartCheckout-additionalCheckoutButtons .CheckoutButton,
-.previewCartCheckout-additionalCheckoutButtons .CheckoutButton:first-child {
-	margin-top: 10px;
-	max-width: 250px;
-	margin-left: auto;
-	margin-right: auto;
+.previewCartCheckout-additionalCheckoutButtons > div {
+	margin-top: 0 !important;
+	margin-bottom: 10px !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	width: 100% !important;
+	max-width: 250px !important;
+	overflow: hidden !important;
 }
 
 .productView-download {
@@ -6748,9 +6749,20 @@ div[data-content-region="product_view_bottom--global"] {
     fill: stencilColor("button--primary-colorHover");
 }
 
-.productView-bottom-global,
+.productView-bottom-global {
+	clear: both;
+}
+
+
+
+// UPSELL
+
 .productView-upsell {
 	clear: both;
+}
+
+.productView-upsell-container {
+	border-top: 1px solid stencilColor("container-border-global-color-base");
 }
 
 .upsell-item {
@@ -6816,9 +6828,21 @@ div[data-content-region="product_view_bottom--global"] {
 
 .upsell-item-price-data {
 	display: block;
-	color: stencilColor("color-grey");
 	font-weight: 700;
 	white-space: nowrap;
+}
+
+.upsell-item-with-tax,
+.upsell-item-without-tax {
+	color: stencilColor("color-textBase");
+	font-weight: 700;
+}
+
+.upsell-item-nonsale-with-tax,
+.upsell-item-nonsale-without-tax {
+	color: stencilColor("color-grey");
+	font-weight: 400;
+	text-decoration: line-through;
 }
 
 .upsell-item-price-data abbr {
@@ -6838,11 +6862,13 @@ div[data-content-region="product_view_bottom--global"] {
 }
 
 .upsell-item-price-saved strong {
-	color: stencilColor("color-warning");
+	color: stencilColor("color_badge_product_sale_badges");
 }
 
 .upsell-item-actions {
 	flex: 0 1 0;
+	min-width: 92px;
+	text-align: right;
 }
 
 .upsell-item-actions .button {
@@ -6867,15 +6893,18 @@ div[data-content-region="product_view_bottom--global"] {
 
 // UPSELL ADD TO CART MODAL
 
-.productView-upsell-container-modal {
-	border-top: 1px solid stencilColor("container-border-global-color-base");
-	margin-top: 1rem;
-}
-
-.productView-upsell-modal {
+.previewCart .productView-upsell-modal {
 	flex-wrap: wrap;
 	align-items: center;
 	flex-direction: row;
+	@include breakpoint("medium") {
+		padding-left: 0;
+		padding-right: 1.5rem;
+	}
+}
+
+.productView-upsell-container-modal {
+	margin-top: 1rem;
 }
 
 .productView-upsell-modal .productView-image,
@@ -6931,6 +6960,8 @@ div[data-content-region="product_view_bottom--global"] {
 	display: flex;
 	order: 3;
 	padding: 0 1rem 0 0;
+	margin: 0;
+	flex-direction: column;
 }
 
 .productView-upsell-modal .productView-details .productView-info-name,
@@ -6938,6 +6969,15 @@ div[data-content-region="product_view_bottom--global"] {
 	width: auto;
 	flex: 0 1 0;
 	white-space: nowrap;
+	font-family: stencilFontFamily("body-font");
+}
+
+.productView-upsell-modal .productView-details .productView-info-name {
+	padding-right: .5rem;
+}
+
+.productView-upsell-modal .productView-details .productView-info-value {
+	font-weight: 700;
 }
 
 .productView-upsell-modal .productView-details .productView-price {
@@ -6947,6 +6987,7 @@ div[data-content-region="product_view_bottom--global"] {
 	font-size: 1.125rem;
 	padding: 0 1rem 0 0;
 	font-size: 1rem;
+	margin: 0;
 }
 
 .productView-upsell-modal .productView-details .productView-actions {
@@ -6962,9 +7003,6 @@ div[data-content-region="product_view_bottom--global"] {
 	background-color: stencilColor("button--primary-backgroundColorHover");
 	border-color: stencilColor("button--primary-backgroundColorHover");
 }
-
-
-
 
 .productView-upsell-container-modal {
 	min-width: 100%;
@@ -8158,10 +8196,13 @@ div[data-content-region="cart_below_totals"] #banner-region- {
 
 .cart-content-actions .cart-actions,
 .cart-content-actions .cart-additionalCheckoutButtons {
-	@include breakpoint("medium") {
-		width: 250px;
-		padding-right: 0;
-	}
+	text-align: center !important;
+	width: 250px;
+	padding-right: 0;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
 }
 
 .cart-additionalCheckoutButtons .FloatRight,
@@ -8170,7 +8211,7 @@ div[data-content-region="cart_below_totals"] #banner-region- {
 }
 
 .cart-additionalCheckoutButtons > div {
-	margin: 10px 0 0 0;
+	margin: 10px auto 0 auto !important;
 	text-align: center;
 }
 
@@ -8968,15 +9009,7 @@ div[data-content-region="cart_below_table"] {
 // Payment Buttons
 // =============================================================================
 
-/* PAYPAL */
-
-.navUser-item--cart #paypalexpress-button-container .paypal-smart-buttons,
-.previewCartCheckout-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons,
-.cart-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons {
-	max-height: 40px !important;
-	overflow: hidden !important;
-	margin: 0 !important;
-}
+/* PAYPAL EXPRESS */
 
 .navUser-item--cart #paypalexpress-button-container .paypal-smart-buttons > div > .zoid-outlet,
 .previewCartCheckout-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons > div > .zoid-outlet,
@@ -8986,14 +9019,6 @@ div[data-content-region="cart_below_table"] {
 
 .cart-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons > div > .zoid-outlet > iframe.zoid-component-frame {
 	z-index: 99 !important;
-}
-
-.navUser-item--cart #paypalexpress-button-container .paypal-smart-buttons > div.paypal-button,
-.previewCartCheckout-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons > div.paypal-button,
-.cart-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons > div.paypal-button {
-	width: 100% !important;
-	min-width: 250px !important;
-	max-width: 250px !important;
 }
 
 .navUser-item--cart .PayPalExpressCheckout,
@@ -9013,69 +9038,8 @@ div[data-content-region="cart_below_table"] {
 	background-color: #fab000;
 }
 
-.navUser-item--cart #paypalexpress-button-container,
-.navUser-item--cart #paypalexpress-button-container:hover,
-.previewCartCheckout-additionalCheckoutButtons #paypalexpress-button-container,
-.previewCartCheckout-additionalCheckoutButtons #paypalexpress-button-container:hover,
-.cart-additionalCheckoutButtons #paypalexpress-button-container,
-.cart-additionalCheckoutButtons #paypalexpress-button-container:hover {
-	background-image: none;
-	padding-top: 2px;
-	max-height: 40px;
-	overflow: hidden;
-}
+/* END PAYPAL EXPRESS */
 
-.navUser-item--cart .PayPalExpressCheckout > div,
-.navUser-item--cart .PayPalExpressCheckout form,
-.previewCartCheckout-additionalCheckoutButtons .PayPalExpressCheckout > div,
-.previewCartCheckout-additionalCheckoutButtons .PayPalExpressCheckout form,
-.cart-additionalCheckoutButtons .PayPalExpressCheckout > div,
-.cart-additionalCheckoutButtons .PayPalExpressCheckout form {
-	width: 100%;
-	height: 40px;
-	max-height: 40px;
-	overflow: hidden;
-}
-
-.navUser-item--cart .PayPalExpressCheckout input,
-.previewCartCheckout-additionalCheckoutButtons .PayPalExpressCheckout input,
-.cart-additionalCheckoutButtons .PayPalExpressCheckout input {
-	opacity: 0;
-	width: 250px;
-	height: 40px;
-	max-height: 40px;
-	margin: 0;
-	padding: 0;
-}
-
-/* END PAYPAL */
-
-
-/* GOOGLE */
-
-.navUser-item--cart .previewCart-additionalCheckoutButtons .GooglePayCheckout button,
-.previewCartCheckout-additionalCheckoutButtons .GooglePayCheckout button,
-.cart-additionalCheckoutButtons .GooglePayCheckout button {
-	margin: 0 !important;
-	width: 100% !important;
-	max-width: 250px;
-	min-width: 250px;
-}
-
-
-.navUser-item--cart .previewCart-additionalCheckoutButtons #googlepaystripe-container2,
-.previewCartCheckout-additionalCheckoutButtons #googlepaystripe-container2,
-.cart-additionalCheckoutButtons #googlepaystripe-container2 {
-	margin: 0 !important;
-}
-
-.navUser-item--cart .previewCart-additionalCheckoutButtons .GooglePayContainer > div,
-.previewCartCheckout-additionalCheckoutButtons .GooglePayContainer > div,
-.cart-additionalCheckoutButtons .GooglePayContainer > div {
-	width: 100% !important;
-}
-
-/* END GOOGLE */
 
 
 

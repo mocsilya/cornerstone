@@ -7,7 +7,7 @@
 
         <div class="upsell-item-details">
             <ul>
-                <li class="upsell-item-title">{{product.title}}</li>
+                <li class="upsell-item-title"><a href="{{product.url}}" title="{{product.title}}">{{product.title}}</a></li>
                 <li class="upsell-item-brand">{{product.brand.name}}</li>
             </ul>
         </div>
@@ -67,7 +67,11 @@
 				{{#if product.price.with_tax}}
 				{{#gt product.price.non_sale_price_with_tax.value product.price.with_tax.value}}
 					<span class="upsell-item-price-data upsell-item-price-fixed upsell-item-nonsale-with-tax">
-						{{product.price.rrp_with_tax.formatted}}{{product.price.non_sale_price_with_tax.formatted}}
+						{{#if product.price.rrp.with_tax}}
+							{{product.price.rrp_with_tax.formatted}}
+						{{else}}
+							{{product.price.non_sale_price_with_tax.formatted}}
+						{{/if}}
 				        {{#if product.price.without_tax}}
 				            <abbr title="{{lang 'products.including_tax'}}">Inc. {{product.price.tax_label}}</abbr>
 				        {{/if}}
@@ -83,7 +87,11 @@
 				{{#if product.price.without_tax}}
 				{{#gt product.price.non_sale_price_without_tax.value product.price.without_tax.value}}
 					<span class="upsell-item-price-data upsell-item-price-fixed upsell-item-nonsale-without-tax">
-						{{product.price.rrp_without_tax.formatted}}{{product.price.non_sale_price_without_tax.formatted}}
+						{{#if product.price.rrp.without_tax}}
+							{{product.price.rrp_without_tax.formatted}}
+						{{else}}
+							{{product.price.non_sale_price_without_tax.formatted}}
+						{{/if}}
 				        {{#if product.price.with_tax}}
 				            <abbr title="{{lang 'products.excluding_tax'}}">Ex. {{product.price.tax_label}}</abbr>
 				        {{/if}}
