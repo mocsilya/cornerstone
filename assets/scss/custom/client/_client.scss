@@ -94,25 +94,16 @@ body.scroll .header-fixed {
 	padding-right: 0.78571rem;
 }
 
-.navUser-item--cart .previewCart-additionalCheckoutButtons .GooglePayCheckout button,
-.navUser-item--cart .previewCart-additionalCheckoutButtons .ApplePayCheckout button {
-	max-width: 250px;
-	min-width: 250px;
+.navUser-item--cart .previewCart-additionalCheckoutButtons .GooglePayCheckout,
+.navUser-item--cart .previewCart-additionalCheckoutButtons .ApplePayCheckout {
+	max-width: 250px !important;
+	min-width: 250px !important;
 }
 
 .previewCart-additionalCheckoutButtons .BraintreePaypalCheckout,
 .previewCart-additionalCheckoutButtons .BraintreePaypalCreditCheckout {
 	display: none !important;
 }
-
-.previewCartCheckout-additionalCheckoutButtons .ApplePayCheckout button,
-.cart-additionalCheckoutButtons .ApplePayCheckout button {
-    margin: 0 !important;
-    width: 100% !important;
-    max-width: 250px;
-    min-width: 250px;
-}
-
 
 
 // navUser
