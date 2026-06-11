@@ -17,11 +17,66 @@
 </style>
 {{/contains}}
 <style>
+    
     .checkoutHeader-heading img {
-        height: 150px;
-        width: 150px;
+        height: 100px;
+        width: 100px;
     }
     .checkout-step--payment li.creditCardTypes-list-item[data-test="american-express-icon"] {
         display: none !important;
     }
+    
+    .checkout-steps {
+        padding-right: 0 !important;
+    }
+    
+    .checkout-step {
+        padding: 0;
+    }
+
+    .checkout-button-container > p {
+        display: none;
+    }
+    
+    .checkout-step--customer .stepHeader:not(.is-clickable) {
+        display: none;
+    }
+    
+    @media (max-width: 800px) {
+        #progress-checkout {
+            display: none;
+        }
+        
+        .checkoutHeader-content {
+            padding: 1.5rem;
+        }
+        
+        .stepHeader {
+            padding: 1rem 0;
+        }
+        
+        .checkoutHeader-heading img {
+            height: 80px;
+            width: 80px;
+        }
+        
+        h2.stepHeader-title {
+            margin-bottom: 0;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+    }
+    
+    @media (max-width: 1260px) {
+        .checkout-buttons-auto-layout .checkoutRemote > div,
+        .checkout-buttons-auto-layout .checkoutRemote > div:first-child:nth-last-child(4),
+        .checkout-buttons-auto-layout div:first-child:nth-last-child(4)~div {
+            grid-column: span 6 !important;
+        }
+        .checkout-buttons-auto-layout {
+            min-height: 88px;
+        }
+    }
+    
 </style>
+

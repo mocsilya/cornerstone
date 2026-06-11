@@ -94,9 +94,23 @@ body.scroll .header-fixed {
 	padding-right: 0.78571rem;
 }
 
+.navUser-item--cart .previewCart-additionalCheckoutButtons .GooglePayCheckout button,
+.navUser-item--cart .previewCart-additionalCheckoutButtons .ApplePayCheckout button {
+	max-width: 250px;
+	min-width: 250px;
+}
+
 .previewCart-additionalCheckoutButtons .BraintreePaypalCheckout,
 .previewCart-additionalCheckoutButtons .BraintreePaypalCreditCheckout {
 	display: none !important;
+}
+
+.previewCartCheckout-additionalCheckoutButtons .ApplePayCheckout button,
+.cart-additionalCheckoutButtons .ApplePayCheckout button {
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 250px;
+    min-width: 250px;
 }
 
 
@@ -371,9 +385,16 @@ body.scroll .header-logo .header-logo-image-container {
 	font-weight: 700;
 }
 
+.navUser-item--cart .navUser-action {
+	display: flex;
+	align-items: center;
+}
+
 .navUser .countPill {
 	background-color: #1dba63;
 }
+
+
 
 // B2B 
 
@@ -2044,6 +2065,10 @@ div[data-content-region="blog_top"] > div {
 .productView-options .add-to-cart-buttons {
 	padding-right: 0;
 	margin-bottom: 0;
+}
+
+.productView-options .add-to-cart-wallet-buttons {
+	display: none !important;
 }
 
 .productView-options .form-field--stock {
