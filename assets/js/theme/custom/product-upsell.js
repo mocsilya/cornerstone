@@ -1,158 +1,126 @@
-/**
- * PRODUCT UPSELL
-*/
-
 import utils from '@bigcommerce/stencil-utils';
-import { defaultModal, ModalEvents } from '../global/modal';
 
 export default function (context) {
-    const $container = $('.productView-upsell');
-    const productId = $container.length ? $container.data('upsell-id') : 0;
+    
+    // 1. SYNC UI WITH CART ITEMS
+    async function updateUpsellStatus() {
+        try {
+            const res = await fetch('/api/storefront/cart', { credentials: 'include' });
+            if (!res.ok) return;
+            const data = await res.json();
+            const cart = Array.isArray(data) ? data[0] : data;
+            if (!cart || !cart.lineItems) return;
 
-    // 1. LOAD THE PRODUCTS
-    if (productId !== 0) {
+            // Map all product IDs in cart (physical + digital)
+            const cartProductIds = [
+                ...cart.lineItems.physicalItems.map(item => item.productId),
+                ...cart.lineItems.digitalItems.map(item => item.productId)
+            ];
+
+            $('.upsell-add-button').each(function() {
+                const $btn = $(this);
+                const productId = $btn.data('product-id');
+                const $item = $btn.closest('.upsell-item');
+
+                if (cartProductIds.includes(productId)) {
+                    $btn.addClass('is-added').find('.button-text').text('Added!');
+                    $item.addClass('upsell-item--added');
+                } else {
+                    $btn.removeClass('is-added').find('.button-text').text('Add');
+                    $item.removeClass('upsell-item--added');
+                }
+            });
+        } catch (err) {
+            console.error('Cart sync failed:', err);
+        }
+    }
+
+    // 2. REUSABLE LOAD FUNCTION
+    function loadUpsellItems(productId, $container) {
+        if (!productId) return;
         utils.api.product.getById(productId, { template: 'custom/product-upsell-data' }, (err, response) => {
             if (err) return;
-            const array = response.replace(/ +/g, '').split(',').filter(id => id.length > 0);
-
-            $.each(array, function(i, Id) {
-                utils.api.product.getById(Id, { template: 'custom/product-upsell' }, (err, response) => {
-                    if (response && response.indexOf("Whoops!") === -1) {
-                        $container.append(response);
+            const ids = response.replace(/ +/g, '').split(',').filter(id => id.length > 0);
+            
+            let loadedCount = 0;
+            $.each(ids, (i, id) => {
+                utils.api.product.getById(id, { template: 'custom/product-upsell' }, (err, itemHtml) => {
+                    if (itemHtml && itemHtml.indexOf("Whoops!") === -1) {
+                        $container.append(itemHtml);
+                    }
+                    loadedCount++;
+                    if (loadedCount === ids.length) {
+                        updateUpsellStatus(); // Check cart once all items are rendered
                     }
                 });
             });
         });
     }
 
-    // 2. BULK ADD HANDLER
-	$('#bulk-add-upsells').on('click', async (event) => {
-	    const $selected = $('input[name="upsell_check"]:checked');
-	    const $btn = $(event.currentTarget);
+    // 3. PAGE LOAD (Product Page)
+    $('.productView-upsell').each(function() {
+        loadUpsellItems($(this).data('upsell-id'), $(this));
+    });
 
-	    if (!$selected.length) {
-	        alert('Please select at least one item.');
-	        return;
-	    }
+    // 4. MODAL TRIGGER
+    const observer = new MutationObserver(() => {
+        const $modal = $('#previewModal');
+        const $target = $modal.find('.modal-body .productView');
 
-	    $btn.attr('disabled', true).text('Adding...');
+        if ($modal.hasClass('open') && $target.length && !$('.productView-upsell-container-modal').length) {
+            const currentId = $('[name="product_id"]').val() || $('.productView').data('event-id');
+            if (currentId) {
+				$target.addClass('productView-upsell-modal');
+                $target.append(`
+                    <div class="productView-upsell-container productView-upsell-container-modal">
+                        <div class="productView-upsell" data-upsell-id="${currentId}"></div>
+                    </div>
+                `);
+                loadUpsellItems(currentId, $target.find('.productView-upsell'));
+            }
+        }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
 
-	    const lineItems = $selected.map((i, el) => ({
-	        quantity: 1,
-	        product_id: parseInt($(el).val(), 10)
-	    })).get();
+    // 5. GLOBAL CLICK HANDLER
+    $(document).on('click', '.upsell-add-button', async (e) => {
+        const $btn = $(e.currentTarget);
+        const pId = $btn.data('product-id');
+        if ($btn.hasClass('is-adding') || $btn.hasClass('is-added')) return;
 
-	    try {
-	        // 1. Your exact cart fetch logic
-	        const cartRes = await fetch('/api/storefront/cart', { credentials: 'include' });
-	        let cartData = null;
-	        if (cartRes.ok) {
-	            cartData = await cartRes.json();
-	        }
+        $btn.addClass('is-adding').find('.button-text').text('Adding...');
 
-	        // 2. Your exact cartId determination
-	        const cartId = (Array.isArray(cartData) && cartData.length > 0) 
-	            ? cartData[0].id 
-	            : (cartData ? cartData.id : null);
-
-	        let addRes;
-	        if (cartId) {
-	            addRes = await fetch(`/api/storefront/carts/${cartId}/items`, {
-	                method: 'POST',
-	                headers: { 'Content-Type': 'application/json' },
-	                body: JSON.stringify({ line_items: lineItems })
-	            });
-	        } else {
-	            addRes = await fetch('/api/storefront/carts', {
-	                method: 'POST',
-	                headers: { 'Content-Type': 'application/json' },
-	                body: JSON.stringify({ line_items: lineItems })
-	            });
-	        }
-
-	        // 3. New logic: Only proceed if the ADD was successful
-			if (addRes.ok) {
-			    // 1. Update the header mini-cart counter
-			    utils.api.cart.getCart({}, (err, response) => {
-			        utils.hooks.emit('cart-item-add-remote', response);
-			    });
-
-			    // 2. Open the Modal with a custom message
-			    
-
-			    // 3. Clear the checkboxes
-			    $selected.prop('checked', false);
-			}
-			
-			if (addRes.ok) {
-			    // 1. Update the header/mini-cart counter using Storefront API
-			    fetch('/api/storefront/cart', { credentials: 'include' })
-			        .then(res => res.json())
-			        .then(data => {
-			            // Handle both array and object responses
-			            const cart = Array.isArray(data) ? data[0] : data;
-			            if (!cart || !cart.lineItems) return;
-
-			            // Sum up quantities from all item types
-			            const physicalQty = cart.lineItems.physicalItems.reduce((acc, item) => acc + item.quantity, 0);
-			            const digitalQty = cart.lineItems.digitalItems.reduce((acc, item) => acc + item.quantity, 0);
-			            const totalQty = physicalQty + digitalQty;
-
-			            // Update DOM: Targeting standard Stencil pill classes
-			            const $pill = $('.countPill, .cart-quantity');
-			            $pill.text(totalQty);
-
-			            if (totalQty > 0) {
-			                $pill.addClass('countPill--positive').show();
-			            }
+        try {
+            const cartRes = await fetch('/api/storefront/cart', { credentials: 'include' });
+            let cartData = await cartRes.json();
+            const cart = Array.isArray(cartData) ? cartData[0] : cartData;
+            const cartId = cart ? cart.id : null;
             
-			            // Still emit the hook so other components (like mini-cart) can refresh if they want
-			            utils.hooks.emit('cart-item-add-remote', {});
-			        })
-			        .catch(err => console.error('Pill update failed:', err));
+            const endpoint = cartId ? `/api/storefront/carts/${cartId}/items` : '/api/storefront/carts';
 
-			    // 2. Open the Modal with a custom message
-			    if (typeof defaultModal === 'function') {
-			        const modal = defaultModal();
+            const addRes = await fetch(endpoint, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ line_items: [{ quantity: 1, product_id: parseInt(pId, 10) }] })
+            });
 
-			        const successHtml = `
-			            <div class="modal-header">
-			                <h2 class="modal-header-title">Success!</h2>
-			            </div>
-			            <div class="modal-body" style="text-align: center; padding: 20px;">
-			                <p>Items have been successfully added to your cart.</p>
-			                <div class="modal-actions" style="margin-top: 20px;">
-			                    <a href="/cart.php" class="button button--primary">View Cart</a>
-			                    <button type="button" id="close-upsell-modal" class="button">Continue Shopping</button>
-			                </div>
-			            </div>
-			        `;
-
-			        modal.open();
-			        $('#modal').html(successHtml);
-
-			        $('#close-upsell-modal').on('click', () => {
-			            modal.close();
-			        });
-			    }
-
-			    // 3. Clear the checkboxes for a clean UI
-			    $selected.prop('checked', false);
-			} else {
-	            const errorData = await addRes.json();
-	            console.error('API rejected items:', errorData);
-	            alert('Some items could not be added. They may be out of stock.');
-	        }
-
-	    } catch (err) {
-	        console.error('Add to cart failed', err);
-	        alert('There was an issue updating your cart.');
-	    } finally {
-	        $btn.attr('disabled', false).text('Add Selected to Cart');
-	    }
-	});
-	
-    
+            if (addRes.ok) {
+                // Success: Sync UI and Header
+                await updateUpsellStatus();
+                
+                // Refresh Pill
+                const updatedCartRes = await fetch('/api/storefront/cart', { credentials: 'include' });
+                const updatedData = await updatedCartRes.json();
+                const updatedCart = Array.isArray(updatedData) ? updatedData[0] : updatedData;
+                
+                if (updatedCart && updatedCart.lineItems) {
+                    const qty = (updatedCart.lineItems.physicalItems || []).reduce((acc, i) => acc + i.quantity, 0);
+                    $('.countPill, .cart-quantity').text(qty).addClass('countPill--positive').show();
+                    utils.hooks.emit('cart-item-add-remote', {});
+                }
+            }
+        } catch (err) {
+            $btn.removeClass('is-adding').find('.button-text').text('Error');
+        }
+    });
 }
-
-

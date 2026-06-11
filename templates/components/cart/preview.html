@@ -84,7 +84,21 @@
                             {{> components/common/login-for-pricing}}
                         {{/or}}
                     </div>
-
+					
+					{{assignVar "upsell" "no"}}
+					{{#each custom_fields}}
+					    {{#if name '===' '_upsell'}}
+					        {{#if (getVar "upsell") '===' 'no'}}
+								<div class="productView-actions">
+									<button type="button" class="button button--small">
+										<span class="button-text">Added!</span>
+									</button>
+								</div>
+					            {{assignVar "upsell" "yes"}}
+					        {{/if}}
+					    {{/if}}
+					{{/each}}					
+					
                     {{#each options}}
                         <dl class="productView-info">
                             <dt class="productView-info-name">

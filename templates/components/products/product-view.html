@@ -305,20 +305,6 @@
                 {{/if}}
 				</dl>
             </div>
-			{{#if theme_settings.custom_product_upsell_location '===' 'top'}}
-			{{#filter product.custom_fields '_upsell' property='name' }}
-				<div class="productView-upsell-regions">
-				{{{region name="product_upsell--global"}}}
-				{{{region name="product_upsell"}}}
-				</div>
-				<div class="productView-upsell-container">
-	  				<div class="productView-upsell" data-upsell-id="{{../product.id}}">
-			
-	  				</div>
-					<button type="button" id="bulk-add-upsells" class="button button--primary">Add Selected</button>
-				</div>
-			{{/filter}}
-			{{/if}}
             {{product.detail_messages}}
             <dl class="productView-info">
                 <dt class="productView-info-name sku-label"{{#unless product.sku}} style="display: none;"{{/unless}}>{{lang 'products.sku'}}</dt>
@@ -460,20 +446,6 @@
     </section>
 
     <section class="productView-details{{#if product.brand}} productView-details-{{first (split product.brand.name ' ')}}{{/if}} productView-details-{{theme_settings.custom_product_gallery_size}} product-options">
-		{{#if theme_settings.custom_product_upsell_location '===' 'middle'}}
-		{{#filter product.custom_fields '_upsell' property='name' }}
-			<div class="productView-upsell-regions">
-			{{{region name="product_upsell--global"}}}
-			{{{region name="product_upsell"}}}
-			</div>
-			<div class="productView-upsell-container">
-  				<div class="productView-upsell" data-upsell-id="{{../product.id}}">
-		
-  				</div>
-				<button type="button" id="bulk-add-upsells" class="button button--primary">Add Selected</button>
-			</div>
-		{{/filter}}
-		{{/if}}
 		<div class="productView-options">
             {{#if product.release_date }}
 				<div class="alertBox productAttributes-message" style="">
@@ -544,7 +516,6 @@
 	  				<div class="productView-upsell" data-upsell-id="{{../product.id}}">
 			
 	  				</div>
-					<button type="button" id="bulk-add-upsells" class="button button--primary">Add Selected</button>
 				</div>
 			{{/filter}}
 			{{/if}}
