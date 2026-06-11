@@ -2093,77 +2093,35 @@ div[data-content-region="blog_top"] > div {
 	color: #1DBA63;
 }
 
-
-/*
-.productView-upsell-container .productView-upsell {
-	padding: 1.5rem;
-	background-color: #f4f4f4;
-	display: flex;
-	gap: 1.5rem;
-	border-radius: .5rem;
-	overflow-x: auto;
-}
-
-.productView-upsell-container .upsell-item {
-	flex: 1 1 0;
-	flex-direction: column;
-	align-items: flex-start;
-	border: none;
-	background-color: #fff;
-	box-shadow: 0px 4px 4px -2px  rgba(0,0,0,0.1);
-	border-radius: .5rem;
-	padding: .75rem;
-	min-width: 200px;
-	max-width: 240px;
-}
-
-.productView-upsell-container .upsell-item-image,
-.productView-upsell-container .upsell-item-image img {
-	display: block;
-	width: 100%;
-	height: auto;
-}
-
-
-.upsell-item-price-data.upsell-item-nonsale-with-tax {
-	display: none;
-}
-
-.upsell-item-price-data.upsell-item-price-with-tax {
-	color: #1DBA63;
+.upsell-item-price-with-tax,
+.upsell-item-price-without-tax {
+	color: stencilColor("button--primary-backgroundColorHover");
 }
 
 .upsell-item-price-saved strong {
 	font-weight: 400;
 	color: #cc0000;
 }
-*/
 
-.upsell-item-actions {
-	display: inline-block !important;
-	top: auto;
-	bottom: 0;
-}
-
-.upsell-selection-indicator,
-.upsell-selection-indicator:hover,
-.upsell-item-actions .button,
-.upsell-item-actions .button:hover {
-	color: #fff;
-	background-color: #000;
-	border: 1px solid #000;
-}
-
-#bulk-add-upsells {
-	color: #fff;
-	background-color: #000;
-	border: 1px solid #000;
-}
-
-#bulk-add-upsells:hover {
-	color: #fff;
+.upsell-item-actions .button {
+	color: stencilColor("button--primary-colorHover");
 	background-color: stencilColor("button--primary-backgroundColorHover");
-	border: 1px solid stencilColor("button--primary-backgroundColorHover");
+	border-color: stencilColor("button--primary-backgroundColorHover");
+}
+
+.upsell-item-actions .button:hover {
+	color: stencilColor("button--primary-colorHover");
+	background-color: #189f54;
+	border-color: #189f54;
+}
+
+.upsell-item--added .upsell-item-actions .button,
+.upsell-item--added .upsell-item-actions .button:hover,
+.productView-upsell-modal .productView-details .productView-actions .button,
+.productView-upsell-modal .productView-details .productView-actions .button:hover {
+	color: #000;
+	background-color: #eee;
+	border-color: #eee;
 }
 
 .productView-seeitinaction-container {
@@ -2217,8 +2175,6 @@ div[data-content-region="blog_top"] > div {
 	width: auto;
 	max-width: none;
 }
-
-
 
 
 .videoGallery-section .videoGallery-item {
