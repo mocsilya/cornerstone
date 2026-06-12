@@ -138,6 +138,13 @@
             </li>
         {{/unless}}
     {{/each}}
+	{{#if cart.multi_coupon_ui_enabled}}
+		<li class="cart-total cart-total-multicoupon">
+	    	<div data-cart-coupons class="cart-content-padding-right">
+	    		{{> components/cart/coupons}}
+			</div>
+		</li>
+	{{/if}}
 	{{#unless cart.multi_coupon_ui_enabled}}
     	{{#if cart.discount }}
         	<li class="cart-total cart-total-discounts">
@@ -149,6 +156,7 @@
             	</div>
         	</li>
     	{{/if}}
+		
 		{{#if cart.coupons}}
             {{#each cart.coupons}}
                 <li class="cart-total cart-total-couponadded">
@@ -191,6 +199,8 @@
         <li class="cart-total {{#if cart.multi_coupon_ui_enabled}}cart-total-gift-certificate{{/if}}">
             <div class="cart-total-label">
                 <strong>{{lang 'cart.gift_certificates.gift_certificate'}}{{#unless cart.multi_coupon_ui_enabled}}:{{/unless}}</strong>
+			</div>
+			<div class="cart-total-value">
                 {{#if cart.multi_coupon_ui_enabled}}
                     {{> components/cart/gift-certificate}}
                 {{/if}}

@@ -7894,6 +7894,7 @@ div[data-content-region="page_builder_content_editor_area_bottom"] {
 	position: relative;
 	padding: .25rem 0 .25rem 160px;
 	float: none;
+	vertical-align: middle;
 	@include breakpoint("medium") {
 		padding: .25rem .5rem;
 	}
@@ -8089,19 +8090,14 @@ div[data-content-region="page_builder_content_editor_area_bottom"] {
 	display: none;
 }
 
-.cart-content-totals .cart-total:last-child {
-	@include breakpoint("medium") {
-		border-bottom: 1px solid stencilColor('container-border-global-color-base');
-	}
-	@include breakpoint("large") {
-		border-bottom: 0;
-	}
+.cart-content-totals .cart-total {
+	border-top: 0 !important;
+	border-bottom: 1px solid stencilColor('container-border-global-color-base') !important;
 }
 
-.cart-content-totals .cart-total:nth-child(2) {
-	@include breakpoint("medium") {
-		border-top: 0;
-	}
+.cart-content-totals .cart-total-finaltotal,
+.cart-content-totals .cart-total.cart-total-finaltaxes {
+	border-bottom: 0 !important;
 }
 
 .page-cart .coupon-form .form-input,
@@ -8112,6 +8108,17 @@ div[data-content-region="page_builder_content_editor_area_bottom"] {
 .page-cart .coupon-form .button,
 .page-cart .cart-gift-certificate-form .button {
 	width: 30%;
+}
+
+.page-cart .cart-coupons {
+	width: 100%;
+	float: none;
+	padding-bottom: 0;
+	border: 0;
+}
+
+.cart-coupons .coupon-form {
+	margin: 0 0 1rem 0;
 }
 
 .cart-total-grandTotal {
