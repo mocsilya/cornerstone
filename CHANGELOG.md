@@ -5,9 +5,64 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Draft
+- Make the cart Shipping row label span the full width of the totals row so the shipping expectation prompt is no longer constrained to the narrow label column
+- Respect `unlimited_backorder` on PDP so the backorder quantity message and availability prompt render, and the Add to Cart quantity cap is lifted for products with unlimited backorder
+- Keep PDP "N will be backordered" message visible when the requested quantity exceeds `available_to_sell` (still clamped by `available_for_backorder`), so shoppers see why the qty was clamped alongside the "maximum purchasable quantity" error
+- Render backorder prompt for picklist products on PDP [#2662](https://github.com/bigcommerce/cornerstone/pull/2662)
+- Fix bundled item stock section showing title with no content when there is no backorder data or all inventory display settings are disabled [#2668](https://github.com/bigcommerce/cornerstone/pull/2668)
+- Render stock positions for bundled items (pick lists) on the cart page, (change to be left aligned with the quantity adjuster) [#2663](https://github.com/bigcommerce/cornerstone/pull/2663)
+- Fix duplicate `id="default_instrument"` on Update Payment Method page [#2661](https://github.com/bigcommerce/cornerstone/pull/2661)
+- Respect `available_to_sell` on PDP so the Sold Out alert is hidden and the Add to Cart button stays enabled for backorderable products, and is disabled when quantity exceeds `available_to_sell` [#2659](https://github.com/bigcommerce/cornerstone/pull/2659)
+- Updated accessibility features [2656](https://github.com/bigcommerce/cornerstone/pull/2656)
+- Update 'Ship to' copy for multi address orders [#2655](https://github.com/bigcommerce/cornerstone/pull/2655)
+- Fixed typo in category page reset-filters live region handler [#2643](https://github.com/bigcommerce/cornerstone/pull/2643)
+- Swap content/data keys in onProductOptionsChanged event detail [#2640](https://github.com/bigcommerce/cornerstone/pull/2640)
+- Fix shipment info showing for cancelled orders [#2654](https://github.com/bigcommerce/cornerstone/pull/2654)
+- Render backorder prompts on My Account "Your orders" page [#2650](https://github.com/bigcommerce/cornerstone/pull/2650)
 
+## 6.19.1 (04-09-2026)
+- Update stencil-utils versionto 6.23.0 [#2638](https://github.com/bigcommerce/cornerstone/pull/2638)
+- Audit and fix Stencil theme remote API calls for multi-language subfolder support [#2635](https://github.com/bigcommerce/cornerstone/pull/2635)
+- Update stencil-utils versionto 6.22.0 [#2637](https://github.com/bigcommerce/cornerstone/pull/2637)
+- Fix incorrect request URL for adding items to cart on multi-lang storefronts [#2634](https://github.com/bigcommerce/cornerstone/pull/2634)
+- Fix desktop header selectors layout for Language, Currency, and Channel [#2633](https://github.com/bigcommerce/cornerstone/pull/2633)
+- Update stencil-utils versionto 6.21.0 [#2632](https://github.com/bigcommerce/cornerstone/pull/2632)
+- Fix incorrect request URL for getting states [#2630](https://github.com/bigcommerce/cornerstone/pull/2630)
+- Make cart preview work with multi-lang by passing baseUrl to cart API calls [#2627](https://github.com/bigcommerce/cornerstone/pull/2627)
+- Render backorder message on PDP [#2625](https://github.com/bigcommerce/cornerstone/pull/2625)
+- Move shipping expectation prompt to cart totals [#2624](https://github.com/bigcommerce/cornerstone/pull/2624)
+- Render shipping expectation prompt on cart page [#2622](https://github.com/bigcommerce/cornerstone/pull/2622)
+
+## 6.19.0 (03-17-2026)
+- Expose shopper messaging on Cart page to show that maximum discount limit has been reached [#2620](https://github.com/bigcommerce/cornerstone/pull/2620)
+- Refactor Language Selector Component to consume real data from Stencil Context [#2616](https://github.com/bigcommerce/cornerstone/pull/2616)
+- Fix `onThemeBundleMain` binding to `window` load instead of script element, guard `optionChangeDecorator` against null response on error, and fix `updateWalletButtonsView` crash on cart edit modal [#2615](https://github.com/bigcommerce/cornerstone/pull/2615)
+- Add to Cart and quantity buttons disabled when BCData is empty [#2612](https://github.com/bigcommerce/cornerstone/pull/2612)
+- Introduce strikethrough display for discounted shipping quote prices on cart page [#2611](https://github.com/bigcommerce/cornerstone/pull/2611)
+- Render native language names on storefront using Intl.DisplayNames [#2607](https://github.com/bigcommerce/cornerstone/pull/2607)
+- CUST-4055 Add backend-based static translations for account edit page form fields [#2606](https://github.com/bigcommerce/cornerstone/pull/2606)
+- Out of Stock banner is duplicated and overlaps Add to cart button on PDP [#2601](https://github.com/bigcommerce/cornerstone/pull/2601)
+- Fixed YouTube video playback in Safari by adding widget_referrer and origin parameters [#2598](https://github.com/bigcommerce/cornerstone/pull/2598)
+
+## 6.18.3 (01-21-2026)
+- Fixed an issue where bulk pricing on Product Details Page do not display both prices when tax display settings is set to `both including and excluding tax`.
+
+## 6.18.2 (01-08-2026)
+- Fixed validation removal on form fields [#2593](https://github.com/bigcommerce/cornerstone/pull/2593)
+**Note:** This version releases all changes from version 6.18.0.
+
+## 6.18.1 (01-05-2026)
+- CUST-4064 Fix state/zip validation error on country change and show state dropdown for optional-state countries [#2591](https://github.com/bigcommerce/cornerstone/pull/2591)
+
+## 6.18.0 (01-02-2026)
+- CUST-4064 Add dynamic postal code validation based on country requirements [#2585](https://github.com/bigcommerce/cornerstone/pull/2585)
 - Update Cornerstone documentation url [#2575](https://github.com/bigcommerce/cornerstone/pull/2575)
 - Fix keyboard navigation on the swatch options [#2576](https://github.com/bigcommerce/cornerstone/pull/2576)
+- CHECKOUT-9688 Introduce new coupon management section on cart page [#2578](https://github.com/bigcommerce/cornerstone/pull/2578)
+- CHECKOUT-9692 show the display name and coupon code under line item [#2579](https://github.com/bigcommerce/cornerstone/pull/2579)
+- Fix Cart Page not updating when adding product via Quick View [#2581](https://github.com/bigcommerce/cornerstone/pull/2581)
+- CHECKOUT-9690 Add new discounts section to display the order promotions and coupon discounts [#2582](https://github.com/bigcommerce/cornerstone/pull/2582)
+- CHECKOUT-9726 Seperate actionable links from price calculations and totals [#2584](https://github.com/bigcommerce/cornerstone/pull/2584)
 
 ## 6.17.0 (10-01-2025)
 - Add net-new "order.pickup_addresses" to unify objects used on Order Details and Order Invoice pages [#2557](https://github.com/bigcommerce/cornerstone/pull/2557)

@@ -59,7 +59,9 @@
             "shipping": "Spedizioni",
             "grand_total": "Totale:",
             "select": "Seleziona",
-            "update": "Aggiorna i costi di spedizione"
+            "update": "Aggiorna i costi di spedizione",
+            "you_saved": "Lei ha risparmiato",
+            "in_total": "in totale!"
         },
         "preview": {
             "checkout_now": "Completa l'acquisto ora",
@@ -71,6 +73,9 @@
         "invalid_entry_message": "[ENTRY] non è una voce valida",
         "coupon_code": "Codice promozionale",
         "discount": "Sconto",
+        "discounts": "Sconti",
+        "manual_discount": "Sconto manuale",
+        "automatic_discount": "Sconto automatico",
         "included_in_total": " Incluso nel totale",
         "remove_file": "Rimuovi questo file",
         "freeshipping": "Spedizione gratuita",
@@ -80,6 +85,7 @@
         "confirm_delete": "Vuoi davvero eliminare questo articolo?",
         "coupons": {
             "apply_coupon": "Applica coupon",
+            "apply_coupon_code": "Applica codice coupon",
             "empty_error": "Inserisci il codice coupon.",
             "cancel": "Annulla",
             "add_code": "Aggiungi codice",
@@ -87,7 +93,8 @@
             "button": "Applica",
             "coupon_code": "Inserisci il codice coupon",
             "code_label": "({code}) coupon",
-            "remove": "Rimuovi"
+            "remove": "Rimuovi",
+            "maximum_discount_applied": "Sconto massimo applicato"
         },
         "gift_certificates": {
             "apply_gift_certificate": "Applica buono regalo",
@@ -145,6 +152,8 @@
         "currency_switch_promotion": "Le promozioni e i buoni regalo che non si applicano alla nuova valuta saranno rimossi dal carrello. Continuare?",
         "channel": "Negozio: {code}",
         "channel_switch_warning": "Testo di avviso per il cambio di negozio",
+        "locale_switch_warning": "Testo di avviso per il cambio di lingua",
+        "locale": "Lingua:",
         "newsletter_signup": "Iscriviti alla nostra newsletter",
         "form_submit": "Invia",
         "no_preference": "Nessuna preferenza",
@@ -351,7 +360,7 @@
                 "heading": "Ordine n. {number}",
                 "order_contents": "Contenuto dell'ordine",
                 "ship_to": "Indirizzo di spedizione",
-                "ship_to_multi": "Articoli spediti a {street}, {city}, {state}, {zip}, {country}",
+                "ship_to_multi": "Spedizione a {street}, {city}, {state}, {zip}, {country}",
                 "ship_to_multi_text": "L'ordine sarà spedito a molteplici indirizzi",
                 "pickup_details": "Dettagli ritiro",
                 "bill_to": "Indirizzo di fatturazione",
@@ -720,6 +729,8 @@
         "change_product_options": "Modifica le opzioni per {name}",
         "quantity_decrease": "Diminuisci la quantità di {name}",
         "quantity_increase": "Aumenta la quantità di {name}",
+        "quantity_backordered": "{quantity} in attesa di disponibilità",
+        "quantity_on_hand": "{quantity} pronto per la spedizione",
         "quantity_error_message": "La quantità deve contenere solo numeri",
         "purchase_units": "{quantity, plural, =0{0 unità} one {# unità} other {# unità}}",
         "max_purchase_quantity": "Spesa massima:",
@@ -815,7 +826,11 @@
             "range": "Acquista {min} {max, plural, =0{or above} other {- #}}",
             "percent": "e ottieni uno sconto del {discount}",
             "price": "e ottieni uno sconto del {discount}",
-            "fixed": "e paga solo {discount} per articolo"
+            "fixed": "e paga solo {discount} per articolo",
+            "fixed_both": {
+                "prefix": "e paga solo",
+                "suffix": "Ciascuno"
+            }
         },
         "card_default_image_alt": "Immagine disponibile a breve"
     },
