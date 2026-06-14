@@ -2425,6 +2425,13 @@ div[data-content-region="blog_top"] > div {
 }
 
 
+// modal
+.modal-close:focus::before,
+.modal-close:focus::after {
+	display: none !important;
+}
+
+
 // cart
 
 div[data-content-region="cart_below_totals"] {
