@@ -72,10 +72,12 @@ export default function (key, productIdArray) {
             
             if (!$target.length) return;
 
-            // 2. Find the "Color" option in the product data
-            const colorOption = node.productOptions.edges.find(opt => 
-                ['color', 'colour', 'swatch'].includes(opt.node.displayName.toLowerCase())
-            );
+			// 2. Find the "Color" option in the product data
+			const colorOption = node.productOptions.edges.find(opt => {
+			    const name = opt.node.displayName.toLowerCase();
+			    // This returns true if the name contains 'color', 'colour', or 'swatch'
+		 	   	return name.includes('color') || name.includes('colour') || name.includes('swatch') || name.includes('pattern') || name.includes('finish') || name.includes('material') || name.includes('shade') || name.includes('tone') || name.includes('fabric') || name.includes('texture') || name.includes('print');
+			});
 
 			if (colorOption) {
 			    // 3. Build the HTML for each swatch value
