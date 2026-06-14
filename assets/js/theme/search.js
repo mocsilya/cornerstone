@@ -42,7 +42,7 @@ export default class Search extends CatalogPage {
     }
 	
 	dataProductCollection() {
-	    const cards = document.querySelectorAll('.product .card, .product .listItem');
+	    const cards = document.querySelectorAll('.card, .listItem');
 	    const dataIdArr= [];
 	    cards.forEach(card => {
 	        const id = card.dataset.test.replace('card-', '');
@@ -227,7 +227,7 @@ export default class Search extends CatalogPage {
             .prependTo('body');
 
         setTimeout(() => $searchResultsMessage.trigger('focus'), 100);
-        cardSwatches();
+        cardSwatches(this.context.apiToken, this.dataProductCollection());
         cardWarranty();
 		cardCarousel();
 		const dataOnReady = this.context.cardVariantData;
@@ -326,6 +326,7 @@ export default class Search extends CatalogPage {
                 this.showProducts(false);
             }
 			
+			cardSwatches(this.context.apiToken, this.dataProductCollection());
 			const dataFacetedSearch = this.context.cardVariantData;
 			if (dataFacetedSearch) {
 				cardData(this.context.apiToken, this.dataProductCollection());

@@ -88,6 +88,7 @@ gql: "query productById($productId: Int!) {
     }
 }"
 ---
+{{inject 'apiToken' settings.storefront_api.token}}
 {{inject 'productId' product.id}}
 {{inject "productPriceFrom" theme_settings.custom_price_from}}
 {{#partial "hero"}}

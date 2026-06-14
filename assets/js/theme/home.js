@@ -8,8 +8,19 @@ import cardCarousel from './custom/card-carousel';
 import modalSubscribe from './custom/modal-subscribe';
 
 export default class Home extends PageManager {
+	
+	dataProductCollection() {
+	    const cards = document.querySelectorAll('.card, .listItem');
+	    const dataIdArr= [];
+	    cards.forEach(card => {
+	        const id = card.dataset.test.replace('card-', '');
+	        dataIdArr.push(Number(id));
+	    });
+	    return dataIdArr;
+	}
+	
 	onReady() {
-        cardSwatches();
+        cardSwatches(this.context.apiToken, this.dataProductCollection());
 		cardWarranty();
 		cardCarousel();
         modalSubscribe();
