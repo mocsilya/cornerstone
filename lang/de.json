@@ -59,7 +59,9 @@
             "shipping": "Versand",
             "grand_total": "Gesamtsumme",
             "select": "Auswählen",
-            "update": "Versandkosten aktualisieren"
+            "update": "Versandkosten aktualisieren",
+            "you_saved": "Sie haben gespart",
+            "in_total": "Insgesamt!"
         },
         "preview": {
             "checkout_now": "Jetzt Bezahlvorgang abschließen",
@@ -71,6 +73,9 @@
         "invalid_entry_message": "[ENTRY] ist keine gültige Eingabe",
         "coupon_code": "Gutschein-Code",
         "discount": "Rabatt",
+        "discounts": "Rabatte",
+        "manual_discount": "Manueller Preisnachlass",
+        "automatic_discount": "Automatischer Rabatt",
         "included_in_total": " Im Gesamtbetrag enthalten",
         "remove_file": "Diese Datei entfernen",
         "freeshipping": "Kostenloser Versand",
@@ -80,6 +85,7 @@
         "confirm_delete": "Möchten Sie diesen Artikel wirklich löschen?",
         "coupons": {
             "apply_coupon": "Coupon anwenden",
+            "apply_coupon_code": "Coupon-Code anwenden",
             "empty_error": "Bitte geben Sie Ihren Gutscheincode ein.",
             "cancel": "Abbrechen",
             "add_code": "Code hinzufügen",
@@ -87,7 +93,8 @@
             "button": "Anwenden",
             "coupon_code": "Geben Sie Ihren Gutscheincode ein",
             "code_label": "Gutschein ({code})",
-            "remove": "Entfernen"
+            "remove": "Entfernen",
+            "maximum_discount_applied": "Maximaler Rabatt angewendet"
         },
         "gift_certificates": {
             "apply_gift_certificate": "Geschenkgutschein anwenden",
@@ -145,6 +152,8 @@
         "currency_switch_promotion": "Werbeangebote und Geschenkgutscheine, die nicht für die neue Währung gelten, werden aus Ihrem Warenkorb entfernt. Möchten Sie wirklich fortfahren?",
         "channel": "Filiale: {code}",
         "channel_switch_warning": "Warntext für Filialwechsel",
+        "locale_switch_warning": "Warntext für Sprachwechsel",
+        "locale": "Sprache:",
         "newsletter_signup": "Registrieren Sie sich für unseren Newsletter",
         "form_submit": "Einreichen",
         "no_preference": "Keine Präferenzen",
@@ -351,7 +360,7 @@
                 "heading": "Bestellung #{number}",
                 "order_contents": "Inhalte der Bestellung",
                 "ship_to": "Versand nach",
-                "ship_to_multi": "An {street}, {city}, {state}, {zip}, {country} versandte Artikel",
+                "ship_to_multi": "Versand an: {street}, {city}, {state}, {zip}, {country}",
                 "ship_to_multi_text": "Die Bestellung wird an mehrere Adressen versandt",
                 "pickup_details": "Abholungsdetails",
                 "bill_to": "Rechnung an",
@@ -720,6 +729,8 @@
         "change_product_options": "Optionen für {name} ändern",
         "quantity_decrease": "Menge von {name} verringern",
         "quantity_increase": "Menge von {name} erhöhen",
+        "quantity_backordered": "{quantity} werden nachbestellt",
+        "quantity_on_hand": "{quantity} bereit zum Versand",
         "quantity_error_message": "Die Anzahl sollte nur Zahlen enthalten",
         "purchase_units": "{quantity, plural, =0{0 Einheiten} one {# Einheit} other {# Einheiten}}",
         "max_purchase_quantity": "Höchstkaufwert:",
@@ -815,7 +826,11 @@
             "range": "{min} {max, plural, =0{oder höher} other {- #}}",
             "percent": "und erhalten Sie {discount} Rabatt",
             "price": "und erhalten Sie {discount} Rabatt",
-            "fixed": "und zahlen Sie jeweils nur {discount}"
+            "fixed": "und zahlen Sie jeweils nur {discount}",
+            "fixed_both": {
+                "prefix": "und zahlen Sie nur",
+                "suffix": "Jede(s/r)"
+            }
         },
         "card_default_image_alt": "Bild in Kürze verfügbar"
     },

@@ -1,4 +1,15 @@
 {{inject 'outOfStockDefaultMessage' (lang 'products.out_of_stock_default_message')}}
+{{inject 'availableOnHand' product.available_on_hand}}
+{{inject 'availableForBackorder' product.available_for_backorder}}
+{{inject 'availableToSell' product.available_to_sell}}
+{{inject 'unlimitedBackorder' product.unlimited_backorder}}
+{{inject 'showQuantityOnBackorder' product.show_quantity_on_backorder}}
+{{inject 'showBackorderAvailabilityPrompt' product.show_backorder_availability_prompt}}
+{{inject 'backorderAvailabilityPrompt' product.backorder_availability_prompt}}
+{{inject 'quantityBackorderedMessage' (lang 'products.quantity_backordered' quantity='__QTY__')}}
+{{inject 'quantityMaxMessage' (lang 'products.quantity_max' quantity='__QTY__')}}
+{{inject 'backorderMessages' backorder_messages}}
+{{inject 'showBackorderMessage' product.show_backorder_message}}
 
 {{assignVar "b2b-products" "show"}}
 {{assignVar "b2b-prices" "show"}}
@@ -473,9 +484,21 @@
                     <label class="form-label form-label--alternate">
                         {{lang 'products.current_stock'}}
                     </label>
-					<span data-product-stock>
-						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-tick" /></svg></i><strong class="in-stock-number">{{product.stock_level}} </strong><span class="in-stock-label">In Stock</span>
+					<span class="productView-stock-message">
+						<span data-product-stock>
+							<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-tick" /></svg></i><strong class="in-stock-number">{{product.stock_level}} </strong><span class="in-stock-label">In Stock</span>
+						</span>
 					</span>
+                    {{#all product.show_backorder_availability_prompt product.available_to_sell product.available_for_backorder}}
+                        <span class="productView-backorder-availability-prompt" data-backorder-prompt>{{product.backorder_availability_prompt}}</span>
+                    {{else}}
+                        <span class="productView-backorder-availability-prompt" data-backorder-prompt style="display:none;"></span>
+                    {{/all}}
+					<p class="form-label form-label--alternate" data-product-backordered style="display:none;">
+						<span data-qty-backordered-message></span>
+					    <span data-backorder-message></span>
+					</p>
+					<ul class="productView-picklist-backorder" data-picklist-backorder-list style="display:none;"></ul>
                 </div>
 				{{#if (getVar "b2b-prices") '===' 'show'}}
                 	{{> components/products/add-to-cart with_wallet_buttons=true}}

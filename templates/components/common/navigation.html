@@ -249,6 +249,9 @@
 	        {{/if}}
 	        </ul>
         </li>
+	    {{#and language_selector language_selector.languages.length '>' 1}}
+	        {{> components/common/language-selector}}
+	    {{/and}}
 	    {{#or customer (unless settings.hide_price_from_guests)}}
 	        {{> components/common/currency-selector}}
 	    {{/or}}
