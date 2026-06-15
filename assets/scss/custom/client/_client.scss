@@ -2304,13 +2304,8 @@ div[data-content-region="blog_top"] > div {
 	}
 }
 
-.page-product input#form-action-addToCart:disabled,
-.page-product input#form-action-addToCart[disabled],
-.page-product #add-to-cart-wrapper .form-increment .button:disabled, 
-.page-product #add-to-cart-wrapper .form-increment .button[disabled],
-.page-product #add-to-cart-wrapper .form-increment .form-input--incrementTotal:disabled,
-.page-product #add-to-cart-wrapper .form-increment .form-input--incrementTotal[disabled] {
-	display: none;
+.productView-options #add-to-cart-wrapper.add-to-cart-nopurchase {
+	display: none !important;
 }
 
 .page-product #form-action-addToCart {
@@ -2438,8 +2433,8 @@ div[data-content-region="cart_below_totals"] {
     display: none;
 }
 
-.cart-additionalCheckoutButtons {
-	margin-top: 0 !important;
+.cart-content-actions .cart-additionalCheckoutButtons {
+	margin-top: 10px !important;
 }
 
 .cart-additionalCheckoutButtons .BraintreePaypalCheckout,
