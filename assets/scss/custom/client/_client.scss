@@ -2451,6 +2451,12 @@ div[data-content-region="cart_below_totals"] {
 	margin: 0 !important;
 }
 
+.page-cart .cart-item-figure img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
 
 // compare
 

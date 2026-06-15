@@ -101,7 +101,7 @@
             "apply_gift_certificate": "Apply gift certificate",
             "change_gift_certificate": "Change {certificate_name}",
             "add_cert_code": "Add Voucher",
-            "gift_certificate": "Voucher",
+            "gift_certificate": "Gift Voucher",
             "code_label": "Voucher ({code})",
             "cert_code": "Enter your voucher code",
             "remove": "Remove"
