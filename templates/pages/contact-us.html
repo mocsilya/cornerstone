@@ -72,34 +72,30 @@ customer:
 </section>
 
 {{#if forms.contact.rma}}
-	{{#unless (lowercase page.title) '==' 'iframe'}}
-		<script>
-			const queryString = window.location.search;
-			const urlParams = new URLSearchParams(queryString);
-			const getParam = urlParams.get('rma');
-			if (getParam) {
-				const hideRMA = "hide";
-				const oldLabel = document.getElementById('label_rma');
-				const oldVal = document.getElementById('contact_rma');
-				if (getParam == hideRMA) {
-					oldLabel.parentNode.style.display = "none";
-				} else {
-					const newLabel = oldLabel.innerHTML = "{{lang 'cart.checkout.item'}} / {{lang 'products.sku'}}";
-					const newVal = oldVal.value = getParam;
-				}
-			}
-		</script>
-	{{else}}
-		<script>
-			const queryString = window.location.search;
-			const urlParams = new URLSearchParams(queryString);
-			const getParam = urlParams.get('rma');
-			if (getParam) {
-				const oldVal = document.getElementById('contact_rma');
-				const newVal = oldVal.value = getParam;
-			}
-		</script>
-	{{/unless}}
+    {{#unless (lowercase page.title) '==' 'iframe'}}
+        <script nonce="{{nonce}}">
+            (function() {
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                const getParam = urlParams.get('rma');
+                
+                if (getParam) {
+                    const hideRMA = "hide";
+                    const oldLabel = document.getElementById('label_rma');
+                    const oldVal = document.getElementById('contact_rma');
+                    
+                    if (oldLabel && oldVal) {
+                        if (getParam === hideRMA) {
+                            oldLabel.parentNode.style.display = "none";
+                        } else {
+                            oldLabel.innerHTML = "{{lang 'cart.checkout.item'}} / {{lang 'products.sku'}}";
+                            oldVal.value = getParam;
+                        }
+                    }
+                }
+            })();
+        </script>
+    {{/unless}}
 {{/if}}
 
 {{/partial}}
