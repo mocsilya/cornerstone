@@ -262,75 +262,73 @@ gql: "query productById($productId: Int!) {
 			                rmaField.value = productDetails;
 			            }
 
-			            // 5. BACKGROUND SUBMISSION CONSOLE
-			            targetForm.addEventListener('submit', function(e) {
-			                e.preventDefault();
+						// 5. BACKGROUND SUBMISSION CONSOLE (With Admin Auto-Detect Toggle)
+						targetForm.addEventListener('submit', function(e) {
+						    e.preventDefault();
 
-			                var liveCaptcha = container.querySelector('.g-recaptcha');
-                
-			                if (liveCaptcha && typeof grecaptcha !== 'undefined') {
-			                    if (!isCaptchaValidated) {
-			                        // Check if an error message is already showing so we don't stack them
-			                        var existingError = container.querySelector('#contact-us-error');
-                        
-			                        if (!existingError) {
-			                            // Create the exact native alert markup wrapper
-			                            var errorDiv = document.createElement('div');
-			                            errorDiv.id = 'contact-us-error';
-			                            errorDiv.style.marginBottom = '15px'; // Clean structural gap
-			                            errorDiv.innerHTML = `
-			                                <div class="alertBox alertBox--error">
-			                                    <div class="alertBox-column alertBox-icon">
-			                                        <span class="icon" aria-hidden="true">
-			                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;">
-			                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
-			                                            </svg>
-			                                        </span>
-			                                    </div>
-			                                    <p class="alertBox-column alertBox-message">
-			                                        <span id="alertBox-message-text">The captcha you entered is incorrect. Please try again.</span>
-			                                    </p>
-			                                </div>
-			                            `;
-                            
-			                            // Slide the error message directly into the layout right above the reCAPTCHA box
-			                            liveCaptcha.parentNode.insertBefore(errorDiv, liveCaptcha);
-			                        }
-                        
-			                        return; // Halt transmission
-			                    }
-			                }
+						    // Look for the physical reCAPTCHA element in the fetched form
+						    var liveCaptcha = container.querySelector('.g-recaptcha');
+    
+						    // SMART ADJUSTMENT: Only enforce validation if the element ACTUALLY exists in the DOM 🌟
+						    if (liveCaptcha && typeof grecaptcha !== 'undefined') {
+						        if (!isCaptchaValidated) {
+						            var existingError = container.querySelector('#contact-us-error');
+            
+						            if (!existingError) {
+						                var errorDiv = document.createElement('div');
+						                errorDiv.id = 'contact-us-error';
+						                errorDiv.style.marginBottom = '15px';
+						                errorDiv.innerHTML = `
+						                    <div class="alertBox alertBox--error">
+						                        <div class="alertBox-column alertBox-icon">
+						                            <span class="icon" aria-hidden="true">
+						                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;">
+						                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
+						                                </svg>
+						                            </span>
+						                        </div>
+						                        <p class="alertBox-column alertBox-message">
+						                            <span id="alertBox-message-text">The captcha you entered is incorrect. Please try again.</span>
+						                        </p>
+						                    </div>
+						                `;
+						                liveCaptcha.parentNode.insertBefore(errorDiv, liveCaptcha);
+						            }
+						            return; // Halt form transmission because reCAPTCHA is enabled but unticked
+						        }
+						    }
 
-			                var formData = new URLSearchParams(new FormData(targetForm));
+						    // If liveCaptcha doesn't exist (turned off in admin panel) OR it is validated, send it!
+						    var formData = new URLSearchParams(new FormData(targetForm));
 
-			                fetch(targetForm.getAttribute('action'), {
-			                    method: 'POST',
-			                    headers: {
-			                        'Content-Type': 'application/x-www-form-urlencoded'
-			                    },
-			                    body: formData.toString()
-			                })
-			                .then(function(res) {
-			                    if (!res.ok) throw new Error('Submission failed');
-                    
-			                    container.innerHTML = `
-			                        <div class="alertBox alertBox--success">
-			                            <div class="alertBox-column alertBox-icon">
-			                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;">
-			                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
-			                                </svg>
-			                            </div>
-			                            <p class="alertBox-column alertBox-message">
-			                                {{lang "forms.contact_us.successful"}}
-			                            </p>
-			                        </div>
-			                    `;
-			                })
-			                .catch(function(err) {
-			                    console.error("Inquiry submission failed: ", err);
-			                    alert('There was an issue processing your request. Please try again.');
-			                });
-			            });
+						    fetch(targetForm.getAttribute('action'), {
+						        method: 'POST',
+						        headers: {
+						            'Content-Type': 'application/x-www-form-urlencoded'
+						        },
+						        body: formData.toString()
+						    })
+						    .then(function(res) {
+						        if (!res.ok) throw new Error('Submission failed');
+        
+						        container.innerHTML = `
+						            <div class="alertBox alertBox--success">
+						                <div class="alertBox-column alertBox-icon">
+						                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;">
+						                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
+						                    </svg>
+						                </div>
+						                <p class="alertBox-column alertBox-message">
+						                    {{lang "forms.contact_us.successful"}}
+						                </p>
+						            </div>
+						        `;
+						    })
+						    .catch(function(err) {
+						        console.error("Inquiry submission failed: ", err);
+						        alert('There was an issue processing your request. Please try again.');
+						    });
+						});
 			        })
 			        .catch(function(err) {
 			            container.innerHTML = '<p class="alert alert-error">Unable to load the inquiry form at this time.</p>';
