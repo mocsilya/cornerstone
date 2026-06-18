@@ -5821,6 +5821,16 @@ div[data-content-region="product_view_bottom--global"] {
 	max-width: none;
 }
 
+.productView-thumbnail-link[data-initial-active="true"] {
+	border-color: stencilColor("color-greyDarker");
+}
+
+.productView-thumbnails:has(.productView-thumbnail-link.is-active) {
+    .productView-thumbnail-link[data-initial-active="true"]:not(.is-active) {
+        border-color: stencilColor("color-whitesBase");
+    }
+}
+
 .productView-thumbnails.slick-slider,
 .productView-image + .productView-thumbnails.slick-slider {
 	margin: 1.5rem 0;
