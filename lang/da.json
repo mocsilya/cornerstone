@@ -59,7 +59,9 @@
             "shipping": "Forsendelse",
             "grand_total": "Samlet beløb",
             "select": "Vælg",
-            "update": "Opdatér forsendelsesomkostninger"
+            "update": "Opdatér forsendelsesomkostninger",
+            "you_saved": "Du sparede",
+            "in_total": "i alt!"
         },
         "preview": {
             "checkout_now": "Betal nu",
@@ -71,6 +73,9 @@
         "invalid_entry_message": "[ENTRY] er ikke en gyldig indtastning",
         "coupon_code": "Kuponkode",
         "discount": "Rabat",
+        "discounts": "Rabatter",
+        "manual_discount": "Manuel rabat",
+        "automatic_discount": "Automatisk rabat",
         "included_in_total": " Inkluderet i samlet beløb",
         "remove_file": "Fjern denne fil",
         "freeshipping": "Gratis fragt",
@@ -80,6 +85,7 @@
         "confirm_delete": "Er du sikker på, at du vil slette denne vare?",
         "coupons": {
             "apply_coupon": "Anvend kupon",
+            "apply_coupon_code": "Anvend kuponkode",
             "empty_error": "Indtast din kuponkode.",
             "cancel": "Annuller",
             "add_code": "Tilføj kode",
@@ -87,7 +93,8 @@
             "button": "Anvend",
             "coupon_code": "Indtast din kuponkode",
             "code_label": "Kupon ({code})",
-            "remove": "Fjern"
+            "remove": "Fjern",
+            "maximum_discount_applied": "Maksimal rabat anvendt"
         },
         "gift_certificates": {
             "apply_gift_certificate": "Anvend gavekort",
@@ -145,6 +152,8 @@
         "currency_switch_promotion": "Kampagner og gavekort, der ikke gælder for den nye valuta, fjernes fra din indkøbskurv. Er du sikker på, at du vil fortsætte?",
         "channel": "Butik: {code}",
         "channel_switch_warning": "Advarselstekst til butiksskift",
+        "locale_switch_warning": "Advarselstekst til sprogskift",
+        "locale": "Sprog:",
         "newsletter_signup": "Tilmeld dig vores nyhedsbrev",
         "form_submit": "Indsend",
         "no_preference": "Ingen præference",
@@ -351,7 +360,7 @@
                 "heading": "Ordrenummer {number}",
                 "order_contents": "Ordreindhold",
                 "ship_to": "Send til",
-                "ship_to_multi": "Varer afsendt til {street}, {city}, {state}, {zip}, {country}",
+                "ship_to_multi": "Send til {street}, {city}, {state}, {zip}, {country}",
                 "ship_to_multi_text": "Ordre vil blive sendt til flere adresser",
                 "pickup_details": "Afhentningsoplysninger",
                 "bill_to": "Faturér",
@@ -720,6 +729,8 @@
         "change_product_options": "Skift indstillinger for {name}",
         "quantity_decrease": "Reducer antallet af {name}",
         "quantity_increase": "Øg antallet af {name}",
+        "quantity_backordered": "{quantity} vil være i restordre",
+        "quantity_on_hand": "{quantity} klar til afsendelse",
         "quantity_error_message": "Antallet bør kun indeholde tal",
         "purchase_units": "{quantity, plural, =0{0 enheder} one {# enhed} other {# enheder}}",
         "max_purchase_quantity": "Maksimumskøb:",
@@ -815,7 +826,11 @@
             "range": "Køb {min} {max, plural, =0{or above} other {- #}},",
             "percent": "og få en rabat på {discount}",
             "price": "og få en rabat på {discount}",
-            "fixed": "og betal kun {discount} for hver"
+            "fixed": "og betal kun {discount} for hver",
+            "fixed_both": {
+                "prefix": "og kun betale",
+                "suffix": "hver"
+            }
         },
         "card_default_image_alt": "Billede kommer snart"
     },

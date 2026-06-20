@@ -1,4 +1,15 @@
 {{inject 'outOfStockDefaultMessage' (lang 'products.out_of_stock_default_message')}}
+{{inject 'availableOnHand' product.available_on_hand}}
+{{inject 'availableForBackorder' product.available_for_backorder}}
+{{inject 'availableToSell' product.available_to_sell}}
+{{inject 'unlimitedBackorder' product.unlimited_backorder}}
+{{inject 'showQuantityOnBackorder' product.show_quantity_on_backorder}}
+{{inject 'showBackorderAvailabilityPrompt' product.show_backorder_availability_prompt}}
+{{inject 'backorderAvailabilityPrompt' product.backorder_availability_prompt}}
+{{inject 'quantityBackorderedMessage' (lang 'products.quantity_backordered' quantity='__QTY__')}}
+{{inject 'quantityMaxMessage' (lang 'products.quantity_max' quantity='__QTY__')}}
+{{inject 'backorderMessages' backorder_messages}}
+{{inject 'showBackorderMessage' product.show_backorder_message}}
 
 {{assignVar "b2b-products" "show"}}
 {{assignVar "b2b-prices" "show"}}
@@ -73,35 +84,54 @@
         {{> components/carousel-content-announcement}}
         {{/if}}
 		{{> components/custom/client/client-product-gallery-top}}
-        <figure class="productView-image toggle-content is-open"
-                data-image-gallery-main
-                {{#if product.main_image}}
-                data-zoom-image="{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size }}"
-                {{/if}}
-                >
-            <div class="productView-img-container">
-                {{!-- Remove the surrounding a-element if there is no main image. --}}
-                {{#if product.main_image}}
-                    <a href="{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size}}"
-                        target="_blank">
-                {{/if}}
-                {{> components/common/responsive-img
-                    image=product.main_image
-                    class="productView-image--default"
-                    fallback_size=theme_settings.product_size
-                    lazyload='disabled'
-                    default_image=theme_settings.default_image_product
-                    otherAttributes="data-main-image"
-                }}
-                {{!-- Remove the surrounding a-element if there is no main image. --}}
-                {{#if product.main_image}}
-                    </a>
-                {{/if}}
-				{{#filter product.custom_fields '_badge' property='name'}}
-		        	<div class="productView-img-badge">{{value}}</div>
-				{{/filter}}
-            </div>
-        </figure>
+		<figure class="productView-image toggle-content is-open"
+		        data-image-gallery-main
+		        {{#if product.images.[0]}}
+		            data-zoom-image="{{getImageSrcset product.images.[0] (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size }}"
+		        {{else if product.main_image}}
+		            data-zoom-image="{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size }}"
+		        {{/if}}
+		        >
+		    <div class="productView-img-container">
+		        {{!-- Open anchor tag using first image or main image fallback --}}
+		        {{#if product.images.[0]}}
+		            <a href="{{getImageSrcset product.images.[0] (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size}}" target="_blank">
+		        {{else if product.main_image}}
+		            <a href="{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size}}" target="_blank">
+		        {{/if}}
+
+		        {{!-- Render the image component --}}
+		        {{#if product.images.[0]}}
+		            {{> components/common/responsive-img
+		                image=product.images.[0]
+		                class="productView-image--default"
+		                fallback_size=theme_settings.product_size
+		                lazyload='disabled'
+		                default_image=theme_settings.default_image_product
+		                otherAttributes="data-main-image"
+		            }}
+		        {{else}}
+		            {{> components/common/responsive-img
+		                image=product.main_image
+		                class="productView-image--default"
+		                fallback_size=theme_settings.product_size
+		                lazyload='disabled'
+		                default_image=theme_settings.default_image_product
+		                otherAttributes="data-main-image"
+		            }}
+		        {{/if}}
+
+		        {{#if product.images.[0]}}
+		            </a>
+		        {{else if product.main_image}}
+		            </a>
+		        {{/if}}
+
+		        {{#filter product.custom_fields '_badge' property='name'}}
+		            <div class="productView-img-badge">{{value}}</div>
+		        {{/filter}}
+		    </div>
+		</figure>
 		{{assignVar "thumbs" "hide"}}
 		{{#each product.images}}
 			{{#if @last}}
@@ -158,31 +188,36 @@
 			{{/if}}
 		{{/and}}
 		{{#if (getVar "thumbs") '===' 'show'}}
-            {{#each product.images}}
-				{{#contains alt "HIDEIMAGE"}}
-				{{else}}
-				{{#contains alt "imageset:"}}
-					<li class="productView-thumbnail productView-thumbnail-image" data-image-set="{{{after (split alt 'imageset:') 1}}}">
-				{{else}}
-					<li class="productView-thumbnail productView-thumbnail-image">
-				{{/contains}}
-                    <a
-                        class="productView-thumbnail-link"
-                        href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
-                        data-image-gallery-item
-                        data-image-gallery-new-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.product_size}}"
-                        data-image-gallery-new-image-srcset="{{getImageSrcset this use_default_sizes=true}}"
-                        data-image-gallery-zoom-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
-                    >
-                    {{> components/common/responsive-img
-                        image=this
-                        fallback_size=../theme_settings.productview_thumb_size
-                        lazyload=../theme_settings.lazyload_mode
-                    }}
-                    </a>
-                </li>
-				{{/contains}}
-            {{/each}}
+		    {{assignVar "activeThumbSet" "false"}}
+		    {{#each product.images}}
+		        {{#contains alt "HIDEIMAGE"}}
+		        {{else}}
+		            {{#contains alt "imageset:"}}
+		                <li class="productView-thumbnail productView-thumbnail-image" data-image-set="{{{after (split alt 'imageset:') 1}}}">
+		            {{else}}
+		                <li class="productView-thumbnail productView-thumbnail-image">
+		            {{/contains}}
+		                <a
+		                    class="productView-thumbnail-link{{#if (getVar 'activeThumbSet') '===' 'false'}} is-active" data-initial-active="true"{{else}}"{{/if}} 
+		                    href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
+		                    data-image-gallery-item
+		                    data-image-gallery-new-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.product_size}}"
+		                    data-image-gallery-new-image-srcset="{{getImageSrcset this use_default_sizes=true}}"
+		                    data-image-gallery-zoom-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
+		                >
+		                {{> components/common/responsive-img
+		                    image=this
+		                    fallback_size=../theme_settings.productview_thumb_size
+		                    lazyload=../theme_settings.lazyload_mode
+		                }}
+		                </a>
+		            </li>
+            
+		            {{!-- Flip the variable to true immediately after rendering the first valid thumbnail --}}
+		            {{assignVar "activeThumbSet" "true"}}
+            
+		        {{/contains}}
+		    {{/each}}
 		{{/if}}
 		{{#and product.videos.list.length (unless theme_settings.custom_product_description_location '==' 'side')}}
 		</ul>
@@ -446,7 +481,7 @@
     </section>
 
     <section class="productView-details{{#if product.brand}} productView-details-{{first (split product.brand.name ' ')}}{{/if}} productView-details-{{theme_settings.custom_product_gallery_size}} product-options">
-        <div class="productView-options">
+		<div class="productView-options">
             {{#if product.release_date }}
 				<div class="alertBox productAttributes-message" style="">
 					<div class="alertBox-column alertBox-icon">
@@ -473,9 +508,21 @@
                     <label class="form-label form-label--alternate">
                         {{lang 'products.current_stock'}}
                     </label>
-					<span data-product-stock>
-						<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-tick" /></svg></i><strong class="in-stock-number">{{product.stock_level}} </strong><span class="in-stock-label">In Stock</span>
+					<span class="productView-stock-message">
+						<span data-product-stock>
+							<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-tick" /></svg></i><strong class="in-stock-number">{{product.stock_level}} </strong><span class="in-stock-label">In Stock</span>
+						</span>
 					</span>
+                    {{#all product.show_backorder_availability_prompt product.available_to_sell product.available_for_backorder}}
+                        <span class="productView-backorder-availability-prompt" data-backorder-prompt>{{product.backorder_availability_prompt}}</span>
+                    {{else}}
+                        <span class="productView-backorder-availability-prompt" data-backorder-prompt style="display:none;"></span>
+                    {{/all}}
+					<p class="form-label form-label--alternate" data-product-backordered style="display:none;">
+						<span data-qty-backordered-message></span>
+					    <span data-backorder-message></span>
+					</p>
+					<ul class="productView-picklist-backorder" data-picklist-backorder-list style="display:none;"></ul>
                 </div>
 				{{#if (getVar "b2b-prices") '===' 'show'}}
                 	{{> components/products/add-to-cart with_wallet_buttons=true}}
@@ -506,15 +553,19 @@
 			{{{region name="product_bottom--global"}}}
 			</div>
 			{{{region name="product_bottom"}}}
+			{{#if theme_settings.custom_product_upsell_location '===' 'bottom'}}
 			{{#filter product.custom_fields '_upsell' property='name' }}
 				<div class="productView-upsell-regions">
 				{{{region name="product_upsell--global"}}}
 				{{{region name="product_upsell"}}}
 				</div>
-	  			<div class="productView-upsell" data-upsell-id="{{../product.id}}">
+				<div class="productView-upsell-container">
+	  				<div class="productView-upsell" data-upsell-id="{{../product.id}}">
 			
-	  			</div>
+	  				</div>
+				</div>
 			{{/filter}}
+			{{/if}}
         </div>
     </section>
 	{{#if theme_settings.custom_product_description_location '===' 'sticky'}}

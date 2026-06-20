@@ -1,5 +1,5 @@
 /**
- * Adds swatches to product cards.
+ * Adds carousel to spotlight product cards.
  * templates > components > products > card.html
 */
 import 'slick-carousel';

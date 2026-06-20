@@ -16,7 +16,7 @@ export default class Brand extends CatalogPage {
     }
 	
 	dataProductCollection() {
-	    const cards = document.querySelectorAll('.product .card, .product .listItem');
+	    const cards = document.querySelectorAll('.card, .listItem');
 	    const dataIdArr= [];
 	    cards.forEach(card => {
 	        const id = card.dataset.test.replace('card-', '');
@@ -35,7 +35,7 @@ export default class Brand extends CatalogPage {
             hooks.on('sortBy-submitted', this.onSortBySubmit);
         }
 		
-        cardSwatches();
+        cardSwatches(this.context.apiToken, this.dataProductCollection());
         cardWarranty();
 		cardCarousel();
 		menuHelper();
@@ -76,6 +76,7 @@ export default class Brand extends CatalogPage {
             $productListingContainer.html(content.productListing);
             $facetedSearchContainer.html(content.sidebar);
 			
+			cardSwatches(this.context.apiToken, this.dataProductCollection());
 			const dataFacetedSearch = this.context.cardVariantData;
 			if (dataFacetedSearch) {
 				cardData(this.context.apiToken, this.dataProductCollection());
