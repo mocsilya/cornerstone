@@ -45,7 +45,7 @@ There are a few important arguments to know about when using this component:
   		sizes="100vw"
   	{{else}}
   		{{#contains class 'productView-image--default'}}
-  			sizes="{{before (split theme_settings.productgallery_size 'x') 1}}px"
+  			sizes="{{before (split theme_settings.product_size 'x') 1}}px"
   		{{else}}
   			data-sizes="auto"
   		{{/contains}}

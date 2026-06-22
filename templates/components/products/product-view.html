@@ -84,54 +84,59 @@
         {{> components/carousel-content-announcement}}
         {{/if}}
 		{{> components/custom/client/client-product-gallery-top}}
-		<figure class="productView-image toggle-content is-open"
-		        data-image-gallery-main
-		        {{#if product.images.[0]}}
-		            data-zoom-image="{{getImageSrcset product.images.[0] (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size }}"
-		        {{else if product.main_image}}
-		            data-zoom-image="{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size }}"
-		        {{/if}}
-		        >
-		    <div class="productView-img-container">
-		        {{!-- Open anchor tag using first image or main image fallback --}}
-		        {{#if product.images.[0]}}
-		            <a href="{{getImageSrcset product.images.[0] (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size}}" target="_blank">
-		        {{else if product.main_image}}
-		            <a href="{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size}}" target="_blank">
-		        {{/if}}
+		{{assignVar "activeImage" "false"}}
 
-		        {{!-- Render the image component --}}
-		        {{#if product.images.[0]}}
-		            {{> components/common/responsive-img
-		                image=product.images.[0]
-		                class="productView-image--default"
-		                fallback_size=theme_settings.product_size
-		                lazyload='disabled'
-		                default_image=theme_settings.default_image_product
-		                otherAttributes="data-main-image"
-		            }}
+		{{#each product.images}}
+		    {{#if (getVar 'activeImage') '===' 'false'}}
+		        {{#contains alt "HIDEIMAGE"}}
+		            {{!-- Skip this image, it's hidden on the PDP --}}
 		        {{else}}
-		            {{> components/common/responsive-img
-		                image=product.main_image
-		                class="productView-image--default"
-		                fallback_size=theme_settings.product_size
-		                lazyload='disabled'
-		                default_image=theme_settings.default_image_product
-		                otherAttributes="data-main-image"
-		            }}
-		        {{/if}}
+		            {{assignVar "activeImage" "true"}}
+		            <figure class="productView-image toggle-content is-open" data-image-gallery-main data-zoom-image="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size }}">
+		                <div class="productView-img-container">
+		                    <a href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}" target="_blank">
+		                        {{> components/common/responsive-img
+		                            image=this
+		                            class="productView-image--default"
+		                            fallback_size=../theme_settings.product_size
+		                            lazyload='disabled'
+		                            default_image=../theme_settings.default_image_product
+		                            otherAttributes="data-main-image"
+									theme_settings=../theme_settings
+		                        }}
+		                    </a>
+                    
+		                    {{#filter ../product.custom_fields '_badge' property='name'}}
+		                        <div class="productView-img-badge">{{value}}</div>
+		                    {{/filter}}
+		                </div>
+		            </figure>
+		        {{/contains}}
+		    {{/if}}
+		{{/each}}
 
-		        {{#if product.images.[0]}}
-		            </a>
-		        {{else if product.main_image}}
-		            </a>
-		        {{/if}}
-
-		        {{#filter product.custom_fields '_badge' property='name'}}
-		            <div class="productView-img-badge">{{value}}</div>
-		        {{/filter}}
-		    </div>
-		</figure>
+		{{!-- Fallback: If no images matched or all were hidden, fall back to main_image --}}
+		{{#if (getVar 'activeImage') '===' 'false'}}
+		    {{#if product.main_image}}
+		        <figure class="productView-image toggle-content is-open" data-image-gallery-main data-zoom-image="{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size }}">
+		            <div class="productView-img-container">
+		                <a href="{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size}}" target="_blank">
+		                    {{> components/common/responsive-img
+		                        image=product.main_image
+		                        class="productView-image--default"
+		                        fallback_size=theme_settings.product_size
+		                        lazyload='disabled'
+		                        default_image=theme_settings.default_image_product
+		                        otherAttributes="data-main-image"
+		                    }}
+		                </a>
+	                    {{#filter product.custom_fields '_badge' property='name'}}
+	                        <div class="productView-img-badge">{{value}}</div>
+	                    {{/filter}}
+		            </div>
+		        </figure>
+		    {{/if}}
+		{{/if}}
 		{{assignVar "thumbs" "hide"}}
 		{{#each product.images}}
 			{{#if @last}}
