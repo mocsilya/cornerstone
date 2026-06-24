@@ -173,8 +173,9 @@
     {{#all theme_settings.custom_product_question theme_settings.custom_product_question_tab}}
         <div class="tab-content" id="tab-question">
 			<div id="product_question">
-				<div id="iframe_product">
-				    <iframe id="iframe_product--iframe" src="{{settings.base_url}}/iframe/?rma={{encodeURI (sanitize product.title)}}{{#if product.sku}}%20({{encodeURI (sanitize product.sku)}}){{/if}}" allowfullscreen frameborder="0" scrolling="no" style="border: 0;"></iframe>
+				<div id="iframe_product" 
+					data-product-title="{{product.title}}" 
+					data-product-sku="{{#if product.sku}}{{product.sku}}{{/if}}">
 				</div>
 			</div>
         </div>

@@ -161,63 +161,75 @@
 		{{/if}}
         <div class="card-img-container card-img-normal">
 			{{#if theme_settings.custom_card_show_alt_image}}
-                {{#each (limit images 2)}}
-                    {{#unless this.data '===' ../../image.data}}
-                        <span class="card-image card-image-{{@index}}">
-                            {{> components/common/responsive-img
-								theme_settings=../theme_settings
-                                image=this
-                                class="card-image"
-                                fallback_size=theme_settings.productgallery_size
-                                lazyload=theme_settings.lazyload_mode
-                                default_image=theme_settings.default_image_product
-                            }}
-                        </span>
-                    {{/unless}}
-                {{/each}}
-                    {{> components/common/responsive-img
-						theme_settings=theme_settings
-                        image=default
-                        class="card-image card-image-default"
-                        fallback_size=theme_settings.productgallery_size
-                        lazyload=theme_settings.lazyload_mode
-                        default_image=theme_settings.default_image_product
-                    }}
+			    <span class="card-image card-image-0 card-image-default">
+			        {{> components/common/responsive-img
+			            theme_settings=theme_settings
+			            image=image
+			            class="card-image"
+			            fallback_size=theme_settings.productgallery_size
+			            lazyload=theme_settings.lazyload_mode
+			            default_image=theme_settings.default_image_product
+			        }}
+			    </span>
+			    {{assignVar "hoverImageFound" "false"}}
+			    {{#each images}}
+					{{#contains alt "HIDEIMAGE"}}
+					{{else}}
+			        	{{#if (getVar "hoverImageFound") '===' 'false'}}
+			            	{{#if (cdn (getImage this 'productgallery_size')) '===' (cdn (getImage ../image 'productgallery_size'))}}
+			            	{{else}}
+				                <span class="card-image card-image-1 card-image-hover">
+				                    {{> components/common/responsive-img
+				                        theme_settings=../theme_settings
+				                        image=this
+				                        class="card-image"
+				                        fallback_size=../theme_settings.productgallery_size
+				                        lazyload=../theme_settings.lazyload_mode
+				                        default_image=../theme_settings.default_image_product
+				                    }}
+				                </span>
+			                	{{assignVar "hoverImageFound" "true"}}
+			            	{{/if}}
+			        	{{/if}}
+					{{/contains}}
+			    {{/each}}
 			{{else}}
-				{{> components/common/responsive-img
-					theme_settings=theme_settings
-                    image=image
-                    class="card-image"
-                    fallback_size=theme_settings.productgallery_size
-                    lazyload=theme_settings.lazyload_mode
-                    default_image=theme_settings.default_image_product
-                }}
+			    {{> components/common/responsive-img
+			        theme_settings=theme_settings
+			        image=image
+			        class="card-image"
+			        fallback_size=theme_settings.productgallery_size
+			        lazyload=theme_settings.lazyload_mode
+			        default_image=theme_settings.default_image_product
+			    }}
 			{{/if}}
         </div>
         </a>
 		{{#if (getVar "spotlight") '===' 'active'}}
-			<ul class="spotlight-carousel">
-	        {{#each images}}
-	            {{#unless this.data '===' ../../image.data}}
-	                <li class="spotlight-carousel-item">
-						<span class="card-figure__link card-figure__slider">
-						<div class="card-img-container card-img-slider">
-						<a href="{{../url}}">
-	                    {{> components/common/responsive-img
-							theme_settings=../theme_settings
-	                        image=this
-	                        class="card-image card-image-slide"
-	                        fallback_size=theme_settings.productgallery_size
-	                        lazyload=theme_settings.lazyload_mode
-	                        default_image=theme_settings.default_image_product
-	                    }}
-						</a>
-						</div>
-					</span>
-	                </li>
-	            {{/unless}}
-	        {{/each}}
-			</ul>
+		    <ul class="spotlight-carousel">
+		    {{#each images}}
+		        {{#contains alt "HIDEIMAGE"}}
+		            {{!-- Skip this image entirely --}}
+		        {{else}}
+		            <li class="spotlight-carousel-item">
+		                <span class="card-figure__link card-figure__slider">
+		                    <div class="card-img-container card-img-slider">
+		                        <a href="{{../url}}">
+		                        {{> components/common/responsive-img
+		                            theme_settings=../theme_settings
+		                            image=this
+		                            class="card-image card-image-slide"
+		                            fallback_size=../theme_settings.productgallery_size
+		                            lazyload=../theme_settings.lazyload_mode
+		                            default_image=../theme_settings.default_image_product
+		                        }}
+		                        </a>
+		                    </div>
+		                </span>
+		            </li>
+		        {{/contains}}
+		    {{/each}}
+		    </ul>
 		{{/if}}
     </figure>
     <div class="listItem-body card-body">
@@ -280,12 +292,10 @@
 				{{/if}}
 				{{#if (getVar "warranty") '===' 'active'}}
 					<div class="card-warranty">
-						<a class="button button--small button--secondary has-dropdown" href="#" data-warranty-url="{{url}}" data-dropdown="warranty{{id}}" aria-expanded="false">
+						<a class="button button--small button--secondary has-dropdown" href="#" data-product-id="{{id}}" data-dropdown="warranty{{id}}" aria-expanded="false">
 							{{theme_settings.custom_product_warranty_title}}
 						</a>
-						<div class="dropdown-menu" id="warranty{{id}}" data-dropdown-content="" aria-hidden="true">
-							<div class="dropdown-wrap"></div>
-						</div>
+						<div class="dropdown-menu" id="warranty{{id}}" data-dropdown-content="" aria-hidden="true"></div>
 					</div>
 				{{/if}}
 				<div class="listItem-buttons">

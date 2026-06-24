@@ -62,24 +62,22 @@ export default function (key, productIdArray) {
     })
     .then(res => res.json())
     .then(response => {
-        if (!response.data) return;
+        if (!response?.data) return; // Added optional chaining guard here
 
         // Loop through each product returned by GraphQL
         response.data.site.products.edges.forEach(({ node }) => {
             // 1. Find the specific card's swatch container
-            // We use the entityId to make sure we hit the right card
             const $target = $(`[data-entity-id="${node.entityId}"]`).find('.card-swatches');
             
             if (!$target.length) return;
 
 			// 2. Find the "Color" option in the product data
-			const colorOption = node.productOptions.edges.find(opt => {
+			const colorOption = node.productOptions?.edges?.find(opt => { // Added optional chaining guard here
 			    const name = opt.node.displayName.toLowerCase();
-			    // This returns true if the name contains 'color', 'colour', or 'swatch'
 		 	   	return name.includes('color') || name.includes('colour') || name.includes('swatch') || name.includes('pattern') || name.includes('finish') || name.includes('material') || name.includes('shade') || name.includes('tone') || name.includes('fabric') || name.includes('texture') || name.includes('print');
 			});
 
-			if (colorOption) {
+			if (colorOption && colorOption.node?.values?.edges) { // Added conditional guard here
 			    // 3. Build the HTML for each swatch value
 			    const swatchHtml = colorOption.node.values.edges.map(({ node: val }) => {
 			        const isImage = !!val.imageUrl;
@@ -96,14 +94,17 @@ export default function (key, productIdArray) {
 			                </span>`;
 			        } else {
 			            // SINGLE & MULTI COLOUR STRUCTURE
-			            // We map through the hexColors array to create a span for EVERY color
-			            variantHtml = val.hexColors.map(color => `
+			            // Fixed: Added optional chaining and fallback empty array so it safely skips undefined hex arrays
+			            variantHtml = (val.hexColors || []).map(color => `
 			                <span class="form-option-variant form-option-variant--color" 
 			                      title="${val.label}" 
 			                      style="background-color: ${color}">
 			                </span>
 			            `).join('');
 			        }
+
+                    // Only return a template layout if we actually generated inner variants
+                    if (variantHtml === '') return '';
 
 			        return `
 			            <label class="${labelClass}">
