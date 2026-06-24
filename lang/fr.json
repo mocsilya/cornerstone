@@ -59,7 +59,9 @@
             "shipping": "Livraison",
             "grand_total": "Total",
             "select": "Sélectionner",
-            "update": "Mettre à jour les frais de livraison"
+            "update": "Mettre à jour les frais de livraison",
+            "you_saved": "Vous avez économisé",
+            "in_total": "au total !"
         },
         "preview": {
             "checkout_now": "Payer",
@@ -71,6 +73,9 @@
         "invalid_entry_message": "[ENTRY] n'est pas une saisie valide",
         "coupon_code": "Code promotionnel",
         "discount": "Remise",
+        "discounts": "Remises",
+        "manual_discount": "Remise manuelle",
+        "automatic_discount": "Réduction automatique",
         "included_in_total": " Inclus dans le total",
         "remove_file": "Supprimer ce fichier",
         "freeshipping": "Livraison gratuite",
@@ -80,6 +85,7 @@
         "confirm_delete": "Voulez-vous vraiment supprimer cet article ?",
         "coupons": {
             "apply_coupon": "Appliquer le code promotionnel",
+            "apply_coupon_code": "Appliquer le code promotionnel",
             "empty_error": "Veuillez saisir votre code promotionnel.",
             "cancel": "Annuler",
             "add_code": "Ajouter un code",
@@ -87,7 +93,8 @@
             "button": "Appliquer",
             "coupon_code": "Saisissez votre code promotionnel",
             "code_label": "Code promotionnel ({code})",
-            "remove": "Supprimer"
+            "remove": "Supprimer",
+            "maximum_discount_applied": "Remise maximale appliquée"
         },
         "gift_certificates": {
             "apply_gift_certificate": "Appliquer le chèque-cadeau",
@@ -145,6 +152,8 @@
         "currency_switch_promotion": "Les promotions et les chèques-cadeaux qui ne s'appliquent pas à la nouvelle devise seront supprimés de votre panier. Voulez-vous vraiment continuer ?",
         "channel": "Boutique : {code}",
         "channel_switch_warning": "Texte d'avertissement pour le changement de boutique",
+        "locale_switch_warning": "Texte d'avertissement pour le changement de langue",
+        "locale": "Langue :",
         "newsletter_signup": "Abonnez-vous à notre newsletter",
         "form_submit": "Envoyer",
         "no_preference": "Aucune préférence",
@@ -351,7 +360,7 @@
                 "heading": "Commande n° {number}",
                 "order_contents": "Contenu de la commande",
                 "ship_to": "Expédier à",
-                "ship_to_multi": "Articles expédiés à {street}, {city}, {state}, {zip}, {country}",
+                "ship_to_multi": "Expédier à l'adresse : {street}, {city}, {state}, {zip}, {country}",
                 "ship_to_multi_text": "La commande sera livrée à plusieurs adresses",
                 "pickup_details": "Détails sur le retrait",
                 "bill_to": "Facturer à",
@@ -720,6 +729,8 @@
         "change_product_options": "Modifier les options pour {name}",
         "quantity_decrease": "Diminuer la quantité pour {name}",
         "quantity_increase": "Augmenter la quantité pour {name}",
+        "quantity_backordered": "{quantity} seront en attente de réapprovisionnement",
+        "quantity_on_hand": "{quantity} prêt·s pour expédition",
         "quantity_error_message": "La quantité ne doit contenir que des chiffres",
         "purchase_units": "{quantity, plural, =0{0 aucune unité} one {# unité} other {# unités}}",
         "max_purchase_quantity": "Quantité maximale d'achat :",
@@ -815,7 +826,11 @@
             "range": "Acheter {min} {max, plural, =0{ou plus} other {- #}}",
             "percent": "et bénéficiez de {discount} de remise",
             "price": "et bénéficiez de {discount} de remise",
-            "fixed": "et ne payez que {discount} l'unité"
+            "fixed": "et ne payez que {discount} l'unité",
+            "fixed_both": {
+                "prefix": "et ne payez que",
+                "suffix": "L'unité"
+            }
         },
         "card_default_image_alt": "Image disponible bientôt"
     },

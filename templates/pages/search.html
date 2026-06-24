@@ -28,7 +28,16 @@ customer:
 <div class="container container-hero">
 	{{#if theme_settings.custom_page_header_image_search}}
 		<div class="page-header search-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
-	    <img class="page-header-image" src="/product_images/uploaded_images/{{theme_settings.custom_page_header_image_search}}" />
+	    {{assignVar "headerImage" theme_settings.custom_page_header_image_search}}
+		<img class="page-header-image" src="{{getImageManagerImage (getVar 'headerImage') width=640}}" 
+			srcset="{{getImageManagerImage (getVar 'headerImage') width=480}} 480w, 
+			{{getImageManagerImage (getVar 'headerImage') width=800}} 800w, 
+			{{getImageManagerImage (getVar 'headerImage') width=1200}} 1200w, 
+			{{getImageManagerImage (getVar 'headerImage') width=1920}} 1920w" 
+			sizes="100vw" 
+			alt="{{page.title}}" 
+			fetchpriority="high" 
+		/>
 	{{else}}
 		<div class="page-header search-header">
 	{{/if}}

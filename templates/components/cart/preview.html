@@ -54,7 +54,7 @@
 
             
         </section>
-        <section class="productView">
+        <section class="productView{{#with cart.added_item}}{{#filter custom_fields '_upsell' property='name'}} productView-upsell-modal{{/filter}}{{/with}}">
             {{#with cart.added_item}}
                 <figure class="productView-image">
                     <div class="productView-img-container">
@@ -84,17 +84,30 @@
                             {{> components/common/login-for-pricing}}
                         {{/or}}
                     </div>
-
-                    {{#each options}}
-                        <dl class="productView-info">
-                            <dt class="productView-info-name">
-                                {{name}}
-                            </dt>
-                            <dd class="productView-info-value">
-                                {{> components/common/product-options}}
-                            </dd>
-                        </dl>
-                    {{/each}}
+					
+					{{assignVar "upsell" "no"}}
+					{{#each custom_fields}}
+					    {{#if name '===' '_upsell'}}
+					        {{#if (getVar "upsell") '===' 'no'}}
+								<div class="productView-actions">
+									<button type="button" class="button button--small">
+										<span class="button-text">Added!</span>
+									</button>
+								</div>
+					            {{assignVar "upsell" "yes"}}
+					        {{/if}}
+					    {{/if}}
+					{{/each}}
+					{{#if options}}
+						<div class="productView-info">
+                    	{{#each options}}
+                        	<dl class="productView-info-row">
+                            	<dt class="productView-info-name">{{name}}:</dt>
+                            	<dd class="productView-info-value">{{> components/common/product-options}}</dd>
+							</dl>
+						{{/each}}
+                        </div>
+					{{/if}}
                 </div>
             {{/with}}
         </section>
