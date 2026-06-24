@@ -892,6 +892,14 @@ div[data-content-region="product_below_price--global"] div > div > div {
     font-size: 1rem !important;
 }
 
+.productView-block-sticky {
+    float: none;
+}
+
+.related-similar-sticky {
+    margin-top: 3rem;
+}
+
 .productView-options .form-increment .button,
 .form-increment .form-input--incrementTotal {
 	padding-top: 12px;
@@ -1279,6 +1287,11 @@ div[data-content-region="category_below_menu"] div[data-placement-status="ACTIVE
 // =============================================================================
 // Blog post
 // =============================================================================
+
+
+.page-blog_post .blog-post {
+    display: block;
+}
 
 .page-blog_post .breadcrumb.is-active,
 .page-blog_post .blog-post-figure {
