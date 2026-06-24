@@ -1,0 +1,26 @@
+<span class="header-bar-icon">
+	<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-information{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}"></use></svg></i>
+</span>
+<span class="header-bar-text">
+{{#each pages}}
+	{{#if name '===' 'Information'}}
+        <a class="has-dropdown"
+		   href="#"
+           data-dropdown="customDropdown"
+		   aria-controls="customDropdown"
+		   aria-expanded="false"
+           aria-label="Information"
+        >
+			{{name}}
+        </a>
+		<ul class="dropdown-menu" id="customDropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
+    	{{#each children}}
+			<li class="dropdown-menu-item">
+				<a href="{{url}}">{{name}}</a>
+			</li>
+    	{{/each}}
+		</ul>
+	{{/if}}
+{{/each}}
+</span>
+	            
