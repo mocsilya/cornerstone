@@ -36,7 +36,7 @@ There are a few important arguments to know about when using this component:
 
 --}}
 <img {{#contains class 'card-image'}} width="{{before (split theme_settings.productgallery_size 'x') 1}}" height="{{after (split theme_settings.productgallery_size 'x') 1}}"{{/contains}} {{#contains class 'heroCarousel-image'}} width="{{before (split theme_settings.custom_homepage_carousel_size 'x') 1}}" height="{{after (split theme_settings.custom_homepage_carousel_size 'x') 1}}"{{/contains}} {{#if image}}{{!-- Get the default image for legacy browsers that do not support srcset
---}}src="{{getImageSrcset image 1x=(default fallback_size '160w')}}" alt="{{image.alt}}" title="{{image.alt}}" {{!--
+--}}src="{{getImageSrcset image 1x=(default fallback_size '160w')}}" alt="{{#contains image.alt 'HIDEIMAGE'}}{{trim (first (before (split image.alt 'HIDEIMAGE') 1))}}{{else}}{{image.alt}}{{/contains}}" title="{{#contains image.alt 'HIDEIMAGE'}}{{trim (first (before (split image.alt 'HIDEIMAGE') 1))}}{{else}}{{image.alt}}{{/contains}}" {{!--
   Allow lazysizes to generate the 'sizes' attribute automatically --}}
   {{#contains class 'page-header-image'}}
   	sizes="100vw"

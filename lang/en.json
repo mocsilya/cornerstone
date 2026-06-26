@@ -1061,10 +1061,11 @@
             "customer_heading": "Customer"
         },
         "payment": {
-            "payment_heading": "Confirm Payment"
+            "payment_heading": "Payment"
         },
         "shipping": {
-            "shipping_heading": "Shipping"
+            "shipping_heading": "Shipping",
+            "enter_shipping_address_text": "Please enter a shipping address in order to see shipping quotes"
         },
         "order_confirmation": {
 			"order_number_text": "Your order number is <strong>{orderNumber}</strong>",
