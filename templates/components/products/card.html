@@ -30,11 +30,23 @@
     data-product-brand="{{brand.name}}"
     data-product-price="
     {{#or customer (unless settings.hide_price_from_guests)}}
-        {{#if price.with_tax}}
-            {{price.with_tax.value}}
-        {{else}}
-            {{price.without_tax.value}}
-        {{/if}}
+		{{#if theme_settings.custom_b2b}}
+			{{#if customer.customer_group_name '==' theme_settings.custom_b2b_pending_group}}
+				{{lang 'common.login_for_pricing'}}
+			{{else}}
+		        {{#if price.with_tax}}
+		            {{price.with_tax.value}}
+		        {{else}}
+		            {{price.without_tax.value}}
+		        {{/if}}
+			{{/if}}
+		{{else}}
+	        {{#if price.with_tax}}
+	            {{price.with_tax.value}}
+	        {{else}}
+	            {{price.without_tax.value}}
+	        {{/if}}
+		{{/if}}
     {{else}}
         {{lang 'common.login_for_pricing'}}
     {{/or}}"
@@ -310,41 +322,21 @@
                          <input type="checkbox" name="products[]" value="{{id}}" id="compare-{{id}}" data-compare-id="{{id}}">
                     </label>
                 {{/if}}
-				{{#if theme_settings.custom_b2b}}
-					{{#if (getVar "b2b-prices") '===' 'show'}}
-                		{{#if show_cart_action}}
-                    		{{#if has_options}}
-                        		<a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button card-figcaption-chooseoptions" data-product-id="{{id}}"><strong>{{lang 'products.choose_options'}}</strong></a>
-                    		{{/if}}
-                    		{{#if pre_order}}
-                        		<a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--small card-figcaption-button card-figcaption-preorder"><strong>{{lang 'products.pre_order'}}</strong></a>
-                   			{{/if}}
-                    		{{#if add_to_cart_url }}
-                        	<a href="{{add_to_cart_url}}" data-event-type="product-click" data-button-type="add-cart" class="button button--small card-figcaption-button card-figcaption-addtocart"><strong>{{lang 'products.add_to_cart'}}</strong></a>
-                        	<span class="product-status-message aria-description--hidden">{{lang 'category.add_cart_announcement'}}</span>
-                    		{{/if}}
-                    		{{#if out_of_stock_message }}
-                        		<a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button card-figcaption-outofstock" data-product-id="{{id}}"><strong>{{out_of_stock_message}}</strong></a>
-                    		{{/if}}
-                		{{/if}}
-					{{/if}}
-				{{else}}
-            		{{#if show_cart_action}}
-                		{{#if has_options}}
-                    		<a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button card-figcaption-chooseoptions" data-product-id="{{id}}"><strong>{{lang 'products.choose_options'}}</strong></a>
-                		{{/if}}
-                		{{#if pre_order}}
-                    		<a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--small card-figcaption-button card-figcaption-preorder"><strong>{{lang 'products.pre_order'}}</strong></a>
-               			{{/if}}
-                		{{#if add_to_cart_url }}
-                    	<a href="{{add_to_cart_url}}" data-event-type="product-click" data-button-type="add-cart" class="button button--small card-figcaption-button card-figcaption-addtocart"><strong>{{lang 'products.add_to_cart'}}</strong></a>
-                    	<span class="product-status-message aria-description--hidden">{{lang 'category.add_cart_announcement'}}</span>
-                		{{/if}}
-                		{{#if out_of_stock_message }}
-                    		<a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button card-figcaption-outofstock" data-product-id="{{id}}"><strong>{{out_of_stock_message}}</strong></a>
-                		{{/if}}
+        		{{#if show_cart_action}}
+            		{{#if has_options}}
+                		<a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button card-figcaption-chooseoptions" data-product-id="{{id}}"><strong>{{lang 'products.choose_options'}}</strong></a>
             		{{/if}}
-				{{/if}}
+            		{{#if pre_order}}
+                		<a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--small card-figcaption-button card-figcaption-preorder"><strong>{{lang 'products.pre_order'}}</strong></a>
+           			{{/if}}
+            		{{#if add_to_cart_url }}
+                	<a href="{{add_to_cart_url}}" data-event-type="product-click" data-button-type="add-cart" class="button button--small card-figcaption-button card-figcaption-addtocart"><strong>{{lang 'products.add_to_cart'}}</strong></a>
+                	<span class="product-status-message aria-description--hidden">{{lang 'category.add_cart_announcement'}}</span>
+            		{{/if}}
+            		{{#if out_of_stock_message }}
+                		<a href="{{url}}" data-event-type="product-click" class="button button--small card-figcaption-button card-figcaption-outofstock" data-product-id="{{id}}"><strong>{{out_of_stock_message}}</strong></a>
+            		{{/if}}
+        		{{/if}}
 				{{> components/custom/client/client-card-actions}}
             </div>
         </figcaption>
@@ -376,25 +368,21 @@
         	{{/if}}
 		{{/if}}
         <div class="card-text card-price" data-test-info-type="price">
-            {{#or customer (unless settings.hide_price_from_guests)}}
+			{{#or customer (unless settings.hide_price_from_guests)}}
 				{{#if theme_settings.custom_b2b}}
-					{{#if (getVar "b2b-prices") '===' 'show'}}
-                		{{> components/products/price price=price}}
+					{{#if customer.customer_group_name '==' theme_settings.custom_b2b_pending_group}}
+						<p>{{theme_settings.custom_b2b_pending_message}}</p>
+					{{else}}
+						{{> components/products/price price=price}}
 					{{/if}}
 				{{else}}
 					{{> components/products/price price=price}}
 				{{/if}}
-            {{else}}
-                {{> components/common/login-for-pricing}}
-            {{/or}}
+			{{else}}
+				{{> components/common/login-for-pricing}}
+			{{/or}}
         </div>
-		{{#if theme_settings.custom_b2b}}
-			{{#if (getVar "b2b-prices") '===' 'show'}}
-        		{{> components/products/bulk-discount-rates}}
-			{{/if}}
-		{{else}}
-			{{> components/products/bulk-discount-rates}}
-		{{/if}}
+		{{> components/products/bulk-discount-rates}}
 	    {{#if show_cart_action}}
 			{{#if has_options}}
 				{{#if theme_settings.custom_card_show_swatches}}
@@ -412,41 +400,21 @@
 		{{/if}}
 		{{#if (getVar "spotlight") '===' 'active'}}
         	<div class="card-spotlight-actions">
-				{{#if theme_settings.custom_b2b}}
-					{{#if (getVar "b2b-prices") '===' 'show'}}
-                    	{{#if show_cart_action}}
-                        	{{#if has_options}}
-                            	<a href="{{url}}" data-event-type="product-click" class="button button--large button--primary" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
-                        	{{/if}}
-                        	{{#if pre_order}}
-                            	<a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--large button--secondary">{{lang 'products.pre_order'}}</a>
-                        	{{/if}}
-                        	{{#if add_to_cart_url }}
-                            	<a href="{{add_to_cart_url}}" data-event-type="product-click" data-button-type="add-cart" class="button button--large button--primary">{{lang 'products.add_to_cart'}}</a>
-                            	<span class="product-status-message aria-description--hidden">{{lang 'category.add_cart_announcement'}}</span>
-                        	{{/if}}
-                        	{{#if out_of_stock_message }}
-                            	<a href="{{url}}" data-event-type="product-click" class="button button--large button--secondary" data-product-id="{{id}}">{{out_of_stock_message}}</a>
-                        	{{/if}}
-                    	{{/if}}
-					{{/if}}
-				{{else}}
-                	{{#if show_cart_action}}
-                    	{{#if has_options}}
-                        	<a href="{{url}}" data-event-type="product-click" class="button button--large button--primary" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
-                    	{{/if}}
-                    	{{#if pre_order}}
-                        	<a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--large button--secondary">{{lang 'products.pre_order'}}</a>
-                    	{{/if}}
-                    	{{#if add_to_cart_url }}
-                        	<a href="{{add_to_cart_url}}" data-event-type="product-click" data-button-type="add-cart" class="button button--large button--primary">{{lang 'products.add_to_cart'}}</a>
-                        	<span class="product-status-message aria-description--hidden">{{lang 'category.add_cart_announcement'}}</span>
-                    	{{/if}}
-                    	{{#if out_of_stock_message }}
-                        	<a href="{{url}}" data-event-type="product-click" class="button button--large button--secondary" data-product-id="{{id}}">{{out_of_stock_message}}</a>
-                    	{{/if}}
+            	{{#if show_cart_action}}
+                	{{#if has_options}}
+                    	<a href="{{url}}" data-event-type="product-click" class="button button--large button--primary" data-product-id="{{id}}">{{lang 'products.choose_options'}}</a>
                 	{{/if}}
-				{{/if}}
+                	{{#if pre_order}}
+                    	<a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--large button--secondary">{{lang 'products.pre_order'}}</a>
+                	{{/if}}
+                	{{#if add_to_cart_url }}
+                    	<a href="{{add_to_cart_url}}" data-event-type="product-click" data-button-type="add-cart" class="button button--large button--primary">{{lang 'products.add_to_cart'}}</a>
+                    	<span class="product-status-message aria-description--hidden">{{lang 'category.add_cart_announcement'}}</span>
+                	{{/if}}
+                	{{#if out_of_stock_message }}
+                    	<a href="{{url}}" data-event-type="product-click" class="button button--large button--secondary" data-product-id="{{id}}">{{out_of_stock_message}}</a>
+                	{{/if}}
+            	{{/if}}
 				{{> components/custom/client/client-card-actions}}
 			</div>
 		{{/if}}

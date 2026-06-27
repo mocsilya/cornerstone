@@ -32,7 +32,6 @@ customer:
 {{#partial "page"}}
 {{{region name="brand_below_header"}}}
 <div class="page">
-	{{#if (getVar "b2b-products") '===' 'show'}}
     <aside class="page-sidebar toggle-content is-open" id="faceted-search-container">
 		{{#if brand.image}}
 		<div class="sidebar-image">
@@ -47,7 +46,6 @@ customer:
 		{{/if}}
         {{> components/brand/sidebar}}
     </aside>
-	{{/if}}
 	
     <div class="page-content">
 		{{{region name="brand_above_content"}}}

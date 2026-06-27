@@ -2500,10 +2500,13 @@ body.scroll .header-fixed .navPages-wrapper-icon .desktopMenu-toggleIcon {
 
 .b2b-message {
 	text-align: center;
-	background-color: stencilColor("color-warning");
-	color: stencilColor("color-warningLight");
-	padding: 1.5rem;
+	background-color: stencilColor("custom-page-header-background");
+	color: stencilColor("custom-page-header-text");
+	padding: 2rem;
 	font-weight: 700;
+	font-size: 1.25rem;
+	font-family: stencilFontFamily("headings-font");
+	margin-bottom: 1px;
 }
 
 .page-login .b2b-message-guest,
@@ -2517,15 +2520,15 @@ body.scroll .header-fixed .navPages-wrapper-icon .desktopMenu-toggleIcon {
 }
 
 .b2b-message-action .button--primary {
-	color: stencilColor("color-warning");
-	background-color: stencilColor("color-warningLight");
-	border: 1px solid stencilColor("color-warningLight");
+	color: stencilColor("custom-page-header-background");
+	background-color: stencilColor("custom-page-header-text");
+	border: 1px solid stencilColor("custom-page-header-text");
 }
 
 .b2b-message-action .button--secondary {
-	color: stencilColor("color-warningLight");
-	background-color: stencilColor("color-warning");
-	border: 1px solid stencilColor("color-warningLight");
+	color: stencilColor("custom-page-header-text");
+	background-color: stencilColor("custom-page-header-background");
+	border: 1px solid stencilColor("custom-page-header-text");
 }
 
 .b2b-message-action .button {
@@ -6446,7 +6449,7 @@ div[data-content-region="product_view_bottom--global"] {
 .productView-options #add-to-cart-wrapper {
 	display: flex;
 	flex-wrap: wrap;
-	margin: .75rem 0;
+	margin: 1.5rem 0 .75rem 0;
 }
 
 .productView-options #add-to-cart-wrapper .alertBox {
