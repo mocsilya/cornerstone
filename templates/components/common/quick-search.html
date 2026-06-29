@@ -1,4 +1,4 @@
-<div class="container"{{#if theme_settings.custom_header_search_type '==' 'box'}} data-prevent-quick-search-close{{/if}}>
+<div class="container container-quick-form"{{#if theme_settings.custom_header_search_type '==' 'box'}} data-prevent-quick-search-close{{/if}}>
     <form class="form" data-url="{{urls.search}}" data-quick-search-form>
         <fieldset class="form-fieldset">
             <div class="form-field form-field-input">
@@ -22,7 +22,8 @@
     </form>
 {{#if theme_settings.custom_header_search_type '==' 'box'}}
 </div>
-<div id="quickSearch" class="dropdown dropdown--quickSearch" aria-hidden="false" data-prevent-quick-search-close>
+<div id="quickSearch" class="dropdown dropdown--quickSearch form-search-box" aria-hidden="false" data-prevent-quick-search-close>
+<div class="container container-quick-results">
 {{/if}}
     <section class="quickSearchResults" data-bind="html: results"></section>
     <p role="status"
@@ -31,3 +32,6 @@
        data-search-aria-message-predefined-text="{{{lang 'search.results.quick_count_live'}}}"
     ></p>
 </div>
+{{#if theme_settings.custom_header_search_type '==' 'box'}}
+</div>
+{{/if}}

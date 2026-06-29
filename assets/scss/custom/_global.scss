@@ -403,7 +403,7 @@ div[data-content-region="footer_top--global"] {
 
 
 .header-bar {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
@@ -412,14 +412,28 @@ div[data-content-region="footer_top--global"] {
 	color: stencilColor("custom-header-bar-text");
 	height: 3rem;
 	overflow-y: hidden;
+	@include breakpoint("medium") {
+		position: relative;
+	}
 }
 
-.header-bar-fixed {
-	position: fixed;
+body.scroll .header-bar-fixed {
+	@include breakpoint("medium") {
+		position: fixed;
+	}
 }
 
 body.scroll .header-bar {
 	top: -3rem;
+	@include breakpoint("medium") {
+		top: 0;
+	}
+}
+
+body.scroll .header-bar-fixed  {
+	@include breakpoint("medium") {
+		top: -3rem;
+	}
 }
 
 .header-bar .header-bar-message,
@@ -586,66 +600,76 @@ body.scroll .header-bar {
 // header
 // =============================================================================
 
-// fixed header without bar
-body.body-fixed {
+// body should always have 55px initially then reset. 
+body {
 	padding-top: 55px;
 	@include breakpoint("medium") {
-		padding-top: 125px;
-	}
-	@include breakpoint("large") {
-		padding-top: 145px;
+		padding-top: 0;
 	}
 }
 
-// fixed header with bar
-body.body-fixed.with-bar {
+// if with header bar and 3rem
+body.with-bar {
 	padding-top: calc(55px + 3rem);
 	@include breakpoint("medium") {
-		padding-top: calc(125px + 3rem);
-	}
-	@include breakpoint("large") {
-		padding-top: calc(145px + 3rem);
+		padding-top: 0;
 	}
 }
 
-// fixed header when scrolled without main nav
-body.body-fixed.scroll {
+// when scrolling revert to 55px
+body.scroll {
 	padding-top: 55px;
 	@include breakpoint("medium") {
-		padding-top: 55px;
+		padding-top: 0;
 	}
-	@include breakpoint("large") {
+}
+
+// non mobile: fixed header when scrolling 
+body.body-fixed.scroll {
+	@include breakpoint("medium") {
 		padding-top: 55px;
 	}
 }
 
-// fixed header when scrolled without main nav
+// non mobile: fixed header with main nav
 body.body-fixed.scroll.body-scroll-nav {
 	@include breakpoint("medium") {
-		padding-top: 90px;
-	}
-	@include breakpoint("large") {
-		padding-top: 90px;
+		padding-top: 106px;
 	}
 }
 
-
-
-.header {
-	border-bottom: 0;
-}
-
-body .header-fixed {
+body .header {
 	position: fixed;
 	top: 0;
+	border-bottom: 0;
+	@include breakpoint("medium") {
+		position: relative;
+	}
 }
 
-body.with-bar .header-fixed {
+body.scroll .header {
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+	@include breakpoint("medium") {
+		box-shadow: none;
+	}
+}
+
+body.scroll .header-fixed {
+	@include breakpoint("medium") {
+		position: fixed;
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+	}
+}
+
+body.with-bar .header {
 	top: 3rem;
+	@include breakpoint("medium") {
+		top: 0;
+	}
 }
 
 body .header.is-open,
-body.scroll .header-fixed {
+body.scroll .header {
 	top: 0;
 	z-index: 102;
 }
@@ -751,7 +775,13 @@ body.scroll .header-fixed {
 }
 
 .header-logo__link {
-	width: 100%;
+	width: auto;
+}
+
+.header-logo--left .header-logo__link {
+	@include breakpoint("medium") {
+		justify-content: flex-start;
+	}
 }
 
 .header-logo__link:hover {
@@ -847,10 +877,15 @@ body.scroll .header-fixed .header-logo-text {
 .navUser {
 	transform: none;
 	top: 0;
+	z-index: 11;
 	@include breakpoint("medium") {
 		padding: 0;
 		text-align: center;
 	}
+}
+
+.navUser > .container {
+	position: static;
 }
 
 .navUser-section:before,
@@ -866,10 +901,14 @@ body.scroll .header-fixed .header-logo-text {
 	}
 }
 
-.navUser-section--norm.navUser-section-center {
+.navUser-section--norm {
 	@include breakpoint("medium") {
 		text-align: left;
 	}
+}
+
+.navUser-section--norm.navUser-section-center {
+	position: static;
 }
 
 .navUser-section--alt.navUser-section-center {
@@ -925,7 +964,6 @@ body.scroll .header-fixed .header-logo-text {
 	@include breakpoint("medium") {
 		vertical-align: top;
 		display: inline-block;
-		
 	}
 }
 
@@ -973,9 +1011,6 @@ body.scroll .header-fixed .header-logo-text {
 	text-align: center;
 	padding: 0 2.42856rem 10px 2.42856rem;
 }
- 
-
-.previewCart-additionalCheckoutButtons
 
 .navUser-item--cart .previewCart-additionalCheckoutButtons > div.FloatRight {
 	margin-bottom: 10px;
@@ -988,7 +1023,6 @@ body.scroll .header-fixed .header-logo-text {
 .navUser-item--cart .previewCart-additionalCheckoutButtons .FloatRight div {
 	float: none;
 }
-
 
 .navUser-item--credit .dropdown-menu {
 	text-align: left;
@@ -1014,6 +1048,60 @@ body.scroll .header-fixed .header-logo-text {
 	outline: none;
 }
 
+
+// new search box only
+
+
+.navUser-item--boxsearch > .container-quick-form {
+	display: none !important;
+	background: stencilColor("dropdown--quickSearch-backgroundColor");
+	@include breakpoint("medium") {
+		padding: 0 1.5rem 0 0 !important;
+		display: inline-flex !important;
+		vertical-align: middle;
+		position: static;
+	}
+	@include breakpoint("large") {
+		padding: 0 3rem 0 0 !important;
+	}
+}
+
+.navUser-item--boxsearch > .container .form {
+	@include breakpoint("medium") {
+		margin: 0;
+	}
+}
+
+.navUser-item--boxsearch .navUser-action--quickSearch {
+	@include breakpoint("medium") {
+		display: none;
+	}
+}
+
+.navUser-item--boxsearch .dropdown--quickSearch.is-open {
+	padding-top: 90px;
+	@include breakpoint("medium") {
+		padding-top: 3rem;
+	}
+}
+
+
+.navUser-item--boxsearch:has(#quickSearch.is-open) > .container-quick-form {
+	z-index: 52;
+	position: absolute;
+	top: 55px;
+	left: 0;
+	right: 0;
+	padding: 0;
+	display: inline-flex !important;
+	@include breakpoint("medium") {
+		position: static;
+	}
+}
+
+
+/*
+
 .navUser-item--boxsearch {
 	@include breakpoint("medium") {
 		display: inline-block;
@@ -1026,27 +1114,6 @@ body.scroll .header-fixed .header-logo-text {
 	}
 }
 
-.container-search-box {
-	display: none;
-	position: absolute;
-	left: 0rem;
-	right: 0rem;
-	width: 100%;
-	top: 55px;
-	//height: calc(100vh - 55px);
-	background: rgba(255, 255, 255, 0.9);
-	padding-left: 1.5rem;
-	padding-right: 1.5rem;
-	@include breakpoint("medium") {
-		display: block;
-		position: static;
-		left: auto;
-		right: auto;
-		height: auto;
-		background: none;
-		padding: 0;
-	}
-}
 
 .container-search-box.is-open {
 	display: block;
@@ -1064,7 +1131,7 @@ body.scroll .header-fixed .header-logo-text {
 }
 
 .form-search-box .container {
-	padding: 0 !important;
+	padding: 0 1.5rem !important;
 	display: block;
 }
 
@@ -1123,12 +1190,14 @@ body.scroll .header-fixed .form-search-box .dropdown--quickSearch.is-open {
 }
 
 .form-search-box .quickSearchResults {
+	padding: 0 1.5rem;
 	width: 100%;
 	max-width: calc(800px - 3rem);
 	background: stencilColor("body-bg");
 	margin: 0;
 	@include breakpoint("medium") {
 		min-width: 480px;
+		padding: 0;
 	}
 	@include breakpoint("large") {
 		min-width: 600px;
@@ -1251,8 +1320,10 @@ body.scroll .header-fixed .form-search-box .dropdown--quickSearch.is-open {
 	fill: stencilColor("navUser-color-hover");
 }
 
+*/
+
 .dropdown--quickSearch {
-	background: rgba(stencilColor("dropdown--quickSearch-backgroundColor"), 0.9);
+	background: stencilColor("dropdown--quickSearch-backgroundColor");
 }
 
 .header .dropdown--quickSearch .container {
@@ -1266,11 +1337,13 @@ body.scroll .header-fixed .form-search-box .dropdown--quickSearch.is-open {
 	}
 }
 
+.navUser-item--boxsearch > .container .form,
 .dropdown--quickSearch .form {
 	width: 100%;
 	padding: 1.5rem;
 	max-width: none;
-	background: stencilColor("header-backgroundColor");
+	background: none;
+	margin: 0;
 	@include breakpoint("medium") {
 		padding: 3rem 15%;
 	}
@@ -1279,18 +1352,33 @@ body.scroll .header-fixed .form-search-box .dropdown--quickSearch.is-open {
 	}
 }
 
+.navUser-item--boxsearch > .container .form {
+	@include breakpoint("medium") {
+		padding: 0;
+	}
+	@include breakpoint("large") {
+		padding: 0;
+	}
+}
+
+.navUser-item--boxsearch > .container > form > .form-fieldset,
 .dropdown--quickSearch > .container > form > .form-fieldset {
 	display: flex;
 }
 
+.navUser-item--boxsearch > .container > form > .form-fieldset .form-field-input,
 .dropdown--quickSearch > .container > form > .form-fieldset .form-field-input {
 	flex: 1 0 auto;
+	margin: 0;
 }
 
+.navUser-item--boxsearch > .container > form > .form-fieldset .form-field-submit,
 .dropdown--quickSearch > .container > form > .form-fieldset .form-field-submit {
 	flex: 0 1 auto;
+	margin: 0;
 }
 
+.navUser-item--boxsearch .form-field-input .form-input,
 .dropdown--quickSearch .form-field-input .form-input {
 	font-size: 16px;
 	background: rgba(stencilColor("header-backgroundColor"), 0.2);
@@ -1300,12 +1388,15 @@ body.scroll .header-fixed .form-search-box .dropdown--quickSearch.is-open {
 	border-bottom-right-radius: 0;
 	color: stencilColor("navUser-color-hover");
 	line-height: 24px;
+	height: auto;
 }
 
+.navUser-item--boxsearch .form-field-input .form-input.search-active,
 .dropdown--quickSearch .form-field-input .form-input.search-active {
 	background: rgba(stencilColor("header-backgroundColor"), 0.2) url("../icons/loading.svg") no-repeat 98% 50%;
 }
 
+.navUser-item--boxsearch .form-field-submit .button,
 .dropdown--quickSearch .form-field-submit .button {
 	background: stencilColor("navUser-color");
 	border: 1px solid stencilColor("navUser-color");
@@ -1318,8 +1409,10 @@ body.scroll .header-fixed .form-search-box .dropdown--quickSearch.is-open {
 	font-size: 16px;
 	line-height: 24px;
 	padding: .75rem 1.5rem;
+	height: auto;
 }
 
+.navUser-item--boxsearch .form-field-submit .button:hover,
 .dropdown--quickSearch .form-field-submit .button:hover {
 	background: stencilColor("navUser-color-hover");
 	border: 1px solid stencilColor("navUser-color-hover");
@@ -1327,7 +1420,8 @@ body.scroll .header-fixed .form-search-box .dropdown--quickSearch.is-open {
 	color: stencilColor("header-backgroundColor");
 }
 
-.dropdown--quickSearch.is-open {
+// search without header bar
+body .dropdown--quickSearch.is-open {
 	position: fixed;
 	top: 55px !important;
 	height: calc(100vh - 55px);
@@ -1343,18 +1437,46 @@ body.scroll .header-fixed .form-search-box .dropdown--quickSearch.is-open {
 	}
 }
 
-body.with-bar .dropdown--quickSearch.is-open {
+// search when header not fixed
+body.body-unfixed .dropdown--quickSearch.is-open {
 	@include breakpoint("medium") {
-		top: 102px !important;
-		height: calc(100vh - 102px);
-	}
-	@include breakpoint("large") {
-		top: 122px !important;
-		height: calc(100vh - 122px);
+		position: absolute;
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
 	}
 }
 
-body.scroll .header-fixed .dropdown--quickSearch.is-open {
+// search with header bar and unfixed
+body.body-unfixed.with-bar .dropdown--quickSearch.is-open {
+	top: calc(55px + 3rem) !important;
+	height: calc(100vh - 55px - 3rem);
+	@include breakpoint("medium") {
+		top: 74px !important;
+		height: calc(100vh - 74px);
+	}
+	@include breakpoint("large") {
+		top: 94px !important;
+		height: calc(100vh - 94px);
+	}
+}
+
+// search with header bar and fixed
+body.body-fixed.with-bar .dropdown--quickSearch.is-open {
+	top: calc(55px + 3rem) !important;
+	height: calc(100vh - 55px - 3rem);
+	@include breakpoint("medium") {
+		top: calc(74px + 3rem) !important;
+		height: calc(100vh - 74px - 3rem);
+	}
+	@include breakpoint("large") {
+		top: calc(94px + 3rem) !important;
+		height: calc(100vh - 94px - 3rem);
+	}
+}
+
+// when scrolling always be 55px if header is fixed
+body.scroll.body-fixed .dropdown--quickSearch.is-open {
+	top: 55px !important;
+	height: calc(100vh - 55px);
 	@include breakpoint("medium") {
 		top: 55px !important;
 		height: calc(100vh - 55px);
@@ -1365,53 +1487,35 @@ body.scroll .header-fixed .dropdown--quickSearch.is-open {
 	}
 }
 
-body.hasAdminBar .dropdown--quickSearch.is-open {
-	@include breakpoint("medium") {
-		top: 120px !important;
-		height: calc(100vh - 120px);
-	}
-	@include breakpoint("large") {
-		top: 140px !important;
-		height: calc(100vh - 140px);
-	}
-}
-
-body.hasAdminBar.with-bar .dropdown--quickSearch.is-open {
-	@include breakpoint("medium") {
-		top: 148px !important;
-		height: calc(100vh - 148px);
-	}
-	@include breakpoint("large") {
-		top: 168px !important;
-		height: calc(100vh - 168px);
-	}
-}
-
-body.hasAdminBar.scroll .header-fixed .dropdown--quickSearch.is-open {
-	@include breakpoint("medium") {
-		top: 101px !important;
-		height: calc(100vh - 101px);
-	}
-	@include breakpoint("large") {
-		top: 101px !important;
-		height: calc(100vh - 101px);
+// if scrolling or main nav is open always be 55px on mob
+@media (max-width: 800px) {
+	body.scroll .header .dropdown--quickSearch.is-open,
+	body .header.is-open .dropdown--quickSearch.is-open {
+		top: 55px !important;
+		height: calc(100vh - 55px);
 	}
 }
 
 .quickSearchResults {
 	position: relative;
-	margin: 3rem 1.5rem 0 1.5rem;
+	margin: 0 1.5rem;
 	@include breakpoint("medium") {
-		margin: 3rem 0 0 0;
+		margin: 0;
 	}
 }
 
 .quickSearchResults .modal-close {
-	top: -2.65rem;
-	right: 0;
-	display: block;
-	background: stencilColor("custom-header-menu-background");
-	color: stencilColor("custom-header-menu-link");
+ 	display: none;
+}
+
+.navUser-item--boxsearch .quickSearchResults .modal-close {
+	@include breakpoint("medium") {
+		display: block;
+		top: -2.65rem;
+		right: 0;
+		background: stencilColor("custom-header-menu-background");
+		color: stencilColor("custom-header-menu-link");
+	}
 }
 
 .quickSearchResults .card-warranty {
@@ -1454,14 +1558,15 @@ body.hasAdminBar.scroll .header-fixed .dropdown--quickSearch.is-open {
 
 .navUser-item--widesearch {
 	@include breakpoint("medium") {
-		display: inline-block;
+		display: block;
 		width: 100%;
+		align-items: center;
 	}
 }
 
 .navUser-item--widesearch .navUser-action {
 	@include breakpoint("medium") {
-		width: 100%;
+		width: auto;
 	}
 }
 
@@ -2408,14 +2513,6 @@ body.scroll .header-fixed .navPages-container-hide {
 		left: .75rem;
 		top: 45%;
 		margin: 0;
-	}
-    
-}
-
-body.scroll .header-fixed .navPages > ul > li > .navPages-action {
-	@include breakpoint("medium") {
-		padding-top: .375rem;
-		padding-bottom: .375rem;
 	}
 }
 
