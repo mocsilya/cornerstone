@@ -22,13 +22,16 @@ export default function (context) {
                 const productId = $btn.data('product-id');
                 const $item = $btn.closest('.upsell-item');
 
-                if (cartProductIds.includes(productId)) {
-                    $btn.addClass('is-added').find('.button-text').text('Added!');
-                    $item.addClass('upsell-item--added');
-                } else {
-                    $btn.removeClass('is-added').find('.button-text').text('Add');
-                    $item.removeClass('upsell-item--added');
-                }
+				if (cartProductIds.includes(productId)) {
+				    $btn.addClass('is-added').find('.button-text').text('Added!');
+				    $item.addClass('upsell-item--added');
+				} else {
+				    $btn.removeClass('is-added');
+				    $item.removeClass('upsell-item--added');
+				    if (!$btn.prop('disabled')) {
+				        $btn.find('.button-text').text('Add');
+				    }
+				}
             });
         } catch (err) {
             console.error('Cart sync failed:', err);
@@ -36,26 +39,48 @@ export default function (context) {
     }
 
     // 2. REUSABLE LOAD FUNCTION
-    function loadUpsellItems(productId, $container) {
-        if (!productId) return;
-        utils.api.product.getById(productId, { template: 'custom/product-upsell-data' }, (err, response) => {
-            if (err) return;
-            const ids = response.replace(/ +/g, '').split(',').filter(id => id.length > 0);
-            
-            let loadedCount = 0;
-            $.each(ids, (i, id) => {
-                utils.api.product.getById(id, { template: 'custom/product-upsell' }, (err, itemHtml) => {
-                    if (itemHtml && itemHtml.indexOf("Whoops!") === -1) {
-                        $container.append(itemHtml);
-                    }
-                    loadedCount++;
-                    if (loadedCount === ids.length) {
-                        updateUpsellStatus(); // Check cart once all items are rendered
-                    }
-                });
-            });
-        });
-    }
+	function loadUpsellItems(productId, $container) {
+	    if (!productId) return;
+    
+	    utils.api.product.getById(productId, { template: 'custom/product-upsell-data' }, (err, response) => {
+	        if (err) return;
+	        const ids = response.replace(/ +/g, '').split(',').filter(id => id.length > 0);
+        
+	        // MODAL SAFETY GUARD: If Handlebars didn't pre-render placeholders (like in the modal),
+	        // generate them instantly in JS so the rest of the script has targets to find.
+	        if ($container.find('.upsell-placeholder').length === 0) {
+	            $container.empty();
+	            $.each(ids, (i, id) => {
+	                $container.append(`<div class="upsell-item upsell-placeholder" data-index="${i}"></div>`);
+	            });
+	        }
+
+	        let loadedCount = 0;
+
+	        // Loop and replace items individually for maximum speed
+	        $.each(ids, (i, id) => {
+	            utils.api.product.getById(id, { template: 'custom/product-upsell' }, (err, itemHtml) => {
+                
+	                // Find the placeholder slot matching this exact sequence index
+	                const $placeholder = $container.find(`.upsell-placeholder[data-index="${i}"]`);
+                
+	                if (itemHtml && itemHtml.indexOf("Whoops!") === -1) {
+	                    // Swap the loading box for the real product the millisecond it's ready
+	                    $placeholder.replaceWith(itemHtml);
+	                } else {
+	                    $placeholder.remove(); // Clean up if a product fails to load
+	                }
+
+	                loadedCount++;
+                
+	                // Wait until the absolute final network request settles before updating button text
+	                if (loadedCount === ids.length) {
+	                    updateUpsellStatus();
+	                }
+	            });
+	        });
+	    });
+	}
 
     // 3. PAGE LOAD (Product Page)
     $('.productView-upsell').each(function() {

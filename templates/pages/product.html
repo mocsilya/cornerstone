@@ -176,6 +176,38 @@ gql: "query productById($productId: Int!) {
 		{{/if}}
 	{{/if}}
 	{{> components/custom/client/client-product-variants}}
+	
+	{{#if theme_settings.custom_product_upsell_location '==' 'bottom'}}
+		{{#filter product.custom_fields '_upsell' property='name' }}
+		<div id="product_upsell" class="{{#if ../theme_settings.custom_product_description_location '===' 'sticky'}}product-upsell-sticky{{else}}product-upsell-unstuck{{/if}} product-upsell-{{../theme_settings.custom_product_gallery_size}}">
+			<div class="container">
+				<div class="productView-upsell-regions">
+				{{{region name="product_upsell--global"}}}
+				{{{region name="product_upsell"}}}
+				</div>
+				<div class="productView-upsell-container productView-upsell-bottom">
+	  				<div class="productView-upsell" data-upsell-id="{{../product.id}}">
+						{{#each (split value ",")}}
+							<div class="upsell-item upsell-placeholder" data-index="{{@index}}">
+								<div class="upsell-item-inner">
+									<div class="upsell-item-image"></div>
+									<div class="upsell-item-details">
+										<ul>
+											<li class="upsell-item-brand"></li>
+											<li class="upsell-item-title"></li>
+											<li class="upsell-item-price"></li>
+										</ul>
+									</div>
+									<div class="upsell-item-actions"></div>
+								</div>
+							</div>
+						{{/each}}
+	  				</div>
+				</div>
+			</div>
+		</div>
+		{{/filter}}
+	{{/if}}
 
 	{{#if theme_settings.custom_product_question}}
 		{{#unless theme_settings.custom_product_question_tab}}
@@ -335,14 +367,15 @@ gql: "query productById($productId: Int!) {
 		</script>
 	{{/if}}
 
-	{{#or product.related_products product.similar_by_views}}
+	{{#if product.related_products}}
 		<div class="related-similar {{#if theme_settings.custom_product_description_location '===' 'sticky'}}related-similar-sticky{{else}}related-similar-unstuck{{/if}} related-similar-{{theme_settings.custom_product_gallery_size}}">
 			<div class="container">
-				{{> components/products/tabs}}
+				{{> components/products/related}}
 			</div>
 		</div>
-	{{/or}}
+	{{/if}}
 	{{> components/custom/client/client-product-related}}
+	
 {{/unless}}
 {{#if product.bulk_discount_rates.length}}
 	{{#if product.can_purchase}}

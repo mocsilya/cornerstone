@@ -548,15 +548,29 @@
 			{{{region name="product_bottom--global"}}}
 			</div>
 			{{{region name="product_bottom"}}}
-			{{#if theme_settings.custom_product_upsell_location '===' 'bottom'}}
+			{{#if theme_settings.custom_product_upsell_location '===' 'top'}}
 			{{#filter product.custom_fields '_upsell' property='name' }}
 				<div class="productView-upsell-regions">
 				{{{region name="product_upsell--global"}}}
 				{{{region name="product_upsell"}}}
 				</div>
-				<div class="productView-upsell-container">
+				<div class="productView-upsell-container productView-upsell-top">
 	  				<div class="productView-upsell" data-upsell-id="{{../product.id}}">
-			
+						{{#each (split value ",")}}
+							<div class="upsell-item upsell-placeholder" data-index="{{@index}}">
+								<div class="upsell-item-inner">
+									<div class="upsell-item-image"></div>
+									<div class="upsell-item-details">
+										<ul>
+											<li class="upsell-item-brand"></li>
+											<li class="upsell-item-title"></li>
+											<li class="upsell-item-price"></li>
+										</ul>
+									</div>
+									<div class="upsell-item-actions"></div>
+								</div>
+							</div>
+						{{/each}}
 	  				</div>
 				</div>
 			{{/filter}}
