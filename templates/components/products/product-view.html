@@ -496,6 +496,7 @@
                         {{{dynamicComponent 'components/products/options'}}}
                     {{/each}}
 					{{> components/custom/client/client-product-options}}
+					{{{region name="product_options"}}}
                 </div>
                 <div class="form-field form-field--stock{{#if product.options}} form-field--stock-options{{else}} form-field--stock-single{{/if}}{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
                     <label class="form-label form-label--alternate">

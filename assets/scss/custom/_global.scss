@@ -6055,6 +6055,18 @@ div[data-content-region="product_view_bottom--global"] {
 	clear: none;
 }
 
+.productView-details-medium.product-data .productView-info-name {
+	@include breakpoint("large") {
+		width: 35%;
+	}
+}
+
+.productView-details-small.product-data .productView-info-name {
+	@include breakpoint("large") {
+		width: 30%;
+	}
+}
+
 .productView-description .productView-info-name {
 	display: flex;
 	flex: 1 1 40%;
@@ -6081,6 +6093,18 @@ div[data-content-region="product_view_bottom--global"] {
 	width: 60%;
 	margin: 0;
 	padding: 0;
+}
+
+.productView-details-medium.product-data .productView-info-value {
+	@include breakpoint("large") {
+		width: 65%;
+	}
+}
+
+.productView-details-small.product-data .productView-info-value {
+	@include breakpoint("large") {
+		width: 70%;
+	}
 }
 
 .productView-description .productView-info-value {
@@ -6242,11 +6266,21 @@ div[data-content-region="product_view_bottom--global"] {
 }
 
 .productView-options .form-field {
-	@include breakpoint("small") {
-		padding-left: 40%;
-		margin-bottom: .25rem;
-		position: relative;
-		min-height: 38px;
+	padding-left: 40%;
+	margin-bottom: .25rem;
+	position: relative;
+	min-height: 38px;
+}
+
+.productView-details-medium .productView-options .form-field {
+	@include breakpoint("large") {
+		padding-left: 35%;
+	}
+}
+
+.productView-details-small .productView-options .form-field {
+	@include breakpoint("large") {
+		padding-left: 30%;
 	}
 }
 
@@ -6294,14 +6328,24 @@ div[data-content-region="product_view_bottom--global"] {
 }
 
 .productView-options .form-label:first-child {
-	@include breakpoint("small") {
-		width: 40%;
-		height: 38px;
-		overflow-y: hidden;
-		padding-right: 1rem;
-		position: absolute;
-		top: 0;
-		left: 0;
+	width: 40%;
+	height: 38px;
+	overflow-y: hidden;
+	padding-right: 1rem;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.productView-details-medium .productView-options .form-label:first-child {
+	@include breakpoint("large") {
+		width: 35%;
+	}
+}
+
+.productView-details-small .productView-options .form-label:first-child {
+	@include breakpoint("large") {
+		width: 30%;
 	}
 }
 
@@ -6334,7 +6378,7 @@ div[data-content-region="product_view_bottom--global"] {
 .productView-options #add-to-cart-wrapper .form-field--increments {
 	flex: 0 1 auto;
 	margin: 0;
-	padding: 0 .5rem 0 0;
+	padding: 0 1rem 0 0;
 }
 
 .form-increment {
@@ -6343,7 +6387,7 @@ div[data-content-region="product_view_bottom--global"] {
 }
 
 .form-increment .button {
-	padding: 14px;
+	padding: 14px 10px;
 }
 
 .form-increment .button--icon {
@@ -6362,7 +6406,7 @@ div[data-content-region="product_view_bottom--global"] {
 
 .form-increment .form-input--incrementTotal {
 	padding: 14px 0;
-	width: 4rem;
+	width: 3rem;
 	font-size: 18px;
 	line-height: 1;
 	margin: 0;
@@ -6373,21 +6417,16 @@ div[data-content-region="product_view_bottom--global"] {
 
 .productView-options .add-to-cart-buttons {
 	margin-top: 1rem;
-	@include breakpoint("small") {
-		width: 100%;
-		flex: 1 0 0;
-		margin-top: 0;
-	}
+	padding: 0;
+	width: 100%;
+	flex: 1 0 0;
+	margin-top: 0;
 }
 
 .productView-options .form-action {
 	padding: 0;
 	margin: 0;
 	flex: 1 1 auto;
-}
-
-.productView-options .form-action-maxwidth {
-
 }
 
 .productView-options .form-action .button {
