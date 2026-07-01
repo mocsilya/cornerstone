@@ -30,7 +30,7 @@ customer:
 {{/partial}}
 
 {{#partial "page"}}
-{{#if (getVar "b2b-products") '===' 'show'}}
+
 <ul class="sitemap-list">
 {{#each sitemap}}
     <li class="sitemap-list-item">
@@ -57,6 +57,6 @@ customer:
     </li>
 {{/each}}
 </ul>
-{{/if}}
+
 {{/partial}}
 {{> layout/base}}

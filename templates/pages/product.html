@@ -144,9 +144,7 @@ gql: "query productById($productId: Int!) {
 	{{/each}}
 	{{/unless}}
     <div class="productView-wrap{{#each product.custom_fields}}{{#if name '==' '_class'}} {{value}}{{/if}}{{/each}}{{#if (getVar 'payment') '===' 'active'}} payment-product{{/if}}"{{#if product.sku}} data-item-sku="{{product.sku}}"{{/if}}>
-		{{#if (getVar "b2b-products") '===' 'show'}}
-        	{{> components/products/product-view}}
-		{{/if}}
+		{{> components/products/product-view}}
 		{{#if theme_settings.custom_product_description_location '===' 'sticky'}}
 			<div class="productView-block-sticky productView-block-{{theme_settings.custom_product_gallery_size}}">
         		{{{region name="product_below_content"}}}
@@ -160,193 +158,224 @@ gql: "query productById($productId: Int!) {
 {{/partial}}
 {{#partial "base"}}
 {{#unless (getVar 'payment') '===' 'active'}}
-	{{#if (getVar "b2b-products") '===' 'show'}}
-		{{#if theme_settings.custom_product_variant_data}}
-			{{assignVar "productHasVariants" "no"}}
-			{{#if gql.data.site.product}}
-	    		{{#each gql.data.site.product.variants.edges}}
-	        		{{#with node}}
-						{{#if @last}}
-							{{#unless @index 0}}
-								{{assignVar "productHasVariants" "yes"}}
-							{{/unless}}
-						{{/if}}
-					{{/with}}
-				{{/each}}
-				{{#if (getVar "productHasVariants") '===' 'yes'}}
-						{{> components/custom/product-variants}}
-				{{/if}}
+	{{#if theme_settings.custom_product_variant_data}}
+		{{assignVar "productHasVariants" "no"}}
+		{{#if gql.data.site.product}}
+    		{{#each gql.data.site.product.variants.edges}}
+        		{{#with node}}
+					{{#if @last}}
+						{{#unless @index 0}}
+							{{assignVar "productHasVariants" "yes"}}
+						{{/unless}}
+					{{/if}}
+				{{/with}}
+			{{/each}}
+			{{#if (getVar "productHasVariants") '===' 'yes'}}
+					{{> components/custom/product-variants}}
 			{{/if}}
 		{{/if}}
-		{{> components/custom/client/client-product-variants}}
-		
-		{{#if theme_settings.custom_product_question}}
-			{{#unless theme_settings.custom_product_question_tab}}
-				<div id="product_question" class="{{#if theme_settings.custom_product_description_location '===' 'sticky'}}product-question-sticky{{else}}product-question-unstuck{{/if}} product-question-{{theme_settings.custom_product_gallery_size}}">
-					<div class="container">
-						<div class="product-question-title">
-							<h4 class="productView-title">{{theme_settings.custom_product_question}}</h4>
-						</div>
-						<div id="iframe_product" 
-							data-product-title="{{product.title}}" 
-							data-product-sku="{{#if product.sku}}{{product.sku}}{{/if}}">
-						</div>
-					</div>
+	{{/if}}
+	{{> components/custom/client/client-product-variants}}
+	
+	{{#if theme_settings.custom_product_upsell_location '==' 'bottom'}}
+		{{#filter product.custom_fields '_upsell' property='name' }}
+		<div id="product_upsell" class="{{#if ../theme_settings.custom_product_description_location '===' 'sticky'}}product-upsell-sticky{{else}}product-upsell-unstuck{{/if}} product-upsell-{{../theme_settings.custom_product_gallery_size}}">
+			<div class="container">
+				<div class="productView-upsell-regions">
+				{{{region name="product_upsell--global"}}}
+				{{{region name="product_upsell"}}}
 				</div>
-			{{/unless}}
-
-			<script nonce="{{nonce}}">
-			document.addEventListener('DOMContentLoaded', function() {
-			    var targetFormPage = '/iframe/'; 
-			    var container = document.getElementById('iframe_product');
-			    if (!container) return;
-
-			    // Tracker to see if Google successfully generated the security token
-			    var isCaptchaValidated = false;
-
-			    // 1. DATA EXTRACTION
-			    var pTitle = container.getAttribute('data-product-title') || '';
-			    var pSku = container.getAttribute('data-product-sku') || '';
-			    var productDetails = pTitle + (pSku ? ' (' + pSku + ')' : '');
-
-			    // 2. FETCH FORM TEMPLATE
-			    fetch(targetFormPage)
-			        .then(function(response) {
-			            if (!response.ok) throw new Error('HTTP status ' + response.status);
-			            return response.text();
-			        })
-			        .then(function(htmlString) {
-			            var parser = new DOMParser();
-			            var doc = parser.parseFromString(htmlString, 'text/html');
-			            var targetForm = doc.getElementById('form_contact');
-
-			            if (!targetForm) {
-			                throw new Error('Could not find #form_contact in the fetched page.');
-			            }
-
-			            container.innerHTML = '';
-			            container.appendChild(targetForm);
-
-			            // 3. RECAPTCHA INITIALIZATION WITH GLOBAL CALLBACK
-			            var recaptchaContainer = container.querySelector('.g-recaptcha');
-
-			            if (recaptchaContainer) {
-			                recaptchaContainer.innerHTML = ''; 
-			                recaptchaContainer.style.display = 'block';
-
-			                var activeSiteKey = recaptchaContainer.getAttribute('data-sitekey') || ''; 
-                
-			                if (activeSiteKey !== '' && typeof grecaptcha !== 'undefined') {
-			                    window.onInquiryCaptchaSuccess = function(token) {
-			                        if (token && token.trim() !== "") {
-			                            isCaptchaValidated = true; 
-                            
-			                            // Clear out the error message if they fix it and tick the box!
-			                            var existingError = container.querySelector('#contact-us-error');
-			                            if (existingError) {
-			                                existingError.remove();
-			                            }
-			                        }
-			                    };
-
-			                    grecaptcha.render(recaptchaContainer, {
-			                        'sitekey': activeSiteKey,
-			                        'callback': 'onInquiryCaptchaSuccess'
-			                    });
-			                }
-			            }
-
-			            // 4. DATA INJECTION
-			            var rmaField = container.querySelector('#contact_rma');
-			            if (rmaField) {
-			                rmaField.value = productDetails;
-			            }
-
-						// 5. BACKGROUND SUBMISSION CONSOLE (With Admin Auto-Detect Toggle)
-						targetForm.addEventListener('submit', function(e) {
-						    e.preventDefault();
-
-						    // Look for the physical reCAPTCHA element in the fetched form
-						    var liveCaptcha = container.querySelector('.g-recaptcha');
-    
-						    // SMART ADJUSTMENT: Only enforce validation if the element ACTUALLY exists in the DOM 🌟
-						    if (liveCaptcha && typeof grecaptcha !== 'undefined') {
-						        if (!isCaptchaValidated) {
-						            var existingError = container.querySelector('#contact-us-error');
-            
-						            if (!existingError) {
-						                var errorDiv = document.createElement('div');
-						                errorDiv.id = 'contact-us-error';
-						                errorDiv.style.marginBottom = '15px';
-						                errorDiv.innerHTML = `
-						                    <div class="alertBox alertBox--error">
-						                        <div class="alertBox-column alertBox-icon">
-						                            <span class="icon" aria-hidden="true">
-						                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;">
-						                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
-						                                </svg>
-						                            </span>
-						                        </div>
-						                        <p class="alertBox-column alertBox-message">
-						                            <span id="alertBox-message-text">The captcha you entered is incorrect. Please try again.</span>
-						                        </p>
-						                    </div>
-						                `;
-						                liveCaptcha.parentNode.insertBefore(errorDiv, liveCaptcha);
-						            }
-						            return; // Halt form transmission because reCAPTCHA is enabled but unticked
-						        }
-						    }
-
-						    // If liveCaptcha doesn't exist (turned off in admin panel) OR it is validated, send it!
-						    var formData = new URLSearchParams(new FormData(targetForm));
-
-						    fetch(targetForm.getAttribute('action'), {
-						        method: 'POST',
-						        headers: {
-						            'Content-Type': 'application/x-www-form-urlencoded'
-						        },
-						        body: formData.toString()
-						    })
-						    .then(function(res) {
-						        if (!res.ok) throw new Error('Submission failed');
-        
-						        container.innerHTML = `
-						            <div class="alertBox alertBox--success">
-						                <div class="alertBox-column alertBox-icon">
-						                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;">
-						                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
-						                    </svg>
-						                </div>
-						                <p class="alertBox-column alertBox-message">
-						                    {{lang "forms.contact_us.successful"}}
-						                </p>
-						            </div>
-						        `;
-						    })
-						    .catch(function(err) {
-						        console.error("Inquiry submission failed: ", err);
-						        alert('There was an issue processing your request. Please try again.');
-						    });
-						});
-			        })
-			        .catch(function(err) {
-			            container.innerHTML = '<p class="alert alert-error">Unable to load the inquiry form at this time.</p>';
-			            console.error("Form target fetch failed: ", err);
-			        });
-			});
-			</script>
-		{{/if}}
-		
-		{{#or product.related_products product.similar_by_views}}
-			<div class="related-similar {{#if theme_settings.custom_product_description_location '===' 'sticky'}}related-similar-sticky{{else}}related-similar-unstuck{{/if}} related-similar-{{theme_settings.custom_product_gallery_size}}">
-				<div class="container">
-					{{> components/products/tabs}}
+				<div class="productView-upsell-container productView-upsell-bottom">
+	  				<div class="productView-upsell" data-upsell-id="{{../product.id}}">
+						{{#each (split value ",")}}
+							<div class="upsell-item upsell-placeholder" data-index="{{@index}}">
+								<div class="upsell-item-inner">
+									<div class="upsell-item-image"></div>
+									<div class="upsell-item-details">
+										<ul>
+											<li class="upsell-item-brand"></li>
+											<li class="upsell-item-title"></li>
+											<li class="upsell-item-price"></li>
+										</ul>
+									</div>
+									<div class="upsell-item-actions"></div>
+								</div>
+							</div>
+						{{/each}}
+	  				</div>
 				</div>
 			</div>
-		{{/or}}
-		{{> components/custom/client/client-product-related}}
+		</div>
+		{{/filter}}
 	{{/if}}
+
+	{{#if theme_settings.custom_product_question}}
+		{{#unless theme_settings.custom_product_question_tab}}
+			<div id="product_question" class="{{#if theme_settings.custom_product_description_location '===' 'sticky'}}product-question-sticky{{else}}product-question-unstuck{{/if}} product-question-{{theme_settings.custom_product_gallery_size}}">
+				<div class="container">
+					<div class="product-question-title">
+						<h4 class="productView-title">{{theme_settings.custom_product_question}}</h4>
+					</div>
+					<div id="iframe_product" 
+						data-product-title="{{product.title}}" 
+						data-product-sku="{{#if product.sku}}{{product.sku}}{{/if}}">
+					</div>
+				</div>
+			</div>
+		{{/unless}}
+
+		<script nonce="{{nonce}}">
+		document.addEventListener('DOMContentLoaded', function() {
+		    var targetFormPage = '/iframe/'; 
+		    var container = document.getElementById('iframe_product');
+		    if (!container) return;
+
+		    // Tracker to see if Google successfully generated the security token
+		    var isCaptchaValidated = false;
+
+		    // 1. DATA EXTRACTION
+		    var pTitle = container.getAttribute('data-product-title') || '';
+		    var pSku = container.getAttribute('data-product-sku') || '';
+		    var productDetails = pTitle + (pSku ? ' (' + pSku + ')' : '');
+
+		    // 2. FETCH FORM TEMPLATE
+		    fetch(targetFormPage)
+		        .then(function(response) {
+		            if (!response.ok) throw new Error('HTTP status ' + response.status);
+		            return response.text();
+		        })
+		        .then(function(htmlString) {
+		            var parser = new DOMParser();
+		            var doc = parser.parseFromString(htmlString, 'text/html');
+		            var targetForm = doc.getElementById('form_contact');
+
+		            if (!targetForm) {
+		                throw new Error('Could not find #form_contact in the fetched page.');
+		            }
+
+		            container.innerHTML = '';
+		            container.appendChild(targetForm);
+
+		            // 3. RECAPTCHA INITIALIZATION WITH GLOBAL CALLBACK
+		            var recaptchaContainer = container.querySelector('.g-recaptcha');
+
+		            if (recaptchaContainer) {
+		                recaptchaContainer.innerHTML = ''; 
+		                recaptchaContainer.style.display = 'block';
+
+		                var activeSiteKey = recaptchaContainer.getAttribute('data-sitekey') || ''; 
+        
+		                if (activeSiteKey !== '' && typeof grecaptcha !== 'undefined') {
+		                    window.onInquiryCaptchaSuccess = function(token) {
+		                        if (token && token.trim() !== "") {
+		                            isCaptchaValidated = true; 
+                    
+		                            // Clear out the error message if they fix it and tick the box!
+		                            var existingError = container.querySelector('#contact-us-error');
+		                            if (existingError) {
+		                                existingError.remove();
+		                            }
+		                        }
+		                    };
+
+		                    grecaptcha.render(recaptchaContainer, {
+		                        'sitekey': activeSiteKey,
+		                        'callback': 'onInquiryCaptchaSuccess'
+		                    });
+		                }
+		            }
+
+		            // 4. DATA INJECTION
+		            var rmaField = container.querySelector('#contact_rma');
+		            if (rmaField) {
+		                rmaField.value = productDetails;
+		            }
+
+					// 5. BACKGROUND SUBMISSION CONSOLE (With Admin Auto-Detect Toggle)
+					targetForm.addEventListener('submit', function(e) {
+					    e.preventDefault();
+
+					    // Look for the physical reCAPTCHA element in the fetched form
+					    var liveCaptcha = container.querySelector('.g-recaptcha');
+
+					    // SMART ADJUSTMENT: Only enforce validation if the element ACTUALLY exists in the DOM 🌟
+					    if (liveCaptcha && typeof grecaptcha !== 'undefined') {
+					        if (!isCaptchaValidated) {
+					            var existingError = container.querySelector('#contact-us-error');
+    
+					            if (!existingError) {
+					                var errorDiv = document.createElement('div');
+					                errorDiv.id = 'contact-us-error';
+					                errorDiv.style.marginBottom = '15px';
+					                errorDiv.innerHTML = `
+					                    <div class="alertBox alertBox--error">
+					                        <div class="alertBox-column alertBox-icon">
+					                            <span class="icon" aria-hidden="true">
+					                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;">
+					                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
+					                                </svg>
+					                            </span>
+					                        </div>
+					                        <p class="alertBox-column alertBox-message">
+					                            <span id="alertBox-message-text">The captcha you entered is incorrect. Please try again.</span>
+					                        </p>
+					                    </div>
+					                `;
+					                liveCaptcha.parentNode.insertBefore(errorDiv, liveCaptcha);
+					            }
+					            return; // Halt form transmission because reCAPTCHA is enabled but unticked
+					        }
+					    }
+
+					    // If liveCaptcha doesn't exist (turned off in admin panel) OR it is validated, send it!
+					    var formData = new URLSearchParams(new FormData(targetForm));
+
+					    fetch(targetForm.getAttribute('action'), {
+					        method: 'POST',
+					        headers: {
+					            'Content-Type': 'application/x-www-form-urlencoded'
+					        },
+					        body: formData.toString()
+					    })
+					    .then(function(res) {
+					        if (!res.ok) throw new Error('Submission failed');
+
+					        container.innerHTML = `
+					            <div class="alertBox alertBox--success">
+					                <div class="alertBox-column alertBox-icon">
+					                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: currentColor;">
+					                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
+					                    </svg>
+					                </div>
+					                <p class="alertBox-column alertBox-message">
+					                    {{lang "forms.contact_us.successful"}}
+					                </p>
+					            </div>
+					        `;
+					    })
+					    .catch(function(err) {
+					        console.error("Inquiry submission failed: ", err);
+					        alert('There was an issue processing your request. Please try again.');
+					    });
+					});
+		        })
+		        .catch(function(err) {
+		            container.innerHTML = '<p class="alert alert-error">Unable to load the inquiry form at this time.</p>';
+		            console.error("Form target fetch failed: ", err);
+		        });
+		});
+		</script>
+	{{/if}}
+
+	{{#if product.related_products}}
+		<div class="related-similar {{#if theme_settings.custom_product_description_location '===' 'sticky'}}related-similar-sticky{{else}}related-similar-unstuck{{/if}} related-similar-{{theme_settings.custom_product_gallery_size}}">
+			<div class="container">
+				{{> components/products/related}}
+			</div>
+		</div>
+	{{/if}}
+	{{> components/custom/client/client-product-related}}
+	
 {{/unless}}
 {{#if product.bulk_discount_rates.length}}
 	{{#if product.can_purchase}}

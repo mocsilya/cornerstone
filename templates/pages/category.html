@@ -108,7 +108,7 @@ customer:
 		{{/if}}
 	{{/each}}
 {{/if}}
-{{#if (getVar "b2b-products") '===' 'show'}}
+
 {{#if category.subcategories}}
     <div class="subcategories-above subcategories--{{theme_settings.custom_category_sidebar_display}}{{#unless category.products}} subcategories--noproducts{{/unless}}">
 		<ul class="subcategories-grid{{#if (getVar 'subimage') '===' 'active'}} subcategories-grid-image{{/if}}{{#unless breadcrumbs.[1].name '==' 'Brands'}}{{#unless theme_settings.custom_category_show_blocks}} subcategories-grid-blockless{{/unless}}{{/unless}}">
@@ -148,11 +148,10 @@ customer:
 		</ul>
     </div>
 {{/if}}
-{{/if}}
+
 
 <div class="page">
 {{#and (if category.products) (if (getVar "catbrand") '===' 'inactive')}}
-	{{#if (getVar "b2b-products") '===' 'show'}}
     {{#if category.faceted_search_enabled}}
         <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}} toggle-content is-open" id="faceted-search-container">
             {{> components/category/sidebar}}
@@ -182,7 +181,6 @@ customer:
         	</aside>
     	{{/if}}
     {{/if}}
-	{{/if}}
     <div class="page-content">
 		{{{region name="category_above_content"}}}
 	    <div class="page-content-listings" id="product-listing-container">

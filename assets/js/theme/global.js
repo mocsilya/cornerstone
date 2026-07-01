@@ -25,6 +25,7 @@ import scrollClick from './custom/scroll-click';
 import boxSearch from './custom/box-search';
 import accordionHelper from './custom/accordion-helper';
 import scrollUrl from './custom/scroll-url';
+import lastPage from './custom/last-page';
 
 export default class Global extends PageManager {
     onReady() {
@@ -51,5 +52,6 @@ export default class Global extends PageManager {
 		boxSearch();
 		accordionHelper();
 		scrollUrl();
+		lastPage();
     }
 }

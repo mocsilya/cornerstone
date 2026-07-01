@@ -132,12 +132,10 @@
 						{{/unless}}
 						{{/or}}
                     {{/each}}
-					{{#if (getVar "b2b-products") '===' 'show'}}
-						{{#if theme_settings.custom_footer_show_sitemap}}
+					{{#if theme_settings.custom_footer_show_sitemap}}
                     	<li class="link-sitemap">
                         	<a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
                     	</li>
-						{{/if}}
 					{{/if}}
                     <li class="link-cart">
                         <a href="{{urls.cart}}">{{lang 'common.cart'}}</a>
@@ -201,100 +199,97 @@
                         </li>
 					{{/or}}
                     {{/each}}
-					{{#if (getVar "b2b-products") '===' 'show'}}
-						{{#if theme_settings.custom_footer_show_sitemap}}
+					{{#if theme_settings.custom_footer_show_sitemap}}
                     	<li class="link-sitemap">
                         	<a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
                     	</li>
-						{{/if}}
 					{{/if}}
                 </ul>
 				{{{region name="footer_pages--global"}}}
             </article>
 			{{/if}}
-			{{#if (getVar "b2b-products") '===' 'show'}}
+
 			{{#if theme_settings.custom_footer_show_categories}}
-			{{#if theme_settings.custom_footer_show_category_columns}}
-			{{assignVar "catCount" 0}}
-			{{#each categories}}
-				{{#if children}}
-					<!-- {{incrementVar "catCount"}} -->
-		            <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
-		                <h3 class="footer-info-heading"><a href="{{url}}">{{name}}</a></h3>
-		                <ul class="footer-info-list">
-		                    {{#each children}}
-		                        <li class="link-{{dashcase (lowercase (sanitize name))}}">
-		                            <a href="{{url}}">{{name}}</a>
-		                        </li>
-		                    {{/each}}
-		                </ul>
-						{{#if (getVar "catCount") '===' 1}}{{{region name="footer_category_1--global"}}}{{/if}}
-						{{#if (getVar "catCount") '===' 2}}{{{region name="footer_category_2--global"}}}{{/if}}
-						{{#if (getVar "catCount") '===' 3}}{{{region name="footer_category_3--global"}}}{{/if}}
-						{{#if (getVar "catCount") '===' 4}}{{{region name="footer_category_4--global"}}}{{/if}}
-						{{#if (getVar "catCount") '===' 5}}{{{region name="footer_category_5--global"}}}{{/if}}
-						{{#if (getVar "catCount") '===' 6}}{{{region name="footer_category_6--global"}}}{{/if}}
-						{{#if (getVar "catCount") '===' 7}}{{{region name="footer_category_7--global"}}}{{/if}}
-						{{#if (getVar "catCount") '===' 8}}{{{region name="footer_category_8--global"}}}{{/if}}
-						{{#if (getVar "catCount") '===' 9}}{{{region name="footer_category_9--global"}}}{{/if}}
-						{{#if (getVar "catCount") '===' 10}}{{{region name="footer_category_10--global"}}}{{/if}}
-						{{#if (getVar "catCount") '===' 11}}{{{region name="footer_category_11--global"}}}{{/if}}
-						{{#if (getVar "catCount") '===' 12}}{{{region name="footer_category_12--global"}}}{{/if}}
-		            </article>
+				{{#if theme_settings.custom_footer_show_category_columns}}
+					{{assignVar "catCount" 0}}
+					{{#each categories}}
+						{{#if children}}
+							<!-- {{incrementVar "catCount"}} -->
+				            <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
+				                <h3 class="footer-info-heading"><a href="{{url}}">{{name}}</a></h3>
+				                <ul class="footer-info-list">
+				                    {{#each children}}
+				                        <li class="link-{{dashcase (lowercase (sanitize name))}}">
+				                            <a href="{{url}}">{{name}}</a>
+				                        </li>
+				                    {{/each}}
+				                </ul>
+								{{#if (getVar "catCount") '===' 1}}{{{region name="footer_category_1--global"}}}{{/if}}
+								{{#if (getVar "catCount") '===' 2}}{{{region name="footer_category_2--global"}}}{{/if}}
+								{{#if (getVar "catCount") '===' 3}}{{{region name="footer_category_3--global"}}}{{/if}}
+								{{#if (getVar "catCount") '===' 4}}{{{region name="footer_category_4--global"}}}{{/if}}
+								{{#if (getVar "catCount") '===' 5}}{{{region name="footer_category_5--global"}}}{{/if}}
+								{{#if (getVar "catCount") '===' 6}}{{{region name="footer_category_6--global"}}}{{/if}}
+								{{#if (getVar "catCount") '===' 7}}{{{region name="footer_category_7--global"}}}{{/if}}
+								{{#if (getVar "catCount") '===' 8}}{{{region name="footer_category_8--global"}}}{{/if}}
+								{{#if (getVar "catCount") '===' 9}}{{{region name="footer_category_9--global"}}}{{/if}}
+								{{#if (getVar "catCount") '===' 10}}{{{region name="footer_category_10--global"}}}{{/if}}
+								{{#if (getVar "catCount") '===' 11}}{{{region name="footer_category_11--global"}}}{{/if}}
+								{{#if (getVar "catCount") '===' 12}}{{{region name="footer_category_12--global"}}}{{/if}}
+				            </article>
+						{{/if}}
+					{{/each}}
+					{{assignVar "group" "hide"}}
+					{{#if (getVar "group") '!==' 'show'}}
+						{{#each categories}}
+							{{#unless children}}
+								{{assignVar "group" "show"}}
+							{{/unless}}
+						{{/each}}
+					{{/if}}
+					{{#if (getVar "group") '===' 'show'}}
+			        <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
+			            <h3 class="footer-info-heading">{{theme_settings.custom_header_group_title}} {{lang 'footer.categories'}}</h3>
+			            <ul class="footer-info-list">
+			                {{#each categories}}
+								{{#unless children}}
+			                    <li class="link-{{dashcase (lowercase (sanitize name))}}">
+			                        <a href="{{url}}">{{name}}</a>
+			                    </li>
+								{{/unless}}
+			                {{/each}}
+						</ul>
+						{{{region name="footer_categories--global"}}}
+					</article>
+					{{/if}}
+				{{else}}
+			        <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
+			            <h3 class="footer-info-heading">{{lang 'footer.categories'}}</h3>
+			            <ul class="footer-info-list">
+			                {{#each categories}}
+			                    <li class="link-{{dashcase (lowercase (sanitize name))}}">
+			                        <a href="{{url}}">{{name}}</a>
+			                    </li>
+			                {{/each}}
+			            </ul>
+						{{{region name="footer_categories--global"}}}
+			        </article>
 				{{/if}}
-			{{/each}}
-			{{assignVar "group" "hide"}}
-			{{#if (getVar "group") '!==' 'show'}}
-			{{#each categories}}
-				{{#unless children}}
-					{{assignVar "group" "show"}}
-				{{/unless}}
-			{{/each}}
 			{{/if}}
-			{{#if (getVar "group") '===' 'show'}}
-            <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
-                <h3 class="footer-info-heading">{{theme_settings.custom_header_group_title}} {{lang 'footer.categories'}}</h3>
-                <ul class="footer-info-list">
-                    {{#each categories}}
-						{{#unless children}}
-                        <li class="link-{{dashcase (lowercase (sanitize name))}}">
-                            <a href="{{url}}">{{name}}</a>
-                        </li>
-						{{/unless}}
-                    {{/each}}
-				</ul>
-				{{{region name="footer_categories--global"}}}
-			</article>
-			{{/if}}
-			{{else}}
-            <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
-                <h3 class="footer-info-heading">{{lang 'footer.categories'}}</h3>
-                <ul class="footer-info-list">
-                    {{#each categories}}
-                        <li class="link-{{dashcase (lowercase (sanitize name))}}">
-                            <a href="{{url}}">{{name}}</a>
-                        </li>
-                    {{/each}}
-                </ul>
-				{{{region name="footer_categories--global"}}}
-            </article>
-			{{/if}}
-			{{/if}}
-            {{#and theme_settings.shop_by_brand_show_footer shop_by_brand.length}}
-            <article class="footer-info-col footer-info-col--small" data-section-type="footer-brands">
-                <h3 class="footer-info-heading">{{lang 'footer.brands'}}</h3>
-                <ul class="footer-info-list">
-                    {{#each shop_by_brand}}
-                        <li class="link-{{dashcase (lowercase (sanitize name))}}">
-                            <a href="{{url}}">{{name}}</a>
-                        </li>
-                    {{/each}}
-                    <li class="link-brand-all"><a href="{{urls.brands}}">{{lang 'common.view_all'}}</a></li>
-                </ul>
-				{{{region name="footer_brands--global"}}}
-            </article>
-            {{/and}}
-			{{/if}}
+			{{#and theme_settings.shop_by_brand_show_footer shop_by_brand.length}}
+				<article class="footer-info-col footer-info-col--small" data-section-type="footer-brands">
+				    <h3 class="footer-info-heading">{{lang 'footer.brands'}}</h3>
+				    <ul class="footer-info-list">
+				        {{#each shop_by_brand}}
+				            <li class="link-{{dashcase (lowercase (sanitize name))}}">
+				                <a href="{{url}}">{{name}}</a>
+				            </li>
+				        {{/each}}
+				        <li class="link-brand-all"><a href="{{urls.brands}}">{{lang 'common.view_all'}}</a></li>
+				    </ul>
+					{{{region name="footer_brands--global"}}}
+				</article>
+			{{/and}}
             
             <article class="footer-info-col footer-info-col--small" data-section-type="storeInfo">
 				{{> components/custom/client/client-footer-top}}

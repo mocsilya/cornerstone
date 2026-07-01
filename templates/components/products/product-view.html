@@ -11,28 +11,6 @@
 {{inject 'backorderMessages' backorder_messages}}
 {{inject 'showBackorderMessage' product.show_backorder_message}}
 
-{{assignVar "b2b-products" "show"}}
-{{assignVar "b2b-prices" "show"}}
-{{#if theme_settings.custom_b2b}}
-	{{#if customer.id}}
-		{{#if customer_group_name '==' theme_settings.custom_b2b_pending_group}}
-			{{#if theme_settings.custom_b2b_pending_hide_products}}
-				{{assignVar "b2b-products" "hide"}}
-			{{/if}}
-			{{#if theme_settings.custom_b2b_pending_hide_prices}}
-				{{assignVar "b2b-prices" "hide"}}
-			{{/if}}
-		{{/if}}
-	{{else}}
-		{{#if theme_settings.custom_b2b_guest_hide_products}}
-			{{assignVar "b2b-products" "hide"}}
-		{{/if}}
-		{{#if settings.hide_price_from_guests}}
-			{{assignVar "b2b-prices" "hide"}}
-		{{/if}}
-	{{/if}}
-{{/if}}
-
 <div class="productView{{#each product.custom_fields}}{{#if name '==' '_class'}} {{value}}{{/if}}{{/each}}"
     data-event-type="product"
     data-entity-id="{{product.id}}"
@@ -43,15 +21,27 @@
     {{/each}}"
     data-product-brand="{{product.brand.name}}"
     data-product-price="
-    {{#or customer (unless settings.hide_price_from_guests)}}
-        {{#if product.price.with_tax}}
-            {{product.price.with_tax.value}}
-        {{else}}
-            {{product.price.without_tax.value}}
-        {{/if}}
-    {{else}}
-        {{lang 'common.login_for_pricing'}}
-    {{/or}}"
+	{{#or customer (unless settings.hide_price_from_guests)}}
+		{{#if theme_settings.custom_b2b}}
+			{{#if customer.customer_group_name '==' theme_settings.custom_b2b_pending_group}}
+				{{lang 'common.login_for_pricing'}}
+			{{else}}
+		        {{#if product.price.with_tax}}
+		            {{product.price.with_tax.value}}
+		        {{else}}
+		            {{product.price.without_tax.value}}
+		        {{/if}}
+			{{/if}}
+		{{else}}
+	        {{#if product.price.with_tax}}
+	            {{product.price.with_tax.value}}
+	        {{else}}
+	            {{product.price.without_tax.value}}
+	        {{/if}}
+		{{/if}}
+	{{else}}
+		{{lang 'common.login_for_pricing'}}
+	{{/or}}"
     data-product-variant="single-product-option">
     {{#each product.reviews.messages}}
         {{#if error}}
@@ -269,11 +259,7 @@
 			{{/if}}
             {{#if product.brand}}
                 <h2 class="productView-brand">
-					{{#if (getVar "b2b-products") '===' 'show'}}
-                    	<a href="{{product.brand.url}}"><span>{{product.brand.name}}</span></a>
-					{{else}}
-						<span>{{product.brand.name}}</span>
-					{{/if}}
+					<a href="{{product.brand.url}}"><span>{{product.brand.name}}</span></a>
                 </h2>
             {{/if}}
 			{{#if theme_settings.custom_product_warranty_location '==' 'minidesc'}}
@@ -290,8 +276,7 @@
 					</div>
 	        	{{/if}}
 			{{/if}}
-			{{#if (getVar "b2b-prices") '===' 'show'}}
-            	{{#if product.call_for_price}}
+            {{#if product.call_for_price}}
 				<p class="productView-price">
 				{{#contains product.call_for_price "//"}}
 					<span>{{after (split product.call_for_price '//') 1}}</span>
@@ -299,16 +284,21 @@
 					<span>{{product.call_for_price}}</span>
 				{{/contains}}
 				</p>
-            	{{/if}}
-			{{/if}}
+            {{/if}}
             <div class="productView-price">
-                {{#or customer (unless settings.hide_price_from_guests)}}
-					{{#if (getVar "b2b-prices") '===' 'show'}}
-                    	{{> components/products/price price=product.price}}
+				{{#or customer (unless settings.hide_price_from_guests)}}
+					{{#if theme_settings.custom_b2b}}
+						{{#if customer.customer_group_name '==' theme_settings.custom_b2b_pending_group}}
+							<p>{{theme_settings.custom_b2b_pending_message}}</p>
+						{{else}}
+							{{> components/products/price price=product.price}}
+						{{/if}}
+					{{else}}
+						{{> components/products/price price=product.price}}
 					{{/if}}
-                {{else}}
-                    {{> components/common/login-for-pricing}}
-                {{/or}}
+				{{else}}
+					{{> components/common/login-for-pricing}}
+				{{/or}}
             </div>
 			<div class="productView-below-price-global">
 			{{{region name="product_below_price--global"}}}
@@ -444,7 +434,6 @@
                 {{#if theme_settings.show_custom_fields_tabs '!==' true}}
 					{{> components/products/custom-fields }}
                 {{/if}}
-				{{#if (getVar "b2b-prices") '===' 'show'}}
                 {{#if settings.bulk_discount_enabled}}
 				<div class="productView-info-bulkPricingWrap">
                     <div class="productView-info-bulkPricing">
@@ -476,7 +465,6 @@
 					{{/if}}
 				</div>
                 {{/if}}
-				{{/if}}
             </dl>
 			{{#if theme_settings.show_custom_fields_tabs '!==' true}}
 				{{> components/custom/client/client-product-fields}}
@@ -508,6 +496,7 @@
                         {{{dynamicComponent 'components/products/options'}}}
                     {{/each}}
 					{{> components/custom/client/client-product-options}}
+					{{{region name="product_options"}}}
                 </div>
                 <div class="form-field form-field--stock{{#if product.options}} form-field--stock-options{{else}} form-field--stock-single{{/if}}{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
                     <label class="form-label form-label--alternate">
@@ -529,11 +518,8 @@
 					</p>
 					<ul class="productView-picklist-backorder" data-picklist-backorder-list style="display:none;"></ul>
                 </div>
-				{{#if (getVar "b2b-prices") '===' 'show'}}
-                	{{> components/products/add-to-cart with_wallet_buttons=true}}
-				{{/if}}
+				{{> components/products/add-to-cart with_wallet_buttons=true}}
 				{{> components/custom/client/client-product-add}}
-				{{#if (getVar "b2b-prices") '===' 'show'}}
                 {{#if product.out_of_stock}}
                     {{#if product.out_of_stock_message}}
                         {{> components/common/alert/alert-error product.out_of_stock_message}}
@@ -541,16 +527,21 @@
                         {{> components/common/alert/alert-error (lang 'products.sold_out')}}
                     {{/if}}
                 {{/if}}
-				{{/if}}
             </form>
 			<div class="productView-under-add">
-			{{#if (getVar "b2b-prices") '===' 'show'}}
 			{{#or customer (unless settings.hide_price_from_guests)}}
-            {{#all settings.show_wishlist theme_settings.custom_product_wishlist_show}}
-                {{> components/common/wishlist-dropdown}}
-            {{/all}}
+				{{#if theme_settings.custom_b2b}}
+					{{#unless customer.customer_group_name '==' theme_settings.custom_b2b_pending_group}}
+		            	{{#all settings.show_wishlist theme_settings.custom_product_wishlist_show}}
+		                	{{> components/common/wishlist-dropdown}}
+		            	{{/all}}
+					{{/unless}}
+				{{else}}
+	            	{{#all settings.show_wishlist theme_settings.custom_product_wishlist_show}}
+	                	{{> components/common/wishlist-dropdown}}
+	            	{{/all}}
+				{{/if}}
 			{{/or}}
-			{{/if}}
 			{{> components/common/share url=product.url}}
 			</div>
 			{{> components/custom/client/client-product-bottom}}
@@ -558,15 +549,29 @@
 			{{{region name="product_bottom--global"}}}
 			</div>
 			{{{region name="product_bottom"}}}
-			{{#if theme_settings.custom_product_upsell_location '===' 'bottom'}}
+			{{#if theme_settings.custom_product_upsell_location '===' 'top'}}
 			{{#filter product.custom_fields '_upsell' property='name' }}
 				<div class="productView-upsell-regions">
 				{{{region name="product_upsell--global"}}}
 				{{{region name="product_upsell"}}}
 				</div>
-				<div class="productView-upsell-container">
+				<div class="productView-upsell-container productView-upsell-top">
 	  				<div class="productView-upsell" data-upsell-id="{{../product.id}}">
-			
+						{{#each (split value ",")}}
+							<div class="upsell-item upsell-placeholder" data-index="{{@index}}">
+								<div class="upsell-item-inner">
+									<div class="upsell-item-image"></div>
+									<div class="upsell-item-details">
+										<ul>
+											<li class="upsell-item-brand"></li>
+											<li class="upsell-item-title"></li>
+											<li class="upsell-item-price"></li>
+										</ul>
+									</div>
+									<div class="upsell-item-actions"></div>
+								</div>
+							</div>
+						{{/each}}
 	  				</div>
 				</div>
 			{{/filter}}
