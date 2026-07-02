@@ -91,9 +91,66 @@
 }
 
 
-// VARIANT DATA TABLE
+
+// nav pages 
 // =============================================================================
 
+.navPages-list-depth-max .navPage-subMenu-item-viewall > a > span,
+.navPages-list-depth-max .navPage-subMenu-item-viewall > a:hover > span {
+	background-color: stencilColor("custom-header-menu-background");
+}
+
+.navPages-list-depth-max .navPage-subMenu-item-viewall > a > span:before,
+.navPages-list-depth-max .navPage-subMenu-item-viewall > a:hover > span:before {
+	border-left: 20px solid stencilColor("custom-header-menu-background");
+}
+
+.navPages-list-depth-max > .navPages-item-category .navPage-subMenu-horizontal.is-open,
+.navPages-list-depth-max > .navPages-item-brands .navPage-subMenu-horizontal.is-open {
+	@include breakpoint("medium") {
+		border: 0;
+		box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.2);
+	}
+}
+
+@media (max-width: 800px) {
+	.navPages-action-depth-max.has-subMenu.is-open .navPages-action-moreIcon {
+		background-color: stencilColor("custom-header-menu-background");
+		border: 1px solid stencilColor("custom-header-menu-background");
+	}
+}
+
+
+
+// Header
+// =============================================================================
+
+.page-header {
+	background-color: stencilColor("body-bg");
+}
+
+
+
+// Page Header
+// =============================================================================
+
+.header-globalregion {
+	background: #ebebeb;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	background-color: stencilColor("custom-page-header-background");
+	border-bottom: 1px solid stencilColor("body-bg");
+	font-size: 1.25rem;
+}
+
+.header-globalregion p {
+	font-size: 1.5rem;
+}
+
+
+
+// VARIANT DATA TABLE
+// =============================================================================
 
 .variant-data {
 	@include breakpoint("large") {
@@ -107,7 +164,6 @@
 		display: block;
 	}
 }
-
 
 .productView-images .variant-data .container {
 	padding: 0 !important;
@@ -143,22 +199,20 @@
 
 
 
+// Footer
+// =============================================================================
+
+.footer-info-list .link-journal {
+	display: none;
+}
+
+.footer-payment-icons svg {
+	fill: stencilColor("custom-footer-text");
+}
+
 // WIDGET FOR CATEGORY BOXES
 // =============================================================================
 
-.navPage-subMenu {
-	border-bottom: 2px solid #000;
-}
-
-
-// WIDGET FOR CATEGORY BOXES
-// =============================================================================
-
-div[data-content-region="home_below_carousel"] {
-	background: #ebebeb;
-	padding-top: 2rem;
-	padding-bottom: 2rem;
-}
 
 @media (max-width: 800px) {
 	div[data-sub-layout-container="4881a661-cdcb-45c4-909d-06ffd017f87d"] .custom-widget-item {
