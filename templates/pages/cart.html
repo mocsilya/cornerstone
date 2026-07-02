@@ -14,7 +14,16 @@ customer:
 <div class="container container-hero">
 	{{#if theme_settings.custom_page_header_image_cart}}
 		<div class="page-header checkout-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
-	    <img class="page-header-image" src="/product_images/uploaded_images/{{theme_settings.custom_page_header_image_cart}}" />
+		{{assignVar "headerImage" theme_settings.custom_page_header_image_cart}}
+		<img class="page-header-image" src="{{getImageManagerImage (getVar 'headerImage') width=640}}" 
+			srcset="{{getImageManagerImage (getVar 'headerImage') width=480}} 480w, 
+			{{getImageManagerImage (getVar 'headerImage') width=800}} 800w, 
+			{{getImageManagerImage (getVar 'headerImage') width=1200}} 1200w, 
+			{{getImageManagerImage (getVar 'headerImage') width=1920}} 1920w" 
+			sizes="100vw" 
+			alt="{{page.title}}" 
+			fetchpriority="high" 
+		/>
 	{{else}}
 		<div class="page-header checkout-header">
 	{{/if}}
@@ -26,6 +35,7 @@ customer:
 
 {{#partial "page"}}
 {{inject 'invalidEntryMessage' (lang 'cart.invalid_entry_message')}}
+{{inject 'multiCouponUIEnabled' cart.multi_coupon_ui_enabled}}
 <div class="page">
 
     <div class="page-content" data-cart>
@@ -68,10 +78,11 @@ customer:
 		                    <a class="button" href="{{urls.home}}" title="{{lang 'cart.continue_shopping'}}">{{lang 'cart.continue_shopping'}}</a>
 		                </div>
 		            {{/if}}
-					
-		            <div data-cart-additional-checkout-buttons class="cart-additionalCheckoutButtons cart-content-padding-right">
-		                {{> components/cart/additional-checkout-buttons}}
-		            </div>
+					{{#if cart.additional_checkout_buttons}}
+		            	<div data-cart-additional-checkout-buttons class="cart-additionalCheckoutButtons cart-content-padding-right">
+		                	{{> components/cart/additional-checkout-buttons}}
+		            	</div>
+					{{/if}}
 	            {{else}}
 	                <div class="cart-actions cart-content-padding-right">
 	                    <a class="button" href="{{urls.auth.login}}" title="{{lang 'cart.login_to_checkout'}}">{{lang 'cart.login_to_checkout'}}</a>
@@ -88,5 +99,24 @@ customer:
 		{{{region name="cart_below_table"}}}
     </div>
 </div>
+{{#if theme_settings.custom_product_availability}}
+	{{#contains theme_settings.custom_product_availability "//"}}
+		<script>
+		window.addEventListener('load', function () {
+			const list = document.querySelectorAll('.cart-item-availabilty-data');	
+			let listArr = [];
+			for (let i = 0; i < list.length; i++) {
+				const listAtt = list[i].getAttribute('data-product-availabilty');
+				listArr.push(listAtt);
+			}
+			console.log('list: ' + listArr);
+			const listMax = Math.max.apply(null, listArr);
+			document.getElementById('availabilityMessage').querySelector('span').innerHTML = listMax;
+			document.getElementById('availabilityMessage').classList.add("showMessage");
+			localStorage.setItem('availabiltyCart', listMax);
+		})
+		</script>
+	{{/contains}}
+{{/if}}
 {{/partial}}
 {{> layout/base}}

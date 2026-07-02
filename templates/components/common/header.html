@@ -1,21 +1,18 @@
 <a href="#main-content" class="skip-to-main-link">{{lang 'header.skip_to_main'}}</a>
-<header class="header" role="banner">
+{{#if theme_settings.custom_header_show_bar}}
+	{{> components/custom/header-bar}}
+{{/if}}
+<header class="header{{#if theme_settings.custom_header_fixed}} header-fixed{{else}} header-unfixed{{/if}}" role="banner">
     <a href="#" class="mobileMenu-toggle mobileMenu-{{theme_settings.custom_header_icon_style}}" data-mobile-menu-toggle="menu">
         <span class="mobileMenu-toggleIcon">Toggle menu</span>
     </a>
     {{> components/common/navigation}}
-    <div class="navPages-container {{#unless theme_settings.custom_header_scroll_navpages}} navPages-container-hide{{/unless}}" id="menu" data-menu>
+    <div class="navPages-container{{#unless theme_settings.custom_header_scroll_navpages}} navPages-container-hide{{/unless}} navPages-{{theme_settings.custom_header_icon_style}}" id="menu" data-menu>
         {{> components/common/navigation-menu}}
     </div>
 	{{> components/custom/client/client-header}}
 </header>
-{{#if theme_settings.custom_header_show_bar}}
-	{{> components/custom/header-bar}}
-{{/if}}
 
-{{#if theme_settings.custom_b2b}}
-	{{> components/custom/b2b-message}}
-{{/if}}
 
 {{#if banners.top}}
 <div class="banners" data-banner-location="top">
@@ -32,3 +29,7 @@
 	{{{region name="header_bottom--global"}}}
 </div>
 {{{region name="header_bottom"}}}
+
+{{#if theme_settings.custom_b2b}}
+	{{> components/custom/b2b-message}}
+{{/if}}

@@ -2,17 +2,28 @@ import { hooks } from '@bigcommerce/stencil-utils';
 import CatalogPage from './catalog';
 import compareProducts from './global/compare-products';
 import FacetedSearch from './common/faceted-search';
-import { createTranslationDictionary } from '../theme/common/utils/translations-utils';
+import { createTranslationDictionary } from './common/utils/translations-utils';
 import cardSwatches from './custom/card-swatches';
 import cardWarranty from './custom/card-warranty';
 import cardCarousel from './custom/card-carousel';
 import descriptionHelper from './custom/description-helper';
+import cardData from './custom/card-data';
 
 export default class Category extends CatalogPage {
     constructor(context) {
         super(context);
         this.validationDictionary = createTranslationDictionary(context);
     }
+	
+	dataProductCollection() {
+	    const cards = document.querySelectorAll('.card, .listItem');
+	    const dataIdArr= [];
+	    cards.forEach(card => {
+	        const id = card.dataset.test.replace('card-', '');
+	        dataIdArr.push(Number(id));
+	    });
+	    return dataIdArr;
+	}
 
     setLiveRegionAttributes($element, roleType, ariaLiveStatus) {
         $element.attr({
@@ -25,7 +36,7 @@ export default class Category extends CatalogPage {
         if (!$('[data-shop-by-price]').length) return;
 
         if ($('.navList-action').hasClass('is-active')) {
-            $('a.navList-action.is-active').focus();
+            $('a.navList-action.is-active').trigger('focus');
         }
 
         $('a.navList-action').on('click', () => this.setLiveRegionAttributes($('span.price-filter-message'), 'status', 'assertive'));
@@ -40,27 +51,42 @@ export default class Category extends CatalogPage {
 
         compareProducts(this.context);
 
-        if ($('#facetedSearch').length > 0) {
-            this.initFacetedSearch();
-        } else {
+        this.initFacetedSearch();
+
+        if (!$('#facetedSearch').length) {
             this.onSortBySubmit = this.onSortBySubmit.bind(this);
             hooks.on('sortBy-submitted', this.onSortBySubmit);
+
+            // Refresh range view when shop-by-price enabled
+            const urlParams = new URLSearchParams(window.location.search);
+
+            if (urlParams.has('search_query')) {
+                $('.reset-filters').show();
+            }
+
+            $('input[name="price_min"]').attr('value', urlParams.get('price_min'));
+            $('input[name="price_max"]').attr('value', urlParams.get('price_max'));
         }
 
-        $('a.reset-btn').on('click', () => this.setLiveRegionsAttributes($('span.reset-message'), 'status', 'polite'));
+        $('a.reset-btn').on('click', () => this.setLiveRegionAttributes($('span.reset-message'), 'status', 'polite'));
 
         this.ariaNotifyNoProducts();
 		
-        cardSwatches();
+        cardSwatches(this.context.apiToken, this.dataProductCollection());
 		cardWarranty();
 		cardCarousel();
 		descriptionHelper();
+		const dataOnReady = this.context.cardVariantData;
+		if (dataOnReady) {
+			cardData(this.context.apiToken, this.dataProductCollection());
+		}
+		
     }
 
     ariaNotifyNoProducts() {
         const $noProductsMessage = $('[data-no-products-notification]');
         if ($noProductsMessage.length) {
-            $noProductsMessage.focus();
+            $noProductsMessage.trigger('focus');
         }
     }
 
@@ -78,7 +104,6 @@ export default class Category extends CatalogPage {
         const requestOptions = {
             config: {
                 category: {
-                    shop_by_price: true,
                     products: {
                         limit: productsPerPage,
                     },
@@ -94,7 +119,13 @@ export default class Category extends CatalogPage {
         this.facetedSearch = new FacetedSearch(requestOptions, (content) => {
             $productListingContainer.html(content.productListing);
             $facetedSearchContainer.html(content.sidebar);
-
+			
+			cardSwatches(this.context.apiToken, this.dataProductCollection());
+			const dataFacetedSearch = this.context.cardVariantData;
+			if (dataFacetedSearch) {
+				cardData(this.context.apiToken, this.dataProductCollection());
+			}
+			
             $('body').triggerHandler('compareReset');
 
             $('html, body').animate({

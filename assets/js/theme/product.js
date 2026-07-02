@@ -13,6 +13,7 @@ import cardWarranty from './custom/card-warranty';
 import tabPages from './custom/tab-pages';
 import videoClick from './custom/video-click';
 import productUpsell from './custom/product-upsell';
+import productSticky from './custom/product-sticky';
 
 export default class Product extends PageManager {
     constructor(context) {
@@ -22,13 +23,24 @@ export default class Product extends PageManager {
         this.$bulkPricingLink = $('[data-reveal-id="modal-bulk-pricing"]');
         this.reviewModal = modalFactory('#modal-review-form')[0];
     }
+	
+	dataProductCollection() {
+	    const cards = document.querySelectorAll('.card, .listItem');
+	    const dataIdArr= [];
+	    cards.forEach(card => {
+	        const id = card.dataset.test.replace('card-', '');
+	        dataIdArr.push(Number(id));
+	    });
+	    return dataIdArr;
+	}
 
     onReady() {
-        cardSwatches();
+        cardSwatches(this.context.apiToken, this.dataProductCollection());
         cardWarranty();
         tabPages();
         videoClick();
 		productUpsell();
+		productSticky();
         
         // Listen for foundation modal close events to sanitize URL after review.
         $(document).on('close.fndtn.reveal', () => {

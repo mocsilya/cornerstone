@@ -7,6 +7,7 @@ export default function () {
     const $quickSearchResults = $('.quickSearchResults');
     const $quickSearchForms = $('[data-quick-search-form]');
     const $quickSearchExpand = $('#quick-search-expand');
+	const $quickSearchBox = $('#nav-quick-search');
     const $searchQuery = $quickSearchForms.find('[data-search-quick]');
     const stencilDropDownExtendables = {
         hide: () => {
@@ -31,15 +32,17 @@ export default function () {
         }
     };
 
-    // stagger searching for 1200ms after last input
-    const debounceWaitTime = 1200;
+    // stagger searching for 500ms after last input
+    const debounceWaitTime = 500;
     const doSearch = _.debounce((searchQuery) => {
         utils.api.search.search(searchQuery, { template: 'search/quick-results' }, (err, response) => {
             if (err) {
+				$quickSearchBox.removeClass('search-active');
                 return false;
             }
 
             $quickSearchResults.html(response);
+			$quickSearchBox.removeClass('search-active');
             const $quickSearchResultsCurrent = $quickSearchResults.filter(':visible');
 
             const $noResultsMessage = $quickSearchResultsCurrent.find('.quickSearchMessage');
@@ -65,11 +68,15 @@ export default function () {
     }, debounceWaitTime);
 
     utils.hooks.on('search-quick', (event, currentTarget) => {
+		const searchBox = $(currentTarget);
         const searchQuery = $(currentTarget).val();
 
         // server will only perform search with at least 3 characters
         if (searchQuery.length < 3) {
+			searchBox.removeClass('search-active');
             return;
+        } else {
+        	searchBox.addClass('search-active');
         }
 
         doSearch(searchQuery);

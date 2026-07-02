@@ -12,7 +12,16 @@ customer:
 <div class="container container-hero">
 	{{#if theme_settings.custom_page_header_image_info}}
 		<div class="page-header info-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
-	    <img class="page-header-image" src="/product_images/uploaded_images/{{theme_settings.custom_page_header_image_info}}" />
+		{{assignVar "headerImage" theme_settings.custom_page_header_image_info}}
+		<img class="page-header-image" src="{{getImageManagerImage (getVar 'headerImage') width=640}}" 
+			srcset="{{getImageManagerImage (getVar 'headerImage') width=480}} 480w, 
+			{{getImageManagerImage (getVar 'headerImage') width=800}} 800w, 
+			{{getImageManagerImage (getVar 'headerImage') width=1200}} 1200w, 
+			{{getImageManagerImage (getVar 'headerImage') width=1920}} 1920w" 
+			sizes="100vw" 
+			alt="{{page.title}}" 
+			fetchpriority="high" 
+		/>
 	{{else}}
 		<div class="page-header info-header">
 	{{/if}}
@@ -31,14 +40,14 @@ customer:
 {{#if page.sub_pages}}
 	<div class="subcategories-above subcategories--vertical">
 		<div class="accord-wrapper">	
-	    	<div class="accord accord-{{dashcase (lowercase (sanitize page.title))}} accord-active">
+	    	<div class="accord accord-{{dashcase (lowercase (sanitize page.title))}}">
 				<div class="accord-heading">
 					<h4 class="accord-title">
 						{{page.title}}
 						<div class="accord-icon"><span class="accord-chevron">&nbsp;</span></div>
 					</h4>
 				</div>
-				<div class="accord-body" style="display: block;">
+				<div class="accord-body">
 	            {{#each page.sub_pages}}
 			    	<div class="accord accord-{{dashcase (lowercase (sanitize title))}}">
 						<div class="accord-link">
@@ -52,13 +61,18 @@ customer:
     </div>
 {{/if}}
 
-    <aside class="page-sidebar page-sidebar-vertical">
+{{assignVar "pagetype" "child"}}
+{{#if breadcrumbs.[1].name '===' page.title}}
+	{{assignVar "pagetype" "parent"}}
+{{/if}}
+    <aside class="page-sidebar page-sidebar-vertical page-sidebar-{{getVar 'pagetype'}}">
     	<nav>
 			<div class="sidebarBlock sidebarCategories">
 				<h2 class="sidebarBlock-heading">{{ page.title }}</h2>
 	            <div class="accord-wrapper accord-menu">	
 	            {{#each pages}}
-					{{#unless name '==' 'header'}}
+					{{#or (if (lowercase name) '===' 'header') (if (lowercase name) '===' 'iframe')}}
+					{{else}}
 	                {{#if children}}
 	                <div class="accord accord-{{dashcase (lowercase (sanitize name))}}{{#if ../breadcrumbs.[1].name '===' name}} accord-active{{/if}}">
 						<div class="accord-link">
@@ -118,7 +132,7 @@ customer:
 						</div>
 					</div>
 	                {{/if}}
-					{{/unless}}
+					{{/or}}
 	            {{/each}}
 				</div>
 			</div>

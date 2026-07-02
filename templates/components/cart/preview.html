@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h1 class="modal-header-title">
+    <h1 id="modal-header-title" class="modal-header-title">
         {{lang 'cart.added_to_cart.what_next' num_products=cart.quantity}}
     </h1>
 </div>
@@ -54,7 +54,7 @@
 
             
         </section>
-        <section class="productView">
+        <section class="productView{{#with cart.added_item}}{{#filter custom_fields '_upsell' property='name'}} productView-upsell-modal{{/filter}}{{/with}}">
             {{#with cart.added_item}}
                 <figure class="productView-image">
                     <div class="productView-img-container">
@@ -69,32 +69,48 @@
                 </figure>
 
                 <div class="productView-details">
-                    <h2 class="productView-title">
-                        {{name}}
-                    </h2>
+					<div class="productView-details-inner">
+	                    <div class="productView-brand">
+	                        {{brand.name}}
+	                    </div>
+					
+	                    <h2 class="productView-title">
+	                        {{name}}
+	                    </h2>
 
-                    <div class="productView-brand">
-                        {{brand.name}}
-                    </div>
-
-                    <div class="productView-price">
-                        {{#or ../customer (unless ../settings.hide_price_from_guests)}}
-                            {{quantity}} &times; {{price.formatted}}
-                        {{else}}
-                            {{> components/common/login-for-pricing}}
-                        {{/or}}
-                    </div>
-
-                    {{#each options}}
-                        <dl class="productView-info">
-                            <dt class="productView-info-name">
-                                {{name}}
-                            </dt>
-                            <dd class="productView-info-value">
-                                {{> components/common/product-options}}
-                            </dd>
-                        </dl>
-                    {{/each}}
+	                    <div class="productView-price">
+	                        {{#or ../customer (unless ../settings.hide_price_from_guests)}}
+	                            {{quantity}} &times; {{price.formatted}}
+	                        {{else}}
+	                            {{> components/common/login-for-pricing}}
+	                        {{/or}}
+	                    </div>
+					
+						{{#if options}}
+							<div class="productView-info">
+	                    	{{#each options}}
+	                        	<dl class="productView-info-row">
+	                            	<dt class="productView-info-name">{{name}}:</dt>
+	                            	<dd class="productView-info-value">{{> components/common/product-options}}</dd>
+								</dl>
+							{{/each}}
+	                        </div>
+						{{/if}}
+					</div>
+					{{assignVar "upsell" "no"}}
+					{{#each custom_fields}}
+					    {{#if name '===' '_upsell'}}
+					        {{#if (getVar "upsell") '===' 'no'}}
+								<div class="productView-actions">
+									<button type="button" class="button button--small">
+										<span class="button-text">Added!</span>
+									</button>
+								</div>
+					            {{assignVar "upsell" "yes"}}
+					        {{/if}}
+					    {{/if}}
+					{{/each}}
+					
                 </div>
             {{/with}}
         </section>
@@ -116,4 +132,3 @@
         </section>
     {{/if}}
 </div>
-{{{remote_api_scripts}}}

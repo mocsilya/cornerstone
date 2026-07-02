@@ -12,7 +12,16 @@ customer:
 <div class="container container-hero">
 	{{#if theme_settings.custom_page_header_image_contact}}
 		<div class="page-header contact-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
-	    <img class="page-header-image" src="/product_images/uploaded_images/{{theme_settings.custom_page_header_image_contact}}" />
+	    {{assignVar "headerImage" theme_settings.custom_page_header_image_contact}}
+		<img class="page-header-image" src="{{getImageManagerImage (getVar 'headerImage') width=640}}" 
+			srcset="{{getImageManagerImage (getVar 'headerImage') width=480}} 480w, 
+			{{getImageManagerImage (getVar 'headerImage') width=800}} 800w, 
+			{{getImageManagerImage (getVar 'headerImage') width=1200}} 1200w, 
+			{{getImageManagerImage (getVar 'headerImage') width=1920}} 1920w" 
+			sizes="100vw" 
+			alt="{{page.title}}" 
+			fetchpriority="high" 
+		/>
 	{{else}}
 		<div class="page-header contact-header">
 	{{/if}}
@@ -62,52 +71,31 @@ customer:
 {{{region name="page_builder_content_editor_area_bottom"}}}
 </section>
 
-
 {{#if forms.contact.rma}}
-	{{#unless (lowercase page.title) '==' 'iframe'}}
-		<script>
-			const queryString = window.location.search;
-			const urlParams = new URLSearchParams(queryString);
-			const getParam = urlParams.get('rma');
-			if (getParam) {
-				const hideRMA = "hide";
-				const oldLabel = document.getElementById('label_rma');
-				const oldVal = document.getElementById('contact_rma');
-				if (getParam == hideRMA) {
-					oldLabel.parentNode.style.display = "none";
-				} else {
-					const newLabel = oldLabel.innerHTML = "{{lang 'cart.checkout.item'}} / {{lang 'products.sku'}}";
-					const newVal = oldVal.value = getParam;
-				}
-			}
-		</script>
-	{{else}}
-		<script>
-			const queryString = window.location.search;
-			const urlParams = new URLSearchParams(queryString);
-			const getParam = urlParams.get('rma');
-			if (getParam) {
-				const oldVal = document.getElementById('contact_rma');
-				const newVal = oldVal.value = getParam;
-			}
-		</script>
-	{{/unless}}
-{{/if}}
-{{#if (lowercase page.title) '==' 'iframe'}}
-	{{#if theme_settings.custom_product_question}}
-		<script>
-			function sendHeight(){
-			  var actual_height = document.querySelector('.body').scrollHeight;
-			  var pass_data = {
-			    'contentheight':actual_height
-			  }
-			  parent.postMessage(JSON.stringify(pass_data),"*");
-			}
-			window.onload = function(){
-			  sendHeight();
-			}
-		</script>
-	{{/if}}
+    {{#unless (lowercase page.title) '==' 'iframe'}}
+        <script nonce="{{nonce}}">
+            (function() {
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                const getParam = urlParams.get('rma');
+                
+                if (getParam) {
+                    const hideRMA = "hide";
+                    const oldLabel = document.getElementById('label_rma');
+                    const oldVal = document.getElementById('contact_rma');
+                    
+                    if (oldLabel && oldVal) {
+                        if (getParam === hideRMA) {
+                            oldLabel.parentNode.style.display = "none";
+                        } else {
+                            oldLabel.innerHTML = "{{lang 'cart.checkout.item'}} / {{lang 'products.sku'}}";
+                            oldVal.value = getParam;
+                        }
+                    }
+                }
+            })();
+        </script>
+    {{/unless}}
 {{/if}}
 
 {{/partial}}

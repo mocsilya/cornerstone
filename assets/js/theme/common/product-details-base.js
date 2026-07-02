@@ -1,5 +1,6 @@
 import Wishlist from '../wishlist';
 import { initRadioOptions } from './aria';
+import PicklistBackorder from './picklist-backorder';
 
 const optionsTypesMap = {
     INPUT_FILE: 'input-file',
@@ -15,13 +16,14 @@ const optionsTypesMap = {
     PRODUCT_LIST: 'product-list',
 };
 
-export function optionChangeDecorator(areDefaultOtionsSet) {
+export function optionChangeDecorator(areDefaultOptionsSet) {
     return (err, response) => {
+        if (err) return;
         const attributesData = response.data || {};
         const attributesContent = response.content || {};
 
         this.updateProductAttributes(attributesData);
-        if (areDefaultOtionsSet) {
+        if (areDefaultOptionsSet) {
             this.updateView(attributesData, attributesContent);
         } else {
             this.updateDefaultAttributesForOOS(attributesData);
@@ -33,6 +35,7 @@ export default class ProductDetailsBase {
     constructor($scope, context) {
         this.$scope = $scope;
         this.context = context;
+        this.picklistBackorder = new PicklistBackorder($scope, this.context);
         this.initRadioAttributes();
         Wishlist.load(this.context);
         this.getTabRequests();
@@ -42,6 +45,10 @@ export default class ProductDetailsBase {
 
             this._makeProductVariantAccessible(value, type);
         });
+
+        if ((parseInt(this.context.availableToSell, 10) || 0) > 0) {
+            this.toggleSoldOutAlert(true);
+        }
     }
 
     _makeProductVariantAccessible(variantDomNode, variantType) {
@@ -107,7 +114,6 @@ export default class ProductDetailsBase {
             const $attribute = $(attribute);
             const attrId = parseInt($attribute.data('productAttributeValue'), 10);
 
-
             if (inStockIds.indexOf(attrId) !== -1) {
                 this.enableAttribute($attribute, behavior, outOfStockMessage);
             } else {
@@ -145,8 +151,14 @@ export default class ProductDetailsBase {
      */
     getViewModel($scope) {
         return {
-            $priceWithTax: $('[data-product-price-with-tax]', $scope),
-            $priceWithoutTax: $('[data-product-price-without-tax]', $scope),
+            priceWithTax: {
+                $div: $('.price--withTax', $scope),
+                $span: $('[data-product-price-with-tax]', $scope),
+            },
+            priceWithoutTax: {
+                $div: $('.price--withoutTax', $scope),
+                $span: $('[data-product-price-without-tax]', $scope),
+            },
             rrpWithTax: {
                 $div: $('.rrp-price--withTax', $scope),
                 $span: $('[data-product-rrp-with-tax]', $scope),
@@ -176,14 +188,23 @@ export default class ProductDetailsBase {
             $weight: $('.productView-info [data-product-weight]', $scope),
             $increments: $('.form-field--increments :input', $scope),
             $addToCart: $('#form-action-addToCart', $scope),
+            $addToCartForm: $('form[data-cart-item-add]', $scope),
             $wishlistVariation: $('[data-wishlist-add] [name="variation_id"]', $scope),
             stock: {
                 $container: $('.form-field--stock', $scope),
                 $input: $('[data-product-stock]', $scope),
             },
+            $backordered: $('[data-product-backordered]', $scope),
+            $backorderedQtyMessage: $('[data-qty-backordered-message]', $scope),
+            $backorderMessage: $('[data-backorder-message]', $scope),
+            $backorderPrompt: $('[data-backorder-prompt]', $scope),
             sku: {
                 $label: $('dt.sku-label', $scope),
                 $value: $('[data-product-sku]', $scope),
+            },
+            mpn: {
+                $label: $('dt.mpn-label', $scope),
+                $value: $('[data-product-mpn]', $scope),
             },
             upc: {
                 $label: $('dt.upc-label', $scope),
@@ -210,6 +231,156 @@ export default class ProductDetailsBase {
         viewModel.priceSaved.$div.hide();
         viewModel.priceNowLabel.$span.hide();
         viewModel.priceLabel.$span.hide();
+        viewModel.priceWithTax.$div.hide();
+        viewModel.priceWithoutTax.$div.hide();
+    }
+
+    updateQtyBackorderedMessage(qty, passedViewModel) {
+        const viewModel = passedViewModel || this.getViewModel(this.$scope);
+
+        if (!viewModel.$backordered.length) return;
+
+        if (this.context.showQuantityOnBackorder === false) {
+            viewModel.$backorderedQtyMessage.text('');
+            this.toggleBackorderedContainer(viewModel);
+            return;
+        }
+
+        const contextOnHand = parseInt(this.context.availableOnHand, 10);
+        const stockFromDom = parseInt(viewModel.stock.$input.text(), 10);
+        let onHand = 0;
+
+        if (!Number.isNaN(contextOnHand) && contextOnHand > 0) {
+            onHand = contextOnHand;
+        } else if (!Number.isNaN(stockFromDom)) {
+            onHand = stockFromDom;
+        }
+
+        const unlimited = this.context.unlimitedBackorder === true;
+        const availableForBackorder = unlimited
+            ? Infinity
+            : parseInt(this.context.availableForBackorder, 10) || 0;
+        const backordered = Math.max(0, Math.min(qty - onHand, availableForBackorder));
+
+        if (backordered > 0) {
+            const message = this.context.quantityBackorderedMessage
+                ? this.context.quantityBackorderedMessage.replace('__QTY__', backordered)
+                : `${backordered} will be backordered`;
+            viewModel.$backorderedQtyMessage.text(message);
+        } else {
+            viewModel.$backorderedQtyMessage.text('');
+        }
+
+        this.toggleBackorderedContainer(viewModel);
+    }
+
+    updateBackorderMessage(passedViewModel) {
+        const viewModel = passedViewModel || this.getViewModel(this.$scope);
+
+        if (!viewModel.$backordered.length) return;
+
+        const hasQtyMessage = viewModel.$backorderedQtyMessage.text().trim() !== '';
+
+        if (!hasQtyMessage) {
+            viewModel.$backorderMessage.text('');
+            return;
+        }
+
+        const { showBackorderMessage, backorderMessages, backorderMessageId } = this.context;
+
+        if (showBackorderMessage && backorderMessageId != null && Array.isArray(backorderMessages)) {
+            const messageObj = backorderMessages.find(m => m.id === backorderMessageId);
+            if (messageObj) {
+                viewModel.$backorderMessage.text(messageObj.message);
+                return;
+            }
+        }
+
+        viewModel.$backorderMessage.text('');
+    }
+
+    toggleBackorderedContainer(viewModel) {
+        const hasQtyMessage = viewModel.$backorderedQtyMessage.text().trim() !== '';
+
+        if (hasQtyMessage) {
+            viewModel.$backordered.show();
+        } else {
+            viewModel.$backordered.hide();
+        }
+    }
+
+    updateAddToCartForQty(qty, passedViewModel) {
+        const viewModel = passedViewModel || this.getViewModel(this.$scope);
+        const unlimited = this.context.unlimitedBackorder === true;
+        const availableToSell = unlimited
+            ? Infinity
+            : parseInt(this.context.availableToSell, 10) || 0;
+
+        if (availableToSell <= 0) return;
+
+        const $variantMessage = $('#add-to-cart-wrapper .productAttributes-message', this.$scope);
+
+        if (qty > availableToSell) {
+            viewModel.$addToCart.prop('disabled', true);
+
+            const template = this.context.quantityMaxMessage || 'The maximum purchasable quantity is __QTY__';
+            const message = template.replace('__QTY__', availableToSell);
+            $('.alertBox-message', $variantMessage).text(message);
+            $variantMessage.attr('data-qty-limit', 'true').show();
+        } else if (!viewModel.$increments.prop('disabled')) {
+            viewModel.$addToCart.prop('disabled', false);
+
+            if ($variantMessage.attr('data-qty-limit') === 'true') {
+                $variantMessage.removeAttr('data-qty-limit').hide();
+                $('.alertBox-message', $variantMessage).text('');
+            }
+        }
+    }
+
+    updateBackorderContext(data) {
+        if (typeof data.available_on_hand === 'number') {
+            this.context.availableOnHand = data.available_on_hand;
+        } else if (typeof data.stock === 'number') {
+            this.context.availableOnHand = data.stock;
+        }
+        if (typeof data.available_for_backorder === 'number') {
+            this.context.availableForBackorder = data.available_for_backorder;
+        }
+        if (typeof data.available_to_sell === 'number') {
+            this.context.availableToSell = data.available_to_sell;
+        }
+        if (typeof data.show_backorder_availability_prompt === 'boolean') {
+            this.context.showBackorderAvailabilityPrompt = data.show_backorder_availability_prompt;
+        }
+        if (typeof data.backorder_availability_prompt === 'string') {
+            this.context.backorderAvailabilityPrompt = data.backorder_availability_prompt;
+        }
+        if (typeof data.unlimited_backorder === 'boolean') {
+            this.context.unlimitedBackorder = data.unlimited_backorder;
+        }
+        this.context.backorderMessageId = data.backorder_message_id ?? null;
+    }
+
+    updateBackorderPrompt(passedViewModel) {
+        const viewModel = passedViewModel || this.getViewModel(this.$scope);
+
+        if (!viewModel.$backorderPrompt.length) return;
+
+        const showPrompt = this.context.showBackorderAvailabilityPrompt;
+        const unlimited = this.context.unlimitedBackorder === true;
+        const availableForBackorder = unlimited
+            ? Infinity
+            : parseInt(this.context.availableForBackorder, 10) || 0;
+        const availableToSell = unlimited
+            ? Infinity
+            : parseInt(this.context.availableToSell, 10) || 0;
+        const promptText = this.context.backorderAvailabilityPrompt;
+
+        if (showPrompt && availableToSell > 0 && availableForBackorder > 0 && promptText) {
+            viewModel.$backorderPrompt.text(promptText).show();
+        } else {
+            viewModel.$backorderPrompt.hide();
+        }
     }
 
     /**
@@ -223,6 +394,8 @@ export default class ProductDetailsBase {
 
         if (data.price instanceof Object) {
             this.updatePriceView(viewModel, data.price);
+        } else {
+            this.clearPricingNotFound(viewModel);
         }
 
         if (data.weight instanceof Object) {
@@ -241,6 +414,15 @@ export default class ProductDetailsBase {
         } else {
             viewModel.sku.$label.hide();
             viewModel.sku.$value.text('').hide();
+        }
+		
+        // If MPN is available
+        if (data.mpn) {
+            viewModel.mpn.$value.text(data.mpn).show();
+            viewModel.mpn.$label.show();
+        } else {
+            viewModel.mpn.$label.hide();
+            viewModel.mpn.$value.text('').hide();
         }
 
         // If UPC is available
@@ -268,7 +450,16 @@ export default class ProductDetailsBase {
             viewModel.stock.$input.text(data.stock);
         }
 
+        this.updateBackorderContext(data);
+        this.updateBackorderPrompt(viewModel);
+
+        const currentQty = parseInt(viewModel.quantity.$input.val(), 10) || 0;
+        this.updateQtyBackorderedMessage(currentQty, viewModel);
+        this.updateBackorderMessage(viewModel);
+        this.picklistBackorder.render(data, currentQty);
+
         this.updateDefaultAttributesForOOS(data);
+        this.updateAddToCartForQty(currentQty, viewModel);
         this.updateWalletButtonsView(data);
 
         // If Bulk Pricing rendered HTML is available
@@ -289,23 +480,34 @@ export default class ProductDetailsBase {
      * Update the view of price, messages, SKU and stock options when a product option changes
      * @param  {Object} data Product attribute data
      */
+	
     updatePriceView(viewModel, price) {
         this.clearPricingNotFound(viewModel);
-
+		const priceFrom = this.context.productPriceFrom;
+		
         if (price.with_tax) {
-            const updatedPrice = price.price_range ?
-                `${price.price_range.min.with_tax.formatted} - ${price.price_range.max.with_tax.formatted}`
-                : price.with_tax.formatted;
+			let updatedPrice;
+			if (priceFrom == true) {
+            	updatedPrice = price.price_range ?
+                	`From ${price.price_range.min.with_tax.formatted}`
+                	: price.with_tax.formatted;
+			} else {
+        		updatedPrice = price.price_range ?
+            	`${price.price_range.min.with_tax.formatted} - ${price.price_range.max.with_tax.formatted}`
+            	: price.with_tax.formatted;
+			}
             viewModel.priceLabel.$span.show();
-            viewModel.$priceWithTax.html(updatedPrice);
+            viewModel.priceWithTax.$div.show();
+            viewModel.priceWithTax.$span.html(updatedPrice);
         }
 
         if (price.without_tax) {
-            const updatedPrice = price.price_range ?
-                `${price.price_range.min.without_tax.formatted} - ${price.price_range.max.without_tax.formatted}`
+            const updatedPrice = price.price_range
+                ? `${price.price_range.min.without_tax.formatted} - ${price.price_range.max.without_tax.formatted}`
                 : price.without_tax.formatted;
             viewModel.priceLabel.$span.show();
-            viewModel.$priceWithoutTax.html(updatedPrice);
+            viewModel.priceWithoutTax.$div.show();
+            viewModel.priceWithoutTax.$span.html(updatedPrice);
         }
 
         if (price.rrp_with_tax) {
@@ -339,34 +541,61 @@ export default class ProductDetailsBase {
     }
 
     /**
-     * Show an message box if a message is passed
-     * Hide the box if the message is empty
+     * Show variant-level error message box if a message is passed
+     * Hide the box if the message is empty or if product-level error message box is already present
      * @param  {String} message
      */
     showMessageBox(message) {
-        const $messageBox = $('.productAttributes-message');
+        const $variantErrorBox = $('.productAttributes-message', this.$scope);
+        const $productErrorBox = $('.alertBox--error', this.$scope).not('.productAttributes-message');
 
-        if (message) {
-            $('.alertBox-message', $messageBox).text(message);
-            $messageBox.show();
-        } else {
-            $messageBox.hide();
+        if (!message || $productErrorBox.length) {
+            $variantErrorBox.hide();
+            return;
         }
+
+        $('.alertBox-message', $variantErrorBox).text(message);
+        $variantErrorBox.show();
     }
 
     updateDefaultAttributesForOOS(data) {
         const viewModel = this.getViewModel(this.$scope);
-        if (!data.purchasable || !data.instock) {
+        const dataAvailableToSell = typeof data.available_to_sell === 'number'
+            ? data.available_to_sell
+            : parseInt(this.context.availableToSell, 10) || 0;
+        const canSell = data.instock || dataAvailableToSell > 0;
+        if (!data.purchasable || !canSell) {
             viewModel.$addToCart.prop('disabled', true);
             viewModel.$increments.prop('disabled', true);
         } else {
             viewModel.$addToCart.prop('disabled', false);
             viewModel.$increments.prop('disabled', false);
         }
+
+        this.toggleSoldOutAlert(canSell);
+    }
+
+    toggleSoldOutAlert(canSell) {
+        const $soldOut = $('#add-to-cart-wrapper .alertBox--error', this.$scope).not('.productAttributes-message');
+        const $variantMessage = $('#add-to-cart-wrapper .productAttributes-message', this.$scope);
+
+        if (canSell) {
+            $soldOut.hide();
+            $variantMessage.hide();
+        } else if ($soldOut.length) {
+            $soldOut.show();
+        }
     }
 
     updateWalletButtonsView(data) {
-        this.toggleWalletButtonsVisibility(data.purchasable && data.instock);
+        const viewModel = this.getViewModel(this.$scope);
+        const isValidForm = viewModel.$addToCartForm?.[0]?.checkValidity() ?? true;
+        const dataAvailableToSell = typeof data.available_to_sell === 'number'
+            ? data.available_to_sell
+            : parseInt(this.context.availableToSell, 10) || 0;
+        const canSell = data.instock || dataAvailableToSell > 0;
+
+        this.toggleWalletButtonsVisibility(isValidForm && data.purchasable && canSell);
     }
 
     toggleWalletButtonsVisibility(shouldShow) {

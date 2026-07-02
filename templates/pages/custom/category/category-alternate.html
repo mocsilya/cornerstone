@@ -34,8 +34,9 @@ customer:
 				    {{> components/common/responsive-img
 				        image=category.image
 				        fallback_size=theme_settings.zoom_size
-				        lazyload=theme_settings.lazyload_mode
+				        lazyload="disabled"
 				        class="page-header-image"
+						otherAttributes="fetchpriority='high'"
 				    }}
 				{{else}}
 					<div class="page-header category-header">
@@ -49,8 +50,9 @@ customer:
 			    {{> components/common/responsive-img
 			        image=category.image
 			        fallback_size=theme_settings.zoom_size
-			        lazyload=theme_settings.lazyload_mode
+			        lazyload="disabled"
 			        class="page-header-image"
+			        otherAttributes="fetchpriority='high'"
 			    }}
 			{{else}}
 				<div class="page-header category-header">
@@ -68,10 +70,12 @@ customer:
 {{#partial "page"}}
 {{{region name="category_below_header"}}}
 <div class="category-alternate">
-	{{#if category.description}}
-		<div class="category-description{{#if category.subcategories}} category-description-withsub{{/if}}">
-			{{{category.description}}}
-		</div>
+	{{#if theme_settings.custom_category_description_position '==' 'top'}}
+		{{#if category.description}}
+			<div class="category-description{{#if category.subcategories}} category-description-withsub{{/if}}">
+				{{{category.description}}}
+			</div>
+		{{/if}}
 	{{/if}}
 	{{#if (getVar "b2b-products") '===' 'show'}}
 		{{#if category.subcategories}}
@@ -140,6 +144,13 @@ customer:
 		{{{region name="category_above_content"}}}
         {{{region name="category_below_content"}}}
     </div>
+{{/if}}
+{{#if theme_settings.custom_category_description_position '==' 'bottom'}}
+	{{#if category.description}}
+		<div class="category-description">
+			{{{category.description}}}
+		</div>
+	{{/if}}
 {{/if}}
 {{{region name="category_below_all"}}}
 </div>

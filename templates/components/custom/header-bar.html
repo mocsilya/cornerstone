@@ -1,50 +1,59 @@
 {{#if theme_settings.custom_header_show_bar}}
-<div class="header-bar">
+<div class="header-bar{{#if theme_settings.custom_header_fixed}} header-bar-fixed{{else}} header-bar-unfixed{{/if}}">
 	<div class="container">
 		<div class="header-bar-list{{#or theme_settings.custom_phone_show theme_settings.custom_email_show}} header-bar-list-contact{{/or}}{{#or theme_settings.custom_header_show_bar_message1 theme_settings.custom_header_show_bar_message2 theme_settings.custom_header_show_bar_message3}} header-bar-list-message{{/or}}">
 			{{#if theme_settings.custom_header_show_bar_message1}}
 			<div class="header-bar-message header-bar-message-1">
-				{{#unless theme_settings.custom_header_bar_message1_icon '==' 'none'}}
-				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-{{theme_settings.custom_header_bar_message1_icon}}{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
-				{{/unless}}
-				{{> components/custom/client/client-header-bar1}}
-				<span class="header-bar-text">
-				{{#if theme_settings.custom_header_bar_message1_link}}
-					<a href="{{theme_settings.custom_header_bar_message1_link}}">{{{theme_settings.custom_header_bar_message1_text}}}</a>
+				{{#if theme_settings.custom_header_bar_message1_text}}
+					{{#unless theme_settings.custom_header_bar_message1_icon '==' 'none'}}
+						<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-{{theme_settings.custom_header_bar_message1_icon}}{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
+					{{/unless}}
+					<span class="header-bar-text">
+					{{#if theme_settings.custom_header_bar_message1_link}}
+						<a href="{{theme_settings.custom_header_bar_message1_link}}">{{{theme_settings.custom_header_bar_message1_text}}}</a>
+					{{else}}
+						{{{theme_settings.custom_header_bar_message1_text}}}
+					{{/if}}
+					</span>
 				{{else}}
-					{{{theme_settings.custom_header_bar_message1_text}}}
+					{{> components/custom/client/client-header-bar1}}
 				{{/if}}
-				</span>
 			</div>
 			{{/if}}
 			{{#if theme_settings.custom_header_show_bar_message2}}
 			<div class="header-bar-message header-bar-message-2">
-				{{#unless theme_settings.custom_header_bar_message2_icon '==' 'none'}}
-				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-{{theme_settings.custom_header_bar_message2_icon}}{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
-				{{/unless}}
-				{{> components/custom/client/client-header-bar2}}
-				<span class="header-bar-text">
-				{{#if theme_settings.custom_header_bar_message2_link}}
-					<a href="{{theme_settings.custom_header_bar_message2_link}}">{{{theme_settings.custom_header_bar_message2_text}}}</a>
+				{{#if theme_settings.custom_header_bar_message2_text}}
+					{{#unless theme_settings.custom_header_bar_message2_icon '==' 'none'}}
+						<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-{{theme_settings.custom_header_bar_message2_icon}}{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
+					{{/unless}}
+					<span class="header-bar-text">
+					{{#if theme_settings.custom_header_bar_message2_link}}
+						<a href="{{theme_settings.custom_header_bar_message2_link}}">{{{theme_settings.custom_header_bar_message2_text}}}</a>
+					{{else}}
+						{{{theme_settings.custom_header_bar_message2_text}}}
+					{{/if}}
+					</span>
 				{{else}}
-					{{{theme_settings.custom_header_bar_message2_text}}}
+					{{> components/custom/client/client-header-bar2}}
 				{{/if}}
-				</span>
 			</div>
 			{{/if}}
 			{{#if theme_settings.custom_header_show_bar_message3}}
 			<div class="header-bar-message header-bar-message-3">
-				{{#unless theme_settings.custom_header_bar_message3_icon '==' 'none'}}
-				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-{{theme_settings.custom_header_bar_message3_icon}}{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
-				{{/unless}}
-				{{> components/custom/client/client-header-bar3}}
-				<span class="header-bar-text">
-				{{#if theme_settings.custom_header_bar_message3_link}}
-					<a href="{{theme_settings.custom_header_bar_message3_link}}">{{{theme_settings.custom_header_bar_message3_text}}}</a>
+				{{#if theme_settings.custom_header_bar_message3_text}}
+					{{#unless theme_settings.custom_header_bar_message3_icon '==' 'none'}}
+						<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-{{theme_settings.custom_header_bar_message3_icon}}{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
+					{{/unless}}
+					<span class="header-bar-text">
+					{{#if theme_settings.custom_header_bar_message3_link}}
+						<a href="{{theme_settings.custom_header_bar_message3_link}}">{{{theme_settings.custom_header_bar_message3_text}}}</a>
+					{{else}}
+						{{{theme_settings.custom_header_bar_message3_text}}}
+					{{/if}}
+					</span>
 				{{else}}
-					{{{theme_settings.custom_header_bar_message3_text}}}
+					{{> components/custom/client/client-header-bar3}}
 				{{/if}}
-				</span>
 			</div>
 			{{/if}}
 			{{#or theme_settings.custom_email_show theme_settings.custom_phone_show}}
@@ -52,7 +61,7 @@
 			{{#all settings.phone_number theme_settings.custom_phone_show}}
 				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-phone{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>
 				{{> components/custom/client/client-header-phone}}
-				<span class="header-bar-text">{{lang 'footer.call_us' phone_number=settings.phone_number}}</span>
+				<span class="header-bar-text"><a href="tel:{{strReplace settings.phone_number ' ' ''}}">{{lang 'footer.call_us' phone_number=settings.phone_number}}</a></span>
 			{{/all}}
 			{{#if theme_settings.custom_email_show}}
 				<span class="header-bar-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-envelope{{#if theme_settings.custom_header_icon_style '===' 'outline'}}-outline{{/if}}" /></svg></i></span>

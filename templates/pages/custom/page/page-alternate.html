@@ -11,7 +11,16 @@ customer:
 {{{region name="page_below_menu"}}}
 <div class="container container-hero">
 	<div class="page-header info-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
-	    <img class="page-header-image" src="/product_images/uploaded_images/{{dashcase page.title}}.jpg" />
+		{{assignVar "headerImage" (get 'string' (concat (dashcase page.title) ".jpg"))}}		
+		<img class="page-header-image" src="{{getImageManagerImage (getVar 'headerImage') width=640}}" 
+			srcset="{{getImageManagerImage (getVar 'headerImage') width=480}} 480w, 
+			{{getImageManagerImage (getVar 'headerImage') width=800}} 800w, 
+			{{getImageManagerImage (getVar 'headerImage') width=1200}} 1200w, 
+			{{getImageManagerImage (getVar 'headerImage') width=1920}} 1920w" 
+			sizes="100vw" 
+			alt="{{page.title}}" 
+			fetchpriority="high" 
+		/>
 	    {{#unless theme_settings.hide_page_heading }}
 		    <h1 class="page-heading">{{#contains head.title " | "}}{{{first (before (split head.title ' | ') 1)}}}{{else}}{{page.title}}{{/contains}}</h1>
 	    {{/unless}}

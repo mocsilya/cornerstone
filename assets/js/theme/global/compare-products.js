@@ -39,13 +39,16 @@ export default function ({ noCompareMessage, urls }) {
     $('body').triggerHandler('compareReset');
 
     $('body').on('click', '[data-compare-id]', event => {
+		const button = event.currentTarget;
         const product = event.currentTarget.value;
         const $clickedCompareLink = $('a[data-compare-nav]');
-
+		
         if (event.currentTarget.checked) {
             incrementCounter(compareCounter, product);
+			button.parentNode.parentNode.parentNode.classList.add('clicked');
         } else {
             decrementCounter(compareCounter, product);
+			button.parentNode.parentNode.parentNode.classList.remove('clicked');
         }
 
         updateCounterNav(compareCounter, $clickedCompareLink, urls);

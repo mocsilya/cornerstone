@@ -25,6 +25,20 @@ blog:
     {{/if}}
     <div class="login-row">
         <form class="login-form form" action="{{urls.auth.check_login}}" method="post">
+		    <input type="hidden" id="redirect_to" name="redirect_to" value="{{#if forms.login.redirect_to}}{{forms.login.redirect_to}}{{else}}{{urls.home}}{{/if}}">
+		    <script>
+		        (function() {
+		            try {
+		                const lastPage = sessionStorage.getItem('last_page');
+		                const redirectInput = document.getElementById('redirect_to');
+		                if ({{#if forms.login.redirect_to}}false{{else}}true{{/if}} && lastPage) {
+		                    redirectInput.value = lastPage;
+		                }
+		            } catch(e) {
+		                console.warn('Session storage blocked or unavailable.', e);
+		            }
+		        })();
+		    </script>
             {{inject 'useValidEmail' (lang 'forms.validate.common.email_address')}}
             {{inject 'enterPass' (lang 'forms.validate.common.password')}}
             <div class="form-field">
