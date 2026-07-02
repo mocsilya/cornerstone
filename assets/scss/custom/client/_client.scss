@@ -2109,18 +2109,18 @@ div[data-content-region="blog_top"] > div {
 	color: #1DBA63;
 }
 
-.productView-upsell-bottom .upsell-item-price {
+.upsell-item-price {
 	display: flex;
 	@include breakpoint("large") {
 		justify-content: center;
 	}
 }
 
-.productView-upsell-bottom .upsell-item-price span {
+.upsell-item-price span {
 	padding-right: .5rem;
 }
 
-.productView-upsell-bottom .upsell-item-price span:last-child {
+.upsell-item-price span:last-child {
 	padding-right: 0;
 }
 
