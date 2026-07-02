@@ -179,7 +179,7 @@ gql: "query productById($productId: Int!) {
 	
 	{{#if theme_settings.custom_product_upsell_location '==' 'bottom'}}
 		{{#filter product.custom_fields '_upsell' property='name' }}
-		<div id="product_upsell" class="{{#if ../theme_settings.custom_product_description_location '===' 'sticky'}}product-upsell-sticky{{else}}product-upsell-unstuck{{/if}} product-upsell-{{../theme_settings.custom_product_gallery_size}}">
+		<div id="product_upsell_bottom" class="{{#if ../theme_settings.custom_product_description_location '===' 'sticky'}}product-upsell-sticky{{else}}product-upsell-unstuck{{/if}} product-upsell-{{../theme_settings.custom_product_gallery_size}}">
 			<div class="container">
 				<div class="productView-upsell-regions">
 				{{{region name="product_upsell--global"}}}
