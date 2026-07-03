@@ -149,6 +149,27 @@
 
 
 
+// Product page
+// =============================================================================
+
+.page-product .price-section--withoutTax .price,
+.page-product .price-section--withoutTax abbr {
+	color: #000;
+}
+
+.price-section.price--withoutTax span.price {
+	padding-right: .5rem;
+}
+
+.page-product .form-wishlist {
+    margin-top: 1.5rem;
+}
+
+.productView-price .price-section.price--withTax:has(.mqpo-totalPrice) .price--withTax:not(.mqpo-totalPrice),
+.productView-price .price-section.price--withoutTax:has(.mqpo-totalPrice) .price--withoutTax:not(.mqpo-totalPrice) {
+    display: none !important;
+}
+
 // VARIANT DATA TABLE
 // =============================================================================
 
@@ -209,6 +230,8 @@
 .footer-payment-icons svg {
 	fill: stencilColor("custom-footer-text");
 }
+
+
 
 // WIDGET FOR CATEGORY BOXES
 // =============================================================================
