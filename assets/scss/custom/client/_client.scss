@@ -188,6 +188,27 @@ h4.productView-title {
 	padding: 10px 1.5rem;
 }
 
+.subcategories-above .subcategories-grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.subcategories-above .subcategories-grid-item {
+	flex: 0 1 0;
+	width: auto;
+	@include breakpoint("large") {
+		flex: 1 1 0;
+	}
+}
+
+.subcategories-above .subcategories-name {
+	padding: .75rem 1rem;
+	white-space: nowrap;
+	@include breakpoint("large") {
+		padding: .75rem .5rem;
+	}
+}
 
 
 
