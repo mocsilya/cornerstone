@@ -159,11 +159,6 @@
 // Product
 // =============================================================================
 
-
-.ay-question .button {
-	width: 100%;
-}
-
 .productView-brand {
 	display: none;
 }
@@ -175,19 +170,21 @@ h4.productView-title {
 .productView-under-add {
 	display: inline-block;
 	vertical-align: top;
-	margin-top: 0;
 }
 
 .productView-under-add .form-wishlist {
 	padding-right: 4px;
+	margin-top: 1.5rem;
 }
 
 .ay-question {
 	display: inline-block;
 	vertical-align: top;
+	margin-top: 1.5rem;
 }
 
 .ay-question .button {
+	width: 100%;
 	padding: 10px 1.5rem;
 }
 
@@ -208,7 +205,7 @@ h4.productView-title {
 
 // JotForm
 // =============================================================================
-
+/*
 #ay-question .formFooter-heightMask,
 #ay-question .formFooter {
 	display: none !important;
@@ -226,7 +223,7 @@ h4.productView-title {
 #ay-question .form-input {
     height: auto;
 }
-
+*/
 
 
 // Footer 
