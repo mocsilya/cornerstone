@@ -28,16 +28,21 @@ customer:
 <div class="container container-hero">
 	{{#if theme_settings.custom_page_header_image_search}}
 		<div class="page-header search-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
-	    <img class="page-header-image" src="/product_images/uploaded_images/{{theme_settings.custom_page_header_image_search}}" />
+	    {{assignVar "headerImage" theme_settings.custom_page_header_image_search}}
+		<img class="page-header-image" src="{{getImageManagerImage (getVar 'headerImage') width=640}}" 
+			srcset="{{getImageManagerImage (getVar 'headerImage') width=480}} 480w, 
+			{{getImageManagerImage (getVar 'headerImage') width=800}} 800w, 
+			{{getImageManagerImage (getVar 'headerImage') width=1200}} 1200w, 
+			{{getImageManagerImage (getVar 'headerImage') width=1920}} 1920w" 
+			sizes="100vw" 
+			alt="{{page.title}}" 
+			fetchpriority="high" 
+		/>
 	{{else}}
 		<div class="page-header search-header">
 	{{/if}}
 	{{#if forms.search.query}}
-		{{#if (getVar "b2b-products") '===' 'show'}}
-    		{{>components/search/heading}}
-		{{else}}
-			<h1 class="page-heading">Search</h1>
-		{{/if}}
+		{{>components/search/heading}}
 	{{else}}
 		<h1 class="page-heading">Search</h1>
 	{{/if}}  
@@ -54,13 +59,11 @@ customer:
             {{lang 'search.tabs_accesibility_hint'}}
         </span>
         <ul role="tablist" class="navBar-section account-navigation" data-search-page-tabs>
-			{{#if (getVar "b2b-products") '===' 'show'}}
             <li role="presentation" class="navBar-item">
                 <a aria-describedby="search-tabs-widget-description" role="tab" aria-controls="product-listing-container" id="search-results-product-count" class="navBar-action" href="{{forms.search.product_url}}" data-product-results-toggle>
                     {{>components/search/product-count}}
                 </a>
             </li>
-			{{/if}}
             <li role="presentation" class="navBar-item">
                 <a aria-describedby="search-tabs-widget-description" role="tab" aria-controls="search-results-content" id="search-results-content-count" class="navBar-action" href="{{forms.search.content_url}}" data-content-results-toggle>
                     {{>components/search/content-count}}
@@ -86,16 +89,13 @@ customer:
 </section>
 
 <section class="page">
-	{{#if (getVar "b2b-products") '===' 'show'}}
-    	{{#if product_results.faceted_search_enabled}}
-        <aside class="page-sidebar{{#if forms.search.section '!=' 'product'}} u-hiddenVisually{{/if}} toggle-content is-open" id="faceted-search-container">
-            {{> components/faceted-search/index product_results}}
-        </aside>
-    	{{/if}}
-	{{/if}}
+    {{#if product_results.faceted_search_enabled}}
+	<aside class="page-sidebar{{#if forms.search.section '!=' 'product'}} u-hiddenVisually{{/if}} toggle-content is-open" id="faceted-search-container">
+		{{> components/faceted-search/index product_results}}
+	</aside>
+    {{/if}}
     <div class="page-content">
-		{{#if (getVar "b2b-products") '===' 'show'}}
-        	{{#if forms.search.has_suggestions}}
+        {{#if forms.search.has_suggestions}}
             <div class="panel panel--large">
                 <div class="panel-body">
                     {{#if forms.search.suggested_query}}
@@ -156,16 +156,14 @@ customer:
                     {{/if}}
                 </div>
             </div>
-        	{{/if}}
 		{{/if}}
         <div role="tabpanel" id="search-results-content" aria-labelledby="search-results-content-count" {{#if forms.search.section '!=' 'content'}}class="u-hidden"{{/if}}>
             {{> components/search/content-listing}}
         </div>
-		{{#if (getVar "b2b-products") '===' 'show'}}
+
         <div role="tabpanel" id="product-listing-container" aria-labelledby="search-results-product-count" {{#if forms.search.section '!=' 'product'}}class="u-hidden"{{/if}}>
             {{> components/search/product-listing}}
         </div>
-		{{/if}}
         {{{region name="search_below_content"}}}
     </div>
 </section>

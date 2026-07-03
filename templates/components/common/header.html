@@ -1,4 +1,7 @@
 <a href="#main-content" class="skip-to-main-link">{{lang 'header.skip_to_main'}}</a>
+{{#if theme_settings.custom_header_show_bar}}
+	{{> components/custom/header-bar}}
+{{/if}}
 <header class="header{{#if theme_settings.custom_header_fixed}} header-fixed{{else}} header-unfixed{{/if}}" role="banner">
     <a href="#" class="mobileMenu-toggle mobileMenu-{{theme_settings.custom_header_icon_style}}" data-mobile-menu-toggle="menu">
         <span class="mobileMenu-toggleIcon">Toggle menu</span>
@@ -9,13 +12,7 @@
     </div>
 	{{> components/custom/client/client-header}}
 </header>
-{{#if theme_settings.custom_header_show_bar}}
-	{{> components/custom/header-bar}}
-{{/if}}
 
-{{#if theme_settings.custom_b2b}}
-	{{> components/custom/b2b-message}}
-{{/if}}
 
 {{#if banners.top}}
 <div class="banners" data-banner-location="top">
@@ -32,3 +29,7 @@
 	{{{region name="header_bottom--global"}}}
 </div>
 {{{region name="header_bottom"}}}
+
+{{#if theme_settings.custom_b2b}}
+	{{> components/custom/b2b-message}}
+{{/if}}

@@ -1,12 +1,22 @@
 <div class="heroCarousel-content{{#and (if heading '==' false) (if text '==' false)}} heroCarousel-content--empty{{/and}}">
 	{{#if heading}}
-    <h3 class="heroCarousel-title">
-		{{#if button_text}}
-			<a href="{{url}}">{{{heading}}}</a>
+		{{#contains heading "#"}}
+    		<h3 class="heroCarousel-title" style="color: #{{{first (after (split heading '#') 1)}}} !important;">
+			{{#if button_text}}
+				<a style="color: #{{{first (after (split heading '#') 1)}}} !important;"href="{{url}}">{{{first (before (split heading '#') 1)}}}</a>
+			{{else}}
+				{{{first (before (split heading '#') 1)}}}
+			{{/if}}
+			</h3>
 		{{else}}
-			{{{heading}}}
-		{{/if}}
-	</h3>
+			<h3 class="heroCarousel-title">
+			{{#if button_text}}
+				<a href="{{url}}">{{{heading}}}</a>
+			{{else}}
+				{{{heading}}}
+			{{/if}}
+			</h3>
+		{{/contains}}
 	{{/if}}
 	<div class="heroCarousel-inner">
 		{{#if text}}

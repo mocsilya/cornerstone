@@ -15,10 +15,10 @@ customer:
 {{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
 {{#partial "head"}}
     {{#if pagination.category.previous}}
-        <link rel="prev" href="{{pagination.category.previous}}">
+        <link rel="prev" href="{{{pagination.category.previous}}}">
     {{/if}}
     {{#if pagination.category.next}}
-        <link rel="next" href="{{pagination.category.next}}">
+        <link rel="next" href="{{{pagination.category.next}}}">
     {{/if}}
 {{/partial}}
 
@@ -35,8 +35,9 @@ customer:
 				    {{> components/common/responsive-img
 				        image=category.image
 				        fallback_size=theme_settings.zoom_size
-				        lazyload=theme_settings.lazyload_mode
+				        lazyload="disabled"
 				        class="page-header-image"
+						otherAttributes="fetchpriority='high'"
 				    }}
 				{{else}}
 					<div class="page-header category-header">
@@ -50,8 +51,10 @@ customer:
 			    {{> components/common/responsive-img
 			        image=category.image
 			        fallback_size=theme_settings.zoom_size
-			        lazyload=theme_settings.lazyload_mode
+			        lazyload="disabled"
 			        class="page-header-image"
+			        otherAttributes="fetchpriority='high'"
+			        
 			    }}
 			{{else}}
 				<div class="page-header category-header">
@@ -62,6 +65,7 @@ customer:
 		    <h1 class="page-heading">{{#contains head.title " | "}}{{{first (before (split head.title ' | ') 1)}}}{{else}}{{category.name}}{{/contains}}</h1>
 	{{/unless}}
 	{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	{{> components/custom/client/client-category-header}}
 	</div>
 </div>
 {{/partial}}
@@ -104,7 +108,7 @@ customer:
 		{{/if}}
 	{{/each}}
 {{/if}}
-{{#if (getVar "b2b-products") '===' 'show'}}
+
 {{#if category.subcategories}}
     <div class="subcategories-above subcategories--{{theme_settings.custom_category_sidebar_display}}{{#unless category.products}} subcategories--noproducts{{/unless}}">
 		<ul class="subcategories-grid{{#if (getVar 'subimage') '===' 'active'}} subcategories-grid-image{{/if}}{{#unless breadcrumbs.[1].name '==' 'Brands'}}{{#unless theme_settings.custom_category_show_blocks}} subcategories-grid-blockless{{/unless}}{{/unless}}">
@@ -144,11 +148,10 @@ customer:
 		</ul>
     </div>
 {{/if}}
-{{/if}}
+
 
 <div class="page">
 {{#and (if category.products) (if (getVar "catbrand") '===' 'inactive')}}
-	{{#if (getVar "b2b-products") '===' 'show'}}
     {{#if category.faceted_search_enabled}}
         <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}} toggle-content is-open" id="faceted-search-container">
             {{> components/category/sidebar}}
@@ -178,7 +181,6 @@ customer:
         	</aside>
     	{{/if}}
     {{/if}}
-	{{/if}}
     <div class="page-content">
 		{{{region name="category_above_content"}}}
 	    <div class="page-content-listings" id="product-listing-container">

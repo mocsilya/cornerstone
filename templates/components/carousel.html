@@ -30,9 +30,10 @@
                 {{> components/common/responsive-img
 					theme_settings=../theme_settings
                     image=stencil_image
-                    class="heroCarousel-image heroCarousel-image-desktop"
+                    class="heroCarousel-image heroCarousel-image-desktop heroCarousel-image-first"
                     fallback_size='1280w'
                     lazyload='disabled'
+					otherAttributes="fetchpriority='high'"
                 }}
             {{else}}
                 {{> components/common/responsive-img

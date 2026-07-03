@@ -14,10 +14,10 @@ customer:
 {{inject "brandProductsPerPage" theme_settings.brandpage_products_per_page}}
 {{#partial "head"}}
     {{#if pagination.brand.previous}}
-        <link rel="prev" href="{{pagination.brand.previous}}">
+        <link rel="prev" href="{{{pagination.brand.previous}}}">
     {{/if}}
     {{#if pagination.brand.next}}
-        <link rel="next" href="{{pagination.brand.next}}">
+        <link rel="next" href="{{{pagination.brand.next}}}">
     {{/if}}
 {{/partial}}
 {{#partial "hero"}}
@@ -32,7 +32,6 @@ customer:
 {{#partial "page"}}
 {{{region name="brand_below_header"}}}
 <div class="page">
-	{{#if (getVar "b2b-products") '===' 'show'}}
     <aside class="page-sidebar toggle-content is-open" id="faceted-search-container">
 		{{#if brand.image}}
 		<div class="sidebar-image">
@@ -47,7 +46,6 @@ customer:
 		{{/if}}
         {{> components/brand/sidebar}}
     </aside>
-	{{/if}}
 	
     <div class="page-content">
 		{{{region name="brand_above_content"}}}
@@ -65,7 +63,6 @@ customer:
 	    </div>
         {{{region name="brand_below_content"}}}
     </div>
-
 </div>
 
 {{/partial}}
