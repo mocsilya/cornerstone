@@ -171,9 +171,17 @@
 				data-event-type="product-click"
 			>
 		{{/if}}
+		{{assignVar "primaryImageData" "false"}}
+		{{#if image}}
+		    {{assignVar "primaryImageData" image.data}}
+		{{else}}
+		    {{#if images.[0]}}
+		        {{assignVar "primaryImageData" images.[0].data}}
+		    {{/if}}
+		{{/if}}
         <div class="card-img-container card-img-normal">
-			{{#if theme_settings.custom_card_show_alt_image}}
-			    <span class="card-image card-image-0 card-image-default">
+			{{#if image}}
+			    <span class="card-image{{#if theme_settings.custom_card_show_alt_image}} card-image-0 card-image-default{{/if}}">
 			        {{> components/common/responsive-img
 			            theme_settings=theme_settings
 			            image=image
@@ -183,37 +191,42 @@
 			            default_image=theme_settings.default_image_product
 			        }}
 			    </span>
+			{{else}}
+				{{#if images.[0]}}
+				    <span class="card-image{{#if theme_settings.custom_card_show_alt_image}} card-image-0 card-image-default{{/if}}">
+				        {{> components/common/responsive-img
+				            theme_settings=theme_settings
+				            image=images.[0]
+				            class="card-image"
+				            fallback_size=theme_settings.productgallery_size
+				            lazyload=theme_settings.lazyload_mode
+				            default_image=theme_settings.default_image_product
+				        }}
+				    </span>
+				{{/if}}
+			{{/if}}
+			{{#if theme_settings.custom_card_show_alt_image}}
 			    {{assignVar "hoverImageFound" "false"}}
 			    {{#each images}}
 					{{#contains alt "HIDEIMAGE"}}
 					{{else}}
 			        	{{#if (getVar "hoverImageFound") '===' 'false'}}
-			            	{{#if (cdn (getImage this 'productgallery_size')) '===' (cdn (getImage ../image 'productgallery_size'))}}
-			            	{{else}}
-				                <span class="card-image card-image-1 card-image-hover">
-				                    {{> components/common/responsive-img
-				                        theme_settings=../theme_settings
-				                        image=this
-				                        class="card-image"
-				                        fallback_size=../theme_settings.productgallery_size
-				                        lazyload=../theme_settings.lazyload_mode
-				                        default_image=../theme_settings.default_image_product
-				                    }}
-				                </span>
-			                	{{assignVar "hoverImageFound" "true"}}
-			            	{{/if}}
+							{{#unless this.data '===' (getVar "primaryImageData")}}
+								<span class="card-image card-image-1 card-image-hover">
+									{{> components/common/responsive-img
+										theme_settings=../../theme_settings
+										image=this
+										class="card-image"
+										fallback_size=../../theme_settings.productgallery_size
+										lazyload=../../theme_settings.lazyload_mode
+										default_image=../../theme_settings.default_image_product
+									}}
+								</span>
+								{{assignVar "hoverImageFound" "true"}}
+							 {{/unless}}
 			        	{{/if}}
 					{{/contains}}
 			    {{/each}}
-			{{else}}
-			    {{> components/common/responsive-img
-			        theme_settings=theme_settings
-			        image=image
-			        class="card-image"
-			        fallback_size=theme_settings.productgallery_size
-			        lazyload=theme_settings.lazyload_mode
-			        default_image=theme_settings.default_image_product
-			    }}
 			{{/if}}
         </div>
         </a>
