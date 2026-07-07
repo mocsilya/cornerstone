@@ -252,7 +252,16 @@
             </div>
 			</a>
 			{{#if (getVar "spotlight") '===' 'active'}}
-			    <ul class="spotlight-carousel">
+			    <ul class="spotlight-carousel"
+					data-slick='{
+							"swipe": true,
+							"dots": false,
+							"arrows": true,
+							"infinite": false,
+							"accessibility": false,
+							"slidesToShow": 1,
+							"slidesToScroll": 1
+					}'>
 			    {{#each images}}
 			        {{#contains alt "HIDEIMAGE"}}
 			            {{!-- Skip this image entirely --}}

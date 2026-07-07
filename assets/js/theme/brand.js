@@ -5,7 +5,6 @@ import FacetedSearch from './common/faceted-search';
 import { createTranslationDictionary } from './common/utils/translations-utils';
 import cardSwatches from './custom/card-swatches';
 import cardWarranty from './custom/card-warranty';
-import cardCarousel from './custom/card-carousel';
 import menuHelper from './custom/menu-helper';
 import cardData from './custom/card-data';
 
@@ -37,7 +36,6 @@ export default class Brand extends CatalogPage {
 		
         cardSwatches(this.context.apiToken, this.dataProductCollection());
         cardWarranty();
-		cardCarousel();
 		menuHelper();
 		const dataOnReady = this.context.cardVariantData;
 		if (dataOnReady) {
