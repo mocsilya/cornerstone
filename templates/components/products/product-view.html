@@ -424,7 +424,44 @@
 					</dd>
                 {{/if}}
 				</dl>
-            </div>
+				<div class="mini-stock form-field--stock{{#unless product.can_purchase}} u-hiddenVisually{{/unless}}">
+					<span class="productView-stock-message" data-pre-order="{{#if product.pre_order}}true{{else}}false{{/if}}" data-stock-level="{{product.stock_level}}" data-low-stock-level="{{product.low_stock_level}}">
+						<span data-product-stock>
+							{{#if product.pre_order}}
+							    {{! 1. Pre-Order Track (Highest Priority) }}
+							    <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-alert" /></svg></i>
+							    <strong class="in-stock-number"></strong>
+							    <span class="in-stock-label">Pre-Order</span>
+							{{else}}
+								{{#if product.stock_level}}
+								    {{#gte product.stock_level product.low_stock_level}}
+								        <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-tick" /></svg></i>
+								        <strong class="in-stock-number">{{product.stock_level}} </strong>
+								        <span class="in-stock-label">In Stock</span>
+								    {{/gte}}
+								    {{#lt product.stock_level product.low_stock_level}}
+								        <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-alert" /></svg></i>
+								        <strong class="in-stock-number">{{product.stock_level}} </strong>
+								        <span class="in-stock-label">Low Stock</span>
+								    {{/lt}}
+								{{else}}
+								    {{#all product.show_backorder_availability_prompt product.available_to_sell product.available_for_backorder}}
+								        <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-alert" /></svg></i>
+								        <strong class="in-stock-number"></strong>
+								        <span class="in-stock-label">Backorder</span>
+								    {{else}}
+								        {{#if product.can_purchase}}
+								            <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-tick" /></svg></i>
+								            <strong class="in-stock-number"></strong>
+								            <span class="in-stock-label">In Stock</span>
+								        {{/if}}
+								    {{/all}}
+								{{/if}}
+							{{/if}}
+						</span>
+					</span>
+            	</div>
+			</div>
             {{product.detail_messages}}
 			<div class="productView-specs">
 	            <dl class="productView-info">
@@ -590,13 +627,43 @@
 					{{> components/custom/client/client-product-options}}
 					{{{region name="product_options"}}}
                 </div>
-                <div class="form-field form-field--stock{{#if product.options}} form-field--stock-options{{else}} form-field--stock-single{{/if}}{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
+                <div class="form-field main-stock form-field--stock{{#if product.options}} form-field--stock-options{{else}} form-field--stock-single{{/if}}{{#unless product.can_purchase}} u-hiddenVisually{{/unless}}">
                     <label class="form-label form-label--alternate">
                         {{lang 'products.current_stock'}}
                     </label>
-					<span class="productView-stock-message">
+					<span class="productView-stock-message" data-pre-order="{{#if product.pre_order}}true{{else}}false{{/if}}" data-stock-level="{{product.stock_level}}" data-low-stock-level="{{product.low_stock_level}}">
 						<span data-product-stock>
-							<i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-tick" /></svg></i><strong class="in-stock-number">{{product.stock_level}} </strong><span class="in-stock-label">In Stock</span>
+							{{#if product.pre_order}}
+							    {{! 1. Pre-Order Track (Highest Priority) }}
+							    <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-alert" /></svg></i>
+							    <strong class="in-stock-number"></strong>
+							    <span class="in-stock-label">Pre-Order</span>
+							{{else}}
+								{{#if product.stock_level}}
+								    {{#gte product.stock_level product.low_stock_level}}
+								        <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-tick" /></svg></i>
+								        <strong class="in-stock-number">{{product.stock_level}} </strong>
+								        <span class="in-stock-label">In Stock 1</span>
+								    {{/gte}}
+								    {{#lt product.stock_level product.low_stock_level}}
+								        <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-alert" /></svg></i>
+								        <strong class="in-stock-number">{{product.stock_level}} </strong>
+								        <span class="in-stock-label">Low Stock</span>
+								    {{/lt}}
+								{{else}}
+								    {{#all product.show_backorder_availability_prompt product.available_to_sell product.available_for_backorder}}
+								        <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-alert" /></svg></i>
+								        <strong class="in-stock-number"></strong>
+								        <span class="in-stock-label">Backorder</span>
+								    {{else}}
+								        {{#if product.can_purchase}}
+								            <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-tick" /></svg></i>
+								            <strong class="in-stock-number"></strong>
+								            <span class="in-stock-label">In Stock 2</span>
+								        {{/if}}
+								    {{/all}}
+								{{/if}}
+							{{/if}}
 						</span>
 					</span>
                     {{#all product.show_backorder_availability_prompt product.available_to_sell product.available_for_backorder}}

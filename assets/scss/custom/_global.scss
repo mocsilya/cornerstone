@@ -5971,7 +5971,7 @@ $productthumb_height: str-slice($productthumb_size, $productthumb_x + 1);
 }
 
 .page-product .productView-price {
-	margin-bottom: .25rem;
+	margin-bottom: .75rem;
 	display: flex;
 	flex-wrap: wrap;
 	font-size: 20px;
@@ -6024,7 +6024,7 @@ $productthumb_height: str-slice($productthumb_size, $productthumb_x + 1);
 
 .productView-info {
 	font-size: 0;
-	margin: .75rem 0;
+	margin: 0;
 	display: grid;
 	grid-template-columns: fit-content(30%) minmax(0, 1fr);
 	align-items: start;
@@ -6048,7 +6048,6 @@ $productthumb_height: str-slice($productthumb_size, $productthumb_x + 1);
 	clear: none;
 	font-size: 13px;
 	word-break: break-word;
-	height: 100%;
 	line-height: 1.2;
 	display: flex;
 	align-items: center;
@@ -6064,44 +6063,65 @@ $productthumb_height: str-slice($productthumb_size, $productthumb_x + 1);
 	padding: .25rem 0;
 }
 
-.productView-specs .productView-info dt:first-of-type,
-.productView-specs .productView-info dd:first-of-type {
-	border-top: 1px solid stencilColor("color-greyLightest");
-	padding-top: .75rem;
+/* Step A: Apply top styles to ALL visible dt and dd elements */
+.productView-info dt:not([style*="display: none"]),
+.productView-info dd:not([style*="display: none"]) {
+    border-top: 1px solid stencilColor("color-greyLightest");
+    padding-top: .75rem;
+    margin-top: .75rem;
 }
 
-.productView-specs .productView-info dd:last-of-type,
-.productView-specs .productView-info dt:last-of-type {
-	border-bottom: 1px solid stencilColor("color-greyLightest");
-	padding-bottom: .75rem;
+/* Step B: Strip the top border away from any visible dt/dd that has a visible sibling of the same tag type BEFORE it */
+.productView-info dt:not([style*="display: none"]) ~ dt:not([style*="display: none"]),
+.productView-info dd:not([style*="display: none"]) ~ dd:not([style*="display: none"]) {
+    border-top: 0;
+    padding-top: .25rem;
+    margin-top: 0;
 }
 
+/* Step C: Apply bottom styles to ALL visible elements as a baseline */
+.productView-info dt:not([style*="display: none"]),
+.productView-info dd:not([style*="display: none"]) {
+    border-bottom: 1px solid stencilColor("color-greyLightest");
+    padding-bottom: .75rem;
+    margin-bottom: .75rem;
+}
+
+/* Step D: Use modern CSS :has() to look forward. If a visible dt or dd HAS 
+   another visible sibling of its same type further down the tree, strip its bottom border. */
+.productView-info dt:not([style*="display: none"]):has(~ dt:not([style*="display: none"])),
+.productView-info dd:not([style*="display: none"]):has(~ dd:not([style*="display: none"])) {
+    border-bottom: 0;
+    padding-bottom: .25rem;
+    margin-bottom: 0;
+}
 
 .productView-description .productView-info-name {
-	border-top: 1px solid stencilColor("color-greyLightest");
+	border-top: 1px solid stencilColor("color-greyLightest") !important;
 	border-left: 1px solid stencilColor("color-greyLightest");
 	border-right: 1px solid stencilColor("color-greyLightest");
-	padding: .5rem 1.5rem .5rem .5rem;
+	padding: .5rem 1.5rem .5rem .5rem !important;
+	margin: 0 !important;
 }
 
 .productView-description .productView-info dt:nth-of-type(even),
 .productView-description .productView-info dd:nth-of-type(even) {
 	background-color: rgba(stencilColor("color-greyLightest"), 0.5);
-	
 }
 
 .productView-description .productView-info dt:last-of-type  {
-	border-bottom: 1px solid stencilColor("color-greyLightest");
+	border-bottom: 1px solid stencilColor("color-greyLightest") !important;
 }
 
 .productView-description .productView-info-value {
-	border-top: 1px solid stencilColor("color-greyLightest");
+	border-top: 1px solid stencilColor("color-greyLightest") !important;
 	border-right: 1px solid stencilColor("color-greyLightest");
-	padding: .5rem;
+	padding: .5rem !important;
+	margin: 0 !important;
 }
 
 .productView-description .productView-info dd:last-of-type  {
-	border-bottom: 1px solid stencilColor("color-greyLightest");
+	border-bottom: 1px solid stencilColor("color-greyLightest") !important;
 }
 
 .productView-info-bulkPricingWrap {
@@ -6128,7 +6148,7 @@ $productthumb_height: str-slice($productthumb_size, $productthumb_x + 1);
 	font-size: 13px;
 	font-weight: 700;
 	padding: 0;
-	margin: 1.5rem 0 0 0;
+	margin: .75rem 0 0 0;
 	list-style: none;
 }
 
@@ -6190,16 +6210,21 @@ $productthumb_height: str-slice($productthumb_size, $productthumb_x + 1);
 	width: 1.5rem;
 }
 
-.productView-rating .productView-info {
+.productView-rating {
 	display: flex;
 }
 
-.productView-rating span {
+.productView-rating .productView-info {
+	display: flex;
+	flex: 1 1 0;
+}
+
+.productView-rating .productView-info span {
 	padding-right: .5rem;
 }
 
-.productView-rating span,
-.productView-rating a {
+.productView-rating .productView-info span,
+.productView-rating .productView-info a {
 	display: inline-block;
 	vertical-align: top;
 	font-weight: 700;
@@ -6209,11 +6234,18 @@ $productthumb_height: str-slice($productthumb_size, $productthumb_x + 1);
 	margin-left: 0;
 }
 
+.productView-rating .productView-info-name,
+.productView-rating .productView-info-value {
+	padding: 0 !important;
+	border: 0 !important;
+	margin: 0 !important;
+}
+
 .productView-rating dt > span {
 	font-size: 0;
 }
 
-.productView-rating span.icon {
+.productView-rating .productView-info span.icon {
 	height: 19px;
 	width:  13px;
 	padding: 3px 0;
@@ -6268,10 +6300,6 @@ $productthumb_height: str-slice($productthumb_size, $productthumb_x + 1);
 	}
 }
 
-.productView-options .form-field--stock {
-	margin-top: 1rem;
-}
-
 .productView-options .form-field span {
 	font-size: 1rem;
 }
@@ -6307,16 +6335,32 @@ $productthumb_height: str-slice($productthumb_size, $productthumb_x + 1);
 	display: inline;
 }
 
+.productView-options .form-field--stock {
+	margin: 0;
+	min-height: 0 !important;
+}
 
+.productView-options .form-field--stock .form-label {
+	height: auto !important;
+	min-height: 1.5rem;
+	margin-bottom: .75rem;
+}
 
-.productView-options .form-field--stock .icon {
+.mini-stock {
+	display: none;
+}
+
+.form-field--stock .productView-stock-message {
+	display: inline-flex;
+}
+
+.form-field--stock .icon {
 	margin-right: 5px;
 	vertical-align: top;
 }
 
-.productView-options .in-stock-number,
-.productView-options .in-stock-label {
-	font-size: 16px;
+.form-field--stock .in-stock-number,
+.form-field--stock .in-stock-label {
 	line-height: 16px;
 	vertical-align: top;
 }
@@ -6671,14 +6715,24 @@ $productthumb_height: str-slice($productthumb_size, $productthumb_x + 1);
 
 @media (max-width: 800px) {
 	
+	.page-product #main-content > .container {
+		padding: 0;
+	}
+	
+	.page-product #main-content > .container .alertBox {
+		margin-left: 1.5rem;
+		margin-right: 1.5rem;
+	}
+	
 	.page-product .page-header {
 		margin-bottom: 0;
 	}
 	
 	.productView {
 		display: flex;
-		flex-direction: column;
 		margin: 0;
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
 	}
 	
 	.productView > div[data-content-region="product_view_top--global"],
@@ -6698,10 +6752,22 @@ $productthumb_height: str-slice($productthumb_size, $productthumb_x + 1);
 	.productView > div[data-content-region="product_view_top"] { order: 2; }
 	.productView > .productView-images { 
 		order: 3;
+		width: auto;
 		margin-left: -1.5rem;
 		margin-right: -1.5rem;
-		width: auto;
 	}
+	
+	.productView-thumbnails, .productView-image + .productView-thumbnails {
+		margin-left: 1.5rem;
+		margin-right: 1.5rem;
+	}
+	
+	.toggle.videoGallery:not(.videoGallery-custom) {
+		max-width: calc(100vw - 3rem);
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
 	.productView > .productView-details.product-data { order: 4; }
 	.productView > .productView-details.product-options { order: 5; }
 	.productView > .productView-description { order: 6; }
@@ -6728,6 +6794,7 @@ $productthumb_height: str-slice($productthumb_size, $productthumb_x + 1);
 
 .productView-upsell-container {
 	border-top: 1px solid stencilColor("container-border-global-color-base");
+	margin-top: .5rem;
 }
 
 .upsell-item {
@@ -6774,7 +6841,6 @@ $productthumb_height: str-slice($productthumb_size, $productthumb_x + 1);
 }
 
 .upsell-item-brand {
-	min-height: 21px;
 	color: stencilColor("color-textSecondary");
 }
 
@@ -6782,7 +6848,6 @@ $productthumb_height: str-slice($productthumb_size, $productthumb_x + 1);
 	font-weight: 700;
 	font-size: 1.125rem;
 	text-decoration: none;
-	min-height: 24px;
 }
 
 .upsell-item-title a {
@@ -6794,8 +6859,8 @@ $productthumb_height: str-slice($productthumb_size, $productthumb_x + 1);
 	padding-right: 1rem;
 	vertical-align: top;
 	flex: 0 1 0;
-	min-height: 21px;
 	display: flex;
+	flex-wrap: wrap;
 }
 
 .upsell-item-price span {
@@ -6848,7 +6913,6 @@ $productthumb_height: str-slice($productthumb_size, $productthumb_x + 1);
 .upsell-item-actions {
 	flex: 0 1 0;
 	text-align: right;
-	min-height: 32px;
 }
 
 .upsell-item-actions .button {
@@ -6926,11 +6990,13 @@ $productthumb_height: str-slice($productthumb_size, $productthumb_x + 1);
 
 .productView-upsell-middle {
 	border-top: 0;
+	margin-top: 1rem;
 	margin-bottom: 3rem;
 }
 
 .productView-upsell-bottom {
 	border-top: 0;
+	margin-top: 1.5rem;
 }
 
 .productView-description-underneath .productView-upsell-middle .productView-upsell,
@@ -7048,11 +7114,32 @@ $card_height: str-slice($card_size, $card_x + 1);
 	}
 }
 
+.product-upsell-unstuck .productView-upsell-bottom .upsell-item-brand {
+	@include breakpoint("large") {
+		min-height: 21px;
+	}
+}
+
+.product-upsell-unstuck .productView-upsell-bottom .upsell-item-title {
+	@include breakpoint("large") {
+		min-height: 24px;
+	}
+}
+
 .product-upsell-unstuck .productView-upsell-bottom .upsell-item-price {
 	@include breakpoint("large") {
+		min-height: 21px;
 		justify-content: center;
 	}
 }
+
+.product-upsell-unstuck .productView-upsell-bottom .upsell-item-actions {
+	@include breakpoint("large") {
+		min-height: 32px;
+	}
+}
+
+
 
 
 // UPSELL ADD TO CART MODAL
@@ -7135,16 +7222,26 @@ $card_height: str-slice($card_size, $card_x + 1);
 	flex-direction: column;
 }
 
+.productView-upsell-modal .productView-details .productView-info-row {
+	display: flex;
+}
+
 .productView-upsell-modal .productView-details .productView-info-name,
 .productView-upsell-modal .productView-details .productView-info-value {
 	width: auto;
 	flex: 0 1 0;
 	white-space: nowrap;
 	font-family: stencilFontFamily("body-font");
+	margin: 0 !important;
+	border: 0 !important;
 }
 
 .productView-upsell-modal .productView-details .productView-info-name {
-	padding-right: .5rem;
+	padding: 0 .5rem 0 0 !important;
+}
+
+.productView-upsell-modal .productView-details .productView-info-value {
+	padding: 0 !important;
 }
 
 .productView-upsell-modal .productView-details .productView-price {
@@ -7312,7 +7409,8 @@ $card_height: str-slice($card_size, $card_x + 1);
 
 .tab-title {
 	display: block;
-	transition: all 1s ease;
+	position: relative;
+	transition: all .5s ease;
 	text-align: left;
 	color: stencilColor("custom-tab-color");
 	background-color: stencilColor("custom-tab-background");
@@ -7323,6 +7421,7 @@ $card_height: str-slice($card_size, $card_x + 1);
 	padding: .75rem;
 	margin: 0;
 	font-size: 1rem;
+	font-weight: 700;
 	@include breakpoint("medium") {
 		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
@@ -7341,6 +7440,7 @@ $card_height: str-slice($card_size, $card_x + 1);
 
 .tab.is-active .tab-title,
 .tab.is-active .tab-title:hover {
+	cursor: default;
 	color: stencilColor("custom-tab-active-color");
 	background-color: stencilColor("custom-tab-active-background");
 	border-top: 1px solid stencilColor("custom-tab-active-background");
@@ -7348,11 +7448,22 @@ $card_height: str-slice($card_size, $card_x + 1);
 	border-right: 1px solid stencilColor("custom-tab-active-background");
 }
 
+.tabs-contents {
+	@include breakpoint("medium") {
+		border-top: 2px solid stencilColor("custom-tab-active-background");
+	}
+}
+
 .tab-content {
 	display: block;
 	height: 0;
 	overflow: hidden;
 	padding: 0;
+	transition: all .5s ease;
+	@include breakpoint("medium") {
+		opacity: 0;
+		transition: opacity .5s ease;
+	}
 }
 
 .tab-content.is-active {
@@ -7360,7 +7471,8 @@ $card_height: str-slice($card_size, $card_x + 1);
 	overflow: visible;
 	padding: 1.5rem 0;
 	@include breakpoint("medium") {
-		border-top: 2px solid stencilColor("custom-tab-active-background");
+		opacity: 1;
+		transition: opacity .5s ease;
 	}
 }
 
@@ -7386,12 +7498,11 @@ $card_height: str-slice($card_size, $card_x + 1);
 	}
 }
 
-.tabs-grid .tabs-content {
+.tabs-grid .tabs-contents {
 	@include breakpoint("medium") {
 		display: block;
 	}
 }
-
 
 .tabs-grid .tabs:before,
 .tabs-grid .tabs:after {
@@ -7426,6 +7537,42 @@ $card_height: str-slice($card_size, $card_x + 1);
 .tabs-grid .tab-content {
 	grid-column: 1 / -1;
 }
+
+.tab-icon {
+    position: absolute;
+    top: 50%;
+	transform: translateY(-50%);
+    right: 1rem;
+	padding: .25rem;
+	@include breakpoint("medium") {
+		display: none;
+	}
+}
+
+.tab.is-active .tab-icon {
+	display: none;
+}
+
+.tab-chevron {
+	display: block;
+	width: 1rem;
+	height: 1rem;
+}
+
+.tab-chevron::before {
+	border-style: solid;
+	border-width: 0.25em 0.25em 0 0;
+	content: '';
+	display: inline-block;
+	height: 0.75em;
+	left: 0.15em;
+	position: relative;
+	top: 0;
+	transform: rotate(135deg);
+	vertical-align: top;
+	width: 0.75em;
+}
+
 
 .productView-description-side .tabs {
 	@include breakpoint("medium") {
