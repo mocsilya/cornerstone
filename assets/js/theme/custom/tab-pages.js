@@ -6,47 +6,53 @@
 import utils from '@bigcommerce/stencil-utils';
 
 export default function () {
-    // Watch for a click on any of your custom tab titles
-    $('.tab-custom1 .tab-title, .tab-custom2 .tab-title, .tab-custom3 .tab-title').click(function(e) {
+    // Target custom tab navigation elements directly
+    $('.tab-custom1 .tab-title, .tab-custom2 .tab-title, .tab-custom3 .tab-title').on('click', function (e) {
         e.preventDefault();
         
-        // Find the parent tab item container to detect which tab number this is
-        const $parentTab = $(this).closest('.tab');
-        const href = $(this).attr('href'); // e.g., '#tab-custom1'
-        const $targetDiv = $(href);
+        const hrefTarget = $(this).attr('href'); 
+        const $targetDiv = $(hrefTarget);
+        if (!$targetDiv.length) return;
 
-        // Extract the tab digit dynamically from the class context (e.g., '1' from 'tab-custom1')
-        const tabClass = $parentTab.attr('class').match(/tab-custom(\d+)/);
-        if (!tabClass) return;
-        
-        const tabNum = tabClass[1];
-        const $pageSource = $(`.tab${tabNum}-page`);
+        let rawUrl = $targetDiv.data('tab-url');
+        const $loaderTarget = $targetDiv.find('.tab-content-loader');
 
-        // Stop execution if the setting is empty, or if the content has already been fetched
-        if (!$pageSource.length || $targetDiv.hasClass('content-loaded')) {
+        // SAFE GUARD: If there's no URL config, it's a static tab. Stop here.
+        if (!rawUrl || rawUrl.trim() === '' || rawUrl.trim() === '/') {
+            $targetDiv.removeClass('content-loading').addClass('content-loaded');
+            $loaderTarget.empty(); 
             return;
         }
 
-        const rawUrl = $pageSource.html().trim();
-        if (!rawUrl) return;
+        // Prevent double-fetching if the data is already pulled or actively loading
+        if ($targetDiv.hasClass('content-loaded') || $targetDiv.hasClass('content-loading')) {
+            return;
+        }
 
-        // Show your loading spinner
-        $targetDiv.append('<span class="tab-loader"></span>');
+        // Apply loading structures and loader container
+        $targetDiv.addClass('content-loading');
+        $loaderTarget.html('<span class="tab-loader"></span>'); 
 
-        // FIXED: Uses getPage with the layout override options directly
-        utils.api.getPage(rawUrl, { template: 'custom/product-tab-data' }, (err, response) => {
-            $targetDiv.find('.tab-loader').remove();
+        rawUrl = rawUrl.trim();
+        const separator = rawUrl.includes('?') ? '&' : '?';
+        const apiUrl = `${rawUrl}${separator}layout=page-api-data`;
 
-            if (err || !response) {
-                console.error(`Failed to load content via API for custom tab ${tabNum}:`, err);
-                return;
-            }
-
-            // Inject the clean HTML straight into the tab—no manual scraping or parsing required!
-            $targetDiv.html(response).addClass('content-loaded');
-            
-            // Hide the redundant placeholder wrapper if applicable
-            $(`.tab-custom${tabNum}:not(.tab)`).hide();
-        });
+        // Direct async stream injection
+        fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                return response.text();
+            })
+            .then(htmlPayload => {
+                $targetDiv.removeClass('content-loading').addClass('content-loaded');
+                
+                // Inject pure, server-optimized layout markup instantly
+                $loaderTarget.html(htmlPayload);
+            })
+            .catch(err => {
+                $targetDiv.removeClass('content-loading');
+                $loaderTarget.empty();
+                console.error(`Failed layout data for ${hrefTarget}:`, err);
+            });
     });
 }

@@ -162,16 +162,16 @@
 		{{#if theme_settings.custom_product_tab1_show}}
 			{{#filter product.custom_fields '_tab1' property='name'}}
 				<!--{{incrementVar "contentCount"}}-->
-				<div class="tab-content tab-count-{{getVar 'contentCount'}}" id="tab-custom1">
-					<span class="tab1-page">{{#startsWith '/' value}}{{value}}{{else}}/{{value}}{{/startsWith}}</span>
+				<div class="tab-content tab-count-{{getVar 'contentCount'}}" id="tab-custom1" data-tab-url="{{#startsWith '/' value}}{{value}}{{else}}/{{value}}{{/startsWith}}">
+					<div class="tab-content-loader"></div>
 					{{> components/custom/client/client-product-tab1}}
 					{{{region name="product_tab1"}}}
 				</div>
 			{{else}}
 				{{#unless theme_settings.custom_product_tab1_content '==' 'hidden'}}
 					<!--{{incrementVar "contentCount"}}-->
-			        <div class="tab-content tab-count-{{getVar 'contentCount'}}" id="tab-custom1">
-						<span class="tab1-page">{{#if theme_settings.custom_product_tab1_content}}{{#startsWith '/' theme_settings.custom_product_tab1_content}}{{{theme_settings.custom_product_tab1_content}}}{{else}}/{{{theme_settings.custom_product_tab1_content}}}{{/startsWith}}{{/if}}</span>
+			        <div class="tab-content tab-count-{{getVar 'contentCount'}}" id="tab-custom1" data-tab-url="{{#if theme_settings.custom_product_tab1_content}}{{#startsWith '/' theme_settings.custom_product_tab1_content}}{{theme_settings.custom_product_tab1_content}}{{else}}/{{theme_settings.custom_product_tab1_content}}{{/startsWith}}{{/if}}">
+						<div class="tab-content-loader"></div>
 						{{> components/custom/client/client-product-tab1}}
 						{{{region name="product_tab1"}}}
 					</div>
@@ -181,16 +181,16 @@
 		{{#if theme_settings.custom_product_tab2_show}}
 			{{#filter product.custom_fields '_tab2' property='name'}}
 				<!--{{incrementVar "contentCount"}}-->
-				<div class="tab-content tab-count-{{getVar 'contentCount'}}" id="tab-custom2">
-					<span class="tab2-page">{{#startsWith '/' value}}{{value}}{{else}}/{{value}}{{/startsWith}}</span>
+				<div class="tab-content tab-count-{{getVar 'contentCount'}}" id="tab-custom2" data-tab-url="{{#startsWith '/' value}}{{value}}{{else}}/{{value}}{{/startsWith}}">
+					<div class="tab-content-loader"></div>
 					{{> components/custom/client/client-product-tab2}}
 					{{{region name="product_tab2"}}}
 				</div>
 			{{else}}
 				{{#unless theme_settings.custom_product_tab2_content '==' 'hidden'}}
 					<!--{{incrementVar "contentCount"}}-->
-			        <div class="tab-content tab-count-{{getVar 'contentCount'}}" id="tab-custom2">
-						<span class="tab2-page">{{#if theme_settings.custom_product_tab2_content}}{{#startsWith '/' theme_settings.custom_product_tab2_content}}{{{theme_settings.custom_product_tab2_content}}}{{else}}/{{{theme_settings.custom_product_tab2_content}}}{{/startsWith}}{{/if}}</span>
+			        <div class="tab-content tab-count-{{getVar 'contentCount'}}" id="tab-custom2" data-tab-url="{{#if theme_settings.custom_product_tab2_content}}{{#startsWith '/' theme_settings.custom_product_tab2_content}}{{theme_settings.custom_product_tab2_content}}{{else}}/{{theme_settings.custom_product_tab2_content}}{{/startsWith}}{{/if}}">
+						<div class="tab-content-loader"></div>
 						{{> components/custom/client/client-product-tab2}}
 						{{{region name="product_tab2"}}}
 					</div>
@@ -200,16 +200,16 @@
 		{{#if theme_settings.custom_product_tab3_show}}
 			{{#filter product.custom_fields '_tab3' property='name'}}
 				<!--{{incrementVar "contentCount"}}-->
-				<div class="tab-content tab-count-{{getVar 'contentCount'}}" id="tab-custom3">
-					<span class="tab3-page">{{#startsWith '/' value}}{{value}}{{else}}/{{value}}{{/startsWith}}</span>
+				<div class="tab-content tab-count-{{getVar 'contentCount'}}" id="tab-custom3" data-tab-url="{{#startsWith '/' value}}{{value}}{{else}}/{{value}}{{/startsWith}}">
+					<div class="tab-content-loader"></div>
 					{{> components/custom/client/client-product-tab3}}
 					{{{region name="product_tab3"}}}
 				</div>
 			{{else}}
 				{{#unless theme_settings.custom_product_tab3_content '==' 'hidden'}}
 					<!--{{incrementVar "contentCount"}}-->
-			        <div class="tab-content tab-count-{{getVar 'contentCount'}}" id="tab-custom3">
-						<span class="tab3-page">{{#if theme_settings.custom_product_tab3_content}}{{#startsWith '/' theme_settings.custom_product_tab3_content}}{{{theme_settings.custom_product_tab3_content}}}{{else}}/{{{theme_settings.custom_product_tab3_content}}}{{/startsWith}}{{/if}}</span>
+			        <div class="tab-content tab-count-{{getVar 'contentCount'}}" id="tab-custom3" data-tab-url="{{#if theme_settings.custom_product_tab3_content}}{{#startsWith '/' theme_settings.custom_product_tab3_content}}{{theme_settings.custom_product_tab3_content}}{{else}}/{{theme_settings.custom_product_tab3_content}}{{/startsWith}}{{/if}}">
+						<div class="tab-content-loader"></div>
 						{{> components/custom/client/client-product-tab3}}
 						{{{region name="product_tab3"}}}
 					</div>
