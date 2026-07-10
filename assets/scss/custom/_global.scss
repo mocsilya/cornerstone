@@ -369,6 +369,10 @@ div[data-content-region="footer_top--global"] {
 	display: none !important;
 }
 
+.slick-disabled {
+	opacity: 0.25;
+}
+
 
 // header bar
 // =============================================================================
@@ -2666,7 +2670,7 @@ ol.breadcrumbs {
 
 
 .page-default .container-hero {
-	max-width: $screen-xlarge;
+	max-width: 100%;
 	padding: 0;
 }
 
@@ -2674,21 +2678,30 @@ ol.breadcrumbs {
 	margin-top: 0;
 }
 
+.heroCarousel.slick-initialized {
+	max-height: none;
+}
+
 .heroCarousel--single {
 	margin-bottom: 0;
 }
 
+.heroCarousel-slide {
+	width: 100%;
+}
+
+.heroCarousel .carousel-play-pause-button {
+	left: 0;
+	bottom: -2.5rem;
+}
+
 .heroCarousel .slick-list {
-	max-height: none !important;
 	margin: 0 !important;
 }
 
 .heroCarousel .slick-prev,
 .heroCarousel .slick-next {
 	top: 50%;
-	@include breakpoint("small") {
-		top: 50%;
-	}
 }
 
 .heroCarousel .slick-prev {
@@ -2711,400 +2724,126 @@ ol.breadcrumbs {
 	}
 }
 
-.heroCarousel .carousel-play-pause-button {
-	left: 0;
-	bottom: -2.5rem;
-}
+$carousel_size: stencilString("custom_homepage_carousel_size");
+$carousel_x: str-index($carousel_size, "x");
+$carousel_width: str-slice($carousel_size, 0, $carousel_x - 1);
+$carousel_height: str-slice($carousel_size, $carousel_x + 1);
 
-.heroCarousel .slick-track {
-	display: flex;
-}
+$carouselMob_size: stencilString("custom_homepage_carousel_mob_size");
+$carouselMob_x: str-index($carouselMob_size, "x");
+$carouselMob_width: str-slice($carouselMob_size, 0, $carouselMob_x - 1);
+$carouselMob_height: str-slice($carouselMob_size, $carouselMob_x + 1);
 
-.heroCarousel .slick-slide {
-	float: none;
-	display: flex;
+
+.heroCarousel-slide--wrap {
+	position: relative;
 	height: auto;
-	font-size: 1rem;
-}
-
-.heroCarousel-slide {
-	width: 100%;
 }
 
 .heroCarousel-slide .heroCarousel-image-wrapper {
-	max-height: none !important;
-	height: auto !important;
-	z-index: 0;
-}
-
-.heroCarousel-slide.stretch .heroCarousel-image-wrapper {
-	height: 43.75vw !important;
-	max-height: 810px !important;
-}
-
-.heroCarousel-slide .heroCarousel-image {
-	width: auto;
 	height: auto;
+	max-height: none;
 }
 
-.heroCarousel-slide.stretch .heroCarousel-image {
-	width: 100%;
-	height: 100%;
+.heroCarousel .slick-track {
+	display: inline-flex;
 }
 
-.slick-active .heroCarousel-slide .heroCarousel-image {
-	width: 100%;
+// set up the grid and give it a default aspect ratio.
+.heroCarousel.stretch .heroCarousel-slide--wrap,
+.heroCarousel.contain .heroCarousel-slide--wrap {
+	display: grid;
+	grid-template-columns: 1fr;
+	float: none;
+	margin: 0;
+	height: auto;
+	min-height: auto;
 }
 
-.heroCarousel-content {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	width: 100%;
-	padding: 0;
-	z-index: 2;
-	@include breakpoint("small") {
-		background: none;
-		top: auto;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		transform: none;
-		max-height: none;
-	}
-}
-
-.heroCarousel-inner {
-	flex-direction: column;
-	display: flex;
+.heroCarousel.stretch .heroCarousel-slide--wrap {
+	grid-template-rows: 1fr;
 	align-items: stretch;
-	justify-content: center;
-	width: 100%;
-	@include breakpoint("small") {
-		flex-direction: row;
-	}
-}
-
-.heroCarousel-title {
-	line-height: 1.2;
-	padding: .5rem 1rem;
-	margin: 0;
-	font-size: 1.5rem;
-	background-color: rgba(stencilColor("carousel-bgColor"), 0.8);
-	@include breakpoint("small") {
-		flex: 0 1 auto;
-	}
+	aspect-ratio: $carouselMob_width / $carouselMob_height; 
+	background-color: stencilColor("carousel-bgColor");
 	@include breakpoint("medium") {
-		font-size: 2rem;
-		padding: .75rem 2rem;
-	}
-	@include breakpoint("large") {
-		font-size: 3rem;
+		aspect-ratio: $carousel_width / $carousel_height; 
 	}
 }
 
-.heroCarousel-title a,
-.heroCarousel-title a:hover {
-	color: stencilColor("carousel-title-color");
-}
-
-.heroCarousel-description {
-	padding: .5rem 1rem;
-	margin: 0;
-	font-weight: 700;
-	line-height: 1.2;
-	background-color: rgba(stencilColor("carousel-bgColor"), 0.8);
-	flex: 0 1 auto;
-	font-size: 1rem;
+.heroCarousel.contain .heroCarousel-slide--wrap {
+	grid-template-rows: auto auto;
+	align-items: start;
 	@include breakpoint("medium") {
-		font-size: 1.25rem;
-		padding: 1.175rem 2rem;
-	}
-	@include breakpoint("large") {
-		padding: 1.5rem 2rem;
-		font-size: 1.5rem;
+		grid-template-rows: 1fr;
 	}
 }
 
-.heroCarousel-description a,
-.heroCarousel-description a:hover {
-	color: stencilColor("carousel-description-color");
+.heroCarousel.heroCarousel--bg.contain .heroCarousel-slide--wrap {
+	background-color: stencilColor("carousel-bgColor");
 }
 
-
-.heroCarousel-button {
-	display: flex;
-	justify-content: center;
-	padding: .5rem 1rem;
-	@include breakpoint("small") {
-		padding: 0;
+.heroCarousel.heroCarousel--nobg.contain .heroCarousel-slide--wrap {
+	@include breakpoint("medium") {
+		background-color: stencilColor("carousel-bgColor");
 	}
 }
 
-.heroCarousel-action {
-	padding-top: .5rem;
-	padding-left: 1rem;
-	padding-bottom: .5rem;
-	padding-right: 1rem;
-	margin: 0;
-	line-height: 1.2;
-	border-radius: 0;
-	border: 0;
+// prevent flicker of banners if slick is slow to load
+.heroCarousel:not(.slick-initialized) {
+    .heroCarousel-slide--wrap ~ .heroCarousel-slide--wrap {
+        display: none;
+    }
+}
+
+// assign the div containing the banner to the grid.
+.heroCarousel.stretch .heroCarousel-slide,
+.heroCarousel.contain .heroCarousel-slide {
+	grid-column: 1;
+	grid-row: 1;
+	position: relative;
+	z-index: 1;
+}
+
+.heroCarousel.stretch .heroCarousel-slide {
+	align-self: stretch;
+}
+
+.heroCarousel.contain .heroCarousel-slide {
+	align-self: start;
+}
+
+// stretch: ensure the wrapper fills vertical
+.heroCarousel.stretch .heroCarousel-slide .heroCarousel-image-wrapper {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+// contain: ensure image controls wrapper
+.heroCarousel.contain .heroCarousel-slide .heroCarousel-image-wrapper {
+	position: static;
+}
+
+// stretch: cover all space whether aspect ratio or content (including lazyload pixel)
+.heroCarousel.stretch .heroCarousel-slide .heroCarousel-image {
 	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	font-size: 1rem;
-	font-weight: 700;
-	color: stencilColor("custom-homepage-carousel-button-color");
-	background: stencilColor("custom-homepage-carousel-button-background");
-	@include breakpoint("small") {
-		padding-left: 1.5rem;
-		padding-right: 1.5rem;
-	}
-	@include breakpoint("medium") {
-		font-size: 1.25rem;
-		padding-top: 1.175rem;
-		padding-left: 2rem;
-		padding-bottom: 1.175rem;
-		padding-right: 2rem;
-	}
-	@include breakpoint("large") {
-		font-size: 1.5rem;
-		padding-top: 1.5rem;
-		padding-left: 2.5rem;
-		padding-bottom: 1.5rem;
-		padding-right: 2.5rem;
-	}
+	width: 100%;
+	object-fit: cover;
 }
 
-.heroCarousel-action:hover {
-	padding-left: 2rem;
-	padding-right: 2rem;
-	color: stencilColor("custom-homepage-carousel-button-color-hover");
-	background: stencilColor("custom-homepage-carousel-button-background-hover");
-	@include breakpoint("small") {
-		padding-left: 3rem;
-		padding-right: 3rem;
-	}
-	@include breakpoint("medium") {
-		padding-left: 4rem;
-		padding-right: 4rem;
-	}
-	@include breakpoint("large") {
-		padding-left: 5rem;
-		padding-right: 5rem;
-	}
+// contain: image controls dimensions
+.heroCarousel.contain .heroCarousel-slide .heroCarousel-image:not(.lazyload) {
+	width: 100%;
+	height: auto;
+	object-fit: initial;
 }
 
-.heroCarousel--left .heroCarousel-action,
-.heroCarousel--right .heroCarousel-action,
-.heroCarousel--center .heroCarousel-action,
-.heroCarousel--split .heroCarousel-action  {
-	border-radius: 50vh;
-}
-
-.heroCarousel-slide--color .heroCarousel-action {
-	border-width: .25rem;
-	border-style: solid;
-	padding-top: .25rem;
-	padding-left: .75rem;
-	padding-bottom: .25rem;
-	padding-right: .75rem;
-	@include breakpoint("small") {
-		padding-left: 1.25rem;
-		padding-right: 1.25rem;
-	}
-	@include breakpoint("medium") {
-		border-width: .5rem;
-		padding-top: .675rem;
-		padding-left: 1.5rem;
-		padding-bottom: .675rem;
-		padding-right: 1.5rem;
-	}
-	@include breakpoint("large") {
-		padding-top: 1rem;
-		padding-left: 2rem;
-		padding-bottom: 1rem;
-		padding-right: 2rem;
-	}
-}
-
-.heroCarousel-slide--color .heroCarousel-action:hover {
-	padding-left: 1.75rem;
-	padding-right: 1.75rem;
-	@include breakpoint("small") {
-		padding-left: 2.75rem;
-		padding-right: 2.75rem;
-	}
-	@include breakpoint("medium") {
-		padding-left: 3.5rem;
-		padding-right: 3.5rem;
-	}
-	@include breakpoint("large") {
-		padding-left: 4.5rem;
-		padding-right: 4.5rem;
-	}
-}
-
-.heroCarousel--left .heroCarousel-button,
-.heroCarousel--right .heroCarousel-button,
-.heroCarousel--center .heroCarousel-button,
-.heroCarousel--split .heroCarousel-button {
-	@include breakpoint("small") {
-		margin-top: 1rem;
-	}
-}
-
-.heroCarousel--left .heroCarousel-content,
-.heroCarousel--right .heroCarousel-content,
-.heroCarousel--center .heroCarousel-content {
-	@include breakpoint("small") {
-		top: 50%;
-		bottom: auto;
-		transform: translateY(-50%);
-		padding: 0 5rem;
-	}
-	@include breakpoint("medium") {
-		padding: 0 6.5rem;
-	}
-}
-
-.heroCarousel--left .heroCarousel-content {
-	@include breakpoint("large") {
-		padding: 0 50% 0 6.5rem;
-	}
-}
-
-.heroCarousel--right .heroCarousel-content {
-	@include breakpoint("large") {
-		padding: 0 6.5rem 0 50%;
-	}
-}
-
-.heroCarousel--center .heroCarousel-content {
-	@include breakpoint("large") {
-		padding: 0 25%;
-	}
-}
-
-.heroCarousel--left .heroCarousel-inner,
-.heroCarousel--right .heroCarousel-inner,
-.heroCarousel--center .heroCarousel-inner {
-	@include breakpoint("small") {
-		flex-direction: column;
-	}
-}
-
-.heroCarousel--left .heroCarousel-content {
-	@include breakpoint("small") {
-		justify-content: flex-start;
-		text-align: left;
-	}
-}
-
-.heroCarousel--left .heroCarousel-inner {
-	@include breakpoint("small") {
-		align-items: flex-start;
-	}
-}
-
-.heroCarousel--left .heroCarousel-button {
-	@include breakpoint("small") {
-		justify-content: flex-start;
-	}
-}
-
-.heroCarousel--right .heroCarousel-content {
-	@include breakpoint("small") {
-		justify-content: flex-end;
-		text-align: right;
-	}
-}
-
-.heroCarousel--right .heroCarousel-inner {
-	@include breakpoint("small") {
-		align-items: flex-end;
-	}
-}
-
-.heroCarousel--right .heroCarousel-button {
-	@include breakpoint("small") {
-		justify-content: flex-end;
-	}
-}
-
-.heroCarousel--center .heroCarousel-content {
-	@include breakpoint("small") {
-		justify-content: center;
-		text-align: center;
-	}
-}
-
-.heroCarousel--center .heroCarousel-inner {
-	@include breakpoint("small") {
-		align-items: center;
-	}
-}
-
-.heroCarousel--center .heroCarousel-button {
-	@include breakpoint("small") {
-		justify-content: center;
-	}
-}
-
-.heroCarousel--nobg .heroCarousel-content,
-.heroCarousel--nobg .heroCarousel-title,
-.heroCarousel--nobg .heroCarousel-description {
-	background: none;
-}
-
-.heroCarousel--nobg.heroCarousel--left .heroCarousel-title,
-.heroCarousel--nobg.heroCarousel--center .heroCarousel-title,
-.heroCarousel--nobg.heroCarousel--right .heroCarousel-title,
-.heroCarousel--nobg.heroCarousel--left .heroCarousel-description,
-.heroCarousel--nobg.heroCarousel--center .heroCarousel-description,
-.heroCarousel--nobg.heroCarousel--right .heroCarousel-description {
-	@include breakpoint("small") {
-		padding-left: 0;
-		padding-right: 0;
-	}
-}
-
-.heroCarousel--nobg .heroCarousel-title, 
-.heroCarousel--nobg .heroCarousel-title a,
-.heroCarousel--nobg .heroCarousel-title a:hover {
-	color: stencilColor("color-textBase");
-	@include breakpoint("small") {
-		color: stencilColor("carousel-title-color");
-	}
-}
-
-.heroCarousel--nobg .heroCarousel-description,
-.heroCarousel--nobg .heroCarousel-description a,
-.heroCarousel--nobg .heroCarousel-description a:hover {
-	color: stencilColor("color-textBase");
-	@include breakpoint("small") {
-		color: stencilColor("carousel-description-color");
-	}
-}
-
-.heroCarousel--nobg .heroCarousel-action {
-	color: stencilColor("button--primary-color");
-	background: stencilColor("button--primary-backgroundColor");
-	@include breakpoint("small") {
-		color: stencilColor("custom-homepage-carousel-button-color");
-		background: stencilColor("custom-homepage-carousel-button-background");
-	}
-}
-
-.heroCarousel--nobg .heroCarousel-action:hover {
-	color: stencilColor("button--primary-colorHover");
-	background: stencilColor("button--primary-backgroundColorHover");
-	@include breakpoint("small") {
-		color: stencilColor("custom-homepage-carousel-button-color-hover");
-		background: stencilColor("custom-homepage-carousel-button-background-hover");
-	}
+// prevent lazyload pixel from creating unwanted height due to being square.
+.heroCarousel.contain .heroCarousel-slide .heroCarousel-image.lazyload {
+	height: 100%;
+	width: auto;
 }
 
 .heroCarousel-slide--mobile .heroCarousel-image.heroCarousel-image-desktop {
@@ -3116,265 +2855,380 @@ ol.breadcrumbs {
 
 .heroCarousel-slide--mobile .heroCarousel-image.heroCarousel-image-mobile {
 	display: block;
-	width: 100%;
     @include breakpoint("medium") {
 		display: none;
     }
 }
 
-@media (max-width: 800px) {
-	
-	.heroCarousel-slide--mobile .heroCarousel-content {
-		position: absolute;
-		top: 50%;
-		bottom: auto;
-		left: 70px;
-		right: 70px;
-		width: auto;
-		transform: translateY(-50%);
-		display: block;
-		text-align: center;
-		background: none;
+.heroCarousel.stretch .heroCarousel-content {
+	grid-row: 1;
+	width: calc(100% - 8rem);
+	border-radius: .5rem;
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+	margin-left: 4rem;
+	margin-right: 4rem;
+}
+
+.heroCarousel.contain .heroCarousel-content {
+	grid-row: 2;
+	width: 100%;
+	border-radius: 0;
+	margin: 0;	
+	@include breakpoint("medium") {
+		grid-row: 1;
+		border-radius: .5rem;
 	}
-	
-	.heroCarousel-slide--mobile .heroCarousel-inner {
-		display: block;
+}
+
+.heroCarousel.stretch .heroCarousel-content,
+.heroCarousel.contain .heroCarousel-content {
+	grid-column: 1;
+	align-self: center;
+	position: relative;
+	justify-self: center;
+	top: auto;
+	bottom: auto;
+	left: auto;
+	right: auto;
+	display: flex;
+	flex-direction: column;
+	max-height: none;
+	transform: none;
+	z-index: 2;
+	overflow: visible;
+	padding: 1.5rem 1.5rem 2.5rem 1.5rem;
+	@include breakpoint("medium") {
+		width: calc(100% - 10rem);
+		margin-left: 5rem;
+		margin-right: 5rem;
 	}
-	
-	.heroCarousel-slide--mobile .heroCarousel-title {
-		display: inline-block;
+	@include breakpoint("large") {
+		width: calc(100% - 12rem);
+		margin-left: 6rem;
+		margin-right: 6rem;
+		padding-bottom: 3rem;
 	}
-	
-	.heroCarousel-slide--mobile .heroCarousel-title, 
-	.heroCarousel-slide--mobile .heroCarousel-title a,
-	.heroCarousel-slide--mobile .heroCarousel-title a:hover {
+}
+
+.heroCarousel--bg .heroCarousel-content {
+	background-color: rgba(stencilColor("carousel-bgColor"), 0.75);
+}
+
+.heroCarousel--nobg .heroCarousel-content {
+	background: none;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.heroCarousel--nobg.contain .heroCarousel-content {
+	padding-bottom: 1rem;
+	@include breakpoint("medium") {
+		padding-bottom: 2.5rem;
+	}
+	@include breakpoint("large") {
+		padding-bottom: 3rem;
+	}
+}
+
+.heroCarousel-title {
+	margin: 0;
+	line-height: 1.2;
+	font-size: 1.75rem;
+	color: stencilColor("carousel-title-color");
+	text-decoration: none;
+	@include breakpoint("xsmall") {
+		font-size: 2rem;
+	}
+	@include breakpoint("small") {
+		font-size: 3rem;
+	}
+	@include breakpoint("medium") {
+		font-size: 4rem;
+	}
+	@include breakpoint("large") {
+		font-size: 5rem;
+	}
+	@include breakpoint("xlarge") {
+		font-size: 6rem;
+	}
+}
+
+.heroCarousel--nobg.contain .heroCarousel-title {
+	color: stencilColor("color-textHeading");
+	@include breakpoint("medium") {
 		color: stencilColor("carousel-title-color");
 	}
-	
-	.heroCarousel-slide--mobile .heroCarousel-description {
-		display: inline-block;
+}
+
+.heroCarousel-description {
+	font-size: 1rem;
+	margin: 1rem 0 0 0;
+	line-height: 1.2;
+	color: stencilColor("carousel-description-color");
+	text-decoration: none;
+	@include breakpoint("xsmall") {
+		font-size: 1.125rem;
 	}
-	
-	.heroCarousel-slide--mobile .heroCarousel-description,
-	.heroCarousel-slide--mobile .heroCarousel-description a,
-	.heroCarousel-slide--mobile .heroCarousel-description a:hover {
+	@include breakpoint("small") {
+		font-size: 1.25rem;
+	}
+	@include breakpoint("medium") {
+		font-size: 1.5rem;
+	}
+	@include breakpoint("large") {
+		font-size: 1.75rem;
+	}
+	@include breakpoint("xlarge") {
+		font-size: 2rem;
+	}
+}
+
+.heroCarousel--nobg.contain .heroCarousel-description {
+	color: stencilColor("color-textBase");
+	@include breakpoint("medium") {
 		color: stencilColor("carousel-description-color");
 	}
-	
-	.heroCarousel-slide--mobile .heroCarousel-button {
-		display: block;
-		padding: 0;
-	}
-	
-	.heroCarousel--left .heroCarousel-slide--mobile .heroCarousel-button,
-	.heroCarousel--right .heroCarousel-slide--mobile .heroCarousel-button,
-	.heroCarousel--center .heroCarousel-slide--mobile .heroCarousel-button {
-		margin-top: 1rem;
-	}
-	
-	.heroCarousel-slide--mobile .heroCarousel-action  {
-		display: inline-block;
-		padding-top: 1.5rem;
-		padding-left: 2rem;
-		padding-bottom: 1.5rem;
-		padding-right: 2rem;
-	}
-	
-	.heroCarousel-slide--mobile .heroCarousel-action:hover {
-		padding-left: 4rem;
-		padding-right: 4rem;
-	}
+}
 
-	.heroCarousel-slide--color .heroCarousel-slide--mobile .heroCarousel-action {
-		border-width: .5rem;
-		padding-top: 1rem;
-		padding-left: 1.5rem;
-		padding-bottom: 1rem;
-		padding-right: 1.5rem;
-	}
+.heroCarousel-button {
+	margin: 2rem 0 0 0;
+}
 
-	.heroCarousel-slide--color .heroCarousel-slide--mobile .heroCarousel-action:hover {
-		padding-left: 3.5rem;
-		padding-right: 3.5rem;
+.heroCarousel-action {
+	line-height: 1.2;
+	margin: 0;
+	font-size: 1rem;
+	font-weight: 700;
+	color: stencilColor("custom-homepage-carousel-button-color");
+	background: stencilColor("custom-homepage-carousel-button-background");
+	border: 0;
+	padding: .625em 1.5em;
+	border-radius: .25em;
+	text-decoration: none;
+	@include breakpoint("xsmall") {
+		font-size: 1.125rem;
 	}
+	@include breakpoint("small") {
+		font-size: 1.25rem;
+	}
+	@include breakpoint("medium") {
+		font-size: 1.5rem;
+	}
+	@include breakpoint("large") {
+		font-size: 1.75rem;
+	}
+	@include breakpoint("xlarge") {
+		font-size: 2rem;
+	}
+}
+.heroCarousel-action:hover {
+	color: stencilColor("custom-homepage-carousel-button-color-hover");
+	background: stencilColor("custom-homepage-carousel-button-background-hover");
+}
 
-	.heroCarousel-slide--mobile .heroCarousel-action {
+.heroCarousel--nobg.contain .heroCarousel-action {
+	color: stencilColor("button--primary-color");
+	background: stencilColor("button--primary-backgroundColor");
+	@include breakpoint("medium") {
 		color: stencilColor("custom-homepage-carousel-button-color");
 		background: stencilColor("custom-homepage-carousel-button-background");
 	}
+}
 
-	.heroCarousel-slide--mobile .heroCarousel-action:hover {
+.heroCarousel--nobg.contain .heroCarousel-action:hover {
+	color: stencilColor("button--primary-colorHover");
+	background: stencilColor("button--primary-backgroundColorHover");
+	@include breakpoint("medium") {
 		color: stencilColor("custom-homepage-carousel-button-color-hover");
 		background: stencilColor("custom-homepage-carousel-button-background-hover");
 	}
-	
-
 }
 
-.heroCarousel-slide--1.heroCarousel-slide--color .heroCarousel-title,
-.heroCarousel-slide--1.heroCarousel-slide--color .heroCarousel-title a,
-.heroCarousel-slide--1.heroCarousel-slide--color .heroCarousel-title a:hover
-.heroCarousel-slide--1.heroCarousel-slide--color .heroCarousel-description,
-.heroCarousel-slide--1.heroCarousel-slide--color .heroCarousel-description a,
-.heroCarousel-slide--1.heroCarousel-slide--color .heroCarousel-description a:hover {
-	color: stencilColor("custom-homepage-carousel-color-1");
+.heroCarousel.stretch.heroCarousel--nobg .heroCarousel-action,
+.heroCarousel .heroCarousel-button-only .heroCarousel-action {
+	box-shadow: inset 0 .075em 0 0 rgba(255, 255, 255, .25), 0 .25em .5em 0 rgba(0, 0, 0, .25);
 }
 
-.heroCarousel-slide--2.heroCarousel-slide--color .heroCarousel-title,
-.heroCarousel-slide--2.heroCarousel-slide--color .heroCarousel-title a,
-.heroCarousel-slide--2.heroCarousel-slide--color .heroCarousel-title a:hover
-.heroCarousel-slide--2.heroCarousel-slide--color .heroCarousel-description,
-.heroCarousel-slide--2.heroCarousel-slide--color .heroCarousel-description a,
-.heroCarousel-slide--2.heroCarousel-slide--color .heroCarousel-description a:hover {
-	color: stencilColor("custom-homepage-carousel-color-2");
+.heroCarousel.contain.heroCarousel--nobg .heroCarousel-action {
+	@include breakpoint("medium") {
+		box-shadow: inset 0 .075em 0 0 rgba(255, 255, 255, .25), 0 .25em .5em 0 rgba(0, 0, 0, .25);
+	}
 }
 
-.heroCarousel-slide--3.heroCarousel-slide--color .heroCarousel-title,
-.heroCarousel-slide--3.heroCarousel-slide--color .heroCarousel-title a,
-.heroCarousel-slide--3.heroCarousel-slide--color .heroCarousel-title a:hover
-.heroCarousel-slide--3.heroCarousel-slide--color .heroCarousel-description,
-.heroCarousel-slide--3.heroCarousel-slide--color .heroCarousel-description a,
-.heroCarousel-slide--3.heroCarousel-slide--color .heroCarousel-description a:hover {
-	color: stencilColor("custom-homepage-carousel-color-3");
+
+// left style 
+
+.heroCarousel.heroCarousel--left .heroCarousel-content {
+	@include breakpoint("medium") {
+		text-align: left;
+		justify-self: flex-start;
+	}
+	@include breakpoint("medium") {
+		max-width: 688px;
+	}
+	@include breakpoint("large") {
+		max-width: calc(50% - 6rem);
+	}
 }
 
-.heroCarousel-slide--4.heroCarousel-slide--color .heroCarousel-title,
-.heroCarousel-slide--4.heroCarousel-slide--color .heroCarousel-title a,
-.heroCarousel-slide--4.heroCarousel-slide--color .heroCarousel-title a:hover
-.heroCarousel-slide--4.heroCarousel-slide--color .heroCarousel-description,
-.heroCarousel-slide--4.heroCarousel-slide--color .heroCarousel-description a,
-.heroCarousel-slide--4.heroCarousel-slide--color .heroCarousel-description a:hover {
-	color: stencilColor("custom-homepage-carousel-color-4");
+// right style 
+
+.heroCarousel.heroCarousel--right .heroCarousel-content {
+	@include breakpoint("medium") {
+		text-align: left;
+		justify-self: flex-end;
+	}
+	@include breakpoint("medium") {
+		max-width: 688px;
+	}
+	@include breakpoint("large") {
+		max-width: calc(50% - 6rem);
+	}
 }
 
-.heroCarousel-slide--5.heroCarousel-slide--color .heroCarousel-title,
-.heroCarousel-slide--5.heroCarousel-slide--color .heroCarousel-title a,
-.heroCarousel-slide--5.heroCarousel-slide--color .heroCarousel-title a:hover
-.heroCarousel-slide--5.heroCarousel-slide--color .heroCarousel-description,
-.heroCarousel-slide--5.heroCarousel-slide--color .heroCarousel-description a,
-.heroCarousel-slide--5.heroCarousel-slide--color .heroCarousel-description a:hover {
-	color: stencilColor("custom-homepage-carousel-color-5");
+// center style 
+
+.heroCarousel.heroCarousel--center .heroCarousel-content {
+	@include breakpoint("medium") {
+		max-width: 688px;
+	}
+	@include breakpoint("large") {
+		max-width: calc(50% - 6rem);
+	}
 }
 
-.heroCarousel-slide--color .heroCarousel-action,
-.heroCarousel-slide--color .heroCarousel-action:hover {
-	background: rgba($carousel-bgColor, 0.8);
+// left, right, centre style 
+
+.heroCarousel.heroCarousel--left .heroCarousel-title,
+.heroCarousel.heroCarousel--right .heroCarousel-title,
+.heroCarousel.heroCarousel--center .heroCarousel-title {
+	@include breakpoint("medium") {
+		font-size: 4rem;
+	}
 }
 
-.heroCarousel--nobg .heroCarousel-slide--color .heroCarousel-action,
-.heroCarousel--nobg .heroCarousel-slide--color .heroCarousel-action:hover {
+.heroCarousel.heroCarousel--left .heroCarousel-description,
+.heroCarousel.heroCarousel--right .heroCarousel-description,
+.heroCarousel.heroCarousel--center .heroCarousel-description {
+	@include breakpoint("medium") {
+		font-size: 1.5rem;
+	}
+}
+
+.heroCarousel.heroCarousel--left .heroCarousel-action,
+.heroCarousel.heroCarousel--right .heroCarousel-action,
+.heroCarousel.heroCarousel--center .heroCarousel-action {
+	@include breakpoint("medium") {
+		font-size: 1.5rem;
+	}
+}
+
+
+// split style
+
+.heroCarousel.heroCarousel--split .heroCarousel-content {
+	align-self: stretch;
+	justify-content: space-between;
 	background: none;
 }
 
-.heroCarousel-slide--1.heroCarousel-slide--color .heroCarousel-action,
-.heroCarousel-slide--1.heroCarousel-slide--color .heroCarousel-action:hover {
-	border-color: stencilColor("custom-homepage-carousel-color-1");
-	color: stencilColor("custom-homepage-carousel-color-1");
+.heroCarousel.heroCarousel--split.stretch .heroCarousel-content {
+	padding: 1.5rem 0 0 0;
+	margin-bottom: 1.5rem;
 }
 
-.heroCarousel-slide--2.heroCarousel-slide--color .heroCarousel-action,
-.heroCarousel-slide--2.heroCarousel-slide--color .heroCarousel-action:hover {
-	border-color: stencilColor("custom-homepage-carousel-color-2");
-	color: stencilColor("custom-homepage-carousel-color-2");
+.heroCarousel.heroCarousel--split.contain .heroCarousel-content {
+	@include breakpoint("medium") {
+		padding: 1.5rem 0 0 0;
+		margin-bottom: 1.5rem;
+	}
 }
 
-.heroCarousel-slide--3.heroCarousel-slide--color .heroCarousel-action,
-.heroCarousel-slide--3.heroCarousel-slide--color .heroCarousel-action:hover {
-	border-color: stencilColor("custom-homepage-carousel-color-3");
-	color: stencilColor("custom-homepage-carousel-color-3");
-}
-
-.heroCarousel-slide--4.heroCarousel-slide--color .heroCarousel-action,
-.heroCarousel-slide--4.heroCarousel-slide--color .heroCarousel-action:hover {
-	border-color: stencilColor("custom-homepage-carousel-color-4");
-	color: stencilColor("custom-homepage-carousel-color-4");
-}
-
-.heroCarousel-slide--5.heroCarousel-slide--color .heroCarousel-action,
-.heroCarousel-slide--5.heroCarousel-slide--color .heroCarousel-action:hover {
-	border-color: stencilColor("custom-homepage-carousel-color-5");
-	color: stencilColor("custom-homepage-carousel-color-5");
-}
-
-.heroCarousel--split .slick-slide.has-content {
+.heroCarousel.heroCarousel--split .heroCarousel-inner {
+	display: flex;
 	flex-direction: column;
-    @include breakpoint("small") {
+	justify-content: space-between;
+	align-items: center;
+	border-radius: .5rem;
+	@include breakpoint("medium") {
+		font-size: 4rem;
 		flex-direction: row;
-    }
+	}
 }
 
-.heroCarousel--split .has-content .heroCarousel-slide {
-    @include breakpoint("small") {
-		overflow-x: hidden;
-		width: 50%;
-    }
+.heroCarousel.heroCarousel--split.heroCarousel--bg .heroCarousel-inner {
+	background-color: rgba(stencilColor("carousel-bgColor"), 0.75);
 }
 
-.heroCarousel--split .has-content .heroCarousel-image-wrapper {
-    @include breakpoint("small") {
-		height: 100% !important;
-    }
+.heroCarousel.heroCarousel--split.stretch .heroCarousel-inner {
+	padding: 1.5rem;
 }
 
-.heroCarousel--split .has-content .heroCarousel-image {
-    @include breakpoint("small") {
-		height: 100%;
-		width: auto;
-		object-fit: cover;
-    }
+.heroCarousel.heroCarousel--split.contain .heroCarousel-inner {
+	@include breakpoint("medium") {
+		padding: 1.5rem;
+	}
 }
 
-.heroCarousel--split .has-content .heroCarousel-content {
-    @include breakpoint("small") {
-		padding-top: 1rem;
-		padding-bottom: 1rem;
-		padding-right: 5rem;
-		width: 50%;
-		align-items: center;
-		justify-content: center;
-		position: static;
-		background-color: stencilColor("carousel-bgColor");
-		flex-direction: column;
-    }
-    @include breakpoint("medium") {
-		padding-top: 1.5rem;
-		padding-bottom: 1.5rem;
-    }
+.heroCarousel.heroCarousel--split.stretch.heroCarousel--nobg .heroCarousel-inner {
+	padding: 1.5rem 0;
 }
 
-.heroCarousel--split .has-content .heroCarousel-inner {
-    @include breakpoint("small") {
+.heroCarousel.heroCarousel--split.contain.heroCarousel--nobg .heroCarousel-inner {
+	@include breakpoint("medium") {
+		padding: 1.5rem 0;
+	}
+}
+
+.heroCarousel.heroCarousel--split .heroCarousel-description {
+	margin-top: 0;
+	padding: .625em 0;
+	@include breakpoint("medium") {
+		padding: .625em 1.5rem .625em 0;
 		text-align: left;
-		flex-direction: column;
-		justify-content: left;
-    }
+	}
 }
 
-.heroCarousel--split .has-content .heroCarousel-title,
-.heroCarousel--split .has-content .heroCarousel-description,
-.heroCarousel--split .has-content .heroCarousel-button {
-    @include breakpoint("small") {
-		margin: 0;
-		background: none;
+.heroCarousel.heroCarousel--split .heroCarousel-button {
+	margin-top: 0;
+	display: flex;
+	flex: 0 1 0;
+}
+
+.heroCarousel.heroCarousel--split .heroCarousel-description + .heroCarousel-button {
+	margin-top: .75rem;
+	@include breakpoint("medium") {
 		text-align: left;
-		justify-content: left;
-    }
+		margin-top: 0;
+	}
 }
 
-.heroCarousel--split .has-content .heroCarousel-title {
-    @include breakpoint("small") {
-		width: 100%;
-    }
+.heroCarousel.heroCarousel--split .heroCarousel-action {
+	white-space: nowrap;
 }
 
-.heroCarousel--split .has-content .heroCarousel-button {
-    @include breakpoint("small") {
-		padding: 0.5rem 1rem;
-    }
-    @include breakpoint("medium") {
-		padding: 0.75rem 2rem;
-    }
+
+// button only
+
+.heroCarousel.stretch:not(.heroCarousel--split) .heroCarousel-button-only,
+.heroCarousel.contain:not(.heroCarousel--split) .heroCarousel-button-only {
+	padding-top: 2.5rem;
+	padding-bottom: 2.5rem;
 }
+
+.heroCarousel.heroCarousel--split .heroCarousel-button-only .heroCarousel-inner {
+	@include breakpoint("medium") {
+		margin-top: auto;
+		justify-content: flex-end;
+	}
+}
+
+.heroCarousel .heroCarousel-button-only .heroCarousel-button {
+	margin-top: 0;
+}
+
+
 
 // Snow Effect
 
@@ -3437,11 +3291,20 @@ ol.breadcrumbs {
 	margin: 0;
 }
 
+.productCarousel .slick-list {
+	-webkit-box-shadow: inset -1px 0px 0px 0px stencilColor("custom-card-border");
+	box-shadow: inset -1px 0px 0px 0px stencilColor("custom-card-border");
+}
+
+.productCarousel .slick-track {
+	display: inline-flex;
+	align-items: stretch;
+	justify-content: flex-start;
+}
+
 .productCarousel .productCarousel-slide {
 	float: none;
-	display: inline-block;
 	font-size: 1rem;
-	vertical-align: top;
 	height: auto;
 	padding: .75rem;
 	border-top: 1px solid stencilColor("custom-card-border");
@@ -3462,14 +3325,9 @@ ol.breadcrumbs {
 	z-index: 1;
 }
 
-.productCarousel .slick-list {
-	-webkit-box-shadow: inset -1px 0px 0px 0px stencilColor("custom-card-border");
-	box-shadow: inset -1px 0px 0px 0px stencilColor("custom-card-border");
-}
 
-.productCarousel .slick-track {
-	display: flex;
-}
+
+
 
 
 
@@ -4328,7 +4186,6 @@ div[data-content-region="brand_above_content"] > div {
 .card {
 	display: flex;
 	flex-direction: column;
-	height: 100%;
 	margin-bottom: 0;
 }
 
@@ -4369,7 +4226,7 @@ div[data-content-region="brand_above_content"] > div {
 	display: flex;
 	flex: 1 0 auto;
 	position: relative;
-    flex-flow: column;
+    flex-direction: column;
     justify-content: flex-start;
 }
 
@@ -4425,6 +4282,11 @@ div[data-content-region="brand_above_content"] > div {
 
 .card-swatches .form-option-expanded {
 	display: none;
+}
+
+// Stop Instock notify inline styling.
+.card-image {
+	position: absolute !important;
 }
 
 .card-image-0 img,
@@ -5263,7 +5125,8 @@ a:hover span.card-image:only-of-type img {
 	left: -5rem;
 }
 
-.product.spotlight .card-figure__normal {
+.product.spotlight .card-figure__normal,
+.productCarousel-slide.spotlight .card-figure__normal {
 	display: none;
 }
 
@@ -5281,7 +5144,9 @@ a:hover span.card-image:only-of-type img {
 .spotlight-carousel.slick-initialized .slick-list {
 	margin-left: 0 !important;
 	margin-right: 0 !important;
+	box-shadow: none;
 }
+
 
 .spotlight-carousel.slick-initialized .slick-prev {
 	left: .5rem !important;
@@ -5370,6 +5235,10 @@ $card_height: str-slice($card_size, $card_x + 1);
 	margin: 1rem 0 0 0;
 }
 
+.productCarousel-slide.spotlight .card-spotlight-actions {
+	display: none;
+}
+
 .product.spotlight .card-spotlight-actions .button {
 	width: 100%;
 	margin-bottom: 0;
@@ -5384,14 +5253,6 @@ $card_height: str-slice($card_size, $card_x + 1);
 	display: block;
 	margin-top: 0;
 }
-
-
-
-
-
-
-
-
 
 .productList .product.spotlight .listItem {
 	@include breakpoint("small") {

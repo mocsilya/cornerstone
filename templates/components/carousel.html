@@ -1,103 +1,67 @@
-<section class="heroCarousel heroCarousel--{{theme_settings.custom_homepage_carousel_content}}{{#if theme_settings.custom_homepage_carousel_content_background '==' false}} heroCarousel--nobg{{/if}}{{#if carousel.slides.length '==' 1}} heroCarousel--single{{/if}}"
+<section class="heroCarousel heroCarousel--{{theme_settings.custom_homepage_carousel_content}} {{#if theme_settings.homepage_stretch_carousel_images}}stretch{{else}}contain{{/if}}{{#if theme_settings.custom_homepage_carousel_content_background '==' false}} heroCarousel--nobg{{else}} heroCarousel--bg{{/if}}{{#if carousel.slides.length '==' 1}} heroCarousel--single{{/if}}"
     data-slick='{
+		{{#if theme_settings.custom_homepage_carousel_transition "==" "fade"}}"fade": true,{{/if}}
         "arrows": {{arrows}},
         "mobileFirst": true,
 		"swipe": true,
 		"draggable": true,
 		"touchMove": true,
 		"speed": 1000,
-		{{#if theme_settings.custom_homepage_carousel_transition "==" "fade"}}"fade": true,{{/if}}
         "slidesToShow": 1,
         "slidesToScroll": 1,
+		"infinite": false,
         "autoplay": {{theme_settings.custom_homepage_carousel_auto}},
         "autoplaySpeed": {{carousel.swap_frequency}},
         "slide": "[data-hero-slide]"
     }'
 >
     {{#each carousel.slides}}
-    {{#if button_text}}
-    <div class="{{#or heading text button_text}}has-content {{/or}} heroCarousel-slide--{{#if @index 0}}1{{#if ../theme_settings.custom-homepage-carousel-color-1}} heroCarousel-slide--color{{/if}}{{else if @index 1}}2{{#if ../theme_settings.custom-homepage-carousel-color-2}} heroCarousel-slide--color{{/if}}{{else if @index 2}}3{{#if ../theme_settings.custom-homepage-carousel-color-3}} heroCarousel-slide--color{{/if}}{{else if @index 3}}4{{#if ../theme_settings.custom-homepage-carousel-color-4}} heroCarousel-slide--color{{/if}}{{else}}5{{#if ../theme_settings.custom-homepage-carousel-color-5}} heroCarousel-slide--color{{/if}}{{/if}}" data-hero-slide="{{@index}}">
-    {{else}}
-    <a class="{{#or heading text button_text}}has-content {{/or}} heroCarousel-slide--{{#if @index 0}}1{{#if ../theme_settings.custom-homepage-carousel-color-1}} heroCarousel-slide--color{{/if}}{{else if @index 1}}2{{#if ../theme_settings.custom-homepage-carousel-color-2}} heroCarousel-slide--color{{/if}}{{else if @index 2}}3{{#if ../theme_settings.custom-homepage-carousel-color-3}} heroCarousel-slide--color{{/if}}{{else if @index 3}}4{{#if ../theme_settings.custom-homepage-carousel-color-4}} heroCarousel-slide--color{{/if}}{{else}}5{{#if ../theme_settings.custom-homepage-carousel-color-5}} heroCarousel-slide--color{{/if}}{{/if}}" href="{{url}}" data-hero-slide="{{@index}}" aria-label="{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{else}}{{lang 'carousel.slide_number' slide_number=(add @index 1)}}{{/if}}">
-    {{/if}}
-        <div class="heroCarousel-slide{{#if ../theme_settings.homepage_stretch_carousel_images}} stretch{{/if}}{{#if @first}} heroCarousel-slide--first{{/if}}{{#if ../theme_settings.custom_homepage_carousel_mob-images}} heroCarousel-slide--mobile{{else}} heroCarousel-slide--desktop{{/if}}">
-            {{#if button_text}}
-            <a href="{{url}}" class="heroCarousel-image-wrapper">
-            {{else}}
-            <div class="heroCarousel-image-wrapper">
-            {{/if}}
-            {{#if @first}}
-                {{> components/common/responsive-img
-					theme_settings=../theme_settings
-                    image=stencil_image
-                    class="heroCarousel-image heroCarousel-image-desktop heroCarousel-image-first"
-                    fallback_size='1280w'
-                    lazyload='disabled'
-					otherAttributes="fetchpriority='high'"
-                }}
-            {{else}}
-                {{> components/common/responsive-img
-					theme_settings=../theme_settings
-                    image=stencil_image
-                    class="heroCarousel-image heroCarousel-image-desktop"
-                    fallback_size='1280w'
-                    lazyload='lazyload'
-                }}
-            {{/if}}
-			{{#if ../theme_settings.custom_homepage_carousel_mob-images}}
-				{{#if @index 0}}
-					{{#if ../theme_settings.custom_homepage_carousel_mob-1}}
-					<img src="{{getImageManagerImage ../theme_settings.custom_homepage_carousel_mob-1}}" data-sizes="auto" srcset="{{getImageManagerImageSrcset ../theme_settings.custom_homepage_carousel_mob-1}}" sizes="800" alt="{{stencil_image.alt}}" title="{{stencil_image.alt}}" class="heroCarousel-image heroCarousel-image-mobile">
-					{{else}}
-					<img src="../assets/img/heroCarousel-image-mobile.jpg" alt="{{stencil_image.alt}}" title="{{stencil_image.alt}}" class="heroCarousel-image heroCarousel-image-mobile" width="800" height="1200">
-					{{/if}}
-				{{else if @index 1}}
-					{{#if ../theme_settings.custom_homepage_carousel_mob-2}}
-					<img src="{{getImageManagerImage ../theme_settings.custom_homepage_carousel_mob-2}}" data-sizes="auto" srcset="{{getImageManagerImageSrcset ../theme_settings.custom_homepage_carousel_mob-2}}" sizes="800" alt="{{stencil_image.alt}}" title="{{stencil_image.alt}}" class="heroCarousel-image heroCarousel-image-mobile">
-					{{else}}
-					<img src="../assets/img/heroCarousel-image-mobile.jpg" alt="{{stencil_image.alt}}" title="{{stencil_image.alt}}" class="heroCarousel-image heroCarousel-image-mobile" width="800" height="1200">
-					{{/if}}
-				{{else if @index 2}}
-					{{#if ../theme_settings.custom_homepage_carousel_mob-3}}
-					<img src="{{getImageManagerImage ../theme_settings.custom_homepage_carousel_mob-3}}" data-sizes="auto" srcset="{{getImageManagerImageSrcset ../theme_settings.custom_homepage_carousel_mob-3}}" sizes="800" alt="{{stencil_image.alt}}" title="{{stencil_image.alt}}" class="heroCarousel-image heroCarousel-image-mobile">
-					{{else}}
-					<img src="../assets/img/heroCarousel-image-mobile.jpg" alt="{{stencil_image.alt}}" title="{{stencil_image.alt}}" class="heroCarousel-image heroCarousel-image-mobile" width="800" height="1200">
-					{{/if}}
-				{{else if @index 3}}
-					{{#if ../theme_settings.custom_homepage_carousel_mob-4}}
-					<img src="{{getImageManagerImage ../theme_settings.custom_homepage_carousel_mob-4}}" data-sizes="auto" srcset="{{getImageManagerImageSrcset ../theme_settings.custom_homepage_carousel_mob-4}}" sizes="800" alt="{{stencil_image.alt}}" title="{{stencil_image.alt}}" class="heroCarousel-image heroCarousel-image-mobile">
-					{{else}}
-					<img src="../assets/img/heroCarousel-image-mobile.jpg" alt="{{stencil_image.alt}}" title="{{stencil_image.alt}}" class="heroCarousel-image heroCarousel-image-mobile" width="800" height="1200">
-					{{/if}}
-				{{else}}
-					{{#if ../theme_settings.custom_homepage_carousel_mob-5}}
-					<img src="{{getImageManagerImage ../theme_settings.custom_homepage_carousel_mob-5}}" data-sizes="auto" srcset="{{getImageManagerImageSrcset ../theme_settings.custom_homepage_carousel_mob-5}}" sizes="800" alt="{{stencil_image.alt}}" title="{{stencil_image.alt}}" class="heroCarousel-image heroCarousel-image-mobile">
-					{{else}}
-					<img src="../assets/img/heroCarousel-image-mobile.jpg" alt="{{stencil_image.alt}}" title="{{stencil_image.alt}}" class="heroCarousel-image heroCarousel-image-mobile" width="800" height="1200">
-					{{/if}}
-				{{/if}}
-			{{/if}}
-			{{#if button_text}}
-            </a>
-            {{else}}
-            </div>
-            {{/if}}
-			{{#unless ../theme_settings.custom_homepage_carousel_content '==' 'split'}}
-            {{#or heading text button_text}}
-                {{> components/carousel-content}}
-            {{/or}}
-			{{/unless}}
-        </div>
-		{{#if ../theme_settings.custom_homepage_carousel_content '==' 'split'}}
-            {{#or heading text button_text}}
-                {{> components/carousel-content}}
-            {{/or}}
+		{{#if url}}
+			<a class="heroCarousel-slide--wrap{{#if @first}} is-first{{/if}}{{#or heading text button_text}} has-content{{/or}} heroCarousel-slide--{{add @index 1}}" href="{{url}}" data-hero-slide="{{@index}}" aria-label="{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{else}}{{lang 'carousel.slide_number' slide_number=(add @index 1)}}{{/if}}">
+		{{else}}
+			<div class="heroCarousel-slide--wrap{{#if @first}} is-first{{/if}}{{#or heading text button_text}} has-content{{/or}} heroCarousel-slide--{{add @index 1}}" data-hero-slide="{{@index}}">
 		{{/if}}
-    {{#if button_text}}
-    </div>
-    {{else}}
-    </a>
-    {{/if}}
+	        <div class="heroCarousel-slide{{#if ../theme_settings.custom_homepage_carousel_mob}} heroCarousel-slide--mobile{{else}} heroCarousel-slide--desktop{{/if}}">
+				<div class="heroCarousel-image-wrapper">
+		            {{#if @first}}
+		                {{> components/common/responsive-img
+							theme_settings=../theme_settings
+		                    image=stencil_image
+		                    class="heroCarousel-image heroCarousel-image-desktop heroCarousel-image-first"
+		                    fallback_size='1280w'
+		                    lazyload='disabled'
+							otherAttributes="fetchpriority='high'"
+		                }}
+		            {{else}}
+		                {{> components/common/responsive-img
+							theme_settings=../theme_settings
+		                    image=stencil_image
+		                    class="heroCarousel-image heroCarousel-image-desktop"
+		                    fallback_size='1280w'
+		                    lazyload='lazyload'
+		                }}
+		            {{/if}}
+					{{#if ../theme_settings.custom_homepage_carousel_mob}}
+						{{assignVar "imgUrl" (first (split image "?"))}}
+						{{assignVar "imgFile" (last (split (getVar "imgUrl") "/"))}}
+						{{assignVar "imgName" (first (split (getVar "imgFile") "."))}}
+						{{assignVar "mobFile" (concat (getVar "imgName") "-mob.jpg")}}
+						{{#if @index 0}}
+							<img src="{{getImageManagerImage (getVar 'mobFile')}}?v={{moment 'now' 'X'}}" width="{{before (split ../theme_settings.custom_homepage_carousel_mob_size 'x') 1}}" height="{{after (split ../theme_settings.custom_homepage_carousel_mob_size 'x') 1}}" alt="{{stencil_image.alt}}" title="{{stencil_image.alt}}" class="heroCarousel-image heroCarousel-image-mobile">
+						{{else}}
+							<!-- <img src="{{getImageManagerImage (getVar 'mobFile')}}?v={{moment 'now' 'X'}}" width="{{before (split ../theme_settings.custom_homepage_carousel_mob_size 'x') 1}}" height="{{after (split ../theme_settings.custom_homepage_carousel_mob_size 'x') 1}}" alt="{{stencil_image.alt}}" title="{{stencil_image.alt}}" class="heroCarousel-image heroCarousel-image-mobile" loading="lazy"> -->
+						{{/if}}
+					{{/if}}
+				</div>
+			</div>
+            {{#or heading text button_text}}
+                {{> components/carousel-content}}
+            {{/or}}
+		{{#if url}}
+			</a>
+		{{else}}
+			</div>
+		{{/if}}
     {{/each}}
     {{#if carousel.slides.length '>' 1}}
         {{> components/carousel-content-announcement}}
