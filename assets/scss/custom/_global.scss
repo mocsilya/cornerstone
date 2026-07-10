@@ -9,6 +9,32 @@
 
 $custom_header_menu_width: stencilString('custom_header_menu_width');
 
+// $logo_size:			stencilString("logo_size");
+// $logo_x:				str-index($logo_size, "x");
+// $logo_width:			str-slice($logo_size, 0, $logo_x - 1);
+// $logo_height:		str-slice($logo_size, $logo_x + 1);
+
+$carousel_size:			stencilString("custom_homepage_carousel_size");
+$carousel_x:			str-index($carousel_size, "x");
+$carousel_width:		str-slice($carousel_size, 0, $carousel_x - 1);
+$carousel_height:		str-slice($carousel_size, $carousel_x + 1);
+
+$carouselMob_size:		stencilString("custom_homepage_carousel_mob_size");
+$carouselMob_x:			str-index($carouselMob_size, "x");
+$carouselMob_width:		str-slice($carouselMob_size, 0, $carouselMob_x - 1);
+$carouselMob_height:	str-slice($carouselMob_size, $carouselMob_x + 1);
+
+$card_size:				stencilString("productgallery_size");
+$card_x:				str-index($card_size, "x");
+$card_width:			str-slice($card_size, 0, $card_x - 1);
+$card_height:			str-slice($card_size, $card_x + 1);
+
+$productthumb_size:		stencilString("productthumb_size");
+$productthumb_x:		str-index($productthumb_size, "x");
+$productthumb_width:	str-slice($productthumb_size, 0, $productthumb_x - 1);
+$productthumb_height:	str-slice($productthumb_size, $productthumb_x + 1);
+
+
 
 // General Changes
 // =============================================================================
@@ -804,13 +830,6 @@ body.scroll .header-fixed .header-logo-image-container {
 		height: 41px;
 	}
 }
-
-/* logo math
-$value_of_logo_size: stencilString("logo_size");
-$position_of_x: str-index($value_of_logo_size, "x");
-$logo_width: str-slice($value_of_logo_size, 0, $position_of_x - 1);
-$logo_height: str-slice($value_of_logo_size, $position_of_x + 1);
-*/
 
 .header-logo-image {
 	width: 100%;
@@ -2301,8 +2320,6 @@ body.scroll .header-fixed .navPages-container-hide {
 	}
 }
 
-
-
 @keyframes fadeInOpacity {
 	0% {
 		opacity: 0;
@@ -2724,17 +2741,6 @@ ol.breadcrumbs {
 	}
 }
 
-$carousel_size: stencilString("custom_homepage_carousel_size");
-$carousel_x: str-index($carousel_size, "x");
-$carousel_width: str-slice($carousel_size, 0, $carousel_x - 1);
-$carousel_height: str-slice($carousel_size, $carousel_x + 1);
-
-$carouselMob_size: stencilString("custom_homepage_carousel_mob_size");
-$carouselMob_x: str-index($carouselMob_size, "x");
-$carouselMob_width: str-slice($carouselMob_size, 0, $carouselMob_x - 1);
-$carouselMob_height: str-slice($carouselMob_size, $carouselMob_x + 1);
-
-
 .heroCarousel-slide--wrap {
 	position: relative;
 	height: auto;
@@ -2834,17 +2840,26 @@ $carouselMob_height: str-slice($carouselMob_size, $carouselMob_x + 1);
 }
 
 // contain: image controls dimensions
-.heroCarousel.contain .heroCarousel-slide .heroCarousel-image:not(.lazyload) {
+.heroCarousel.contain .heroCarousel-slide .heroCarousel-image {
 	width: 100%;
 	height: auto;
 	object-fit: initial;
 }
 
-// prevent lazyload pixel from creating unwanted height due to being square.
-.heroCarousel.contain .heroCarousel-slide .heroCarousel-image.lazyload {
-	height: 100%;
-	width: auto;
-}
+
+// No longer needed due to switching to lazyload+lqip
+// ---------------------------------------------------------------------------
+
+// .heroCarousel.contain .heroCarousel-slide .heroCarousel-image:not(.lazyload) {
+	// width: 100%;
+	// height: auto;
+	// object-fit: initial;
+// }
+
+// .heroCarousel.contain .heroCarousel-slide .heroCarousel-image.lazyload {
+	// height: 100%;
+	// width: auto;
+// }
 
 .heroCarousel-slide--mobile .heroCarousel-image.heroCarousel-image-desktop {
 	display: none;
@@ -5165,10 +5180,7 @@ a:hover span.card-image:only-of-type img {
 	display: block;
 }
 
-$card_size: stencilString("productgallery_size");
-$card_x: str-index($card_size, "x");
-$card_width: str-slice($card_size, 0, $card_x - 1);
-$card_height: str-slice($card_size, $card_x + 1);
+
 
 .product.spotlight .card-img-container {
 	width: 100%;
@@ -5493,11 +5505,6 @@ div[data-content-region="product_view_bottom--global"] {
 	flex-wrap: wrap;
 	gap: 2px;
 }
-
-$productthumb_size: stencilString("productthumb_size");
-$productthumb_x: str-index($productthumb_size, "x");
-$productthumb_width: str-slice($productthumb_size, 0, $productthumb_x - 1);
-$productthumb_height: str-slice($productthumb_size, $productthumb_x + 1);
 
 .productView-thumbnail,
 .productView-thumbnail-link {
@@ -5914,7 +5921,6 @@ $productthumb_height: str-slice($productthumb_size, $productthumb_x + 1);
 	padding: .25rem 0;
 }
 
-/* Step A: Apply top styles to ALL visible dt and dd elements */
 .productView-info dt:not([style*="display: none"]),
 .productView-info dd:not([style*="display: none"]) {
     border-top: 1px solid stencilColor("color-greyLightest");
@@ -5922,7 +5928,6 @@ $productthumb_height: str-slice($productthumb_size, $productthumb_x + 1);
     margin-top: .75rem;
 }
 
-/* Step B: Strip the top border away from any visible dt/dd that has a visible sibling of the same tag type BEFORE it */
 .productView-info dt:not([style*="display: none"]) ~ dt:not([style*="display: none"]),
 .productView-info dd:not([style*="display: none"]) ~ dd:not([style*="display: none"]) {
     border-top: 0;
@@ -5930,7 +5935,6 @@ $productthumb_height: str-slice($productthumb_size, $productthumb_x + 1);
     margin-top: 0;
 }
 
-/* Step C: Apply bottom styles to ALL visible elements as a baseline */
 .productView-info dt:not([style*="display: none"]),
 .productView-info dd:not([style*="display: none"]) {
     border-bottom: 1px solid stencilColor("color-greyLightest");
@@ -5938,8 +5942,6 @@ $productthumb_height: str-slice($productthumb_size, $productthumb_x + 1);
     margin-bottom: .75rem;
 }
 
-/* Step D: Use modern CSS :has() to look forward. If a visible dt or dd HAS 
-   another visible sibling of its same type further down the tree, strip its bottom border. */
 .productView-info dt:not([style*="display: none"]):has(~ dt:not([style*="display: none"])),
 .productView-info dd:not([style*="display: none"]):has(~ dd:not([style*="display: none"])) {
     border-bottom: 0;
@@ -9098,7 +9100,7 @@ div[data-content-region="cart_below_table"] {
 // Payment Buttons
 // =============================================================================
 
-/* PAYPAL EXPRESS */
+// PAYPAL EXPRESS 
 
 .navUser-item--cart #paypalexpress-button-container .paypal-smart-buttons > div > .zoid-outlet,
 .previewCartCheckout-additionalCheckoutButtons #paypalexpress-button-container .paypal-smart-buttons > div > .zoid-outlet,
@@ -9127,7 +9129,7 @@ div[data-content-region="cart_below_table"] {
 	background-color: #fab000;
 }
 
-/* END PAYPAL EXPRESS */
+// END PAYPAL EXPRESS
 
 
 
