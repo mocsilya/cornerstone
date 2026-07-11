@@ -11,6 +11,7 @@ import modalFactory from './global/modal';
 import cardSwatches from './custom/card-swatches';
 import cardWarranty from './custom/card-warranty';
 import tabPages from './custom/tab-pages';
+import tabJump from './custom/tab-jump';
 import videoClick from './custom/video-click';
 import productUpsell from './custom/product-upsell';
 import productSticky from './custom/product-sticky';
@@ -38,6 +39,7 @@ export default class Product extends PageManager {
         cardSwatches(this.context.apiToken, this.dataProductCollection());
         cardWarranty();
         tabPages();
+		tabJump();
         videoClick();
 		productUpsell();
 		productSticky();
