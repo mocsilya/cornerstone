@@ -22,29 +22,40 @@
 		{{/if}}
 	        <div class="heroCarousel-slide{{#if ../theme_settings.custom_homepage_carousel_mob}} heroCarousel-slide--mobile{{else}} heroCarousel-slide--desktop{{/if}}">
 				<div class="heroCarousel-image-wrapper">
-		            {{#if @first}}
-		                {{> components/common/responsive-img
-							theme_settings=../theme_settings
-		                    image=stencil_image
-		                    class="heroCarousel-image heroCarousel-image-desktop heroCarousel-image-first"
-		                    fallback_size='1280w'
-		                    lazyload='disabled'
-							otherAttributes="fetchpriority='high'"
-		                }}
-		            {{else}}
-						{{#if ../theme_settings.homepage_stretch_carousel_images}}
-						    {{> components/common/responsive-img
-						        theme_settings=../theme_settings
-						        image=stencil_image
-						        class="heroCarousel-image heroCarousel-image-desktop"
-						        fallback_size='1280w'
-						        lazyload='lazyload'
-						    }}
+					{{#if ../theme_settings.homepage_stretch_carousel_images}}
+		            	{{#if @first}}
+		                	{{> components/common/responsive-img
+								theme_settings=../theme_settings
+		                    	image=stencil_image
+		                    	class="heroCarousel-image heroCarousel-image-desktop heroCarousel-image-first heroCarousel-image-stretch"
+		                    	fallback_size='1280w'
+		                    	lazyload='disabled'
+								otherAttributes="fetchpriority='high'"
+		                	}}
 						{{else}}
 						    {{> components/common/responsive-img
 						        theme_settings=../theme_settings
 						        image=stencil_image
-						        class="heroCarousel-image heroCarousel-image-desktop"
+						        class="heroCarousel-image heroCarousel-image-desktop heroCarousel-image-stretch"
+						        fallback_size='1280w'
+						        lazyload='lazyload'
+						    }}
+						{{/if}}
+		            {{else}}
+		            	{{#if @first}}
+		                	{{> components/common/responsive-img
+								theme_settings=../theme_settings
+		                    	image=stencil_image
+		                    	class="heroCarousel-image heroCarousel-image-desktop heroCarousel-image-first heroCarousel-image-contain"
+		                    	fallback_size='1280w'
+		                    	lazyload='disabled'
+								otherAttributes="fetchpriority='high'"
+		                	}}
+						{{else}}
+						    {{> components/common/responsive-img
+						        theme_settings=../theme_settings
+						        image=stencil_image
+						        class="heroCarousel-image heroCarousel-image-desktop heroCarousel-image-contain"
 						        fallback_size='1280w'
 						        lazyload='lazyload+lqip'
 						    }}
@@ -55,7 +66,7 @@
 						{{assignVar "imgFile" (last (split (getVar "imgUrl") "/"))}}
 						{{assignVar "imgName" (first (split (getVar "imgFile") "."))}}
 						{{assignVar "mobFile" (concat (getVar "imgName") "-mob.jpg")}}
-						<img src="{{getImageManagerImage (getVar 'mobFile')}}?v={{moment 'now' 'X'}}" width="{{before (split ../theme_settings.custom_homepage_carousel_mob_size 'x') 1}}" height="{{after (split ../theme_settings.custom_homepage_carousel_mob_size 'x') 1}}" alt="{{stencil_image.alt}}" title="{{stencil_image.alt}}" class="heroCarousel-image heroCarousel-image-mobile">
+						<img src="{{getImageManagerImage (getVar 'mobFile')}}?v={{moment 'now' 'X'}}" width="{{before (split ../theme_settings.custom_homepage_carousel_mob_size 'x') 1}}" height="{{after (split ../theme_settings.custom_homepage_carousel_mob_size 'x') 1}}" alt="{{stencil_image.alt}}" title="{{stencil_image.alt}}" class="heroCarousel-image heroCarousel-image-mobile heroCarousel-image-{{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{else}}contain{{/if}}">
 					{{/if}}
 				</div>
 			</div>

@@ -2751,14 +2751,10 @@ ol.breadcrumbs {
 	}
 }
 
-.heroCarousel-slide--wrap {
-	position: relative;
-	height: auto;
-}
-
 .heroCarousel-slide .heroCarousel-image-wrapper {
 	height: auto;
 	max-height: none;
+	transition: none;
 }
 
 .heroCarousel .slick-track {
@@ -2769,11 +2765,12 @@ ol.breadcrumbs {
 // set up the grid and give it a default aspect ratio.
 .heroCarousel.stretch .heroCarousel-slide--wrap,
 .heroCarousel.contain .heroCarousel-slide--wrap {
+	position: relative;
+	height: auto;
 	display: grid;
 	grid-template-columns: 1fr;
 	float: none;
 	margin: 0;
-	height: auto;
 	min-height: auto;
 }
 
@@ -2789,9 +2786,12 @@ ol.breadcrumbs {
 
 .heroCarousel.contain .heroCarousel-slide--wrap {
 	grid-template-rows: auto auto;
-	align-items: start;
+	align-items: flex-start;
 	@include breakpoint("medium") {
+		align-items: center;
 		grid-template-rows: 1fr;
+		overflow: hidden;
+		height: 100%;
 	}
 }
 
@@ -2826,7 +2826,7 @@ ol.breadcrumbs {
 }
 
 .heroCarousel.contain .heroCarousel-slide {
-	align-self: start;
+	align-self: flex-start;
 }
 
 // stretch: ensure the wrapper fills vertical
@@ -2854,7 +2854,7 @@ ol.breadcrumbs {
 .heroCarousel.contain .heroCarousel-slide .heroCarousel-image {
 	width: 100%;
 	height: auto;
-	object-fit: initial;
+	object-fit: contain;
 }
 
 
@@ -2894,35 +2894,40 @@ ol.breadcrumbs {
 	margin-bottom: 1.5rem;
 	margin-left: 4rem;
 	margin-right: 4rem;
+	position: relative;
+	top: auto;
+	bottom: auto;
+	left: auto;
+	right: auto;
+	transform: none;
+	overflow: visible;
+	align-self: center;
 }
 
 .heroCarousel.contain .heroCarousel-content {
 	grid-row: 2;
 	width: 100%;
 	border-radius: 0;
-	margin: 0;	
+	margin: 0;
+	position: static;
+	transform: none;
 	@include breakpoint("medium") {
 		grid-row: 1;
 		border-radius: .5rem;
+		position: absolute;
+		transform: translateY(-50%);
 	}
 }
 
 .heroCarousel.stretch .heroCarousel-content,
 .heroCarousel.contain .heroCarousel-content {
 	grid-column: 1;
-	align-self: center;
-	position: relative;
-	justify-self: center;
-	top: auto;
-	bottom: auto;
-	left: auto;
-	right: auto;
 	display: flex;
 	flex-direction: column;
+	justify-self: center;
+	justify-content: center;
 	max-height: none;
-	transform: none;
 	z-index: 2;
-	overflow: visible;
 	padding: 1.5rem 1.5rem 2.5rem 1.5rem;
 	@include breakpoint("medium") {
 		width: calc(100% - 10rem);
@@ -2959,7 +2964,7 @@ ol.breadcrumbs {
 
 .heroCarousel-title {
 	margin: 0;
-	line-height: 1.2;
+	line-height: 1;
 	font-size: 1.75rem;
 	color: stencilColor("carousel-title-color");
 	text-decoration: none;
@@ -3154,20 +3159,28 @@ ol.breadcrumbs {
 // split style
 
 .heroCarousel.heroCarousel--split .heroCarousel-content {
-	align-self: stretch;
-	justify-content: space-between;
 	background: none;
+	@include breakpoint("medium") {
+		margin-top: 0;
+	}
 }
 
 .heroCarousel.heroCarousel--split.stretch .heroCarousel-content {
+	align-self: stretch;
+	justify-content: space-between;
 	padding: 1.5rem 0 0 0;
 	margin-bottom: 1.5rem;
 }
 
 .heroCarousel.heroCarousel--split.contain .heroCarousel-content {
 	@include breakpoint("medium") {
+		align-self: stretch;
+		justify-content: space-between;
 		padding: 1.5rem 0 0 0;
 		margin-bottom: 1.5rem;
+		transform: none;
+		top: 0;
+		bottom: 0;
 	}
 }
 
@@ -3180,6 +3193,7 @@ ol.breadcrumbs {
 	@include breakpoint("medium") {
 		font-size: 4rem;
 		flex-direction: row;
+		margin-top: 1.5rem;
 	}
 }
 
