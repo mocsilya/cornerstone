@@ -613,39 +613,39 @@ body.scroll .header-bar-fixed  {
 
 // body should always have 55px initially then reset. 
 body {
-	padding-top: 55px;
+	padding-top: 55px !important;
 	@include breakpoint("medium") {
-		padding-top: 0;
+		padding-top: 0 !important;
 	}
 }
 
 // if with header bar and 3rem
 body.with-bar {
-	padding-top: calc(55px + 3rem);
+	padding-top: calc(55px + 3rem) !important;
 	@include breakpoint("medium") {
-		padding-top: 0;
+		padding-top: 0 !important;
 	}
 }
 
 // when scrolling revert to 55px
 body.scroll {
-	padding-top: 55px;
+	padding-top: 55px !important;
 	@include breakpoint("medium") {
-		padding-top: 0;
+		padding-top: 0 !important;
 	}
 }
 
 // non mobile: fixed header when scrolling 
 body.body-fixed.scroll {
 	@include breakpoint("medium") {
-		padding-top: 55px;
+		padding-top: 55px !important;
 	}
 }
 
 // non mobile: fixed header with main nav
 body.body-fixed.scroll.body-scroll-nav {
 	@include breakpoint("medium") {
-		padding-top: 106px;
+		padding-top: 106px !important;
 	}
 }
 
@@ -5534,13 +5534,14 @@ div[data-content-region="product_view_bottom--global"] {
 	gap: 2px;
 }
 
+.productView-thumbnails.slick-initialized .slick-slide.productView-thumbnail,
 .productView-thumbnail {
 	float: none;
     margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	min-height: 1px;
-	display: flex !important;
+	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: auto;
