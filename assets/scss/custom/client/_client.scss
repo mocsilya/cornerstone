@@ -3,50 +3,19 @@
 // =============================================================================
 //
 
-.page-default .container-hero {
-	margin-top: 1.5rem;
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: $container-padding;
-	padding-right: $container-padding;
-	width: layout("fixed");
-	max-width: layout("max") + ($container-padding * 4);
-	@include breakpoint("large") {
-		padding-left: ($container-padding * 4);
-		padding-right: ($container-padding * 4);
-	}
+
+// Page headings
+// =============================================================================
+
+
+.page-heading {
+	font-weight: 400;
+	text-transform: uppercase;
 }
 
 
-.heroCarousel:before, .heroCarousel:after {
-	z-index: -1;
-	position: absolute;
-	content: "";
-	bottom: 15px;
-	left: 10px;
-	width: 50%;
-	top: 80%;
-	max-width:300px;
-	background: #777;
-	-webkit-box-shadow: 0 15px 10px #777;
-	-moz-box-shadow: 0 15px 10px #777;
-	box-shadow: 0 15px 10px #777;
-	-webkit-transform: rotate(-3deg);
-	-moz-transform: rotate(-3deg);
-	-o-transform: rotate(-3deg);
-	-ms-transform: rotate(-3deg);
-	transform: rotate(-3deg);
-}
-
-.heroCarousel:after {
-	-webkit-transform: rotate(3deg);
-	-moz-transform: rotate(3deg);
-	-o-transform: rotate(3deg);
-	-ms-transform: rotate(3deg);
-	transform: rotate(3deg);
-	right: 10px;
-	left: auto;
-}
+// nav user
+// =============================================================================
 
 .navUser-item--b2blogin .navUser-action {
 	padding-left: .25rem;
@@ -86,8 +55,44 @@
 	color: stencilColor("navUser-color-hover");
 }
 
-.navUser-item--currency { 
-	display: none;
+.header-logo--left {
+	@include breakpoint("medium") {
+		flex: 1 1 0;
+		margin-right: auto;
+		margin-left: calc(50% - 50px);
+	}
+	@include breakpoint("large") {
+		margin-left: calc(50% - 66px);
+	}
+}
+
+body.scroll .header-logo--left {
+	@include breakpoint("medium") {
+		margin-left: calc(50% - 34px);
+	}
+}
+
+.navUser-section--norm.navUser-section-left {
+	@include breakpoint("medium") {
+		flex: 0 1 0;
+	}
+}
+
+.navUser-section--alt.navUser-section-left {
+	@include breakpoint("medium") {
+		flex: 0 1 0;
+		display: flex;
+		flex-wrap: nowrap;
+	}
+}
+
+.navUser-item--currency .navUser-icon {
+	min-width: 62px;
+}
+
+.navUser-section--norm.navUser-section-left .navUser-text-search,
+.navUser-section--norm.navUser-section-left .navUser-text-close {
+	display: none !important;
 }
 
 
@@ -95,6 +100,9 @@
 // nav pages 
 // =============================================================================
 
+.navPages-action {
+	font-weight: 400;
+}
 .navPages-list-depth-max .navPage-subMenu-item-viewall > a > span,
 .navPages-list-depth-max .navPage-subMenu-item-viewall > a:hover > span {
 	background-color: stencilColor("custom-header-menu-background");
@@ -130,21 +138,52 @@
 }
 
 
+.header-bar-text {
+	font-weight: 400;
+}
+
+.header-bar .slick-track > div:first-child,
+.header-bar-message-1 {
+	@include breakpoint("medium") {
+		text-align: right;
+		border-right: 1px solid #fff;
+	}
+}
+.header-bar .slick-track > div:last-child,
+.header-bar-message-2 {
+	@include breakpoint("medium") {
+		text-align: left;
+		border-left: 1px solid #fff;
+	}
+}
+
 
 // Page Header
 // =============================================================================
 
 .header-globalregion {
 	background: #ebebeb;
+	background-color: stencilColor("custom-page-header-background");
+	font-size: 1.25rem;
+}
+
+header_bottom--global > div {
 	padding-top: 1rem;
 	padding-bottom: 1rem;
-	background-color: stencilColor("custom-page-header-background");
 	border-bottom: 1px solid stencilColor("body-bg");
-	font-size: 1.25rem;
 }
 
 .header-globalregion p {
 	font-size: 1.5rem;
+}
+
+
+
+// Home page
+// =============================================================================
+
+.heroCarousel-slide .heroCarousel-image {
+	object-position: 0 50%;
 }
 
 
@@ -223,12 +262,24 @@
 // Footer
 // =============================================================================
 
-.footer-info-list .link-journal {
-	display: none;
+.footer-payment-icons {
+	justify-content: center;
+	@include breakpoint("large") {
+		justify-content: flex-start;
+	}
 }
 
 .footer-payment-icons svg {
 	fill: stencilColor("custom-footer-text");
+}
+
+#consent-manager > div > div,
+#consent-manager-update-banner {
+	background-color: stencilColor("footer-backgroundColor") !important;
+}
+
+#consent-manager-update-banner {
+	text-align: center;
 }
 
 
