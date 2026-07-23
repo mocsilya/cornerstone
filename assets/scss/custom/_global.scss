@@ -5986,6 +5986,10 @@ div[data-content-region="product_view_bottom--global"] {
 	font-weight: 700;
 }
 
+.productView-price .price-section.price-section--saving span:last-child {
+	display: none;
+}
+
 .productView-price .price-section--withoutTax .price,
 .productView-price .price-section--withoutTax abbr {
 	color: stencilColor("color-grey");
