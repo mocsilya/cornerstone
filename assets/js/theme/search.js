@@ -10,7 +10,6 @@ import 'jstree';
 import nod from './common/nod';
 import cardSwatches from './custom/card-swatches';
 import cardWarranty from './custom/card-warranty';
-import cardCarousel from './custom/card-carousel';
 import cardData from './custom/card-data';
 
 const leftArrowKey = 37;
@@ -229,7 +228,6 @@ export default class Search extends CatalogPage {
         setTimeout(() => $searchResultsMessage.trigger('focus'), 100);
         cardSwatches(this.context.apiToken, this.dataProductCollection());
         cardWarranty();
-		cardCarousel();
 		const dataOnReady = this.context.cardVariantData;
 		if (dataOnReady) {
 			cardData(this.context.apiToken, this.dataProductCollection());

@@ -12,7 +12,7 @@ export default function () {
     ) {
         try {
             const relativeUrl = window.location.pathname + window.location.search;
-            sessionStorage.setItem('last_page', relativeUrl);
+            sessionStorage.setItem('aylis_last_page', relativeUrl);
         } catch (e) {
             console.warn('Session storage unavailable.', e);
         }

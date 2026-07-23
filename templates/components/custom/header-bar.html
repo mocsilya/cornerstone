@@ -1,7 +1,34 @@
 {{#if theme_settings.custom_header_show_bar}}
-<div class="header-bar{{#if theme_settings.custom_header_fixed}} header-bar-fixed{{else}} header-bar-unfixed{{/if}}">
+{{assignVar "barCount" 0}}
+{{#if theme_settings.custom_header_show_bar_message1}}<!--{{incrementVar "barCount"}}-->{{/if}}
+{{#if theme_settings.custom_header_show_bar_message2}}<!--{{incrementVar "barCount"}}-->{{/if}}
+{{#if theme_settings.custom_header_show_bar_message4}}<!--{{incrementVar "barCount"}}-->{{/if}}
+{{#or theme_settings.custom_phone_show theme_settings.custom_email_show}}<!--{{incrementVar "barCount"}}-->{{/or}}
+<div class="header-bar{{#if theme_settings.custom_header_fixed}} header-bar-fixed{{else}} header-bar-unfixed{{/if}} header-bar-count-{{getVar 'barCount'}}">
 	<div class="container">
-		<div class="header-bar-list{{#or theme_settings.custom_phone_show theme_settings.custom_email_show}} header-bar-list-contact{{/or}}{{#or theme_settings.custom_header_show_bar_message1 theme_settings.custom_header_show_bar_message2 theme_settings.custom_header_show_bar_message3}} header-bar-list-message{{/or}}">
+		<div class="header-bar-list{{#or theme_settings.custom_phone_show theme_settings.custom_email_show}} header-bar-list-contact{{/or}}{{#or theme_settings.custom_header_show_bar_message1 theme_settings.custom_header_show_bar_message2 theme_settings.custom_header_show_bar_message3}} header-bar-list-message{{/or}}" 
+				data-slick='{
+						"infinite": true,
+						"autoplay": true,
+						"autoplaySpeed": 5000,
+						"fade": true,
+						"mobileFirst": true,
+						"swipe": true,
+						"dots": false,
+						"arrows": true,
+						"accessibility": false,
+						"slidesToShow": 1,
+						"slidesToScroll": 1,
+						"responsive": [
+							{
+								"breakpoint": 801,
+								"settings": {
+									"variableWidth": true,
+									"slidesToShow": 4
+								}
+							}
+						]
+				}'>
 			{{#if theme_settings.custom_header_show_bar_message1}}
 			<div class="header-bar-message header-bar-message-1">
 				{{#if theme_settings.custom_header_bar_message1_text}}
