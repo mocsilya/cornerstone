@@ -1823,6 +1823,13 @@ div[data-content-region="blog_top"] > div {
 .productView-product > div[data-content-region="product_below_price"] { width: 100%; order: 9; }
 .productView-product > .productView-specs { width: 100%; order: 10; }
 
+.productView-product .trustpilot-widget-wrapper {
+	padding-top: .5rem;
+	padding-bottom: .5rem;
+	border-top: 1px solid stencilColor("container-border-global-color-base");
+	border-bottom: 1px solid stencilColor("container-border-global-color-base");
+}
+
 
 .productView-wrap:not(.payment-product) .productView-details-fixed {
 	margin-top: 137px;
@@ -2253,6 +2260,10 @@ div[data-content-region="blog_top"] > div {
 .productView-info-name.mpn-label,
 .productView-info-value.mpn-value {
 	display: none !important;
+}
+
+.nextday-delivery {
+	margin-bottom: 1.5rem;
 }
 
 .nextday-delivery p {

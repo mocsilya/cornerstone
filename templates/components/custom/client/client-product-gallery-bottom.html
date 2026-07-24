@@ -14,6 +14,7 @@
 {{/each}}
 
 {{#all (if (getVar 'productLength') '==' 'yes') (if (getVar 'productWidth') '==' 'yes') (if (getVar 'productHeight') '==' 'yes')}}
+<!--
 <div class="ar-container">
 	<a class="ar-link" target="_blank" href="https://size.link/?l={{#filter product.custom_fields 'Length' property='name'}}{{{before (split value 'cm') 1}}}{{/filter}}&w={{#filter product.custom_fields 'Width' property='name'}}{{{before (split value 'cm') 1}}}{{/filter}}&h={{#filter product.custom_fields 'Height' property='name'}}{{{before (split value 'cm') 1}}}{{/filter}}&units=cm">
 		<span class="ar-link-icon">
@@ -23,4 +24,5 @@
 	</a>
 	<span class="ar-note">Requires a mobile/tablet device.</span>
 </div>
+-->
 {{/all}}
