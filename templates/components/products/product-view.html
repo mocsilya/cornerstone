@@ -83,7 +83,7 @@
 		        {{else}}
 		            {{assignVar "activeImage" "true"}}
 		            <figure class="productView-image toggle-content is-open" data-image-gallery-main data-zoom-image="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size }}">
-		                <div class="productView-img-container">
+		                <div class="productView-img-container{{#if ../theme_settings.custom_product_gallery_cover}} productView-img-cover{{/if}}">
 		                    <a href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}" target="_blank">
 		                        {{> components/common/responsive-img
 		                            image=this
@@ -469,7 +469,7 @@
 	                <dd class="productView-info-value sku-value"{{#unless product.sku}} style="display: none;"{{/unless}} data-product-sku>{{product.sku}}</dd>
 	                <dt class="productView-info-name upc-label"{{#unless product.upc}} style="display: none;"{{/unless}}>{{lang 'products.upc'}}</dt>
 	                <dd class="productView-info-value upc-value"{{#unless product.upc}} style="display: none;"{{/unless}} data-product-upc>{{product.upc}}</dd>
-	                <dt class="productView-info-name mpn-label"{{#unless product.mpn}} style="display: none;"{{/unless}}>MPN:</dt>
+	                <dt class="productView-info-name mpn-label"{{#unless product.mpn}} style="display: none;"{{/unless}}>MPN</dt>
 	                <dd class="productView-info-value mpn-value"{{#unless product.mpn}} style="display: none;"{{/unless}} data-product-mpn>{{product.mpn}}</dd>
 	                {{#if product.condition}}
 	                    <dt class="productView-info-name condition-label">{{lang 'products.condition'}}</dt>
@@ -619,13 +619,11 @@
                 {{#if product.cart_order_source}}
                     <input type="hidden" name="cart_order_source" value="{{product.cart_order_source}}"/>
                 {{/if}}
-                <div data-product-option-change style="display:none;">
+                <div data-product-option-change style="display:none;" class="product-options-container" data-imageset-option="{{#filter product.custom_fields '_imageset' property='name'}}{{dashcase value}}{{/filter}}">
                     {{inject 'showSwatchNames' theme_settings.show_product_swatch_names}}
                     {{#each product.options}}
                         {{{dynamicComponent 'components/products/options'}}}
                     {{/each}}
-					{{> components/custom/client/client-product-options}}
-					{{{region name="product_options"}}}
                 </div>
                 <div class="form-field main-stock form-field--stock{{#if product.options}} form-field--stock-options{{else}} form-field--stock-single{{/if}}{{#unless product.can_purchase}} u-hiddenVisually{{/unless}}">
                     <label class="form-label form-label--alternate">
@@ -677,6 +675,8 @@
 					</p>
 					<ul class="productView-picklist-backorder" data-picklist-backorder-list style="display:none;"></ul>
                 </div>
+				{{> components/custom/client/client-product-options}}
+				{{{region name="product_options"}}}
 				{{> components/products/add-to-cart with_wallet_buttons=true}}
 				{{> components/custom/client/client-product-add}}
                 {{#if product.out_of_stock}}
@@ -814,42 +814,3 @@
     <div class="loadingOverlay"></div>
 </div>
 {{/if}}
-{{#filter product.custom_fields '_imageset' property='name'}}
-<script>
-let timeDelay = 0;
-const formOptions = document.querySelectorAll(".productView-options .form-field-{{dashcase value}} .form-select, .productView-options .form-field-{{dashcase value}} .form-radio");
-for (let i = 0; i < formOptions.length; i++) {
-	formOptions[i].addEventListener("change", function() {
-		clearTimeout(timeDelay);
-	    timeDelay = setTimeout(function() {
-			// Hide Images not in Set
-			let imageSet;
-			if (formOptions[i].classList.contains('form-select')) {
-				imageSet = formOptions[i].options[formOptions[i].selectedIndex].getAttribute('aria-label');
-			} else {
-				imageSet = formOptions[i].getAttribute('aria-label');
-			}
-			const imageList = document.querySelectorAll('.productView-thumbnail');
-			imageList.forEach((imageItem) => {
-				const imageData = imageItem.getAttribute('data-image-set');
-				if (imageSet === 'None') {
-					imageItem.style.display = 'block';
-				} else {
-					if (imageData === imageSet) {
-						imageItem.style.display = 'block';
-					} else {
-						imageItem.style.display = 'none';
-					}
-				}
-			});
-			const findSlick = document.querySelectorAll('.productView-thumbnails.slick-initialized .slick-track');
-			const isSlick = findSlick[0];
-			if (findSlick.length > 0) {
-				isSlick.style.transform = 'translate3d(0px, 0px, 0px)';
-			}
-	    }, 750);
-	});
-}
-</script>
-{{/filter}}
-		

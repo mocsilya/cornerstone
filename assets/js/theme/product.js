@@ -15,6 +15,7 @@ import tabJump from './custom/tab-jump';
 import videoClick from './custom/video-click';
 import productUpsell from './custom/product-upsell';
 import productSticky from './custom/product-sticky';
+import productImageset from './custom/product-imageset';
 
 export default class Product extends PageManager {
     constructor(context) {
@@ -43,6 +44,7 @@ export default class Product extends PageManager {
         videoClick();
 		productUpsell();
 		productSticky();
+		productImageset();
         
         // Listen for foundation modal close events to sanitize URL after review.
         $(document).on('close.fndtn.reveal', () => {
