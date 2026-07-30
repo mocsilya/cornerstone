@@ -39,6 +39,10 @@ $productViewThumb_x:		str-index($productViewThumb_size, "x");
 $productViewThumb_width:	str-slice($productViewThumb_size, 0, $productViewThumb_x - 1);
 $productViewThumb_height:	str-slice($productViewThumb_size, $productViewThumb_x + 1);
 
+$blog_size:		stencilString("blog_size");
+$blog_x:		str-index($blog_size, "x");
+$blog_width:	str-slice($blog_size, 0, $blog_x - 1);
+$blog_height:	str-slice($blog_size, $blog_x + 1);
 
 
 // General Changes
@@ -9029,58 +9033,106 @@ div[data-content-region="cart_below_table"] {
 	color: stencilColor("custom-footer-blog-heading");
 }
 
-.footer-blog-list {
-	display: none;
-	padding: spacing("single") 0;
-}
-
-.footer-blog-list-1,
-.footer-blog-list-2,
-.footer-blog-list-3 {
-	display: block;
-	@include breakpoint("small") {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-gap: spacing("single");
-		gap: spacing("single");
-	}
-	@include breakpoint("medium") {
-		grid-template-columns: 1fr 1fr 1fr;
-	}
+.footer-blog-col {
+	margin-left: calc(#{spacing("single")} * -0.5);
+	margin-right: calc(#{spacing("single")} * -0.5);
 	@include breakpoint("large") {
-		grid-gap: spacing("double");
-		gap: spacing("double");
+		margin-left: calc(#{spacing("double")} * -0.5);
+		margin-right: calc(#{spacing("double")} * -0.5);
 	}
 }
 
-.footer-blog-list,
-.footer-blog-list li {
+.footer-blog-list {
+	padding-top: spacing("double");
+	padding-bottom: spacing("double");
 	list-style: none;
 	margin: 0;
+	width: 100%;
+	display: flex;
 	color: stencilColor("custom-footer-blog-text");
 }
 
 .footer-blog-list li {
-	padding: spacing("single") 0;
 	display: block;
-}
-
-.footer-blog-list li:first-child {
-	@include breakpoint("small") {
-		grid-column-start: span 2;
-		padding: spacing("single") 0 0 0;
-	}
+	list-style: none;
+	margin: 0;
+	flex: 1 1 0;
+	color: stencilColor("custom-footer-blog-text");
+	padding-top: 0;
+	padding-bottom: 0;
+	width: 100%;
+	padding-left: calc(#{spacing("single")} * 0.5);
+	padding-right: calc(#{spacing("single")} * 0.5);
 	@include breakpoint("medium") {
-		grid-column-start: auto;
-		padding: spacing("single") 0;
+		width: 50%;
+	}
+	@include breakpoint("large") {
+		padding-left: calc(#{spacing("double")} * 0.5);
+		padding-right: calc(#{spacing("double")} * 0.5);
 	}
 }
 
-.footer-blog-list li:nth-of-type(1n+4) {
-	display: none;
+.footer-blog-list .slick-list {
+	width: 100% !important;
+	margin-left: 2.5rem !important;
+	margin-right: 2.5rem !important;
+	@include breakpoint("medium") {
+		margin-left: 1rem !important;
+		margin-right: 1rem !important;
+	}
+}
+
+.footer-blog-list-1 .slick-list {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	@include breakpoint("medium") {
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+}
+
+.footer-blog-list-2 .slick-list {
+	@include breakpoint("medium") {
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+}
+
+.footer-blog-list-3 .slick-list {
+	@include breakpoint("large") {
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+	}
+}
+
+.footer-blog-list .slick-track {
+	min-width: 100% !important;
+}
+
+.footer-blog-list .slick-next {
+	right: -.25rem;
+	@include breakpoint("medium") {
+		right: -1.75rem;
+	}
+	@include breakpoint("large") {
+		right: -1rem;
+	}
+}
+
+.footer-blog-list .slick-prev {
+	left: -.25rem;
+	@include breakpoint("medium") {
+		left: -1.75rem;
+	}
+	@include breakpoint("large") {
+		left: -1rem;
+	}
 }
 
 .footer-blog-video {
+	box-sizing: content-box;
+	width: 100%;
+	height: 0;
 	position: relative;
 	padding-bottom: 56.25%;
 }
@@ -9094,13 +9146,24 @@ div[data-content-region="cart_below_table"] {
 }
 
 .footer-blog-img {
-	width: 100%;
 	display: block;
+	box-sizing: content-box;
+	width: 100%;
+	height: 0;
+	position: relative;
+	padding-bottom: calc((#{$blog_height} / #{$blog_width}) * 100%);
 }
 
 .footer-blog-img img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	object-fit: cover;
+	object-position: center;
 	width: 100%;
-	height: auto;
+	height: 100%;
 	display: block;
 }
 
@@ -9145,6 +9208,7 @@ div[data-content-region="cart_below_table"] {
 	background-color: stencilColor("custom-footer-blog-button-background");
 	border-color: stencilColor("custom-footer-blog-button-background");
 	margin-top: 1.5rem;
+	margin-bottom: 0;
 }
 
 .footer-blog-button:hover {
