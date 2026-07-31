@@ -2,7 +2,7 @@
 	{{#unless name '==' 'hidden'}}
 		{{#startsWith '_' name}}
 		{{else}}
-           	<dt class="productView-info-name customfield-label customfield-{{dashcase name}}">{{name}}:</dt>
+           	<dt class="productView-info-name customfield-label customfield-{{dashcase name}}">{{name}}</dt>
            	<dd class="productView-info-value customfield-value customfield-{{dashcase name}}">{{{value}}}</dd>
 		{{/startsWith}}
 	{{/unless}}

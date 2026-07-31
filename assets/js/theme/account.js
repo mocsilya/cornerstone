@@ -16,7 +16,6 @@ import { creditCardType, storeInstrument, Validators as CCValidators, Formatters
 import { showAlertModal } from './global/modal';
 import compareProducts from './global/compare-products';
 import cardSwatches from './custom/card-swatches';
-import cardCarousel from './custom/card-carousel';
 
 export default class Account extends PageManager {
     constructor(context) {
@@ -182,7 +181,6 @@ export default class Account extends PageManager {
         this.bindDeletePaymentMethod();
 		
         cardSwatches();
-		cardCarousel();
     }
 
     /**

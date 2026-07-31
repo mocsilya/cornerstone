@@ -37,20 +37,22 @@
 {{#if theme_settings.custom_footer_show_blog}}
 <section class="footer-blog">
 	{{> components/custom/client/client-blog-top}}
-		{{#if settings.request.absolute_path '===' '/'}}
-			<div class="container">
-				<article class="footer-blog-col" data-section-type="footer-blog">
-					{{> components/custom/footer-blog}}
-				</article>
-			</div>
-		{{else}}
-			{{#unless theme_settings.custom_footer_show_blog_home}}
+		{{#if blog.recent_posts}}
+			{{#if settings.request.absolute_path '===' '/'}}
 				<div class="container">
 					<article class="footer-blog-col" data-section-type="footer-blog">
 						{{> components/custom/footer-blog}}
 					</article>
 				</div>
-			{{/unless}}
+			{{else}}
+				{{#unless theme_settings.custom_footer_show_blog_home}}
+					<div class="container">
+						<article class="footer-blog-col" data-section-type="footer-blog">
+							{{> components/custom/footer-blog}}
+						</article>
+					</div>
+				{{/unless}}
+			{{/if}}
 		{{/if}}
 	{{> components/custom/client/client-blog-bottom}}
 </section>
