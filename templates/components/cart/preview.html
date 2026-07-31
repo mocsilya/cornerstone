@@ -69,22 +69,34 @@
                 </figure>
 
                 <div class="productView-details">
-                    <h2 class="productView-title">
-                        {{name}}
-                    </h2>
-
-                    <div class="productView-brand">
-                        {{brand.name}}
-                    </div>
-
-                    <div class="productView-price">
-                        {{#or ../customer (unless ../settings.hide_price_from_guests)}}
-                            {{quantity}} &times; {{price.formatted}}
-                        {{else}}
-                            {{> components/common/login-for-pricing}}
-                        {{/or}}
-                    </div>
+					<div class="productView-details-inner">
+	                    <div class="productView-brand">
+	                        {{brand.name}}
+	                    </div>
 					
+	                    <h2 class="productView-title">
+	                        {{name}}
+	                    </h2>
+
+	                    <div class="productView-price">
+	                        {{#or ../customer (unless ../settings.hide_price_from_guests)}}
+	                            {{quantity}} &times; {{price.formatted}}
+	                        {{else}}
+	                            {{> components/common/login-for-pricing}}
+	                        {{/or}}
+	                    </div>
+					
+						{{#if options}}
+							<div class="productView-info">
+	                    	{{#each options}}
+	                        	<dl class="productView-info-row">
+	                            	<dt class="productView-info-name">{{name}}:</dt>
+	                            	<dd class="productView-info-value">{{> components/common/product-options}}</dd>
+								</dl>
+							{{/each}}
+	                        </div>
+						{{/if}}
+					</div>
 					{{assignVar "upsell" "no"}}
 					{{#each custom_fields}}
 					    {{#if name '===' '_upsell'}}
@@ -98,16 +110,7 @@
 					        {{/if}}
 					    {{/if}}
 					{{/each}}
-					{{#if options}}
-						<div class="productView-info">
-                    	{{#each options}}
-                        	<dl class="productView-info-row">
-                            	<dt class="productView-info-name">{{name}}:</dt>
-                            	<dd class="productView-info-value">{{> components/common/product-options}}</dd>
-							</dl>
-						{{/each}}
-                        </div>
-					{{/if}}
+					
                 </div>
             {{/with}}
         </section>

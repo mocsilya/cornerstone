@@ -433,23 +433,56 @@ export default class ProductDetailsBase {
             viewModel.upc.$label.hide();
             viewModel.upc.$value.text('').hide();
         }
-
-        // if stock view is on (CP settings)
-        if (viewModel.stock.$container.length && typeof data.stock === 'number') {
-            // if the stock container is hidden, show
-            viewModel.stock.$container.removeClass('u-hiddenVisually');
-            if (data.stock > "0") {
-                data.stock = "<i class='icon' aria-hidden='true'><svg><use xlink:href='#icon-tick' /></svg></i><strong class='in-stock-number'>" + data.stock + " </strong><span class='in-stock-label'>In Stock</span>";
-            } else {
-                viewModel.stock.$container.addClass('u-hiddenVisually');
-            }
-            viewModel.stock.$input.html(data.stock);
+		
+		// Pre-order analysis
+		const isPreOrder = ($('.productView-stock-message').first().data('pre-order') === true) || (data.purchasing_message && data.purchasing_message.toLowerCase().includes('pre-order'));
+		
+		// if stock view is on (CP settings)
+		if (viewModel.stock.$container.length && typeof data.stock === 'number') {
+			// if the stock container is hidden, show
+		    viewModel.stock.$container.removeClass('u-hiddenVisually');
 			
-        } else {
-            viewModel.stock.$container.addClass('u-hiddenVisually');
-            viewModel.stock.$input.text(data.stock);
-        }
+			// Check for pre-order
+		    if (isPreOrder) {
+		        data.stock = "<i class='icon' aria-hidden='true'><svg><use xlink:href='#icon-alert' /></svg></i><strong class='in-stock-number'></strong><span class='in-stock-label'>Pre-Order</span>";
+		        viewModel.stock.$input.html(data.stock);
 
+		    // Check for stock (Only runs if it is not a pre-order)
+		    } else if (data.stock > 0) {
+		        const lowStockThreshold = parseInt($('.productView-stock-message').first().data('low-stock-level'), 10) || 0;
+		        if (data.stock <= lowStockThreshold) {
+		            data.stock = "<i class='icon' aria-hidden='true'><svg><use xlink:href='#icon-alert' /></svg></i><strong class='in-stock-number'>" + data.stock + " </strong><span class='in-stock-label'>Low Stock</span>";
+		        } else {
+		            data.stock = "<i class='icon' aria-hidden='true'><svg><use xlink:href='#icon-tick' /></svg></i><strong class='in-stock-number'>" + data.stock + " </strong><span class='in-stock-label'>In Stock</span>";
+		        }
+		        viewModel.stock.$input.html(data.stock);
+				
+		    // Evaluate if backorder
+		    } else {
+		        if (this.context.showBackorderAvailabilityPrompt) {
+		            data.stock = "<i class='icon' aria-hidden='true'><svg><use xlink:href='#icon-alert' /></svg></i><strong class='in-stock-number'></strong><span class='in-stock-label'>Backorder</span>";
+		            viewModel.stock.$input.html(data.stock);
+		        } else {
+		            viewModel.stock.$container.addClass('u-hiddenVisually');
+		        }
+		    }
+		} else {
+		    // If tracking is off, check if it's a pre-order first, then default to In Stock
+		    if (data.purchasable) {
+		        viewModel.stock.$container.removeClass('u-hiddenVisually');
+		        if (isPreOrder) {
+		            data.stock = "<i class='icon' aria-hidden='true'><svg><use xlink:href='#icon-alert' /></svg></i><strong class='in-stock-number'></strong><span class='in-stock-label'>Pre-Order</span>";
+		        } else {
+		            data.stock = "<i class='icon' aria-hidden='true'><svg><use xlink:href='#icon-tick' /></svg></i><strong class='in-stock-number'></strong><span class='in-stock-label'>In Stock</span>";
+		        }
+		        viewModel.stock.$input.html(data.stock);
+				
+			// Truely not available
+		    } else {
+		        viewModel.stock.$container.addClass('u-hiddenVisually');
+		    }
+		}	
+		
         this.updateBackorderContext(data);
         this.updateBackorderPrompt(viewModel);
 

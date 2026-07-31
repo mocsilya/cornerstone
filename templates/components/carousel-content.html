@@ -1,36 +1,24 @@
-<div class="heroCarousel-content{{#and (if heading '==' false) (if text '==' false)}} heroCarousel-content--empty{{/and}}">
+<div class="heroCarousel-content{{#and (if heading '==' false) (if text '==' false)}} heroCarousel-button-only{{/and}}">
 	{{#if heading}}
 		{{#contains heading "#"}}
     		<h3 class="heroCarousel-title" style="color: #{{{first (after (split heading '#') 1)}}} !important;">
-			{{#if button_text}}
-				<a style="color: #{{{first (after (split heading '#') 1)}}} !important;"href="{{url}}">{{{first (before (split heading '#') 1)}}}</a>
-			{{else}}
 				{{{first (before (split heading '#') 1)}}}
-			{{/if}}
 			</h3>
 		{{else}}
 			<h3 class="heroCarousel-title">
-			{{#if button_text}}
-				<a href="{{url}}">{{{heading}}}</a>
-			{{else}}
 				{{{heading}}}
-			{{/if}}
 			</h3>
 		{{/contains}}
 	{{/if}}
 	<div class="heroCarousel-inner">
 		{{#if text}}
-    	<div class="heroCarousel-description">
-			{{#if button_text}}
-				<a href="{{url}}">{{{text}}}</a>
-			{{else}}
+    		<div class="heroCarousel-description">
 				{{{text}}}
-			{{/if}}
-		</div>
+			</div>
 		{{/if}}
     	{{#if button_text}}
 			<div class="heroCarousel-button">
-        		<a href="{{url}}" aria-label="{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{else}}{{lang 'carousel.slide_number' slide_number=(add @index 1)}}{{/if}}, {{button_text}}" class="heroCarousel-action button button--primary button--large">{{{button_text}}}</a>
+				<span aria-label="{{#if this.alt_text.length '!=' 0}}{{this.alt_text}}{{else}}{{lang 'carousel.slide_number' slide_number=(add @index 1)}}{{/if}}, {{button_text}}" class="heroCarousel-action button button--primary button--large">{{{button_text}}}</span>
 			</div>
     	{{/if}}
 	</div>
