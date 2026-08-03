@@ -68,7 +68,7 @@ export default function () {
                     $firstThumb.addClass('is-active');
                     $firstThumb[0].click();
                 }
-            }, 0);
+            }, 10);
 
         } else {
             // Fallback for non-Slick DOM layout
@@ -129,7 +129,7 @@ export default function () {
     };
 	
     // 2. Attach change listeners to target option inputs using Stencil's remote hook
-    window.stencilUtils.hooks.on('product-options-change-remote', (response, event) => {
+    utils.hooks.on('product-options-change-remote', (response, event) => {
         const changedElement = event ? event.target : null;
 
         // Check if the element that triggered the change belongs to our target option field
