@@ -252,6 +252,7 @@
 	"custom_b2b_pending_group": "",
 	"custom_b2b_pending_message": "Account Pending",
 	"custom_b2b_guest_message": "Log in or apply for an account to place an order.",
+	"custom_css": false,
     "hide_breadcrumbs": false,
     "hide_page_heading": false,
     "hide_category_page_heading": false,

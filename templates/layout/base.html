@@ -31,7 +31,10 @@
         <script nonce="{{nonce}}" async src="{{cdn 'assets/dist/theme-bundle.font.js' resourceHint='preload' as='script'}}"></script>
 
         {{{stylesheet '/assets/css/theme.css'}}}
-
+		{{#if theme_settings.custom_css}}
+		<link href="{{cdn 'webdav:theme-client.css'}}?v={{moment 'now' 'X'}}" rel="stylesheet">
+		{{/if}}
+		
         {{{head.scripts}}}
 
         {{~inject 'zoomSize' theme_settings.zoom_size}}
