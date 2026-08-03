@@ -57,16 +57,19 @@ customer:
 			{{#if products.featured}}
 				<div role="tabpanel" aria-hidden="false" class="tab-content tab-content-featured has-jsContent{{#if theme_settings.custom_homepage_product_default '==' 'featured'}} is-active{{/if}}" id="tab-featured">
 					{{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+					{{> components/custom/client/client-home-products-featured}}
 				</div>
 			{{/if}}
 			{{#if products.top_sellers}}
 				<div role="tabpanel" aria-hidden="false" class="tab-content tab-content-top has-jsContent{{#if theme_settings.custom_homepage_product_default '==' 'top'}} is-active{{/if}}" id="tab-top">
 					{{> components/products/top products=products.top_sellers columns=theme_settings.homepage_top_products_column_count}}
+					{{> components/custom/client/client-home-products-top}}
 				</div>
 			{{/if}}
 			{{#if products.new}}
 				<div role="tabpanel" aria-hidden="false" class="tab-content tab-content-new has-jsContent{{#if theme_settings.custom_homepage_product_default '==' 'new'}} is-active{{/if}}" id="tab-new">
 					{{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
+					{{> components/custom/client/client-home-products-new}}
 				</div>
 			{{/if}}
 		</div>
@@ -77,16 +80,19 @@ customer:
 {{else}}
     {{#if products.featured}}
     	{{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+		{{> components/custom/client/client-home-products-featured}}
     {{/if}}
     {{{region name="home_below_featured_products"}}}
 	
     {{#if products.top_sellers}}
     	{{> components/products/top products=products.top_sellers columns=theme_settings.homepage_top_products_column_count}}
+		{{> components/custom/client/client-home-products-top}}
     {{/if}}
     {{{region name="home_below_top_products"}}}
 	
     {{#if products.new}}
         {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
+		{{> components/custom/client/client-home-products-new}}
     {{/if}}
     {{{region name="home_below_new_products"}}}
 {{/if}}
