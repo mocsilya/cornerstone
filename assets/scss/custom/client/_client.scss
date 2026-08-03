@@ -262,6 +262,10 @@ header_bottom--global > div {
 // Footer
 // =============================================================================
 
+.footer-newsletter .container .container {
+	padding: 0;
+}
+
 .footer-payment-icons {
 	justify-content: center;
 	@include breakpoint("large") {
@@ -333,4 +337,94 @@ div[data-sub-layout-container="4881a661-cdcb-45c4-909d-06ffd017f87d"] .custom-wi
     border-top: 0;
     border-bottom: 0;
 }
+
+
+
+// SIB FORMS (BREVO)
+// =============================================================================
+
+
+.newsletter-subtext {
+	margin-bottom: 0;
+}
+
+.sib-form {
+	padding: 0 !important;
+}
+
+.sib-form #sib-container {
+	padding: 0 !important;
+	background: none !important;
+}
+
+.sib-form .form-fieldset {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	@include breakpoint("medium") {
+		flex-direction: row;
+	}
+}
+
+.sib-form .sib-form-block {
+	padding: 0 !important;
+	width: 100%;
+	@include breakpoint("medium") {
+		width: auto;
+	}
+}
+
+.sib-form .sib-form-block.sib-input {
+	flex: 1 0 0;
+	width: 100%;
+	@include breakpoint("medium") {
+		padding: 0 .5rem 0 0 !important;
+		width: auto;
+	}
+}
+
+.sib-form .sib-input .form__entry {
+	display: flex;
+	flex-direction: column;
+}
+
+.sib-form .sib-input .form__entry .entry__error {
+	flex: 1 0 0;
+	padding: .5rem;
+	border-width: 1px;
+	border-style: solid;
+	max-width: 100%;
+	text-align: center;
+}
+
+.sib-form .sib-input .form__entry .form-label {
+	margin: 0;
+	align-items: center;
+}
+
+.sib-form .sib-input .form__entry .form-label .entry__label {
+	flex: 1 1 0;
+	margin: 0;
+	max-width: none;
+}
+
+.sib-form .input:not(textarea) {
+	height: 38px !important;
+	line-height: 38px;
+}
+
+.sib-form .button {
+	margin: 0;
+	min-width: 100px;
+	margin-top: 1rem;
+	width: 100%;
+	@include breakpoint("medium") {
+		width: auto;
+		margin-top: 0;
+	}
+}
+
+ 
+
+
 
