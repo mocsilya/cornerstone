@@ -3,6 +3,10 @@
 // =============================================================================
 //
 
+$card_size:				stencilString("productgallery_size");
+$card_x:				str-index($card_size, "x");
+$card_width:			str-slice($card_size, 0, $card_x - 1);
+$card_height:			str-slice($card_size, $card_x + 1);
 
 // Page headings
 // =============================================================================
@@ -187,6 +191,43 @@ header_bottom--global > div {
 }
 
 
+// Cards
+// =============================================================================
+
+
+.productGrid {
+	border: 0 !important;
+}
+.productGrid .product,
+.productCarousel .productCarousel-slide {
+	padding: 0;
+	border: 0 !important;
+}
+
+.productGrid .product .card-image-container,
+.productCarousel .productCarousel-slide .card-image-container {
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 100%;
+	height: 0;
+	padding-top: 0;
+	padding-left: 0;
+	padding-right: 0;
+	padding-bottom: calc((#{$card_height} / #{$card_width}) * 100%);
+}
+
+.productGrid .product .card-image,
+.productCarousel .productCarousel-slide .card-image {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	object-fit: cover;
+	font-family: "object-fit: cover;";
+	height: 100%;
+	width: 100%;
+}
 
 // Product page
 // =============================================================================
@@ -208,6 +249,8 @@ header_bottom--global > div {
 .productView-price .price-section.price--withoutTax:has(.mqpo-totalPrice) .price--withoutTax:not(.mqpo-totalPrice) {
     display: none !important;
 }
+
+
 
 // VARIANT DATA TABLE
 // =============================================================================
