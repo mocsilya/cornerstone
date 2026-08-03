@@ -2239,8 +2239,12 @@ div[data-content-region="blog_top"] > div {
 	}
 }
 
-.productView-options #add-to-cart-wrapper.add-to-cart-nopurchase {
+.productView-options #add-to-cart-wrapper.add-to-cart-nopurchase:not([style*="display: block"]) {
 	display: none !important;
+}
+
+.productView-options #add-to-cart-wrapper.add-to-cart-nopurchase[style*="display: block"] {
+	display: flex !important;
 }
 
 .page-product #form-action-addToCart {
