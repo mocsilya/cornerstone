@@ -414,7 +414,7 @@ div[data-content-region="footer_top--global"] {
 
 
 .header-bar {
-	position: fixed;
+	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
@@ -428,24 +428,22 @@ div[data-content-region="footer_top--global"] {
 	}
 }
 
-body.scroll .header-bar-fixed {
-	@include breakpoint("medium") {
-		position: fixed;
-	}
-}
-
 body.scroll .header-bar {
 	top: -3rem;
+	position: fixed;
 	@include breakpoint("medium") {
+		position: relative;
 		top: 0;
 	}
 }
 
-body.scroll .header-bar-fixed  {
+body.scroll .header-bar-fixed {
 	@include breakpoint("medium") {
+		position: fixed;
 		top: -3rem;
 	}
 }
+
 
 .header-bar .container {
 	padding: 0 3rem;
@@ -660,7 +658,7 @@ body.body-fixed.scroll.body-scroll-nav {
 }
 
 body .header {
-	position: fixed;
+	position: absolute;
 	top: 0;
 	border-bottom: 0;
 	@include breakpoint("medium") {
@@ -669,9 +667,11 @@ body .header {
 }
 
 body.scroll .header {
+	position: fixed;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
 	@include breakpoint("medium") {
 		box-shadow: none;
+		position: relative;
 	}
 }
 
@@ -689,7 +689,12 @@ body.with-bar .header {
 	}
 }
 
-body .header.is-open,
+body .header.is-open {
+	top: 0;
+	z-index: 102;
+	position: fixed;
+}
+
 body.scroll .header {
 	top: 0;
 	z-index: 102;
