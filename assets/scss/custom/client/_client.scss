@@ -99,6 +99,13 @@ body.scroll .header-logo--left {
 	display: none !important;
 }
 
+.navUser-item--cart .navUser-action {
+	@include breakpoint("medium") {
+		display: flex;
+		align-items: center;
+	}
+}
+
 
 
 // nav pages 
@@ -200,7 +207,7 @@ header_bottom--global > div {
 }
 .productGrid .product,
 .productCarousel .productCarousel-slide {
-	padding: 0;
+	padding: 0 0 1.5rem 0;
 	border: 0 !important;
 }
 
@@ -229,6 +236,40 @@ header_bottom--global > div {
 	width: 100%;
 }
 
+.productCarousel .slick-list {
+	box-shadow: none;
+}
+
+.card-text .price-section span {
+	color: #050505;
+}
+
+.card-swatches {
+	margin-left: 1px;
+}
+
+.card-swatches .form-option-swatch {
+	border-radius: 2px;
+	height: calc(25px + 2px);
+	width: calc(20px + 2px);
+}
+
+.card-swatches .form-option-swatch .form-option-variant--wrap {
+	border-radius: 1px;
+	height: 25px;
+	width: 20px;
+}
+
+.card-swatches .form-option-swatch .form-option-variant--wrap span {
+	height: 25px;
+	width: 20px;
+}
+
+.card-text.card-brand {
+	display: none;
+}
+
+
 // Product page
 // =============================================================================
 
@@ -248,6 +289,50 @@ header_bottom--global > div {
 .productView-price .price-section.price--withTax:has(.mqpo-totalPrice) .price--withTax:not(.mqpo-totalPrice),
 .productView-price .price-section.price--withoutTax:has(.mqpo-totalPrice) .price--withoutTax:not(.mqpo-totalPrice) {
     display: none !important;
+}
+
+.productView-info-name.sku-label,
+.productView-info-value.sku-value,
+.productView-info-name.upc-label,
+.productView-info-value.upc-value,
+.productView-info-name.condition-label,
+.productView-info-value.condition-value {
+	display: none;
+}
+
+.productView-options .form-label {
+	text-align: left;
+}
+
+.productView-images-large {
+	@include breakpoint("large") {
+		width: 60%;
+	}
+}
+
+.productView-details-large,
+.productView-description-side.productView-description-large {
+	@include breakpoint("large") {
+		width: 40%;
+	}
+}
+
+.tabs-grid .tab-title,
+.tabs-grid .tab.is-active .tab-title,
+.tabs-grid .tab.is-active .tab-title:hover {
+	background: none;
+	padding-left: 0;
+	padding-right: 0;
+	border-left: 0;
+	border-right: 0;
+	border-top: 0;
+	border-bottom: 1px solid stencilColor("custom-tab-color");
+	border-radius: 0;
+	color: stencilColor("custom-tab-color");
+}
+
+.tabs-grid .tab-icon {
+	right: 0;
 }
 
 
