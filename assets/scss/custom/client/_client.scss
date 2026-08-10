@@ -772,7 +772,7 @@ div[data-content-region="category_above_content"] .custom-widget-banner {
 	background: none;
 	padding-top: 1rem;
 	padding-bottom: .7rem;
-	border-bottom: .3rem solid #fff;
+	border-bottom: .3rem solid #f5f5f5;
 	color: stencilColor('custom-tab-color');
 	font-weight: 700;
 }
@@ -942,7 +942,7 @@ div[data-content-region="category_above_content"] .custom-widget-banner {
 .productView-wrap:not(.payment-product) .productView-details.productView-details-sticky {
 	background-color: #f5f5f5;
 	border-radius: .5rem;
-    
+    order: 4;
 }
 
 .productView-wrap:not(.payment-product) .productView-details-fixed.productView-details-sticky {
@@ -986,8 +986,10 @@ div[data-content-region="category_above_content"] .custom-widget-banner {
 .productView-details.product-data .productView-info-name.upc-label,
 .productView-details.product-data .productView-info-value.upc-value,
 .productView-details.product-data .productView-info-name.mpn-label,
-.productView-details.product-data .productView-info-value.mpn-value {
-	display: none;
+.productView-details.product-data .productView-info-value.mpn-value,
+.productView-details.product-data .productView-info-name.weight-label,
+.productView-details.product-data .productView-info-value.weight-value {
+	display: none !important;
 }
 
 .productView-under-add {
@@ -997,6 +999,7 @@ div[data-content-region="category_above_content"] .custom-widget-banner {
 .productView .footer-payment-icons {
 	margin: 0 auto;
 	text-align: center;
+	justify-content: center;
 }
 
 .productView .footer-payment-icons svg {
@@ -1166,7 +1169,8 @@ article.productView-description  {
 	border-radius: .5rem;
 	padding: .75rem .75rem .75rem 0;
 	align-items: center;
-	text-align: left;
+	text-align: center;
+	justify-content: center;
 }
 
 .why-buy-item-3 {
@@ -1223,7 +1227,7 @@ article.productView-description  {
 }
 
 .why-buy-click {
-	flex: 1 0 0;
+	flex: 0 1 0;
 	min-width: 16px;
 }
 
