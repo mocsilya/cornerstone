@@ -12,7 +12,11 @@
             
 			<ul class="dropdown-menu" id="customDropdown" data-dropdown-content aria-hidden="true" tabindex="-1">
 	            <li class="dropdown-menu-item">
-					<span>7:30am - 5:30pm</span>
+                    {{#or (if (moment "now" "MM") ">=" "10") (if (moment "now" "MM") "<=" "04")}}
+                        <span>7:30am - 5:30pm</span>
+                    {{else}}
+                        <span>8:30am - 5:30pm</span>
+                    {{/or}}
 					<div><a href="tel:{{strReplace settings.phone_number ' ' ''}}"><strong>{{settings.phone_number}}</strong></a></div>
 					<!--
 					<div class="whatsapp whatsappChatButton" style="display:none;">
@@ -26,7 +30,11 @@
 	        
         </li>
 		<li class="navUser-item navUser-item--custom navUser-item--custom-desktop">
-			<span>7:30am - 5:30pm</span>
+			{{#or (if (moment "now" "MM") ">=" "10") (if (moment "now" "MM") "<=" "04")}}
+                <span>7:30am - 5:30pm</span>
+            {{else}}
+                <span>8:30am - 5:30pm</span>
+            {{/or}}
 			<div><a href="tel:{{strReplace settings.phone_number ' ' ''}}"><strong>{{settings.phone_number}}</strong></a></div>
 		</li>
 		<!--

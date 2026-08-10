@@ -80,38 +80,42 @@
 				const varSupplier = varSku + '_supplierStock';
 		
 				allStock = Number(variants[varAll]);
-				supplierStock = Number(variants[varSupplier]);
-				inStock = allStock - supplierStock;
-				if (inStock < 1) {
-					inStock = 0;
-				}
-				if (supplierStock > allStock) {
-					supplierStock = allStock;
-				}
-				const userQty = inputElem.value;
 				
-				console.log('varSku: ' + varSku);
-				console.log('allStock: ' + allStock);
-				console.log('supplierStock: ' + supplierStock);
-				console.log('inStock: ' + inStock);
-				console.log('userQty: ' + userQty);
+			    if (Number.isNaN(allStock)) {
+			        console.log('sku not built. allstock: ' + allStock);
+			    } else {
+				    supplierStock = Number(variants[varSupplier]);
+				    inStock = allStock - supplierStock;
+				    if (inStock < 1) {
+			    		inStock = 0;
+				    }
+				    if (supplierStock > allStock) {
+				    	supplierStock = allStock;
+				    }
+			    	const userQty = inputElem.value;
+			        
+				    console.log('varSku: ' + varSku);
+				    console.log('allStock: ' + allStock);
+				    console.log('supplierStock: ' + supplierStock);
+				    console.log('inStock: ' + inStock);
+				    console.log('userQty: ' + userQty);
 				
-				if (userQty <= inStock) {
-					document.querySelector('.availability-now').style.display = 'block';
-					document.querySelector('.availability-soon').style.display = 'none';
-					document.querySelector('.availability-none').style.display = 'none';
-				} else {
-					if (userQty <= allStock) {
-						document.querySelector('.availability-soon').style.display = 'block';
-						document.querySelector('.availability-now').style.display = 'none';
-						document.querySelector('.availability-none').style.display = 'none';
-					} else {
-						document.querySelector('.availability-none').style.display = 'block';
-						document.querySelector('.availability-soon').style.display = 'none';
-						document.querySelector('.availability-now').style.display = 'none';
-					}
-				}
-        
+				    if (userQty <= inStock) {
+					    document.querySelector('.availability-now').style.display = 'block';
+					    document.querySelector('.availability-soon').style.display = 'none';
+					    document.querySelector('.availability-none').style.display = 'none';
+				    } else {
+					    if (userQty <= allStock) {
+						    document.querySelector('.availability-soon').style.display = 'block';
+						    document.querySelector('.availability-now').style.display = 'none';
+						    document.querySelector('.availability-none').style.display = 'none';
+					    } else {
+						    document.querySelector('.availability-none').style.display = 'block';
+						    document.querySelector('.availability-soon').style.display = 'none';
+						    document.querySelector('.availability-now').style.display = 'none';
+					    }
+				    }
+			    }
 		    }, 1000);
 		});
 	}
