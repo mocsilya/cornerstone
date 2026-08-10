@@ -35,21 +35,4 @@ export default function () {
 			}
 		]
 	});
-	
-	const placement = $('.custom-brand-url');
-	if ($(placement).length) {
-		const url = $(placement).attr('data-brand-url');
-		$.ajax({ 
-			url: url, 
-			processData : false,
-			cache: true,
-			success: function(data) {
-				const html = $.parseHTML( data );
-				const image = $(html).find('.brand-image-container').html();
-				if (image) {
-					$(placement).html(image);
-		    	}
-			}
-		});
-	}
 }
