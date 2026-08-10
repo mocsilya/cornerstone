@@ -1,12 +1,5 @@
 <nav class="navUser">
 	<div class="container">
-	{{#if (getVar "b2b-products") '===' 'show'}}
-		{{#if theme_settings.custom_header_search_type '===' 'icon'}}
-    	<div class="dropdown dropdown--quickSearch" id="quickSearch" aria-hidden="true" data-prevent-quick-search-close>
-        	{{> components/common/quick-search name='nav-quick-search'}}
-    	</div>
-		{{/if}}
-	{{/if}}
 	<ul class="navUser-section navUser-section--norm navUser-section-{{theme_settings.logo-position}}">
         {{#if theme_settings.social_icon_placement_top}}
             <li class="navUser-item navUser-item--social">
@@ -18,8 +11,6 @@
 		{{else}}
 		<li class="navUser-item navUser-item--search navUser-item--widesearch navUser-item--{{theme_settings.custom_header_search_type}}search">
 		{{/if}}
-		{{#if (getVar "b2b-products") '===' 'show'}}
-			{{#if theme_settings.custom_header_search_type '===' 'icon'}}
             <button name="{{lang 'common.search'}}" class="navUser-action navUser-action--quickSearch"
                type="button"
                id="quick-search-expand"
@@ -29,26 +20,18 @@
             >
 				<span class="navUser-icon navUser-icon-search"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-search{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}" /></svg></i></span>
 				<span class="navUser-icon navUser-icon-close"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-close{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}" /></svg></i></span>
-                <span class="navUser-text navUser-text-search">{{#if theme_settings.custom_header_search_label}}{{theme_settings.custom_header_search_label}}{{else}}{{lang 'search.quick_search.input_placeholder'}}{{/if}}</span>
-				<span class="navUser-text navUser-text-close">{{lang 'common.close'}}</span>
+                {{#if theme_settings.custom_header_search_type '===' 'icon'}}
+					<span class="navUser-text navUser-text-search">{{#if theme_settings.custom_header_search_label}}{{theme_settings.custom_header_search_label}}{{else}}{{lang 'search.quick_search.input_placeholder'}}{{/if}}</span>
+					<span class="navUser-text navUser-text-close">{{lang 'common.close'}}</span>
+				{{/if}}
             </button>
+			{{#if theme_settings.custom_header_search_type '===' 'icon'}}
+		    <div class="dropdown dropdown--quickSearch form-search-icon" id="quickSearch" aria-hidden="true" data-prevent-quick-search-close>
+		        {{> components/common/quick-search name='nav-quick-search'}}
+		    </div>
+			{{else}}
+		    	{{> components/common/quick-search name='nav-quick-search'}}
 			{{/if}}
-			{{#if theme_settings.custom_header_search_type '===' 'box'}}
-			<!--
-			<a class="navUser-action navUser-action--quickSearch has-dropdown" href="#" data-dropdown="searchDropdown" aria-controls="searchDropdown" aria-expanded="false" aria-label="quickSearch">
-				<span class="navUser-icon"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-search{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}" /></svg></i></span>
-				<span class="navUser-text">{{theme_settings.custom_header_search_label}}</span>
-			</a>
-			-->
-            <button name="{{lang 'common.search'}}" class="navUser-action navUser-action--quickSearch navUser-action--boxSearch" type="button" aria-controls="quickSearch" aria-label="{{lang 'common.search'}}" aria-expanded="false">
-				<span class="navUser-icon navUser-icon-search"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-search{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}" /></svg></i></span>
-				<span class="navUser-icon navUser-icon-close"><i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-close{{#unless theme_settings.custom_header_icon_style '===' 'solid'}}-{{theme_settings.custom_header_icon_style}}{{/unless}}" /></svg></i></span>
-            </button>
-			<div class="container-search-box">
-		    	{{> components/custom/navigation-search}}
-			</div>
-			{{/if}}
-		{{/if}}
         </li>
 		{{> components/custom/client/client-header-search}}
 	</ul>
@@ -249,9 +232,15 @@
 	        {{/if}}
 	        </ul>
         </li>
+	    {{#and language_selector language_selector.languages.length '>' 1}}
+	        {{> components/common/language-selector}}
+	    {{/and}}
 	    {{#or customer (unless settings.hide_price_from_guests)}}
 	        {{> components/common/currency-selector}}
 	    {{/or}}
+	    {{#if theme_settings.show_channels}}
+	        {{> components/common/channel-selector}}
+	    {{/if}}
         <li class="navUser-item navUser-item--cart">
             <a class="navUser-action"
                data-cart-preview

@@ -2,10 +2,9 @@ import { hooks } from '@bigcommerce/stencil-utils';
 import CatalogPage from './catalog';
 import compareProducts from './global/compare-products';
 import FacetedSearch from './common/faceted-search';
-import { createTranslationDictionary } from '../theme/common/utils/translations-utils';
+import { createTranslationDictionary } from './common/utils/translations-utils';
 import cardSwatches from './custom/card-swatches';
 import cardWarranty from './custom/card-warranty';
-import cardCarousel from './custom/card-carousel';
 import menuHelper from './custom/menu-helper';
 import cardData from './custom/card-data';
 
@@ -16,7 +15,7 @@ export default class Brand extends CatalogPage {
     }
 	
 	dataProductCollection() {
-	    const cards = document.querySelectorAll('.product .card, .product .listItem');
+	    const cards = document.querySelectorAll('.card, .listItem');
 	    const dataIdArr= [];
 	    cards.forEach(card => {
 	        const id = card.dataset.test.replace('card-', '');
@@ -35,9 +34,8 @@ export default class Brand extends CatalogPage {
             hooks.on('sortBy-submitted', this.onSortBySubmit);
         }
 		
-        cardSwatches();
+        cardSwatches(this.context.apiToken, this.dataProductCollection());
         cardWarranty();
-		cardCarousel();
 		menuHelper();
 		const dataOnReady = this.context.cardVariantData;
 		if (dataOnReady) {
@@ -76,6 +74,7 @@ export default class Brand extends CatalogPage {
             $productListingContainer.html(content.productListing);
             $facetedSearchContainer.html(content.sidebar);
 			
+			cardSwatches(this.context.apiToken, this.dataProductCollection());
 			const dataFacetedSearch = this.context.cardVariantData;
 			if (dataFacetedSearch) {
 				cardData(this.context.apiToken, this.dataProductCollection());

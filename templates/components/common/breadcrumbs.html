@@ -28,7 +28,7 @@
 {{/each}}
 
 {{#unless theme_settings.hide_breadcrumbs }}
-<script type="application/ld+json">
+<script type="application/ld+json"  nonce="{{nonce}}">
 {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -39,7 +39,7 @@
             "@type": "ListItem",
             "position": {{add @index 1}},
             "item": {
-                "@id": {{{JSONstringify url}}},
+                "@id": {{#if url}}{{{JSONstringify url}}}{{else}}{{{JSONstringify ../settings.secure_base_url}}}{{/if}},
                 "name": {{{JSONstringify name}}}
             }
         }{{#unless @last}},{{/unless}}

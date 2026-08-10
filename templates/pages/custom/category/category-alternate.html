@@ -34,8 +34,9 @@ customer:
 				    {{> components/common/responsive-img
 				        image=category.image
 				        fallback_size=theme_settings.zoom_size
-				        lazyload=theme_settings.lazyload_mode
+				        lazyload="disabled"
 				        class="page-header-image"
+						otherAttributes="fetchpriority='high'"
 				    }}
 				{{else}}
 					<div class="page-header category-header">
@@ -49,8 +50,9 @@ customer:
 			    {{> components/common/responsive-img
 			        image=category.image
 			        fallback_size=theme_settings.zoom_size
-			        lazyload=theme_settings.lazyload_mode
+			        lazyload="disabled"
 			        class="page-header-image"
+			        otherAttributes="fetchpriority='high'"
 			    }}
 			{{else}}
 				<div class="page-header category-header">

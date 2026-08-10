@@ -199,7 +199,11 @@ customer:
 			
 			for (let field of custom) {
 				let tr = document.createElement('tr');
-				tr.className = "compareTable-row compareTable-data";
+				
+				var dataClass = field.name;
+				dataClass = dataClass.replace(/\s+/g, '-').toLowerCase();
+				var defaultClass = "compareTable-row compareTable-data compareTable-";
+				tr.className = defaultClass + dataClass;
 	
 				let th = document.createElement('th');
 				th.className = "compareTable-heading";

@@ -10,10 +10,10 @@ customer:
 ---
 {{#partial "head"}}
     {{#if pagination.blog.previous}}
-        <link rel="prev" href="{{pagination.blog.previous}}">
+        <link rel="prev" href="{{{pagination.blog.previous}}}">
     {{/if}}
     {{#if pagination.blog.next}}
-        <link rel="next" href="{{pagination.blog.next}}">
+        <link rel="next" href="{{{pagination.blog.next}}}">
     {{/if}}
 {{/partial}}
 
@@ -21,10 +21,20 @@ customer:
 <div class="container container-hero">
 	{{#if theme_settings.custom_page_header_image_blog}}
 		<div class="page-header blog-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
-	    <img class="page-header-image" src="/product_images/uploaded_images/{{theme_settings.custom_page_header_image_blog}}" />
+		{{assignVar "headerImage" theme_settings.custom_page_header_image_blog}}
+		<img class="page-header-image" src="{{getImageManagerImage (getVar 'headerImage') width=640}}" 
+			srcset="{{getImageManagerImage (getVar 'headerImage') width=480}} 480w, 
+			{{getImageManagerImage (getVar 'headerImage') width=800}} 800w, 
+			{{getImageManagerImage (getVar 'headerImage') width=1200}} 1200w, 
+			{{getImageManagerImage (getVar 'headerImage') width=1920}} 1920w" 
+			sizes="100vw" 
+			alt="{{page.title}}" 
+			fetchpriority="high" 
+		/>
 	{{else}}
 		<div class="page-header blog-header">
 	{{/if}}
+
     {{#unless theme_settings.hide_blog_page_heading }}
         <h1 class="page-heading">{{ blog.name }}</h1>
     {{/unless}}

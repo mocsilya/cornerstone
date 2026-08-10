@@ -1,32 +1,32 @@
 {{#with theme_settings}}
     {{#or show_accept_amex show_accept_discover show_accept_mastercard show_accept_paypal show_accept_visa show_accept_amazonpay show_accept_googlepay show_accept_klarna}}
-    <div class="footer-payment-icons">
+    <div class="footer-payment-icons" aria-label="{{lang 'account.payment_methods.payment_icons_label'}}">
         {{#if show_accept_amex}}
-        <svg class="footer-payment-icon footer-payment-express"><use href="#icon-logo-american-express"></use></svg>
+        <svg class="footer-payment-icon footer-payment-express" role="img"><title>American Express</title><use href="#icon-logo-american-express"></use></svg>
         {{/if}}
         {{#if show_accept_discover}}
-        <svg class="footer-payment-icon footer-payment-discover"><use href="#icon-logo-discover"></use></svg>
+        <svg class="footer-payment-icon footer-payment-discover" role="img"><title>Discover</title><use href="#icon-logo-discover"></use></svg>
         {{/if}}
         {{#if show_accept_mastercard}}
-        <svg class="footer-payment-icon footer-payment-mastercard"><use href="#icon-logo-mastercard"></use></svg>
+        <svg class="footer-payment-icon footer-payment-mastercard" role="img"><title>Mastercard</title><use href="#icon-logo-mastercard"></use></svg>
         {{/if}}
         {{#if show_accept_paypal}}
-        <svg class="footer-payment-icon footer-payment-paypal"><use href="#icon-logo-paypal"></use></svg>
+        <svg class="footer-payment-icon footer-payment-paypal" role="img"><title>PayPal</title><use href="#icon-logo-paypal"></use></svg>
         {{/if}}
         {{#if show_accept_visa}}
-        <svg class="footer-payment-icon footer-payment-visa"><use href="#icon-logo-visa"></use></svg>
+        <svg class="footer-payment-icon footer-payment-visa" role="img"><title>Visa</title><use href="#icon-logo-visa"></use></svg>
         {{/if}}
         {{#if show_accept_amazonpay}}
-        <svg class="footer-payment-icon footer-payment-amazonpay"><use href="#icon-logo-amazonpay"></use></svg>
+        <svg class="footer-payment-icon footer-payment-amazonpay" role="img"><title>Amazon Pay</title><use href="#icon-logo-amazonpay"></use></svg>
         {{/if}}
         {{#if show_accept_googlepay}}
-        <svg class="footer-payment-icon footer-payment-googlepay"><use href="#icon-logo-googlepay"></use></svg>
+        <svg class="footer-payment-icon footer-payment-googlepay" role="img"><title>Google Pay</title><use href="#icon-logo-googlepay"></use></svg>
         {{/if}}
         {{#if show_accept_applepay}}
-        <svg class="footer-payment-icon footer-payment-applepay"><use xlink:href="#icon-logo-applepay"></use></svg>
+        <svg class="footer-payment-icon footer-payment-applepay" role="img"><title>Apple Pay</title><use xlink:href="#icon-logo-applepay"></use></svg>
         {{/if}}
         {{#if show_accept_klarna}}
-        <svg class="footer-payment-icon footer-payment-klarna"><use href="#icon-logo-klarna"></use></svg>
+        <svg class="footer-payment-icon footer-payment-klarna" role="img"><title>Klarna</title><use href="#icon-logo-klarna"></use></svg>
         {{/if}}
 		{{> components/custom/client/client-payment-icons}}
     </div>

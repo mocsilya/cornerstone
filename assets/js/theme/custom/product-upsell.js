@@ -1,79 +1,150 @@
-/**
- * PRODUCT UPSELL
-*/
-
 import utils from '@bigcommerce/stencil-utils';
 
-export default function (context) {		
-	if ($('.productView-upsell').length) {
-		var productId = $('.productView-upsell').data('upsell-id');
-	} else {
-		var productId = 0;
+export default function (context) {
+    
+    // 1. SYNC UI WITH CART ITEMS
+    async function updateUpsellStatus() {
+        try {
+            const res = await fetch('/api/storefront/cart', { credentials: 'include' });
+            if (!res.ok) return;
+            const data = await res.json();
+            const cart = Array.isArray(data) ? data[0] : data;
+            if (!cart || !cart.lineItems) return;
+
+            // Map all product IDs in cart (physical + digital)
+            const cartProductIds = [
+                ...cart.lineItems.physicalItems.map(item => item.productId),
+                ...cart.lineItems.digitalItems.map(item => item.productId)
+            ];
+
+            $('.upsell-add-button').each(function() {
+                const $btn = $(this);
+                const productId = $btn.data('product-id');
+                const $item = $btn.closest('.upsell-item');
+
+				if (cartProductIds.includes(productId)) {
+				    $btn.addClass('is-added').find('.button-text').text('Added!');
+				    $item.addClass('upsell-item--added');
+				} else {
+				    $btn.removeClass('is-added');
+				    $item.removeClass('upsell-item--added');
+				    if (!$btn.prop('disabled')) {
+				        $btn.find('.button-text').text('Add');
+				    }
+				}
+            });
+        } catch (err) {
+            console.error('Cart sync failed:', err);
+        }
+    }
+
+    // 2. REUSABLE LOAD FUNCTION
+	function loadUpsellItems(productId, $container) {
+	    if (!productId) return;
+    
+	    utils.api.product.getById(productId, { template: 'custom/product-upsell-data' }, (err, response) => {
+	        if (err) return;
+	        const ids = response.replace(/ +/g, '').split(',').filter(id => id.length > 0);
+        
+	        // MODAL SAFETY GUARD: If Handlebars didn't pre-render placeholders (like in the modal),
+	        // generate them instantly in JS so the rest of the script has targets to find.
+	        if ($container.find('.upsell-placeholder').length === 0) {
+	            $container.empty();
+	            $.each(ids, (i, id) => {
+	                $container.append(`<div class="upsell-item upsell-placeholder" data-index="${i}"></div>`);
+	            });
+	        }
+
+	        let loadedCount = 0;
+
+	        // Loop and replace items individually for maximum speed
+	        $.each(ids, (i, id) => {
+	            utils.api.product.getById(id, { template: 'custom/product-upsell' }, (err, itemHtml) => {
+                
+	                // Find the placeholder slot matching this exact sequence index
+	                const $placeholder = $container.find(`.upsell-placeholder[data-index="${i}"]`);
+                
+	                if (itemHtml && itemHtml.indexOf("Whoops!") === -1) {
+	                    // Swap the loading box for the real product the millisecond it's ready
+	                    $placeholder.replaceWith(itemHtml);
+	                } else {
+	                    $placeholder.remove(); // Clean up if a product fails to load
+	                }
+
+	                loadedCount++;
+                
+	                // Wait until the absolute final network request settles before updating button text
+	                if (loadedCount === ids.length) {
+	                    updateUpsellStatus();
+	                }
+	            });
+	        });
+	    });
 	}
-	//console.log(productId);
-	if (productId !== 0) { 
-		utils.api.product.getById(productId, { template: 'custom/product-upsell-data' }, (err, response) => {
-			if (err) return;			
-			const idList = response.replace( / +/g, '');
-			//console.log(idList);
-			const array = idList.split(',');
-			//console.log(array);
-			$.each(array, function(i, Id){ 
-			   	utils.api.product.getById(Id, { template: 'custom/product-upsell' }, (err, response) => {
-					if (response.indexOf("Whoops! - Page not found") > -1) {
-						console.log("Upsell Item: 404 Not Found");
-					} else {
-						if (!$.trim(response)){   
-						    console.log("Upsell Item: Data Not Loaded");
-						} else {   
-							$('.productView-upsell').append(response);
-						}
-					}			
-				})
-			});
-		})
-	}
+
+    // 3. PAGE LOAD (Product Page)
+    $('.productView-upsell').each(function() {
+        loadUpsellItems($(this).data('upsell-id'), $(this));
+    });
+
+    // 4. MODAL TRIGGER
+    const observer = new MutationObserver(() => {
+        const $modal = $('#previewModal');
+        const $target = $modal.find('.modal-body .productView');
+
+        if ($modal.hasClass('open') && $target.length && $target.hasClass('productView-upsell-modal') && !$('.productView-upsell-container-modal').length) {
+            const currentId = $('[name="product_id"]').val() || $('.productView').data('event-id');
+            if (currentId) {
+                $target.append(`
+                    <div class="productView-upsell-container productView-upsell-container-modal">
+                        <div class="productView-upsell" data-upsell-id="${currentId}"></div>
+                    </div>
+                `);
+                loadUpsellItems(currentId, $target.find('.productView-upsell'));
+            }
+        }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // 5. GLOBAL CLICK HANDLER
+    $(document).on('click', '.upsell-add-button', async (e) => {
+        const $btn = $(e.currentTarget);
+        const pId = $btn.data('product-id');
+        if ($btn.hasClass('is-adding') || $btn.hasClass('is-added')) return;
+
+        $btn.addClass('is-adding').find('.button-text').text('Adding...');
+
+        try {
+            const cartRes = await fetch('/api/storefront/cart', { credentials: 'include' });
+            let cartData = await cartRes.json();
+            const cart = Array.isArray(cartData) ? cartData[0] : cartData;
+            const cartId = cart ? cart.id : null;
+            
+            const endpoint = cartId ? `/api/storefront/carts/${cartId}/items` : '/api/storefront/carts';
+
+            const addRes = await fetch(endpoint, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ line_items: [{ quantity: 1, product_id: parseInt(pId, 10) }] })
+            });
+
+            if (addRes.ok) {
+                // Success: Sync UI and Header
+                await updateUpsellStatus();
+                
+                // Refresh Pill
+                const updatedCartRes = await fetch('/api/storefront/cart', { credentials: 'include' });
+                const updatedData = await updatedCartRes.json();
+                const updatedCart = Array.isArray(updatedData) ? updatedData[0] : updatedData;
+                
+                if (updatedCart && updatedCart.lineItems) {
+                    const qty = (updatedCart.lineItems.physicalItems || []).reduce((acc, i) => acc + i.quantity, 0);
+                    $('.countPill, .cart-quantity').text(qty).addClass('countPill--positive').show();
+                    utils.hooks.emit('cart-item-add-remote', {});
+                }
+            }
+        } catch (err) {
+            $btn.removeClass('is-adding').find('.button-text').text('Error');
+        }
+    });
 }
-
-/*
-OLD VERSION - DEBUG CONTEXT DOES NOT WORK ON LIVE
-
-export default function (context) {	
-	
-	if ($('.productView-upsell').length){
-		var productId = $('.productView-upsell').data('upsell-id');
-	} else {
-		var productId = 0;
-	}
-	if (productId !== 0) { 
-		utils.api.product.getById(productId, { params: { debug: "context" }}, (err, response) => {
-
-				const imageSize = '600x600';
-				const imageUrl = response.product.main_image.data.replace('{:size}', imageSize);
-		        console.log('Title:', response.product.title);
-				console.log('Brand:', response.product.brand.name);
-				console.log('Brand URL:', response.product.brand.url);
-				console.log('Product URL:', response.product.url);
-				console.log('Price:', response.product.price);
-				console.log('Image:', imageUrl);
-				console.log('Sale:', response.product.price.sale_price_with_tax.formatted);
-				console.log(response.product);
-				var i = 0;
-				$(response.product.custom_fields).each(function() {
-					if (response.product.custom_fields[i].name === '_upsell') {
-						const idList = response.product.custom_fields[i].value;
-						const array = idList.split(',');
-						$.each(array, function(i, Id){
-						   	utils.api.product.getById(Id, { template: 'custom/product-upsell' }, (err, response) => {
-						   			$('.productView-upsell').append(response);
-						   	    }
-						   	)
-						});
-					}
-					i++;
-				});
-		    }
-		)
-	}
-}
-*/

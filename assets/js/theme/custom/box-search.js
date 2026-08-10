@@ -2,18 +2,21 @@
  * Show/Hide quick search results
 */
 export default function () {
-    $('.form-search-box #nav-quick-search').keydown(function() {
-        $('.dropdown--quickSearch').addClass('is-open f-open-dropdown');
-		$('.dropdown--quickSearch').attr('aria-hidden', false);
+    $('.navUser-item--boxsearch #nav-quick-search').keydown(function() {
+		const $dropdown = $('#quickSearch');
+        $dropdown.addClass('is-open f-open-dropdown');
+        $dropdown.attr('aria-hidden', 'false');
     });
 	
-	$(".navUser-action--boxSearch").click(function() {
-		if ($(this).attr('aria-expanded') == 'true') {
-			$(this).attr('aria-expanded', false);
-			$('.container-search-box').removeClass('is-open');
-		} else {
-			$(this).attr('aria-expanded', true);
-			$('.container-search-box').addClass('is-open');
-		}
+	$('#quickSearch').on('click', '.modal-close', function() {
+	    $('#nav-quick-search').val('').trigger('input');
+	    $('.quickSearchResults').html('');
+	});
+	
+	$('#quick-search-expand').on('click', function() {
+	    if ($(this).attr('aria-expanded') === 'true') {
+	        $('#nav-quick-search').val('').trigger('input');
+	        $('.quickSearchResults').html('');
+	    }
 	});
 }
