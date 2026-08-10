@@ -365,6 +365,7 @@
     "color-coupon-pill-text": "#333333",
     "banner--default-backgroundColor": "#707070",
     "banner--default-color": "#FFFFFF",
+	"button--default-color": "#00ADEB",
     "button--default-colorHover": "#7AA6D3",
     "button--default-colorActive": "#00ADEB",
     "button--default-borderColor": "#CBE5FF",
