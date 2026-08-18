@@ -1,3 +1,40 @@
+<div class="jump-addtocart" style="display: none;">
+	<div class="jump-button">
+		<a class="scroll-click button button--primary" href="#main-content">
+			<strong>Back to Top</strong>
+		</a>
+	</div>
+</div>
+
+<!-- Back to Top -->
+<script nonce="{{nonce}}">
+window.addEventListener('scroll', function() {
+	function isElementVisible(el) {
+	    const rect = el.getBoundingClientRect();
+	    const vWidth = window.innerWidth || doc.documentElement.clientWidth;
+	    const vHeight = window.innerHeight || doc.documentElement.clientHeight;
+
+	    // Check if the element is out of bounds
+	    if (rect.right < 0 || rect.bottom < 0 || rect.left > vWidth || rect.top > vHeight) return false;
+
+	    // Return true if any of the above disjunctions are false
+	    return true;
+	}
+
+	// Usage
+	const productData = document.querySelector('.productView-details.product-data');
+	const productOptions = document.querySelector('.productView-details.product-options');
+	const productImages = document.querySelector('.productView-images');
+	if (isElementVisible(productData) || isElementVisible(productOptions) || isElementVisible(productImages)) {
+		document.querySelector('.jump-addtocart').style.display = "none";
+	} else {
+		document.querySelector('.jump-addtocart').style.display = "block";
+	}
+});
+</script>
+
+
+<!-- Klarna -->
 <script nonce="{{nonce}}">
 	var timeStart = 0;
 	var optionClick = document.querySelectorAll(".productView-options .form-radio, .productView-options .form-select");
@@ -16,6 +53,8 @@
 	}
 </script>
 
+
+<!-- Additonal Schema -->
 <script type="text/javascript" nonce="{{nonce}}">
     var _learnq = _learnq || [];
     var product_categories = [];
@@ -54,6 +93,8 @@
     }]);
 </script>
 
+
+<!-- Klaviyo -->
 <script text="text/javascript" nonce="{{nonce}}"> 
 //Initialize Klaviyo object immediately on page load
 !function(){if(!window.klaviyo){window._klOnsite=window._klOnsite||[];try{window.klaviyo=new Proxy({},{get:function(n,i){return"push"===i?function(){var n;(n=window._klOnsite).push.apply(n,arguments)}:function(){for(var n=arguments.length,o=new Array(n),w=0;w<n;w++)o[w]=arguments[w];var t="function"==typeof o[o.length-1]?o.pop():void 0,e=new Promise((function(n){window._klOnsite.push([i].concat(o,[function(i){t&&t(i),n(i)}]))}));return e}}})}catch(n){window.klaviyo=window.klaviyo||[],window.klaviyo.push=function(){var n;(n=window._klOnsite).push.apply(n,arguments)}}}}(); </script>
@@ -65,50 +106,8 @@ document.getElementById("form-action-addToCart").addEventListener('click',functi
 });
 </script>
 
-{{#if product.can_purchase}}
-{{assignVar "hasOptions" "no"}}
-{{#each product.options}}
-	{{#if @last}}
-		{{#unless @index 0}}
-			{{assignVar "hasOptions" "yes"}}
-		{{/unless}}
-	{{/if}}
-{{/each}}
-<div class="jump-addtocart" style="display: none;">
-	<div class="jump-button">
-		<a class="scroll-click button button--primary" href="#main-content">
-			<strong>Back to Top</strong>
-		</a>
-	</div>
-</div>
-{{/if}}
-<script nonce="{{nonce}}">
-window.addEventListener('scroll', function() {
-	function isElementVisible(el) {
-	    const rect = el.getBoundingClientRect();
-	    const vWidth = window.innerWidth || doc.documentElement.clientWidth;
-	    const vHeight = window.innerHeight || doc.documentElement.clientHeight;
 
-	    // Check if the element is out of bounds
-	    if (rect.right < 0 || rect.bottom < 0 || rect.left > vWidth || rect.top > vHeight) return false;
-
-	    // Return true if any of the above disjunctions are false
-	    return true;
-	}
-
-	// Usage
-	const productData = document.querySelector('.productView-details.product-data');
-	const productOptions = document.querySelector('.productView-details.product-options');
-	const productImages = document.querySelector('.productView-images');
-	if (isElementVisible(productData) || isElementVisible(productOptions) || isElementVisible(productImages)) {
-		document.querySelector('.jump-addtocart').style.display = "none";
-	} else {
-		document.querySelector('.jump-addtocart').style.display = "block";
-	}
-});
-</script>
-
-<!-- countDowntimer start -->
+<!-- Delivery countDowntimer -->
 <script nonce="{{nonce}}">
     let currentdatewithhours = new Date(new Date().setHours(13, 0, 0));
     let nextdatewithhours = new Date(new Date().setHours(13, 0, 0));
@@ -281,4 +280,45 @@ window.addEventListener('scroll', function() {
         }
     }, 1000);
 </script>
-<!-- countDowntimer end -->
+
+<!-- Delivery countDowntimer Show/Hide -->
+<script nonce="{{nonce}}">
+	const optionClick2 = document.querySelectorAll(".productView-options .form-radio, .productView-options .form-select");
+	const mainStock = document.querySelector('.main-stock');
+
+	function toggleDemoVisibility() {
+	  const demo = document.querySelector('#demo');
+  
+	  // Exit early if #demo isn't present on the page
+	  if (!demo || !mainStock) return;
+
+	  // Hide #demo if .main-stock has .u-hiddenVisually, otherwise show it
+	  if (mainStock.classList.contains('u-hiddenVisually')) {
+	    demo.style.display = 'none';
+	  } else {
+	    demo.style.display = '';
+	  }
+	}
+
+	// 1. Listen for option changes on the dropdown
+	if (optionClick2) {
+		for (let i = 0; i < optionClick2.length; i++) {
+			optionClick2[i].addEventListener("change", function() {
+				toggleDemoVisibility();
+			});
+		}
+	}
+	
+	// 2. Watch .main-stock for class modifications
+	if (mainStock) {
+	  const observer = new MutationObserver((mutations) => {
+	    mutations.forEach((mutation) => {
+	      if (mutation.attributeName === 'class') {
+	        toggleDemoVisibility();
+	      }
+	    });
+	  });
+
+	  observer.observe(mainStock, { attributes: true });
+	}
+</script>

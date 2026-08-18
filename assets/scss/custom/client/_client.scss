@@ -3,6 +3,38 @@
 // =============================================================================
 //
 
+// Smile Rewards
+
+.bundle-namespace .bundle-app > iframe.active-frame {
+    top: 3rem !important;
+    height: calc(100% - 3rem) !important;
+}
+
+.rewards-bar {
+    background: #111;
+    line-height: 1.5rem;
+    padding: .75rem;
+    height: 3rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 103;
+    text-align: center;
+}
+
+.rewards-bar a {
+    color: #ff7000;
+    font-weight: 700;
+    font-size: 1.125rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.rewards-bar a:hover {
+    color: #fff;
+    text-decoration: none;
+}
 
 // General 
 
@@ -2047,6 +2079,11 @@ div[data-content-region="blog_top"] > div {
 	color: #000;
 	background-color: #eee;
 	border-color: #eee;
+}
+
+.productView-upsell-modal .productView-details .productView-info-name,
+.productView-upsell-modal .productView-details .productView-info-value {
+	flex: 1 1 0;
 }
 
 .productView-seeitinaction-container {
