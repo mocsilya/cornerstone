@@ -17,6 +17,12 @@ customer:
 gql: "query productById($productId: Int!) {
     site {
         product(entityId: $productId) {
+			brand {
+				defaultImage {
+					url(width: 300)
+					altText
+				}
+			}
 			inventory {
                 aggregated {
                     availableToSell

@@ -7211,11 +7211,12 @@ div[data-content-region="product_view_bottom--global"] {
 .productView-upsell-modal .productView-details .productView-info-name,
 .productView-upsell-modal .productView-details .productView-info-value {
 	width: auto;
-	flex: 0 1 0;
+	flex: 1 1 0;
 	white-space: nowrap;
 	font-family: stencilFontFamily("body-font");
 	margin: 0 !important;
 	border: 0 !important;
+	min-width: unset;
 }
 
 .productView-upsell-modal .productView-details .productView-info-name {
