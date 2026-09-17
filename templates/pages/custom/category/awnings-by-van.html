@@ -1,0 +1,365 @@
+---
+category:
+    shop_by_price: {{theme_settings.shop_by_price_visibility}}
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+customer:
+    wishlists:
+        limit: 10
+---
+{{inject 'apiToken' settings.storefront_api.token}}
+{{inject "cardVariantData" theme_settings.custom_card_variant_data}}
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{{pagination.category.previous}}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{{pagination.category.next}}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "hero"}}
+{{{region name="category_below_menu"}}}
+<div class="container container-hero container-hero-blocks">
+	{{#if breadcrumbs.[1].name '==' 'Brands'}}
+		<div class="page-header category-header">
+	{{else}}
+		{{#if theme_settings.custom_page_header_image_depth '==' 'none'}}
+			{{#if breadcrumbs.[1].name '==' category.name}}
+				{{#if category.image}}
+					<div class="page-header category-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
+				    {{> components/common/responsive-img
+				        image=category.image
+				        fallback_size=theme_settings.zoom_size
+				        lazyload=theme_settings.lazyload_mode
+				        class="page-header-image"
+				    }}
+				{{else}}
+					<div class="page-header category-header">
+				{{/if}}
+			{{else}}
+				<div class="page-header category-header">
+			{{/if}}
+		{{else}}
+			{{#if category.image}}
+				<div class="page-header category-header page-header-image page-header-{{theme_settings.custom_page_header_image_depth}}">
+			    {{> components/common/responsive-img
+			        image=category.image
+			        fallback_size=theme_settings.zoom_size
+			        lazyload=theme_settings.lazyload_mode
+			        class="page-header-image"
+			    }}
+			{{else}}
+				<div class="page-header category-header">
+			{{/if}}
+		{{/if}}
+	{{/if}}
+	{{#unless theme_settings.hide_category_page_heading }}
+		    <h1 class="page-heading">{{#contains head.title " | "}}{{{first (before (split head.title ' | ') 1)}}}{{else}}{{category.name}}{{/contains}}</h1>
+	{{/unless}}
+	{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+	{{> components/custom/client/client-category-header}}
+	</div>
+</div>
+{{/partial}}
+
+{{#partial "page"}}
+{{{region name="category_below_header--global"}}}
+{{{region name="category_below_header"}}}
+{{#if theme_settings.custom_category_description_position '==' 'top'}}
+	<div class="category-description{{#if category.image}} category-description-image{{/if}}{{#if category.description}}{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}{{/if}} category-description-blocks">
+		{{{category.description}}}
+	</div>
+	{{#if category.description}}
+		{{#if theme_settings.custom_category_description_trim}}
+			<div class="category-description-button category-description-blocks" style="display: none;">
+				<a class="button button--secondary">
+					<span class="category-description-more">{{lang 'search.faceted.show-more'}}</span>
+					<span class="category-description-less">{{lang 'search.faceted.show-less'}}</span>
+				</a>
+			</div>
+		{{/if}}
+	{{/if}}
+{{/if}}
+
+{{assignVar "catbrand" "inactive"}}
+{{#if breadcrumbs.[1].name '==' 'Brands'}}
+	{{#each breadcrumbs}}
+		{{#if @last}}
+			{{#if @index 1}}
+				{{assignVar "catbrand" "active"}}
+			{{/if}}
+		{{/if}}
+	{{/each}}
+{{/if}}
+
+<div class="page page-category-awnings">
+    <div class="page-content">
+	    <ul class="subcategories-grid subcategories-grid-image">	
+		<li class="subcategories-grid-item subcategories-grid-item-ford">
+			<div class="subcategories-container">
+				<div class="subcategories-image" style="background-image: url('https://cdn11.bigcommerce.com/s-8hl787wvsy/images/stencil/original/image-manager/category-vans-ford2.jpg?t=1789645318')">
+					<div class="subcategories-content">
+						<span class="subcategories-name">
+							<span class="subcategory-name-text">Ford</span>
+						</span>
+						<span class="subcategories-children">
+							{{#each category.subcategories}}
+								{{#contains name 'Ford'}}
+								<span class="subcategory-child">
+									<a class="subcategories-child-link" href="{{url}}">
+										<span class="subcategory-child-count">{{product_count}}</span>
+										<span class="subcategory-child-text">{{name}}</span>
+									</a>
+								</span>
+								{{/contains}}
+							{{/each}}
+						</span>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="subcategories-grid-item subcategories-grid-item-mazda">
+			<div class="subcategories-container">
+				<div class="subcategories-image" style="background-image: url('https://cdn11.bigcommerce.com/s-8hl787wvsy/images/stencil/original/image-manager/category-vans-mazda2.jpg?t=1789645319')">
+					<div class="subcategories-content">
+						<span class="subcategories-name">
+							<span class="subcategory-name-text">Mazda</span>
+						</span>
+						<span class="subcategories-children">
+							{{#each category.subcategories}}
+								{{#contains name 'Mazda'}}
+								<span class="subcategory-child">
+									<a class="subcategories-child-link" href="{{url}}">
+										<span class="subcategory-child-count">{{product_count}}</span>
+										<span class="subcategory-child-text">{{name}}</span>
+									</a>
+								</span>
+								{{/contains}}
+							{{/each}}
+						</span>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="subcategories-grid-item subcategories-grid-item-mercedes">
+			<div class="subcategories-container">
+				<div class="subcategories-image" style="background-image: url('https://cdn11.bigcommerce.com/s-8hl787wvsy/images/stencil/original/image-manager/category-vans-mercedes2.jpg?t=1789645321')">
+					<div class="subcategories-content">
+						<span class="subcategories-name">
+							<span class="subcategory-name-text">Mercedes</span>
+						</span>
+						<span class="subcategories-children">
+							{{#each category.subcategories}}
+								{{#contains name 'Mercedes'}}
+								<span class="subcategory-child">
+									<a class="subcategories-child-link" href="{{url}}">
+										<span class="subcategory-child-count">{{product_count}}</span>
+										<span class="subcategory-child-text">{{name}}</span>
+									</a>
+								</span>
+								{{/contains}}
+							{{/each}}
+						</span>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="subcategories-grid-item subcategories-grid-item-peugeot">
+			<div class="subcategories-container">
+				<div class="subcategories-image" style="background-image: url('https://cdn11.bigcommerce.com/s-8hl787wvsy/images/stencil/original/image-manager/category-vans-peugeot2.jpg?t=1789645322')">
+					<div class="subcategories-content">
+						<span class="subcategories-name">
+							<span class="subcategory-name-text">Peugeot</span>
+						</span>
+						<span class="subcategories-children">
+							{{#each category.subcategories}}
+								{{#contains name 'Peugeot'}}
+								<span class="subcategory-child">
+									<a class="subcategories-child-link" href="{{url}}">
+										<span class="subcategory-child-count">{{product_count}}</span>
+										<span class="subcategory-child-text">{{name}}</span>
+									</a>
+								</span>
+								{{/contains}}
+							{{/each}}
+						</span>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="subcategories-grid-item subcategories-grid-item-renault">
+			<div class="subcategories-container">
+				<div class="subcategories-image" style="background-image: url('https://cdn11.bigcommerce.com/s-8hl787wvsy/images/stencil/original/image-manager/category-vans-renault2.jpg?t=1789645323')">
+					<div class="subcategories-content">
+						<span class="subcategories-name">
+							<span class="subcategory-name-text">Renault</span>
+						</span>
+						<span class="subcategories-children">
+							{{#each category.subcategories}}
+								{{#contains name 'Renault'}}
+								<span class="subcategory-child">
+									<a class="subcategories-child-link" href="{{url}}">
+										<span class="subcategory-child-count">{{product_count}}</span>
+										<span class="subcategory-child-text">{{name}}</span>
+									</a>
+								</span>
+								{{/contains}}
+							{{/each}}
+						</span>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="subcategories-grid-item subcategories-grid-item-vauxhall">
+			<div class="subcategories-container">
+				<div class="subcategories-image" style="background-image: url('https://cdn11.bigcommerce.com/s-8hl787wvsy/images/stencil/original/image-manager/category-vans-vauxhall2.jpg?t=1789645324')">
+					<div class="subcategories-content">
+						<span class="subcategories-name">
+							<span class="subcategory-name-text">Vauxhall</span>
+						</span>
+						<span class="subcategories-children">
+							{{#each category.subcategories}}
+								{{#contains name 'Vauxhall'}}
+								<span class="subcategory-child">
+									<a class="subcategories-child-link" href="{{url}}">
+										<span class="subcategory-child-count">{{product_count}}</span>
+										<span class="subcategory-child-text">{{name}}</span>
+									</a>
+								</span>
+								{{/contains}}
+							{{/each}}
+						</span>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="subcategories-grid-item subcategories-grid-item-vw">
+			<div class="subcategories-container">
+				<div class="subcategories-image" style="background-image: url('https://cdn11.bigcommerce.com/s-8hl787wvsy/images/stencil/original/image-manager/category-vans-vw2.jpg?t=1789645326')">
+					<div class="subcategories-content">
+						<span class="subcategories-name">
+							<span class="subcategory-name-text">VW</span>
+						</span>
+						<span class="subcategories-children">
+							{{#each category.subcategories}}
+								{{#contains name 'VW'}}
+								<span class="subcategory-child">
+									<a class="subcategories-child-link" href="{{url}}">
+										<span class="subcategory-child-count">{{product_count}}</span>
+										<span class="subcategory-child-text">{{name}}</span>
+									</a>
+								</span>
+								{{/contains}}
+							{{/each}}
+						</span>
+					</div>
+				</div>
+			</div>
+		</li>
+		<li class="subcategories-grid-item subcategories-grid-item-all">
+			<div class="subcategories-container">
+				<div class="subcategories-image" style="background-image: url('https://cdn11.bigcommerce.com/s-8hl787wvsy/images/stencil/original/image-manager/category-vans-all2.jpg?t=1789646315')">
+					<div class="subcategories-content">
+						<span class="subcategories-name">
+							<span class="subcategory-name-text">ALL</span>
+						</span>
+						<span class="subcategories-children">
+							{{#each category.subcategories}}
+								{{#contains name 'View'}}
+								<span class="subcategory-child">
+									<a class="subcategories-child-link" href="{{url}}">
+										<span class="subcategory-child-count">{{product_count}}</span>
+										<span class="subcategory-child-text">{{name}}</span>
+									</a>
+								</span>
+								{{/contains}}
+							{{/each}}
+						</span>
+					</div>
+				</div>
+			</div>
+		</li>
+		</ul>
+    </div>
+
+
+{{#and (if category.products) (if (getVar "catbrand") '===' 'inactive')}}
+    {{#if category.faceted_search_enabled}}
+        <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}} toggle-content is-open" id="faceted-search-container">
+            {{> components/category/sidebar}}
+			{{{region name="category_aside"}}}
+			{{{region name="category_aside--global"}}}
+        </aside>
+    {{else if category.subcategories}}
+        <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}} toggle-content is-open" id="faceted-search-container">
+            {{> components/category/sidebar}}
+			{{{region name="category_aside"}}}
+			{{{region name="category_aside--global"}}}
+        </aside>
+    {{else if category.shop_by_price}}
+        {{#if theme_settings.shop_by_price_visibility}}
+             <aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}} toggle-content is-open" id="faceted-search-container">
+                {{> components/category/sidebar}}
+				{{{region name="category_aside"}}}
+				{{{region name="category_aside--global"}}}
+            </aside>
+        {{/if}}
+	{{else if theme_settings.custom_category_show_parents}}
+		{{#if breadcrumbs.[2]}}
+        	<aside class="page-sidebar page-sidebar-{{theme_settings.custom_category_sidebar_display}} toggle-content is-open" id="faceted-search-container">
+            	{{> components/category/sidebar}}
+				{{{region name="category_aside"}}}
+				{{{region name="category_aside--global"}}}
+        	</aside>
+    	{{/if}}
+    {{/if}}
+    <div class="page-content">
+		{{{region name="category_above_content"}}}
+	    <div class="page-content-listings" id="product-listing-container">
+	        {{> components/category/product-listing}}
+	    </div>
+        {{{region name="category_below_content"}}}
+    </div>
+{{else}}
+	<div class="page-content">
+		{{{region name="category_above_content"}}}
+		<div class="page-content-listings" id="product-listing-container">
+			{{#unless category.subcategories}}
+		    <p data-no-products-notification
+		       role="alert"
+		       aria-live="assertive"
+		       tabindex="-1"
+		    >
+		        {{lang 'categories.no_products'}}
+		    </p>
+			{{/unless}}
+		</div>
+		{{{region name="category_below_content"}}}
+	</div>
+{{/and}}
+
+{{#if theme_settings.custom_category_description_position '==' 'bottom'}}
+	<div class="category-description{{#if category.image}} category-description-image{{/if}}{{#if category.description}}{{#if theme_settings.custom_category_description_trim}} category-description-trim{{/if}}{{/if}} category-description-blocks">
+		{{{category.description}}}
+	</div>
+	{{#if category.description}}
+		{{#if theme_settings.custom_category_description_trim}}
+			<div class="category-description-button category-description-blocks" style="display: none;">
+				<a class="button button--secondary">
+					<span class="category-description-more">{{lang 'search.faceted.show-more'}}</span>
+					<span class="category-description-less">{{lang 'search.faceted.show-less'}}</span>
+				</a>
+			</div>
+		{{/if}}
+	{{/if}}
+{{/if}}
+{{{region name="category_below_all"}}}
+</div>
+
+{{/partial}}
+{{> layout/base}}
