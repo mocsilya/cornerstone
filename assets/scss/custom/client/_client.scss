@@ -522,9 +522,14 @@ header_bottom--global > div {
 	text-align: center;
 }
 
-#consent-manager{
-	z-index: 2147483648 !important; /* out compete 10% off banner z-index of 2147483647 */
+/* out compete 10% off banner z-index of 2147483647 */
+#consent-manager {
+	z-index: 9999999999 !important; 
 }
+iframe[id^="_jst-iframe"] {
+	z-index: 999 !important;
+}
+/* end */
 
 
 
