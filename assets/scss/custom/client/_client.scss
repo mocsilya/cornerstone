@@ -153,18 +153,20 @@ body.scroll .header-logo--left {
 	font-weight: 400;
 }
 
-.header-bar .slick-track > div:first-child,
-.header-bar-message-1 {
+.header-bar .slick-track > div {
 	@include breakpoint("medium") {
-		text-align: right;
-		border-right: 1px solid #fff;
+		text-align: center;
 	}
 }
-.header-bar .slick-track > div:last-child,
-.header-bar-message-2 {
+
+.header-bar .slick-track > div:first-child {
 	@include breakpoint("medium") {
 		text-align: left;
-		border-left: 1px solid #fff;
+	}
+}
+.header-bar .slick-track > div:last-child {
+	@include breakpoint("medium") {
+		text-align: right;
 	}
 }
 
@@ -202,33 +204,45 @@ header_bottom--global > div {
 // Category Page
 // =============================================================================
 
+
+.page-header {
+	display: flex;
+	flex-direction: column;
+}
+
 .category-header .page-heading {
-	font-size: 2rem;
+	font-size: 1.5rem;
+	order: 2;
 	@include breakpoint("medium") {
-		font-size: 3rem;
+		font-size: 2rem;
 	}
 	@include breakpoint("large") {
-		font-size: 4rem;
+		font-size: 2.5rem;
 	}
+}
+
+.category-header nav {
+	order: 1;
 }
 
 .category-header.page-header-image {
 	background: #000;
-	padding: 3rem 1.5rem;
 }
 
 .category-header.page-header-image .page-heading {
-	margin: 0;
-	padding-top: 0;
-	padding-bottom: 0;
 	color: #fff;
 	background: none;
+	padding-top: 0;
 }
 
 .category-header.page-header-image .page-heading + nav .breadcrumbs {
 	color: #fff;
 	background: none;
 	margin: 0;
+}
+
+.page-header-image .page-heading + nav .breadcrumbs {
+	padding: 0 1.5rem .75rem 1.5rem;
 }
 
 .category-header.page-header-image .breadcrumb a,
@@ -265,6 +279,7 @@ header_bottom--global > div {
 	font-size: 1rem;
 	position: relative;
 	z-index: 2;
+	order: 3;
 }
 
 .category-header.page-header-image .category-header-description {
@@ -273,6 +288,14 @@ header_bottom--global > div {
 	margin: 0 auto;
 }
 
+.page-sidebar + .page-content .productGrid-3 {
+	@include breakpoint("small") {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	@include breakpoint("large") {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
 
 
 // Cards
@@ -497,6 +520,10 @@ header_bottom--global > div {
 
 #consent-manager-update-banner {
 	text-align: center;
+}
+
+#consent-manager{
+	z-index: 2147483648 !important; /* out compete 10% off banner z-index of 2147483647 */
 }
 
 
