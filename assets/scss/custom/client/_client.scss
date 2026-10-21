@@ -352,6 +352,21 @@ body.scroll .navPages ul.navPages-list-simple {
 	}
 }
 
+.page-brand .productGrid {
+	@include breakpoint("small") {
+		grid-template-columns: repeat(auto-fit, minmax(0px, 50%));
+	}
+	@include breakpoint("medium") {
+		grid-template-columns: repeat(auto-fit, minmax(0px, 50%));
+	}
+	@include breakpoint("large") {
+		grid-template-columns: repeat(auto-fit, minmax(0px, 33.333333%));
+	}
+	@include breakpoint("xlarge") {
+		grid-template-columns: repeat(auto-fit, minmax(0px, 25%));
+	}
+}
+
 .productGrid .product,
 .productGrid .product:first-child,
 .productGrid .product:nth-child(2),
@@ -687,6 +702,13 @@ div [data-content-region="brand_above_content"] {
 	margin-bottom: 1.5rem;
 	border-radius: .25rem;
 }
+
+.brandGrid .card-body-with-image {
+	background: #fff;
+	padding-top: 0;
+	padding-bottom: 3rem;
+}
+
 
 // blog 
 
