@@ -1,7 +1,11 @@
 <script type="application/ld+json">
     {
         "@context": "https://schema.org/",
+        {{#filter product.custom_fields '_schema-type' property='name'}}
+        "@type": "{{value}}",
+        {{else}}
         "@type": "Product",
+        {{/filter}}
         "name": {{{JSONstringify product.title}}},
         {{#if product.sku}}"sku": "{{product.sku}}",{{/if}}
         {{#if product.mpn}}"mpn": "{{product.mpn}}",{{/if}}
@@ -22,6 +26,7 @@
             "ratingValue": "{{product.rating}}",
             "reviewCount": "{{product.num_reviews}}"
         },
+        {{> components/custom/client/client-product-schema}}
         "review": [
         {{#each product.reviews.list}}
             {
