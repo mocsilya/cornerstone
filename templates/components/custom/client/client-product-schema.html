@@ -1,0 +1,27 @@
+"isbn": "{{product.sku}}",
+{{#each product.custom_fields}}
+{{#if name '==' 'Author'}}
+        "author": {
+            "@type": "Person",
+            "name": "{{value}}"
+        },
+{{/if}}
+{{#if name '==' 'Paperback'}}
+        "bookFormat": "https://schema.org/Paperback",
+        "numberOfPages": "{{first (split value " ")}}",
+{{/if}}
+{{#if name '==' 'Hardcover'}}
+        "bookFormat": "https://schema.org/Hardcover",
+        "numberOfPages": "{{first (split value " ")}}",
+{{/if}}
+{{#if name '==' 'Publisher'}}
+        "publisher": {
+            "@type": "Organization",
+            "name": "{{value}}"
+        },
+{{/if}}
+{{#if name '==' 'UK Release'}}
+        "datePublished": "{{last (split value " ")}}-01-01",
+{{/if}}
+{{/each}}
+        "inLanguage": "English",
