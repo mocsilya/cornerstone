@@ -599,6 +599,21 @@ li.product:not(.spotlight) article.card:hover .card-body {
 	}
 }
 
+.productView-cover-desktop {
+	display: none;
+	@include breakpoint("medium") {
+		display: block;
+	}
+}
+
+.productView-cover-mobile {
+	display: block;
+	padding: 1.5rem;
+	@include breakpoint("medium") {
+		display: none;
+	}
+}
+
 .productView-cover .card-image {
 	position: static !important;
 	width: 100%;
@@ -648,12 +663,28 @@ li.product:not(.spotlight) article.card:hover .card-body {
 
 // brands 
 
+.brands-header nav,
+.brand-header nav {
+	display: none;
+}
+
 .page-sidebar .sidebar-image {
 	padding: 0;
 	border: 0;
 }
 
 .page-sidebar .brand-image-container, .page-sidebar .brand-image-container img {
+	border-radius: .25rem;
+}
+
+.page-brand .page-sidebar nav {
+	display: none;
+}
+
+div [data-content-region="brand_above_content"] {
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	padding: 1.5rem 1.5rem .5rem 1.5rem;
+	margin-bottom: 1.5rem;
 	border-radius: .25rem;
 }
 
