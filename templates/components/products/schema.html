@@ -2,7 +2,7 @@
     {
         "@context": "https://schema.org/",
         {{#filter product.custom_fields '_schema-type' property='name'}}
-        "@type": "{{value}}",
+        "@type": ["Product", "{{value}}"],
         {{else}}
         "@type": "Product",
         {{/filter}}
@@ -35,7 +35,7 @@
                     "@type": "Person",
                     "name": {{#if name}}{{{JSONstringify name}}}{{else}}{{{JSONstringify (lang 'products.reviews.anonymous_poster')}}}{{/if}}
                 },
-                "datePublished": "{{date}}",
+                "datePublished": "{{moment date "YYYY-MM-DD"}}",
                 "reviewBody": {{{JSONstringify text}}},
                 "name": {{{JSONstringify title}}},
                 "reviewRating": {
