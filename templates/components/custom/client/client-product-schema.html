@@ -10,7 +10,7 @@
         "bookFormat": "https://schema.org/Paperback",
         "numberOfPages": "{{first (split value " ")}}",
 {{/if}}
-{{#if name '==' 'Hardcover'}}
+{{#if name '==' 'Hardback'}}
         "bookFormat": "https://schema.org/Hardcover",
         "numberOfPages": "{{first (split value " ")}}",
 {{/if}}
@@ -21,7 +21,19 @@
         },
 {{/if}}
 {{#if name '==' 'UK Release'}}
-        "datePublished": "{{last (split value " ")}}-01-01",
+        "datePublished": "{{moment value "YYYY-MM-DD"}}",
+{{/if}}
+{{#if name '==' 'Illustrator'}}
+        "illustrator": {
+            "@type": "Person",
+            "name": "{{value}}"
+        },
+{{/if}}
+{{#if name '==' 'Contributor'}}
+        "contributor": {
+            "@type": "Person",
+            "name": "{{value}}"
+        },
 {{/if}}
 {{/each}}
         "inLanguage": "English",
