@@ -29,11 +29,27 @@
             "name": "{{value}}"
         },
 {{/if}}
-{{#if name '==' 'Contributor'}}
+{{#if name '==' 'Foreword'}}
         "contributor": {
-            "@type": "Person",
-            "name": "{{value}}"
+            "@type": "Role",
+            "roleName": "Foreword",
+		    "contributor": {
+		      "@type": "Person",
+		      "name": "{{value}}"
+		    }
         },
 {{/if}}
+
 {{/each}}
+{{#filter product.custom_fields 'Publisher' property='name'}}
+        "publisher": {
+            "@type": "Organization",
+            "name": "{{value}}"
+        },
+{{else}}
+        "publisher": {
+            "@type": "Organization",
+            "name": "Koreo Press"
+        },
+{{/filter}}
         "inLanguage": "English",
