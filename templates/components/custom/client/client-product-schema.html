@@ -10,6 +10,10 @@
         "bookFormat": "https://schema.org/Paperback",
         "numberOfPages": "{{first (split value " ")}}",
 {{/if}}
+{{#if name '==' 'Flexibound'}}
+        "bookFormat": "https://schema.org/Paperback",
+        "numberOfPages": "{{first (split value " ")}}",
+{{/if}}
 {{#if name '==' 'Hardback'}}
         "bookFormat": "https://schema.org/Hardcover",
         "numberOfPages": "{{first (split value " ")}}",
@@ -29,6 +33,16 @@
             "name": "{{value}}"
         },
 {{/if}}
+{{#if name '==' 'Introduction'}}
+        "contributor": {
+            "@type": "Role",
+            "roleName": "Introduction",
+		    "contributor": {
+		      "@type": "Person",
+		      "name": "{{value}}"
+		    }
+        },
+{{/if}}
 {{#if name '==' 'Foreword'}}
         "contributor": {
             "@type": "Role",
@@ -39,7 +53,46 @@
 		    }
         },
 {{/if}}
-
+{{#if name '==' 'Afterword'}}
+        "contributor": {
+            "@type": "Role",
+            "roleName": "Afterword",
+		    "contributor": {
+		      "@type": "Person",
+		      "name": "{{value}}"
+		    }
+        },
+{{/if}}
+{{#if name '==' 'Editor'}}
+        "contributor": {
+            "@type": "Role",
+            "roleName": "Editor",
+		    "contributor": {
+		      "@type": "Person",
+		      "name": "{{value}}"
+		    }
+        },
+{{/if}}
+{{#if name '==' 'Photographer'}}
+        "contributor": {
+            "@type": "Role",
+            "roleName": "'Photographer",
+		    "contributor": {
+		      "@type": "Person",
+		      "name": "{{value}}"
+		    }
+        },
+{{/if}}
+{{#if name '==' 'Artist'}}
+        "contributor": {
+            "@type": "Role",
+            "roleName": "'Artist",
+		    "contributor": {
+		      "@type": "Person",
+		      "name": "{{value}}"
+		    }
+        },
+{{/if}}
 {{/each}}
 {{#filter product.custom_fields 'Publisher' property='name'}}
         "publisher": {
