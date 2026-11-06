@@ -13,7 +13,7 @@
 	</div>
 </div>
 
-<script>
+<script nonce="{{nonce}}">
 
 (function(win) {
     'use strict';
@@ -88,46 +88,118 @@ const setProgressLineStep = (step) => {
 };
 
 ready('.checkout-step--customer .checkout-view-content', function(element) {
-    //console.log("customer step");
     setProgressLineStep(1);
 });
 
 ready('.checkout-step--shipping #checkout-shipping-continue', function(element) {
-    //console.log("shipping step");
 	setProgressLineStep(2);
-	const handleShippingStep = async () => {		
-		const isSameAsBilling = document.querySelector("#sameAsBilling").value === "true";
-		const shippingBtnContinue = document.querySelector("#checkout-shipping-continue");			
-		if (!isSameAsBilling) {
-			shippingBtnContinue.innerText = "{{lang 'optimized_checkout.billing.billing_heading'}}";
-	    } else {
-	    	shippingBtnContinue.innerText = "{{lang 'optimized_checkout.payment.payment_heading'}}";
-	    }
-		document.querySelector("#sameAsBilling").onchange = (e) => {
-		  let checked = e.target.checked;
-		  if (checked) {
-		    shippingBtnContinue.innerText = "{{lang 'optimized_checkout.payment.payment_heading'}}";
-		  } else {
-		    shippingBtnContinue.innerText = "{{lang 'optimized_checkout.billing.billing_heading'}}";
-		  }
-		}
-	};
-	handleShippingStep();
 });
 
 ready('.checkout-step--billing #checkout-billing-continue', function(element) {
-    //console.log("billing step");
 	setProgressLineStep(3);
-	const handleBillingStep = async () => {
-		const billingBtnContinue = document.querySelector("#checkout-billing-continue");
-		billingBtnContinue.innerText = "{{lang 'optimized_checkout.payment.payment_heading'}}";
-	};
-	handleBillingStep();
 });
 
 ready('.checkout-step--payment .checkout-view-content', function(element) {
-	//console.log("payment step");
 	setProgressLineStep(4);
 });
 
+// Add custom classes to shipping options
+function updateShippingClasses() {
+    const shippingInputs = document.querySelectorAll('span.shippingOption-desc');
+    shippingInputs.forEach(input => {
+        const parentLi = input.closest('.form-checklist-item');
+        const generatedId = 'shipping-' + input.textContent.trim().toLowerCase()
+            .replace(/[^a-z0-9\s-]/g, '') // Strip brackets/punctuation
+            .replace(/\s+/g, '-');         // Turn spaces into hyphens
+        if (parentLi && !parentLi.classList.contains(generatedId)) {
+            parentLi.classList.add(generatedId);
+        }
+    });
+}
+ready('.checkout-step--shipping .optimizedCheckout-form-checklist', function(checklist) {
+    updateShippingClasses();
+    checklist.addEventListener('click', function() {
+        setTimeout(updateShippingClasses, 10);
+    });
+});
+
+// Add custom classes to payment options
+function updatePaymentClasses() {
+	const paymentInputs = document.querySelectorAll('input[name="paymentProviderRadio"]');
+	paymentInputs.forEach(input => {
+        const parentLi = input.closest('.form-checklist-item');
+        if (parentLi && input.id && !parentLi.classList.contains(input.id)) {
+            parentLi.classList.add(input.id);
+        }
+    });
+}
+ready('.checkout-step--payment .optimizedCheckout-form-checklist', function(checklist) {
+    updatePaymentClasses();
+    checklist.addEventListener('click', function() {
+        setTimeout(updatePaymentClasses, 10);
+    });
+});
+
+// Stop auto scroll down to email input
+ready('#email', function(inputElement) {
+    inputElement.addEventListener('focus', function() {
+        // This tiny delay is the only way to beat the browser's jump
+        setTimeout(function() {
+            window.scrollTo(0, 0);
+        }, 0);
+    }, { once: true }); 
+});
+
+
+// Handle phone number messaging when required.
+var globalPhoneInput = null;
+var isPhoneRequired = false;
+
+function updateShippingMessage() {
+    var messageElement = document.querySelector('.shippingOptions-panel-message');
+    if (!messageElement) return;
+
+    var currentText = messageElement.innerText.trim();
+    var bcDefaultMessage = "{{lang 'optimized_checkout.shipping.enter_shipping_address_text'}}";
+    var ourCustomMessage = "Please enter an address and phone number to see shipping quotes.";
+
+    // SCENARIO 1: Phone is required, input is empty, and it's currently showing the default message
+    if (isPhoneRequired && globalPhoneInput && globalPhoneInput.value.trim() === "") {
+        if (currentText === bcDefaultMessage) {
+            messageElement.innerText = ourCustomMessage;
+        }
+    } 
+    // SCENARIO 2: Phone is either not required or has data; safely revert if showing our custom text
+    else if (currentText === ourCustomMessage) {
+        messageElement.innerText = bcDefaultMessage;
+    }
+}
+
+// 1. Watch for the Phone Input to appear
+ready('#phoneInput', function(inputElement) {
+    globalPhoneInput = inputElement; 
+
+    var label = document.getElementById('phoneInput-label');
+    if (label) {
+        // Run the check EXACTLY ONCE right here when the element mounts
+        var optionalBadge = label.querySelector('.optimizedCheckout-contentSecondary');
+        isPhoneRequired = !optionalBadge;
+        
+        // If it is required, update the label immediately
+        if (isPhoneRequired) {
+            label.innerHTML = 'Phone Number <small class="optimizedCheckout-contentSecondary">(Only used for delivery updates)</small>';
+        }
+    }
+
+    // Listen for typing to update messages smoothly
+    inputElement.addEventListener('input', updateShippingMessage);
+    
+    // Sync the message immediately in case the shipping panel is already open
+    updateShippingMessage();
+});
+
+// 2. Watch for the Shipping Message Panel to appear (Independent, Flat)
+ready('.shippingOptions-panel-message', function(messageElement) {
+    updateShippingMessage();
+});
 </script>

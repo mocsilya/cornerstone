@@ -2,15 +2,13 @@
 
 <ul class="account-list">
     {{#each order.items}}
-        {{#if shipping_rows.length}}
-            {{#each shipping_rows}}
-                {{#if is_shipping}}
-                    <li class="account-listShipping">
-                        <h5 class="account-listShipping-title">{{lang 'account.orders.details.ship_to_multi' street=address city=city state=state zip=zip country=country}}</h5>
-                    </li>
-                {{/if}}
-            {{/each}}
-        {{/if}}
+        {{#each shipping_rows}}
+            {{#if is_shipping}}
+                <li class="account-listShipping">
+                    <h5 class="account-listShipping-title">{{lang 'account.orders.details.ship_to_multi' street=address city=city state=state zip=zip country=country}}</h5>
+                </li>
+            {{/if}}
+        {{/each}}
     <li class="account-listItem">
         <div class="account-product account-product--alignMiddle">
             <div class="account-product-checkItem">
@@ -80,6 +78,15 @@
                             {{event_date.date}}
                         </dd>
                     </dl>
+                {{/if}}
+                {{#if quantity_backordered '>' 0}}
+                    {{#if (subtract quantity quantity_backordered) '>' 0}}
+                        <p class="account-product-backorder-prompts">{{lang 'products.quantity_on_hand' quantity=(subtract quantity quantity_backordered)}}</p>
+                    {{/if}}
+                    <p class="account-product-backorder-prompts">{{lang 'products.quantity_backordered' quantity=quantity_backordered}}</p>
+                    {{#if backorder_message}}
+                        <p class="account-product-backorder-prompts">{{backorder_message}}</p>
+                    {{/if}}
                 {{/if}}
                 {{#if refunded}}
                     <p class="account-product-refundQty">{{lang 'account.orders.refunded_quantity' qty=refunded_qty}}</p>

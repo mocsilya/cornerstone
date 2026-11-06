@@ -16,7 +16,6 @@ import { creditCardType, storeInstrument, Validators as CCValidators, Formatters
 import { showAlertModal } from './global/modal';
 import compareProducts from './global/compare-products';
 import cardSwatches from './custom/card-swatches';
-import cardCarousel from './custom/card-carousel';
 
 export default class Account extends PageManager {
     constructor(context) {
@@ -182,7 +181,6 @@ export default class Account extends PageManager {
         this.bindDeletePaymentMethod();
 		
         cardSwatches();
-		cardCarousel();
     }
 
     /**
@@ -237,8 +235,8 @@ export default class Account extends PageManager {
 
     initAddressFormValidation($addressForm) {
         const validationModel = validation($addressForm, this.context);
-        const stateSelector = 'form[data-address-form] [data-field-type="State"]';
-        const $stateElement = $(stateSelector);
+        const $stateElement = $('form[data-address-form] [data-field-type="State"]');
+        const $zipElement = $('form[data-address-form] [data-field-type="Zip"]');
         const addressValidator = nod({
             submit: 'form[data-address-form] input[type="submit"]',
             tap: announceInputErrorMessage,
@@ -246,31 +244,36 @@ export default class Account extends PageManager {
 
         addressValidator.add(validationModel);
 
+        if ($zipElement.length > 0) {
+            const isZipRequired = $zipElement.prop('required');
+            if (!isZipRequired) {
+                addressValidator.remove($zipElement);
+            }
+        }
+
         if ($stateElement) {
             let $last;
 
-            // Requests the states for a country with AJAX
-            stateCountry($stateElement, this.context, (err, field) => {
+            stateCountry($stateElement, this.context, (err, field, isStateRequired) => {
                 if (err) {
                     throw new Error(err);
                 }
 
-                const $field = $(field);
-
-                if (addressValidator.getStatus($stateElement) !== 'undefined') {
-                    addressValidator.remove($stateElement);
-                }
+                // remove existing validation first, it can be safely called on unregistered elements
+                addressValidator.remove($stateElement);
 
                 if ($last) {
                     addressValidator.remove($last);
                 }
 
-                if ($field.is('select')) {
+                if (isStateRequired) {
                     $last = field;
                     Validators.setStateCountryValidation(addressValidator, field, this.validationDictionary.field_not_blank);
                 } else {
                     Validators.cleanUpStateValidation(field);
                 }
+
+                Validators.handleZipValidation(addressValidator, $zipElement, this.validationDictionary.field_not_blank);
             });
         }
 
@@ -334,14 +337,12 @@ export default class Account extends PageManager {
 
         let $last;
         // Requests the states for a country with AJAX
-        stateCountry($stateElement, this.context, (err, field) => {
+        stateCountry($stateElement, this.context, (err, field, isStateRequired) => {
             if (err) {
                 throw new Error(err);
             }
 
-            const $field = $(field);
-
-            if (paymentMethodValidator.getStatus($stateElement) !== 'undefined') {
+            if ($stateElement.length) {
                 paymentMethodValidator.remove($stateElement);
             }
 
@@ -349,7 +350,7 @@ export default class Account extends PageManager {
                 paymentMethodValidator.remove($last);
             }
 
-            if ($field.is('select')) {
+            if (isStateRequired) {
                 $last = field;
                 Validators.setStateCountryValidation(paymentMethodValidator, field, this.validationDictionary.field_not_blank);
             } else {
@@ -416,7 +417,7 @@ export default class Account extends PageManager {
         const validationModel = validation($editAccountForm, this.context);
         const formEditSelector = 'form[data-edit-account-form]';
         const editValidator = nod({
-            submit: '${formEditSelector} input[type="submit"]',
+            submit: `${formEditSelector} input[type="submit"]`,
             delay: 900,
         });
         const emailSelector = `${formEditSelector} [data-field-type="EmailAddress"]`;
@@ -497,7 +498,7 @@ export default class Account extends PageManager {
             event.preventDefault();
             setTimeout(() => {
                 const earliestError = $('span.form-inlineMessage:first').prev('input');
-                earliestError.focus();
+                earliestError.trigger('focus');
             }, 900);
         });
     }
@@ -549,7 +550,7 @@ export default class Account extends PageManager {
 
             setTimeout(() => {
                 const earliestError = $('span.form-inlineMessage:first').prev('input');
-                earliestError.focus();
+                earliestError.trigger('focus');
             }, 900);
         });
     }

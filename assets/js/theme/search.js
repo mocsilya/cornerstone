@@ -10,7 +10,6 @@ import 'jstree';
 import nod from './common/nod';
 import cardSwatches from './custom/card-swatches';
 import cardWarranty from './custom/card-warranty';
-import cardCarousel from './custom/card-carousel';
 import cardData from './custom/card-data';
 
 const leftArrowKey = 37;
@@ -42,7 +41,7 @@ export default class Search extends CatalogPage {
     }
 	
 	dataProductCollection() {
-	    const cards = document.querySelectorAll('.product .card, .product .listItem');
+	    const cards = document.querySelectorAll('.card, .listItem');
 	    const dataIdArr= [];
 	    cards.forEach(card => {
 	        const id = card.dataset.test.replace('card-', '');
@@ -144,7 +143,7 @@ export default class Search extends CatalogPage {
         default: break;
         }
 
-        $($tabsCollection.get(nextTabIdx)).focus().trigger('click');
+        $($tabsCollection.get(nextTabIdx)).trigger('focus').trigger('click');
     }
 
     onReady() {
@@ -226,10 +225,9 @@ export default class Search extends CatalogPage {
             >${this.context.searchResultsCount}</p>`)
             .prependTo('body');
 
-        setTimeout(() => $searchResultsMessage.focus(), 100);
-        cardSwatches();
+        setTimeout(() => $searchResultsMessage.trigger('focus'), 100);
+        cardSwatches(this.context.apiToken, this.dataProductCollection());
         cardWarranty();
-		cardCarousel();
 		const dataOnReady = this.context.cardVariantData;
 		if (dataOnReady) {
 			cardData(this.context.apiToken, this.dataProductCollection());
@@ -326,6 +324,7 @@ export default class Search extends CatalogPage {
                 this.showProducts(false);
             }
 			
+			cardSwatches(this.context.apiToken, this.dataProductCollection());
 			const dataFacetedSearch = this.context.cardVariantData;
 			if (dataFacetedSearch) {
 				cardData(this.context.apiToken, this.dataProductCollection());

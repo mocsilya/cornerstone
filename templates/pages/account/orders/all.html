@@ -14,7 +14,7 @@ customer:
 {{#partial "page"}}
 {{> components/account/navigation account_page='orders'}}
 
-<div class="account account--fixed">
+<main class="account account--fixed">
     <div class="account-head">
         {{#if customer.store_credit.value '>' 0}}
             <div class="alertBox alertBox--storeCredit">
@@ -32,7 +32,7 @@ customer:
             {{/if}}
         </section>
     </div>
-</div>
+</main>
 
 {{/partial}}
 {{> layout/base}}

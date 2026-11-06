@@ -1,75 +1,59 @@
 /**
- * Open a tab with custom link
+ * Global Tab Click Router & Navigation Link Anchor Helper.
+ * Location: assets/js/theme/custom/tab-click.js
 */
-export default function () { 
-	$('.tab-click').click(function(e) {
-		e.preventDefault();
-		const clickHref = $(this).attr('href');
-		const dpr = window.devicePixelRatio;
-		const headerHeight = $('.header').outerHeight() * dpr;
-		$(clickHref).siblings().removeClass('is-active');
-		$(clickHref).addClass('is-active');
-		$('.tab').each(function (){
-		    $(this).find('a[href="'+clickHref+'"]').parent().addClass('is-active').siblings().removeClass('is-active');
-		});
-		$('html').animate({scrollTop: $(clickHref).offset().top - headerHeight},'slow');
-		if (clickHref == '#tab-custom1') {
-			if ($('.tab1-page').html()) {
-				const url1 = $('.tab1-page').html();
-				$('#tab-custom1').append('<span class="tab-loader"></span>');
-				$.ajax({ 
-					url: url1, 
-					processData : false,
-					cache: true,
-					success: function(data) {
-						const html1 = $.parseHTML( data );
-						const content1 = $(html1).find('.page-content').contents();
-						if ($(content1).length > 0) {
-						    $('#tab-custom1').html(content1);
-							$('.tab-custom1:not(.tab)').hide();
-						}
-					}
-				});
-			}
-		}
-		if (clickHref == '#tab-custom2') {
-			if ($('.tab2-page').html()) {
-				const url2 = $('.tab2-page').html();
-				$('#tab-custom2').append('<span class="tab-loader"></span>');
-				$.ajax({ 
-					url: url2, 
-					processData : false,
-					cache: true,
-					success: function(data) {
-						const html2 = $.parseHTML( data );
-						const content2 = $(html2).find('.page-content').contents();
-						if ($(content2).length > 0) {
-						    $('#tab-custom2').html(content2);
-							$('.tab-custom2:not(.tab)').hide();
-						}
-					}
-				});
-			}
-		}
-		if (clickHref == '#tab-custom3') {
-			if ($('.tab3-page').html()) {
-				const url3 = $('.tab3-page').html();
-				$('#tab-custom3').append('<span class="tab-loader"></span>');
-				$.ajax({ 
-					url: url3, 
-					processData : false,
-					cache: true,
-					success: function(data) {
-						const html3 = $.parseHTML( data );
-						const content3 = $(html3).find('.page-content').contents();
-						if ($(content3).length > 0) {
-						    $('#tab-custom3').html(content3);
-							$('.tab-custom3:not(.tab)').hide();
-						}
-					}
-				});
-			}
-		}
-		
-	});
+
+export default function initGlobalTabClickLinks() { 
+    $(document).on('click', '.tab-click', function(e) {
+        e.preventDefault();
+        
+        const clickHref = $(this).attr('href'); // e.g., '#tab-custom1' or '#tab-description'
+        if (!clickHref) return;
+
+        const targetEl = document.querySelector(clickHref);
+        if (!targetEl) return;
+
+        const $header = $('.header');
+        
+        // 1. STRICT STICKY HEADER HEIGHT CHECK
+        // Only include the header height if the .header-fixed class is explicitly active
+        let headerHeight = 0;
+        if ($header.length && $header.hasClass('header-fixed')) {
+            headerHeight = $header.outerHeight() || 0;
+        }
+
+        // 2. TABS BAR HEIGHT
+        const $tabsBar = $('.tabs');
+        const tabsHeight = $tabsBar.length ? $tabsBar.outerHeight() || 0 : 0;
+
+        // COMBINED CLEARANCE = Sticky Header (if active) + Tab Bar Height
+        const totalClearance = headerHeight + tabsHeight;
+
+        // 3. DYNAMIC PRODUCT TABS TRIGGER
+        if (clickHref.startsWith('#tab-custom')) {
+            const $targetTabTitle = $(`.tab-title[href="${clickHref}"]`);
+            
+            if ($targetTabTitle.length) {
+                $targetTabTitle.trigger('click');
+            }
+        } 
+        // 4. STATIC CONTENT TABS TRIGGER
+        else {
+            $(clickHref).addClass('is-active').siblings().removeClass('is-active');
+            
+            $('.tab').each(function () {
+                $(this).find('a[href="' + clickHref + '"]').parent().addClass('is-active').siblings().removeClass('is-active');
+            });
+        }
+
+        // 5. GLOBAL SMOOTH SCROLL
+        setTimeout(function() {
+            const elementViewportTop = targetEl.getBoundingClientRect().top;
+            const scrollDestination = window.scrollY + elementViewportTop - totalClearance;
+
+            $('html, body').animate({
+                scrollTop: scrollDestination
+            }, 'slow');
+        }, 200); 
+    });
 }
