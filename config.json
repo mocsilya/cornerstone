@@ -225,7 +225,7 @@
 	"custom_product_tab3_show": false,
 	"custom_product_tab3_title": "Tab 3",
 	"custom_product_tab3_content": "",
-	"custom_product_wishlist_show": true,
+	"custom_product_wishlist_show": false,
 	"custom_product_addtocart_show": true,
 	"custom_product_addtocart_text": "Add Book",
 	"custom_product_addtocart_pinterest": true,

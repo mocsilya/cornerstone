@@ -334,11 +334,9 @@ body.scroll .navPages ul.navPages-list-simple {
 	border: 1px solid #333326;
 }
 
-.productGrid-5 {
-	justify-content: center;
-	max-width: 100%;
+.productGrid {
 	border-left: 0;
-	@include breakpoint("small") {
+	@include breakpoint("xsmall") {
 		grid-template-columns: repeat(auto-fit, minmax(0px, 50%));
 	}
 	@include breakpoint("medium") {
@@ -353,7 +351,7 @@ body.scroll .navPages ul.navPages-list-simple {
 }
 
 .page-brand .productGrid {
-	@include breakpoint("small") {
+	@include breakpoint("xsmall") {
 		grid-template-columns: repeat(auto-fit, minmax(0px, 50%));
 	}
 	@include breakpoint("medium") {
