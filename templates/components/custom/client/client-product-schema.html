@@ -1,99 +1,129 @@
-"isbn": "{{product.sku}}",
+{{assignVar "contributor" "no"}}
+{{assignVar "introduction" "no"}}
+{{assignVar "foreword" "no"}}
+{{assignVar "afterword" "no"}}
+{{assignVar "editor" "no"}}
+{{assignVar "photographer" "no"}}
+{{assignVar "artist" "no"}}
 {{#each product.custom_fields}}
-{{#if name '==' 'Author'}}
+		{{#if name '==' 'Introduction'}}
+			{{assignVar "contributor" "yes"}}
+			{{assignVar "introduction" "yes"}}
+		{{/if}}
+		{{#if name '==' 'Foreword'}}
+			{{assignVar "contributor" "yes"}}
+			{{assignVar "foreword" "yes"}}
+		{{/if}}
+		{{#if name '==' 'Afterword'}}
+			{{assignVar "contributor" "yes"}}
+			{{assignVar "afterword" "yes"}}
+		{{/if}}
+		{{#if name '==' 'Editor'}}
+			{{assignVar "contributor" "yes"}}
+			{{assignVar "editor" "yes"}}
+		{{/if}}
+		{{#if name '==' 'Photographer'}}
+			{{assignVar "contributor" "yes"}}
+			{{assignVar "photographer" "yes"}}
+		{{/if}}
+		{{#if name '==' 'Artist'}}
+			{{assignVar "contributor" "yes"}}
+			{{assignVar "artist" "yes"}}
+		{{/if}}
+{{/each}}
+
+"isbn": "{{product.sku}}",
+{{#filter product.custom_fields 'Author' property='name'}}
         "author": {
             "@type": "Person",
             "name": "{{value}}"
         },
-{{/if}}
-{{#if name '==' 'Paperback'}}
+{{/filter}}
+{{#filter product.custom_fields 'Paperback' property='name'}}
         "bookFormat": "https://schema.org/Paperback",
         "numberOfPages": "{{first (split value " ")}}",
-{{/if}}
-{{#if name '==' 'Flexibound'}}
+{{/filter}}
+{{#filter product.custom_fields 'Flexibound' property='name'}}
         "bookFormat": "https://schema.org/Paperback",
         "numberOfPages": "{{first (split value " ")}}",
-{{/if}}
-{{#if name '==' 'Hardback'}}
+{{/filter}}
+{{#filter product.custom_fields 'Hardback' property='name'}}
         "bookFormat": "https://schema.org/Hardcover",
         "numberOfPages": "{{first (split value " ")}}",
-{{/if}}
-{{#if name '==' 'Publisher'}}
-        "publisher": {
-            "@type": "Organization",
-            "name": "{{value}}"
-        },
-{{/if}}
-{{#if name '==' 'UK Release'}}
+{{/filter}}
+{{#filter product.custom_fields 'UK Release' property='name'}}
         "datePublished": "{{moment value "YYYY-MM-DD"}}",
-{{/if}}
-{{#if name '==' 'Illustrator'}}
+{{/filter}}
+{{#filter product.custom_fields 'Illustrator' property='name'}}
         "illustrator": {
             "@type": "Person",
             "name": "{{value}}"
         },
+{{/filter}}
+{{#if (getVar "contributor") '===' 'yes'}}
+        "contributor": [
+{{#filter product.custom_fields 'Introduction' property='name'}}
+            {
+                "@type": "Role",
+                "roleName": "Introduction",
+		        "contributor": {
+		          "@type": "Person",
+		          "name": "{{value}}"
+		        }
+            }{{#or (if (getVar "foreword") '===' 'yes') (if (getVar "afterword") '===' 'yes') (if (getVar "editor") '===' 'yes') (if (getVar "photographer") '===' 'yes') (if (getVar "artist") '===' 'yes')}},{{/or}}
+{{/filter}}
+{{#filter product.custom_fields 'Foreword' property='name'}}
+            {
+                "@type": "Role",
+                "roleName": "Foreword",
+		        "contributor": {
+		          "@type": "Person",
+		          "name": "{{value}}"
+		        }
+            }{{#or (if (getVar "afterword") '===' 'yes') (if (getVar "editor") '===' 'yes') (if (getVar "photographer") '===' 'yes') (if (getVar "artist") '===' 'yes')}},{{/or}}
+{{/filter}}
+{{#filter product.custom_fields 'Afterword' property='name'}}
+            {
+                "@type": "Role",
+                "roleName": "Afterword",
+		        "contributor": {
+		          "@type": "Person",
+		          "name": "{{value}}"
+		        }
+            }{{#or (if (getVar "editor") '===' 'yes') (if (getVar "photographer") '===' 'yes') (if (getVar "artist") '===' 'yes')}},{{/or}}
+{{/filter}}
+{{#filter product.custom_fields 'Editor' property='name'}}
+            {
+                "@type": "Role",
+                "roleName": "Editor",
+		        "contributor": {
+		          "@type": "Person",
+		          "name": "{{value}}"
+		        }
+            }{{#or (if (getVar "photographer") '===' 'yes') (if (getVar "artist") '===' 'yes')}},{{/or}}
+{{/filter}}
+{{#filter product.custom_fields 'Photographer' property='name'}}
+            {
+                "@type": "Role",
+                "roleName": "Photographer",
+		        "contributor": {
+		          "@type": "Person",
+		          "name": "{{value}}"
+		        }
+            }{{#or (if (getVar "artist") '===' 'yes')}},{{/or}}
+{{/filter}}
+{{#filter product.custom_fields 'Artist' property='name'}}
+            {
+                "@type": "Role",
+                "roleName": "Artist",
+		        "contributor": {
+		          "@type": "Person",
+		          "name": "{{value}}"
+		        }
+            }
+{{/filter}}
+        ],
 {{/if}}
-{{#if name '==' 'Introduction'}}
-        "contributor": {
-            "@type": "Role",
-            "roleName": "Introduction",
-		    "contributor": {
-		      "@type": "Person",
-		      "name": "{{value}}"
-		    }
-        },
-{{/if}}
-{{#if name '==' 'Foreword'}}
-        "contributor": {
-            "@type": "Role",
-            "roleName": "Foreword",
-		    "contributor": {
-		      "@type": "Person",
-		      "name": "{{value}}"
-		    }
-        },
-{{/if}}
-{{#if name '==' 'Afterword'}}
-        "contributor": {
-            "@type": "Role",
-            "roleName": "Afterword",
-		    "contributor": {
-		      "@type": "Person",
-		      "name": "{{value}}"
-		    }
-        },
-{{/if}}
-{{#if name '==' 'Editor'}}
-        "contributor": {
-            "@type": "Role",
-            "roleName": "Editor",
-		    "contributor": {
-		      "@type": "Person",
-		      "name": "{{value}}"
-		    }
-        },
-{{/if}}
-{{#if name '==' 'Photographer'}}
-        "contributor": {
-            "@type": "Role",
-            "roleName": "'Photographer",
-		    "contributor": {
-		      "@type": "Person",
-		      "name": "{{value}}"
-		    }
-        },
-{{/if}}
-{{#if name '==' 'Artist'}}
-        "contributor": {
-            "@type": "Role",
-            "roleName": "'Artist",
-		    "contributor": {
-		      "@type": "Person",
-		      "name": "{{value}}"
-		    }
-        },
-{{/if}}
-{{/each}}
 {{#filter product.custom_fields 'Publisher' property='name'}}
         "publisher": {
             "@type": "Organization",
