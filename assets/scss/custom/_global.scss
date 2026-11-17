@@ -6311,6 +6311,10 @@ div[data-content-region="product_view_bottom--global"] {
 	box-sizing: content-box;
 }
 
+.productView-options div[data-product-attribute=swatch] .form-radio:checked + .form-option-swatch {
+	border: 1px solid #000;
+}
+
 .productView-options div[data-product-attribute="swatch"] .form-option-swatch span.form-option-variant--wrap {
 	border-radius: 99px;
 	overflow: hidden;
