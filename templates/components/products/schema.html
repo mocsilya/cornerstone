@@ -20,13 +20,13 @@
         {{/if}}
         "description": {{{json (ellipsis (sanitize product.description) 4000) }}},
         "image": "{{getImage product.main_image 'zoom_size' (cdn theme_settings.default_image_product)}}",
+		{{> components/custom/client/client-product-schema}}
         {{#and settings.show_product_reviews product.reviews.list.length}}
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "{{product.rating}}",
             "reviewCount": "{{product.num_reviews}}"
         },
-        {{> components/custom/client/client-product-schema}}
         "review": [
         {{#each product.reviews.list}}
             {
