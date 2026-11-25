@@ -61,6 +61,51 @@
 	}
 }
 
+.navPages-list-depth-max .has-subMenu.is-root + .navPage-subMenu-horizontal.is-open {
+	@include breakpoint("medium") {
+		left: 0;
+		width: 100%;
+		background: linear-gradient(
+		    to bottom,
+		    rgba(255, 255, 255, 1) 0px,
+		    rgba(255, 255, 255, 1) 10px,
+		    rgba(255, 255, 255, 0) 100%
+		  );
+		padding: 0 !important;
+		border: 0;
+	}
+}
+
+.navPages-list-depth-max .has-subMenu.is-root + .navPage-subMenu-horizontal.is-open > .navPage-subMenu-list {	
+	@include breakpoint("medium") {
+		margin: 0;
+		background: stencilColor("navPages-subMenu-backgroundColor");
+		width: stencilString("custom_header_menu_width");
+		max-width: stencilString("custom_header_menu_width");
+		padding: 1rem 0 !important;
+		border-right: 0;
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+	}
+	@include breakpoint("large") {
+		padding: 1rem .75rem !important;
+		width: calc(#{$custom_header_menu_width} + 1.5rem);
+		max-width: calc(#{$custom_header_menu_width} + 1.5rem);
+		
+	}
+	@include breakpoint("xlarge") {
+		padding: 1.5rem 1.55rem !important;
+		width: calc(#{$custom_header_menu_width} + 3rem);
+		max-width: calc(#{$custom_header_menu_width} + 3rem);
+	}
+}
+
+.navPages-list-depth-max .has-subMenu.is-root + .navPage-subMenu-horizontal.is-open > .navPage-subMenu-list .navPage-subMenu { 
+	@include breakpoint("medium") {
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+		
+	}
+}
+
 
 
 // Hero Carousel
@@ -125,6 +170,14 @@
 	}
 }
 
+// Grid
+// =============================================================================
+
+@media (max-width: 550px) {
+    .productGrid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
 
 
 // Category
