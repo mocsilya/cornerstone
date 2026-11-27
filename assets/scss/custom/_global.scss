@@ -4155,6 +4155,10 @@ body.hasAdminBar.has-bar .brand-anchor {
 	font-weight: 700;
 }
 
+.card-body-with-image {
+	display: none;
+}
+
 
 // Brand Page
 // =============================================================================
@@ -6297,14 +6301,24 @@ div[data-content-region="product_view_bottom--global"] {
 	font-size: 1rem;
 }
 
+.productView-options .form-radio:checked + .form-option {
+	border: 1px solid stencilColor("input-border-color-active");
+	box-shadow: 0 0 0 1px stencilColor("input-border-color-active");
+}
+
 .productView-options div[data-product-attribute="swatch"] .form-option-swatch {
 	background-color: #fff;
 	border: 1px solid #fff;
-	box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.15);
+	box-shadow: 0 0 2px 2px rgba(0,0,0,0.15);
 	border-radius: 99px;
 	width: get-width(stencilString('swatch_option_size'));
 	height: get-height(stencilString('swatch_option_size'));
 	box-sizing: content-box;
+}
+
+.productView-options div[data-product-attribute=swatch] .form-radio:checked + .form-option-swatch {
+	border: 1px solid #fff;
+	box-shadow: 0 0 0 2px stencilColor("input-border-color-active");
 }
 
 .productView-options div[data-product-attribute="swatch"] .form-option-swatch span.form-option-variant--wrap {
@@ -7211,11 +7225,12 @@ div[data-content-region="product_view_bottom--global"] {
 .productView-upsell-modal .productView-details .productView-info-name,
 .productView-upsell-modal .productView-details .productView-info-value {
 	width: auto;
-	flex: 0 1 0;
+	flex: 1 1 0;
 	white-space: nowrap;
 	font-family: stencilFontFamily("body-font");
 	margin: 0 !important;
 	border: 0 !important;
+	min-width: unset;
 }
 
 .productView-upsell-modal .productView-details .productView-info-name {

@@ -1,7 +1,11 @@
 <script type="application/ld+json">
     {
         "@context": "https://schema.org/",
+        {{#filter product.custom_fields '_schema-type' property='name'}}
+        "@type": ["Product", "{{value}}"],
+        {{else}}
         "@type": "Product",
+        {{/filter}}
         "name": {{{JSONstringify product.title}}},
         {{#if product.sku}}"sku": "{{product.sku}}",{{/if}}
         {{#if product.mpn}}"mpn": "{{product.mpn}}",{{/if}}
@@ -16,6 +20,7 @@
         {{/if}}
         "description": {{{json (ellipsis (sanitize product.description) 4000) }}},
         "image": "{{getImage product.main_image 'zoom_size' (cdn theme_settings.default_image_product)}}",
+		{{> components/custom/client/client-product-schema}}
         {{#and settings.show_product_reviews product.reviews.list.length}}
         "aggregateRating": {
             "@type": "AggregateRating",
@@ -30,7 +35,7 @@
                     "@type": "Person",
                     "name": {{#if name}}{{{JSONstringify name}}}{{else}}{{{JSONstringify (lang 'products.reviews.anonymous_poster')}}}{{/if}}
                 },
-                "datePublished": "{{date}}",
+                "datePublished": "{{moment date "YYYY-MM-DD"}}",
                 "reviewBody": {{{JSONstringify text}}},
                 "name": {{{JSONstringify title}}},
                 "reviewRating": {
